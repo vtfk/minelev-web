@@ -1,0 +1,3 @@
+{
+  "extends": ["github>vtfk/renovate-config"]
+}
