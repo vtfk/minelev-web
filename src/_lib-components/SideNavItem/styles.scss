@@ -1,0 +1,37 @@
+@import "../Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.sidenav-item {
+  display: block;
+
+  a {
+    display: block;
+    padding: ($baseUnit * 2.5) ($baseUnit * 4);
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    color: inherit;
+    text-align: center;
+    
+    .sidenav-item-icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: #1D1C28;
+      margin-bottom: $baseUnit * 1.5;
+    }
+
+    .sidenav-item-text {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      user-select: none;
+    }
+  }  
+
+  &.active {
+    a {
+      background: $swansDown;
+    }
+  }
+}

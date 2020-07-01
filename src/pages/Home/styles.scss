@@ -1,0 +1,75 @@
+@import "../../_lib-components/Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.document-modal {
+  .person-information {
+    display: flex;
+    flex-wrap: nowrap;
+
+    .image {
+  
+    }
+
+    .text-wrapper {
+      flex: 1;
+      margin-left: $baseUnit * 4;
+
+      .name {
+        font-weight: 700;
+      }
+
+      .other {
+        margin-top: $baseUnit / 2;
+      }
+    }
+  }
+}
+
+.home {
+  max-width: 922px;
+  
+  .page-title {
+    margin-bottom: $baseUnit * 7;
+  }
+
+  .activity-panel {
+    background: $springWood;
+    padding: $baseUnit * 6;
+
+    .activity-panel-title {
+      margin: 0 0 ($baseUnit * 4) 0;
+    }
+
+    .activity-panel-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: $baseUnit * 5;
+
+      tr {
+        td {
+          padding-right: $baseUnit * 2;
+          padding-bottom: $baseUnit * 2;
+
+          .activity-name {
+            display: flex;
+            flex-wrap: nowrap;
+
+            .initials-badge {
+              margin-right: $baseUnit * 2;
+            }
+          }
+
+          &:last-child {
+            text-align: center;
+          }
+        }
+
+        &:last-child {
+          td {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import "../Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.text-field {
+  // reset
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  text-decoration: none;
+  border-radius: 0;
+  font-weight: normal;
+  box-shadow: none;
+  outline: 0;
+
+  &:active,
+  &:visited,
+  &:focus {
+      color: inherit;
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 4px $lightBlue;
+  }
+
+  &.search {
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    border-radius: 24px;
+    padding: 0 ($baseUnit * 3);
+    background: #fff;
+    border: 1px solid #979797;
+  }
+
+}

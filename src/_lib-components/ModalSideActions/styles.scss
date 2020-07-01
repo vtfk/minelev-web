@@ -1,0 +1,21 @@
+@import "../Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.modal-side-actions {
+  padding: ($baseUnit * 8) 0 ($baseUnit * 8) ($baseUnit * 4);
+  border-left: 1px solid #979797;
+  display: flex;
+  align-items: flex-end;
+
+  .action {
+    display: block;
+    width: 100%;
+    margin-top: $baseUnit * 3;
+    text-align: center;
+
+    .link {
+      color: $deepSeaGreen;
+      font-weight: 700;
+    }
+  }
+}

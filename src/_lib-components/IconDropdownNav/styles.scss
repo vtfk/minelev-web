@@ -1,0 +1,28 @@
+@import "../Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.icon-dropdown-nav {
+  position: relative;
+
+  .icon-dropdown-nav-trigger {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 ($baseUnit);
+  }
+
+  .icon-dropdown-nav-dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #C6C6C6;
+    z-index: 100;
+    box-shadow: 0 20px 12px 0 rgba(0, 0, 0, 0.025);
+
+    ul {
+      @include reset-list();
+    }
+  }
+}
