@@ -1,0 +1,53 @@
+@import "../Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  .modal-positioner {
+    z-index: 1001;
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(#F8F6F0, 0.87);
+    z-index: 1000;
+  }
+
+  .modal-title {
+    font-size: 28px;
+    line-height: 1em;
+    margin-top: -($baseUnit * 3);
+    margin-bottom: $baseUnit * 3;
+    padding: 0 ($baseUnit * 2.5);
+    display: flex;
+    align-items: center;
+
+    .modal-close-button {
+      margin-right: $baseUnit * 2;
+    }
+  }
+
+  .modal-content {
+    display: flex;
+    width: 1000px;
+    z-index: 102;
+    padding: ($baseUnit * 9) ($baseUnit * 6);
+    background: #fff;
+    box-shadow: 0 20px 13px 0 rgba(0, 0, 0, 0.04);
+    height: 80vh;
+  }
+}

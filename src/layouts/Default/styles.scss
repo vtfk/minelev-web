@@ -1,0 +1,47 @@
+@import "../../_lib-components/Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.default-layout {
+  padding-left: 175px; // sidenav width
+
+  .container {
+    max-width: 1032px;
+    margin: ($baseUnit * 4) auto;
+
+    // for dev
+    @media (max-width: 1300px) {
+      max-width: 800px;
+    }
+  }
+
+  .action-bar {
+    margin-bottom: $baseUnit * 9;
+    display: flex;
+    justify-content: space-between;
+
+    .search {
+      .search-input {
+        width: 475px;
+      }
+    }
+
+    .user {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      // transform: translateX($baseUnit * 23);
+
+      .user-name {
+        margin-right: $baseUnit * 1.5;
+      }
+
+      .user-image {
+        margin-right: $baseUnit * 2;
+      }
+
+      .user-menu {
+
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@mixin reset-list() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin reset-button() {
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    text-decoration: none;
+    border-radius: 0;
+    font-weight: normal;
+    cursor: pointer;
+
+    &:active,
+    &:visited,
+    &:focus {
+        color: inherit;
+    }
+}
