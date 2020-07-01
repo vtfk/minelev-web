@@ -11,7 +11,10 @@ import { ProtectedRoute } from "./config/ProtectedRoute";
 import { Login } from "./pages/Login"
 import { Home } from "./pages/Home"
 import { ActivityLog } from "./pages/ActivityLog"
-import { ClassReports } from "./pages/ClassReports"
+import { Classes } from "./pages/Classes"
+import { Class } from "./pages/Class"
+import { Students } from "./pages/Students"
+import { Student } from "./pages/Student"
 import { Statistics } from "./pages/Statistics"
 import { Help } from "./pages/Help"
 import { PageNotFound } from "./pages/PageNotFound"
@@ -27,7 +30,10 @@ export default function App() {
           <Route exact={ true } path={ `/${ ROUTES.login }` } component={ Login } />
 
           <ProtectedRoute exact={ true } path={ `/${ ROUTES.activityLog }` } component={ ActivityLog } />          
-          <ProtectedRoute exact={ true } path={ `/${ ROUTES.classReports }` } component={ ClassReports } />          
+          <ProtectedRoute exact={ true } path={ `/${ ROUTES.classes }` } component={ Classes } />          
+          <ProtectedRoute exact={ true } path={ `/${ ROUTES.classes }/:id` } component={ Class } />          
+          <ProtectedRoute exact={ true } path={ `/${ ROUTES.students }` } component={ Students } />          
+          <ProtectedRoute exact={ true } path={ `/${ ROUTES.students }/:id` } component={ Student } />          
           <ProtectedRoute exact={ true } path={ `/${ ROUTES.statistics }` } component={ Statistics } />          
           <ProtectedRoute exact={ true } path={ `/${ ROUTES.help }` } component={ Help } />
           <ProtectedRoute exact={ true } path="/" component={ Home } />

@@ -5,6 +5,7 @@ import {
 } from "react-router-dom"
 
 import { ROUTES } from "../../config/constants"
+import * as DEMO_DATA from "../../config/demo-data"
 
 import { SideNav } from "../../_lib-components/SideNav"
 import { SideNavItem } from"../../_lib-components/SideNavItem"
@@ -19,17 +20,15 @@ import "./styles.scss"
 export function DefaultLayout({ children }) {   
   let location = useLocation();
 
-  let currentUser = {
-    firstName: 'Charlotte',
-    lastName: 'Testine',
-  }
+  let currentUser = DEMO_DATA.CURRENT_USER
 
   return (
     <div className="default-layout">
       <SideNav title="MinElev">
         <SideNavItem active={ location.pathname === '/' ? true : false } href="/" title="Forside" />
         <SideNavItem active={ location.pathname === `/${ ROUTES.activityLog }` ? true : false } href={ `/${ ROUTES.activityLog }` } title="Aktivitetslogg" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.classReports }` ? true : false } href={ `/${ ROUTES.classReports }` } title="Klasserapporter" />
+        <SideNavItem active={ location.pathname === `/${ ROUTES.classes }` ? true : false } href={ `/${ ROUTES.classes }` } title="Klasser" />
+        <SideNavItem active={ location.pathname === `/${ ROUTES.students }` ? true : false } href={ `/${ ROUTES.students }` } title="Elever" />
         <SideNavItem active={ location.pathname === `/${ ROUTES.statistics }` ? true : false } href={ `/${ ROUTES.statistics }` } title="Statistikk" />
         <SideNavItem active={ location.pathname === `/${ ROUTES.help }` ? true : false } href={ `/${ ROUTES.help }` } title="Hjelp" />
       </SideNav>

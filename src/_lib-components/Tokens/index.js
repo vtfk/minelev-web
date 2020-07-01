@@ -15,6 +15,8 @@ export function Colors() {
     potPourri: "#F7E5E2",
     peppermint: "#DAE8D0",
     deepSeaGreen: "#005260",
+    catSkillWhite: "#EBF6F9",
+    ecruWhite: "#F6F5E4",
   }
 }
 

@@ -4,11 +4,11 @@ import { DefaultLayout } from "../../layouts/Default"
 
 import "./styles.scss"
 
-export function ClassReports() {
+export function Student() {
   return (
     <DefaultLayout>
-      <div className="class-reports">
-        Klasserapporter
+      <div className="student">
+        Elev
       </div>
     </DefaultLayout>
   )

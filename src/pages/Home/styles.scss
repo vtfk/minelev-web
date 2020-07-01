@@ -1,30 +1,6 @@
 @import "../../_lib-components/Tokens/tokens.scss";
 @import "../../assets/scss/helpers";
 
-.document-modal {
-  .person-information {
-    display: flex;
-    flex-wrap: nowrap;
-
-    .image {
-  
-    }
-
-    .text-wrapper {
-      flex: 1;
-      margin-left: $baseUnit * 4;
-
-      .name {
-        font-weight: 700;
-      }
-
-      .other {
-        margin-top: $baseUnit / 2;
-      }
-    }
-  }
-}
-
 .home {
   max-width: 922px;
   
@@ -32,13 +8,14 @@
     margin-bottom: $baseUnit * 7;
   }
 
+  .panel-title {
+    margin: 0 0 ($baseUnit * 4) 0;
+  }
+
   .activity-panel {
     background: $springWood;
-    padding: $baseUnit * 6;
-
-    .activity-panel-title {
-      margin: 0 0 ($baseUnit * 4) 0;
-    }
+    padding: $baseUnit * 5;
+    margin-bottom: $baseUnit * 4;
 
     .activity-panel-table {
       width: 100%;
@@ -71,5 +48,23 @@
         }
       }
     }
+  }
+
+  .statistics-class-reports-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .statistics-panel {
+    background: $catSkillWhite;
+    padding: $baseUnit * 5;
+    width: 540px;
+    margin-right: $baseUnit * 4;
+  }
+
+  .class-reports-panel {
+    background: $ecruWhite;
+    padding: $baseUnit * 5;
+    flex: 1;
   }
 }

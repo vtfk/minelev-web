@@ -1,7 +1,8 @@
 export const ROUTES = {
   login: 'logg-inn',
   activityLog: 'aktivitetslogg',
-  classReports: 'klasserapporter',
+  classes: 'klasser',
+  students: 'elever',
   statistics: 'statistikk',
   help: 'hjelp',
 }

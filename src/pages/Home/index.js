@@ -2,6 +2,8 @@ import React, { useState } from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
+import * as DEMO_DATA from "../../config/demo-data"
+
 import { Heading2, Heading3, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
@@ -15,37 +17,8 @@ export function Home() {
   const [documentModalState, setDocumentModalState] = useState(false)
   const [selectedPerson, setSelectedPerson] = useState(null)
 
-  let currentUser = {
-    firstName: 'Charlotte',
-    lastName: 'Testine',
-  }
-
-  let activities = [
-    {
-      id: 1,
-      firstName: 'Brage',
-      lastName: 'Dahle',
-      type: 'Varselbrev atferd',
-      date: '12. juni 2020', // TODO: date
-      status: 'Sendt',
-    },
-    {
-      id: 2,
-      firstName: 'Erik',
-      lastName: 'Wang',
-      type: 'Varselbrev fag',
-      date: '12. juni 2020', // TODO: date
-      status: 'I kø',
-    },
-    {
-      id: 3,
-      firstName: 'Per Andre',
-      lastName: 'Lano-Olsen',
-      type: 'Varselbrev atferd',
-      date: '12. juni 2020', // TODO: date
-      status: 'Arkivert',
-    }
-  ]
+  let currentUser = DEMO_DATA.CURRENT_USER
+  let activities = DEMO_DATA.ACTIVITIES.slice(0, 3)
 
   function openDocumentModal(activity) {
     setSelectedPerson(activity)
@@ -71,8 +44,8 @@ export function Home() {
         </Heading2>
 
         <div className="activity-panel">
-          <Heading3 className="activity-panel-title">
-            [ikon] Aktivitet
+          <Heading3 className="panel-title">
+            [x] Aktivitet
           </Heading3>
 
           <table className="activity-panel-table">
@@ -114,6 +87,20 @@ export function Home() {
 
           <div className="activity-panel-link">
             <Link href="/aktivitetslogg" noStyle={ true } hasRightArrow={ true }>Aktivitetsloggen</Link>
+          </div>
+        </div>
+
+        <div className="statistics-class-reports-wrapper">
+          <div className="statistics-panel">
+            <Heading3 className="panel-title">
+              [x] Statistikk
+            </Heading3>
+          </div>
+
+          <div className="class-reports-panel">
+            <Heading3 className="panel-title">
+              [x] Siste 5 klasserapporter
+            </Heading3>
           </div>
         </div>
       </div>

@@ -1,3 +1,6 @@
+@import "../../_lib-components/Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +13,63 @@ body {
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;
   color: #1D1C28;
+}
+
+.data-actions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $baseUnit * 5;
+
+  thead {
+    tr {
+      th {
+        text-align: left;
+        padding-left: $baseUnit * 2;
+        padding-bottom: $baseUnit * 3;
+        white-space: nowrap;
+
+        &:last-child {
+          &.actions-th {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        padding-left: $baseUnit * 2;
+        padding-right: $baseUnit * 2;
+        padding-top: $baseUnit * 2;
+        padding-bottom: $baseUnit * 2;
+
+        a {
+          color: inherit;
+        }
+
+        .name {
+          display: flex;
+          flex-wrap: nowrap;
+
+          .initials-badge {
+            margin-right: $baseUnit * 2;
+          }
+        }
+
+        &:last-child {
+          &.actions {
+            text-align: center;
+          }
+        }
+      }
+
+      &:nth-child(odd) {
+        td {
+          background: $springWood;
+        }
+      }
+    }
+  }
 }

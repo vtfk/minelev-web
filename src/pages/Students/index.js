@@ -2,65 +2,62 @@ import React from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
+import { ROUTES } from "../../config/constants"
 import * as DEMO_DATA from "../../config/demo-data"
 
-import { Heading2, Paragraph } from "../../_lib-components/Typography"
+import { Heading2, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
 import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
 
 import "./styles.scss"
 
-export function ActivityLog() {
-  let activities = DEMO_DATA.ACTIVITIES
+export function Students() {
+  let students = DEMO_DATA.STUDENTS
 
   return (
     <DefaultLayout>
-      <div className="activity-log">
+      <div className="classes">
         
-        <Heading2 className="page-title">Aktivitetslogg</Heading2>
+        <Heading2 className="page-title">Elever</Heading2>
 
         <table className="data-actions-table">
             <thead>
               <tr>
-                <th><Paragraph size="small">Elev</Paragraph></th>
-                <th><Paragraph size="small">Dokument type</Paragraph></th>
-                <th><Paragraph size="small">Dato</Paragraph></th>
-                <th><Paragraph size="small">Status</Paragraph></th>
-                <th><Paragraph size="small">Sendt av</Paragraph></th>
+                <th><Paragraph size="small">Klasse</Paragraph></th>
+                <th><Paragraph size="small">F.dato</Paragraph></th>
+                <th><Paragraph size="small">Klasse</Paragraph></th>
+                <th><Paragraph size="small">Skole</Paragraph></th>
                 <th className="actions-th"><Paragraph size="small">Ny handling</Paragraph></th>
               </tr>
             </thead>
             <tbody>
               {
-                activities.map(function(activity, index) {
+                students.map(function(student, index) {
                   return (
-                    <tr key={ activity.id }>
+                    <tr key={ student.id }>
                       <td>
                         <div className="name">
-                          <InitialsBadge firstName={activity.firstName} lastName={activity.lastName} size="small" />
+                          <InitialsBadge firstName={student.firstName} lastName={student.lastName} size="small" />
                           <Paragraph>
-                            { activity.firstName } { activity.lastName }
+                            <Link href={ `/${ROUTES.students}/${student.id}` }>{ student.firstName } { student.lastName }</Link>
                           </Paragraph>
                         </div>
                       </td>
                       <td>
-                        <Paragraph>{ activity.type }</Paragraph>
+                        <Paragraph>{ student.bornDate }</Paragraph>
                       </td>
                       <td>
-                        <Paragraph>{ activity.date }</Paragraph>
+                        <Paragraph>{ student.className }</Paragraph>
                       </td>
                       <td>
-                        <Paragraph>{ activity.status }</Paragraph>
-                      </td>
-                      <td>
-                        <Paragraph>{ activity.sentBy }</Paragraph>
+                        <Paragraph>{ student.schoolName }</Paragraph>
                       </td>
                       <td className="actions">
                         <IconDropdownNav>
                           <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt dokument" />
                           <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt notat" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
+                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title={ `YFF for ${student.firstName} ${student.lastName}` } />
                         </IconDropdownNav>
                       </td>
                     </tr>
