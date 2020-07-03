@@ -53,22 +53,26 @@ export const CLASSES = [
       id: 1,
       schoolName: 'Kragerø VGS',
       className: 'VK1 – Helsefag',
+      shortName: 'ABC',
     },
     {
       id: 2,
       schoolName: 'Kragerø VGS',
       className: 'VK2 – Helsefag',
+      shortName: 'ABC',
     },
     {
       id: 3,
       schoolName: 'Kragerø VGS',
       className: 'VK3 – Helsefag',
+      shortName: 'ABC',
     },
 ]
 
 export const ACTIVITIES = [
     {
       id: 1,
+      studentId: 1,
       firstName: 'Brage',
       lastName: 'Dahle',
       type: 'Varselbrev atferd',
@@ -78,6 +82,7 @@ export const ACTIVITIES = [
     },
     {
       id: 2,
+      studentId: 2,
       firstName: 'Erik',
       lastName: 'Wang',
       type: 'Varselbrev fag',
@@ -87,6 +92,7 @@ export const ACTIVITIES = [
     },
     {
       id: 3,
+      studentId: 3,
       firstName: 'Per Andre',
       lastName: 'Olsen',
       type: 'Varselbrev atferd',
@@ -96,6 +102,7 @@ export const ACTIVITIES = [
     },
     {
       id: 4,
+      studentId: 4,
       firstName: 'Dag Otto',
       lastName: 'Johannesen',
       type: 'Varselbrev fag',
@@ -105,6 +112,7 @@ export const ACTIVITIES = [
     },
     {
       id: 5,
+      studentId: 5,
       firstName: 'Per Andre',
       lastName: 'Haler-Olsen',
       type: 'Varselbrev atferd',
@@ -113,3 +121,11 @@ export const ACTIVITIES = [
       sentBy: 'Charlotte Testine',
     }
 ]
+
+export function getSelectedStudent(id) {
+  return STUDENTS.find(student => student.id === id);
+}
+
+export function getSelectedClass(id) {
+  return CLASSES.find(schoolClass => schoolClass.id === id);
+}

@@ -1,5 +1,5 @@
 import React from "react"
-import { Redirect } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 
 import { ROUTES } from '../config/constants'
 
@@ -10,7 +10,7 @@ export function ProtectedRoute(props) {
   const isAuthenticated = true
 
   return isAuthenticated ? (
-      <Component />
+      <Route { ...props } />
   ) : (
       <Redirect to={{ pathname: `/${ ROUTES.login }` }} />
   )

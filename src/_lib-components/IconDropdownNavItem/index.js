@@ -7,8 +7,7 @@ export function IconDropdownNavItem({ href, onClick, title, ...props }) {
   return (
     <li className="icon-dropdown-nav-item" { ...props }>
       <a href={href ? href : null} onClick={ onClick ? onClick : null }>
-        <div className="sidenav-item-icon"></div>
-        <div className="sidenav-item-text">{title}</div>
+        {title}
       </a>
     </li>
   )

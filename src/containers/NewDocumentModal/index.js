@@ -9,7 +9,7 @@ import { ModalSideActions } from "../../_lib-components/ModalSideActions"
 
 import "./styles.scss"
 
-export function NewDocumentModal({ selectedPerson, ...props}) {
+export function NewDocumentModal({ selectedStudent, ...props}) {
   return (
     <Fragment>
       <Modal 
@@ -17,13 +17,14 @@ export function NewDocumentModal({ selectedPerson, ...props}) {
         className="new-document-modal"
       >
         <ModalBody>
+
           <div className="person-information">
             <div className="image">
-              <InitialsBadge firstName={selectedPerson.firstName} lastName={selectedPerson.lastName} size="large" />
+              <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size="large" />
             </div>
             <div className="text-wrapper">
               <Heading3 className="name">
-                {selectedPerson.firstName} {selectedPerson.lastName}
+                {selectedStudent.firstName} {selectedStudent.lastName}
               </Heading3>
               <div className="other">
                 <Paragraph>Noe mer tekst her</Paragraph>
@@ -32,8 +33,10 @@ export function NewDocumentModal({ selectedPerson, ...props}) {
               </div>
             </div>
           </div>
+
         </ModalBody>
         <ModalSideActions>
+
           <div className="action">
             <Link onClick={ () => { alert('Ikke implementert') } }>Forhåndsvisning</Link>
           </div>
@@ -43,6 +46,7 @@ export function NewDocumentModal({ selectedPerson, ...props}) {
           <div className="action">
             <Link onClick={ () => { alert('Ikke implementert') } }>Avslutt</Link>
           </div>
+          
         </ModalSideActions>
       </Modal>
     </Fragment>

@@ -17,11 +17,10 @@ export function Colors() {
     deepSeaGreen: "#005260",
     catSkillWhite: "#EBF6F9",
     ecruWhite: "#F6F5E4",
+    hummingBird: "#D2EFF6",
+    onahau: "#BDE7F1",
+    grannyApple: "#C9E6C2",
+    zanah: "#DAEED5",
+    hawkesBlue: "#D5DDEE",
   }
 }
-
-// export function Colors() {
-//   return {
-
-//   }
-// }

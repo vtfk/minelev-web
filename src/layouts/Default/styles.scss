@@ -3,6 +3,7 @@
 
 .default-layout {
   padding-left: 175px; // sidenav width
+  padding-bottom: $baseUnit * 6;
 
   .container {
     max-width: 1032px;

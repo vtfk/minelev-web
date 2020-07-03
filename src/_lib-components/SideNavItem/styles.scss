@@ -16,9 +16,12 @@
     .sidenav-item-icon {
       display: inline-block;
       width: 24px;
-      height: 24px;
-      background: #1D1C28;
-      margin-bottom: $baseUnit * 1.5;
+      margin-bottom: $baseUnit * 1;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
 
     .sidenav-item-text {
@@ -32,6 +35,19 @@
   &.active {
     a {
       background: $swansDown;
+    }
+  }
+
+  &:not(.active) {
+    a {
+      &:hover,
+      &:focus {
+        background: rgba($swansDown, 0.3);
+      }
+
+      &:focus {
+        outline: 1px dotted #ccc;
+      } 
     }
   }
 }

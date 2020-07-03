@@ -14,6 +14,7 @@ import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { Paragraph } from "../../_lib-components/Typography"
 import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
 import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { Icon } from '../../_lib-components/Icon'
 
 import "./styles.scss"
 
@@ -25,12 +26,12 @@ export function DefaultLayout({ children }) {
   return (
     <div className="default-layout">
       <SideNav title="MinElev">
-        <SideNavItem active={ location.pathname === '/' ? true : false } href="/" title="Forside" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.activityLog }` ? true : false } href={ `/${ ROUTES.activityLog }` } title="Aktivitetslogg" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.classes }` ? true : false } href={ `/${ ROUTES.classes }` } title="Klasser" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.students }` ? true : false } href={ `/${ ROUTES.students }` } title="Elever" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.statistics }` ? true : false } href={ `/${ ROUTES.statistics }` } title="Statistikk" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.help }` ? true : false } href={ `/${ ROUTES.help }` } title="Hjelp" />
+        <SideNavItem icon={ <Icon name="home" />  } active={ location.pathname === '/' ? true : false } href="/" title="Forside" />
+        <SideNavItem icon={ <Icon name="activity" />  } active={ location.pathname === `/${ ROUTES.activityLog }` ? true : false } href={ `/${ ROUTES.activityLog }` } title="Aktivitetslogg" />
+        <SideNavItem icon={ <Icon name="students" />  } active={ location.pathname === `/${ ROUTES.students }` ? true : false } href={ `/${ ROUTES.students }` } title="Elever" />
+        <SideNavItem icon={ <Icon name="classes" />  } active={ location.pathname === `/${ ROUTES.classes }` ? true : false } href={ `/${ ROUTES.classes }` } title="Klasser" />
+        <SideNavItem icon={ <Icon name="statistics" />  } active={ location.pathname === `/${ ROUTES.statistics }` ? true : false } href={ `/${ ROUTES.statistics }` } title="Statistikk" />
+        <SideNavItem icon={ <Icon name="help" />  } active={ location.pathname === `/${ ROUTES.help }` ? true : false } href={ `/${ ROUTES.help }` } title="Hjelp" />
       </SideNav>
 
       <div className="container">

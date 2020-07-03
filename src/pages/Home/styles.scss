@@ -10,17 +10,27 @@
 
   .panel-title {
     margin: 0 0 ($baseUnit * 4) 0;
+    display: flex;
+    align-items: center;
+    line-height: 1em;
+
+    .icon {
+      margin-right: $baseUnit * 3;
+    }
+  }
+
+  .panel-link {
+    margin-top: $baseUnit * 5;
   }
 
   .activity-panel {
     background: $springWood;
-    padding: $baseUnit * 5;
+    padding: ($baseUnit * 5) ($baseUnit * 4);
     margin-bottom: $baseUnit * 4;
 
     .activity-panel-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: $baseUnit * 5;
 
       tr {
         td {
@@ -57,14 +67,59 @@
 
   .statistics-panel {
     background: $catSkillWhite;
-    padding: $baseUnit * 5;
+    padding: ($baseUnit * 5) ($baseUnit * 4);
     width: 540px;
     margin-right: $baseUnit * 4;
+
+    .panel-title {
+      margin: 0 0 ($baseUnit * 3) 0;
+    }
+
+    .statistics {
+      .statistics-row {
+        display: flex;
+        justify-content: space-between;
+
+        .statistics-item {
+          width: 180px;
+          margin-bottom: $baseUnit * 3;
+
+          .statistics-item-title {
+      
+          }
+
+          .statistics-item-text {
+            // max-width: 140px;
+          }
+        }
+      }
+    }
+
+    .panel-link {
+      margin-top: $baseUnit * 4;
+    }
   }
 
   .class-reports-panel {
     background: $ecruWhite;
-    padding: $baseUnit * 5;
+    padding: ($baseUnit * 5) ($baseUnit * 4);
     flex: 1;
+
+    .class-reports-group {
+      margin-bottom: $baseUnit * 2;
+
+      .class-reports-group-title {
+        font-weight: 700;
+        margin-bottom: $baseUnit;
+      }
+
+      .class-reports-group-text {
+        margin-bottom: $baseUnit;
+      }
+    }
+
+    .panel-link {
+      margin-top: $baseUnit * 5;
+    }
   }
 }

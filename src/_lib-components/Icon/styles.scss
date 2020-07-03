@@ -1,0 +1,26 @@
+@import "../Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.icon {
+  width: 24px;
+  height: auto;
+
+  img {
+    width: 24px;
+    height: auto;
+  }
+  
+  &.small {
+    &,
+    img {
+      width: 18px;
+    }
+  }
+
+  &.xsmall {
+    &,
+    img {
+      width: 14px;
+    }
+  }
+}

@@ -2,9 +2,10 @@ import React from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
+import { ROUTES } from "../../config/constants"
 import * as DEMO_DATA from "../../config/demo-data"
 
-import { Heading2, Paragraph } from "../../_lib-components/Typography"
+import { Heading2, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
 import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
@@ -40,7 +41,7 @@ export function ActivityLog() {
                         <div className="name">
                           <InitialsBadge firstName={activity.firstName} lastName={activity.lastName} size="small" />
                           <Paragraph>
-                            { activity.firstName } { activity.lastName }
+                            <Link href={ `/${ROUTES.students}/${activity.studentId}` }>{ activity.firstName } { activity.lastName }</Link>
                           </Paragraph>
                         </div>
                       </td>

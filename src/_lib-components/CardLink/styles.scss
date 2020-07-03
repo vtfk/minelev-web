@@ -1,0 +1,48 @@
+@import "../Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.card-link {
+  padding: ($baseUnit * 3) ($baseUnit * 4);
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  background: $grannyApple;
+  cursor: pointer;
+  min-height: calc(64px + (#{$baseUnit * 6})); // two lines
+
+  .card-link-text {
+    padding-right: $baseUnit * 12;
+    font-size: 21px;
+    line-height: 32px;
+    flex: 1;
+  }
+
+  .card-link-icon {
+    display: block;
+    background: $gin;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+
+  &:hover:not([disabled]) {
+    background: $zanah;
+
+    .card-link-text {
+      text-decoration: underline;
+    }
+  }
+}
