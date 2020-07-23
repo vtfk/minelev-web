@@ -9,12 +9,17 @@
   background: $grannyApple;
   cursor: pointer;
   min-height: calc(64px + (#{$baseUnit * 6})); // two lines
+  user-select: none;
 
   .card-link-text {
     padding-right: $baseUnit * 12;
     font-size: 21px;
-    line-height: 32px;
+    line-height: 28px;
     flex: 1;
+
+    .paragraph {
+      margin-top: $baseUnit;
+    }
   }
 
   .card-link-icon {
@@ -34,7 +39,8 @@
   }
 
   &[disabled] {
-    opacity: 0.2;
+    opacity: 0.3;
+    background: #ccc;
     cursor: not-allowed;
   }
 

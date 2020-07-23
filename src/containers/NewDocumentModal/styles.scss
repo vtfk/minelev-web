@@ -5,6 +5,7 @@
   .person-information {
     display: flex;
     flex-wrap: nowrap;
+    margin-bottom: $baseUnit * 12;
 
     .image {
   
@@ -23,23 +24,31 @@
       }
     }
   }
-}
 
-.button {
-  @include reset-button();
-  height: 48px;
-  line-height: 48px;
-  font-size: 16px;
-  letter-spacing: 0.4px;
-  color: #fff;
-  background: $deepSeaGreen;
-  border-radius: 24px;
-  display: block;
-  width: 100%;
-  padding: 0 ($baseUnit * 7);
-  font-weight: 700;
+  .form {
+    padding-bottom: $baseUnit * 8;
+    
+    .select {
+      margin-bottom: $baseUnit * 5;
+    }
+  }
 
-  &.button-primary {
+  .button {
+    @include reset-button();
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    color: #fff;
+    background: $deepSeaGreen;
+    border-radius: 24px;
+    display: block;
+    width: 100%;
+    padding: 0 ($baseUnit * 7);
+    font-weight: 700;
 
+    &.button-primary {
+
+    }
   }
 }

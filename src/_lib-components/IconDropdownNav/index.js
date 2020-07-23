@@ -6,19 +6,22 @@ import icon from './icon-dropdown-nav-icon.svg'
 import "./styles.scss"
 
 export function IconDropdownNav(props) {
-  const [dropdownState, setDropdownState] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
   const dropdownRef = useRef(null)
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keyup', handleKeyPress);
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keyup', handleKeyPress);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function toggleDropdown() {
-    setDropdownState(prevDropdownState => !prevDropdownState)
+    setDropdownOpen(prevDropdownOpen => !prevDropdownOpen)
   }
   
   function handleClickOutside(event) {
@@ -29,14 +32,20 @@ export function IconDropdownNav(props) {
     }
   }
 
+  function handleKeyPress(event) {
+    if (event.key === 'Escape') {
+        setDropdownOpen(false)
+    }
+  }
+
   return (
     <div className={ `icon-dropdown-nav` } { ...props }>
-      <div className="icon-dropdown-nav-trigger" onClick={ () => { toggleDropdown() } }>
+      <button className="icon-dropdown-nav-trigger" onClick={ () => { toggleDropdown() } }>
         <img src={ icon } alt="Åpne dropdown meny"/>
-      </div>
+      </button>
       
       {
-        dropdownState === true &&
+        dropdownOpen === true &&
         <div className="icon-dropdown-nav-dropdown" ref={dropdownRef}>
           <ul>
             {
@@ -49,9 +58,35 @@ export function IconDropdownNav(props) {
   )
 }
 
+export function IconDropdownNavItem({ href, onClick, title, ...props }) {
+  return (
+    <li className="icon-dropdown-nav-item" { ...props }>
+      {
+        href &&
+        <a href={ href }>
+          {title}
+        </a>
+      }
+
+      {
+        onClick &&
+        <button onClick={ onClick }>
+          {title}
+        </button>
+      }
+    </li>
+  )
+}
+
 IconDropdownNav.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired
+}
+
+IconDropdownNavItem.propTypes = {
+  href: PropTypes.string,
+  onClick: PropTypes.func,
+  title: PropTypes.string.isRequired,
 }

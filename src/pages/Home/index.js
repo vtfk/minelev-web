@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
@@ -7,16 +7,17 @@ import * as DEMO_DATA from "../../config/demo-data"
 
 import { Heading1, Heading2, Heading3, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
-import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
-import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
 import { Icon } from '../../_lib-components/Icon'
 
 import { NewDocumentModal } from "../../containers/NewDocumentModal"
+import { NewNoteModal } from "../../containers/NewNoteModal"
 
 import "./styles.scss"
 
 export function Home() {
   const [documentModalState, setDocumentModalState] = useState(false)
+  const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
 
   const currentUser = DEMO_DATA.CURRENT_USER
@@ -26,7 +27,20 @@ export function Home() {
     setSelectedStudent(activity)
     setDocumentModalState(true)
   }
+  
+  function openNoteModal(activity) {
+    setSelectedStudent(activity)
+    setNoteModalState(true)
+  }
 
+  // testing
+  useEffect(() => {
+    // setSelectedStudent(activities[0])
+    // setDocumentModalState(true)
+    // setNoteModalState(true)
+  }, []);
+  // -- testing 
+  
   return (
     <DefaultLayout>
 
@@ -37,6 +51,16 @@ export function Home() {
           selectedStudent={ selectedStudent }
           title="Nytt dokument"
           onDismiss={ () => { setDocumentModalState(false) } }
+        />
+      }
+
+      {
+        selectedStudent &&
+        <NewNoteModal
+          open={ noteModalState }
+          selectedStudent={ selectedStudent }
+          title="Notat til elevmappen"
+          onDismiss={ () => { setNoteModalState(false) } }
         />
       }
 
@@ -76,8 +100,8 @@ export function Home() {
                       <td>
                         <IconDropdownNav>
                           <IconDropdownNavItem onClick={ () => { openDocumentModal(activity) } } title="Nytt dokument" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt notat" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
+                          <IconDropdownNavItem onClick={ () => { openNoteModal(activity) } } title="Nytt notat" />
+                          <IconDropdownNavItem href={ `/${ROUTES.students}/${activity.studentId}` } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
                         </IconDropdownNav>
                       </td>
                     </tr>

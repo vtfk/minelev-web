@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import {
   useLocation,
@@ -7,20 +7,18 @@ import {
 import { ROUTES } from "../../config/constants"
 import * as DEMO_DATA from "../../config/demo-data"
 
-import { SideNav } from "../../_lib-components/SideNav"
-import { SideNavItem } from"../../_lib-components/SideNavItem"
-import { SearchField } from"../../_lib-components/TextField"
+import { SideNav, SideNavItem } from "../../_lib-components/SideNav"
+import { SearchField } from"../../_lib-components/SearchField"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { Paragraph } from "../../_lib-components/Typography"
-import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
-import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
 import { Icon } from '../../_lib-components/Icon'
 
 import "./styles.scss"
 
 export function DefaultLayout({ children }) {   
+  const [search, setSearch] = useState('')
   let location = useLocation();
-
   let currentUser = DEMO_DATA.CURRENT_USER
 
   return (
@@ -37,7 +35,7 @@ export function DefaultLayout({ children }) {
       <div className="container">
         <div className="action-bar">
           <div className="search">
-            <SearchField className="search-input" type="text" placeholder="Søk etter elev ..." />
+            <SearchField className="search-input" type="text" value={ search } placeholder="Søk etter elev ..." onChange={ (event) => { setSearch(event.target.value) } } />
           </div>
 
           <div className="user">

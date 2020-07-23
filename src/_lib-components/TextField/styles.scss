@@ -2,7 +2,12 @@
 @import "../../assets/scss/helpers";
 
 .text-field {
-  input {
+  border-bottom: 1px solid #A3A3A3;
+  position: relative;
+  padding-top: $baseUnit * 2;
+
+  input,
+  textarea {
     // reset
     background: none;
     border: 0;
@@ -16,6 +21,18 @@
     font-weight: normal;
     box-shadow: none;
     outline: 0;
+    position: relative;
+    font-size: 18px;
+    line-height: 24px;
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: $baseUnit * 2;
+    
+    &::placeholder {
+      color: rgba(#1D1C28, 0.58);
+      font-style: italic;
+    }
 
     &:active,
     &:visited,
@@ -25,35 +42,50 @@
 
     &:active,
     &:focus {
-      box-shadow: 0 0 0 4px $lightBlue;
+      // box-shadow: 0 0 0 4px $lightBlue;
     }
   }
 
-  &.search {
+  textarea {
+    
+  }
+  
+  .placeholder-label {
+    font-size: 14px;
+    font-weight: bold;
     position: relative;
+    z-index: 0;
+    color: rgba(#1D1C28, 0.4);
+    position: absolute;
+    top: -$baseUnit;
+    left: 0;
+  }
 
-    input {
-      height: 48px;
-      line-height: 48px;
-      font-size: 16px;
-      border-radius: 24px;
-      padding: 0 ($baseUnit * 3);
-      padding-right: $baseUnit * 7;
-      background: #fff;
-      border: 1px solid #979797;
-    }
-
-    .icon {
+  &.focused {
+    &:after {
+      content: "";
       position: absolute;
-      right: $baseUnit * 2;
-      top: 50%;
-      transform: translateY(-50%);
+      top: calc(100% + 1px);
+      left: 0;
+      right: 0;
+      border-bottom: 4px solid $lightBlue;
+    }
+  }
+}
 
-      img {
-        width: 18px;
-        height: 18px;
-        display: block;
-      }
+.has-search-icon {
+  padding-right: $baseUnit * 6;
+  
+  .icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    img {
+      width: 18px;
+      height: 18px;
+      display: block;
     }
   }
 }

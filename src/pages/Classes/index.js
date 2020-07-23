@@ -19,31 +19,31 @@ export function Classes() {
         <Heading2 className="page-title">Klasser</Heading2>
 
         <table className="data-actions-table">
-            <thead>
-              <tr>
-                <th><Paragraph size="small">Klasse</Paragraph></th>
-                <th><Paragraph size="small">Skole</Paragraph></th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                classes.map(function(schoolClass, index) {
-                  return (
-                    <tr key={ schoolClass.id }>
-                      <td>
-                        <Paragraph>
-                          <Link href={ `/${ROUTES.classes}/${schoolClass.id}` }>{ schoolClass.className }</Link>
-                        </Paragraph>
-                      </td>
-                      <td>
-                        <Paragraph>{ schoolClass.schoolName }</Paragraph>
-                      </td>
-                    </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table>
+          <thead>
+            <tr>
+              <th><Paragraph size="small">Klasse</Paragraph></th>
+              <th><Paragraph size="small">Skole</Paragraph></th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              classes.map(function(schoolClass, index) {
+                return (
+                  <tr key={ schoolClass.id }>
+                    <td>
+                      <Paragraph>
+                        <Link href={ `/${ROUTES.classes}/${schoolClass.id}` }>{ schoolClass.className }</Link>
+                      </Paragraph>
+                    </td>
+                    <td>
+                      <Paragraph>{ schoolClass.schoolName }</Paragraph>
+                    </td>
+                  </tr>
+                )
+              })
+            }
+          </tbody>
+        </table>
 
       </div>
     </DefaultLayout>

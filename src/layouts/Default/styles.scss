@@ -23,6 +23,10 @@
     .search {
       .search-input {
         width: 475px;
+        
+        &::placeholder {
+          font-style: normal;
+        }
       }
     }
 

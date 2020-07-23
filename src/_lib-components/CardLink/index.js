@@ -7,7 +7,7 @@ import "./styles.scss"
 
 export function CardLink({ href, onClick, className, children, ...props }) {
   return (
-    <a href={href ? href : null} onClick={ onClick ? onClick : null } className={ `card-link ${className ? className : ''}` } { ...props }>
+    <a tabIndex="0" href={href ? href : null} onClick={ onClick ? onClick : null } className={ `card-link ${className ? className : ''}` } { ...props }>
       <div className="card-link-text">{ children }</div>
       <span className="card-link-icon">
         <img src={ icon } alt=""/>

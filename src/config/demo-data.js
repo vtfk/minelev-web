@@ -53,19 +53,19 @@ export const CLASSES = [
       id: 1,
       schoolName: 'Kragerø VGS',
       className: 'VK1 – Helsefag',
-      shortName: 'ABC',
+      shortName: 'XXX',
     },
     {
       id: 2,
       schoolName: 'Kragerø VGS',
       className: 'VK2 – Helsefag',
-      shortName: 'ABC',
+      shortName: 'XXX',
     },
     {
       id: 3,
       schoolName: 'Kragerø VGS',
       className: 'VK3 – Helsefag',
-      shortName: 'ABC',
+      shortName: 'XXX',
     },
 ]
 

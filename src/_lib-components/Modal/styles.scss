@@ -37,17 +37,47 @@
     align-items: center;
 
     .modal-close-button {
+      @include reset-button();
       margin-right: $baseUnit * 2;
+      outline: 0;
     }
   }
 
   .modal-content {
     display: flex;
-    width: 1000px;
+    width: 82vw;
+    max-width: 1400px;
     z-index: 102;
-    padding: ($baseUnit * 9) ($baseUnit * 6);
+    padding: ($baseUnit * 9) ($baseUnit * 6) ($baseUnit * 9) 0;
     background: #fff;
     box-shadow: 0 20px 13px 0 rgba(0, 0, 0, 0.04);
     height: 80vh;
+  }
+}
+
+.modal-body {
+  flex: 1;
+  padding: 0;
+  overflow-y: scroll;
+  padding-right: $baseUnit * 8;
+  padding-left: $baseUnit * 6;
+}
+
+.modal-side-actions {
+  padding: ($baseUnit * 8) 0 ($baseUnit * 8) ($baseUnit * 4);
+  border-left: 1px solid #979797;
+  display: flex;
+  align-items: flex-end;
+
+  .action {
+    display: block;
+    width: 100%;
+    margin-top: $baseUnit * 3;
+    text-align: center;
+
+    .link {
+      color: $deepSeaGreen;
+      font-weight: 700;
+    }
   }
 }

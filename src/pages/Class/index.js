@@ -1,27 +1,17 @@
-import React, { useState } from "react"
-import { useParams } from "react-router-dom"
+import React from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
 import { ROUTES } from "../../config/constants"
 import * as DEMO_DATA from "../../config/demo-data"
 
-import { Heading1, Heading2, Heading3, Paragraph, Link } from "../../_lib-components/Typography"
-import { InitialsBadge } from "../../_lib-components/InitialsBadge"
-import { Modal } from "../../_lib-components/Modal"
-import { ModalBody } from "../../_lib-components/ModalBody"
-import { ModalSideActions } from "../../_lib-components/ModalSideActions"
-import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
-import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { Heading1, Heading3, Paragraph, Link } from "../../_lib-components/Typography"
+import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
 import { Icon } from "../../_lib-components/Icon"
-import { CardLink } from "../../_lib-components/CardLink"
 
 import "./styles.scss"
 
 export function Class({ match, ...props }) {
-  const [documentModalState, setDocumentModalState] = useState(false)
-  const [selectedStudent, setSelectedStudent] = useState(null)
-
   const { id } = match.params
   const schoolClass = DEMO_DATA.getSelectedClass(parseInt(id))
 
