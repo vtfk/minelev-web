@@ -1,0 +1,20 @@
+@import "../../_lib-components/Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.help {
+  max-width: 922px;
+  
+  .page-title {
+    margin-bottom: $baseUnit * 7;
+  }
+
+  .help-text-block {
+    margin-bottom: $baseUnit;
+  }
+
+  .help-section-title {
+    margin-top: $baseUnit * 5;
+    margin-bottom: $baseUnit * 2;
+    font-weight: 700;
+  }
+}

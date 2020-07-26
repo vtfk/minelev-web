@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import PropTypes from 'prop-types'
 
 import "./styles.scss"
@@ -51,15 +51,39 @@ export function Paragraph({ className, children, size, ...props }) {
   )
 }
 
-export function Link({ href, onClick, className, noStyle, hasRightArrow, children, size, ...props }) {
+export function Link({ href, onClick, className, noStyle, leftIcon, rightIcon, children, size, ...props }) {
   return (
-    <a href={href ? href : null} onClick={ onClick ? onClick : null } className={ `typography link ${className ? className : ''} ${noStyle ? 'no-style' : ''} ${size ? size : ''}` } { ...props }>
-      { children }
+    <Fragment>
       {
-        hasRightArrow &&
-        <span className="link-icon">[ikon]</span>
+        href &&
+        <a href={ href } className={ `typography link ${className ? className : ''} ${noStyle ? 'no-style' : ''} ${size ? size : ''} ${leftIcon || rightIcon ? 'has-icon' : ''}` } { ...props }>
+          {
+            leftIcon &&
+            <span className="link-icon left-icon">{ leftIcon }</span>
+          }
+          { children }
+          {
+            rightIcon &&
+            <span className="link-icon right-icon">{ rightIcon }</span>
+          }
+        </a>
       }
-    </a>
+
+      {
+        onClick &&
+        <button onClick={ onClick } className={ `typography link ${className ? className : ''} ${noStyle ? 'no-style' : ''} ${size ? size : ''} ${leftIcon || rightIcon ? 'has-icon' : ''}` } { ...props }>
+          {
+            leftIcon &&
+            <span className="link-icon left-icon">{ leftIcon }</span>
+          }
+          { children }
+          {
+            rightIcon &&
+            <span className="link-icon right-icon">{ rightIcon }</span>
+          }
+        </button>
+      }
+    </Fragment>
   )
 }
 
@@ -94,7 +118,8 @@ Link.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   noStyle: PropTypes.bool,
-  hasRightArrow: PropTypes.bool,
+  leftIcon: PropTypes.node,
+  rightIcon: PropTypes.node,
   size: PropTypes.string,
   children: PropTypes.node.isRequired
 }

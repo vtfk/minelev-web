@@ -1,78 +1,77 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
-import { Heading2, Heading3, Paragraph, Link } from "../../_lib-components/Typography"
+import { ROUTES } from "../../config/constants"
+import * as DEMO_DATA from "../../config/demo-data"
+
+import { Heading1, Heading2, Heading3, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
-import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
-import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
+import { Icon } from '../../_lib-components/Icon'
 
 import { NewDocumentModal } from "../../containers/NewDocumentModal"
+import { NewNoteModal } from "../../containers/NewNoteModal"
 
 import "./styles.scss"
 
 export function Home() {
   const [documentModalState, setDocumentModalState] = useState(false)
-  const [selectedPerson, setSelectedPerson] = useState(null)
+  const [noteModalState, setNoteModalState] = useState(false)
+  const [selectedStudent, setSelectedStudent] = useState(null)
 
-  let currentUser = {
-    firstName: 'Charlotte',
-    lastName: 'Testine',
-  }
-
-  let activities = [
-    {
-      id: 1,
-      firstName: 'Brage',
-      lastName: 'Dahle',
-      type: 'Varselbrev atferd',
-      date: '12. juni 2020', // TODO: date
-      status: 'Sendt',
-    },
-    {
-      id: 2,
-      firstName: 'Erik',
-      lastName: 'Wang',
-      type: 'Varselbrev fag',
-      date: '12. juni 2020', // TODO: date
-      status: 'I kø',
-    },
-    {
-      id: 3,
-      firstName: 'Per Andre',
-      lastName: 'Lano-Olsen',
-      type: 'Varselbrev atferd',
-      date: '12. juni 2020', // TODO: date
-      status: 'Arkivert',
-    }
-  ]
+  const currentUser = DEMO_DATA.CURRENT_USER
+  const activities = DEMO_DATA.ACTIVITIES.slice(0, 3)
 
   function openDocumentModal(activity) {
-    setSelectedPerson(activity)
+    setSelectedStudent(activity)
     setDocumentModalState(true)
   }
+  
+  function openNoteModal(activity) {
+    setSelectedStudent(activity)
+    setNoteModalState(true)
+  }
 
+  // testing
+  useEffect(() => {
+    // setSelectedStudent(activities[0])
+    // setDocumentModalState(true)
+    // setNoteModalState(true)
+  }, []);
+  // -- testing 
+  
   return (
     <DefaultLayout>
 
       {
-        selectedPerson &&
+        selectedStudent &&
         <NewDocumentModal
           open={ documentModalState }
-          selectedPerson={ selectedPerson }
+          selectedStudent={ selectedStudent }
           title="Nytt dokument"
           onDismiss={ () => { setDocumentModalState(false) } }
         />
       }
 
+      {
+        selectedStudent &&
+        <NewNoteModal
+          open={ noteModalState }
+          selectedStudent={ selectedStudent }
+          title="Notat til elevmappen"
+          onDismiss={ () => { setNoteModalState(false) } }
+        />
+      }
+
       <div className="home">
-        <Heading2 className="page-title">
+        <Heading2 as="h1" className="page-title">
           Hei { currentUser.firstName } og velkommen til MinElev
         </Heading2>
 
         <div className="activity-panel">
-          <Heading3 className="activity-panel-title">
-            [ikon] Aktivitet
+          <Heading3 as="h2" className="panel-title">
+            <Icon name="activity" size="small" /> Aktivitet
           </Heading3>
 
           <table className="activity-panel-table">
@@ -85,7 +84,7 @@ export function Home() {
                         <div className="activity-name">
                           <InitialsBadge firstName={activity.firstName} lastName={activity.lastName} size="small" />
                           <Paragraph>
-                            { activity.firstName } { activity.lastName }
+                            <Link href={ `/${ROUTES.students}/${activity.studentId}` }>{ activity.firstName } { activity.lastName }</Link>
                           </Paragraph>
                         </div>
                       </td>
@@ -101,8 +100,8 @@ export function Home() {
                       <td>
                         <IconDropdownNav>
                           <IconDropdownNavItem onClick={ () => { openDocumentModal(activity) } } title="Nytt dokument" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt notat" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
+                          <IconDropdownNavItem onClick={ () => { openNoteModal(activity) } } title="Nytt notat" />
+                          <IconDropdownNavItem href={ `/${ROUTES.students}/${activity.studentId}` } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
                         </IconDropdownNav>
                       </td>
                     </tr>
@@ -112,8 +111,78 @@ export function Home() {
             </tbody>
           </table>
 
-          <div className="activity-panel-link">
-            <Link href="/aktivitetslogg" noStyle={ true } hasRightArrow={ true }>Aktivitetsloggen</Link>
+          <div className="panel-link">
+            <Link href={ `/${ROUTES.activityLog}` } noStyle={ true } rightIcon={ <Icon name="arrowRight" size="xsmall" /> }>Aktivitetsloggen</Link>
+          </div>
+        </div>
+
+        <div className="statistics-class-reports-wrapper">
+          <div className="statistics-panel">
+            <Heading3 as="h2" className="panel-title">
+              <Icon name="statistics" size="small" /> Statistikk
+            </Heading3>
+
+            <div className="statistics">
+              <div className="statistics-row">
+                <div className="statistics-item">
+                  <Heading1 as="h3" className="statistics-item-title">
+                    1000
+                  </Heading1>
+                  <Paragraph className="statistics-item-text">varselbrev</Paragraph>
+                </div>
+                <div className="statistics-item">
+                  <Heading1 as="h3" className="statistics-item-title">
+                    1000
+                  </Heading1>
+                  <Paragraph className="statistics-item-text">dokumenterte elevsamtaler</Paragraph>
+                </div>
+              </div>
+              <div className="statistics-row">
+                <div className="statistics-item">
+                  <Heading1 as="h3" className="statistics-item-title">
+                    1000
+                  </Heading1>
+                  <Paragraph className="statistics-item-text">notater til elevmappa</Paragraph>
+                </div>
+                <div className="statistics-item">
+                  <Heading1 as="h3" className="statistics-item-title">
+                    1000
+                  </Heading1>
+                  <Paragraph className="statistics-item-text">utplasseringer</Paragraph>
+                </div>
+              </div>
+            </div>
+
+            <div className="panel-link">
+              <Link href={ `/${ROUTES.statistics}` } noStyle={ true } rightIcon={ <Icon name="arrowRight" size="xsmall" /> }>Mer statistikk</Link>
+            </div>
+          </div>
+
+          <div className="class-reports-panel">
+            <Heading3 as="h2" className="panel-title">
+              <Icon name="classes" /> Siste 5 klasserapporter
+            </Heading3>
+
+            <div className="class-reports-group">
+              <Paragraph className="class-reports-group-title">Kragerø videregående skole</Paragraph>
+              <Paragraph className="class-reports-group-text">VG1 – Helsefag</Paragraph>
+              <Paragraph className="class-reports-group-text">VG1 – Elektro</Paragraph>
+            </div>
+
+            <div className="class-reports-group">
+              <Paragraph className="class-reports-group-title">Skogmo videregående skole</Paragraph>
+              <Paragraph className="class-reports-group-text">VG1 – Helsefag</Paragraph>
+              <Paragraph className="class-reports-group-text">VG1 – Elektro</Paragraph>
+            </div>
+
+            <div className="class-reports-group">
+              <Paragraph className="class-reports-group-title">Bamle videregående skole</Paragraph>
+              <Paragraph className="class-reports-group-text">VG1 – Helsefag</Paragraph>
+            </div>
+
+            <div className="panel-link">
+              <Link href={ `/${ROUTES.classes}` } noStyle={ true } rightIcon={ <Icon name="arrowRight" size="xsmall" /> }>Alle klasser</Link>
+            </div>
           </div>
         </div>
       </div>

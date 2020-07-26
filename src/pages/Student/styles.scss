@@ -1,0 +1,110 @@
+@import "../../_lib-components/Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.student {
+  max-width: 922px;
+
+  .back-link {
+    display: block;
+    margin-bottom: $baseUnit * 6;
+  }
+
+  .person-information {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: $baseUnit * 7;
+
+    .image {
+  
+    }
+
+    .text-wrapper {
+      flex: 1;
+      margin-left: $baseUnit * 4;
+
+      .name {
+        font-weight: 700;
+      }
+
+      .other {
+        margin-top: $baseUnit / 2;
+      }
+    }
+  }
+
+  .intro {
+    padding-right: $baseUnit * 22;
+    margin-bottom: $baseUnit * 7;
+
+    .intro-title {
+      font-weight: 700;
+      margin-bottom: $baseUnit * 2;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -($baseUnit * 4);
+    margin-bottom: $baseUnit * 2;
+
+    .action-link {
+      width: calc(50% - #{$baseUnit * 4});
+      margin-left: $baseUnit * 4;
+      margin-bottom: $baseUnit * 2;
+    }
+  }
+
+  .panel-title {
+    margin: 0 0 ($baseUnit * 4) 0;
+    display: flex;
+    align-items: center;
+    line-height: 1em;
+
+    .icon {
+      margin-right: $baseUnit * 3;
+    }
+  }
+
+  .panel-link {
+    margin-top: $baseUnit * 5;
+  }
+
+  .activity-panel {
+    background: $springWood;
+    padding: ($baseUnit * 5) ($baseUnit * 4);
+    margin-bottom: $baseUnit * 4;
+
+    .activity-panel-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      tr {
+        td {
+          padding-right: $baseUnit * 2;
+          padding-bottom: $baseUnit * 2;
+
+          .activity-name {
+            display: flex;
+            flex-wrap: nowrap;
+
+            .initials-badge {
+              margin-right: $baseUnit * 2;
+            }
+          }
+
+          &:last-child {
+            text-align: center;
+          }
+        }
+
+        &:last-child {
+          td {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+}

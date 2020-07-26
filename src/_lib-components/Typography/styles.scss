@@ -5,6 +5,7 @@
   margin: 0;
 
   &.paragraph {
+    font-family: "Nunito Sans", sans-serif;
     font-size: 16px;
     line-height: 24px;
 
@@ -15,43 +16,79 @@
   }
 
   &.link {
+    @include reset-button();
+    font-family: "Nunito Sans", sans-serif;
     font-size: 16px;
     line-height: 24px;
-
-    .link-icon {
-      margin-left: $baseUnit * 2;
-    }
+    color: inherit;
+    cursor: pointer;
 
     &.no-style {
       text-decoration: none;
-      color: inherit;
     }
 
     &.small {
       font-size: 14px;
       line-height: 24px;
     }
+
+    &.has-icon {
+      .link-icon {
+        display: inline-block;
+        transition: all 200ms ease-in-out;
+
+        &.left-icon {
+          margin-right: $baseUnit * 2;
+        }
+
+        &.right-icon {
+          margin-left: $baseUnit * 2;
+        }
+      }
+
+      &:hover {
+        text-decoration: none;
+
+        .link-icon {
+          &.left-icon {
+            transform: translateX(-4px);
+          }
+
+          &.right-icon {
+            transform: translateX(4px);
+          }
+        }
+      }
+    }
+
+    &:hover {
+        text-decoration: underline;
+      }
   }
 
   &.heading-one {
-    font-size: 68px;
-    line-height: 72px;
-    font-weight: 400;
+    font-family: "Nunito", sans-serif;
+    font-size: 48px;
+    line-height: 66px;
+    font-weight: 700;
   }
 
   &.heading-two {
+    font-family: "Nunito", sans-serif;
     font-size: 36px;
     line-height: 40px;
     font-weight: 400;
   }
 
   &.heading-three {
+    font-family: "Nunito", sans-serif;
     font-size: 21px;
     line-height: 28px;
     font-weight: 400;
   }
 
   &.heading-four {
+    font-family: "Nunito", sans-serif;
     font-size: 16px;
     line-height: 25px;
     font-weight: 700;

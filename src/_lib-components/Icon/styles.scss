@@ -1,0 +1,24 @@
+.icon {
+  width: 24px;
+  height: auto;
+
+  svg {
+    display: block;
+    width: 24px;
+    height: auto;
+  }
+  
+  &.small {
+    &,
+    svg {
+      width: 18px;
+    }
+  }
+
+  &.xsmall {
+    &,
+    svg {
+      width: 14px;
+    }
+  }
+}

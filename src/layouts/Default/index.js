@@ -1,43 +1,41 @@
-import React from "react"
+import React, { useState } from "react"
 
 import {
   useLocation,
 } from "react-router-dom"
 
 import { ROUTES } from "../../config/constants"
+import * as DEMO_DATA from "../../config/demo-data"
 
-import { SideNav } from "../../_lib-components/SideNav"
-import { SideNavItem } from"../../_lib-components/SideNavItem"
-import { SearchField } from"../../_lib-components/TextField"
+import { SideNav, SideNavItem } from "../../_lib-components/SideNav"
+import { SearchField } from"../../_lib-components/SearchField"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { Paragraph } from "../../_lib-components/Typography"
-import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
-import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
+import { Icon } from '../../_lib-components/Icon'
 
 import "./styles.scss"
 
 export function DefaultLayout({ children }) {   
+  const [search, setSearch] = useState('')
   let location = useLocation();
-
-  let currentUser = {
-    firstName: 'Charlotte',
-    lastName: 'Testine',
-  }
+  let currentUser = DEMO_DATA.CURRENT_USER
 
   return (
     <div className="default-layout">
       <SideNav title="MinElev">
-        <SideNavItem active={ location.pathname === '/' ? true : false } href="/" title="Forside" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.activityLog }` ? true : false } href={ `/${ ROUTES.activityLog }` } title="Aktivitetslogg" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.classReports }` ? true : false } href={ `/${ ROUTES.classReports }` } title="Klasserapporter" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.statistics }` ? true : false } href={ `/${ ROUTES.statistics }` } title="Statistikk" />
-        <SideNavItem active={ location.pathname === `/${ ROUTES.help }` ? true : false } href={ `/${ ROUTES.help }` } title="Hjelp" />
+        <SideNavItem icon={ <Icon name="home" />  } active={ location.pathname === '/' ? true : false } href="/" title="Forside" />
+        <SideNavItem icon={ <Icon name="activity" />  } active={ location.pathname === `/${ ROUTES.activityLog }` ? true : false } href={ `/${ ROUTES.activityLog }` } title="Aktivitetslogg" />
+        <SideNavItem icon={ <Icon name="students" />  } active={ location.pathname === `/${ ROUTES.students }` ? true : false } href={ `/${ ROUTES.students }` } title="Elever" />
+        <SideNavItem icon={ <Icon name="classes" />  } active={ location.pathname === `/${ ROUTES.classes }` ? true : false } href={ `/${ ROUTES.classes }` } title="Klasser" />
+        <SideNavItem icon={ <Icon name="statistics" />  } active={ location.pathname === `/${ ROUTES.statistics }` ? true : false } href={ `/${ ROUTES.statistics }` } title="Statistikk" />
+        <SideNavItem icon={ <Icon name="help" />  } active={ location.pathname === `/${ ROUTES.help }` ? true : false } href={ `/${ ROUTES.help }` } title="Hjelp" />
       </SideNav>
 
       <div className="container">
         <div className="action-bar">
           <div className="search">
-            <SearchField className="search-input" type="text" placeholder="Søk etter elev ..." />
+            <SearchField className="search-input" type="text" value={ search } placeholder="Søk etter elev ..." onChange={ (event) => { setSearch(event.target.value) } } />
           </div>
 
           <div className="user">

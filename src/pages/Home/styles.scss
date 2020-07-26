@@ -1,30 +1,6 @@
 @import "../../_lib-components/Tokens/tokens.scss";
 @import "../../assets/scss/helpers";
 
-.document-modal {
-  .person-information {
-    display: flex;
-    flex-wrap: nowrap;
-
-    .image {
-  
-    }
-
-    .text-wrapper {
-      flex: 1;
-      margin-left: $baseUnit * 4;
-
-      .name {
-        font-weight: 700;
-      }
-
-      .other {
-        margin-top: $baseUnit / 2;
-      }
-    }
-  }
-}
-
 .home {
   max-width: 922px;
   
@@ -32,18 +8,29 @@
     margin-bottom: $baseUnit * 7;
   }
 
+  .panel-title {
+    margin: 0 0 ($baseUnit * 4) 0;
+    display: flex;
+    align-items: center;
+    line-height: 1em;
+
+    .icon {
+      margin-right: $baseUnit * 3;
+    }
+  }
+
+  .panel-link {
+    margin-top: $baseUnit * 5;
+  }
+
   .activity-panel {
     background: $springWood;
-    padding: $baseUnit * 6;
-
-    .activity-panel-title {
-      margin: 0 0 ($baseUnit * 4) 0;
-    }
+    padding: ($baseUnit * 5) ($baseUnit * 4);
+    margin-bottom: $baseUnit * 4;
 
     .activity-panel-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: $baseUnit * 5;
 
       tr {
         td {
@@ -59,6 +46,10 @@
             }
           }
 
+          a {
+            // text-decoration: none;
+          }
+
           &:last-child {
             text-align: center;
           }
@@ -70,6 +61,69 @@
           }
         }
       }
+    }
+  }
+
+  .statistics-class-reports-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .statistics-panel {
+    background: $catSkillWhite;
+    padding: ($baseUnit * 5) ($baseUnit * 4);
+    width: 540px;
+    margin-right: $baseUnit * 4;
+
+    .panel-title {
+      margin: 0 0 ($baseUnit * 3) 0;
+    }
+
+    .statistics {
+      .statistics-row {
+        display: flex;
+        justify-content: space-between;
+
+        .statistics-item {
+          width: 180px;
+          margin-bottom: $baseUnit * 3;
+
+          .statistics-item-title {
+      
+          }
+
+          .statistics-item-text {
+            // max-width: 140px;
+          }
+        }
+      }
+    }
+
+    .panel-link {
+      margin-top: $baseUnit * 4;
+    }
+  }
+
+  .class-reports-panel {
+    background: $ecruWhite;
+    padding: ($baseUnit * 5) ($baseUnit * 4);
+    flex: 1;
+
+    .class-reports-group {
+      margin-bottom: $baseUnit * 2;
+
+      .class-reports-group-title {
+        font-weight: 700;
+        margin-bottom: $baseUnit;
+      }
+
+      .class-reports-group-text {
+        margin-bottom: $baseUnit;
+      }
+    }
+
+    .panel-link {
+      margin-top: $baseUnit * 5;
     }
   }
 }

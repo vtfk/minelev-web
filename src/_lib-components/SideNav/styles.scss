@@ -37,12 +37,63 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: -100px;
+    margin-top: -56px;
 
     .sidenav-list {
       @include reset-list();
       text-align: center;
       width: 100%;
+    }
+  }
+}
+
+.sidenav-item {
+  display: block;
+
+  a {
+    display: block;
+    padding: ($baseUnit * 2.5) ($baseUnit * 4);
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    color: inherit;
+    text-align: center;
+    
+    .sidenav-item-icon {
+      display: inline-block;
+      width: 24px;
+      margin-bottom: $baseUnit * 1;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .sidenav-item-text {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      user-select: none;
+    }
+  }  
+
+  &.active {
+    a {
+      background: $swansDown;
+    }
+  }
+
+  &:not(.active) {
+    a {
+      &:hover,
+      &:focus {
+        background: rgba($swansDown, 0.3);
+      }
+
+      &:focus {
+        outline: 1px dotted #ccc;
+      } 
     }
   }
 }

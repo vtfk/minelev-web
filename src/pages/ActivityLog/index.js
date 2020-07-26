@@ -1,70 +1,47 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
-import { Heading2, Paragraph } from "../../_lib-components/Typography"
+import { ROUTES } from "../../config/constants"
+import * as DEMO_DATA from "../../config/demo-data"
+
+import { Heading2, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
-import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
-import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
+
+import { NewDocumentModal } from "../../containers/NewDocumentModal"
 
 import "./styles.scss"
 
 export function ActivityLog() {
-  let activities = [
-    {
-      id: 1,
-      firstName: 'Brage',
-      lastName: 'Dahle',
-      type: 'Varselbrev atferd',
-      date: '12. juni 2020', // TODO: date
-      status: 'Sendt',
-      sentBy: 'Charlotte Testine',
-    },
-    {
-      id: 2,
-      firstName: 'Erik',
-      lastName: 'Wang',
-      type: 'Varselbrev fag',
-      date: '12. juni 2020', // TODO: date
-      status: 'I kø',
-      sentBy: 'Robert Gaarden',
-    },
-    {
-      id: 3,
-      firstName: 'Per Andre',
-      lastName: 'Olsen',
-      type: 'Varselbrev atferd',
-      date: '12. juni 2020', // TODO: date
-      status: 'Arkivert',
-      sentBy: 'Charlotte Testine',
-    },
-    {
-      id: 4,
-      firstName: 'Dag Otto',
-      lastName: 'Johannesen',
-      type: 'Varselbrev fag',
-      date: '12. juni 2020', // TODO: date
-      status: 'I kø',
-      sentBy: 'Robert Gaarden',
-    },
-    {
-      id: 5,
-      firstName: 'Per Andre',
-      lastName: 'Haler-Olsen',
-      type: 'Varselbrev atferd',
-      date: '12. juni 2020', // TODO: date
-      status: 'Arkivert',
-      sentBy: 'Charlotte Testine',
-    }
-  ]
+  const [documentModalState, setDocumentModalState] = useState(false)
+  const [selectedStudent, setSelectedStudent] = useState(null)
+
+  let activities = DEMO_DATA.ACTIVITIES
+
+  function openDocumentModal(activity) {
+    setSelectedStudent(activity)
+    setDocumentModalState(true)
+  }
 
   return (
     <DefaultLayout>
+
+      {
+        selectedStudent &&
+        <NewDocumentModal
+          open={ documentModalState }
+          selectedStudent={ selectedStudent }
+          title="Nytt dokument"
+          onDismiss={ () => { setDocumentModalState(false) } }
+        />
+      }
+
       <div className="activity-log">
         
         <Heading2 className="page-title">Aktivitetslogg</Heading2>
 
-        <table className="activity-table">
+        <table className="data-actions-table">
             <thead>
               <tr>
                 <th><Paragraph size="small">Elev</Paragraph></th>
@@ -72,7 +49,7 @@ export function ActivityLog() {
                 <th><Paragraph size="small">Dato</Paragraph></th>
                 <th><Paragraph size="small">Status</Paragraph></th>
                 <th><Paragraph size="small">Sendt av</Paragraph></th>
-                <th><Paragraph size="small">Ny handling</Paragraph></th>
+                <th className="actions-th"><Paragraph size="small">Ny handling</Paragraph></th>
               </tr>
             </thead>
             <tbody>
@@ -81,10 +58,10 @@ export function ActivityLog() {
                   return (
                     <tr key={ activity.id }>
                       <td>
-                        <div className="activity-name">
+                        <div className="name">
                           <InitialsBadge firstName={activity.firstName} lastName={activity.lastName} size="small" />
                           <Paragraph>
-                            { activity.firstName } { activity.lastName }
+                            <Link href={ `/${ROUTES.students}/${activity.studentId}` }>{ activity.firstName } { activity.lastName }</Link>
                           </Paragraph>
                         </div>
                       </td>
@@ -100,11 +77,11 @@ export function ActivityLog() {
                       <td>
                         <Paragraph>{ activity.sentBy }</Paragraph>
                       </td>
-                      <td>
+                      <td className="actions">
                         <IconDropdownNav>
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt dokument" />
+                          <IconDropdownNavItem onClick={ () => { openDocumentModal(activity) } } title="Nytt dokument" />
                           <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt notat" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
+                          <IconDropdownNavItem href={ `/${ROUTES.students}/${activity.studentId}` } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
                         </IconDropdownNav>
                       </td>
                     </tr>

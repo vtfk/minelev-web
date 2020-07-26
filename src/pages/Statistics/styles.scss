@@ -1,0 +1,71 @@
+@import "../../_lib-components/Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.statistics {
+  max-width: 922px;
+  
+  .page-title {
+    margin-bottom: $baseUnit * 7;
+  }
+
+  .numbers {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -($baseUnit * 4);
+    margin-bottom: $baseUnit * 8;
+
+    .numbers-item {
+      width: calc(100% / 3 - (#{$baseUnit * 4}));
+      margin-bottom: $baseUnit * 2;
+      margin-left: $baseUnit * 4;
+      padding: ($baseUnit * 2) ($baseUnit * 4) ($baseUnit * 2) ($baseUnit * 4);
+      background: $catSkillWhite;
+
+      .numbers-item-title {
+  
+      }
+
+      .numbers-item-text {
+        padding-right: $baseUnit * 4;
+      }
+    }
+  }
+
+  .stats-collapse {
+    margin-bottom: $baseUnit * 6;
+
+    .stats-collapse-title {
+      margin-bottom: $baseUnit * 4;
+      font-weight: 700;
+    }
+
+    .stats-collapse-table {
+      table {
+        border-collapse: collapse;
+        width: 100%;
+
+        tr {
+          td {
+            padding-right: $baseUnit * 2;
+            padding-bottom: $baseUnit * 1;
+
+            &.stats-collapse-table-progress {
+              width: 400px;
+
+              .stats-collapse-table-progressbar {
+                height: $baseUnit * 2;
+                width: 0;
+                background: $onahau;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      padding-bottom: $baseUnit * 6;
+      border-bottom: 1px solid #979797;
+    }
+  }
+}
