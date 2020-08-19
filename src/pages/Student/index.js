@@ -14,6 +14,8 @@ import { CardLink } from "../../_lib-components/CardLink"
 import { YffConfirmationModal } from "../../containers/YffConfirmationModal"
 import { YffCurriculumModal } from "../../containers/YffCurriculumModal"
 import { YffSendModal } from "../../containers/YffSendModal"
+import { NewDocumentModal } from "../../containers/NewDocumentModal"
+import { NewNoteModal } from "../../containers/NewNoteModal"
 
 import "./styles.scss"
 
@@ -21,6 +23,8 @@ export function Student({ match, ...props }) {
   const [confirmationModalState, setConfirmationModalState] = useState(false)
   const [curriculumModalState, setCurriculumModalState] = useState(false)
   const [sendModalState, setSendModalState] = useState(false)
+  const [documentModalState, setDocumentModalState] = useState(false)
+  const [noteModalState, setNoteModalState] = useState(false)
 
   const { id } = match.params
   const student = DEMO_DATA.getSelectedStudent(parseInt(id))
@@ -37,6 +41,14 @@ export function Student({ match, ...props }) {
 
   function openSendModal() {
     setSendModalState(true)
+  }
+
+  function openDocumentModal(activity) {
+    setDocumentModalState(true)
+  }
+  
+  function openNoteModal(activity) {
+    setNoteModalState(true)
   }
 
   // testing
@@ -70,9 +82,23 @@ export function Student({ match, ...props }) {
         onDismiss={ () => { setSendModalState(false) } }
       />
 
+      <NewDocumentModal
+        open={ documentModalState }
+        selectedStudent={ student }
+        title="Nytt dokument"
+        onDismiss={ () => { setDocumentModalState(false) } }
+      />
+
+      <NewNoteModal
+        open={ noteModalState }
+        selectedStudent={ student }
+        title="Notat til elevmappen"
+        onDismiss={ () => { setNoteModalState(false) } }
+      />
+
       <div className="student">
 
-        <Link className="back-link" href={ `/${ROUTES.students}` } noStyle={ true } leftIcon={ <Icon name="arrowLeft" size="xsmall" /> }>Tilbake til elevoversikten</Link>
+        <Link className="back-link" href={ `/${ROUTES.students}` } noStyle={ true } leftIcon={ <Icon name="arrowLeft" size="xsmall" /> }>Til elevoversikten</Link>
         
         <div className="person-information">
           <div className="image">
@@ -88,6 +114,34 @@ export function Student({ match, ...props }) {
               <Paragraph>26. april 2001</Paragraph>
               <Paragraph>bra26041@skole.vtfk.no</Paragraph>
             </div>
+          </div>
+
+          <div className="person-information-actions">
+            { /* TODO: component */ }
+            <Link
+              className="person-information-action-button button-left-icon transparent-with-border"
+              onClick={ () => { openDocumentModal(student) } }
+            >
+              <div className="button-left-icon-icon">
+                <Icon name="add" size="small" />
+              </div>
+              <div className="button-left-icon-text">
+                Nytt dokument
+              </div>
+            </Link>
+
+            { /* TODO: component */ }
+            <Link
+              className="person-information-action-button button-left-icon transparent-with-border"
+              onClick={ () => { openNoteModal(student) } }
+            >
+              <div className="button-left-icon-icon">
+                <Icon name="add" size="small" />
+              </div>
+              <div className="button-left-icon-text">
+                Nytt notat
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -147,6 +201,67 @@ export function Student({ match, ...props }) {
               }
             </tbody>
           </table>
+
+          { /* TODO: component */ }
+          <Link
+            className="add-more-button button-left-icon button-primary"
+            onClick={ () => { openDocumentModal(student) } }
+          >
+            <div className="button-left-icon-icon">
+              <Icon name="add" size="small" />
+            </div>
+            <div className="button-left-icon-text">
+              Nytt dokument
+            </div>
+          </Link>
+        </div>
+
+        <div className="activity-panel">
+          <Heading3 as="h2" className="panel-title">
+            <Icon name="activity" size="small" /> Notater
+          </Heading3>
+
+          <table className="activity-panel-table">
+            <tbody>
+              {
+                activities.map(function(activity, index) {
+                  return (
+                    <tr key={ activity.id }>
+                      <td>
+                        <Paragraph>Tekst</Paragraph>
+                      </td>
+                      <td>
+                        <Paragraph>Tekst</Paragraph>
+                      </td>
+                      <td>
+                        <Paragraph>Tekst</Paragraph>
+                      </td>
+                      <td>
+                        <IconDropdownNav>
+                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Element 1" />
+                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Element 2" />
+                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Element 3" />
+                        </IconDropdownNav>
+                      </td>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </table>
+
+          { /* TODO: component */ }
+          <Link
+            className="add-more-button button-left-icon button-primary"
+            onClick={ () => { openNoteModal(student) } }
+          >
+            <div className="button-left-icon-icon">
+              <Icon name="add" size="small" />
+            </div>
+            <div className="button-left-icon-text">
+              Nytt notat til elevmappen
+            </div>
+          </Link>
         </div>
 
       </div>

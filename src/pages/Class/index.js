@@ -21,7 +21,7 @@ export function Class({ match, ...props }) {
     <DefaultLayout>
       <div className="class">
 
-        <Link className="back-link" href={ `/${ROUTES.students}` } noStyle={ true } leftIcon={ <Icon name="arrowLeft" size="xsmall" /> }>Tilbake til elevoversikten</Link>
+        <Link className="back-link" href={ `/${ROUTES.students}` } noStyle={ true } leftIcon={ <Icon name="arrowLeft" size="xsmall" /> }>Til klasseoversikten</Link>
         
         <div className="class-information">
           <div className="class-shortname">

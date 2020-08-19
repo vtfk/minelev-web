@@ -10,11 +10,13 @@ import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
 
 import { NewDocumentModal } from "../../containers/NewDocumentModal"
+import { NewNoteModal } from "../../containers/NewNoteModal"
 
 import "./styles.scss"
 
 export function Students(props) {
   const [documentModalState, setDocumentModalState] = useState(false)
+  const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
 
   let students = DEMO_DATA.STUDENTS
@@ -29,6 +31,11 @@ export function Students(props) {
     setDocumentModalState(true)
   }
 
+  function openNoteModal(activity) {
+    setSelectedStudent(activity)
+    setNoteModalState(true)
+  }
+
   return (
     <DefaultLayout>
 
@@ -39,6 +46,16 @@ export function Students(props) {
           selectedStudent={ selectedStudent }
           title="Nytt dokument"
           onDismiss={ () => { setDocumentModalState(false) } }
+        />
+      }
+
+      {
+        selectedStudent &&
+        <NewNoteModal
+          open={ noteModalState }
+          selectedStudent={ selectedStudent }
+          title="Notat til elevmappen"
+          onDismiss={ () => { setNoteModalState(false) } }
         />
       }
 
@@ -83,8 +100,8 @@ export function Students(props) {
                       <td className="actions">
                         <IconDropdownNav>
                           <IconDropdownNavItem onClick={ () => { openDocumentModal(student) } } title="Nytt dokument" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt notat" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title={ `YFF for ${student.firstName} ${student.lastName}` } />
+                          <IconDropdownNavItem onClick={ () => { openNoteModal(student) } } title="Nytt notat" />
+                          <IconDropdownNavItem href={ `/${ROUTES.students}/${student.id}` } title={ `YFF for ${student.firstName} ${student.lastName}` } />
                         </IconDropdownNav>
                       </td>
                     </tr>
