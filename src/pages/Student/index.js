@@ -42,9 +42,10 @@ export function Student({ match, ...props }) {
               {student.firstName} {student.lastName}
             </Heading2>
             <div className="other">
-              <Paragraph>Noe mer tekst her</Paragraph>
-              <Paragraph>Og enda noe mer tekst her</Paragraph>
-              <Paragraph>Og en e-postadresse</Paragraph>
+              <Paragraph>{student.schoolName}</Paragraph>
+              <Paragraph><Link href={ `/${ROUTES.classes}/${student.classId}` }>{student.className}</Link></Paragraph>
+              <Paragraph>26. april 2001</Paragraph>
+              <Paragraph>bra26041@skole.vtfk.no</Paragraph>
             </div>
           </div>
         </div>

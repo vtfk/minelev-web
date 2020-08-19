@@ -142,17 +142,20 @@ export function Home() {
             <div className="class-reports-group">
               <Paragraph className="class-reports-group-title">Kragerø videregående skole</Paragraph>
               <Paragraph className="class-reports-group-text">VG1 – Helsefag</Paragraph>
-              <Paragraph className="class-reports-group-text">VG1 – Elektro</Paragraph>
             </div>
 
             <div className="class-reports-group">
               <Paragraph className="class-reports-group-title">Skogmo videregående skole</Paragraph>
-              <Paragraph className="class-reports-group-text">VG1 – Helsefag</Paragraph>
               <Paragraph className="class-reports-group-text">VG1 – Elektro</Paragraph>
             </div>
 
             <div className="class-reports-group">
               <Paragraph className="class-reports-group-title">Bamle videregående skole</Paragraph>
+              <Paragraph className="class-reports-group-text">VG1 – Helsefag</Paragraph>
+            </div>
+
+            <div className="class-reports-group">
+              <Paragraph className="class-reports-group-title">Sandefjord videregående skole</Paragraph>
               <Paragraph className="class-reports-group-text">VG1 – Helsefag</Paragraph>
             </div>
 

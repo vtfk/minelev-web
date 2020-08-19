@@ -12,8 +12,13 @@ import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
 
 import "./styles.scss"
 
-export function Students() {
+export function Students(props) {
   let students = DEMO_DATA.STUDENTS
+  let searchTerm = new URLSearchParams(props.location.search).get("s")
+
+  if (searchTerm && searchTerm !== '') {
+    students = students.filter(student => student.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || student.lastName.toLowerCase().includes(searchTerm.toLowerCase()))
+  }
 
   return (
     <DefaultLayout>
@@ -21,7 +26,9 @@ export function Students() {
         
         <Heading2 className="page-title">Elever</Heading2>
 
-        <table className="data-actions-table">
+        {
+          students.length > 0 &&
+          <table className="data-actions-table">
             <thead>
               <tr>
                 <th><Paragraph size="small">Klasse</Paragraph></th>
@@ -48,7 +55,7 @@ export function Students() {
                         <Paragraph>{ student.bornDate }</Paragraph>
                       </td>
                       <td>
-                        <Paragraph>{ student.className }</Paragraph>
+                        <Paragraph><Link href={ `/${ROUTES.classes}/${student.classId}` }>{student.className}</Link></Paragraph>
                       </td>
                       <td>
                         <Paragraph>{ student.schoolName }</Paragraph>
@@ -66,6 +73,12 @@ export function Students() {
               }
             </tbody>
           </table>
+        }
+
+        {
+          students.length === 0 &&
+          <p>Det er ingen student med valgt filtrering.</p>
+        }
 
       </div>
     </DefaultLayout>

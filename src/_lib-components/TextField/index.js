@@ -22,6 +22,7 @@ export function SearchField({ type, className, placeholder, value, disabled, ...
     <div className="text-field search">
       <input 
         type={ type ? type : 'text' }
+        value={ value ? value : '' }
         disabled={ disabled ? disabled : false }
         placeholder={ placeholder ? placeholder : '' } 
         className={ `text-field text-field-search ${className ? className : ''}` } 

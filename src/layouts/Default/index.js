@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 
 import {
   useLocation,
+  Redirect
 } from "react-router-dom"
 
 import { ROUTES } from "../../config/constants"
@@ -18,8 +19,9 @@ import { Icon } from '../../_lib-components/Icon'
 
 import "./styles.scss"
 
-export function DefaultLayout({ children }) {   
+export function DefaultLayout(props) {   
   let location = useLocation();
+  const [searchTerm, setSearchTerm] = useState(new URLSearchParams(location.search).get("s"))
 
   let currentUser = DEMO_DATA.CURRENT_USER
 
@@ -37,7 +39,16 @@ export function DefaultLayout({ children }) {
       <div className="container">
         <div className="action-bar">
           <div className="search">
-            <SearchField className="search-input" type="text" placeholder="Søk etter elev ..." />
+            <SearchField
+              className="search-input"
+              type="text" placeholder="Søk etter elev ..."
+              onChange={ (event) => { setSearchTerm(event.target.value) } } 
+              value={searchTerm}
+              onKeyPress={ event => {
+                if (event.key === 'Enter') {
+                  window.location.replace(`/${ ROUTES.students }?s=${event.target.value}`);
+                }
+              } } />
           </div>
 
           <div className="user">
@@ -47,15 +58,14 @@ export function DefaultLayout({ children }) {
             <InitialsBadge className="user-image" firstName={currentUser.firstName} lastName={currentUser.lastName} />
             <div className="user-menu">
               <IconDropdownNav>
-                <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Element 1" />
-                <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Element 2" />
-                <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Element 3" />
+                <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Min konto" />
+                <IconDropdownNavItem onClick={ () => { alert('Du er nå logget ut!') } } title="Logg ut" />
               </IconDropdownNav>
             </div>
           </div>
         </div>
 
-        { children }
+        { props.children }
       </div>
     </div>
   ); 
