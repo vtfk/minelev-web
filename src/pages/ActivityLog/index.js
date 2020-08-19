@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
@@ -7,16 +7,36 @@ import * as DEMO_DATA from "../../config/demo-data"
 
 import { Heading2, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
-import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
-import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
+
+import { NewDocumentModal } from "../../containers/NewDocumentModal"
 
 import "./styles.scss"
 
 export function ActivityLog() {
+  const [documentModalState, setDocumentModalState] = useState(false)
+  const [selectedStudent, setSelectedStudent] = useState(null)
+
   let activities = DEMO_DATA.ACTIVITIES
+
+  function openDocumentModal(activity) {
+    setSelectedStudent(activity)
+    setDocumentModalState(true)
+  }
 
   return (
     <DefaultLayout>
+
+      {
+        selectedStudent &&
+        <NewDocumentModal
+          open={ documentModalState }
+          selectedStudent={ selectedStudent }
+          title="Nytt dokument"
+          onDismiss={ () => { setDocumentModalState(false) } }
+        />
+      }
+
       <div className="activity-log">
         
         <Heading2 className="page-title">Aktivitetslogg</Heading2>
@@ -59,9 +79,9 @@ export function ActivityLog() {
                       </td>
                       <td className="actions">
                         <IconDropdownNav>
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt dokument" />
+                          <IconDropdownNavItem onClick={ () => { openDocumentModal(activity) } } title="Nytt dokument" />
                           <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt notat" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
+                          <IconDropdownNavItem href={ `/${ROUTES.students}/${activity.studentId}` } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
                         </IconDropdownNav>
                       </td>
                     </tr>

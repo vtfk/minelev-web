@@ -22,5 +22,6 @@ export function Colors() {
     grannyApple: "#C9E6C2",
     zanah: "#DAEED5",
     hawkesBlue: "#D5DDEE",
+    iceCold: "#B2DCDA",
   }
 }

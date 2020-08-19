@@ -8,13 +8,11 @@ import {
 import { ROUTES } from "../../config/constants"
 import * as DEMO_DATA from "../../config/demo-data"
 
-import { SideNav } from "../../_lib-components/SideNav"
-import { SideNavItem } from"../../_lib-components/SideNavItem"
-import { SearchField } from"../../_lib-components/TextField"
+import { SideNav, SideNavItem } from "../../_lib-components/SideNav"
+import { SearchField } from"../../_lib-components/SearchField"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { Paragraph } from "../../_lib-components/Typography"
-import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
-import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
 import { Icon } from '../../_lib-components/Icon'
 
 import "./styles.scss"

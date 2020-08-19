@@ -2,8 +2,7 @@ import React from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
-import { Heading1, Heading2, Heading3, Paragraph } from "../../_lib-components/Typography"
-import { Icon } from '../../_lib-components/Icon'
+import { Heading1, Heading2, Heading3 } from "../../_lib-components/Typography"
 
 import "./styles.scss"
 
@@ -105,10 +104,10 @@ export function Statistics() {
                 {
                   warningsBySchool.map(function(item, index) {
                     return (
-                      <tr>
+                      <tr key={ index }>
                         <td>{ item.schoolName }</td>
                         <td>{ item.count }</td>
-                        <td class="stats-collapse-table-progress">
+                        <td className="stats-collapse-table-progress">
                           <div 
                             className="stats-collapse-table-progressbar" 
                             style={ { width: (100 * parseInt(item.count) / warningsCount) + '%' } }
@@ -134,10 +133,10 @@ export function Statistics() {
                 {
                   followupsBySchool.map(function(item, index) {
                     return (
-                      <tr>
+                      <tr key={ index }>
                         <td>{ item.schoolName }</td>
                         <td>{ item.count }</td>
-                        <td class="stats-collapse-table-progress">
+                        <td className="stats-collapse-table-progress">
                           <div 
                             className="stats-collapse-table-progressbar" 
                             style={ { width: (100 * parseInt(item.count) / followupsCount) + '%' } }

@@ -4,7 +4,7 @@
     <title>icon-arrow-right</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="icon-arrow-right" transform="translate(7.000000, 5.000000) scale(-1, 1) translate(-7.000000, -5.000000) " fill="#000000" fill-rule="nonzero">
+        <g id="icon-arrow-right" transform="translate(7.000000, 5.000000) scale(-1, 1) translate(-7.000000, -5.000000) " fill="currentColor" fill-rule="nonzero">
             <polygon id="Shape" points="8.33333333 0 7.45833333 0.875 10.9583333 4.375 -1.03916875e-13 4.375 -1.03916875e-13 5.625 10.9583333 5.625 7.45833333 9.125 8.33333333 10 13.3333333 5"></polygon>
         </g>
     </g>

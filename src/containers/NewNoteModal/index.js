@@ -1,14 +1,16 @@
-import React, { Fragment, useEffect } from "react"
+import React, { Fragment, useState, useEffect } from "react"
 import PropTypes from 'prop-types'
 
 import { Heading3, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { Modal, ModalBody, ModalSideActions } from "../../_lib-components/Modal"
-import { Select, SelectMultiple } from "../../_lib-components/Select"
+import { TextField } from "../../_lib-components/TextField"
 
 import "./styles.scss"
 
-export function NewDocumentModal({ selectedStudent, ...props}) {
+export function NewNoteModal({ selectedStudent, ...props}) {
+  const [noteText, setNoteText] = useState('')
+
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress);
 
@@ -28,7 +30,7 @@ export function NewDocumentModal({ selectedStudent, ...props}) {
     <Fragment>
       <Modal 
         { ...props }
-        className="new-document-modal"
+        className="new-note-modal"
         onDismiss={ props.onDismiss }
       >
         <ModalBody>
@@ -50,49 +52,17 @@ export function NewDocumentModal({ selectedStudent, ...props}) {
           </div>
 
           <div className="form">
-            <Select
-              placeholder="Velg dokumenttype"
-              items={[
-                { value: 0, label: 'Varsel atferd' },
-                { value: 1, label: 'Varsel fag' },
-                { value: 2, label: 'Varsel orden' },
-              ]}
-              selectedItem={ { value: 0, label: 'Varsel atferd' } }
-              onChange={ (item) => { alert('Valgt: ' + item.label) } }
-            />
-
-            <Select
-              placeholder="Hva gjelder varselet?"
-              items={[
-                { value: 1, label: 'Halvårsvurdering 1. termin' },
-                { value: 2, label: 'Halvårsvurdering 2. termin' },
-                { value: 3, label: 'Standpunktkarakter' },
-              ]}
-              selectedItem={ { value: 3, label: 'Standpunktkarakter' } }
-              onChange={ (item) => { alert('Valgt: ' + item.label) } }
-            />
-
-            <SelectMultiple
-              placeholder="Hva er årsaken til varselet?"
-              items={[
-                { value: 1, label: 'Varsel atferd årsak 1' },
-                { value: 2, label: 'Varsel atferd årsak 2' },
-                { value: 3, label: 'Varsel atferd årsak 3' },
-              ]}
-              selectedItems={[
-                { value: 2, label: 'Varsel atferd årsak 2' },
-                { value: 3, label: 'Varsel atferd årsak 3' },
-              ]}
-              onChange={ (item) => { alert('Valgt: ' + item.label) } }
+            <TextField
+              rows={ 5 }
+              placeholder="Skriv inn notat her"
+              value={ noteText }
+              onChange={ (event) => { setNoteText(event.target.value) } }
             />
           </div>
 
         </ModalBody>
         <ModalSideActions>
-        
-          <div className="action">
-            <Link onClick={ () => { alert('Ikke implementert') } }>Forhåndsvisning</Link>
-          </div>
+
           <div className="action">
             { /* TODO: component */ }
             <button className="button button-primary">Send</button>
@@ -107,7 +77,7 @@ export function NewDocumentModal({ selectedStudent, ...props}) {
   )
 }
 
-NewDocumentModal.propTypes = {
+NewNoteModal.propTypes = {
   open: PropTypes.bool.isRequired,
   title: PropTypes.string,
   onDismiss: PropTypes.func.isRequired,

@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { useParams } from "react-router-dom"
+import React, { useState, useEffect } from "react"
 
 import { DefaultLayout } from "../../layouts/Default"
 
@@ -8,27 +7,69 @@ import * as DEMO_DATA from "../../config/demo-data"
 
 import { Heading2, Heading3, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
-import { Modal } from "../../_lib-components/Modal"
-import { ModalBody } from "../../_lib-components/ModalBody"
-import { ModalSideActions } from "../../_lib-components/ModalSideActions"
-import { IconDropdownNav } from "../../_lib-components/IconDropdownNav"
-import { IconDropdownNavItem } from "../../_lib-components/IconDropdownNavItem"
+import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
 import { Icon } from "../../_lib-components/Icon"
 import { CardLink } from "../../_lib-components/CardLink"
+
+import { YffConfirmationModal } from "../../containers/YffConfirmationModal"
+import { YffCurriculumModal } from "../../containers/YffCurriculumModal"
+import { YffSendModal } from "../../containers/YffSendModal"
 
 import "./styles.scss"
 
 export function Student({ match, ...props }) {
-  const [documentModalState, setDocumentModalState] = useState(false)
-  const [selectedStudent, setSelectedStudent] = useState(null)
+  const [confirmationModalState, setConfirmationModalState] = useState(false)
+  const [curriculumModalState, setCurriculumModalState] = useState(false)
+  const [sendModalState, setSendModalState] = useState(false)
 
   const { id } = match.params
   const student = DEMO_DATA.getSelectedStudent(parseInt(id))
 
   const activities = DEMO_DATA.ACTIVITIES
 
+  function openConfirmationModal() {
+    setConfirmationModalState(true)
+  }
+
+  function openCurriculumModal() {
+    setCurriculumModalState(true)
+  }
+
+  function openSendModal() {
+    setSendModalState(true)
+  }
+
+  // testing
+  useEffect(() => {
+    // setConfirmationModalState(true)
+    // setCurriculumModalState(true)
+  }, []);
+  // -- testing 
+
   return (
     <DefaultLayout>
+
+      <YffConfirmationModal
+        open={ confirmationModalState }
+        selectedStudent={ student }
+        title="Bekreftelse om utplassering av elev"
+        onDismiss={ () => { setConfirmationModalState(false) } }
+      />
+
+      <YffCurriculumModal
+        open={ curriculumModalState }
+        selectedStudent={ student }
+        title="Lokal læreplan"
+        onDismiss={ () => { setCurriculumModalState(false) } }
+      />
+
+      <YffSendModal
+        open={ sendModalState }
+        selectedStudent={ student }
+        title="Send og arkiver lokal læreplan"
+        onDismiss={ () => { setSendModalState(false) } }
+      />
+
       <div className="student">
 
         <Link className="back-link" href={ `/${ROUTES.students}` } noStyle={ true } leftIcon={ <Icon name="arrowLeft" size="xsmall" /> }>Tilbake til elevoversikten</Link>
@@ -60,11 +101,16 @@ export function Student({ match, ...props }) {
         </div>
 
         <div className="actions">
-          <CardLink className="action-link" onClick={ () => { alert('Ikke implementert') } }>
+          <CardLink className="action-link" onClick={ () => { openConfirmationModal() } }>
             Bekreftelse om utplassering av elev
           </CardLink>
-          <CardLink className="action-link" onClick={ () => { alert('Ikke implementert') } }>
+          <CardLink className="action-link" onClick={ () => { openCurriculumModal() } }>
             Opprett lokal læreplan
+          </CardLink>
+          <CardLink title="Du må først opprette lokal læreplan" disabled className="action-link" onClick={ () => { openSendModal() } }>
+            Send og arkiver lokal læreplan
+            <br/>
+            <Paragraph size="small">Du må først opprette lokal læreplan</Paragraph>
           </CardLink>
         </div>
 

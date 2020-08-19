@@ -1,11 +1,11 @@
 @import "../../_lib-components/Tokens/tokens.scss";
 @import "../../assets/scss/helpers";
 
-.new-document-modal {
+.yff-send-modal {
   .person-information {
     display: flex;
     flex-wrap: nowrap;
-    margin-bottom: $baseUnit * 12;
+    margin-bottom: $baseUnit * 7;
 
     .image {
   
@@ -25,22 +25,24 @@
     }
   }
 
+  .intro {
+    margin-top: 0;
+  }
+
   .form {
     padding-bottom: $baseUnit * 8;
-    
-    .select {
-      margin-bottom: $baseUnit * 5;
-    }
   }
 
   .button {
     @include reset-button();
+    outline: 0;
     height: 48px;
-    line-height: 48px;
+    line-height: 46px;
     font-size: 16px;
     letter-spacing: 0.4px;
     color: #fff;
     background: $deepSeaGreen;
+    border: 1px solid $deepSeaGreen;
     border-radius: 24px;
     display: block;
     width: 100%;
@@ -48,7 +50,24 @@
     font-weight: 700;
 
     &.button-primary {
+      &:hover {
+        background: #fff;
+        color: $deepSeaGreen;
+        border-color: $deepSeaGreen;
+      }
 
+      &:active,
+      &:focus {
+        background: $catSkillWhite;
+        color: $deepSeaGreen;
+        border-color: $deepSeaGreen; 
+      }
     }
+  }
+
+  .subheader {
+    margin: ($baseUnit * 6) 0 ($baseUnit * 3) 0;
+    font-size: 21px;
+    font-weight: bold;
   }
 }

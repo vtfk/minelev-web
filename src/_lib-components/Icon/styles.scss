@@ -1,25 +1,23 @@
-@import "../Tokens/tokens.scss";
-@import "../../assets/scss/helpers";
-
 .icon {
   width: 24px;
   height: auto;
 
-  img {
+  svg {
+    display: block;
     width: 24px;
     height: auto;
   }
   
   &.small {
     &,
-    img {
+    svg {
       width: 18px;
     }
   }
 
   &.xsmall {
     &,
-    img {
+    svg {
       width: 14px;
     }
   }

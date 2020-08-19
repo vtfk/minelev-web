@@ -1,7 +1,7 @@
 @import "../../_lib-components/Tokens/tokens.scss";
 @import "../../assets/scss/helpers";
 
-.new-document-modal {
+.new-note-modal {
   .person-information {
     display: flex;
     flex-wrap: nowrap;
@@ -28,6 +28,7 @@
   .form {
     padding-bottom: $baseUnit * 8;
     
+    .text-field,
     .select {
       margin-bottom: $baseUnit * 5;
     }

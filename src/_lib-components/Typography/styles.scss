@@ -16,10 +16,12 @@
   }
 
   &.link {
+    @include reset-button();
     font-family: "Nunito Sans", sans-serif;
     font-size: 16px;
     line-height: 24px;
     color: inherit;
+    cursor: pointer;
 
     &.no-style {
       text-decoration: none;
@@ -45,6 +47,8 @@
       }
 
       &:hover {
+        text-decoration: none;
+
         .link-icon {
           &.left-icon {
             transform: translateX(-4px);
@@ -56,6 +60,10 @@
         }
       }
     }
+
+    &:hover {
+        text-decoration: underline;
+      }
   }
 
   &.heading-one {

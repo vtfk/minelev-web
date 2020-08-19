@@ -3,8 +3,10 @@
 
 .icon-dropdown-nav {
   position: relative;
+  display: inline-block;
 
   .icon-dropdown-nav-trigger {
+    @include reset-button();
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -23,6 +25,43 @@
 
     ul {
       @include reset-list();
+    }
+  }
+}
+
+.icon-dropdown-nav-item {
+  white-space: nowrap;
+
+  a,
+  button {
+    @include reset-button();
+    width: 100%;
+    display: block;
+    line-height: $baseUnit * 6;
+    height: $baseUnit * 6;
+    white-space: nowrap;
+    text-decoration: none;
+    color: inherit;
+    padding: 0 ($baseUnit * 3);
+    border-bottom: 1px solid rgba(#C6C6C6, 0.37);
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover,
+    &:focus {
+      background: $hummingBird;
+    }
+
+    &:focus {
+      outline: 1px dotted #ccc;
+    }
+  }
+
+  &:last-child {
+    a {
+      border-bottom: 0;
     }
   }
 }

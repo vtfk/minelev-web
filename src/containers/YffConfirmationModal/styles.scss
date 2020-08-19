@@ -1,0 +1,157 @@
+@import "../../_lib-components/Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.yff-confirmation-modal {
+  .person-information {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: $baseUnit * 7;
+
+    .image {
+  
+    }
+
+    .text-wrapper {
+      flex: 1;
+      margin-left: $baseUnit * 4;
+
+      .name {
+        font-weight: 700;
+      }
+
+      .other {
+        margin-top: $baseUnit / 2;
+      }
+    }
+  }
+
+  .intro {
+    margin-top: 0;
+  }
+
+  .form {
+    padding-bottom: $baseUnit * 8;
+
+    .input-element {
+      margin-bottom: $baseUnit * 5;
+    }
+
+    .prefilled {
+      margin-bottom: $baseUnit * 4;
+
+      .prefilled-label {
+        font-size: 14px;
+        font-weight: bold;
+        position: relative;
+        color: rgba(#1D1C28, 0.4);
+        margin-bottom: $baseUnit;
+      }
+
+      .prefilled-text {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+
+    .add-more-button {
+      margin-bottom: $baseUnit * 4;
+    }
+  }
+
+  .button {
+    @include reset-button();
+    outline: 0;
+    height: 48px;
+    line-height: 46px;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    color: #fff;
+    background: $deepSeaGreen;
+    border: 1px solid $deepSeaGreen;
+    border-radius: 24px;
+    display: block;
+    width: 100%;
+    padding: 0 ($baseUnit * 7);
+    font-weight: 700;
+
+    &.button-primary {
+      &:hover {
+        background: #fff;
+        color: $deepSeaGreen;
+        border-color: $deepSeaGreen;
+      }
+
+      &:active,
+      &:focus {
+        background: $catSkillWhite;
+        color: $deepSeaGreen;
+        border-color: $deepSeaGreen; 
+      }
+    }
+  }
+
+  .button-left-icon {
+    @include reset-button();
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .button-left-icon-icon {
+      color: $deepSeaGreen;
+      margin-right: $baseUnit * 2;
+      width: $baseUnit * 5;
+      height: $baseUnit * 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $iceCold;
+      border: 1px solid $iceCold;
+      border-radius: 50%;
+    }
+
+    .button-left-icon-text {
+      color: $deepSeaGreen;
+      font-size: 16px;
+      line-height: 1em;
+      font-weight: bold;
+    }
+
+    &:hover {
+      .button-left-icon-icon {
+        background: #fff;
+        border-color: $deepSeaGreen;
+      }
+    }
+
+    &:active,
+    &:focus {
+      .button-left-icon-icon {
+        background: $catSkillWhite;
+        border-color: $deepSeaGreen; 
+      }
+    }
+
+    &[disabled] {
+      .button-left-icon-icon {
+        background: #EEEEEE;
+        border-color: #EEEEEE;
+        color: #fff;
+
+        .icon {
+          color: #fff;
+        }
+      }
+
+      .button-left-icon-text {
+        color: #E3E3E3;
+      }
+    }
+  }
+
+  .subheader {
+    margin: ($baseUnit * 6) 0 ($baseUnit * 3) 0;
+    font-size: 21px;
+    font-weight: bold;
+  }
+}
