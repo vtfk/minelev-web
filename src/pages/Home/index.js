@@ -4,6 +4,7 @@ import { DefaultLayout } from "../../layouts/Default"
 
 import { ROUTES } from "../../config/constants"
 import * as DEMO_DATA from "../../config/demo-data"
+import { getCurrentUser } from "../../lib/get-current-user"
 
 import { Heading1, Heading2, Heading3, Paragraph, Link } from "../../_lib-components/Typography"
 import { InitialsBadge } from "../../_lib-components/InitialsBadge"
@@ -20,7 +21,7 @@ export function Home() {
   const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
 
-  const currentUser = DEMO_DATA.CURRENT_USER
+  const currentUser = getCurrentUser() // DEMO_DATA.CURRENT_USER
   const activities = DEMO_DATA.ACTIVITIES.slice(0, 3)
 
   function openDocumentModal(activity) {
@@ -66,7 +67,7 @@ export function Home() {
 
       <div className="home">
         <Heading2 as="h1" className="page-title">
-          Hei { currentUser.firstName } og velkommen til MinElev
+          Hei { currentUser.firstName }, og velkommen til MinElev!
         </Heading2>
 
         <div className="activity-panel">

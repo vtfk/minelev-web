@@ -7,6 +7,7 @@ import {
 
 import { ROUTES } from "../../config/constants"
 import * as DEMO_DATA from "../../config/demo-data"
+import { getCurrentUser } from "../../lib/get-current-user"
 
 import { SideNav, SideNavItem } from "../../_lib-components/SideNav"
 import { SearchField } from"../../_lib-components/SearchField"
@@ -21,7 +22,7 @@ export function DefaultLayout(props) {
   let location = useLocation();
   const [searchTerm, setSearchTerm] = useState(new URLSearchParams(location.search).get("s"))
 
-  let currentUser = DEMO_DATA.CURRENT_USER
+  const currentUser = getCurrentUser() // DEMO_DATA.CURRENT_USER
 
   return (
     <div className="default-layout">
@@ -57,7 +58,7 @@ export function DefaultLayout(props) {
             <div className="user-menu">
               <IconDropdownNav>
                 <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Min konto" />
-                <IconDropdownNavItem onClick={ () => { alert('Du er nå logget ut!') } } title="Logg ut" />
+                <IconDropdownNavItem onClick={ () => { window.location.pathname = `/${ROUTES.logout}` } } title="Logg ut" />
               </IconDropdownNav>
             </div>
           </div>
