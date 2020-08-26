@@ -11,6 +11,7 @@ import {
 import { ProtectedRoute } from "./config/ProtectedRoute";
 
 import { Login } from "./pages/Login"
+import { Logout } from "./pages/Logout"
 import { Home } from "./pages/Home"
 import { ActivityLog } from "./pages/ActivityLog"
 import { Classes } from "./pages/Classes"
@@ -27,7 +28,6 @@ export default function App() {
   return (
     <Router>
       <div className="app">
-
         <Switch>
           <Route exact={ true } path={ `/${ ROUTES.login }` } component={ Login } />
 
@@ -38,11 +38,11 @@ export default function App() {
           <ProtectedRoute exact={ true } path={ `/${ ROUTES.students }/:id` } component={ Student } />          
           <ProtectedRoute exact={ true } path={ `/${ ROUTES.statistics }` } component={ Statistics } />          
           <ProtectedRoute exact={ true } path={ `/${ ROUTES.help }` } component={ Help } />
+          <ProtectedRoute exact={ true } path={ `/${ ROUTES.logout }` } component={ Logout } />
           <ProtectedRoute exact={ true } path="/" component={ Home } />
 
           <Route exact={ true } path="*" component={ PageNotFound } />
         </Switch>
-        
       </div>
     </Router>
   )
