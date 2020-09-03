@@ -27,6 +27,11 @@ export function YffCurriculumModal({ selectedStudent, ...props}) {
     }
   }
 
+  function send() {
+    props.onDismiss()
+    alert('Læreplan er opprettet.')
+  }
+
   return (
     <Fragment>
       <Modal 
@@ -222,7 +227,7 @@ export function YffCurriculumModal({ selectedStudent, ...props}) {
         
           <div className="action">
             { /* TODO: component */ }
-            <button className="button button-primary">Send</button>
+            <button onClick={ () => { send() } } className="button button-primary">Send</button>
           </div>
           <div className="action">
             <Link onClick={ props.onDismiss }>Lagre og lukk</Link>

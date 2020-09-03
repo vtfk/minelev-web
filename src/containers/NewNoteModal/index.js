@@ -28,6 +28,11 @@ export function NewNoteModal({ selectedStudent, ...props}) {
     }
   }
 
+  function send() {
+    props.onDismiss()
+    alert('Notatet er sendt.')
+  }
+
   return (
     <Fragment>
       <Modal 
@@ -68,7 +73,7 @@ export function NewNoteModal({ selectedStudent, ...props}) {
 
           <div className="action">
             { /* TODO: component */ }
-            <button className="button button-primary">Send</button>
+            <button onClick={ () => { send() } } className="button button-primary">Send</button>
           </div>
           <div className="action">
             <Link onClick={ props.onDismiss }>Avslutt</Link>

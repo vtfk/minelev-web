@@ -23,7 +23,10 @@ export function Students(props) {
   let searchTerm = new URLSearchParams(props.location.search).get("s")
 
   if (searchTerm && searchTerm !== '') {
-    students = students.filter(student => student.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || student.lastName.toLowerCase().includes(searchTerm.toLowerCase()))
+    students = students.filter((student) => {
+      var studentName = student.firstName  + ' ' + student.lastName;
+      if (studentName.indexOf(searchTerm) !== -1) return true
+    })
   }
 
   function openDocumentModal(student) {
@@ -114,7 +117,7 @@ export function Students(props) {
 
         {
           students.length === 0 &&
-          <p>Det er ingen student med valgt filtrering.</p>
+          <p>Det er ingen elev med valgt filtrering.</p>
         }
 
       </div>

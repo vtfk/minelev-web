@@ -26,6 +26,11 @@ export function NewDocumentModal({ selectedStudent, ...props}) {
     }
   }
 
+  function send() {
+    props.onDismiss()
+    alert('Du har nå sendt inn dokumentet.')
+  }
+
   return (
     <Fragment>
       <Modal 
@@ -98,7 +103,7 @@ export function NewDocumentModal({ selectedStudent, ...props}) {
           </div>
           <div className="action">
             { /* TODO: component */ }
-            <button className="button button-primary">Send</button>
+            <button onClick={ () => { send() } } className="button button-primary">Send</button>
           </div>
           <div className="action">
             <Link onClick={ props.onDismiss }>Avslutt</Link>

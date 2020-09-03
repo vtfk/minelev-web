@@ -36,6 +36,11 @@ export function YffConfirmationModal({ selectedStudent, ...props}) {
     }
   }
 
+  function send() {
+    props.onDismiss()
+    alert('Bekreftelse om utplassering av elev er sendt.')
+  }
+
   return (
     <Fragment>
       <Modal 
@@ -225,7 +230,7 @@ export function YffConfirmationModal({ selectedStudent, ...props}) {
           </div>
           <div className="action">
             { /* TODO: component */ }
-            <button className="button button-primary">Send</button>
+            <button onClick={ () => { send() } } className="button button-primary">Send</button>
           </div>
           <div className="action">
             <Link onClick={ props.onDismiss }>Avslutt</Link>

@@ -10,11 +10,13 @@ import { InitialsBadge } from "../../_lib-components/InitialsBadge"
 import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
 
 import { NewDocumentModal } from "../../containers/NewDocumentModal"
+import { NewNoteModal } from "../../containers/NewNoteModal"
 
 import "./styles.scss"
 
 export function ActivityLog() {
   const [documentModalState, setDocumentModalState] = useState(false)
+  const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
 
   let activities = DEMO_DATA.ACTIVITIES
@@ -22,6 +24,11 @@ export function ActivityLog() {
   function openDocumentModal(activity) {
     setSelectedStudent(activity)
     setDocumentModalState(true)
+  }
+
+  function openNoteModal(activity) {
+    setSelectedStudent(activity)
+    setNoteModalState(true)
   }
 
   return (
@@ -34,6 +41,16 @@ export function ActivityLog() {
           selectedStudent={ selectedStudent }
           title="Nytt dokument"
           onDismiss={ () => { setDocumentModalState(false) } }
+        />
+      }
+
+      {
+        selectedStudent &&
+        <NewNoteModal
+          open={ noteModalState }
+          selectedStudent={ selectedStudent }
+          title="Notat til elevmappen"
+          onDismiss={ () => { setNoteModalState(false) } }
         />
       }
 
@@ -80,7 +97,7 @@ export function ActivityLog() {
                       <td className="actions">
                         <IconDropdownNav>
                           <IconDropdownNavItem onClick={ () => { openDocumentModal(activity) } } title="Nytt dokument" />
-                          <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Nytt notat" />
+                          <IconDropdownNavItem onClick={ () => { openNoteModal(activity) } } title="Nytt notat" />
                           <IconDropdownNavItem href={ `/${ROUTES.students}/${activity.studentId}` } title={ `YFF for ${activity.firstName} ${activity.lastName}` } />
                         </IconDropdownNav>
                       </td>
