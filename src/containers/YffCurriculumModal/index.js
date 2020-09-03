@@ -70,10 +70,10 @@ export function YffCurriculumModal({ selectedStudent, ...props}) {
               <Select
                 placeholder="Klassetrinn"
                 items={[
-                  { value: 1, label: 'VG1' },
-                  { value: 2, label: 'VG2' },
+                  { value: 1, label: 'Vg1' },
+                  { value: 2, label: 'Vg2' },
                 ]}
-                selectedItem={ { value: 1, label: 'VG1' } }
+                selectedItem={ { value: 1, label: 'Vg1' } }
                 onChange={ (item) => { console.log(item) } }
               />
             </div>

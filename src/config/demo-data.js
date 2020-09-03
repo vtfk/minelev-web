@@ -12,7 +12,7 @@ export const STUDENTS = [
       lastName: 'Dahle',
       bornDate: '01.01.01',
       schoolName: 'Kragerø VGS',
-      className: 'Vk2 – Helsefag',
+      className: 'Vg2 – Helsefag',
       classId: 2,
     },
     {
@@ -21,7 +21,7 @@ export const STUDENTS = [
       lastName: 'Wang',
       bornDate: '01.01.01',
       schoolName: 'Kragerø VGS',
-      className: 'Vk2 – Helsefag',
+      className: 'Vg2 – Helsefag',
       classId: 2,
     },
     {
@@ -30,7 +30,7 @@ export const STUDENTS = [
       lastName: 'Olsen',
       bornDate: '01.01.01',
       schoolName: 'Kragerø VGS',
-      className: 'Vk2 – Helsefag',
+      className: 'Vg2 – Helsefag',
       classId: 2,
     },
     {
@@ -39,7 +39,7 @@ export const STUDENTS = [
       lastName: 'Johannesen',
       bornDate: '01.01.01',
       schoolName: 'Kragerø VGS',
-      className: 'Vk2 – Helsefag',
+      className: 'Vg2 – Helsefag',
       classId: 2,
     },
     {
@@ -48,7 +48,7 @@ export const STUDENTS = [
       lastName: 'Haler-Olsen',
       bornDate: '01.01.01',
       schoolName: 'Kragerø VGS',
-      className: 'Vk1 – Helsefag',
+      className: 'Vg1 – Helsefag',
       classId: 2,
     }
 ]
@@ -57,20 +57,20 @@ export const CLASSES = [
   {
       id: 1,
       schoolName: 'Kragerø VGS',
-      className: 'Vk1 – Helsefag',
-      shortName: 'Vk1',
+      className: 'Vg1 – Helsefag',
+      shortName: 'Vg1',
     },
     {
       id: 2,
       schoolName: 'Kragerø VGS',
-      className: 'Vk2 – Helsefag',
-      shortName: 'Vk2',
+      className: 'Vg2 – Helsefag',
+      shortName: 'Vg2',
     },
     {
       id: 3,
       schoolName: 'Kragerø VGS',
-      className: 'VK3 – Helsefag',
-      shortName: 'Vk3',
+      className: 'Vg3 – Helsefag',
+      shortName: 'Vg3',
     },
 ]
 

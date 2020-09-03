@@ -11,7 +11,9 @@ export function SideNav({ title, ...props}) {
       <nav className="sidenav" {...props}>
         <div className="brand">
           <div className="brand-logo">
-            <img src={ logoBadge } alt="VTFK logo" />
+            <a href={ '/' }>
+              <img src={ logoBadge } alt="VTFK logo" />
+            </a>
           </div>
           <div className="brand-name">
             { title }
