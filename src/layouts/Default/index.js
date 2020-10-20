@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 
 import {
-  useLocation,
-  Redirect
+  useLocation
 } from "react-router-dom"
 
 import { ROUTES } from "../../config/constants"
