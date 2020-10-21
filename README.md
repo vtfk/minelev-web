@@ -3,8 +3,8 @@
 React app for MinElev
 
 ## For utvikling
-
 - klon repo
 - installer avhengigheter `npm i`
+- lag en lokal .env fil slik som [env.example](env.example)
 - start utviklingsserver `npm run dev`
 
