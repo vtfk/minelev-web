@@ -4,7 +4,7 @@ import React from 'react'
 import { PublicClientApplication } from '@azure/msal-browser'
 
 import { config } from '../config/auth'
-import { getUserDetails } from './GraphService'
+import { getUserDetails } from '../lib/graph-service'
 
 export default function withAuthProvider (WrappedComponent) {
   return class extends React.Component {
