@@ -1,5 +1,4 @@
 // eslint-disable-line react-hooks/exhaustive-deps
-
 import React from "react"
 
 import {
@@ -8,7 +7,10 @@ import {
   Route,
 } from "react-router-dom"
 
-import { ProtectedRoute } from "./config/ProtectedRoute";
+import { useSession } from './lib/auth-provider'
+import { loginRequest } from "./config/auth"
+
+import { ProtectedRoute } from "./config/ProtectedRoute"
 
 import { Login } from "./pages/Login"
 import { Home } from "./pages/Home"
@@ -23,11 +25,10 @@ import { PageNotFound } from "./pages/PageNotFound"
 
 import { ROUTES } from "./config/constants"
 
-function App () {
+const AppContent = () => {
   return (
     <Router>
       <div className="app">
-
         <Switch>
           <Route exact={ true } path={ `/${ ROUTES.login }` } component={ Login } />
 
@@ -46,6 +47,28 @@ function App () {
       </div>
     </Router>
   )
+}
+
+const LoginButton = ({login}) => {
+  return (
+    <button onClick={() => login(loginRequest, 'loginRedirect')}>Logg inn</button>
+  )
+}
+
+function App () {
+  const { loading, isAuthenticated, login } = useSession()
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return <LoginButton login={login} />
+  }
+
+  if (isAuthenticated) {
+    return <AppContent />
+  }
 }
 
 export default App
