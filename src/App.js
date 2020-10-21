@@ -23,7 +23,7 @@ import { PageNotFound } from "./pages/PageNotFound"
 
 import { ROUTES } from "./config/constants"
 
-export default function App() {
+function App () {
   return (
     <Router>
       <div className="app">
@@ -47,3 +47,5 @@ export default function App() {
     </Router>
   )
 }
+
+export default App

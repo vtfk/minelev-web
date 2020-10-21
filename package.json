@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@azure/msal-browser": "2.4.0",
     "@microsoft/microsoft-graph-client": "2.1.0",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.1.0",
     "@testing-library/user-event": "12.1.8",
+    "dotenv": "8.2.0",
     "express": "4.17.1",
+    "msal": "1.4.2",
     "node-sass": "4.14.1",
     "prop-types": "15.7.2",
     "react": "17.0.0",
+    "react-aad-msal": "2.3.5",
     "react-dom": "17.0.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.4"
