@@ -3,7 +3,7 @@
 import React from 'react'
 import { PublicClientApplication } from '@azure/msal-browser'
 
-import { config } from './Config'
+import { config } from '../config/auth'
 import { getUserDetails } from './GraphService'
 
 export default function withAuthProvider (WrappedComponent) {
