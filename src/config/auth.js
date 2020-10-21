@@ -1,7 +1,21 @@
 export const config = {
-  appId: '5b85b06c-ac10-47df-a308-51aab71428a9',
-  redirectUri: 'http://localhost:3000',
-  scopes: [
-    'user.read'
-  ]
+  auth: {
+      clientId: process.env.REACT_APP_CLIENT_ID,
+      authority: process.env.REACT_APP_AUTHORITY,
+      redirectUri: process.env.REACT_APP_REDIRECT_URL,
+  },
+  cache: {
+      cacheLocation: 'sessionStorage',
+      storeAuthStateInCookie: false
+  }
+}
+
+export const loginRequest = {
+  scopes: ['openid', 'profile', 'User.Read'],
+  forceRefresh: false
+}
+
+export const apiRequest = {
+  scopes: ['openid', 'profile', 'User.Read'],
+  forceRefresh: false
 }
