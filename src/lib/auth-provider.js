@@ -36,7 +36,7 @@ export const MsalProvider = ({
 
   async function updateUserInfo (token, user) {
     const userInfo = await getUserInfo(token)
-    setUser({...user, ...userInfo})
+    setUser({ ...user, ...userInfo })
   }
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export const MsalProvider = ({
       setIsAuthenticated(true)
       if (!token) {
         async function updateToken () {
-          const response = await pc.acquireTokenSilent({account: user.username, scopes: config.scopes})
+          const response = await pc.acquireTokenSilent({ account: user.username, scopes: config.scopes })
           setToken(response.accessToken)
           updateUserInfo(response.accessToken, user)
         }
