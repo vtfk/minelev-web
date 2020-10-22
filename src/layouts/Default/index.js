@@ -50,9 +50,9 @@ export function DefaultLayout (props) {
 
           <div className='user'>
             <div className='user-name'>
-              <Paragraph>{user.name}</Paragraph>
+              <Paragraph>{user.displayName}</Paragraph>
             </div>
-            <InitialsBadge className='user-image' firstName={user.name} lastName={user.name} />
+            <InitialsBadge className='user-image' firstName={user.givenName || user.name} lastName={user.surname || user.name} />
             <div className='user-menu'>
               <IconDropdownNav>
                 <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Min konto' />

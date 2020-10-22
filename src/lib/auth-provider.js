@@ -60,9 +60,19 @@ export const MsalProvider = ({
     })
 
     if (pc.getAllAccounts().length > 0) {
-      setUser(pc.getAllAccounts()[0])
+      const user = pc.getAllAccounts()[0]
+      setUser(user)
       setIsAuthenticated(true)
+      if (!token) {
+        async function updateToken () {
+          const response = await pc.acquireTokenSilent({account: user.username, scopes: config.scopes})
+          setToken(response.accessToken)
+          updateUserInfo(response.accessToken, user)
+        }
+        updateToken()
+      }
     }
+
     // eslint-disable-next-line
     }, [])
 
