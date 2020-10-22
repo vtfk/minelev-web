@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MsalProvider } from './lib/auth-provider'
+import { config, loginRequest } from "./config/auth"
 
 import App from './App';
 
 import './assets/scss/base-styles.scss';
 
+console.log(config)
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MsalProvider
+      config={config}
+      scopes={loginRequest}
+    >
+      <App />
+    </MsalProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useSession } from '../../lib/auth-provider'
 
 import {
   useLocation
@@ -16,7 +17,8 @@ import { Icon } from '../../_lib-components/Icon'
 
 import "./styles.scss"
 
-export function DefaultLayout(props) {   
+export function DefaultLayout (props) {
+  const { user, logout } = useSession()
   let location = useLocation();
   const [searchTerm, setSearchTerm] = useState(new URLSearchParams(location.search).get("s"))
 
@@ -50,13 +52,13 @@ export function DefaultLayout(props) {
 
           <div className="user">
             <div className="user-name">
-              <Paragraph>{ currentUser.firstName } { currentUser.lastName }</Paragraph>
+              <Paragraph>{user.name}</Paragraph>
             </div>
-            <InitialsBadge className="user-image" firstName={currentUser.firstName} lastName={currentUser.lastName} />
+            <InitialsBadge className="user-image" firstName={user.name} lastName={user.name} />
             <div className="user-menu">
               <IconDropdownNav>
                 <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Min konto" />
-                <IconDropdownNavItem onClick={ () => { alert('Du er nå logget ut!') } } title="Logg ut" />
+                <IconDropdownNavItem onClick={ () => logout() } title="Logg ut" />
               </IconDropdownNav>
             </div>
           </div>
