@@ -6,13 +6,13 @@ export const config = {
   },
   cache: {
     cacheLocation: 'sessionStorage',
-    storeAuthStateInCookie: false
+    storeAuthStateInCookie: true
   }
 }
 
 export const loginRequest = {
   scopes: ['openid', 'profile', 'User.Read'],
-  forceRefresh: false
+  forceRefresh: true
 }
 
 export const apiRequest = {
