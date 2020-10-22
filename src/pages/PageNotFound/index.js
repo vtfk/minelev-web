@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react'
 
-import "./styles.scss"
+import './styles.scss'
 
-export function PageNotFound() {
+export function PageNotFound () {
   return (
-    <div className="page-not-found">
+    <div className='page-not-found'>
       404
     </div>
   )

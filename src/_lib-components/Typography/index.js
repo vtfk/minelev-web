@@ -1,89 +1,89 @@
-import React, { Fragment } from "react"
+import React from 'react'
 import PropTypes from 'prop-types'
 
-import "./styles.scss"
+import './styles.scss'
 
-export function Heading1({ as, className, children, ...props }) {
-  const CustomTag = as ? as : 'h1'
+export function Heading1 ({ as, className, children, ...props }) {
+  const CustomTag = as || 'h1'
 
   return (
-    <CustomTag className={ `typography heading-one ${className ? className : ''}` } { ...props }>
-      { children }
+    <CustomTag className={`typography heading-one ${className || ''}`} {...props}>
+      {children}
     </CustomTag>
   )
 }
 
-export function Heading2({ as, className, children, ...props }) {
-  const CustomTag = as ? as : 'h2'
+export function Heading2 ({ as, className, children, ...props }) {
+  const CustomTag = as || 'h2'
 
   return (
-    <CustomTag className={ `typography heading-two ${className ? className : ''}` } { ...props }>
-      { children }
+    <CustomTag className={`typography heading-two ${className || ''}`} {...props}>
+      {children}
     </CustomTag>
   )
 }
 
-export function Heading3({ as, className, children, ...props }) {
-  const CustomTag = as ? as : 'h3'
+export function Heading3 ({ as, className, children, ...props }) {
+  const CustomTag = as || 'h3'
 
   return (
-    <CustomTag className={ `typography heading-three ${className ? className : ''}` } { ...props }>
-      { children }
+    <CustomTag className={`typography heading-three ${className || ''}`} {...props}>
+      {children}
     </CustomTag>
   )
 }
 
-export function Heading4({ as, className, children, ...props }) {
-  const CustomTag = as ? as : 'h4'
+export function Heading4 ({ as, className, children, ...props }) {
+  const CustomTag = as || 'h4'
 
   return (
-    <CustomTag className={ `typography heading-four ${className ? className : ''}` } { ...props }>
-      { children }
+    <CustomTag className={`typography heading-four ${className || ''}`} {...props}>
+      {children}
     </CustomTag>
   )
 }
 
-export function Paragraph({ className, children, size, ...props }) {
+export function Paragraph ({ className, children, size, ...props }) {
   return (
-    <p className={ `typography paragraph ${className ? className : ''} ${size ? size : ''}` } { ...props }>
-      { children }
+    <p className={`typography paragraph ${className || ''} ${size || ''}`} {...props}>
+      {children}
     </p>
   )
 }
 
-export function Link({ href, onClick, className, noStyle, leftIcon, rightIcon, children, size, ...props }) {
+export function Link ({ href, onClick, className, noStyle, leftIcon, rightIcon, children, size, ...props }) {
   return (
-    <Fragment>
+    <>
       {
         href &&
-        <a href={ href } className={ `typography link ${className ? className : ''} ${noStyle ? 'no-style' : ''} ${size ? size : ''} ${leftIcon || rightIcon ? 'has-icon' : ''}` } { ...props }>
-          {
-            leftIcon &&
-            <span className="link-icon left-icon">{ leftIcon }</span>
-          }
-          { children }
-          {
-            rightIcon &&
-            <span className="link-icon right-icon">{ rightIcon }</span>
-          }
-        </a>
+          <a href={href} className={`typography link ${className || ''} ${noStyle ? 'no-style' : ''} ${size || ''} ${leftIcon || rightIcon ? 'has-icon' : ''}`} {...props}>
+            {
+              leftIcon &&
+                <span className='link-icon left-icon'>{leftIcon}</span>
+            }
+            {children}
+            {
+              rightIcon &&
+                <span className='link-icon right-icon'>{rightIcon}</span>
+            }
+          </a>
       }
 
       {
         onClick &&
-        <button onClick={ onClick } className={ `typography link ${className ? className : ''} ${noStyle ? 'no-style' : ''} ${size ? size : ''} ${leftIcon || rightIcon ? 'has-icon' : ''}` } { ...props }>
-          {
-            leftIcon &&
-            <span className="link-icon left-icon">{ leftIcon }</span>
-          }
-          { children }
-          {
-            rightIcon &&
-            <span className="link-icon right-icon">{ rightIcon }</span>
-          }
-        </button>
+          <button onClick={onClick} className={`typography link ${className || ''} ${noStyle ? 'no-style' : ''} ${size || ''} ${leftIcon || rightIcon ? 'has-icon' : ''}`} {...props}>
+            {
+              leftIcon &&
+                <span className='link-icon left-icon'>{leftIcon}</span>
+            }
+            {children}
+            {
+              rightIcon &&
+                <span className='link-icon right-icon'>{rightIcon}</span>
+            }
+          </button>
       }
-    </Fragment>
+    </>
   )
 }
 

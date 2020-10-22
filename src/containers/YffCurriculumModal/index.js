@@ -1,180 +1,179 @@
-import React, { Fragment, useEffect } from "react"
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import { ROUTES } from "../../config/constants"
+import { ROUTES } from '../../config/constants'
 
-import { Heading3, Paragraph, Link } from "../../_lib-components/Typography"
-import { InitialsBadge } from "../../_lib-components/InitialsBadge"
-import { Modal, ModalBody, ModalSideActions } from "../../_lib-components/Modal"
-import { Select, SelectMultiple } from "../../_lib-components/Select"
+import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
+import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
+import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { Icon } from '../../_lib-components/Icon'
 
-import "./styles.scss"
+import './styles.scss'
 
-export function YffCurriculumModal({ selectedStudent, ...props}) {
+export function YffCurriculumModal ({ selectedStudent, ...props }) {
   useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress);
+    document.addEventListener('keyup', handleKeyPress)
 
     return () => {
-      document.removeEventListener('keyup', handleKeyPress);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+      document.removeEventListener('keyup', handleKeyPress)
+    }
+  }, [])
 
-  function handleKeyPress(event) {
+  function handleKeyPress (event) {
     if (event.key === 'Escape') {
-        props.onDismiss()
+      props.onDismiss()
     }
   }
 
-  function send() {
+  function send () {
     props.onDismiss()
-    alert('Læreplan er opprettet.')
+    window.alert('Læreplan er opprettet.')
   }
 
   return (
-    <Fragment>
-      <Modal 
-        { ...props }
-        className="yff-curriculum-modal"
-        onDismiss={ props.onDismiss }
+    <>
+      <Modal
+        {...props}
+        className='yff-curriculum-modal'
+        onDismiss={props.onDismiss}
       >
         <ModalBody>
 
-          <div className="person-information">
-            <div className="image">
-              <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size="large" />
+          <div className='person-information'>
+            <div className='image'>
+              <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
             </div>
-            <div className="text-wrapper">
-              <Heading3 className="name">
+            <div className='text-wrapper'>
+              <Heading3 className='name'>
                 {selectedStudent.firstName} {selectedStudent.lastName}
               </Heading3>
-              <div className="other">
+              <div className='other'>
                 <Paragraph>{selectedStudent.schoolName}</Paragraph>
-                <Paragraph><Link href={ `/${ROUTES.classes}/${selectedStudent.classId}` }>{selectedStudent.className}</Link></Paragraph>
+                <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.className}</Link></Paragraph>
                 <Paragraph>26. april 2001</Paragraph>
                 <Paragraph>bra26041@skole.vtfk.no</Paragraph>
               </div>
             </div>
           </div>
 
-          <p className="intro">
+          <p className='intro'>
             Her endrer du den lokale læreplanen for eleven og velger kompetansemål eleven skal jobbe med i løpet av utplasseringen. Du skriver også inn elevens arbeidsoppgaver knyttet til hvert kompetansemål.
           </p>
 
-          <div className="form">
+          <div className='form'>
 
-            <h2 className="subheader">Klassetrinn</h2>
+            <h2 className='subheader'>Klassetrinn</h2>
 
-            <div className="input-element">
+            <div className='input-element'>
               <Select
-                placeholder="Klassetrinn"
+                placeholder='Klassetrinn'
                 items={[
                   { value: 1, label: 'Vg1' },
-                  { value: 2, label: 'Vg2' },
+                  { value: 2, label: 'Vg2' }
                 ]}
-                selectedItem={ { value: 1, label: 'Vg1' } }
-                onChange={ (item) => { console.log(item) } }
+                selectedItem={{ value: 1, label: 'Vg1' }}
+                onChange={(item) => { console.log(item) }}
               />
             </div>
 
-            <h2 className="subheader">Legg til nye kompetansemål</h2>
-            <div className="add-new-curriculum">
-              <div className="input-element">
+            <h2 className='subheader'>Legg til nye kompetansemål</h2>
+            <div className='add-new-curriculum'>
+              <div className='input-element'>
                 <Select
-                  placeholder="Velg utplasseringssted"
+                  placeholder='Velg utplasseringssted'
                   items={[
                     { value: 1, label: 'Skole' },
-                    { value: 2, label: 'Ungdomsbedrift (entreprenørskap)' },
+                    { value: 2, label: 'Ungdomsbedrift (entreprenørskap)' }
                   ]}
-                  selectedItem={ { value: 1, label: 'Skole' } }
-                  onChange={ (item) => { console.log(item) } }
+                  selectedItem={{ value: 1, label: 'Skole' }}
+                  onChange={(item) => { console.log(item) }}
                 />
               </div>
 
-              <div className="input-element">
+              <div className='input-element'>
                 <Select
-                  placeholder="Velg skole"
+                  placeholder='Velg skole'
                   items={[
                     { value: 1, label: 'Bamble videregående skole, avdeling Croftholmen' },
-                    { value: 2, label: 'Skogmo videregående skole' },
+                    { value: 2, label: 'Skogmo videregående skole' }
                   ]}
-                  selectedItem={ { value: 1, label: 'Bamble videregående skole, avdeling Croftholmen' } }
-                  onChange={ (item) => { console.log(item) } }
+                  selectedItem={{ value: 1, label: 'Bamble videregående skole, avdeling Croftholmen' }}
+                  onChange={(item) => { console.log(item) }}
                 />
               </div>
 
-              <div className="input-element">
+              <div className='input-element'>
                 <Select
-                  placeholder="Velg utdanningsprogram"
+                  placeholder='Velg utdanningsprogram'
                   items={[
                     { value: 1, label: 'Bygg- og anleggsteknikk' },
-                    { value: 2, label: 'Noe annet' },
+                    { value: 2, label: 'Noe annet' }
                   ]}
-                  selectedItem={ { value: 1, label: 'Bygg- og anleggsteknikk' } }
-                  onChange={ (item) => { console.log(item) } }
+                  selectedItem={{ value: 1, label: 'Bygg- og anleggsteknikk' }}
+                  onChange={(item) => { console.log(item) }}
                 />
               </div>
 
-              <div className="input-element">
+              <div className='input-element'>
                 <Select
-                  placeholder="Velg klassetrinn"
+                  placeholder='Velg klassetrinn'
                   items={[
                     { value: 1, label: 'VG3' },
-                    { value: 2, label: 'Noe annet' },
+                    { value: 2, label: 'Noe annet' }
                   ]}
-                  selectedItem={ { value: 1, label: 'VG3' } }
-                  onChange={ (item) => { console.log(item) } }
+                  selectedItem={{ value: 1, label: 'VG3' }}
+                  onChange={(item) => { console.log(item) }}
                 />
               </div>
 
-              <div className="input-element">
+              <div className='input-element'>
                 <Select
-                  placeholder="Velg programområde"
+                  placeholder='Velg programområde'
                   items={[
                     { value: 1, label: 'Anleggsmaskinførerfaget' },
-                    { value: 2, label: 'Noe annet' },
+                    { value: 2, label: 'Noe annet' }
                   ]}
-                  selectedItem={ { value: 1, label: 'Anleggsmaskinførerfaget' } }
-                  onChange={ (item) => { console.log(item) } }
+                  selectedItem={{ value: 1, label: 'Anleggsmaskinførerfaget' }}
+                  onChange={(item) => { console.log(item) }}
                 />
               </div>
 
-              <div className="input-element">
+              <div className='input-element'>
                 <SelectMultiple
-                  placeholder="Velg kompetansemål"
+                  placeholder='Velg kompetansemål'
                   items={[
                     { value: 1, label: 'Mestre tre ulike typer masseflyttingsmaskiner' },
                     { value: 2, label: 'Utføre arbeid innenfor graving, lasting, transport, utlegging og finavretting' },
-                    { value: 3, label: 'Bruke tilleggsutstyr tilpasset arbeidsoppgaven på en forsvarlig og hensiktsmessig måte' },
+                    { value: 3, label: 'Bruke tilleggsutstyr tilpasset arbeidsoppgaven på en forsvarlig og hensiktsmessig måte' }
                   ]}
                   selectedItems={[
                     { value: 2, label: 'Utføre arbeid innenfor graving, lasting, transport, utlegging og finavretting' },
-                    { value: 3, label: 'Bruke tilleggsutstyr tilpasset arbeidsoppgaven på en forsvarlig og hensiktsmessig måte' },
+                    { value: 3, label: 'Bruke tilleggsutstyr tilpasset arbeidsoppgaven på en forsvarlig og hensiktsmessig måte' }
                   ]}
-                  onChange={ (item) => { alert('Valgt: ' + item.label) } }
+                  onChange={(item) => { window.alert('Valgt: ' + item.label) }}
                 />
               </div>
 
-              { /* TODO: component */ }
-              <button className="check-button button-left-icon button-primary">
-                <div className="button-left-icon-icon">
-                  <Icon name="check" size="small" />
+              {/* TODO: component */}
+              <button className='check-button button-left-icon button-primary'>
+                <div className='button-left-icon-icon'>
+                  <Icon name='check' size='small' />
                 </div>
-                <div className="button-left-icon-text">
+                <div className='button-left-icon-text'>
                   Lagre kompetansemål i lokal læreplan
                 </div>
               </button>
             </div>
 
-            <h2 className="subheader">Innhold i lokal læreplan</h2>
+            <h2 className='subheader'>Innhold i lokal læreplan</h2>
 
-            <table className="data-actions-table">
+            <table className='data-actions-table'>
               <thead>
                 <tr>
-                  <th><Paragraph size="small">Kompetansemål / Arbeidsoppgaver</Paragraph></th>
-                  <th><Paragraph size="small">Utplasseringssted</Paragraph></th>
-                  <th className="actions-th"><Paragraph size="small">Ny handling</Paragraph></th>
+                  <th><Paragraph size='small'>Kompetansemål / Arbeidsoppgaver</Paragraph></th>
+                  <th><Paragraph size='small'>Utplasseringssted</Paragraph></th>
+                  <th className='actions-th'><Paragraph size='small'>Ny handling</Paragraph></th>
                 </tr>
               </thead>
               <tbody>
@@ -185,10 +184,10 @@ export function YffCurriculumModal({ selectedStudent, ...props}) {
                     </Paragraph>
                   </td>
                   <td>
-                    Vest-Telemark vidaregåande skule, avdeling Seljord  
+                    Vest-Telemark vidaregåande skule, avdeling Seljord
                   </td>
-                  <td className="actions">
-                    <Link onClick={ () => { alert('Ikke implementert') } }>Fjern</Link>
+                  <td className='actions'>
+                    <Link onClick={() => { window.alert('Ikke implementert') }}>Fjern</Link>
                   </td>
                 </tr>
                 <tr>
@@ -198,10 +197,10 @@ export function YffCurriculumModal({ selectedStudent, ...props}) {
                     </Paragraph>
                   </td>
                   <td>
-                    Vest-Telemark vidaregåande skule, avdeling Seljord  
+                    Vest-Telemark vidaregåande skule, avdeling Seljord
                   </td>
-                  <td className="actions">
-                    <Link onClick={ () => { alert('Ikke implementert') } }>Fjern</Link>
+                  <td className='actions'>
+                    <Link onClick={() => { window.alert('Ikke implementert') }}>Fjern</Link>
                   </td>
                 </tr>
                 <tr>
@@ -211,10 +210,10 @@ export function YffCurriculumModal({ selectedStudent, ...props}) {
                     </Paragraph>
                   </td>
                   <td>
-                    Vest-Telemark vidaregåande skule, avdeling Seljord  
+                    Vest-Telemark vidaregåande skule, avdeling Seljord
                   </td>
-                  <td className="actions">
-                    <Link onClick={ () => { alert('Ikke implementert') } }>Fjern</Link>
+                  <td className='actions'>
+                    <Link onClick={() => { window.alert('Ikke implementert') }}>Fjern</Link>
                   </td>
                 </tr>
               </tbody>
@@ -224,18 +223,18 @@ export function YffCurriculumModal({ selectedStudent, ...props}) {
 
         </ModalBody>
         <ModalSideActions>
-        
-          <div className="action">
-            { /* TODO: component */ }
-            <button onClick={ () => { send() } } className="button button-primary">Send</button>
+
+          <div className='action'>
+            {/* TODO: component */}
+            <button onClick={() => { send() }} className='button button-primary'>Send</button>
           </div>
-          <div className="action">
-            <Link onClick={ props.onDismiss }>Lagre og lukk</Link>
+          <div className='action'>
+            <Link onClick={props.onDismiss}>Lagre og lukk</Link>
           </div>
-          
+
         </ModalSideActions>
       </Modal>
-    </Fragment>
+    </>
   )
 }
 
@@ -243,5 +242,5 @@ YffCurriculumModal.propTypes = {
   open: PropTypes.bool.isRequired,
   title: PropTypes.string,
   onDismiss: PropTypes.func.isRequired,
-  className: PropTypes.string,
+  className: PropTypes.string
 }

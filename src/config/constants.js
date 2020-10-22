@@ -4,5 +4,5 @@ export const ROUTES = {
   classes: 'klasser',
   students: 'elever',
   statistics: 'statistikk',
-  help: 'hjelp',
+  help: 'hjelp'
 }

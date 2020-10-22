@@ -2,30 +2,22 @@
   "name": "vtfk-minelev-react",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@azure/msal-browser": "2.4.0",
-    "@microsoft/microsoft-graph-client": "2.1.0",
-    "@testing-library/jest-dom": "5.11.4",
-    "@testing-library/react": "11.1.0",
-    "@testing-library/user-event": "12.1.8",
-    "express": "4.17.1",
-    "node-sass": "4.14.1",
-    "prop-types": "15.7.2",
-    "react": "17.0.0",
-    "react-dom": "17.0.0",
-    "react-router-dom": "5.2.0",
-    "react-scripts": "3.4.4"
-  },
   "scripts": {
     "start": "node server.js",
     "dev": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "standard && react-scripts test",
     "eject": "react-scripts eject",
-    "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
+    "standard-fix": "standard --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -41,5 +33,22 @@
   },
   "engines": {
     "node": ">=12.0.0"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "2.4.0",
+    "@microsoft/microsoft-graph-client": "2.1.0",
+    "@testing-library/jest-dom": "5.11.4",
+    "@testing-library/react": "11.1.0",
+    "@testing-library/user-event": "12.1.8",
+    "express": "4.17.1",
+    "node-sass": "4.14.1",
+    "prop-types": "15.7.2",
+    "react": "17.0.0",
+    "react-dom": "17.0.0",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "3.4.4"
+  },
+  "devDependencies": {
+    "standard": "15.0.0"
   }
 }
