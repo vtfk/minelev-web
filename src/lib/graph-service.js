@@ -1,25 +1,25 @@
-const graph = require('@microsoft/microsoft-graph-client');
+const graph = require('@microsoft/microsoft-graph-client')
 
-function getAuthenticatedClient(accessToken) {
+function getAuthenticatedClient (accessToken) {
   // Initialize Graph client
   const client = graph.Client.init({
     // Use the provided access token to authenticate
     // requests
     authProvider: (done) => {
-      done(null, accessToken);
+      done(null, accessToken)
     }
-  });
+  })
 
-  return client;
+  return client
 }
 
-export async function getUserDetails(accessToken) {
-  const client = getAuthenticatedClient(accessToken);
+export async function getUserDetails (accessToken) {
+  const client = getAuthenticatedClient(accessToken)
 
   const user = await client
     .api('/me')
     .select('displayName,mail,userPrincipalName')
-    .get();
+    .get()
 
-  return user;
+  return user
 }

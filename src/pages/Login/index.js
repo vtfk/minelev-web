@@ -1,11 +1,11 @@
-import React from "react"
+import React from 'react'
 
-import "./styles.scss"
+import './styles.scss'
 
-export function Login() {
+export function Login () {
   return (
-      <div className="login">
-        Logg inn
-      </div>
+    <div className='login'>
+      Logg inn
+    </div>
   )
 }

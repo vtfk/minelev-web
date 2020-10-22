@@ -1,42 +1,42 @@
-import React, { Fragment } from "react"
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import logoBadge from './logo-badge.svg'
 
-import "./styles.scss"
+import './styles.scss'
 
-export function SideNav({ title, ...props}) {
+export function SideNav ({ title, ...props }) {
   return (
-    <Fragment>
-      <nav className="sidenav" {...props}>
-        <div className="brand">
-          <div className="brand-logo">
-            <a href={ '/' }>
-              <img src={ logoBadge } alt="VTFK logo" />
+    <>
+      <nav className='sidenav' {...props}>
+        <div className='brand'>
+          <div className='brand-logo'>
+            <a href='/'>
+              <img src={logoBadge} alt='VTFK logo' />
             </a>
           </div>
-          <div className="brand-name">
-            { title }
+          <div className='brand-name'>
+            {title}
           </div>
         </div>
-        <div className="sidenav-list-wrapper">
-          <ul className="sidenav-list">
-            { props.children }
+        <div className='sidenav-list-wrapper'>
+          <ul className='sidenav-list'>
+            {props.children}
           </ul>
         </div>
       </nav>
-    </Fragment>
+    </>
   )
 }
 
-export function SideNavItem({ href, icon, title, active, ...props }) {
+export function SideNavItem ({ href, icon, title, active, ...props }) {
   return (
-    <li className={ `sidenav-item ${ active === true ? 'active' : '' }` } { ...props }>
+    <li className={`sidenav-item ${active === true ? 'active' : ''}`} {...props}>
       <a href={href}>
-        <div className="sidenav-item-icon">
-          { icon }
+        <div className='sidenav-item-icon'>
+          {icon}
         </div>
-        <div className="sidenav-item-text">{title}</div>
+        <div className='sidenav-item-text'>{title}</div>
       </a>
     </li>
   )
@@ -53,5 +53,5 @@ SideNavItem.propTypes = {
   href: PropTypes.string.isRequired,
   icon: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
-  active: PropTypes.bool,
+  active: PropTypes.bool
 }

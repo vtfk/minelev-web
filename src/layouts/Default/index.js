@@ -1,71 +1,69 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import { useSession } from '../../lib/auth-provider'
 
 import {
   useLocation
-} from "react-router-dom"
+} from 'react-router-dom'
 
-import { ROUTES } from "../../config/constants"
-import * as DEMO_DATA from "../../config/demo-data"
+import { ROUTES } from '../../config/constants'
 
-import { SideNav, SideNavItem } from "../../_lib-components/SideNav"
-import { SearchField } from"../../_lib-components/SearchField"
-import { InitialsBadge } from "../../_lib-components/InitialsBadge"
-import { Paragraph } from "../../_lib-components/Typography"
-import { IconDropdownNav, IconDropdownNavItem } from "../../_lib-components/IconDropdownNav"
+import { SideNav, SideNavItem } from '../../_lib-components/SideNav'
+import { SearchField } from '../../_lib-components/SearchField'
+import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Paragraph } from '../../_lib-components/Typography'
+import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { Icon } from '../../_lib-components/Icon'
 
-import "./styles.scss"
+import './styles.scss'
 
 export function DefaultLayout (props) {
   const { user, logout } = useSession()
-  let location = useLocation();
-  const [searchTerm, setSearchTerm] = useState(new URLSearchParams(location.search).get("s"))
-
-  let currentUser = DEMO_DATA.CURRENT_USER
+  const location = useLocation()
+  const [searchTerm, setSearchTerm] = useState(new URLSearchParams(location.search).get('s'))
 
   return (
-    <div className="default-layout">
-      <SideNav title="MinElev">
-        <SideNavItem icon={ <Icon name="home" />  } active={ location.pathname === '/' ? true : false } href="/" title="Forside" />
-        <SideNavItem icon={ <Icon name="activity" />  } active={ location.pathname === `/${ ROUTES.activityLog }` ? true : false } href={ `/${ ROUTES.activityLog }` } title="Aktivitetslogg" />
-        <SideNavItem icon={ <Icon name="students" />  } active={ location.pathname === `/${ ROUTES.students }` ? true : false } href={ `/${ ROUTES.students }` } title="Elever" />
-        <SideNavItem icon={ <Icon name="classes" />  } active={ location.pathname === `/${ ROUTES.classes }` ? true : false } href={ `/${ ROUTES.classes }` } title="Klasser" />
-        <SideNavItem icon={ <Icon name="statistics" />  } active={ location.pathname === `/${ ROUTES.statistics }` ? true : false } href={ `/${ ROUTES.statistics }` } title="Statistikk" />
-        <SideNavItem icon={ <Icon name="help" />  } active={ location.pathname === `/${ ROUTES.help }` ? true : false } href={ `/${ ROUTES.help }` } title="Hjelp" />
+    <div className='default-layout'>
+      <SideNav title='MinElev'>
+        <SideNavItem icon={<Icon name='home' />} active={location.pathname === '/'} href='/' title='Forside' />
+        <SideNavItem icon={<Icon name='activity' />} active={location.pathname === `/${ROUTES.activityLog}`} href={`/${ROUTES.activityLog}`} title='Aktivitetslogg' />
+        <SideNavItem icon={<Icon name='students' />} active={location.pathname === `/${ROUTES.students}`} href={`/${ROUTES.students}`} title='Elever' />
+        <SideNavItem icon={<Icon name='classes' />} active={location.pathname === `/${ROUTES.classes}`} href={`/${ROUTES.classes}`} title='Klasser' />
+        <SideNavItem icon={<Icon name='statistics' />} active={location.pathname === `/${ROUTES.statistics}`} href={`/${ROUTES.statistics}`} title='Statistikk' />
+        <SideNavItem icon={<Icon name='help' />} active={location.pathname === `/${ROUTES.help}`} href={`/${ROUTES.help}`} title='Hjelp' />
       </SideNav>
 
-      <div className="container">
-        <div className="action-bar">
-          <div className="search">
+      <div className='container'>
+        <div className='action-bar'>
+          <div className='search'>
             <SearchField
-              className="search-input"
-              type="text" placeholder="Søk etter elev ..."
-              onChange={ (event) => { setSearchTerm(event.target.value) } } 
+              className='search-input'
+              type='text' placeholder='Søk etter elev ...'
+              onChange={(event) => { setSearchTerm(event.target.value) }}
               value={searchTerm}
-              onKeyPress={ event => {
+              onKeyPress={event => {
                 if (event.key === 'Enter') {
-                  window.location.replace(`/${ ROUTES.students }?s=${event.target.value}`);
+                  window.location.replace(`/${ROUTES.students}?s=${event.target.value}`)
                 }
-              } } />
+              }}
+            />
           </div>
 
-          <div className="user">
-            <div className="user-name">
+          <div className='user'>
+            <div className='user-name'>
               <Paragraph>{user.name}</Paragraph>
             </div>
-            <InitialsBadge className="user-image" firstName={user.name} lastName={user.name} />
-            <div className="user-menu">
+            <InitialsBadge className='user-image' firstName={user.name} lastName={user.name} />
+            <div className='user-menu'>
               <IconDropdownNav>
-                <IconDropdownNavItem onClick={ () => { alert('Ikke implementert') } } title="Min konto" />
-                <IconDropdownNavItem onClick={ () => logout() } title="Logg ut" />
+                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Min konto' />
+                <IconDropdownNavItem onClick={() => logout()} title='Logg ut' />
               </IconDropdownNav>
             </div>
           </div>
         </div>
 
-        { props.children }
+        {props.children}
       </div>
     </div>
-  ); 
-} 
+  )
+}

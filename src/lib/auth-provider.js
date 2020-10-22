@@ -9,140 +9,133 @@ const isIE = msie > 0 || msie11 > 0
 const isEdge = msedge > 0
 
 export const MsalContext = React.createContext()
-export const useSession= () => useContext(MsalContext)
+export const useSession = () => useContext(MsalContext)
 export const MsalProvider = ({
-    children,
-    config
+  children,
+  config
 }) => {
-    const [isAuthenticated, setIsAuthenticated] = useState()
-    const [user, setUser] = useState()
-    const [token, setToken] = useState()
-    const [publicClient, setPublicClient] = useState()
-    const [loading, setLoading] = useState(false)
-    const [popupOpen, setPopupOpen] = useState(false)
-    const [loginError, setLoginError] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState()
+  const [user, setUser] = useState()
+  const [token, setToken] = useState()
+  const [publicClient, setPublicClient] = useState()
+  const [loading, setLoading] = useState(false)
+  const [popupOpen, setPopupOpen] = useState(false)
+  const [loginError, setLoginError] = useState(false)
 
-    useEffect(() => {
+  useEffect(() => {
+    const pc = new msal.PublicClientApplication(config)
+    setPublicClient(pc)
 
-        const pc = new msal.PublicClientApplication(config)
-        setPublicClient(pc)
-
-        pc.handleRedirectPromise().then((response) => 
-        {
-            setLoading(false)
-            if (response) {
-                setUser(pc.getAllAccounts()[0])
-                setIsAuthenticated(true)
-                if(response.accessToken) {
-                  setToken(response.accessToken)
-                }
-            } 
-        }).catch(error => {
-            console.log(error)
-            setLoginError(error)
-        });
-
-        if (pc.getAllAccounts().length > 0) {
-            setUser(pc.getAllAccounts()[0])
-            setIsAuthenticated(true)
+    pc.handleRedirectPromise().then((response) => {
+      setLoading(false)
+      if (response) {
+        setUser(pc.getAllAccounts()[0])
+        setIsAuthenticated(true)
+        if (response.accessToken) {
+          setToken(response.accessToken)
         }
-        // eslint-disable-next-line
+      }
+    }).catch(error => {
+      console.log(error)
+      setLoginError(error)
+    })
+
+    if (pc.getAllAccounts().length > 0) {
+      setUser(pc.getAllAccounts()[0])
+      setIsAuthenticated(true)
+    }
+    // eslint-disable-next-line
     }, [])
 
-    const login = async (loginRequest, method) => {
-        const signInType = (isIE || isEdge) ? 'loginRedirect' : method
-        if (signInType === 'loginPopup') {
-            setPopupOpen(true)
+  const login = async (loginRequest, method) => {
+    const signInType = (isIE || isEdge) ? 'loginRedirect' : method
+    if (signInType === 'loginPopup') {
+      setPopupOpen(true)
 
-            try {
-                await publicClient.loginPopup(loginRequest)
+      try {
+        await publicClient.loginPopup(loginRequest)
 
-                if (publicClient.getAccount()) {
-                    setUser(publicClient.getAccount())
-                    setIsAuthenticated(true)
-                }
-            } catch (error) {
-                console.log(error)
-                setLoginError(error)
-            } finally {
-                setPopupOpen(false)
-            }
-        } else if (signInType === 'loginRedirect') {
-            setLoading(true)
-
-            publicClient.loginRedirect(loginRequest)
+        if (publicClient.getAccount()) {
+          setUser(publicClient.getAccount())
+          setIsAuthenticated(true)
         }
+      } catch (error) {
+        console.log(error)
+        setLoginError(error)
+      } finally {
+        setPopupOpen(false)
+      }
+    } else if (signInType === 'loginRedirect') {
+      setLoading(true)
+
+      publicClient.loginRedirect(loginRequest)
     }
+  }
 
-    const logout = () => {
-        publicClient.logout()
+  const logout = () => {
+    publicClient.logout()
+  }
+
+  const getTokenPopup = async (loginRequest) => {
+    try {
+      const response = await publicClient.acquireTokenSilent(loginRequest)
+      setToken(response.accessToken)
+    } catch (error) {
+      try {
+        setPopupOpen(true)
+
+        const response = await publicClient.acquireTokenPopup(loginRequest)
+
+        setToken(response.accessToken)
+      } catch (error) {
+        console.log(error)
+        setLoginError(error)
+      } finally {
+        setPopupOpen(false)
+      }
     }
+  }
 
-    const getTokenPopup = async (loginRequest) => {
-        try {
-            const response = await publicClient.acquireTokenSilent(loginRequest)
-            setToken(response.accessToken)
-        } catch (error) {
-            try {
-                setPopupOpen(true)
-                
-                const response = await publicClient.acquireTokenPopup(loginRequest)
+  // This function can be removed if you do not need to support IE
+  const getTokenRedirect = async (loginRequest) => {
+    try {
+      setToken(await publicClient.acquireTokenSilent(loginRequest))
+    } catch (error) {
+      try {
+        setLoading(true)
 
-                setToken(response.accessToken)
-            }
-            catch (error) {
-                console.log(error)
-                setLoginError(error)
-            }
-            finally {
-                setPopupOpen(false)
-            }
-        }
+        publicClient.acquireTokenRedirect(loginRequest)
+      } catch (error) {
+        console.error(error)
+        setLoginError(error)
+      }
     }
+  }
 
-    // This function can be removed if you do not need to support IE
-    const getTokenRedirect = async (loginRequest) => {
-        try {
-            setToken(await publicClient.acquireTokenSilent(loginRequest))
-        }
-        catch(error) {
-               
-            try{
-                setLoading(true)
-                
-                publicClient.acquireTokenRedirect(loginRequest)
-            }
-            catch(error) { 
-                console.error(error)
-                setLoginError(error)
-            }
-        }
+  const getToken = async (loginRequest, method) => {
+    const signInType = (isIE || isEdge) ? 'loginRedirect' : method
+    if (signInType === 'loginRedirect') {
+      return await getTokenRedirect(loginRequest)
+    } else {
+      return await getTokenPopup(loginRequest)
     }
+  }
 
-    const getToken = async (loginRequest, method) => {
-        const signInType = (isIE || isEdge) ? 'loginRedirect' : method
-        if (signInType === 'loginRedirect') {
-            return await getTokenRedirect(loginRequest)
-        } else {
-            return await getTokenPopup(loginRequest)
-        }
-    }
-
-    return (
-        <MsalContext.Provider
-            value={{
-                isAuthenticated,
-                user,
-                token,
-                loading,
-                popupOpen,
-                loginError,
-                login,
-                logout,
-                getToken
-            }}
-        >
-            {children}
-        </MsalContext.Provider>
-    )
+  return (
+    <MsalContext.Provider
+      value={{
+        isAuthenticated,
+        user,
+        token,
+        loading,
+        popupOpen,
+        loginError,
+        login,
+        logout,
+        getToken
+      }}
+    >
+      {children}
+    </MsalContext.Provider>
+  )
 }
