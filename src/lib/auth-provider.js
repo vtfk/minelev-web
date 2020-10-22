@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import * as msal from '@azure/msal-browser'
+import axios from 'axios'
 
 const ua = window.navigator.userAgent
 const msie = ua.indexOf('MSIE ')
@@ -7,6 +8,17 @@ const msie11 = ua.indexOf('Trident/')
 const msedge = ua.indexOf('Edge/')
 const isIE = msie > 0 || msie11 > 0
 const isEdge = msedge > 0
+
+const getUserInfo = async token => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`
+  try {
+    const { data } = await axios.get('https://graph.microsoft.com/v1.0/me?$select=userPrincipalName,onPremisesSamaccountName,givenName,surname,displayName')
+    return data
+  } catch (error) {
+    console.error(error)
+    return {}
+  }
+}
 
 export const MsalContext = React.createContext()
 export const useSession = () => useContext(MsalContext)
@@ -22,6 +34,11 @@ export const MsalProvider = ({
   const [popupOpen, setPopupOpen] = useState(false)
   const [loginError, setLoginError] = useState(false)
 
+  async function updateUserInfo (token, user) {
+    const userInfo = await getUserInfo(token)
+    setUser({...user, ...userInfo})
+  }
+
   useEffect(() => {
     const pc = new msal.PublicClientApplication(config)
     setPublicClient(pc)
@@ -29,10 +46,12 @@ export const MsalProvider = ({
     pc.handleRedirectPromise().then((response) => {
       setLoading(false)
       if (response) {
-        setUser(pc.getAllAccounts()[0])
+        const user = pc.getAllAccounts()[0]
+        setUser(user)
         setIsAuthenticated(true)
         if (response.accessToken) {
           setToken(response.accessToken)
+          updateUserInfo(response.accessToken, user)
         }
       }
     }).catch(error => {
