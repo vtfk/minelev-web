@@ -162,7 +162,7 @@ export const MsalProvider = ({
       return false
     }
   }
-  
+
   const apiPost = async (url, payload) => {
     try {
       const { data } = await axios.post(url, payload)
@@ -170,9 +170,9 @@ export const MsalProvider = ({
     } catch (error) {
       console.error(error)
       return false
-    }    
+    }
   }
-  
+
   const apiPut = async (url, payload) => {
     try {
       const { data } = await axios.put(url, payload)

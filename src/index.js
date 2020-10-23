@@ -9,7 +9,7 @@ import './assets/scss/base-styles.scss'
 
 ReactDOM.render(
   <React.StrictMode>
-     <MsalProvider
+    <MsalProvider
       config={config}
       scopes={loginRequest}
     >
