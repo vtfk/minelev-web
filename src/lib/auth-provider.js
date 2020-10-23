@@ -45,13 +45,15 @@ export const MsalProvider = ({
 
     pc.handleRedirectPromise().then((response) => {
       setLoading(false)
+      async function updateData (token, user) {
+        setToken(token)
+        await updateUserInfo(token, user)
+      }
       if (response) {
         const user = pc.getAllAccounts()[0]
-        setUser(user)
-        setIsAuthenticated(true)
         if (response.accessToken) {
-          setToken(response.accessToken)
-          updateUserInfo(response.accessToken, user)
+          updateData(response.accessToken, user)
+          setIsAuthenticated(true)
         }
       }
     }).catch(error => {
@@ -61,13 +63,12 @@ export const MsalProvider = ({
 
     if (pc.getAllAccounts().length > 0) {
       const user = pc.getAllAccounts()[0]
-      setUser(user)
-      setIsAuthenticated(true)
       if (!token) {
         async function updateToken () {
           const response = await pc.acquireTokenSilent({ account: user.username, scopes: config.scopes })
           setToken(response.accessToken)
-          updateUserInfo(response.accessToken, user)
+          await updateUserInfo(response.accessToken, user)
+          setIsAuthenticated(true)
         }
         updateToken()
       }
