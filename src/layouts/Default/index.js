@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useSession } from '../../lib/auth-provider'
 
 import {
@@ -17,7 +17,7 @@ import { Icon } from '../../_lib-components/Icon'
 import './styles.scss'
 
 export function DefaultLayout (props) {
-  const { user, logout } = useSession()
+  const { user, logout, apiGet } = useSession()
   const location = useLocation()
   const [searchTerm, setSearchTerm] = useState(new URLSearchParams(location.search).get('s'))
   
