@@ -20,6 +20,7 @@ export function DefaultLayout (props) {
   const { user, logout } = useSession()
   const location = useLocation()
   const [searchTerm, setSearchTerm] = useState(new URLSearchParams(location.search).get('s'))
+  console.log(user)
 
   return (
     <div className='default-layout'>
