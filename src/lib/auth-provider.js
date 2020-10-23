@@ -154,18 +154,33 @@ export const MsalProvider = ({
   }
 
   const apiGet = async url => {
-    const { data } = await axios.get(url)
-    return data
+    try {
+      const { data } = await axios.get(url)
+      return data
+    } catch (error) {
+      console.error(error)
+      return false
+    }
   }
   
   const apiPost = async (url, payload) => {
-    const { data } = await axios.post(url, payload)
-    return data
+    try {
+      const { data } = await axios.post(url, payload)
+      return data
+    } catch (error) {
+      console.error(error)
+      return false
+    }    
   }
   
   const apiPut = async (url, payload) => {
-    const { data } = await axios.put(url, payload)
-    return data
+    try {
+      const { data } = await axios.put(url, payload)
+      return data
+    } catch (error) {
+      console.error(error)
+      return false
+    }
   }
 
   return (
