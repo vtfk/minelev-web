@@ -55,7 +55,7 @@ const LoginButton = ({ login }) => {
 }
 
 function App () {
-  const { loading, isAuthenticated, login, token } = useSession()
+  const { loading, isAuthenticated, login } = useSession()
 
   if (loading) {
     return <div>Loading...</div>
