@@ -46,6 +46,7 @@ export const MsalProvider = ({
     pc.handleRedirectPromise().then((response) => {
       setLoading(false)
       async function updateData (token, user) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
         setToken(token)
         await updateUserInfo(token, user)
       }
@@ -67,6 +68,7 @@ export const MsalProvider = ({
         async function updateToken () {
           const response = await pc.acquireTokenSilent({ account: user.username, scopes: config.scopes })
           setToken(response.accessToken)
+          axios.defaults.headers.common.Authorization = `Bearer ${response.accessToken}`
           await updateUserInfo(response.accessToken, user)
           setIsAuthenticated(true)
         }
@@ -151,6 +153,21 @@ export const MsalProvider = ({
     }
   }
 
+  const apiGet = async url => {
+    const { data } = await axios.get(url)
+    return data
+  }
+  
+  const apiPost = async (url, payload) => {
+    const { data } = await axios.post(url, payload)
+    return data
+  }
+  
+  const apiPut = async (url, payload) => {
+    const { data } = await axios.put(url, payload)
+    return data
+  }
+
   return (
     <MsalContext.Provider
       value={{
@@ -162,7 +179,10 @@ export const MsalProvider = ({
         loginError,
         login,
         logout,
-        getToken
+        getToken,
+        apiGet,
+        apiPost,
+        apiPut
       }}
     >
       {children}

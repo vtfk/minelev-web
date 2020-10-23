@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSession } from '../../lib/auth-provider'
 
 import {
@@ -20,8 +20,7 @@ export function DefaultLayout (props) {
   const { user, logout } = useSession()
   const location = useLocation()
   const [searchTerm, setSearchTerm] = useState(new URLSearchParams(location.search).get('s'))
-  console.log(user)
-
+  
   return (
     <div className='default-layout'>
       <SideNav title='MinElev'>
@@ -53,7 +52,7 @@ export function DefaultLayout (props) {
             <div className='user-name'>
               <Paragraph>{user.displayName}</Paragraph>
             </div>
-            <InitialsBadge className='user-image' firstName={user.givenName || user.name} lastName={user.surname || user.name} />
+            <InitialsBadge className='user-image' firstName={user.givenName} lastName={user.surname} />
             <div className='user-menu'>
               <IconDropdownNav>
                 <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Min konto' />
