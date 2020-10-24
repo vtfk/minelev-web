@@ -9,9 +9,6 @@ import {
 import { useSession } from './lib/auth-provider'
 import { loginRequest } from './config/auth'
 
-import { ProtectedRoute } from './config/ProtectedRoute'
-
-import { Login } from './pages/Login'
 import { Home } from './pages/Home'
 import { ActivityLog } from './pages/ActivityLog'
 import { Classes } from './pages/Classes'
@@ -29,16 +26,14 @@ const AppContent = () => {
     <Router>
       <div className='app'>
         <Switch>
-          <Route exact path={`/${ROUTES.login}`} component={Login} />
-
-          <ProtectedRoute exact path={`/${ROUTES.activityLog}`} component={ActivityLog} />
-          <ProtectedRoute exact path={`/${ROUTES.classes}`} component={Classes} />
-          <ProtectedRoute exact path={`/${ROUTES.classes}/:id`} component={Class} />
-          <ProtectedRoute exact path={`/${ROUTES.students}`} component={Students} />
-          <ProtectedRoute exact path={`/${ROUTES.students}/:id`} component={Student} />
-          <ProtectedRoute exact path={`/${ROUTES.statistics}`} component={Statistics} />
-          <ProtectedRoute exact path={`/${ROUTES.help}`} component={Help} />
-          <ProtectedRoute exact path='/' component={Home} />
+          <Route exact path='/' component={Home} />
+          <Route exact path={`/${ROUTES.activityLog}`} component={ActivityLog} />
+          <Route exact path={`/${ROUTES.classes}`} component={Classes} />
+          <Route exact path={`/${ROUTES.classes}/:id`} component={Class} />
+          <Route exact path={`/${ROUTES.students}`} component={Students} />
+          <Route exact path={`/${ROUTES.students}/:id`} component={Student} />
+          <Route exact path={`/${ROUTES.statistics}`} component={Statistics} />
+          <Route exact path={`/${ROUTES.help}`} component={Help} />
 
           <Route exact path='*' component={PageNotFound} />
         </Switch>
