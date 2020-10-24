@@ -45,13 +45,16 @@ export const MsalProvider = ({
 
     pc.handleRedirectPromise().then((response) => {
       setLoading(false)
+      async function updateData (token, user) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        setToken(token)
+        await updateUserInfo(token, user)
+      }
       if (response) {
         const user = pc.getAllAccounts()[0]
-        setUser(user)
-        setIsAuthenticated(true)
         if (response.accessToken) {
-          setToken(response.accessToken)
-          updateUserInfo(response.accessToken, user)
+          updateData(response.accessToken, user)
+          setIsAuthenticated(true)
         }
       }
     }).catch(error => {
@@ -61,13 +64,13 @@ export const MsalProvider = ({
 
     if (pc.getAllAccounts().length > 0) {
       const user = pc.getAllAccounts()[0]
-      setUser(user)
-      setIsAuthenticated(true)
       if (!token) {
         async function updateToken () {
           const response = await pc.acquireTokenSilent({ account: user.username, scopes: config.scopes })
           setToken(response.accessToken)
-          updateUserInfo(response.accessToken, user)
+          axios.defaults.headers.common.Authorization = `Bearer ${response.accessToken}`
+          await updateUserInfo(response.accessToken, user)
+          setIsAuthenticated(true)
         }
         updateToken()
       }
@@ -150,6 +153,36 @@ export const MsalProvider = ({
     }
   }
 
+  const apiGet = async url => {
+    try {
+      const { data } = await axios.get(url)
+      return data
+    } catch (error) {
+      console.error(error)
+      return false
+    }
+  }
+
+  const apiPost = async (url, payload) => {
+    try {
+      const { data } = await axios.post(url, payload)
+      return data
+    } catch (error) {
+      console.error(error)
+      return false
+    }
+  }
+
+  const apiPut = async (url, payload) => {
+    try {
+      const { data } = await axios.put(url, payload)
+      return data
+    } catch (error) {
+      console.error(error)
+      return false
+    }
+  }
+
   return (
     <MsalContext.Provider
       value={{
@@ -161,7 +194,10 @@ export const MsalProvider = ({
         loginError,
         login,
         logout,
-        getToken
+        getToken,
+        apiGet,
+        apiPost,
+        apiPut
       }}
     >
       {children}

@@ -67,7 +67,7 @@ export function Home () {
 
       <div className='home'>
         <Heading2 as='h1' className='page-title'>
-          Hei {user.name} og velkommen til MinElev
+          Hei {user.displayName} og velkommen til MinElev
         </Heading2>
 
         <div className='activity-panel'>
