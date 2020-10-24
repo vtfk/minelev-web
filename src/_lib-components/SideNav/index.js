@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import logoBadge from './logo-badge.svg'
+import Logo from '../Logo'
 
 import './styles.scss'
 
@@ -12,7 +12,7 @@ export function SideNav ({ title, ...props }) {
         <div className='brand'>
           <div className='brand-logo'>
             <a href='/'>
-              <img src={logoBadge} alt='VTFK logo' />
+              <Logo />
             </a>
           </div>
           <div className='brand-name'>
