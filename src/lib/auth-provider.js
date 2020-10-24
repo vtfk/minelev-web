@@ -41,22 +41,31 @@ export const MsalProvider = ({
     setUser({ ...user, ...userInfo })
   }
 
+  async function updateUserData (token, user) {
+    setToken(token)
+    await updateUserInfo(token, user)
+    setIsAuthenticated(true)
+  }
+
+  async function updateToken (user) {
+    const response = await publicClient.acquireTokenSilent({ account: user.username, scopes: config.scopes })
+    setToken(response.accessToken)
+    setExpires(new Date(response.expiresOn).getTime())
+    await updateUserInfo(response.accessToken, user)
+    setIsAuthenticated(true)
+  }
+
   useEffect(() => {
     const pc = new msal.PublicClientApplication(config)
     setPublicClient(pc)
     // Første innlogging
     pc.handleRedirectPromise().then((response) => {
       setLoading(false)
-      async function updateData (token, user) {
-        setToken(token)
-        await updateUserInfo(token, user)
-        setIsAuthenticated(true)
-      }
       if (response) {
         const user = pc.getAllAccounts()[0]
         setExpires(new Date(response.expiresOn).getTime())
         if (response.accessToken) {
-          updateData(response.accessToken, user)
+          updateUserData(response.accessToken, user)
         }
       }
     }).catch(error => {
@@ -68,19 +77,11 @@ export const MsalProvider = ({
     if (pc.getAllAccounts().length > 0) {
       const user = pc.getAllAccounts()[0]
       if (!token) {
-        async function updateToken () {
-          const response = await pc.acquireTokenSilent({ account: user.username, scopes: config.scopes })
-          setToken(response.accessToken)
-          setExpires(new Date(response.expiresOn).getTime())
-          await updateUserInfo(response.accessToken, user)
-          setIsAuthenticated(true)
-        }
-        updateToken()
+        updateToken(user)
       } else {
         setIsAuthenticated(token && expires > new Date().getTime())
       }
     }
-
     // eslint-disable-next-line
     }, [])
 
@@ -88,10 +89,8 @@ export const MsalProvider = ({
     const signInType = (isIE || isEdge) ? 'loginRedirect' : method
     if (signInType === 'loginPopup') {
       setPopupOpen(true)
-
       try {
         await publicClient.loginPopup(loginRequest)
-
         if (publicClient.getAccount()) {
           setUser(publicClient.getAccount())
           setIsAuthenticated(true)
@@ -159,13 +158,6 @@ export const MsalProvider = ({
   // Implementerer api kall
   const is401 = error => /401/.test(error.message)
   const isValid = (token, expires) => token && expires > new Date().getTime()
-  const updateToken = async () => {
-    const response = await publicClient.acquireTokenSilent({ account: user.username, scopes: config.scopes })
-    setToken(response.accessToken)
-    setExpires(new Date(response.expiresOn).getTime())
-    await updateUserInfo(response.idToken, user)
-    setIsAuthenticated(true)
-  }
 
   const apiGet = async url => {
     if (isValid(token, expires)) {
