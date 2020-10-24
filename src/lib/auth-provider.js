@@ -156,18 +156,18 @@ export const MsalProvider = ({
   const is401 = error => /401/.test(error.message)
   const isValid = (token, expires) => token && expires > new Date().getTime()
 
-  const apiGet = async url => {
+  const retry = async func => {
     if (isValid(idToken, expires)) {
       axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
       try {
-        const { data } = await axios.get(url)
+        const { data } = await func()
         return data
       } catch (error) {
         if (is401(error)) {
           await updateToken(user)
           axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
           try {
-            const { data } = await axios.get(url)
+            const { data } = await func()
             return data
           } catch (error) {
             console.error(error)
@@ -181,68 +181,14 @@ export const MsalProvider = ({
     } else {
       console.warn('invalid token or expire')
       await updateToken(user)
-      return apiGet(url)
+      return func()
     }
   }
 
-  const apiPost = async (url, payload) => {
-    if (isValid(idToken, expires)) {
-      axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
-      try {
-        const { data } = await axios.post(url, payload)
-        return data
-      } catch (error) {
-        if (is401(error)) {
-          await updateToken(user)
-          axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
-          try {
-            const { data } = await axios.post(url, payload)
-            return data
-          } catch (error) {
-            console.error(error)
-            return false
-          }
-        } else {
-          console.error(error)
-          return false
-        }
-      }
-    } else {
-      console.warn('invalid token or expire')
-      await updateToken(user)
-      return apiPost(url, payload)
-    }
-  }
-
-  const apiPut = async (url, payload) => {
-    if (isValid(idToken, expires)) {
-      axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
-      try {
-        const { data } = await axios.put(url, payload)
-        return data
-      } catch (error) {
-        if (is401(error)) {
-          await updateToken(user)
-          axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
-          try {
-            const { data } = await axios.put(url, payload)
-            return data
-          } catch (error) {
-            console.error(error)
-            return false
-          }
-        } else {
-          console.error(error)
-          return false
-        }
-      }
-    } else {
-      console.warn('invalid token or expire')
-      await updateToken(user)
-      return apiPut(url, payload)
-    }
-  }
-
+  const apiGet = url => retry(() => axios.get(url))
+  const apiPost = (url, payload) => retry(() => axios.post(url, payload))
+  const apiPut = (url, payload) => retry(() => axios.put(url, payload))
+  
   return (
     <MsalContext.Provider
       value={{
