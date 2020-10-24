@@ -10,3 +10,15 @@ React app for MinElev
 - lag en lokal .env fil slik som [env.example](env.example)
 - start utviklingsserver `npm run dev`
 
+## API
+
+Det er laget 3 metoder som gjør kall mot APIer som sender med innlogget brukers token.
+
+```JavaScript
+import useSession from './lib/auth-provider'
+const { apiGet, apiPost, apiPut } = useSession()
+
+const get = await apiGet('url')
+const post = await apiPost('url', payload)
+const put = await apiPut('url', payload)
+```
