@@ -48,7 +48,6 @@ export const MsalProvider = ({
     pc.handleRedirectPromise().then((response) => {
       setLoading(false)
       async function updateData (token, user) {
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`
         setToken(token)
         await updateUserInfo(token, user)
         setIsAuthenticated(true)
@@ -73,7 +72,6 @@ export const MsalProvider = ({
           const response = await pc.acquireTokenSilent({ account: user.username, scopes: config.scopes })
           setToken(response.accessToken)
           setExpires(new Date(response.expiresOn).getTime())
-          axios.defaults.headers.common.Authorization = `Bearer ${response.accessToken}`
           await updateUserInfo(response.accessToken, user)
           setIsAuthenticated(true)
         }
@@ -158,33 +156,101 @@ export const MsalProvider = ({
     }
   }
 
+  // Implementerer api kall
+  const is401 = error => /401/.test(error.message)
+  const isValid = (token, expires) => token && expires > new Date().getTime()
+  const updateToken = async () => {
+    const response = await publicClient.acquireTokenSilent({ account: user.username, scopes: config.scopes })
+    setToken(response.accessToken)
+    setExpires(new Date(response.expiresOn).getTime())
+    await updateUserInfo(response.accessToken, user)
+    setIsAuthenticated(true)
+  }
+
   const apiGet = async url => {
-    try {
-      const { data } = await axios.get(url)
-      return data
-    } catch (error) {
-      console.error(error)
-      return false
+    if (isValid(token, expires)) {
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      try {
+        const { data } = await axios.get(url)
+        return data
+      } catch (error) {
+        if (is401(error)) {
+          await updateToken()
+          axios.defaults.headers.common.Authorization = `Bearer ${token}`
+          try {
+            const { data } = await axios.get(url)
+            return data
+          } catch (error) {
+            console.error(error)
+            return false
+          }
+        } else {
+          console.error(error)
+          return false
+        }
+      }
+    } else {
+      console.warn('invalid token or expire')
+      await updateToken()
+      return apiGet(url)
     }
   }
 
   const apiPost = async (url, payload) => {
-    try {
-      const { data } = await axios.post(url, payload)
-      return data
-    } catch (error) {
-      console.error(error)
-      return false
+    if (isValid(token, expires)) {
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      try {
+        const { data } = await axios.post(url, payload)
+        return data
+      } catch (error) {
+        if (is401(error)) {
+          await updateToken()
+          axios.defaults.headers.common.Authorization = `Bearer ${token}`
+          try {
+            const { data } = await axios.post(url, payload)
+            return data
+          } catch (error) {
+            console.error(error)
+            return false
+          }
+        } else {
+          console.error(error)
+          return false
+        }
+      }
+    } else {
+      console.warn('invalid token or expire')
+      await updateToken()
+      return apiPost(url, payload)
     }
   }
 
   const apiPut = async (url, payload) => {
-    try {
-      const { data } = await axios.put(url, payload)
-      return data
-    } catch (error) {
-      console.error(error)
-      return false
+    if (isValid(token, expires)) {
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      try {
+        const { data } = await axios.put(url, payload)
+        return data
+      } catch (error) {
+        if (is401(error)) {
+          await updateToken()
+          axios.defaults.headers.common.Authorization = `Bearer ${token}`
+          try {
+            const { data } = await axios.put(url, payload)
+            return data
+          } catch (error) {
+            console.error(error)
+            return false
+          }
+        } else {
+          console.error(error)
+          return false
+        }
+      }
+    } else {
+      console.warn('invalid token or expire')
+      await updateToken()
+      return apiPut(url, payload)
     }
   }
 
