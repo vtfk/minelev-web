@@ -122,9 +122,7 @@ export const MsalProvider = ({
     } catch (error) {
       try {
         setPopupOpen(true)
-
         const response = await publicClient.acquireTokenPopup(loginRequest)
-
         setToken(response.accessToken)
       } catch (error) {
         console.log(error)
