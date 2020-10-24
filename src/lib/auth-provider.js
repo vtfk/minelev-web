@@ -55,8 +55,8 @@ export const MsalProvider = ({
       if (response) {
         const user = pc.getAllAccounts()[0]
         setExpires(new Date(response.expiresOn).getTime())
-        if (response.idToken) {
-          updateData(response.idToken, user)
+        if (response.accessToken) {
+          updateData(response.accessToken, user)
         }
       }
     }).catch(error => {
@@ -70,9 +70,9 @@ export const MsalProvider = ({
       if (!token) {
         async function updateToken () {
           const response = await pc.acquireTokenSilent({ account: user.username, scopes: config.scopes })
-          setToken(response.idToken)
+          setToken(response.accessToken)
           setExpires(new Date(response.expiresOn).getTime())
-          await updateUserInfo(response.idToken, user)
+          await updateUserInfo(response.accessToken, user)
           setIsAuthenticated(true)
         }
         updateToken()
@@ -116,12 +116,12 @@ export const MsalProvider = ({
   const getTokenPopup = async (loginRequest) => {
     try {
       const response = await publicClient.acquireTokenSilent(loginRequest)
-      setToken(response.idToken)
+      setToken(response.accessToken)
     } catch (error) {
       try {
         setPopupOpen(true)
         const response = await publicClient.acquireTokenPopup(loginRequest)
-        setToken(response.idToken)
+        setToken(response.accessToken)
       } catch (error) {
         console.log(error)
         setLoginError(error)
@@ -161,7 +161,7 @@ export const MsalProvider = ({
   const isValid = (token, expires) => token && expires > new Date().getTime()
   const updateToken = async () => {
     const response = await publicClient.acquireTokenSilent({ account: user.username, scopes: config.scopes })
-    setToken(response.idToken)
+    setToken(response.accessToken)
     setExpires(new Date(response.expiresOn).getTime())
     await updateUserInfo(response.idToken, user)
     setIsAuthenticated(true)
