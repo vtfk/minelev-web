@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import * as msal from '@azure/msal-browser'
 import axios from 'axios'
+import { useSessionStorage } from './use-session-storage'
 
 const ua = window.navigator.userAgent
 const msie = ua.indexOf('MSIE ')
@@ -27,8 +28,9 @@ export const MsalProvider = ({
   config
 }) => {
   const [isAuthenticated, setIsAuthenticated] = useState()
-  const [user, setUser] = useState()
-  const [token, setToken] = useState()
+  const [user, setUser] = useSessionStorage('user', false)
+  const [token, setToken] = useSessionStorage('token', false)
+  const [expires, setExpires] = useSessionStorage('expires', new Date().getTime())
   const [publicClient, setPublicClient] = useState()
   const [loading, setLoading] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false)
@@ -42,19 +44,20 @@ export const MsalProvider = ({
   useEffect(() => {
     const pc = new msal.PublicClientApplication(config)
     setPublicClient(pc)
-
+    // Første innlogging
     pc.handleRedirectPromise().then((response) => {
       setLoading(false)
       async function updateData (token, user) {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
         setToken(token)
         await updateUserInfo(token, user)
+        setIsAuthenticated(true)
       }
       if (response) {
         const user = pc.getAllAccounts()[0]
+        setExpires(new Date(response.expiresOn).getTime())
         if (response.accessToken) {
           updateData(response.accessToken, user)
-          setIsAuthenticated(true)
         }
       }
     }).catch(error => {
@@ -62,17 +65,21 @@ export const MsalProvider = ({
       setLoginError(error)
     })
 
+    // Dersom bruker er innlogget fra tidligere
     if (pc.getAllAccounts().length > 0) {
       const user = pc.getAllAccounts()[0]
       if (!token) {
         async function updateToken () {
           const response = await pc.acquireTokenSilent({ account: user.username, scopes: config.scopes })
           setToken(response.accessToken)
+          setExpires(new Date(response.expiresOn).getTime())
           axios.defaults.headers.common.Authorization = `Bearer ${response.accessToken}`
           await updateUserInfo(response.accessToken, user)
           setIsAuthenticated(true)
         }
         updateToken()
+      } else {
+        setIsAuthenticated(token && expires > new Date().getTime())
       }
     }
 
@@ -115,9 +122,7 @@ export const MsalProvider = ({
     } catch (error) {
       try {
         setPopupOpen(true)
-
         const response = await publicClient.acquireTokenPopup(loginRequest)
-
         setToken(response.accessToken)
       } catch (error) {
         console.log(error)
