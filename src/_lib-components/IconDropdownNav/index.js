@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import icon from './icon-dropdown-nav-icon.svg'
+import { ReactComponent as DropdownNavIcon } from './icon-dropdown-nav-icon.svg'
 
 import './styles.scss'
 
@@ -40,7 +40,7 @@ export function IconDropdownNav (props) {
   return (
     <div className='icon-dropdown-nav' {...props}>
       <button className='icon-dropdown-nav-trigger' onClick={() => { toggleDropdown() }}>
-        <img src={icon} alt='Åpne dropdown meny' />
+        <DropdownNavIcon aria-label='Åpne dropdown meny' />
       </button>
 
       {
