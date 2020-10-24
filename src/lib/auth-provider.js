@@ -30,6 +30,7 @@ export const MsalProvider = ({
   const [isAuthenticated, setIsAuthenticated] = useState()
   const [user, setUser] = useSessionStorage('user', false)
   const [token, setToken] = useSessionStorage('token', false)
+  const [idToken, setIdToken] = useSessionStorage('idToken', false)
   const [expires, setExpires] = useSessionStorage('expires', new Date().getTime())
   const [publicClient, setPublicClient] = useState()
   const [loading, setLoading] = useState(false)
@@ -41,18 +42,17 @@ export const MsalProvider = ({
     setUser({ ...user, ...userInfo })
   }
 
-  async function updateUserData (token, user) {
-    setToken(token)
-    await updateUserInfo(token, user)
+  async function saveUserdata (response, user) {
+    setToken(response.accessToken)
+    setIdToken(response.idToken)
+    setExpires(new Date(response.expiresOn).getTime())
+    await updateUserInfo(response.accessToken, user)
     setIsAuthenticated(true)
   }
 
   async function updateToken (user) {
     const response = await publicClient.acquireTokenSilent({ account: user.username, scopes: config.scopes })
-    setToken(response.accessToken)
-    setExpires(new Date(response.expiresOn).getTime())
-    await updateUserInfo(response.accessToken, user)
-    setIsAuthenticated(true)
+    await saveUserdata(response, user)
   }
 
   useEffect(() => {
@@ -63,10 +63,7 @@ export const MsalProvider = ({
       setLoading(false)
       if (response) {
         const user = pc.getAllAccounts()[0]
-        setExpires(new Date(response.expiresOn).getTime())
-        if (response.accessToken) {
-          updateUserData(response.accessToken, user)
-        }
+        saveUserdata(response, user)
       }
     }).catch(error => {
       console.log(error)
@@ -160,15 +157,15 @@ export const MsalProvider = ({
   const isValid = (token, expires) => token && expires > new Date().getTime()
 
   const apiGet = async url => {
-    if (isValid(token, expires)) {
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+    if (isValid(idToken, expires)) {
+      axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
       try {
         const { data } = await axios.get(url)
         return data
       } catch (error) {
         if (is401(error)) {
-          await updateToken()
-          axios.defaults.headers.common.Authorization = `Bearer ${token}`
+          await updateToken(user)
+          axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
           try {
             const { data } = await axios.get(url)
             return data
@@ -183,21 +180,21 @@ export const MsalProvider = ({
       }
     } else {
       console.warn('invalid token or expire')
-      await updateToken()
+      await updateToken(user)
       return apiGet(url)
     }
   }
 
   const apiPost = async (url, payload) => {
-    if (isValid(token, expires)) {
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+    if (isValid(idToken, expires)) {
+      axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
       try {
         const { data } = await axios.post(url, payload)
         return data
       } catch (error) {
         if (is401(error)) {
-          await updateToken()
-          axios.defaults.headers.common.Authorization = `Bearer ${token}`
+          await updateToken(user)
+          axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
           try {
             const { data } = await axios.post(url, payload)
             return data
@@ -212,21 +209,21 @@ export const MsalProvider = ({
       }
     } else {
       console.warn('invalid token or expire')
-      await updateToken()
+      await updateToken(user)
       return apiPost(url, payload)
     }
   }
 
   const apiPut = async (url, payload) => {
-    if (isValid(token, expires)) {
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+    if (isValid(idToken, expires)) {
+      axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
       try {
         const { data } = await axios.put(url, payload)
         return data
       } catch (error) {
         if (is401(error)) {
-          await updateToken()
-          axios.defaults.headers.common.Authorization = `Bearer ${token}`
+          await updateToken(user)
+          axios.defaults.headers.common.Authorization = `Bearer ${idToken}`
           try {
             const { data } = await axios.put(url, payload)
             return data
@@ -241,7 +238,7 @@ export const MsalProvider = ({
       }
     } else {
       console.warn('invalid token or expire')
-      await updateToken()
+      await updateToken(user)
       return apiPut(url, payload)
     }
   }
