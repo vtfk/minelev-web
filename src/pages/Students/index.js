@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import { DefaultLayout } from '../../layouts/Default'
 
 import { ROUTES } from '../../config/constants'

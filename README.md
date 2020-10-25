@@ -5,6 +5,7 @@
 React app for MinElev
 
 ## For utvikling
+
 - klon repo
 - installer avhengigheter `npm i`
 - lag en lokal .env fil slik som [env.example](env.example)
@@ -22,3 +23,15 @@ const get = await apiGet('url')
 const post = await apiPost('url', payload)
 const put = await apiPut('url', payload)
 ```
+
+## Demo modus
+
+- `npm run demo``
+- setter demobruker og tokens i session
+- mocker kall mot api
+
+## Mock
+
+- Bruker biblioteket [msw](https://mswjs.io/)
+- oppsett ligger i [src/mock](src/mock)
+- legg ruter som skal mockes i [handlers.js](src/mock/handlers.js)

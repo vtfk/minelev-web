@@ -7,6 +7,11 @@ import App from './App'
 
 import './assets/scss/base-styles.scss'
 
+if (process.env.REACT_APP_IS_MOCK) {
+  const { worker } = require('./mocks/browser')
+  worker.start()
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <MsalProvider

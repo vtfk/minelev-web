@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
+    "demo": "REACT_APP_IS_MOCK=true react-scripts start",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "standard && CI=true react-scripts test",
@@ -49,6 +50,7 @@
     "react-scripts": "4.0.0"
   },
   "devDependencies": {
+    "msw": "0.21.3",
     "standard": "15.0.0"
   }
 }
