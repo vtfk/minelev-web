@@ -36,7 +36,7 @@ export const MsalProvider = ({
   const [loading, setLoading] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false)
   const [loginError, setLoginError] = useState(false)
-  const [isMock, setMock] = useState(process.env.REACT_APP_IS_MOCK ? true : false)
+  const [isMock] = useState(!!process.env.REACT_APP_IS_MOCK)
 
   async function updateUserInfo (token, user) {
     const userInfo = await getUserInfo(token)
