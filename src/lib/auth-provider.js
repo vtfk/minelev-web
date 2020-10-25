@@ -36,6 +36,7 @@ export const MsalProvider = ({
   const [loading, setLoading] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false)
   const [loginError, setLoginError] = useState(false)
+  const [isMock, setMock] = useState(process.env.REACT_APP_IS_MOCK ? true : false)
 
   async function updateUserInfo (token, user) {
     const userInfo = await getUserInfo(token)
@@ -54,6 +55,10 @@ export const MsalProvider = ({
     const response = await publicClient.acquireTokenSilent({ account: user.username, scopes: config.scopes })
     await saveUserdata(response, user)
   }
+
+  useEffect(() => {
+    console.log('isMock', isMock)
+  }, [isMock])
 
   useEffect(() => {
     const pc = new msal.PublicClientApplication(config)
