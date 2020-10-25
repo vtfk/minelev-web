@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import * as msal from '@azure/msal-browser'
 import axios from 'axios'
 import { useSessionStorage } from './use-session-storage'
+import { graph } from '../config/auth'
 
 const ua = window.navigator.userAgent
 const msie = ua.indexOf('MSIE ')
@@ -13,7 +14,7 @@ const isEdge = msedge > 0
 const getUserInfo = async token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`
   try {
-    const { data } = await axios.get('https://graph.microsoft.com/v1.0/me?$select=userPrincipalName,onPremisesSamaccountName,givenName,surname,displayName')
+    const { data } = await axios.get(graph.userInfoUrl)
     return data
   } catch (error) {
     console.error(error)

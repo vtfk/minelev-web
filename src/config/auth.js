@@ -10,6 +10,10 @@ export const config = {
   }
 }
 
+export const graph = {
+  userInfoUrl: process.env.USER_INFO_URL || 'https://graph.microsoft.com/v1.0/me?$select=userPrincipalName,onPremisesSamaccountName,givenName,surname,displayName'
+}
+
 export const loginRequest = {
   scopes: ['openid', 'profile', 'User.Read'],
   forceRefresh: true
