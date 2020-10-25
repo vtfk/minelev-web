@@ -1,8 +1,14 @@
 // Static demo data
 
 export const CURRENT_USER = {
-  firstName: 'Charlotte',
-  lastName: 'Testine'
+  displayName: 'Trine Testesen',
+  givenName: 'Trine',
+  name: 'Trine Testesen',
+  onPremisesSamAccountName: null,
+  surname: 'Testesen',
+  tenantId: '08f3813c-9f29-482f-9aec-16ef7cbf477a',
+  userPrincipalName: 'trine.testesen@vtfk.no',
+  username: 'trine.testesen@vtfk.no'
 }
 
 export const STUDENTS = [

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import * as msal from '@azure/msal-browser'
 import axios from 'axios'
 import { useSessionStorage } from './use-session-storage'
+import { CURRENT_USER } from '../mocks/mock-data'
 import { graph } from '../config/auth'
 
 const ua = window.navigator.userAgent
@@ -61,16 +62,7 @@ export const MsalProvider = ({
     if (isMock) {
       const now = new Date()
       now.setDate(now.getDate() + 24)
-      setUser({
-        displayName: 'Trine Testesen',
-        givenName: 'Trine',
-        name: 'Trine Testesen',
-        onPremisesSamAccountName: null,
-        surname: 'Testesen',
-        tenantId: '08f3813c-9f29-482f-9aec-16ef7cbf477a',
-        userPrincipalName: 'trine.testesen@vtfk.no',
-        username: 'trine.testesen@vtfk.no'
-      })
+      setUser(CURRENT_USER)
       setToken('12345')
       setIdToken('67890')
       setExpires(now.getTime())
