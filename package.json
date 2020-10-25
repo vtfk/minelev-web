@@ -50,6 +50,7 @@
     "react-scripts": "4.0.0"
   },
   "devDependencies": {
+    "msw": "0.21.3",
     "standard": "15.0.0"
   }
 }
