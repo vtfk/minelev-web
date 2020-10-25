@@ -57,6 +57,22 @@ export const MsalProvider = ({
   }
 
   useEffect(() => {
+    const now = new Date()
+    now.setDate(now.getDate() + 24)
+    setUser({
+      displayName: 'Trine Testesen',
+      givenName: 'Trine',
+      name: 'Trine Testesen',
+      onPremisesSamAccountName: null,
+      surname: 'Testesen',
+      tenantId: '08f3813c-9f29-482f-9aec-16ef7cbf477a',
+      userPrincipalName: 'trine.testesen@vtfk.no',
+      username: 'trine.testesen@vtfk.no'
+    })
+    setToken('12345')
+    setIdToken('67890')
+    setExpires(now.getTime())
+    setIsAuthenticated(true)
     console.log('isMock', isMock)
   }, [isMock])
 
