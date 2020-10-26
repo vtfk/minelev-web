@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useSessionStorage } from './use-session-storage'
 import { CURRENT_USER } from '../mocks/mock-data'
 import { graph } from '../config/auth'
+const isMock = !!process.env.REACT_APP_IS_MOCK
 
 const ua = window.navigator.userAgent
 const msie = ua.indexOf('MSIE ')
@@ -30,7 +31,7 @@ export const MsalProvider = ({
   config
 }) => {
   const [auth, setAuth] = useSessionStorage('auth', {
-    isAuthenticated: false,
+    isAuthenticated: isMock,
     user: false,
     token: false,
     idToken: false,
@@ -41,7 +42,6 @@ export const MsalProvider = ({
   const [popupOpen, setPopupOpen] = useState(false)
   const [loginError, setLoginError] = useState(false)
   const { isAuthenticated, user, token, idToken, expires, authStatus } = auth
-  const isMock = !!process.env.REACT_APP_IS_MOCK
 
   async function updateUserInfo (token, user) {
     const userInfo = await getUserInfo(token)
@@ -71,7 +71,8 @@ export const MsalProvider = ({
   }
 
   useEffect(() => {
-    const pc = new msal.PublicClientApplication(config)
+    if (!isMock) {
+      const pc = new msal.PublicClientApplication(config)
     setPublicClient(pc)
     // Første innlogging
     const copyAuth = { ...auth }
@@ -104,6 +105,7 @@ export const MsalProvider = ({
       }
     }
     // eslint-disable-next-line
+    }
     }, [])
 
   useEffect(() => {
