@@ -73,40 +73,40 @@ export const MsalProvider = ({
   useEffect(() => {
     if (!isMock) {
       const pc = new msal.PublicClientApplication(config)
-    setPublicClient(pc)
-    // Første innlogging
-    const copyAuth = { ...auth }
-    setAuth({ ...copyAuth, authStatus: 'pending' })
-    pc.handleRedirectPromise().then((response) => {
-      if (response) {
-        const user = pc.getAllAccounts()[0]
-        saveUserdata(response, user)
-      } else {
-        const copyAuth = { ...auth }
-        setAuth({ ...copyAuth, authStatus: 'finished' })
-      }
-    }).catch(error => {
-      const copyAuth = { ...auth }
-      setAuth({ ...copyAuth, authStatus: 'rejected' })
-      console.log(error)
-      setLoginError(error)
-    })
-
-    // Dersom bruker er innlogget fra tidligere
-    if (pc.getAllAccounts().length > 0) {
-      const user = pc.getAllAccounts()[0]
+      setPublicClient(pc)
+      // Første innlogging
       const copyAuth = { ...auth }
       setAuth({ ...copyAuth, authStatus: 'pending' })
-      if (!token) {
-        updateToken(user)
-      } else {
+      pc.handleRedirectPromise().then((response) => {
+        if (response) {
+          const user = pc.getAllAccounts()[0]
+          saveUserdata(response, user)
+        } else {
+          const copyAuth = { ...auth }
+          setAuth({ ...copyAuth, authStatus: 'finished' })
+        }
+      }).catch(error => {
         const copyAuth = { ...auth }
-        setAuth({ ...copyAuth, isAuthenticated: token && expires > new Date().getTime(), authStatus: 'finished' })
+        setAuth({ ...copyAuth, authStatus: 'rejected' })
+        console.log(error)
+        setLoginError(error)
+      })
+
+      // Dersom bruker er innlogget fra tidligere
+      if (pc.getAllAccounts().length > 0) {
+        const user = pc.getAllAccounts()[0]
+        const copyAuth = { ...auth }
+        setAuth({ ...copyAuth, authStatus: 'pending' })
+        if (!token) {
+          updateToken(user)
+        } else {
+          const copyAuth = { ...auth }
+          setAuth({ ...copyAuth, isAuthenticated: token && expires > new Date().getTime(), authStatus: 'finished' })
+        }
       }
-    }
     // eslint-disable-next-line
     }
-    }, [])
+  }, [])
 
   useEffect(() => {
     if (isMock) {
