@@ -29,28 +29,40 @@ export const MsalProvider = ({
   children,
   config
 }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState()
-  const [user, setUser] = useSessionStorage('user', false)
-  const [token, setToken] = useSessionStorage('token', false)
-  const [idToken, setIdToken] = useSessionStorage('idToken', false)
-  const [expires, setExpires] = useSessionStorage('expires', new Date().getTime())
+  const [auth, setAuth] = useSessionStorage('auth', {
+    isAuthenticated: false,
+    user: false,
+    token: false,
+    idToken: false,
+    expires: new Date().getTime(),
+    authStatus: 'unknown'
+  })
   const [publicClient, setPublicClient] = useState()
-  const [loading, setLoading] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false)
   const [loginError, setLoginError] = useState(false)
+  const { isAuthenticated, user, token, idToken, expires, authStatus } = auth
   const isMock = !!process.env.REACT_APP_IS_MOCK
 
   async function updateUserInfo (token, user) {
     const userInfo = await getUserInfo(token)
-    setUser({ ...user, ...userInfo })
+    return { ...user, ...userInfo }
   }
 
   async function saveUserdata (response, user) {
-    setToken(response.accessToken)
-    setIdToken(response.idToken)
-    setExpires(new Date(response.expiresOn).getTime())
-    await updateUserInfo(response.accessToken, user)
-    setIsAuthenticated(true)
+    const token = response.accessToken
+    const idToken = response.idToken
+    const expires = new Date(response.expiresOn).getTime()
+    const userInfo = await updateUserInfo(token, user)
+    const isAuthenticated = token && expires > new Date().getTime()
+    const authStatus = 'finished'
+    setAuth({
+      isAuthenticated,
+      user: userInfo,
+      token,
+      idToken,
+      expires,
+      authStatus
+    })
   }
 
   async function updateToken (user) {
@@ -59,29 +71,22 @@ export const MsalProvider = ({
   }
 
   useEffect(() => {
-    if (isMock) {
-      const now = new Date()
-      now.setDate(now.getDate() + 24)
-      setUser(CURRENT_USER)
-      setToken('12345')
-      setIdToken('67890')
-      setExpires(now.getTime())
-      setIsAuthenticated(true)
-      console.log('isMock', isMock)
-    }
-  }, []) // eslint-disable-line
-
-  useEffect(() => {
     const pc = new msal.PublicClientApplication(config)
     setPublicClient(pc)
     // Første innlogging
+    const copyAuth = {...auth}
+    setAuth({...copyAuth, authStatus: 'pending'})
     pc.handleRedirectPromise().then((response) => {
-      setLoading(false)
       if (response) {
         const user = pc.getAllAccounts()[0]
         saveUserdata(response, user)
+      } else {
+        const copyAuth = {...auth}
+        setAuth({...copyAuth, authStatus: 'finished'})
       }
     }).catch(error => {
+      const copyAuth = {...auth}
+      setAuth({...copyAuth, authStatus: 'rejected'})
       console.log(error)
       setLoginError(error)
     })
@@ -89,24 +94,44 @@ export const MsalProvider = ({
     // Dersom bruker er innlogget fra tidligere
     if (pc.getAllAccounts().length > 0) {
       const user = pc.getAllAccounts()[0]
+      const copyAuth = {...auth}
+      setAuth({...copyAuth, authStatus: 'pending'})
       if (!token) {
         updateToken(user)
       } else {
-        setIsAuthenticated(token && expires > new Date().getTime())
+        const copyAuth = {...auth}
+        setAuth({...copyAuth, isAuthenticated: token && expires > new Date().getTime(), authStatus: 'finished'})
       }
     }
     // eslint-disable-next-line
     }, [])
+  
+  useEffect(() => {
+    if (isMock) {
+      const now = new Date()
+      now.setDate(now.getDate() + 24)
+      setAuth({
+        isAuthenticated: true,
+        user: CURRENT_USER,
+        token: '12345',
+        idToken: '67890',
+        expires: now.getTime(),
+        authStatus: 'finished'
+      })
+      console.log('Running in mock modus')
+    }
+    }, []) // eslint-disable-line
 
   const login = async (loginRequest, method) => {
     const signInType = (isIE || isEdge) ? 'loginRedirect' : method
     if (signInType === 'loginPopup') {
       setPopupOpen(true)
       try {
+        const copyAuth = {...auth}
+        setAuth({...copyAuth, authStatus: 'pending'})
         await publicClient.loginPopup(loginRequest)
         if (publicClient.getAccount()) {
-          setUser(publicClient.getAccount())
-          setIsAuthenticated(true)
+          updateToken(publicClient.getAccount())
         }
       } catch (error) {
         console.log(error)
@@ -115,25 +140,26 @@ export const MsalProvider = ({
         setPopupOpen(false)
       }
     } else if (signInType === 'loginRedirect') {
-      setLoading(true)
-
+      const copyAuth = {...auth}
+      setAuth({...copyAuth, authStatus: 'pending'})
       publicClient.loginRedirect(loginRequest)
     }
   }
 
   const logout = () => {
+    setAuth({})
     publicClient.logout()
   }
 
   const getTokenPopup = async (loginRequest) => {
     try {
       const response = await publicClient.acquireTokenSilent(loginRequest)
-      setToken(response.accessToken)
+      // setToken(response.accessToken)
     } catch (error) {
       try {
         setPopupOpen(true)
         const response = await publicClient.acquireTokenPopup(loginRequest)
-        setToken(response.accessToken)
+        // setToken(response.accessToken)
       } catch (error) {
         console.log(error)
         setLoginError(error)
@@ -145,12 +171,15 @@ export const MsalProvider = ({
 
   // This function can be removed if you do not need to support IE
   const getTokenRedirect = async (loginRequest) => {
-    try {
-      setToken(await publicClient.acquireTokenSilent(loginRequest))
+    const copyAuth = {...auth}
+    setAuth({...copyAuth, authStatus: 'pending'})
+    try {  
+      const token = await publicClient.acquireTokenSilent(loginRequest)
+      setAuth({...copyAuth, token})
     } catch (error) {
       try {
-        setLoading(true)
-
+        const copyAuth = {...auth}
+        setAuth({...copyAuth, authStatus: 'pending'})
         publicClient.acquireTokenRedirect(loginRequest)
       } catch (error) {
         console.error(error)
@@ -209,9 +238,9 @@ export const MsalProvider = ({
     <MsalContext.Provider
       value={{
         isAuthenticated,
+        authStatus,
         user,
         token,
-        loading,
         popupOpen,
         loginError,
         login,

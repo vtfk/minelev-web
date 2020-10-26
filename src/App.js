@@ -43,24 +43,19 @@ const AppContent = () => {
   )
 }
 
-const LoginButton = ({ login }) => {
-  return (
-    <button onClick={() => login(loginRequest, 'loginRedirect')}>Logg inn</button>
-  )
-}
-
 function App () {
-  const { loading, isAuthenticated, login } = useSession()
+  const { isAuthenticated, login, authStatus } = useSession()
 
-  if (loading) {
+  if (['pending'].includes(authStatus)) {
     return <div>Loading...</div>
   }
 
   if (!isAuthenticated) {
-    return <LoginButton login={login} />
+    login(loginRequest, 'loginRedirect')
+    return <></>
   }
 
-  if (isAuthenticated) {
+  if (isAuthenticated && authStatus === 'finished') {
     return <AppContent />
   }
 }
