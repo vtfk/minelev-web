@@ -74,19 +74,19 @@ export const MsalProvider = ({
     const pc = new msal.PublicClientApplication(config)
     setPublicClient(pc)
     // Første innlogging
-    const copyAuth = {...auth}
-    setAuth({...copyAuth, authStatus: 'pending'})
+    const copyAuth = { ...auth }
+    setAuth({ ...copyAuth, authStatus: 'pending' })
     pc.handleRedirectPromise().then((response) => {
       if (response) {
         const user = pc.getAllAccounts()[0]
         saveUserdata(response, user)
       } else {
-        const copyAuth = {...auth}
-        setAuth({...copyAuth, authStatus: 'finished'})
+        const copyAuth = { ...auth }
+        setAuth({ ...copyAuth, authStatus: 'finished' })
       }
     }).catch(error => {
-      const copyAuth = {...auth}
-      setAuth({...copyAuth, authStatus: 'rejected'})
+      const copyAuth = { ...auth }
+      setAuth({ ...copyAuth, authStatus: 'rejected' })
       console.log(error)
       setLoginError(error)
     })
@@ -94,18 +94,18 @@ export const MsalProvider = ({
     // Dersom bruker er innlogget fra tidligere
     if (pc.getAllAccounts().length > 0) {
       const user = pc.getAllAccounts()[0]
-      const copyAuth = {...auth}
-      setAuth({...copyAuth, authStatus: 'pending'})
+      const copyAuth = { ...auth }
+      setAuth({ ...copyAuth, authStatus: 'pending' })
       if (!token) {
         updateToken(user)
       } else {
-        const copyAuth = {...auth}
-        setAuth({...copyAuth, isAuthenticated: token && expires > new Date().getTime(), authStatus: 'finished'})
+        const copyAuth = { ...auth }
+        setAuth({ ...copyAuth, isAuthenticated: token && expires > new Date().getTime(), authStatus: 'finished' })
       }
     }
     // eslint-disable-next-line
     }, [])
-  
+
   useEffect(() => {
     if (isMock) {
       const now = new Date()
@@ -127,8 +127,8 @@ export const MsalProvider = ({
     if (signInType === 'loginPopup') {
       setPopupOpen(true)
       try {
-        const copyAuth = {...auth}
-        setAuth({...copyAuth, authStatus: 'pending'})
+        const copyAuth = { ...auth }
+        setAuth({ ...copyAuth, authStatus: 'pending' })
         await publicClient.loginPopup(loginRequest)
         if (publicClient.getAccount()) {
           updateToken(publicClient.getAccount())
@@ -140,8 +140,8 @@ export const MsalProvider = ({
         setPopupOpen(false)
       }
     } else if (signInType === 'loginRedirect') {
-      const copyAuth = {...auth}
-      setAuth({...copyAuth, authStatus: 'pending'})
+      const copyAuth = { ...auth }
+      setAuth({ ...copyAuth, authStatus: 'pending' })
       publicClient.loginRedirect(loginRequest)
     }
   }
@@ -154,11 +154,13 @@ export const MsalProvider = ({
   const getTokenPopup = async (loginRequest) => {
     try {
       const response = await publicClient.acquireTokenSilent(loginRequest)
+      saveUserdata(response.accessToken, user)
       // setToken(response.accessToken)
     } catch (error) {
       try {
         setPopupOpen(true)
         const response = await publicClient.acquireTokenPopup(loginRequest)
+        saveUserdata(response.accessToken, user)
         // setToken(response.accessToken)
       } catch (error) {
         console.log(error)
@@ -171,15 +173,15 @@ export const MsalProvider = ({
 
   // This function can be removed if you do not need to support IE
   const getTokenRedirect = async (loginRequest) => {
-    const copyAuth = {...auth}
-    setAuth({...copyAuth, authStatus: 'pending'})
-    try {  
+    const copyAuth = { ...auth }
+    setAuth({ ...copyAuth, authStatus: 'pending' })
+    try {
       const token = await publicClient.acquireTokenSilent(loginRequest)
-      setAuth({...copyAuth, token})
+      setAuth({ ...copyAuth, token })
     } catch (error) {
       try {
-        const copyAuth = {...auth}
-        setAuth({...copyAuth, authStatus: 'pending'})
+        const copyAuth = { ...auth }
+        setAuth({ ...copyAuth, authStatus: 'pending' })
         publicClient.acquireTokenRedirect(loginRequest)
       } catch (error) {
         console.error(error)
