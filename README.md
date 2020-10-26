@@ -26,7 +26,7 @@ const put = await apiPut('url', payload)
 
 ## Demo modus
 
-- `npm run demo``
+- `npm run demo`
 - setter demobruker og tokens i session
 - mocker kall mot api
 
