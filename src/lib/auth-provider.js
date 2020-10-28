@@ -149,8 +149,7 @@ export const MsalProvider = ({
   }
 
   const logout = () => {
-    setAuth({})
-    publicClient.logout()
+    return publicClient.logout()
   }
 
   const getTokenPopup = async (loginRequest) => {
