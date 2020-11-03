@@ -58,16 +58,14 @@ Returns the teachers of the specified group
 
 ### ```GET /yff/:student/:type/:id```
 
-Returnerer 5 typer dersom id er utelatt og 1 dersom id sendes med
+Returns ``5 types`` if ID isn't sent, ``1 type`` if ID is present and if there is only a student ID specified, this is returned:
 
-Dersom kun student sendes inn returnreres 
-
-JavaScript
+```javascript
 {
   maal: [5],
   utplasseringer: [1],
   tilbakemeldinger: [1]
 }
+```
 
-
-For å se formatet på data kikk på [yff](yff.js)
+To see the data format, please head over [here](yff.js)
