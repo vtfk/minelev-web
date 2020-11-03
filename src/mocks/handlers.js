@@ -9,12 +9,25 @@ export const handlers = [
       ctx.json(STUDENTS)
     )
   }),
-  rest.get('https://api.minelev.no/yff/:student/:type/:id', (req, res, ctx) => {
-    const { student, type, id } = req.params
-    console.log(student, type, id)
+  rest.get('https://api.minelev.no/yff/:student', (req, res, ctx) => {
+    const { student } = req.params
     return res(
       ctx.status(200),
-      ctx.json(generateYFF(type))
+      ctx.json(generateYFF({ student, type: false, id: false }))
+    )
+  }),
+  rest.get('https://api.minelev.no/yff/:student/:type', (req, res, ctx) => {
+    const { student, type } = req.params
+    return res(
+      ctx.status(200),
+      ctx.json(generateYFF({ student, type, id: false }))
+    )
+  }),
+  rest.get('https://api.minelev.no/yff/:student/:type/:id', (req, res, ctx) => {
+    const { student, type, id } = req.params
+    return res(
+      ctx.status(200),
+      ctx.json(generateYFF({ student, type, id }))
     )
   })
 ]

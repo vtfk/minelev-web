@@ -193,12 +193,23 @@ const tilbakemelding = {
   varsletFravar: '0'
 }
 
-module.exports = type => {
+module.exports = params => {
+  const { student, type, id } = params
+  console.log(student, type, id)
+  const arr = id ? [0] : [1, 2, 3, 4, 5]
   const data = {
     maal,
     maalmal,
     utplassering,
     tilbakemelding
   }
-  return data[type] ? [data[type]] : []
+  if (student && !type && !id) {
+    return {
+      maal: arr.fill(maal),
+      utplasseringer: [utplassering],
+      tilbakemeldinger: [tilbakemelding]
+    }
+  } else {
+    return data[type] ? arr.fill(data[type]) : []
+  }
 }
