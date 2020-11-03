@@ -18,4 +18,22 @@ Dersom kun student sendes inn returnreres
 }
 ```
 
+### POST /yff/:student/:type
+
+Returnerer array av 1 type
+
+### PUT /yff/:student/:type/:id
+
+Returnerer array av 1 type
+
+### DELETE /yff/:student/:type/:id
+
+Returnerer
+
+```JavaScript
+{
+  success: true
+}
+```
+
 For å se formatet på data kikk på [yff](yff.js)
