@@ -57,6 +57,8 @@ function App () {
 
   if (isAuthenticated && authStatus === 'finished') {
     return <AppContent />
+  } else if (process.env.REACT_APP_IS_MOCK) {
+    return <></>
   }
 }
 
