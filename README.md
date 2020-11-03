@@ -28,10 +28,11 @@ const put = await apiPut('url', payload)
 
 - `npm run demo`
 - setter demobruker og tokens i session
-- mocker kall mot api
+
 
 ## Mock
 
 - Bruker biblioteket [msw](https://mswjs.io/)
 - oppsett ligger i [src/mock](src/mock)
 - legg ruter som skal mockes i [handlers.js](src/mock/handlers.js)
+- les mer i [api.md](/src/mocks/api.md) 
