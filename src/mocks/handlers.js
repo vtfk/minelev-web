@@ -29,5 +29,25 @@ export const handlers = [
       ctx.status(200),
       ctx.json(generateYFF({ student, type, id }))
     )
+  }),
+  rest.post('https://api.minelev.no/yff/:student/:type/', (req, res, ctx) => {
+    const { student, type } = req.params
+    return res(
+      ctx.status(200),
+      ctx.json(generateYFF({ student, type, id: true }))
+    )
+  }),
+  rest.put('https://api.minelev.no/yff/:student/:type/:id', (req, res, ctx) => {
+    const { student, type, id } = req.params
+    return res(
+      ctx.status(200),
+      ctx.json(generateYFF({ student, type, id }))
+    )
+  }),
+  rest.delete('https://api.minelev.no/yff/:student/:type/:id', (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({ success: true })
+    )
   })
 ]
