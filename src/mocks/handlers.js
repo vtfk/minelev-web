@@ -1,5 +1,6 @@
 import { rest } from 'msw'
 import { STUDENTS } from './mock-data'
+import generateYFF from './yff'
 
 export const handlers = [
   rest.get('https://api.minelev.no/students/me', (req, res, ctx) => {
@@ -13,7 +14,7 @@ export const handlers = [
     console.log(student, type, id)
     return res(
       ctx.status(200),
-      ctx.json(STUDENTS)
+      ctx.json(generateYFF(type))
     )
   })
 ]
