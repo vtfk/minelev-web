@@ -23,8 +23,8 @@ export function Students (props) {
 
   if (searchTerm && searchTerm !== '') {
     students = students.filter((student) => {
-      var studentName = student.firstName + ' ' + student.lastName
-      if (studentName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) return true
+      const studentName = student.firstName + ' ' + student.lastName
+      return studentName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
     })
   }
 
