@@ -1,9 +1,11 @@
 import { rest } from 'msw'
+import { API } from '../config/app'
+
 import { getStudents, getStudent, getStudentClasses, getStudentTeachers, getClasses, getClass, getClassStudents, getClassTeachers } from './pifu'
 import generateYFF from './yff'
 
 export const handlers = [
-  rest.get('https://api.minelev.no/students', (req, res, ctx) => {
+  rest.get(`${API.URL}/students`, (req, res, ctx) => {
     const students = getStudents()
 
     return res(
@@ -12,7 +14,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/students/:id', (req, res, ctx) => {
+  rest.get(`${API.URL}/students/:id`, (req, res, ctx) => {
     const { id } = req.params
     const student = getStudent(id)
 
@@ -22,7 +24,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/students/:id/classes', (req, res, ctx) => {
+  rest.get(`${API.URL}/students/:id/classes`, (req, res, ctx) => {
     const { id } = req.params
     const classes = getStudentClasses(id)
 
@@ -32,7 +34,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/students/:id/teachers', (req, res, ctx) => {
+  rest.get(`${API.URL}/students/:id/teachers`, (req, res, ctx) => {
     const { id } = req.params
     const teachers = getStudentTeachers(id)
 
@@ -42,7 +44,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/classes', (req, res, ctx) => {
+  rest.get(`${API.URL}/classes`, (req, res, ctx) => {
     const classes = getClasses()
 
     return res(
@@ -51,7 +53,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/classes/:id', (req, res, ctx) => {
+  rest.get(`${API.URL}/classes/:id`, (req, res, ctx) => {
     const { id: rawId } = req.params
     const id = decodeURIComponent(rawId)
     const schoolClass = getClass(id)
@@ -62,7 +64,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/classes/:id/students', (req, res, ctx) => {
+  rest.get(`${API.URL}/classes/:id/students`, (req, res, ctx) => {
     const { id: rawId } = req.params
     const id = decodeURIComponent(rawId)
     const students = getClassStudents(id)
@@ -73,7 +75,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/classes/:id/teachers', (req, res, ctx) => {
+  rest.get(`${API.URL}/classes/:id/teachers`, (req, res, ctx) => {
     const { id: rawId } = req.params
     const id = decodeURIComponent(rawId)
     const teachers = getClassTeachers(id)
@@ -84,7 +86,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/yff/:student', (req, res, ctx) => {
+  rest.get(`${API.URL}/yff/:student`, (req, res, ctx) => {
     const { student } = req.params
     return res(
       ctx.status(200),
@@ -92,7 +94,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/yff/:student/:type', (req, res, ctx) => {
+  rest.get(`${API.URL}/yff/:student/:type`, (req, res, ctx) => {
     const { student, type } = req.params
     return res(
       ctx.status(200),
@@ -100,7 +102,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('https://api.minelev.no/yff/:student/:type/:id', (req, res, ctx) => {
+  rest.get(`${API.URL}/yff/:student/:type/:id`, (req, res, ctx) => {
     const { student, type, id } = req.params
     return res(
       ctx.status(200),
