@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { DefaultLayout } from '../../layouts/Default'
 
 import { ROUTES } from '../../config/constants'
-import * as DEMO_DATA from '../../config/demo-data'
+import { API } from '../../config/app'
+
+import { useSession } from '../../lib/auth-provider'
 
 import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
 
 import './styles.scss'
 
 export function Classes () {
-  const classes = DEMO_DATA.CLASSES
+  const [classes, setClasses] = useState([])
+  const { apiGet, apiPost, apiPut } = useSession()
+
+  useEffect(() => {
+    async function getClasses() {
+      const c = await apiGet(API.URL + '/classes')
+      setClasses(c.data);
+    }
+    getClasses();
+  }, [])
 
   return (
     <DefaultLayout>
@@ -32,7 +43,7 @@ export function Classes () {
                   <tr key={schoolClass.id}>
                     <td>
                       <Paragraph>
-                        <Link href={`/${ROUTES.classes}/${schoolClass.id}`}>{schoolClass.className}</Link>
+                        <Link href={`/${ROUTES.classes}/${encodeURI(schoolClass.id).replace('/', '+')}`}>{schoolClass.name}</Link>
                       </Paragraph>
                     </td>
                     <td>

@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Moment from 'react-moment'
+
 import { DefaultLayout } from '../../layouts/Default'
 
 import { ROUTES } from '../../config/constants'
-import * as DEMO_DATA from '../../config/demo-data'
+import { API } from '../../config/app'
+
+import { useSession } from '../../lib/auth-provider'
 
 import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
@@ -17,15 +21,28 @@ export function Students (props) {
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
+  const [students, setStudents] = useState([])
+  const [didSearch, setDidSearch] = useState(false)
+  const { apiGet, apiPost, apiPut } = useSession()
 
-  let students = DEMO_DATA.STUDENTS
   const searchTerm = new URLSearchParams(props.location.search).get('s')
 
-  if (searchTerm && searchTerm !== '') {
-    students = students.filter((student) => {
+  useEffect(() => {
+    async function getStudents() {
+      const students = await apiGet(API.URL + '/students')
+      setStudents(students.data);
+    }
+    getStudents();
+  }, [])
+
+  if (students.length > 0 && searchTerm && searchTerm !== '' && !didSearch) {
+    const filteredStudents = students.filter((student) => {
       const studentName = student.firstName + ' ' + student.lastName
       return studentName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
     })
+    console.log(filteredStudents)
+    setStudents(filteredStudents);
+    setDidSearch(true);
   }
 
   function openDocumentModal (student) {
@@ -91,13 +108,13 @@ export function Students (props) {
                           </div>
                         </td>
                         <td>
-                          <Paragraph>{student.bornDate}</Paragraph>
+                          <Paragraph><Moment locale="nb" format="DD. MMM YYYY">{student.birthdate}</Moment></Paragraph>
                         </td>
                         <td>
-                          <Paragraph><Link href={`/${ROUTES.classes}/${student.classId}`}>{student.className}</Link></Paragraph>
+                          <Paragraph><Link href={`/${ROUTES.classes}/${student.classId}`}>{student.classShortId}</Link></Paragraph>
                         </td>
                         <td>
-                          <Paragraph>{student.schoolName}</Paragraph>
+                          <Paragraph>{student.schoolShortName}</Paragraph>
                         </td>
                         <td className='actions'>
                           <IconDropdownNav>

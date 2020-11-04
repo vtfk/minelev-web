@@ -16,12 +16,13 @@
     position: relative;
 
     .image {
-  
+
     }
 
     .text-wrapper {
       flex: 1;
       margin-left: $baseUnit * 4;
+      padding-right: $baseUnit * 40;
 
       .name {
         font-weight: 700;
@@ -161,7 +162,7 @@
     &:focus {
       .button-left-icon-icon {
         background: $catSkillWhite;
-        border-color: $deepSeaGreen; 
+        border-color: $deepSeaGreen;
       }
     }
 
