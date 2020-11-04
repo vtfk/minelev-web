@@ -1,8 +1,26 @@
 import { rest } from 'msw'
 import { API } from '../config/app'
+import { getAllDocuments, getDocuments, newDocument } from './documents'
 
 import { getStudents, getStudent, getStudentClasses, getStudentTeachers, getClasses, getClass, getClassStudents, getClassTeachers } from './pifu'
 import generateYFF from './yff'
+
+export const generateResponseObject = (response) => {
+  return {
+    data: response,
+    count: response.length || undefined
+  }
+}
+
+export const generateErrorObject = (statusCode, message, innerError) => {
+  return {
+    error: {
+      statusCode: statusCode || 500,
+      message: message || 'Unexpected error occured!',
+      innerError
+    }
+  }
+}
 
 export const handlers = [
   rest.get(`${API.URL}/students`, (req, res, ctx) => {
@@ -83,6 +101,58 @@ export const handlers = [
     return res(
       ctx.status(teachers.error ? teachers.error.statusCode : 200),
       ctx.json(teachers)
+    )
+  }),
+
+  rest.get(`${API.URL}/documents`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json(getAllDocuments())
+    )
+  }),
+
+  rest.get(`${API.URL}/documents/:student`, (req, res, ctx) => {
+    const { student } = req.params
+    const documents = getDocuments(student)
+    return res(
+      ctx.status(documents.error ? documents.error.statusCode : 200),
+      ctx.json(documents)
+    )
+  }),
+
+  /*
+    {
+      type: 'varsel',
+      variant: 'fag',
+      content: {}
+    }
+  */
+  rest.post(`${API.URL}/documents/:student`, (req, res, ctx) => {
+    // @ts-ignore
+    const { type, variant, content } = req.body
+    const { student } = req.params
+    const documents = newDocument(student, type, variant, content)
+    return res(
+      ctx.status(documents.error ? documents.error.statusCode : 200),
+      ctx.json(documents)
+    )
+  }),
+
+  rest.get(`${API.URL}/documents/:student/:type`, (req, res, ctx) => {
+    const { student, type } = req.params
+    const documents = getDocuments(student, type)
+    return res(
+      ctx.status(documents.error ? documents.error.statusCode : 200),
+      ctx.json(documents)
+    )
+  }),
+
+  rest.get(`${API.URL}/documents/:student/:type/:id`, (req, res, ctx) => {
+    const { student, type, id } = req.params
+    const documents = getDocuments(student, type, id)
+    return res(
+      ctx.status(documents.error ? documents.error.statusCode : 200),
+      ctx.json(documents)
     )
   }),
 
