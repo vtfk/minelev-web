@@ -2274,10 +2274,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1601557954208,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1601557954218,
         status: 'Arkivert i Public 360'
       }
@@ -2440,10 +2436,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1602865392833,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1602865392843,
         status: 'Arkivert i Public 360'
       }
@@ -2564,10 +2556,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1599453926154,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1599453926164,
         status: 'Arkivert i Public 360'
       }
@@ -2648,10 +2636,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1601402806105,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1601402806115,
         status: 'Arkivert i Public 360'
       }
@@ -2726,10 +2710,6 @@ export const DOCUMENTS = [
       {
         timestamp: 1597953142230,
         status: 'I kø'
-      },
-      {
-        timestamp: 1597953142240,
-        status: 'Sendt med SvarUt'
       },
       {
         timestamp: 1597953142250,
@@ -2852,10 +2832,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1597777699314,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1597777699324,
         status: 'Arkivert i Public 360'
       }
@@ -2890,10 +2866,6 @@ export const DOCUMENTS = [
       {
         timestamp: 1597971632052,
         status: 'I kø'
-      },
-      {
-        timestamp: 1597971632062,
-        status: 'Sendt med SvarUt'
       },
       {
         timestamp: 1597971632072,
@@ -3447,10 +3419,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1602818303344,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1602818303354,
         status: 'Arkivert i Public 360'
       }
@@ -3751,10 +3719,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1603488966693,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1603488966703,
         status: 'Arkivert i Public 360'
       }
@@ -3789,10 +3753,6 @@ export const DOCUMENTS = [
       {
         timestamp: 1601923442560,
         status: 'I kø'
-      },
-      {
-        timestamp: 1601923442570,
-        status: 'Sendt med SvarUt'
       },
       {
         timestamp: 1601923442580,
@@ -3915,10 +3875,6 @@ export const DOCUMENTS = [
       {
         timestamp: 1597796486937,
         status: 'I kø'
-      },
-      {
-        timestamp: 1597796486947,
-        status: 'Sendt med SvarUt'
       },
       {
         timestamp: 1597796486957,
@@ -4170,10 +4126,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1600364365638,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1600364365648,
         status: 'Arkivert i Public 360'
       }
@@ -4253,10 +4205,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1601958525273,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1601958525283,
         status: 'Arkivert i Public 360'
       }
@@ -4331,10 +4279,6 @@ export const DOCUMENTS = [
       {
         timestamp: 1598453724856,
         status: 'I kø'
-      },
-      {
-        timestamp: 1598453724866,
-        status: 'Sendt med SvarUt'
       },
       {
         timestamp: 1598453724876,
@@ -4631,10 +4575,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1598428341271,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1598428341281,
         status: 'Arkivert i Public 360'
       }
@@ -4671,10 +4611,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1599484407466,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1599484407476,
         status: 'Arkivert i Public 360'
       }
@@ -4709,10 +4645,6 @@ export const DOCUMENTS = [
       {
         timestamp: 1603000236779,
         status: 'I kø'
-      },
-      {
-        timestamp: 1603000236789,
-        status: 'Sendt med SvarUt'
       },
       {
         timestamp: 1603000236799,
@@ -4838,10 +4770,6 @@ export const DOCUMENTS = [
         status: 'I kø'
       },
       {
-        timestamp: 1600506404773,
-        status: 'Sendt med SvarUt'
-      },
-      {
         timestamp: 1600506404783,
         status: 'Arkivert i Public 360'
       }
@@ -4916,10 +4844,6 @@ export const DOCUMENTS = [
       {
         timestamp: 1598920368545,
         status: 'I kø'
-      },
-      {
-        timestamp: 1598920368555,
-        status: 'Sendt med SvarUt'
       },
       {
         timestamp: 1598920368565,
