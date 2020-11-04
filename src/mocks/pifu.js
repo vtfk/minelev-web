@@ -1,21 +1,5 @@
+import { generateErrorObject, generateResponseObject } from './handlers'
 import { CLASSES, STUDENTS, TEACHERS } from './mock-data'
-
-const generateResponseObject = (response) => {
-  return {
-    data: response,
-    count: response.length || undefined
-  }
-}
-
-const generateErrorObject = (statusCode, message, innerError) => {
-  return {
-    error: {
-      statusCode: statusCode || 500,
-      message: message || 'Unexpected error occured!',
-      innerError
-    }
-  }
-}
 
 export function getStudents () {
   const students = STUDENTS.map(student => {

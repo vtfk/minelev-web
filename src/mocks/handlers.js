@@ -4,6 +4,23 @@ import { API } from '../config/app'
 import { getStudents, getStudent, getStudentClasses, getStudentTeachers, getClasses, getClass, getClassStudents, getClassTeachers } from './pifu'
 import generateYFF from './yff'
 
+export const generateResponseObject = (response) => {
+  return {
+    data: response,
+    count: response.length || undefined
+  }
+}
+
+export const generateErrorObject = (statusCode, message, innerError) => {
+  return {
+    error: {
+      statusCode: statusCode || 500,
+      message: message || 'Unexpected error occured!',
+      innerError
+    }
+  }
+}
+
 export const handlers = [
   rest.get(`${API.URL}/students`, (req, res, ctx) => {
     const students = getStudents()
