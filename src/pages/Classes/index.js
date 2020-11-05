@@ -43,7 +43,7 @@ export function Classes () {
                   <tr key={schoolClass.id}>
                     <td>
                       <Paragraph>
-                        <Link href={`/${ROUTES.classes}/${encodeURI(schoolClass.id).replace('/', '+')}`}>{schoolClass.name}</Link>
+                        <Link href={`/${ROUTES.classes}/${encodeURIComponent(schoolClass.groupId)}`}>{schoolClass.name}</Link>
                       </Paragraph>
                     </td>
                     <td>

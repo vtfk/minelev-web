@@ -16,7 +16,6 @@ import './styles.scss'
 
 export function Class ({ match, ...props }) {
   let { id } = match.params
-  id = id ? id.replace('/', '+') : ''
 
   const [schoolClass, setSchoolClass] = useState({})
   const { apiGet, apiPost, apiPut } = useSession()
