@@ -39,7 +39,7 @@ export function DefaultLayout (props) {
               className='search-input'
               type='text' placeholder='Søk etter elev ...'
               onChange={(event) => { setSearchTerm(event.target.value) }}
-              value={searchTerm ? searchTerm : ''}
+              value={searchTerm || ''}
               onKeyPress={event => {
                 if (event.key === 'Enter') {
                   window.location.replace(`/${ROUTES.students}?s=${event.target.value}`)

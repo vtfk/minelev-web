@@ -13,14 +13,14 @@ import './styles.scss'
 
 export function Classes () {
   const [classes, setClasses] = useState([])
-  const { apiGet, apiPost, apiPut } = useSession()
+  const { apiGet } = useSession()
 
   useEffect(() => {
-    async function getClasses() {
+    async function getClasses () {
       const c = await apiGet(API.URL + '/classes')
-      setClasses(c.data);
+      setClasses(c.data)
     }
-    getClasses();
+    getClasses()
   }, [])
 
   return (

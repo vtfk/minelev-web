@@ -23,16 +23,16 @@ export function Students (props) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [students, setStudents] = useState([])
   const [didSearch, setDidSearch] = useState(false)
-  const { apiGet, apiPost, apiPut } = useSession()
+  const { apiGet } = useSession()
 
   const searchTerm = new URLSearchParams(props.location.search).get('s')
 
   useEffect(() => {
-    async function getStudents() {
+    async function getStudents () {
       const students = await apiGet(API.URL + '/students')
-      setStudents(students.data);
+      setStudents(students.data)
     }
-    getStudents();
+    getStudents()
   }, [])
 
   if (students.length > 0 && searchTerm && searchTerm !== '' && !didSearch) {
@@ -41,8 +41,8 @@ export function Students (props) {
       return studentName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
     })
     console.log(filteredStudents)
-    setStudents(filteredStudents);
-    setDidSearch(true);
+    setStudents(filteredStudents)
+    setDidSearch(true)
   }
 
   function openDocumentModal (student) {
@@ -108,7 +108,7 @@ export function Students (props) {
                           </div>
                         </td>
                         <td>
-                          <Paragraph><Moment locale="nb" format="DD. MMM YYYY">{student.birthdate}</Moment></Paragraph>
+                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{student.birthdate}</Moment></Paragraph>
                         </td>
                         <td>
                           <Paragraph><Link href={`/${ROUTES.classes}/${student.classId}`}>{student.classShortId}</Link></Paragraph>
