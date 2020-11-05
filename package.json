@@ -49,7 +49,7 @@
     "react-moment": "1.0.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.0",
-    "sass": "1.28.0"
+    "sass": "1.29.0"
   },
   "devDependencies": {
     "msw": "0.21.3",
