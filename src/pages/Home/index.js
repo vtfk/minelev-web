@@ -85,18 +85,20 @@ export function Home () {
                         <div className='activity-name'>
                           <InitialsBadge firstName={activity.firstName} lastName={activity.lastName} size='small' />
                           <Paragraph>
-                            <Link href={`/${ROUTES.students}/${activity.studentId}`}>{activity.firstName} {activity.lastName}</Link>
+                            <Link href={`/${ROUTES.students}/${activity.studentId}`}>
+                              [{activity.firstName} {activity.lastName}]
+                            </Link>
                           </Paragraph>
                         </div>
                       </td>
                       <td>
-                        <Paragraph>{activity.type}</Paragraph>
+                        <Paragraph>[{activity.type}]</Paragraph>
                       </td>
                       <td>
-                        <Paragraph>{activity.date}</Paragraph>
+                        <Paragraph>[{activity.date}]</Paragraph>
                       </td>
                       <td>
-                        <Paragraph>{activity.status}</Paragraph>
+                        <Paragraph>[{activity.status}]</Paragraph>
                       </td>
                       <td>
                         <IconDropdownNav>
@@ -127,13 +129,13 @@ export function Home () {
               <div className='statistics-row'>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    1000
+                    [X]
                   </Heading1>
                   <Paragraph className='statistics-item-text'>varselbrev</Paragraph>
                 </div>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    1000
+                    [X]
                   </Heading1>
                   <Paragraph className='statistics-item-text'>dokumenterte elevsamtaler</Paragraph>
                 </div>
@@ -141,13 +143,13 @@ export function Home () {
               <div className='statistics-row'>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    1000
+                    [X]
                   </Heading1>
                   <Paragraph className='statistics-item-text'>notater til elevmappa</Paragraph>
                 </div>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    1000
+                    [X]
                   </Heading1>
                   <Paragraph className='statistics-item-text'>utplasseringer</Paragraph>
                 </div>
@@ -165,23 +167,23 @@ export function Home () {
             </Heading3>
 
             <div className='class-reports-group'>
-              <Paragraph className='class-reports-group-title'>Kragerø videregående skole</Paragraph>
-              <Paragraph className='class-reports-group-text'>VG1 – Helsefag</Paragraph>
+              <Paragraph className='class-reports-group-title'>[Kragerø videregående skole]</Paragraph>
+              <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
             </div>
 
             <div className='class-reports-group'>
-              <Paragraph className='class-reports-group-title'>Skogmo videregående skole</Paragraph>
-              <Paragraph className='class-reports-group-text'>VG1 – Elektro</Paragraph>
+              <Paragraph className='class-reports-group-title'>[Skogmo videregående skole]</Paragraph>
+              <Paragraph className='class-reports-group-text'>[VG1 – Elektro]</Paragraph>
             </div>
 
             <div className='class-reports-group'>
-              <Paragraph className='class-reports-group-title'>Bamle videregående skole</Paragraph>
-              <Paragraph className='class-reports-group-text'>VG1 – Helsefag</Paragraph>
+              <Paragraph className='class-reports-group-title'>[Bamle videregående skole]</Paragraph>
+              <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
             </div>
 
             <div className='class-reports-group'>
-              <Paragraph className='class-reports-group-title'>Sandefjord videregående skole</Paragraph>
-              <Paragraph className='class-reports-group-text'>VG1 – Helsefag</Paragraph>
+              <Paragraph className='class-reports-group-title'>[Sandefjord videregående skole]</Paragraph>
+              <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
             </div>
 
             <div className='panel-link'>

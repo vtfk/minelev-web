@@ -6,6 +6,8 @@ import {
   Route
 } from 'react-router-dom'
 
+import 'moment/locale/nb'
+
 import { useSession } from './lib/auth-provider'
 import { loginRequest } from './config/auth'
 
