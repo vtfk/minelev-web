@@ -72,6 +72,9 @@ export const MsalProvider = ({
 
   useEffect(() => {
     if (!isMock) {
+      if (authStatus === 'loggedout') {
+        return
+      }
       const pc = new msal.PublicClientApplication(config)
       setPublicClient(pc)
       // Første innlogging
@@ -149,6 +152,8 @@ export const MsalProvider = ({
   }
 
   const logout = () => {
+    const copyAuth = { ...auth }
+    setAuth({ ...copyAuth, authStatus: 'loggedout' })
     return publicClient.logout()
   }
 
