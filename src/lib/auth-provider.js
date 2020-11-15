@@ -72,6 +72,9 @@ export const MsalProvider = ({
 
   useEffect(() => {
     if (!isMock) {
+      if (authStatus === 'loggedout') {
+        return
+      }
       const pc = new msal.PublicClientApplication(config)
       setPublicClient(pc)
       // Første innlogging
@@ -150,7 +153,8 @@ export const MsalProvider = ({
 
   const logout = () => {
     window.sessionStorage.clear()
-    return publicClient.logout()
+    setAuth({ authStatus: 'loggedout' })
+    // return publicClient.logout()
   }
 
   const getTokenPopup = async (loginRequest) => {
