@@ -45,11 +45,28 @@ const AppContent = () => {
   )
 }
 
+const LoggedOut = () => {
+  const handleReLogin = () => {
+    window.sessionStorage.clear()
+    window.location.reload()
+  }
+  return (
+    <div>
+      <h1>Du er logget ut</h1>
+      <button onClick={handleReLogin}>Logg på igjen</button>
+    </div>
+  )
+}
+
 function App () {
   const { isAuthenticated, login, authStatus } = useSession()
 
   if (['pending'].includes(authStatus)) {
     return <div>Loading...</div>
+  }
+
+  if (['loggedout'].includes(authStatus)) {
+    return <LoggedOut />
   }
 
   if (!isAuthenticated) {
