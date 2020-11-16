@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSession } from '../../lib/auth-provider'
+import { useSession } from '@vtfk/react-msal'
 
 import {
   useLocation

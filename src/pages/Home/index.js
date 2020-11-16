@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useSession } from '../../lib/auth-provider'
+import { useSession } from '@vtfk/react-msal'
 
 import { DefaultLayout } from '../../layouts/Default'
 
