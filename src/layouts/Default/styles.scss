@@ -5,13 +5,17 @@
   padding-left: 175px; // sidenav width
   padding-bottom: $baseUnit * 6;
 
+  @media(max-width: 1000px) {
+    padding-left: 0;
+    padding-bottom: $baseUnit * 3;
+  }
+
   .container {
     max-width: 1032px;
     margin: ($baseUnit * 4) auto;
 
-    // for dev
-    @media (max-width: 1300px) {
-      max-width: 800px;
+    @media(max-width: 1000px) {
+      padding: 0 ($baseUnit * 2);
     }
   }
 
@@ -20,10 +24,14 @@
     display: flex;
     justify-content: space-between;
 
+    @media(max-width: 1000px) {
+      display: none;
+    }
+
     .search {
       .search-input {
         width: 475px;
-        
+
         &::placeholder {
           font-style: normal;
         }

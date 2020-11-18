@@ -3,9 +3,13 @@
 
 .statistics {
   max-width: 922px;
-  
+
   .page-title {
     margin-bottom: $baseUnit * 7;
+
+    @media(max-width: 1000px) {
+      margin-bottom: $baseUnit * 3;
+    }
   }
 
   .numbers {
@@ -14,6 +18,12 @@
     margin-left: -($baseUnit * 4);
     margin-bottom: $baseUnit * 8;
 
+    @media(max-width: 1000px) {
+      display: block;
+      margin-left: 0;
+      margin-bottom: $baseUnit * 4;
+    }
+
     .numbers-item {
       width: calc(100% / 3 - (#{$baseUnit * 4}));
       margin-bottom: $baseUnit * 2;
@@ -21,8 +31,13 @@
       padding: ($baseUnit * 2) ($baseUnit * 4) ($baseUnit * 2) ($baseUnit * 4);
       background: $catSkillWhite;
 
+      @media(max-width: 1000px) {
+        width: 100%;
+        margin-left: 0;
+      }
+
       .numbers-item-title {
-  
+
       }
 
       .numbers-item-text {
@@ -52,6 +67,10 @@
             &.stats-collapse-table-progress {
               width: 400px;
 
+              @media(max-width: 1000px) {
+                width: 100px;
+              }
+
               .stats-collapse-table-progressbar {
                 height: $baseUnit * 2;
                 width: 0;
@@ -66,6 +85,10 @@
     &:not(:last-child) {
       padding-bottom: $baseUnit * 6;
       border-bottom: 1px solid #979797;
+
+      @media(max-width: 1000px) {
+        padding-bottom: $baseUnit * 3;
+      }
     }
   }
 }

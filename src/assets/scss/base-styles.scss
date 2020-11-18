@@ -21,6 +21,10 @@ body {
   margin-bottom: $baseUnit * 5;
 
   thead {
+    @media(max-width: 1000px) {
+      display: none;
+    }
+
     tr {
       th {
         text-align: left;
@@ -39,11 +43,26 @@ body {
 
   tbody {
     tr {
+      @media(max-width: 1000px) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        position: relative;
+        margin-bottom: $baseUnit * 2;
+      }
+
       td {
         padding-left: $baseUnit * 2;
         padding-right: $baseUnit * 2;
         padding-top: $baseUnit * 2;
         padding-bottom: $baseUnit * 2;
+
+        @media(max-width: 1000px) {
+          display: block;
+          padding-top: 0;
+          padding-left: $baseUnit * 7;
+          margin-top: -($baseUnit * 2);
+        }
 
         a {
           color: inherit;
@@ -62,6 +81,32 @@ body {
         &:last-child {
           &.actions {
             text-align: center;
+
+            @media(max-width: 1000px) {
+              position: absolute;
+              top: $baseUnit * 2.5;
+              right: $baseUnit * 2;
+              text-align: right;
+              padding: 0;
+            }
+          }
+        }
+
+        &:first-child {
+          @media(max-width: 1000px) {
+            padding-left: $baseUnit * 2;
+            padding-top: $baseUnit * 2;
+            padding-bottom: $baseUnit * 3;
+          }
+        }
+
+        &:not(:first-child) {
+          p,
+          a {
+            @media(max-width: 1000px) {
+              font-size: 14px;
+              line-height: 18px;
+            }
           }
         }
       }
