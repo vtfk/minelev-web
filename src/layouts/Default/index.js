@@ -89,27 +89,27 @@ export function DefaultLayout (props) {
 
           <div className="topnav-side-list">
             <div className="topnav-side-list-inner">
-              <Link className="topnav-side-list-item" to={'/'}>
+              <Link className={`topnav-side-list-item ${location.pathname === '/' ? 'active' : ''}`} to={'/'}>
                 <div className="topnav-side-list-item-icon"><Icon size="medium" name='home' /></div>
                 <div className="topnav-side-list-item-text">Forside</div>
               </Link>
-              <Link className="topnav-side-list-item" to={`/${ROUTES.activityLog}`}>
+              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.activityLog ? 'active' : ''}`} to={`/${ROUTES.activityLog}`}>
                 <div className="topnav-side-list-item-icon"><Icon size="medium" name='activity' /></div>
                 <div className="topnav-side-list-item-text">Aktivitetslogg</div>
               </Link>
-              <Link className="topnav-side-list-item" to={`/${ROUTES.students}`}>
+              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.students ? 'active' : ''}`} to={`/${ROUTES.students}`}>
                 <div className="topnav-side-list-item-icon"><Icon size="medium" name='students' /></div>
                 <div className="topnav-side-list-item-text">Elever</div>
               </Link>
-              <Link className="topnav-side-list-item" to={`/${ROUTES.classes}`}>
+              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.classes ? 'active' : ''}`} to={`/${ROUTES.classes}`}>
                 <div className="topnav-side-list-item-icon"><Icon size="medium" name='classes' /></div>
                 <div className="topnav-side-list-item-text">Klasser</div>
               </Link>
-              <Link className="topnav-side-list-item" to={`/${ROUTES.statistics}`}>
+              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.statistics ? 'active' : ''}`} to={`/${ROUTES.statistics}`}>
                 <div className="topnav-side-list-item-icon"><Icon size="medium" name='statistics' /></div>
                 <div className="topnav-side-list-item-text">Statistikk</div>
               </Link>
-              <Link className="topnav-side-list-item" to={`/${ROUTES.help}`}>
+              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.help ? 'active' : ''}`} to={`/${ROUTES.help}`}>
                 <div className="topnav-side-list-item-icon"><Icon size="medium" name='help' /></div>
                 <div className="topnav-side-list-item-text">Hjelp</div>
               </Link>

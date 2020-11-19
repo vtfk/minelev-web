@@ -196,7 +196,7 @@
       height: calc(100% - 150px);
       display: flex;
       align-items: center;
-      padding: $baseUnit * 2;
+      padding: ($baseUnit * 2) 0;
       padding-bottom: $baseUnit * 6;
 
       .topnav-side-list-inner {
@@ -204,8 +204,8 @@
       }
 
       .topnav-side-list-item {
-        margin: 0 0 ($baseUnit * 6) 0;
-        padding: 0;
+        margin: ($baseUnit * 2) 0;
+        padding: ($baseUnit * 2) ($baseUnit * 2);
         display: flex;
         align-items: center;
         color: inherit;
@@ -224,6 +224,10 @@
           font-size: 16px;
           line-height: 1em;
           font-weight: bold;
+        }
+
+        &.active {
+          background: $swansDown;
         }
       }
     }
