@@ -97,10 +97,21 @@ body {
             padding-left: $baseUnit * 2;
             padding-top: $baseUnit * 2;
             padding-bottom: $baseUnit * 3;
+            font-weight: bold;
+
+            a {
+              font-weight: bold;
+            }
           }
         }
 
-        &:not(:first-child) {
+        &:not(.actions) {
+          @media(max-width: 1000px) {
+            padding-right: $baseUnit * 8;
+          }
+        }
+
+        &:not(:first-child):not(.actions) {
           p,
           a {
             @media(max-width: 1000px) {

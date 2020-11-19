@@ -33,6 +33,11 @@ export function Students (props) {
       setStudents(students.data)
     }
     getStudents()
+
+    // for dev
+    setSelectedStudent(students[0])
+    setDocumentModalState(true)
+    // -- for dev
   }, [])
 
   if (students.length > 0 && searchTerm && searchTerm !== '' && !didSearch) {

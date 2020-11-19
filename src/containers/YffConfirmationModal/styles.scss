@@ -7,8 +7,12 @@
     flex-wrap: nowrap;
     margin-bottom: $baseUnit * 7;
 
+    @media (max-width: 1000px) {
+      margin-bottom: $baseUnit * 5;
+    }
+
     .image {
-  
+
     }
 
     .text-wrapper {
@@ -31,6 +35,10 @@
 
   .form {
     padding-bottom: $baseUnit * 8;
+
+    @media (max-width: 1000px) {
+      padding-bottom: $baseUnit * 2;
+    }
 
     .input-element {
       margin-bottom: $baseUnit * 5;
@@ -85,7 +93,7 @@
       &:focus {
         background: $catSkillWhite;
         color: $deepSeaGreen;
-        border-color: $deepSeaGreen; 
+        border-color: $deepSeaGreen;
       }
     }
   }
@@ -128,7 +136,7 @@
     &:focus {
       .button-left-icon-icon {
         background: $catSkillWhite;
-        border-color: $deepSeaGreen; 
+        border-color: $deepSeaGreen;
       }
     }
 

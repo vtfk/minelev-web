@@ -193,9 +193,11 @@
 
     .topnav-side-list {
       width: 100%;
+      height: calc(100% - 150px);
       display: flex;
       align-items: center;
       padding: $baseUnit * 2;
+      padding-bottom: $baseUnit * 6;
 
       .topnav-side-list-inner {
         width: 100%;
