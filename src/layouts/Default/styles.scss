@@ -64,6 +64,7 @@
     height: 75px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 ($baseUnit * 2);
     margin-bottom: $baseUnit * 2;
     margin-left: -($baseUnit * 2);
@@ -73,7 +74,10 @@
       text-align: center;
       display: flex;
       align-items: center;
-      flex: 1;
+      text-decoration: none;
+      color: inherit;
+      border: 0;
+      outline: 0;
 
       a {
         color: inherit;
@@ -119,7 +123,10 @@
     background: $gin;
     position: relative;
     width: 0;
+    min-width: 0;
+    max-width: 0;
     overflow: hidden;
+    transition: all 400ms ease-in-out;
 
     @media(min-width: 1000px) {
       display: none;

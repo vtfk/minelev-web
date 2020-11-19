@@ -119,16 +119,14 @@ export function DefaultLayout (props) {
 
         <div className='container'>
           <div className="topnav">
-            <div className='topnav-brand'>
+            <a href='/' className='topnav-brand'>
               <div className='brand-logo'>
-                <a href='/'>
                   <Logo />
-                </a>
               </div>
               <div className='brand-name'>
                 MinElev
               </div>
-            </div>
+            </a>
             <div className="topnav-toggles" onClick={clickTopNavToggle}>
               <Icon size="small" name='search' />
               <Icon size="small" name='menu' />
