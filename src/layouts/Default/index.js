@@ -52,7 +52,26 @@ export function DefaultLayout (props) {
 
         { /* TODO: To lib component when desktop design is in place */ }
         <div className={`topnav-side ${openTopNavSide ? 'open' : ''}`}>
-          <div className="topnav-side-top">
+          <div className="topnav-side-user">
+            <div className='user'>
+              <InitialsBadge className='user-image' firstName={user.givenName} lastName={user.surname} />
+              <div className='user-name'>
+                <Paragraph>{user.displayName}</Paragraph>
+              </div>
+              <div className='user-menu'>
+                <IconDropdownNav>
+                  <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Min konto' />
+                  <IconDropdownNavItem onClick={() => logout()} title='Logg ut' />
+                </IconDropdownNav>
+              </div>
+            </div>
+
+            <Link className="topnav-side-top-close" onClick={clickTopNavToggle}>
+              <Icon name='close' size="xsmall" />
+            </Link>
+          </div>
+
+          <div className="topnav-side-search">
             <div className="search">
               <SearchField
                 className='search-input'
@@ -66,10 +85,6 @@ export function DefaultLayout (props) {
                 }}
               />
             </div>
-
-            <Link className="topnav-side-top-close" onClick={clickTopNavToggle}>
-              <Icon name='close' size="xsmall" />
-            </Link>
           </div>
 
           <div className="topnav-side-list">
@@ -98,21 +113,6 @@ export function DefaultLayout (props) {
                 <div className="topnav-side-list-item-icon"><Icon size="medium" name='help' /></div>
                 <div className="topnav-side-list-item-text">Hjelp</div>
               </Link>
-            </div>
-          </div>
-
-          <div className="topnav-side-bottom">
-            <div className='user'>
-              <InitialsBadge className='user-image' firstName={user.givenName} lastName={user.surname} />
-              <div className='user-name'>
-                <Paragraph>{user.displayName}</Paragraph>
-              </div>
-              <div className='user-menu'>
-                <IconDropdownNav>
-                  <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Min konto' />
-                  <IconDropdownNavItem onClick={() => logout()} title='Logg ut' />
-                </IconDropdownNav>
-              </div>
             </div>
           </div>
         </div>

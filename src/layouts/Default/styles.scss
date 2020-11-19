@@ -132,12 +132,50 @@
       display: none;
     }
 
-    .topnav-side-top {
+    .topnav-side-user {
+      width: 100%;
+      height: 75px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 ($baseUnit * 2);
+      margin-bottom: -$baseUnit;
+
+      .user {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        // transform: translateX($baseUnit * 23);
+
+        .user-name {
+          margin-right: $baseUnit * 1.5;
+        }
+
+        .user-image {
+          margin-right: $baseUnit * 2;
+        }
+
+        .user-menu {
+          margin-top: $baseUnit / 2;
+        }
+      }
+
+      .topnav-side-top-close {
+        color: inherit;
+        text-decoration: none;
+        border: 0;
+        outline: 0;
+        margin-right: $baseUnit;
+      }
+    }
+
+    .topnav-side-search {
       height: 75px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 ($baseUnit * 2);
+      margin-bottom: $baseUnit * 2;
 
       .search {
         max-width: 80%;
@@ -151,20 +189,9 @@
           }
         }
       }
-
-      .topnav-side-top-close {
-        color: inherit;
-        text-decoration: none;
-        border: 0;
-        outline: 0;
-        margin-right: $baseUnit;
-      }
     }
 
     .topnav-side-list {
-      position: absolute;
-      top: 75px;
-      bottom: 75px;
       width: 100%;
       display: flex;
       align-items: center;
@@ -195,36 +222,6 @@
           font-size: 16px;
           line-height: 1em;
           font-weight: bold;
-        }
-      }
-    }
-
-    .topnav-side-bottom {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 75px;
-      display: flex;
-      align-items: center;
-      padding: 0 ($baseUnit * 2);
-
-      .user {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        // transform: translateX($baseUnit * 23);
-
-        .user-name {
-          margin-right: $baseUnit * 1.5;
-        }
-
-        .user-image {
-          margin-right: $baseUnit * 2;
-        }
-
-        .user-menu {
-          margin-top: $baseUnit / 2;
         }
       }
     }
