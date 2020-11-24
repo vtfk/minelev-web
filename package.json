@@ -52,7 +52,7 @@
     "sass": "1.29.0"
   },
   "devDependencies": {
-    "msw": "0.21.3",
+    "msw": "0.22.3",
     "standard": "16.0.3"
   }
 }
