@@ -1959,8 +1959,10 @@ export const STUDENTS = [
 export const TEACHERS = [
   {
     id: 'pre0711',
-    fullName: 'Presis Damesykkel',
     username: 'pre0711',
+    fullName: 'Presis Damesykkel',
+    firstName: 'Presis',
+    lastName: 'Damesykkel',
     mail: 'presis.damesykkel@vtfk.no',
     contactTeacher: true,
     relatedGroupIds: [
@@ -1975,8 +1977,10 @@ export const TEACHERS = [
   },
   {
     id: 'fal0309',
-    fullName: 'Falsk Handlekraft',
     username: 'fal0309',
+    fullName: 'Falsk Handlekraft',
+    firstName: 'Falsk',
+    lastName: 'Handlekraft',
     mail: 'falsk.handlekraft@vtfk.no',
     contactTeacher: false,
     relatedGroupIds: [
@@ -1985,8 +1989,10 @@ export const TEACHERS = [
   },
   {
     id: 'vik2606',
-    fullName: 'Viktig Kjærlig',
     username: 'vik2606',
+    fullName: 'Viktig Kjærlig',
+    firstName: 'Viktig',
+    lastName: 'Kjærlig',
     mail: 'viktig.kaerlig@vtfk.no',
     contactTeacher: false,
     relatedGroupIds: [
@@ -1996,8 +2002,10 @@ export const TEACHERS = [
   },
   {
     id: 'rus26021',
-    fullName: 'Ru Sovealkove',
     username: 'rus26021',
+    fullName: 'Ru Sovealkove',
+    firstName: 'Ru',
+    lastName: 'Sovealkove',
     mail: 'ru.sovealkove@vtfk.no',
     mobile: 4748048048,
     contactTeacher: false,
@@ -2007,8 +2015,10 @@ export const TEACHERS = [
   },
   {
     id: 'opp1805',
-    fullName: 'Oppfyllende Kråke',
     username: 'opp1805',
+    fullName: 'Oppfyllende Kråke',
+    firstName: 'Oppfyllende',
+    lastName: 'Kråke',
     mail: 'oppfyllende.krake@vtfk.no',
     mobile: 4791111119,
     contactTeacher: false,
@@ -2018,8 +2028,10 @@ export const TEACHERS = [
   },
   {
     id: 'skj1207',
-    fullName: 'Skjønn Initiativrik Plikt',
     username: 'skj1207',
+    fullName: 'Skjønn Initiativrik Plikt',
+    firstName: 'Skjønn Initiativrik',
+    lastName: 'Plikt',
     mail: 'skjoenn.initiativrik.plikt@vtfk.no',
     mobile: 4799779977,
     contactTeacher: false,
@@ -2030,8 +2042,10 @@ export const TEACHERS = [
   },
   {
     id: 'tri0308',
-    fullName: 'Trine Testesen',
     username: 'tri0308',
+    fullName: 'Trine Testesen',
+    firstName: 'Trine',
+    lastName: 'Testesen',
     mail: 'trine.testesen@vtfk.no',
     mobile: 4794949494,
     contactTeacher: false,
@@ -2046,8 +2060,10 @@ export const TEACHERS = [
   },
   {
     id: 'bev0304',
-    fullName: 'Bevisst Turbin',
     username: 'bev0304',
+    fullName: 'Bevisst Turbin',
+    firstName: 'Bevisst',
+    lastName: 'Turbin',
     mail: 'bevisst.turbin@vtfk.no',
     mobile: 4795959595,
     contactTeacher: false,
@@ -2057,8 +2073,10 @@ export const TEACHERS = [
   },
   {
     id: 'use0306',
-    fullName: 'Usedvanlig Eske',
     username: 'use0306',
+    fullName: 'Usedvanlig Eske',
+    firstName: 'Usedvanlig',
+    lastName: 'Eske',
     mail: 'usedvanlig.eske@vtfk.no',
     contactTeacher: false,
     relatedGroupIds: [
@@ -2067,8 +2085,10 @@ export const TEACHERS = [
   },
   {
     id: 'fly2507',
-    fullName: 'Flyktig Logg',
     username: 'fly2507',
+    fullName: 'Flyktig Logg',
+    firstName: 'Flyktig',
+    lastName: 'Logg',
     mail: 'flyktig.logg@vtfk.no',
     contactTeacher: false,
     relatedGroupIds: [
@@ -2077,8 +2097,10 @@ export const TEACHERS = [
   },
   {
     id: 'bar0407',
-    fullName: 'Barmhjertig Eplekake',
     username: 'bar0407',
+    fullName: 'Barmhjertig Eplekake',
+    firstName: 'Barmhjertig',
+    lastName: 'Eplekake',
     mail: 'barmhjertig.eplekake@vtfk.no',
     mobile: 4745000054,
     contactTeacher: false,
@@ -2088,8 +2110,10 @@ export const TEACHERS = [
   },
   {
     id: 'dis0904',
-    fullName: 'Diskret Telefonkiosk',
     username: 'dis0904',
+    fullName: 'Diskret Telefonkiosk',
+    firstName: 'Diskret',
+    lastName: 'Telefonkiosk',
     mail: 'diskret.telefonkiosk@vtfk.no',
     contactTeacher: false,
     relatedGroupIds: [
@@ -2098,8 +2122,10 @@ export const TEACHERS = [
   },
   {
     id: 'ven2411',
-    fullName: 'Vennlig Arm',
     username: 'ven2411',
+    fullName: 'Vennlig Arm',
+    firstName: 'Vennlig',
+    lastName: 'Arm',
     mail: 'vennlig.arm@vtfk.no',
     contactTeacher: false,
     relatedGroupIds: [
@@ -2108,8 +2134,10 @@ export const TEACHERS = [
   },
   {
     id: 'sto3006',
-    fullName: 'Stolt Komplisert Blindvegsjiraff',
     username: 'sto3006',
+    fullName: 'Stolt Komplisert Blindvegsjiraff',
+    firstName: 'Stolt Komplisert',
+    lastName: 'Blindvegsjiraff',
     mail: 'stolt.blindvegsjiraff@vtfk.no',
     mobile: 4793949494,
     contactTeacher: false,
@@ -2119,8 +2147,10 @@ export const TEACHERS = [
   },
   {
     id: 'kra0801',
-    fullName: 'Kranglete Sykkel',
     username: 'kra0801',
+    fullName: 'Kranglete Sykkel',
+    firstName: 'Kranglete',
+    lastName: 'Sykkel',
     mail: 'kra0801@skole.vtfk.no',
     contactTeacher: false,
     relatedGroupIds: [
@@ -2245,19 +2275,29 @@ export const CLASSES = [
 export const DOCUMENTS = [
   {
     _id: '5fa2aeb54b1f46f7ad4fb84a',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1601557954198,
       username: 'rus26021'
     },
+    modified: [
+      {
+        timestamp: 1601557954198,
+        username: 'rus26021'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'opp2004',
-      name: 'Oppfyllende Palmeolje'
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje'
     },
     teacher: {
       username: 'rus26021',
-      name: 'Ru Sovealkove'
+      name: 'Ru Sovealkove',
+      firstName: 'Ru',
+      lastName: 'Sovealkove'
     },
     school: {
       id: 'TESVS',
@@ -2281,19 +2321,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5cc80a6dadedfc7fe',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1601490382619,
       username: 'vik2606'
     },
+    modified: [
+      {
+        timestamp: 1601490382619,
+        username: 'vik2606'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue'
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue'
     },
     teacher: {
       username: 'vik2606',
-      name: 'Viktig Kjærlig'
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig'
     },
     school: {
       id: 'TESVS',
@@ -2324,19 +2374,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb58040f6ca7cba5fb0',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1600258358720,
       username: 'pre0711'
     },
+    modified: [
+      {
+        timestamp: 1600258358720,
+        username: 'pre0711'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'vis05042',
-      name: 'Vis Motbakkeklaring'
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring'
     },
     teacher: {
       username: 'pre0711',
-      name: 'Presis Damesykkel'
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel'
     },
     school: {
       id: 'TESVS',
@@ -2367,19 +2427,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb52eec1257c9959c32',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1600809487966,
       username: 'fly2507'
     },
+    modified: [
+      {
+        timestamp: 1600809487966,
+        username: 'fly2507'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist'
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist'
     },
     teacher: {
       username: 'fly2507',
-      name: 'Flyktig Logg'
+      name: 'Flyktig Logg',
+      firstName: 'Flyktig',
+      lastName: 'Logg'
     },
     school: {
       id: 'TESVS',
@@ -2407,19 +2477,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb57f0f0f2051bf8bc9',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1602865392823,
       username: 'pre0711'
     },
+    modified: [
+      {
+        timestamp: 1602865392823,
+        username: 'pre0711'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'pre0711',
-      name: 'Presis Damesykkel'
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel'
     },
     school: {
       id: 'TESVS',
@@ -2443,19 +2523,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5e863b8e3e27c5239',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1600650072239,
       username: 'fly2507'
     },
+    modified: [
+      {
+        timestamp: 1600650072239,
+        username: 'fly2507'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'fly2507',
-      name: 'Flyktig Logg'
+      name: 'Flyktig Logg',
+      firstName: 'Flyktig',
+      lastName: 'Logg'
     },
     school: {
       id: 'TESVS',
@@ -2483,19 +2573,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5c1c52683b6ee0789',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1602495682375,
       username: 'vik2606'
     },
+    modified: [
+      {
+        timestamp: 1602495682375,
+        username: 'vik2606'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'vis05042',
-      name: 'Vis Motbakkeklaring'
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring'
     },
     teacher: {
       username: 'vik2606',
-      name: 'Viktig Kjærlig'
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig'
     },
     school: {
       id: 'TESVS',
@@ -2527,19 +2627,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb519aa565a82d5126b',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1599453926144,
       username: 'sto3006'
     },
+    modified: [
+      {
+        timestamp: 1599453926144,
+        username: 'sto3006'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist'
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist'
     },
     teacher: {
       username: 'sto3006',
-      name: 'Stolt Komplisert Blindvegsjiraff'
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff'
     },
     school: {
       id: 'TESVS',
@@ -2563,19 +2673,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5c27778c41f8daea2',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1599030208075,
       username: 'kra0801'
     },
+    modified: [
+      {
+        timestamp: 1599030208075,
+        username: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'kra0801',
-      name: 'Kranglete Sykkel'
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel'
     },
     school: {
       id: 'TESVS',
@@ -2607,19 +2727,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb566d7f2b99b066c50',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1601402806095,
       username: 'bar0407'
     },
+    modified: [
+      {
+        timestamp: 1601402806095,
+        username: 'bar0407'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'bar0407',
-      name: 'Barmhjertig Eplekake'
+      name: 'Barmhjertig Eplekake',
+      firstName: 'Barmhjertig',
+      lastName: 'Eplekake'
     },
     school: {
       id: 'TESVS',
@@ -2643,19 +2773,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5f43d2624fad36cf8',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1598732617838,
       username: 'use0306'
     },
+    modified: [
+      {
+        timestamp: 1598732617838,
+        username: 'use0306'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'use0306',
-      name: 'Usedvanlig Eske'
+      name: 'Usedvanlig Eske',
+      firstName: 'Usedvanlig',
+      lastName: 'Eske'
     },
     school: {
       id: 'TESVS',
@@ -2683,19 +2823,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5c41540f576f3ae47',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1597953142230,
       username: 'kra0801'
     },
+    modified: [
+      {
+        timestamp: 1597953142230,
+        username: 'kra0801'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'kra0801',
-      name: 'Kranglete Sykkel'
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel'
     },
     school: {
       id: 'TESVS',
@@ -2719,19 +2869,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb581482f15154eec28',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1598833191091,
       username: 'use0306'
     },
+    modified: [
+      {
+        timestamp: 1598833191091,
+        username: 'use0306'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'use0306',
-      name: 'Usedvanlig Eske'
+      name: 'Usedvanlig Eske',
+      firstName: 'Usedvanlig',
+      lastName: 'Eske'
     },
     school: {
       id: 'TESVS',
@@ -2763,19 +2923,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5abf4a83758083596',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1599206972644,
       username: 'skj1207'
     },
+    modified: [
+      {
+        timestamp: 1599206972644,
+        username: 'skj1207'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt'
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt'
     },
     school: {
       id: 'TESVS',
@@ -2803,19 +2973,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5670cc04a5f875ee2',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1597777699304,
       username: 'fal0309'
     },
+    modified: [
+      {
+        timestamp: 1597777699304,
+        username: 'fal0309'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel'
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel'
     },
     teacher: {
       username: 'fal0309',
-      name: 'Falsk Handlekraft'
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft'
     },
     school: {
       id: 'TESVS',
@@ -2839,19 +3019,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb59694f1fea9d2abe0',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1597971632052,
       username: 'sto3006'
     },
+    modified: [
+      {
+        timestamp: 1597971632052,
+        username: 'sto3006'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'vis05042',
-      name: 'Vis Motbakkeklaring'
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring'
     },
     teacher: {
       username: 'sto3006',
-      name: 'Stolt Komplisert Blindvegsjiraff'
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff'
     },
     school: {
       id: 'TESVS',
@@ -2875,19 +3065,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb514b2b4b11ce8ea56',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1599313534086,
       username: 'vik2606'
     },
+    modified: [
+      {
+        timestamp: 1599313534086,
+        username: 'vik2606'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'opp2004',
-      name: 'Oppfyllende Palmeolje'
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje'
     },
     teacher: {
       username: 'vik2606',
-      name: 'Viktig Kjærlig'
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig'
     },
     school: {
       id: 'TESVS',
@@ -2915,19 +3115,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb51f7547e4fea1e054',
-    type: 'varsel',
-    variant: 'fag',
     created: {
       timestamp: 1601746377500,
       username: 'skj1207'
     },
+    modified: [
+      {
+        timestamp: 1601746377500,
+        username: 'skj1207'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt'
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt'
     },
     school: {
       id: 'TESVS',
@@ -2962,19 +3172,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb580cf494aa67f6607',
-    type: 'varsel',
-    variant: 'fag',
     created: {
       timestamp: 1601917341017,
       username: 'bar0407'
     },
+    modified: [
+      {
+        timestamp: 1601917341017,
+        username: 'bar0407'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'bar0407',
-      name: 'Barmhjertig Eplekake'
+      name: 'Barmhjertig Eplekake',
+      firstName: 'Barmhjertig',
+      lastName: 'Eplekake'
     },
     school: {
       id: 'TESVS',
@@ -3009,19 +3229,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb580e6d88abdb2cac5',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1604072226472,
       username: 'use0306'
     },
+    modified: [
+      {
+        timestamp: 1604072226472,
+        username: 'use0306'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel'
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel'
     },
     teacher: {
       username: 'use0306',
-      name: 'Usedvanlig Eske'
+      name: 'Usedvanlig Eske',
+      firstName: 'Usedvanlig',
+      lastName: 'Eske'
     },
     school: {
       id: 'TESVS',
@@ -3053,19 +3283,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5b108eb85bc98af20',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1600960994640,
       username: 'skj1207'
     },
+    modified: [
+      {
+        timestamp: 1600960994640,
+        username: 'skj1207'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue'
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue'
     },
     teacher: {
       username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt'
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt'
     },
     school: {
       id: 'TESVS',
@@ -3093,19 +3333,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb504d7f478eab11077',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1602870609990,
       username: 'pre0711'
     },
+    modified: [
+      {
+        timestamp: 1602870609990,
+        username: 'pre0711'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue'
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue'
     },
     teacher: {
       username: 'pre0711',
-      name: 'Presis Damesykkel'
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel'
     },
     school: {
       id: 'TESVS',
@@ -3133,19 +3383,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5bbaf170672f36c90',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1604347514248,
       username: 'fal0309'
     },
+    modified: [
+      {
+        timestamp: 1604347514248,
+        username: 'fal0309'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue'
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue'
     },
     teacher: {
       username: 'fal0309',
-      name: 'Falsk Handlekraft'
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft'
     },
     school: {
       id: 'TESVS',
@@ -3177,19 +3437,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5e2a045dd3dc8baa2',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1602292228780,
       username: 'bev0304'
     },
+    modified: [
+      {
+        timestamp: 1602292228780,
+        username: 'bev0304'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel'
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel'
     },
     teacher: {
       username: 'bev0304',
-      name: 'Bevisst Turbin'
+      name: 'Bevisst Turbin',
+      firstName: 'Bevisst',
+      lastName: 'Turbin'
     },
     school: {
       id: 'TESVS',
@@ -3217,19 +3487,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb517694cf13dc51c35',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1597928834727,
       username: 'bar0407'
     },
+    modified: [
+      {
+        timestamp: 1597928834727,
+        username: 'bar0407'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'bar0407',
-      name: 'Barmhjertig Eplekake'
+      name: 'Barmhjertig Eplekake',
+      firstName: 'Barmhjertig',
+      lastName: 'Eplekake'
     },
     school: {
       id: 'TESVS',
@@ -3257,19 +3537,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5bc55c90142ebafce',
-    type: 'varsel',
-    variant: 'fag',
     created: {
       timestamp: 1602006464562,
       username: 'tri0308'
     },
+    modified: [
+      {
+        timestamp: 1602006464562,
+        username: 'tri0308'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
     student: {
       username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel'
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel'
     },
     teacher: {
       username: 'tri0308',
-      name: 'Trine Testesen'
+      name: 'Trine Testesen',
+      firstName: 'Trine',
+      lastName: 'Testesen'
     },
     school: {
       id: 'TESVS',
@@ -3304,19 +3594,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5ef40a0fefc0e7343',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1600277377532,
       username: 'fal0309'
     },
+    modified: [
+      {
+        timestamp: 1600277377532,
+        username: 'fal0309'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'vis05042',
-      name: 'Vis Motbakkeklaring'
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring'
     },
     teacher: {
       username: 'fal0309',
-      name: 'Falsk Handlekraft'
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft'
     },
     school: {
       id: 'TESVS',
@@ -3347,19 +3647,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5357d44b5fc1b306d',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1604186806754,
       username: 'fal0309'
     },
+    modified: [
+      {
+        timestamp: 1604186806754,
+        username: 'fal0309'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel'
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel'
     },
     teacher: {
       username: 'fal0309',
-      name: 'Falsk Handlekraft'
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft'
     },
     school: {
       id: 'TESVS',
@@ -3390,19 +3700,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5256392249990e39d',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1602818303334,
       username: 'pre0711'
     },
+    modified: [
+      {
+        timestamp: 1602818303334,
+        username: 'pre0711'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'pre0711',
-      name: 'Presis Damesykkel'
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel'
     },
     school: {
       id: 'TESVS',
@@ -3426,19 +3746,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5d12c4d7432d6c135',
-    type: 'varsel',
-    variant: 'fag',
     created: {
       timestamp: 1602595420172,
       username: 'fal0309'
     },
+    modified: [
+      {
+        timestamp: 1602595420172,
+        username: 'fal0309'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
     student: {
       username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue'
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue'
     },
     teacher: {
       username: 'fal0309',
-      name: 'Falsk Handlekraft'
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft'
     },
     school: {
       id: 'TESVS',
@@ -3473,19 +3803,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb53e8019713248942f',
-    type: 'varsel',
-    variant: 'fag',
     created: {
       timestamp: 1603237798683,
       username: 'tri0308'
     },
+    modified: [
+      {
+        timestamp: 1603237798683,
+        username: 'tri0308'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'tri0308',
-      name: 'Trine Testesen'
+      name: 'Trine Testesen',
+      firstName: 'Trine',
+      lastName: 'Testesen'
     },
     school: {
       id: 'TESVS',
@@ -3520,19 +3860,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5f57123792bf3972f',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1601474996085,
       username: 'skj1207'
     },
+    modified: [
+      {
+        timestamp: 1601474996085,
+        username: 'skj1207'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'vis05042',
-      name: 'Vis Motbakkeklaring'
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring'
     },
     teacher: {
       username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt'
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt'
     },
     school: {
       id: 'TESVS',
@@ -3560,19 +3910,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb50e8d5a615d11a0d4',
-    type: 'varsel',
-    variant: 'fag',
     created: {
       timestamp: 1598133490679,
       username: 'ven2411'
     },
+    modified: [
+      {
+        timestamp: 1598133490679,
+        username: 'ven2411'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
     student: {
       username: 'opp2004',
-      name: 'Oppfyllende Palmeolje'
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje'
     },
     teacher: {
       username: 'ven2411',
-      name: 'Vennlig Arm'
+      name: 'Vennlig Arm',
+      firstName: 'Vennlig',
+      lastName: 'Arm'
     },
     school: {
       id: 'TESVS',
@@ -3607,19 +3967,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb59ae2e4ea9330ec0f',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1600352983308,
       username: 'opp1805'
     },
+    modified: [
+      {
+        timestamp: 1600352983308,
+        username: 'opp1805'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'opp1805',
-      name: 'Oppfyllende Kråke'
+      name: 'Oppfyllende Kråke',
+      firstName: 'Oppfyllende',
+      lastName: 'Kråke'
     },
     school: {
       id: 'TESVS',
@@ -3650,19 +4020,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb526b62413029e5f90',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1604478430700,
       username: 'use0306'
     },
+    modified: [
+      {
+        timestamp: 1604478430700,
+        username: 'use0306'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'use0306',
-      name: 'Usedvanlig Eske'
+      name: 'Usedvanlig Eske',
+      firstName: 'Usedvanlig',
+      lastName: 'Eske'
     },
     school: {
       id: 'TESVS',
@@ -3690,19 +4070,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5d81a32ea10ae3fcb',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1603488966683,
       username: 'sto3006'
     },
+    modified: [
+      {
+        timestamp: 1603488966683,
+        username: 'sto3006'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'sto3006',
-      name: 'Stolt Komplisert Blindvegsjiraff'
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff'
     },
     school: {
       id: 'TESVS',
@@ -3726,19 +4116,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb58b3608f8202cb3ef',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1601923442560,
       username: 'fal0309'
     },
+    modified: [
+      {
+        timestamp: 1601923442560,
+        username: 'fal0309'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'opp2004',
-      name: 'Oppfyllende Palmeolje'
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje'
     },
     teacher: {
       username: 'fal0309',
-      name: 'Falsk Handlekraft'
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft'
     },
     school: {
       id: 'TESVS',
@@ -3762,19 +4162,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5d9822c3fc71856e1',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1600946652285,
       username: 'dis0904'
     },
+    modified: [
+      {
+        timestamp: 1600946652285,
+        username: 'dis0904'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'opp2004',
-      name: 'Oppfyllende Palmeolje'
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje'
     },
     teacher: {
       username: 'dis0904',
-      name: 'Diskret Telefonkiosk'
+      name: 'Diskret Telefonkiosk',
+      firstName: 'Diskret',
+      lastName: 'Telefonkiosk'
     },
     school: {
       id: 'TESVS',
@@ -3805,19 +4215,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5a65dd58b9858beb5',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1598907632132,
       username: 'skj1207'
     },
+    modified: [
+      {
+        timestamp: 1598907632132,
+        username: 'skj1207'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'opp2004',
-      name: 'Oppfyllende Palmeolje'
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje'
     },
     teacher: {
       username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt'
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt'
     },
     school: {
       id: 'TESVS',
@@ -3848,19 +4268,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb56625ae735925775c',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1597796486937,
       username: 'dis0904'
     },
+    modified: [
+      {
+        timestamp: 1597796486937,
+        username: 'dis0904'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist'
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist'
     },
     teacher: {
       username: 'dis0904',
-      name: 'Diskret Telefonkiosk'
+      name: 'Diskret Telefonkiosk',
+      firstName: 'Diskret',
+      lastName: 'Telefonkiosk'
     },
     school: {
       id: 'TESVS',
@@ -3884,19 +4314,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb520d5e3042dc9cde7',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1599743332073,
       username: 'kra0801'
     },
+    modified: [
+      {
+        timestamp: 1599743332073,
+        username: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist'
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist'
     },
     teacher: {
       username: 'kra0801',
-      name: 'Kranglete Sykkel'
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel'
     },
     school: {
       id: 'TESVS',
@@ -3927,19 +4367,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb58c4337286a2c10ae',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1598039525189,
       username: 'fal0309'
     },
+    modified: [
+      {
+        timestamp: 1598039525189,
+        username: 'fal0309'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'fal0309',
-      name: 'Falsk Handlekraft'
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft'
     },
     school: {
       id: 'TESVS',
@@ -3967,19 +4417,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5e56f2a05b8f5f6e6',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1598175435076,
       username: 'tri0308'
     },
+    modified: [
+      {
+        timestamp: 1598175435076,
+        username: 'tri0308'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'tri0308',
-      name: 'Trine Testesen'
+      name: 'Trine Testesen',
+      firstName: 'Trine',
+      lastName: 'Testesen'
     },
     school: {
       id: 'TESVS',
@@ -4007,19 +4467,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5989a12ec168b7dc7',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1599146020639,
       username: 'skj1207'
     },
+    modified: [
+      {
+        timestamp: 1599146020639,
+        username: 'skj1207'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'opp2004',
-      name: 'Oppfyllende Palmeolje'
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje'
     },
     teacher: {
       username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt'
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt'
     },
     school: {
       id: 'TESVS',
@@ -4052,19 +4522,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb57b7569b0c91f47ea',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1603095899820,
       username: 'use0306'
     },
+    modified: [
+      {
+        timestamp: 1603095899820,
+        username: 'use0306'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'use0306',
-      name: 'Usedvanlig Eske'
+      name: 'Usedvanlig Eske',
+      firstName: 'Usedvanlig',
+      lastName: 'Eske'
     },
     school: {
       id: 'TESVS',
@@ -4097,19 +4577,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb54d908a6d26279652',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1600364365628,
       username: 'rus26021'
     },
+    modified: [
+      {
+        timestamp: 1600364365628,
+        username: 'rus26021'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'rus26021',
-      name: 'Ru Sovealkove'
+      name: 'Ru Sovealkove',
+      firstName: 'Ru',
+      lastName: 'Sovealkove'
     },
     school: {
       id: 'TESVS',
@@ -4133,19 +4623,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb51b995bdc2d460717',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1598390881071,
       username: 'skj1207'
     },
+    modified: [
+      {
+        timestamp: 1598390881071,
+        username: 'skj1207'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue'
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue'
     },
     teacher: {
       username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt'
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt'
     },
     school: {
       id: 'TESVS',
@@ -4176,19 +4676,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb516ca936ba748d550',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1601958525263,
       username: 'vik2606'
     },
+    modified: [
+      {
+        timestamp: 1601958525263,
+        username: 'vik2606'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'vik2606',
-      name: 'Viktig Kjærlig'
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig'
     },
     school: {
       id: 'TESVS',
@@ -4212,19 +4722,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5e1998cf14be191c0',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1601305127595,
       username: 'dis0904'
     },
+    modified: [
+      {
+        timestamp: 1601305127595,
+        username: 'dis0904'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel'
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel'
     },
     teacher: {
       username: 'dis0904',
-      name: 'Diskret Telefonkiosk'
+      name: 'Diskret Telefonkiosk',
+      firstName: 'Diskret',
+      lastName: 'Telefonkiosk'
     },
     school: {
       id: 'TESVS',
@@ -4252,19 +4772,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5372aa80d2cfb9348',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1598453724856,
       username: 'tri0308'
     },
+    modified: [
+      {
+        timestamp: 1598453724856,
+        username: 'tri0308'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'tri0308',
-      name: 'Trine Testesen'
+      name: 'Trine Testesen',
+      firstName: 'Trine',
+      lastName: 'Testesen'
     },
     school: {
       id: 'TESVS',
@@ -4288,19 +4818,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5ee0cf028551f21e1',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1602462719313,
       username: 'rus26021'
     },
+    modified: [
+      {
+        timestamp: 1602462719313,
+        username: 'rus26021'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'rus26021',
-      name: 'Ru Sovealkove'
+      name: 'Ru Sovealkove',
+      firstName: 'Ru',
+      lastName: 'Sovealkove'
     },
     school: {
       id: 'TESVS',
@@ -4331,19 +4871,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5959c53386d411c97',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1600230827016,
       username: 'skj1207'
     },
+    modified: [
+      {
+        timestamp: 1600230827016,
+        username: 'skj1207'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'opp2004',
-      name: 'Oppfyllende Palmeolje'
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje'
     },
     teacher: {
       username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt'
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt'
     },
     school: {
       id: 'TESVS',
@@ -4371,19 +4921,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5a0243ed25a9f142a',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1598707478054,
       username: 'kra0801'
     },
+    modified: [
+      {
+        timestamp: 1598707478054,
+        username: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'kra0801',
-      name: 'Kranglete Sykkel'
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel'
     },
     school: {
       id: 'TESVS',
@@ -4414,19 +4974,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5f21749d5766174fb',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1597821508409,
       username: 'use0306'
     },
+    modified: [
+      {
+        timestamp: 1597821508409,
+        username: 'use0306'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'vis05042',
-      name: 'Vis Motbakkeklaring'
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring'
     },
     teacher: {
       username: 'use0306',
-      name: 'Usedvanlig Eske'
+      name: 'Usedvanlig Eske',
+      firstName: 'Usedvanlig',
+      lastName: 'Eske'
     },
     school: {
       id: 'TESVS',
@@ -4458,19 +5028,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb52d2f736b0df4f4c6',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1601151223154,
       username: 'vik2606'
     },
+    modified: [
+      {
+        timestamp: 1601151223154,
+        username: 'vik2606'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'vis05042',
-      name: 'Vis Motbakkeklaring'
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring'
     },
     teacher: {
       username: 'vik2606',
-      name: 'Viktig Kjærlig'
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig'
     },
     school: {
       id: 'TESVS',
@@ -4502,19 +5082,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb55bb20671f45abd7e',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1600099240914,
       username: 'sto3006'
     },
+    modified: [
+      {
+        timestamp: 1600099240914,
+        username: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue'
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue'
     },
     teacher: {
       username: 'sto3006',
-      name: 'Stolt Komplisert Blindvegsjiraff'
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff'
     },
     school: {
       id: 'TESVS',
@@ -4546,19 +5136,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb53e9b4efdd1a4c580',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1598428341261,
       username: 'pre0711'
     },
+    modified: [
+      {
+        timestamp: 1598428341261,
+        username: 'pre0711'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'pre0711',
-      name: 'Presis Damesykkel'
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel'
     },
     school: {
       id: 'TESVS',
@@ -4582,19 +5182,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5b2b8869105830a2c',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1599484407456,
       username: 'dis0904'
     },
+    modified: [
+      {
+        timestamp: 1599484407456,
+        username: 'dis0904'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'dis0904',
-      name: 'Diskret Telefonkiosk'
+      name: 'Diskret Telefonkiosk',
+      firstName: 'Diskret',
+      lastName: 'Telefonkiosk'
     },
     school: {
       id: 'TESVS',
@@ -4618,19 +5228,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5456b1ccb67fc6d41',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1603000236779,
       username: 'bev0304'
     },
+    modified: [
+      {
+        timestamp: 1603000236779,
+        username: 'bev0304'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel'
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel'
     },
     teacher: {
       username: 'bev0304',
-      name: 'Bevisst Turbin'
+      name: 'Bevisst Turbin',
+      firstName: 'Bevisst',
+      lastName: 'Turbin'
     },
     school: {
       id: 'TESVS',
@@ -4654,19 +5274,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb57c46534bacb8460f',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1598424198048,
       username: 'sto3006'
     },
+    modified: [
+      {
+        timestamp: 1598424198048,
+        username: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist'
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist'
     },
     teacher: {
       username: 'sto3006',
-      name: 'Stolt Komplisert Blindvegsjiraff'
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff'
     },
     school: {
       id: 'TESVS',
@@ -4698,19 +5328,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb570fa67453610bd6d',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1601282808947,
       username: 'dis0904'
     },
+    modified: [
+      {
+        timestamp: 1601282808947,
+        username: 'dis0904'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'vis05042',
-      name: 'Vis Motbakkeklaring'
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring'
     },
     teacher: {
       username: 'dis0904',
-      name: 'Diskret Telefonkiosk'
+      name: 'Diskret Telefonkiosk',
+      firstName: 'Diskret',
+      lastName: 'Telefonkiosk'
     },
     school: {
       id: 'TESVS',
@@ -4741,19 +5381,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5d8ffc101ac615f4e',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1600506404763,
       username: 'tri0308'
     },
+    modified: [
+      {
+        timestamp: 1600506404763,
+        username: 'tri0308'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue'
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue'
     },
     teacher: {
       username: 'tri0308',
-      name: 'Trine Testesen'
+      name: 'Trine Testesen',
+      firstName: 'Trine',
+      lastName: 'Testesen'
     },
     school: {
       id: 'TESVS',
@@ -4777,19 +5427,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb53a99f6e831697038',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1599981639613,
       username: 'vik2606'
     },
+    modified: [
+      {
+        timestamp: 1599981639613,
+        username: 'vik2606'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'tro1407',
-      name: 'Trofast Bomullballsko'
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko'
     },
     teacher: {
       username: 'vik2606',
-      name: 'Viktig Kjærlig'
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig'
     },
     school: {
       id: 'TESVS',
@@ -4817,19 +5477,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5f5d8b7f68a0d4154',
-    type: 'samtale',
-    variant: 'samtale',
     created: {
       timestamp: 1598920368545,
       username: 'bar0407'
     },
+    modified: [
+      {
+        timestamp: 1598920368545,
+        username: 'bar0407'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'bar0407',
-      name: 'Barmhjertig Eplekake'
+      name: 'Barmhjertig Eplekake',
+      firstName: 'Barmhjertig',
+      lastName: 'Eplekake'
     },
     school: {
       id: 'TESVS',
@@ -4853,19 +5523,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb51077cc49bc79c1b4',
-    type: 'varsel',
-    variant: 'fag',
     created: {
       timestamp: 1602497629119,
       username: 'bev0304'
     },
+    modified: [
+      {
+        timestamp: 1602497629119,
+        username: 'bev0304'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'bev0304',
-      name: 'Bevisst Turbin'
+      name: 'Bevisst Turbin',
+      firstName: 'Bevisst',
+      lastName: 'Turbin'
     },
     school: {
       id: 'TESVS',
@@ -4900,19 +5580,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb513f51e5ab2a5b8f5',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1600756351729,
       username: 'skj1207'
     },
+    modified: [
+      {
+        timestamp: 1600756351729,
+        username: 'skj1207'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel'
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel'
     },
     teacher: {
       username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt'
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt'
     },
     school: {
       id: 'TESVS',
@@ -4943,19 +5633,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb52ccfd4b1f99d2284',
-    type: 'samtale',
-    variant: 'ikke-samtale',
     created: {
       timestamp: 1599687535241,
       username: 'kra0801'
     },
+    modified: [
+      {
+        timestamp: 1599687535241,
+        username: 'kra0801'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne'
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne'
     },
     teacher: {
       username: 'kra0801',
-      name: 'Kranglete Sykkel'
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel'
     },
     school: {
       id: 'TESVS',
@@ -4983,19 +5683,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb5ea579d71d0f2303e',
-    type: 'varsel',
-    variant: 'atferd',
     created: {
       timestamp: 1600336414748,
       username: 'fal0309'
     },
+    modified: [
+      {
+        timestamp: 1600336414748,
+        username: 'fal0309'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
     student: {
       username: 'alv1706',
-      name: 'Alvorlig Lykke'
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke'
     },
     teacher: {
       username: 'fal0309',
-      name: 'Falsk Handlekraft'
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft'
     },
     school: {
       id: 'TESVS',
@@ -5028,19 +5738,29 @@ export const DOCUMENTS = [
   },
   {
     _id: '5fa2aeb597cd0c99af620558',
-    type: 'varsel',
-    variant: 'orden',
     created: {
       timestamp: 1599031288490,
       username: 'rus26021'
     },
+    modified: [
+      {
+        timestamp: 1599031288490,
+        username: 'rus26021'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
     student: {
       username: 'opp2004',
-      name: 'Oppfyllende Palmeolje'
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje'
     },
     teacher: {
       username: 'rus26021',
-      name: 'Ru Sovealkove'
+      name: 'Ru Sovealkove',
+      firstName: 'Ru',
+      lastName: 'Sovealkove'
     },
     school: {
       id: 'TESVS',
