@@ -4,5 +4,9 @@
 .classes {
   .page-title {
     margin-bottom: $baseUnit * 7;
+
+    @media(max-width: 1000px) {
+      margin-bottom: $baseUnit * 5;
+    }
   }
 }

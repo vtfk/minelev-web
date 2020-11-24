@@ -7,7 +7,14 @@
     width: 24px;
     height: auto;
   }
-  
+
+  &.medium {
+    &,
+    svg {
+      width: 28px;
+    }
+  }
+
   &.small {
     &,
     svg {

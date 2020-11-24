@@ -31,6 +31,12 @@
     height: $baseUnit * 13;
     font-size: 42px;
     letter-spacing: -3.5px;
+
+    @media(max-width: 1000px) {
+      width: $baseUnit * 10;
+      height: $baseUnit * 10;
+      font-size: 28px;
+    }
   }
 
   &.swansDown {

@@ -78,7 +78,7 @@ export function Students (props) {
           />
       }
 
-      <div className='classes'>
+      <div className='students'>
 
         <Heading2 className='page-title'>Elever</Heading2>
 

@@ -64,7 +64,7 @@
     outline: 0;
     color: inherit;
     text-align: center;
-    
+
     .sidenav-item-icon {
       display: inline-block;
       width: 24px;
@@ -82,7 +82,7 @@
       letter-spacing: 0.3px;
       user-select: none;
     }
-  }  
+  }
 
   &.active {
     a {
@@ -99,7 +99,7 @@
 
       &:focus {
         outline: 1px dotted #ccc;
-      } 
+      }
     }
   }
 }
