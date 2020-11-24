@@ -39,7 +39,7 @@
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.1.2",
     "@testing-library/user-event": "12.2.2",
-    "@vtfk/react-msal": "1.0.3",
+    "@vtfk/react-msal": "1.0.4",
     "express": "4.17.1",
     "moment": "2.29.1",
     "prop-types": "15.7.2",
