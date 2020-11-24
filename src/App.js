@@ -8,7 +8,7 @@ import {
 
 import 'moment/locale/nb'
 
-import { useSession } from './lib/auth-provider'
+import { useSession } from '@vtfk/react-msal'
 import { loginRequest } from './config/auth'
 
 import { Home } from './pages/Home'
@@ -45,19 +45,6 @@ const AppContent = () => {
   )
 }
 
-const LoggedOut = () => {
-  const handleReLogin = () => {
-    window.sessionStorage.clear()
-    window.location.reload()
-  }
-  return (
-    <div>
-      <h1>Du er logget ut</h1>
-      <button onClick={handleReLogin}>Logg på igjen</button>
-    </div>
-  )
-}
-
 function App () {
   const { isAuthenticated, login, authStatus } = useSession()
 
@@ -65,12 +52,8 @@ function App () {
     return <div>Loading...</div>
   }
 
-  if (['loggedout'].includes(authStatus)) {
-    return <LoggedOut />
-  }
-
   if (!isAuthenticated) {
-    login(loginRequest, 'loginRedirect')
+    login(loginRequest)
     return <></>
   }
 

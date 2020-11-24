@@ -16,7 +16,7 @@ React app for MinElev
 Det er laget 3 metoder som gjør kall mot APIer som sender med innlogget brukers token.
 
 ```JavaScript
-import useSession from './lib/auth-provider'
+import useSession from '@vtfk/react-msal'
 const { apiGet, apiPost, apiPut } = useSession()
 
 const get = await apiGet('url')

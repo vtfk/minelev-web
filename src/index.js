@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { MsalProvider } from './lib/auth-provider'
+import { MsalProvider } from '@vtfk/react-msal'
 import { config, loginRequest } from './config/auth'
 
 import App from './App'

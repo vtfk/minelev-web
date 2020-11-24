@@ -5,7 +5,7 @@ import { DefaultLayout } from '../../layouts/Default'
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
-import { useSession } from '../../lib/auth-provider'
+import { useSession } from '@vtfk/react-msal'
 
 import { Heading1, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
