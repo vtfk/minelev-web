@@ -31,7 +31,7 @@ export function Icon ({ name, size }) {
     check: <Check />,
     close: <Close />,
     menu: <Menu />,
-    search: <Search />,
+    search: <Search />
   }
 
   return (
