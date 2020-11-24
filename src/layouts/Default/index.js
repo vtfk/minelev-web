@@ -51,7 +51,7 @@ export function DefaultLayout (props) {
         </SideNav>
 
         { /* TODO: To lib component when desktop design is in place */ }
-        <div className={`topnav-side ${openTopNavSide ? 'open' : ''}`}>
+        <nav role="navigation" className={`topnav-side ${openTopNavSide ? 'open' : ''}`}>
           <div className="topnav-side-user">
             <div className='user'>
               <InitialsBadge className='user-image' firstName={user.givenName} lastName={user.surname} />
@@ -66,7 +66,7 @@ export function DefaultLayout (props) {
               </div>
             </div>
 
-            <Link className="topnav-side-top-close" onClick={clickTopNavToggle}>
+            <Link aria-label="Lukk meny" className="topnav-side-top-close" onClick={clickTopNavToggle}>
               <Icon name='close' size="xsmall" />
             </Link>
           </div>
@@ -115,7 +115,7 @@ export function DefaultLayout (props) {
               </Link>
             </div>
           </div>
-        </div>
+        </nav>
 
         <div className='container'>
           <div className="topnav">
@@ -127,10 +127,10 @@ export function DefaultLayout (props) {
                 MinElev
               </div>
             </a>
-            <div className="topnav-toggles" onClick={clickTopNavToggle}>
+            <button aria-label="Åpne meny" className="topnav-toggles" onClick={clickTopNavToggle}>
               <Icon size="small" name='search' />
               <Icon size="small" name='menu' />
-            </div>
+            </button>
           </div>
 
           <div className='action-bar'>
