@@ -11,6 +11,9 @@ import { ReactComponent as ArrowRight } from './icon-arrow-right.svg'
 import { ReactComponent as ArrowLeft } from './icon-arrow-left.svg'
 import { ReactComponent as Add } from './icon-add.svg'
 import { ReactComponent as Check } from './icon-check.svg'
+import { ReactComponent as Close } from './icon-close.svg'
+import { ReactComponent as Menu } from './icon-menu.svg'
+import { ReactComponent as Search } from './icon-search.svg'
 
 import './styles.scss'
 
@@ -25,7 +28,10 @@ export function Icon ({ name, size }) {
     arrowRight: <ArrowRight />,
     arrowLeft: <ArrowLeft />,
     add: <Add />,
-    check: <Check />
+    check: <Check />,
+    close: <Close />,
+    menu: <Menu />,
+    search: <Search />,
   }
 
   return (

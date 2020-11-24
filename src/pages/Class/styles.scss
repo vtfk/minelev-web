@@ -7,6 +7,10 @@
   .back-link {
     display: block;
     margin-bottom: $baseUnit * 6;
+
+    @media(max-width: 1000px) {
+      margin-bottom: $baseUnit * 3;
+    }
   }
 
   .class-information {
@@ -14,6 +18,10 @@
     flex-wrap: nowrap;
     margin-bottom: $baseUnit * 7;
     align-items: center;
+
+    @media(max-width: 1000px) {
+      margin-bottom: $baseUnit * 4;
+    }
 
     .class-shortname {
       font-family: "Nunito", sans-serif;
@@ -48,6 +56,11 @@
     margin-left: -($baseUnit * 4);
     margin-bottom: $baseUnit * 5;
 
+    @media(max-width: 1000px) {
+      margin-left: 0;
+      margin-bottom: $baseUnit * 3;
+    }
+
     .numbers-item {
       width: calc(100% / 3 - (#{$baseUnit * 4}));
       margin-bottom: $baseUnit * 2;
@@ -55,8 +68,14 @@
       padding: ($baseUnit * 2) ($baseUnit * 4) ($baseUnit * 2) ($baseUnit * 4);
       background: $catSkillWhite;
 
+      @media(max-width: 1000px) {
+        margin-left: 0;
+        width: 100%;
+        padding-left: $baseUnit * 2;
+      }
+
       .numbers-item-title {
-  
+
       }
 
       .numbers-item-text {
@@ -84,6 +103,11 @@
     background: $springWood;
     padding: ($baseUnit * 5) ($baseUnit * 4);
     margin-bottom: $baseUnit * 4;
+
+    @media(max-width: 1000px) {
+      padding: ($baseUnit * 3) ($baseUnit * 2);
+      margin-bottom: $baseUnit * 2;
+    }
 
     .activity-panel-table {
       width: 100%;

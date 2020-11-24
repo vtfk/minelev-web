@@ -49,6 +49,7 @@
     "react-moment": "1.0.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.0",
+    "react-scrolllock": "^5.0.1",
     "sass": "1.29.0"
   },
   "devDependencies": {

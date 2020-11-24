@@ -71,6 +71,11 @@
     font-size: 48px;
     line-height: 66px;
     font-weight: 700;
+
+    @media(max-width: 1000px) {
+      font-size: 36px;
+      line-height: 49px;
+    }
   }
 
   &.heading-two {
@@ -78,6 +83,11 @@
     font-size: 36px;
     line-height: 40px;
     font-weight: 400;
+
+    @media(max-width: 1000px) {
+      font-size: 28px;
+      line-height: 38px;
+    }
   }
 
   &.heading-three {
@@ -85,6 +95,11 @@
     font-size: 21px;
     line-height: 28px;
     font-weight: 400;
+
+    @media(max-width: 1000px) {
+      font-size: 18px;
+      line-height: 24px;
+    }
   }
 
   &.heading-four {

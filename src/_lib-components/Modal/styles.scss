@@ -15,6 +15,10 @@
 
   .modal-positioner {
     z-index: 1001;
+
+    @media (max-width: 1000px) {
+      width: 100%;
+    }
   }
 
   .modal-backdrop {
@@ -25,6 +29,10 @@
     height: 100vh;
     background: rgba(#F8F6F0, 0.87);
     z-index: 1000;
+
+    @media (max-width: 1000px) {
+      background: #F8F6F0;
+    }
   }
 
   .modal-title {
@@ -36,10 +44,25 @@
     display: flex;
     align-items: center;
 
+    @media (max-width: 1000px) {
+      height: 75px;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 21px;
+    }
+
     .modal-close-button {
       @include reset-button();
       margin-right: $baseUnit * 2;
       outline: 0;
+      margin-top: -2px;
+
+      @media (max-width: 1000px) {
+        img {
+          width: 14px;
+          height: 14px;
+        }
+      }
     }
   }
 
@@ -52,6 +75,15 @@
     background: #fff;
     box-shadow: 0 20px 13px 0 rgba(0, 0, 0, 0.04);
     height: 80vh;
+
+    @media (max-width: 1000px) {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 75px);
+      max-width: 100%;
+      padding: $baseUnit * 2;
+      overflow-y: scroll;
+    }
   }
 }
 
@@ -61,6 +93,11 @@
   overflow-y: scroll;
   padding-right: $baseUnit * 8;
   padding-left: $baseUnit * 6;
+
+  @media (max-width: 1000px) {
+    padding: 0;
+    overflow-y: auto;
+  }
 }
 
 .modal-side-actions {
@@ -68,6 +105,13 @@
   border-left: 1px solid #979797;
   display: flex;
   align-items: flex-end;
+
+  @media (max-width: 1000px) {
+    padding: 0;
+    padding-bottom: $baseUnit * 5;
+    border: 0;
+    justify-content: center;
+  }
 
   .action {
     display: block;

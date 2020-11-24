@@ -7,8 +7,12 @@
     flex-wrap: nowrap;
     margin-bottom: $baseUnit * 12;
 
+    @media (max-width: 1000px) {
+      margin-bottom: $baseUnit * 6;
+    }
+
     .image {
-  
+
     }
 
     .text-wrapper {
@@ -27,7 +31,11 @@
 
   .form {
     padding-bottom: $baseUnit * 8;
-    
+
+    @media (max-width: 1000px) {
+      padding-bottom: 0;
+    }
+
     .select {
       margin-bottom: $baseUnit * 5;
     }
