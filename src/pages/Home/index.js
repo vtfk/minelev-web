@@ -39,7 +39,8 @@ export function Home () {
   useEffect(() => {
     async function getClass () {
       const docs = await apiGet(API.URL + '/documents')
-      setDocuments(docs.data)
+      const lastModifiedDocuments = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+      setDocuments(lastModifiedDocuments)
     }
     getClass()
   }, [])
@@ -82,7 +83,7 @@ export function Home () {
               {
                 documents && documents.splice(0, 5).map(function (doc, index) {
                   return (
-                    <tr key={doc.id}>
+                    <tr key={index}>
                       <td>
                         <div className='activity-name'>
                           <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />

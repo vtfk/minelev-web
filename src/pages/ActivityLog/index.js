@@ -38,8 +38,8 @@ export function ActivityLog () {
   useEffect(() => {
     async function getClass () {
       const docs = await apiGet(API.URL + '/documents')
-      console.log(docs)
-      setDocuments(docs.data)
+      const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+      setDocuments(docsOrderedByModified)
     }
     getClass()
   }, [])
@@ -86,7 +86,7 @@ export function ActivityLog () {
             {
               documents && documents.map(function (doc, index) {
                 return (
-                  <tr key={doc.id}>
+                  <tr key={index}>
                     <td>
                       <div className='name'>
                         <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />

@@ -38,14 +38,14 @@ export function Student ({ match, ...props }) {
   useEffect(() => {
     async function getStudent() {
       const student = await apiGet(API.URL + '/students/' + id)
-      console.log(student)
       setStudent(student.data)
     }
     getStudent()
 
     async function getDocuments() {
       const docs = await apiGet(API.URL + '/documents/' + id)
-      setDocuments(docs.data)
+      const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+      setDocuments(docsOrderedByModified)
     }
     getDocuments()
 
