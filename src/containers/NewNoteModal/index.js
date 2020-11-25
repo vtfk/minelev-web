@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { ROUTES } from '../../config/constants'
+import { API } from '../../config/app'
+
+import { useSession } from '@vtfk/react-msal'
+
+import { store } from 'react-notifications-component';
 
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
@@ -10,8 +15,9 @@ import { TextField } from '../../_lib-components/TextField'
 
 import './styles.scss'
 
-export function NewNoteModal ({ selectedStudent, ...props }) {
+export function NewNoteModal({ selectedStudent, ...props }) {
   const [noteText, setNoteText] = useState('')
+  const { apiPost } = useSession()
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -21,15 +27,56 @@ export function NewNoteModal ({ selectedStudent, ...props }) {
     }
   }, [])
 
-  function handleKeyPress (event) {
+  function handleKeyPress(event) {
     if (event.key === 'Escape') {
       props.onDismiss()
     }
   }
 
-  function send () {
-    props.onDismiss()
-    window.alert('Notatet er sendt.')
+  async function send() {
+    if (noteText !== '') {
+      const postNote = await apiPost(API.URL + '/documents/' + selectedStudent.username, {
+        "type": "notat",
+        "variant": "notat",
+        "content": {
+          "note": noteText
+        }
+      })
+
+      if (postNote) {
+        store.addNotification({
+          title: "👍",
+          message: "Notatet ble sendt.",
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animate__animated", "animate__fadeIn"],
+          animationOut: ["animate__animated", "animate__fadeOut"],
+          dismiss: {
+            duration: 5000,
+            onScreen: false,
+          }
+        });
+        props.onDismiss()
+        setNoteText('')
+      } else {
+        console.log('Error', postNote)
+      }
+    } else {
+      store.addNotification({
+        title: "Notatet ble ikke sendt.",
+        message: "Du må fylle inn tekst i notatfeltet.",
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeOut"],
+        dismiss: {
+          duration: 5000,
+          onScreen: false,
+        }
+      });
+    }
   }
 
   return (

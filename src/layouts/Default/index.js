@@ -6,6 +6,9 @@ import {
   Link
 } from 'react-router-dom'
 
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+
 import { ROUTES } from '../../config/constants'
 
 import ScrollLock from 'react-scrolllock'
@@ -40,6 +43,8 @@ export function DefaultLayout (props) {
 
   return (
     <ScrollLock isActive={scrollLock}>
+      <ReactNotification />
+
       <div className='default-layout'>
         <SideNav title='MinElev'>
           <SideNavItem icon={<Icon name='home' />} active={location.pathname === '/'} href='/' title='Forside' />
@@ -66,7 +71,7 @@ export function DefaultLayout (props) {
               </div>
             </div>
 
-            <Link aria-label='Lukk meny' className='topnav-side-top-close' onClick={clickTopNavToggle}>
+            <Link to='' aria-label='Lukk meny' className='topnav-side-top-close' onClick={clickTopNavToggle}>
               <Icon name='close' size='xsmall' />
             </Link>
           </div>
@@ -89,27 +94,27 @@ export function DefaultLayout (props) {
 
           <div className='topnav-side-list'>
             <div className='topnav-side-list-inner'>
-              <Link className={`topnav-side-list-item ${location.pathname === '/' ? 'active' : ''}`} to='/'>
+              <Link to='' className={`topnav-side-list-item ${location.pathname === '/' ? 'active' : ''}`} to='/'>
                 <div className='topnav-side-list-item-icon'><Icon size='medium' name='home' /></div>
                 <div className='topnav-side-list-item-text'>Forside</div>
               </Link>
-              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.activityLog ? 'active' : ''}`} to={`/${ROUTES.activityLog}`}>
+              <Link to='' className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.activityLog ? 'active' : ''}`} to={`/${ROUTES.activityLog}`}>
                 <div className='topnav-side-list-item-icon'><Icon size='medium' name='activity' /></div>
                 <div className='topnav-side-list-item-text'>Aktivitetslogg</div>
               </Link>
-              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.students ? 'active' : ''}`} to={`/${ROUTES.students}`}>
+              <Link to='' className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.students ? 'active' : ''}`} to={`/${ROUTES.students}`}>
                 <div className='topnav-side-list-item-icon'><Icon size='medium' name='students' /></div>
                 <div className='topnav-side-list-item-text'>Elever</div>
               </Link>
-              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.classes ? 'active' : ''}`} to={`/${ROUTES.classes}`}>
+              <Link to='' className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.classes ? 'active' : ''}`} to={`/${ROUTES.classes}`}>
                 <div className='topnav-side-list-item-icon'><Icon size='medium' name='classes' /></div>
                 <div className='topnav-side-list-item-text'>Klasser</div>
               </Link>
-              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.statistics ? 'active' : ''}`} to={`/${ROUTES.statistics}`}>
+              <Link to='' className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.statistics ? 'active' : ''}`} to={`/${ROUTES.statistics}`}>
                 <div className='topnav-side-list-item-icon'><Icon size='medium' name='statistics' /></div>
                 <div className='topnav-side-list-item-text'>Statistikk</div>
               </Link>
-              <Link className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.help ? 'active' : ''}`} to={`/${ROUTES.help}`}>
+              <Link to='' className={`topnav-side-list-item ${location.pathname === '/' + ROUTES.help ? 'active' : ''}`} to={`/${ROUTES.help}`}>
                 <div className='topnav-side-list-item-icon'><Icon size='medium' name='help' /></div>
                 <div className='topnav-side-list-item-text'>Hjelp</div>
               </Link>
