@@ -36,20 +36,20 @@ export function Student ({ match, ...props }) {
   const { id } = match.params
 
   useEffect(() => {
-    async function getStudent() {
+    async function getStudent () {
       const student = await apiGet(API.URL + '/students/' + id)
       setStudent(student.data)
     }
     getStudent()
 
-    async function getDocuments() {
+    async function getDocuments () {
       const docs = await apiGet(API.URL + '/documents/' + id)
       const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
       setDocuments(docsOrderedByModified)
     }
     getDocuments()
 
-    async function getNotes() {
+    async function getNotes () {
       const n = await apiGet(API.URL + '/documents/' + id + '/notat')
 
       if (n.data) {
@@ -59,25 +59,25 @@ export function Student ({ match, ...props }) {
     getNotes()
   }, [])
 
-  const activities = [] // <--- needs to be populated
+  // const activities = [] // <--- needs to be populated
 
-  function openConfirmationModal() {
+  function openConfirmationModal () {
     setConfirmationModalState(true)
   }
 
-  function openCurriculumModal() {
+  function openCurriculumModal () {
     setCurriculumModalState(true)
   }
 
-  function openSendModal() {
+  function openSendModal () {
     setSendModalState(true)
   }
 
-  function openDocumentModal(activity) {
+  function openDocumentModal (activity) {
     setDocumentModalState(true)
   }
 
-  function openNoteModal(activity) {
+  function openNoteModal (activity) {
     setNoteModalState(true)
   }
 
@@ -274,11 +274,11 @@ export function Student ({ match, ...props }) {
 
                     {
                       !notes &&
-                      <tr>
-                        <td style={ { textAlign: 'left' } }>
-                          <Paragraph>Denne eleven har ingen notater.</Paragraph>
-                        </td>
-                      </tr>
+                        <tr>
+                          <td style={{ textAlign: 'left' }}>
+                            <Paragraph>Denne eleven har ingen notater.</Paragraph>
+                          </td>
+                        </tr>
                     }
                   </tbody>
                 </table>

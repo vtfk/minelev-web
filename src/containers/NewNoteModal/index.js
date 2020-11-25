@@ -6,7 +6,7 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { store } from 'react-notifications-component';
+import { store } from 'react-notifications-component'
 
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
@@ -15,7 +15,7 @@ import { TextField } from '../../_lib-components/TextField'
 
 import './styles.scss'
 
-export function NewNoteModal({ selectedStudent, ...props }) {
+export function NewNoteModal ({ selectedStudent, ...props }) {
   const [noteText, setNoteText] = useState('')
   const { apiPost } = useSession()
 
@@ -27,36 +27,36 @@ export function NewNoteModal({ selectedStudent, ...props }) {
     }
   }, [])
 
-  function handleKeyPress(event) {
+  function handleKeyPress (event) {
     if (event.key === 'Escape') {
       props.onDismiss()
     }
   }
 
-  async function send() {
+  async function send () {
     if (noteText !== '') {
       const postNote = await apiPost(API.URL + '/documents/' + selectedStudent.username, {
-        "type": "notat",
-        "variant": "notat",
-        "content": {
-          "note": noteText
+        type: 'notat',
+        variant: 'notat',
+        content: {
+          note: noteText
         }
       })
 
       if (postNote) {
         store.addNotification({
-          title: "👍",
-          message: "Notatet ble sendt.",
-          type: "success",
-          insert: "top",
-          container: "top-right",
-          animationIn: ["animate__animated", "animate__fadeIn"],
-          animationOut: ["animate__animated", "animate__fadeOut"],
+          title: '👍',
+          message: 'Notatet ble sendt.',
+          type: 'success',
+          insert: 'top',
+          container: 'top-right',
+          animationIn: ['animate__animated', 'animate__fadeIn'],
+          animationOut: ['animate__animated', 'animate__fadeOut'],
           dismiss: {
             duration: 5000,
-            onScreen: false,
+            onScreen: false
           }
-        });
+        })
         props.onDismiss()
         setNoteText('')
       } else {
@@ -64,18 +64,18 @@ export function NewNoteModal({ selectedStudent, ...props }) {
       }
     } else {
       store.addNotification({
-        title: "Notatet ble ikke sendt.",
-        message: "Du må fylle inn tekst i notatfeltet.",
-        type: "danger",
-        insert: "top",
-        container: "top-right",
-        animationIn: ["animate__animated", "animate__fadeIn"],
-        animationOut: ["animate__animated", "animate__fadeOut"],
+        title: 'Notatet ble ikke sendt.',
+        message: 'Du må fylle inn tekst i notatfeltet.',
+        type: 'danger',
+        insert: 'top',
+        container: 'top-right',
+        animationIn: ['animate__animated', 'animate__fadeIn'],
+        animationOut: ['animate__animated', 'animate__fadeOut'],
         dismiss: {
           duration: 5000,
-          onScreen: false,
+          onScreen: false
         }
-      });
+      })
     }
   }
 
