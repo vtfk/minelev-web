@@ -24,7 +24,6 @@ export function Class ({ match, ...props }) {
   useEffect(() => {
     async function getClass () {
       const c = await apiGet(API.URL + '/classes/' + id)
-      console.log(c)
       setSchoolClass(c.data)
     }
     getClass()
