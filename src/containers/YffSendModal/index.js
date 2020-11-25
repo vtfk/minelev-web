@@ -37,7 +37,6 @@ export function YffSendModal ({ selectedStudent, ...props }) {
         onDismiss={props.onDismiss}
       >
         <ModalBody>
-
           <div className='person-information'>
             <div className='image'>
               <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
@@ -119,10 +118,9 @@ export function YffSendModal ({ selectedStudent, ...props }) {
             </table>
 
           </div>
-
         </ModalBody>
-        <ModalSideActions>
 
+        <ModalSideActions>
           <div className='action'>
             <Link onClick={() => { window.alert('Ikke implementert') }}>Forhåndsvisning</Link>
           </div>
@@ -133,7 +131,6 @@ export function YffSendModal ({ selectedStudent, ...props }) {
           <div className='action'>
             <Link onClick={props.onDismiss}>Avbryt og lukk</Link>
           </div>
-
         </ModalSideActions>
       </Modal>
     </>

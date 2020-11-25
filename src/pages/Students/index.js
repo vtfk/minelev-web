@@ -40,7 +40,6 @@ export function Students (props) {
       const studentName = student.firstName + ' ' + student.lastName
       return studentName.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
     })
-    console.log(filteredStudents)
     setStudents(filteredStudents)
     setDidSearch(true)
   }
@@ -50,8 +49,8 @@ export function Students (props) {
     setDocumentModalState(true)
   }
 
-  function openNoteModal (activity) {
-    setSelectedStudent(activity)
+  function openNoteModal (item) {
+    setSelectedStudent(item)
     setNoteModalState(true)
   }
 
@@ -62,7 +61,7 @@ export function Students (props) {
         selectedStudent &&
           <NewDocumentModal
             open={documentModalState}
-            selectedStudent={selectedStudent}
+            selectedStudentId={selectedStudent.username}
             title='Nytt dokument'
             onDismiss={() => { setDocumentModalState(false) }}
           />
@@ -72,7 +71,7 @@ export function Students (props) {
         selectedStudent &&
           <NewNoteModal
             open={noteModalState}
-            selectedStudent={selectedStudent}
+            selectedStudentId={selectedStudent.username}
             title='Notat til elevmappen'
             onDismiss={() => { setNoteModalState(false) }}
           />

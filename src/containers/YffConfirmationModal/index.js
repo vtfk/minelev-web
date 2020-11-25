@@ -48,7 +48,6 @@ export function YffConfirmationModal ({ selectedStudent, ...props }) {
         onDismiss={props.onDismiss}
       >
         <ModalBody>
-
           <div className='person-information'>
             <div className='image'>
               <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
@@ -220,10 +219,9 @@ export function YffConfirmationModal ({ selectedStudent, ...props }) {
             </button>
 
           </div>
-
         </ModalBody>
-        <ModalSideActions>
 
+        <ModalSideActions>
           <div className='action'>
             <Link onClick={() => { window.alert('Ikke implementert') }}>Forhåndsvisning</Link>
           </div>
@@ -234,7 +232,6 @@ export function YffConfirmationModal ({ selectedStudent, ...props }) {
           <div className='action'>
             <Link onClick={props.onDismiss}>Avslutt</Link>
           </div>
-
         </ModalSideActions>
       </Modal>
     </>
