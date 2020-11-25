@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Moment from 'react-moment'
 
 import { DefaultLayout } from '../../layouts/Default'
 
@@ -8,6 +9,7 @@ import { API } from '../../config/app'
 import { useSession } from '@vtfk/react-msal'
 
 import { Heading1, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
+import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { Icon } from '../../_lib-components/Icon'
 
@@ -90,6 +92,38 @@ export function Class ({ match, ...props }) {
                   </Heading1>
                   <Heading3 as='p' className='numbers-item-text'>tilbakemeldinger</Heading3>
                 </div>
+              </div>
+
+              <div className='activity-panel'>
+                <Heading3 as='h2' className='panel-title'>
+                  <Icon name='students' size='small' /> Elever
+                </Heading3>
+
+                <table className='activity-panel-table'>
+                  <tbody>
+                    {
+                      schoolClass.students.map(function (student, index) {
+                        return (
+                          <tr key={index}>
+                            <td>
+                              <div className='activity-name'>
+                                <InitialsBadge firstName={student.firstName} lastName={student.lastName} size='small' />
+                                <Paragraph>
+                                  <Link href={`/${ROUTES.students}/${student.username}`}>
+                                    {student.fullName}
+                                  </Link>
+                                </Paragraph>
+                              </div>
+                            </td>
+                            <td>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{student.birthdate}</Moment></Paragraph>
+                            </td>
+                          </tr>
+                        )
+                      })
+                    }
+                  </tbody>
+                </table>
               </div>
 
               <div className='activity-panel'>
