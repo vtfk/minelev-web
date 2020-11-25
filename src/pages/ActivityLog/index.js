@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import Moment from 'react-moment'
+
+import { useSession } from '@vtfk/react-msal'
 
 import { DefaultLayout } from '../../layouts/Default'
 
 import { ROUTES } from '../../config/constants'
-import * as DEMO_DATA from '../../config/demo-data'
+import { API } from '../../config/app'
 
 import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
@@ -18,8 +21,9 @@ export function ActivityLog () {
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
+  const [documents, setDocuments] = useState([])
 
-  const activities = DEMO_DATA.ACTIVITIES
+  const { apiGet } = useSession()
 
   function openDocumentModal (activity) {
     setSelectedStudent(activity)
@@ -30,6 +34,15 @@ export function ActivityLog () {
     setSelectedStudent(activity)
     setNoteModalState(true)
   }
+
+  useEffect(() => {
+    async function getClass () {
+      const docs = await apiGet(API.URL + '/documents')
+      console.log(docs)
+      setDocuments(docs.data)
+    }
+    getClass()
+  }, [])
 
   return (
     <DefaultLayout>
@@ -71,34 +84,36 @@ export function ActivityLog () {
           </thead>
           <tbody>
             {
-              activities.map(function (activity, index) {
+              documents && documents.map(function (doc, index) {
                 return (
-                  <tr key={activity.id}>
+                  <tr key={doc.id}>
                     <td>
                       <div className='name'>
-                        <InitialsBadge firstName={activity.firstName} lastName={activity.lastName} size='small' />
+                        <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
                         <Paragraph>
-                          <Link href={`/${ROUTES.students}/${activity.studentId}`}>{activity.firstName} {activity.lastName}</Link>
+                          <Link href={`/${ROUTES.students}/${doc.student.username}`}>
+                            {doc.student.name}
+                          </Link>
                         </Paragraph>
                       </div>
                     </td>
                     <td>
-                      <Paragraph>{activity.type}</Paragraph>
+                      <Paragraph>{doc.type}</Paragraph>
                     </td>
                     <td>
-                      <Paragraph>{activity.date}</Paragraph>
+                      <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
                     </td>
                     <td>
-                      <Paragraph>{activity.status}</Paragraph>
+                      <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
                     </td>
                     <td>
-                      <Paragraph>{activity.sentBy}</Paragraph>
+                      <Paragraph>{doc.teacher.name}</Paragraph>
                     </td>
-                    <td className='actions'>
+                    <td>
                       <IconDropdownNav>
-                        <IconDropdownNavItem onClick={() => { openDocumentModal(activity) }} title='Nytt dokument' />
-                        <IconDropdownNavItem onClick={() => { openNoteModal(activity) }} title='Nytt notat' />
-                        <IconDropdownNavItem href={`/${ROUTES.students}/${activity.studentId}`} title={`YFF for ${activity.firstName} ${activity.lastName}`} />
+                        <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
+                        <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
+                        <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
                       </IconDropdownNav>
                     </td>
                   </tr>

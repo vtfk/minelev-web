@@ -29,47 +29,57 @@ export function Student ({ match, ...props }) {
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
   const [student, setStudent] = useState({})
+  const [documents, setDocuments] = useState([])
+  const [notes, setNotes] = useState([])
   const { apiGet } = useSession()
 
   const { id } = match.params
 
   useEffect(() => {
-    async function getStudent () {
+    async function getStudent() {
       const student = await apiGet(API.URL + '/students/' + id)
       console.log(student)
       setStudent(student.data)
     }
     getStudent()
+
+    async function getDocuments() {
+      const docs = await apiGet(API.URL + '/documents/' + id)
+      setDocuments(docs.data)
+    }
+    getDocuments()
+
+    async function getNotes() {
+      const n = await apiGet(API.URL + '/documents/' + id + '/notat')
+
+      if (n.data) {
+        setNotes(n.data)
+      }
+    }
+    getNotes()
   }, [])
 
   const activities = [] // <--- needs to be populated
 
-  function openConfirmationModal () {
+  function openConfirmationModal() {
     setConfirmationModalState(true)
   }
 
-  function openCurriculumModal () {
+  function openCurriculumModal() {
     setCurriculumModalState(true)
   }
 
-  function openSendModal () {
+  function openSendModal() {
     setSendModalState(true)
   }
 
-  function openDocumentModal (activity) {
+  function openDocumentModal(activity) {
     setDocumentModalState(true)
   }
 
-  function openNoteModal (activity) {
+  function openNoteModal(activity) {
     setNoteModalState(true)
   }
-
-  // testing
-  useEffect(() => {
-    // setConfirmationModalState(true)
-    // setCurriculumModalState(true)
-  }, [])
-  // -- testing
 
   return (
     <DefaultLayout>
@@ -123,7 +133,7 @@ export function Student ({ match, ...props }) {
                 </div>
                 <div className='text-wrapper'>
                   <Heading2 className='name'>
-                    {student.firstName} {student.lastName}
+                    {student.fullName}
                   </Heading2>
                   <div className='other'>
                     <Paragraph>{student.schoolName}</Paragraph>
@@ -193,23 +203,23 @@ export function Student ({ match, ...props }) {
                 <table className='activity-panel-table'>
                   <tbody>
                     {
-                      activities.map(function (activity, index) {
+                      documents.map(function (doc, index) {
                         return (
-                          <tr key={activity.id}>
+                          <tr key={doc.id}>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph>{doc.type}</Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
                             </td>
                             <td>
                               <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 1' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 2' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 3' />
+                                <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
+                                <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
+                                <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
                               </IconDropdownNav>
                             </td>
                           </tr>
@@ -241,28 +251,34 @@ export function Student ({ match, ...props }) {
                 <table className='activity-panel-table'>
                   <tbody>
                     {
-                      activities.map(function (activity, index) {
+                      notes && notes.map(function (note, index) {
                         return (
-                          <tr key={activity.id}>
+                          <tr key={note.id}>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.status && note.status[note.status.length - 1] ? note.status[note.status.length - 1].timestamp : '-'}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph>{note.status && note.status[note.status.length - 1] ? note.status[note.status.length - 1].status : '-'}</Paragraph>
                             </td>
                             <td>
                               <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 1' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 2' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 3' />
+                                <IconDropdownNavItem onClick={() => { openDocumentModal(note) }} title='Nytt dokument' />
+                                <IconDropdownNavItem onClick={() => { openNoteModal(note) }} title='Nytt notat' />
+                                <IconDropdownNavItem href={`/${ROUTES.students}/${note.student.username}`} title={`YFF for ${note.student.name}`} />
                               </IconDropdownNav>
                             </td>
                           </tr>
                         )
                       })
+                    }
+
+                    {
+                      !notes &&
+                      <tr>
+                        <td style={ { textAlign: 'left' } }>
+                          <Paragraph>Denne eleven har ingen notater.</Paragraph>
+                        </td>
+                      </tr>
                     }
                   </tbody>
                 </table>

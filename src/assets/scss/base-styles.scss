@@ -15,6 +15,51 @@ body {
   color: #1D1C28;
 }
 
+.notifications-component {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .notification {
+    .notification__item {
+      border-left: 0;
+      box-shadow: none;
+      font: inherit;
+      border-radius: 2px;
+
+      .notification__content {
+        padding: ($baseUnit * 2) ($baseUnit * 3);
+
+        .notification__title {
+          font-size: 21px;
+          line-height: 28px;
+          font-weight: normal;
+        }
+
+        .notification__message {
+          font-size: 16px;
+        }
+      }
+
+      &.notification__item--danger {
+        background: $red;
+      }
+
+      &.notification__item--success {
+        background: $grannyApple;
+
+        .notification__content {
+          .notification__title,
+          .notification__message {
+            color: #1D1C28;
+          }
+        }
+      }
+    }
+  }
+}
+
 .data-actions-table {
   width: 100%;
   border-collapse: collapse;
