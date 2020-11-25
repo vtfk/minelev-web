@@ -50,22 +50,22 @@ export function Home () {
 
       {
         selectedStudent &&
-        <NewDocumentModal
-          open={documentModalState}
-          selectedStudentId={selectedStudent}
-          title='Nytt dokument'
-          onDismiss={() => { setDocumentModalState(false) }}
-        />
+          <NewDocumentModal
+            open={documentModalState}
+            selectedStudentId={selectedStudent}
+            title='Nytt dokument'
+            onDismiss={() => { setDocumentModalState(false) }}
+          />
       }
 
       {
         selectedStudent &&
-        <NewNoteModal
-          open={noteModalState}
-          selectedStudentId={selectedStudent}
-          title='Notat til elevmappen'
-          onDismiss={() => { setNoteModalState(false) }}
-        />
+          <NewNoteModal
+            open={noteModalState}
+            selectedStudentId={selectedStudent}
+            title='Notat til elevmappen'
+            onDismiss={() => { setNoteModalState(false) }}
+          />
       }
 
       <div className='home'>

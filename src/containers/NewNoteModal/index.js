@@ -99,22 +99,22 @@ export function NewNoteModal ({ selectedStudentId, ...props }) {
           {
             selectedStudent &&
             selectedStudent.firstName &&
-            <div className='person-information'>
-              <div className='image'>
-                <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
-              </div>
-              <div className='text-wrapper'>
-                <Heading3 className='name'>
-                  {selectedStudent.firstName} {selectedStudent.lastName}
-                </Heading3>
-                <div className='other'>
-                  <Paragraph>{selectedStudent.schoolName}</Paragraph>
-                  <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.className}</Link></Paragraph>
-                  <Paragraph>26. april 2001</Paragraph>
-                  <Paragraph>bra26041@skole.vtfk.no</Paragraph>
+              <div className='person-information'>
+                <div className='image'>
+                  <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
+                </div>
+                <div className='text-wrapper'>
+                  <Heading3 className='name'>
+                    {selectedStudent.firstName} {selectedStudent.lastName}
+                  </Heading3>
+                  <div className='other'>
+                    <Paragraph>{selectedStudent.schoolName}</Paragraph>
+                    <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.className}</Link></Paragraph>
+                    <Paragraph>26. april 2001</Paragraph>
+                    <Paragraph>bra26041@skole.vtfk.no</Paragraph>
+                  </div>
                 </div>
               </div>
-            </div>
           }
 
           <div className='form'>
