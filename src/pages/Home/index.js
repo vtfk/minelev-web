@@ -26,13 +26,13 @@ export function Home () {
 
   const { apiGet } = useSession()
 
-  function openDocumentModal (activity) {
-    setSelectedStudent(activity)
+  function openDocumentModal (item) {
+    setSelectedStudent(item.student.username)
     setDocumentModalState(true)
   }
 
-  function openNoteModal (activity) {
-    setSelectedStudent(activity)
+  function openNoteModal (item) {
+    setSelectedStudent(item.student.username)
     setNoteModalState(true)
   }
 
@@ -52,7 +52,7 @@ export function Home () {
         selectedStudent &&
           <NewDocumentModal
             open={documentModalState}
-            selectedStudent={selectedStudent}
+            selectedStudentId={selectedStudent}
             title='Nytt dokument'
             onDismiss={() => { setDocumentModalState(false) }}
           />
@@ -62,7 +62,7 @@ export function Home () {
         selectedStudent &&
           <NewNoteModal
             open={noteModalState}
-            selectedStudent={selectedStudent}
+            selectedStudentId={selectedStudent}
             title='Notat til elevmappen'
             onDismiss={() => { setNoteModalState(false) }}
           />
@@ -75,7 +75,7 @@ export function Home () {
 
         <div className='activity-panel'>
           <Heading3 as='h2' className='panel-title'>
-            <Icon name='activity' size='small' /> Aktivitet
+            <Icon name='activity' size='small' /> Siste aktivitet
           </Heading3>
 
           <table className='activity-panel-table'>

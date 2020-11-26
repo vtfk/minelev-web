@@ -25,13 +25,13 @@ export function ActivityLog () {
 
   const { apiGet } = useSession()
 
-  function openDocumentModal (activity) {
-    setSelectedStudent(activity)
+  function openDocumentModal (document) {
+    setSelectedStudent(document.student.username)
     setDocumentModalState(true)
   }
 
-  function openNoteModal (activity) {
-    setSelectedStudent(activity)
+  function openNoteModal (document) {
+    setSelectedStudent(document)
     setNoteModalState(true)
   }
 
@@ -51,7 +51,7 @@ export function ActivityLog () {
         selectedStudent &&
           <NewDocumentModal
             open={documentModalState}
-            selectedStudent={selectedStudent}
+            selectedStudentId={selectedStudent}
             title='Nytt dokument'
             onDismiss={() => { setDocumentModalState(false) }}
           />
@@ -61,7 +61,7 @@ export function ActivityLog () {
         selectedStudent &&
           <NewNoteModal
             open={noteModalState}
-            selectedStudent={selectedStudent}
+            selectedStudentId={selectedStudent}
             title='Notat til elevmappen'
             onDismiss={() => { setNoteModalState(false) }}
           />

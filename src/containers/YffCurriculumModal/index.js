@@ -39,7 +39,6 @@ export function YffCurriculumModal ({ selectedStudent, ...props }) {
         onDismiss={props.onDismiss}
       >
         <ModalBody>
-
           <div className='person-information'>
             <div className='image'>
               <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
@@ -220,10 +219,9 @@ export function YffCurriculumModal ({ selectedStudent, ...props }) {
             </table>
 
           </div>
-
         </ModalBody>
-        <ModalSideActions>
 
+        <ModalSideActions>
           <div className='action'>
             {/* TODO: component */}
             <button onClick={() => { send() }} className='button button-primary'>Send</button>
@@ -231,7 +229,6 @@ export function YffCurriculumModal ({ selectedStudent, ...props }) {
           <div className='action'>
             <Link onClick={props.onDismiss}>Lagre og lukk</Link>
           </div>
-
         </ModalSideActions>
       </Modal>
     </>

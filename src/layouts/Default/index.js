@@ -31,7 +31,7 @@ export function DefaultLayout (props) {
   const [scrollLock, setScrollLock] = useState(false)
 
   function clickTopNavToggle () {
-    var newIsOpen = !openTopNavSide
+    const newIsOpen = !openTopNavSide
     setOpenTopNavSide(newIsOpen)
 
     if (newIsOpen && window.innerWidth <= 1000) {
