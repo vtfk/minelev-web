@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
@@ -6,44 +6,72 @@ import { store } from 'react-notifications-component'
 
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
+import { DOCUMENTS } from '../../data/documents'
 
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
+import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
+
 
 import './styles.scss'
 
 export function NewDocumentModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [type, setType] = useState(null)
-  const [variant, setVariant] = useState(null)
-  const [reasons, setReasons] = useState([])
+  const [behaviourReasons, setBehaviourReasons] = useState([])
+  const [courseReasons, setCourseReasons] = useState([])
+  const [orderReasons, setOrderReasons] = useState([])
+  const [conversationStatus, setConversationStatus] = useState([])
+  const [previewModalState, setPreviewModalState] = useState(false)
   const { apiGet, apiPost } = useSession()
 
-  /* ----------------------------------------
-    TODO: Change structure
-  ----------------------------------------- */
-  const typeOptions = [
-    { value: 0, label: 'Varsel atferd' },
-    { value: 1, label: 'Varsel fag' },
-    { value: 2, label: 'Varsel orden' }
-  ]
+  const typeOptions = []
+  const behaviourReasonsOptions = []
+  const courseReasonsOptions = []
+  const orderReasonsOptions = []
+  const conversationStatusesOptions = []
 
-  const variantOptions = [
-    { value: 1, label: 'Halvårsvurdering 1. termin' },
-    { value: 2, label: 'Halvårsvurdering 2. termin' },
-    { value: 3, label: 'Standpunktkarakter' }
-  ]
+  DOCUMENTS.documentTypes.map(function(item) {
+    typeOptions.push({
+      value: item.id,
+      label: item.description.nb,
+      item
+    })
+  })
 
-  const reasonOptions = [
-    { value: 1, label: 'Varsel atferd årsak 1' },
-    { value: 2, label: 'Varsel atferd årsak 2' },
-    { value: 3, label: 'Varsel atferd årsak 3' }
-  ]
-  /* ----------------------------------------
-    END: TODO
-  ----------------------------------------- */
+  DOCUMENTS.behaviourReasons.map(function(item) {
+    behaviourReasonsOptions.push({
+      value: item.id,
+      label: item.description.nb,
+      item
+    })
+  })
+
+  DOCUMENTS.courseReasons.map(function(item) {
+    courseReasonsOptions.push({
+      value: item.id,
+      label: item.description.nb,
+      item
+    })
+  })
+
+  DOCUMENTS.orderReasons.map(function(item) {
+    orderReasonsOptions.push({
+      value: item.id,
+      label: item.description.nb,
+      item
+    })
+  })
+
+  DOCUMENTS.conversationStatuses.map(function(item) {
+    conversationStatusesOptions.push({
+      value: item.id,
+      label: item.value.nb,
+      item
+    })
+  })
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -59,6 +87,12 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
       setSelectedStudent(student.data)
     }
     getStudent()
+
+    function setDefaults () {
+      setType(typeOptions[0])
+      setConversationStatus(conversationStatusesOptions[0])
+    }
+    setDefaults()
   }, [selectedStudentId])
 
   function handleKeyPress (event) {
@@ -67,24 +101,23 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
     }
   }
 
-  function clickedReason (reason) {
-    const newReasons = [...reasons]
-    const removeIndex = newReasons.map(function (item) { return item.value }).indexOf(reason.value)
+  function changedMultiSelect (item, array, setFunction) {
+    const newArray = [...array]
+    const removeIndex = newArray.map(function (item) { return item.value }).indexOf(item.value)
 
     if (removeIndex === -1) {
-      newReasons.push(reason)
+      newArray.push(item)
     } else {
-      newReasons.splice(removeIndex, 1)
+      newArray.splice(removeIndex, 1)
     }
 
-    setReasons(newReasons)
+    setFunction(newArray)
   }
 
   async function send () {
-    if (type && variant && reasons.length > 0) {
+    if (type && true) { // properly validate form
       const postDocument = await apiPost(API.URL + '/documents', {
         type: type,
-        variant: variant,
         content: {
           // TODO
         }
@@ -107,8 +140,8 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
 
         props.onDismiss()
         setType(null)
-        setVariant(null)
-        setReasons([])
+        setBehaviourReasons([])
+        setCourseReasons([])
       } else {
         console.log('Error', postDocument)
       }
@@ -131,6 +164,15 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
 
   return (
     <>
+      <PDFPreviewModal
+        open={previewModalState}
+        title='Lukk forhåndsvisning'
+        onDismiss={() => { setPreviewModalState(false) }}
+        loading={true}
+        base64={null}
+        error={null}
+      />
+
       <Modal
         {...props}
         className='new-document-modal'
@@ -166,25 +208,77 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
               onChange={(item) => { setType(item) }}
             />
 
-            <Select
-              placeholder='Hva gjelder varselet?'
-              items={variantOptions}
-              selectedItem={variant}
-              onChange={(item) => { setVariant(item) }}
-            />
+            {
+              /* --------------------
+                Atferd
+              --------------------*/
+              type &&
+              type.value === 'atferd' &&
+              <Fragment>
+                <SelectMultiple
+                  placeholder='Hva er årsaken til varselet?'
+                  items={behaviourReasonsOptions}
+                  selectedItems={behaviourReasons}
+                  onChange={(item) => { changedMultiSelect(item, behaviourReasons, setBehaviourReasons) }}
+                />
+              </Fragment>
+            }
 
-            <SelectMultiple
-              placeholder='Hva er årsaken til varselet?'
-              items={reasonOptions}
-              selectedItems={reasons}
-              onChange={(item) => { clickedReason(item) }}
-            />
+            {
+              /* --------------------
+                Fag
+              --------------------*/
+              type &&
+              type.value === 'fag' &&
+              <Fragment>
+                <div style={ { marginTop: 40, marginBottom: 40, padding: 20, backgroundColor: 'lightyellow' } }>[TODO: Velg fag]</div>
+
+                <SelectMultiple
+                  placeholder='Hva er årsaken til varselet?'
+                  items={courseReasonsOptions}
+                  selectedItems={courseReasons}
+                  onChange={(item) => { changedMultiSelect(item, courseReasons, setCourseReasons) }}
+                />
+              </Fragment>
+            }
+
+            {
+              /* --------------------
+                Orden
+              --------------------*/
+              type &&
+              type.value === 'orden' &&
+              <Fragment>
+                <SelectMultiple
+                  placeholder='Hva er årsaken til varselet?'
+                  items={orderReasonsOptions}
+                  selectedItems={orderReasons}
+                  onChange={(item) => { changedMultiSelect(item, orderReasons, setOrderReasons) }}
+                />
+              </Fragment>
+            }
+
+            {
+              /* --------------------
+                Samtale
+              --------------------*/
+              type &&
+              type.value === 'samtale' &&
+              <Fragment>
+                <Select
+                  placeholder='Er det gjennomført en elevsamtale?'
+                  items={conversationStatusesOptions}
+                  selectedItem={conversationStatus}
+                  onChange={(item) => { setConversationStatus(item) }}
+                />
+              </Fragment>
+            }
           </div>
         </ModalBody>
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => { window.alert('Ikke implementert') }}>Forhåndsvisning</Link>
+            <Link onClick={() => { setPreviewModalState(true) }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             {/* TODO: component */}

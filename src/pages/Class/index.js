@@ -17,8 +17,13 @@ import './styles.scss'
 
 export function Class ({ match, ...props }) {
   const { id } = match.params
-
+  const [confirmationModalState, setConfirmationModalState] = useState(false)
+  const [curriculumModalState, setCurriculumModalState] = useState(false)
+  const [sendModalState, setSendModalState] = useState(false)
+  const [documentModalState, setDocumentModalState] = useState(false)
+  const [noteModalState, setNoteModalState] = useState(false)
   const [schoolClass, setSchoolClass] = useState({})
+  const [documents, setDocuments] = useState([])
   const { apiGet } = useSession()
 
   useEffect(() => {
@@ -27,9 +32,33 @@ export function Class ({ match, ...props }) {
       setSchoolClass(c.data)
     }
     getClass()
+
+    async function getDocuments () {
+      const docs = await apiGet(API.URL + '/classes/' + id + '/documents')
+      setDocuments(docs.data)
+    }
+    getDocuments()
   }, [])
 
-  const activities = [] // <--- needs to be populated
+  function openConfirmationModal () {
+    setConfirmationModalState(true)
+  }
+
+  function openCurriculumModal () {
+    setCurriculumModalState(true)
+  }
+
+  function openSendModal () {
+    setSendModalState(true)
+  }
+
+  function openDocumentModal (activity) {
+    setDocumentModalState(true)
+  }
+
+  function openNoteModal (activity) {
+    setNoteModalState(true)
+  }
 
   return (
     <DefaultLayout>
@@ -96,7 +125,7 @@ export function Class ({ match, ...props }) {
 
               <div className='activity-panel'>
                 <Heading3 as='h2' className='panel-title'>
-                  <Icon name='students' size='small' /> Elever
+                  <Icon name='students' size='small' /> Elever ({schoolClass.students.length})
                 </Heading3>
 
                 <table className='activity-panel-table'>
@@ -134,23 +163,24 @@ export function Class ({ match, ...props }) {
                 <table className='activity-panel-table'>
                   <tbody>
                     {
-                      activities.map(function (activity, index) {
+                      documents &&
+                      documents.map(function (doc, index) {
                         return (
-                          <tr key={activity.id}>
+                          <tr key={doc.id}>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph>{doc.type}</Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
                             </td>
                             <td>
                               <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 1' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 2' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 3' />
+                                <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
+                                <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
+                                <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
                               </IconDropdownNav>
                             </td>
                           </tr>
@@ -169,23 +199,24 @@ export function Class ({ match, ...props }) {
                 <table className='activity-panel-table'>
                   <tbody>
                     {
-                      activities.map(function (activity, index) {
+                      documents &&
+                      documents.map(function (doc, index) {
                         return (
-                          <tr key={activity.id}>
+                          <tr key={doc.id}>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph>{doc.type}</Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
                             </td>
                             <td>
                               <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 1' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 2' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 3' />
+                                <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
+                                <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
+                                <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
                               </IconDropdownNav>
                             </td>
                           </tr>

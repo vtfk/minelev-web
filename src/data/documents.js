@@ -1,4 +1,38 @@
-{
+export const DOCUMENTS = {
+  "documentTypes": [
+    {
+      "id": "atferd",
+      "description": {
+        "nb": "Varsel atferd",
+        "nn": "Varsel atferd",
+        "en": "Varsel atferd"
+      }
+    },
+    {
+      "id": "fag",
+      "description": {
+        "nb": "Varsel fag",
+        "nn": "Varsel fag",
+        "en": "Varsel fag"
+      }
+    },
+    {
+      "id": "orden",
+      "description": {
+        "nb": "Varsel orden",
+        "nn": "Varsel orden",
+        "en": "Varsel orden"
+      }
+    },
+    {
+      "id": "samtale",
+      "description": {
+        "nb": "Elevsamtale",
+        "nn": "Elevsamtale",
+        "en": "Elevsamtale"
+      }
+    }
+  ],
   "periods": [
     {
       "id": "01",
@@ -25,29 +59,7 @@
       }
     }
   ],
-  "noticeCategories": [
-    {
-      "id": "atferd",
-      "description": "Varsel atferd",
-      "value": "atferd"
-    },
-    {
-      "id": "fag",
-      "description": "Varsel fag",
-      "value": "fag"
-    },
-    {
-      "id": "orden",
-      "description": "Varsel orden",
-      "value": "orden"
-    },
-    {
-      "id": "samtale",
-      "description": "Elevsamtale",
-      "value": "samtale"
-    }
-  ],
-  "behaviour": [
+  "behaviourReasons": [
     {
       "id": "01",
       "description": {
@@ -127,7 +139,7 @@
       }
     }
   ],
-  "courses": [
+  "courseReasons": [
     {
       "id": "01",
       "description": {
@@ -155,7 +167,7 @@
       }
     }
   ],
-  "order": [
+  "orderReasons": [
     {
       "id": "01",
       "description": {
@@ -222,7 +234,7 @@
       }
     }
   ],
-  "samtale": [
+  "conversationStatuses": [
     {
       "id": "samtale",
       "value": {

@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
+import { useSession } from '@vtfk/react-msal'
+
 import { ROUTES } from '../../config/constants'
+import { API } from '../../config/app'
 
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
@@ -9,7 +12,10 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 
 import './styles.scss'
 
-export function YffSendModal ({ selectedStudent, ...props }) {
+export function YffSendModal ({ selectedStudentId, ...props }) {
+  const [selectedStudent, setSelectedStudent] = useState(null)
+  const { apiGet, apiPost } = useSession()
+
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
 
@@ -17,6 +23,14 @@ export function YffSendModal ({ selectedStudent, ...props }) {
       document.removeEventListener('keyup', handleKeyPress)
     }
   }, [])
+
+  useEffect(() => {
+    async function getStudent () {
+      const student = await apiGet(API.URL + '/students/' + selectedStudentId)
+      setSelectedStudent(student.data)
+    }
+    getStudent()
+  }, [selectedStudentId])
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
@@ -37,22 +51,26 @@ export function YffSendModal ({ selectedStudent, ...props }) {
         onDismiss={props.onDismiss}
       >
         <ModalBody>
-          <div className='person-information'>
-            <div className='image'>
-              <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
-            </div>
-            <div className='text-wrapper'>
-              <Heading3 className='name'>
-                {selectedStudent.firstName} {selectedStudent.lastName}
-              </Heading3>
-              <div className='other'>
-                <Paragraph>{selectedStudent.schoolName}</Paragraph>
-                <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.className}</Link></Paragraph>
-                <Paragraph>26. april 2001</Paragraph>
-                <Paragraph>bra26041@skole.vtfk.no</Paragraph>
+          {
+            selectedStudent &&
+            selectedStudent.firstName &&
+              <div className='person-information'>
+                <div className='image'>
+                  <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
+                </div>
+                <div className='text-wrapper'>
+                  <Heading3 className='name'>
+                    {selectedStudent.firstName} {selectedStudent.lastName}
+                  </Heading3>
+                  <div className='other'>
+                    <Paragraph>{selectedStudent.schoolName}</Paragraph>
+                    <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.className}</Link></Paragraph>
+                    <Paragraph>26. april 2001</Paragraph>
+                    <Paragraph>bra26041@skole.vtfk.no</Paragraph>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+          }
 
           <p className='intro'>
             Her sender du den lokale læreplanen til eleven, og arkiverer den i elevens elevmappe.

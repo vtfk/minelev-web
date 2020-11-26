@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import Moment from 'react-moment'
 
 import { DefaultLayout } from '../../layouts/Default'
@@ -59,8 +59,6 @@ export function Student ({ match, ...props }) {
     getNotes()
   }, [])
 
-  // const activities = [] // <--- needs to be populated
-
   function openConfirmationModal () {
     setConfirmationModalState(true)
   }
@@ -84,40 +82,46 @@ export function Student ({ match, ...props }) {
   return (
     <DefaultLayout>
 
-      <YffConfirmationModal
-        open={confirmationModalState}
-        selectedStudent={student}
-        title='Bekreftelse om utplassering av elev'
-        onDismiss={() => { setConfirmationModalState(false) }}
-      />
+      {
+        student &&
+        student.username &&
+        <Fragment>
+          <YffConfirmationModal
+            open={confirmationModalState}
+            selectedStudentId={student.username}
+            title='Bekreftelse om utplassering av elev'
+            onDismiss={() => { setConfirmationModalState(false) }}
+          />
 
-      <YffCurriculumModal
-        open={curriculumModalState}
-        selectedStudent={student}
-        title='Lokal læreplan'
-        onDismiss={() => { setCurriculumModalState(false) }}
-      />
+          <YffCurriculumModal
+            open={curriculumModalState}
+            selectedStudentId={student.username}
+            title='Lokal læreplan'
+            onDismiss={() => { setCurriculumModalState(false) }}
+          />
 
-      <YffSendModal
-        open={sendModalState}
-        selectedStudent={student}
-        title='Send og arkiver lokal læreplan'
-        onDismiss={() => { setSendModalState(false) }}
-      />
+          <YffSendModal
+            open={sendModalState}
+            selectedStudentId={student.username}
+            title='Send og arkiver lokal læreplan'
+            onDismiss={() => { setSendModalState(false) }}
+          />
 
-      <NewDocumentModal
-        open={documentModalState}
-        selectedStudent={student}
-        title='Nytt dokument'
-        onDismiss={() => { setDocumentModalState(false) }}
-      />
+          <NewDocumentModal
+            open={documentModalState}
+            selectedStudentId={student.username}
+            title='Nytt dokument'
+            onDismiss={() => { setDocumentModalState(false) }}
+          />
 
-      <NewNoteModal
-        open={noteModalState}
-        selectedStudent={student}
-        title='Notat til elevmappen'
-        onDismiss={() => { setNoteModalState(false) }}
-      />
+          <NewNoteModal
+            open={noteModalState}
+            selectedStudentId={student.username}
+            title='Notat til elevmappen'
+            onDismiss={() => { setNoteModalState(false) }}
+          />
+        </Fragment>
+      }
 
       <div className='student'>
 
@@ -214,13 +218,6 @@ export function Student ({ match, ...props }) {
                             </td>
                             <td>
                               <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
-                            </td>
-                            <td>
-                              <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
-                                <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
-                                <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
-                              </IconDropdownNav>
                             </td>
                           </tr>
                         )
