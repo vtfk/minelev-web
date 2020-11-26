@@ -50,7 +50,11 @@
   "behaviour": [
     {
       "id": "01",
-      "description": "Eleven forstyrrer undervisning eller skoleaktivitet",
+      "description": {
+        "nb": "Eleven forstyrrer undervisning eller skoleaktivitet",
+        "nn": "Eleven forstyrrer undervisning eller skoleaktivitet",
+        "en": "Eleven forstyrrer undervisning eller skoleaktivitet"
+      },
       "value": {
         "nb": "Du forstyrrer undervisning eller skoleaktivitet",
         "nn": "Du forstyrrer undervisning eller skoleaktivitet",
@@ -59,7 +63,11 @@
     },
     {
       "id": "02",
-      "description": "Eleven utviser provoserende atferd mot ansatte eller medelever",
+      "description": {
+        "nb": "Eleven utviser provoserende atferd mot ansatte eller medelever",
+        "nn": "Eleven utviser provoserende atferd mot ansatte eller medelever",
+        "en": "Eleven utviser provoserende atferd mot ansatte eller medelever"
+      },
       "value": {
         "nb": "Du utviser provoserende atferd mot ansatte eller medelever",
         "nn": "Du utviser provoserende atferd mot ansatte eller medelever",
@@ -68,7 +76,11 @@
     },
     {
       "id": "03",
-      "description": "Eleven forlater undervisning uten avklaring med lærer",
+      "description": {
+        "nb": "Eleven forlater undervisning uten avklaring med lærer",
+        "nn": "Eleven forlater undervisning uten avklaring med lærer",
+        "en": "Eleven forlater undervisning uten avklaring med lærer"
+      },
       "value": {
         "nb": "Du forlater undervisning uten avklaring med lærer",
         "nn": "Du forlater undervisning uten avklaring med lærer",
@@ -77,7 +89,11 @@
     },
     {
       "id": "04",
-      "description": "Eleven har fusket",
+      "description": {
+        "nb": "Eleven har fusket",
+        "nn": "Eleven har fusket",
+        "en": "Eleven har fusket"
+      },
       "value": {
         "nb": "Du har fusket",
         "nn": "Du har fusket",
@@ -86,7 +102,11 @@
     },
     {
       "id": "05",
-      "description": "Eleven har benyttet rusmidler i skoletida",
+      "description": {
+        "nb": "Eleven har benyttet rusmidler i skoletida",
+        "nn": "Eleven har benyttet rusmidler i skoletida",
+        "en": "Eleven har benyttet rusmidler i skoletida"
+      },
       "value": {
         "nb": "Du har benyttet rusmidler i skoletida",
         "nn": "Du har benyttet rusmidler i skoletida",
@@ -95,7 +115,11 @@
     },
     {
       "id": "06",
-      "description": "Eleven har brutt skolens ordensreglement",
+      "description": {
+        "nb": "Eleven har brutt skolens ordensreglement",
+        "nn": "Eleven har brutt skolens ordensreglement",
+        "en": "Eleven har brutt skolens ordensreglement"
+      },
       "value": {
         "nb": "Du har brutt skolens ordensreglement",
         "nn": "Du har brutt skolens ordensreglement",
@@ -106,7 +130,11 @@
   "courses": [
     {
       "id": "01",
-      "description": "Eleven har manglende vurderingsgrunnlag",
+      "description": {
+        "nb": "Eleven har manglende vurderingsgrunnlag",
+        "nn": "Eleven har manglende vurderingsgrunnlag",
+        "en": "Eleven har manglende vurderingsgrunnlag"
+      },
       "value": {
         "nb": "Du har manglende vurderingsgrunnlag",
         "nn": "Du har manglende vurderingsgrunnlag",
@@ -115,7 +143,11 @@
     },
     {
       "id": "02",
-      "description": "Eleven har udokumentert fravær",
+      "description": {
+        "nb": "Eleven har udokumentert fravær",
+        "nn": "Eleven har udokumentert fravær",
+        "en": "Eleven har udokumentert fravær"
+      },
       "value": {
         "nb": "Du har udokumentert fravær",
         "nn": "Du har udokumentert fravær",
@@ -126,7 +158,11 @@
   "order": [
     {
       "id": "01",
-      "description": "Eleven er for sen til undervisning",
+      "description": {
+        "nb": "Eleven er for sen til undervisning",
+        "nn": "Eleven er for sen til undervisning",
+        "en": "Eleven er for sen til undervisning"
+      },
       "value": {
         "nb": "Du er for sen til undervisning",
         "nn": "Du er for sen til undervisning",
@@ -135,7 +171,11 @@
     },
     {
       "id": "02",
-      "description": "Eleven har ikke nødvendig skolemateriell klart til undervisning",
+      "description": {
+        "nb": "Eleven har ikke nødvendig skolemateriell klart til undervisning",
+        "nn": "Eleven har ikke nødvendig skolemateriell klart til undervisning",
+        "en": "Eleven har ikke nødvendig skolemateriell klart til undervisning"
+      },
       "value": {
         "nb": "Du har ikke nødvendig skolemateriell klart til undervisning",
         "nn": "Du har ikke nødvendig skolemateriell klart til undervisning",
@@ -144,7 +184,11 @@
     },
     {
       "id": "03",
-      "description": "Eleven har manglende eller for sen innlevering av arbeid",
+      "description": {
+        "nb": "Eleven har manglende eller for sen innlevering av arbeid",
+        "nn": "Eleven har manglende eller for sen innlevering av arbeid",
+        "en": "Eleven har manglende eller for sen innlevering av arbeid"
+      },
       "value": {
         "nb": "Du har manglende eller for sen innlevering av arbeid",
         "nn": "Du har manglende eller for sen innlevering av arbeid",
@@ -153,7 +197,11 @@
     },
     {
       "id": "04",
-      "description": "Eleven har udokumentert fravær",
+      "description": {
+        "nb": "Eleven har udokumentert fravær",
+        "nn": "Eleven har udokumentert fravær",
+        "en": "Eleven har udokumentert fravær"
+      },
       "value": {
         "nb": "Du har udokumentert fravær",
         "nn": "Du har udokumentert fravær",
@@ -162,7 +210,11 @@
     },
     {
       "id": "05",
-      "description": "Eleven har brutt skolens ordensreglement",
+      "description": {
+        "nb": "Eleven har brutt skolens ordensreglement",
+        "nn": "Eleven har brutt skolens ordensreglement",
+        "en": "Eleven har brutt skolens ordensreglement"
+      },
       "value": {
         "nb": "Du har brutt skolens ordensreglement",
         "nn": "Du har brutt skolens ordensreglement",
