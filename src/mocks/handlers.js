@@ -168,6 +168,13 @@ export const handlers = [
     )
   }),
 
+  rest.get(`${API.URL}/classes/:id/documents`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json(getAllDocuments())
+    )
+  }),
+
   rest.post(`${API.URL}/preview/:lang`, (req, res, ctx) => {
     // @ts-ignore
     const { lang } = req.params
