@@ -16,7 +16,7 @@ import './styles.scss'
 
 export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
-  const { apiGet, apiPost } = useSession()
+  const { apiGet } = useSession()
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)

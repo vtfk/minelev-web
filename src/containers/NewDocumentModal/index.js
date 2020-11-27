@@ -14,7 +14,6 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
 
-
 import './styles.scss'
 
 export function NewDocumentModal ({ selectedStudentId, ...props }) {
@@ -27,51 +26,46 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   const [previewModalState, setPreviewModalState] = useState(false)
   const { apiGet, apiPost } = useSession()
 
-  const typeOptions = []
-  const behaviourReasonsOptions = []
-  const courseReasonsOptions = []
-  const orderReasonsOptions = []
-  const conversationStatusesOptions = []
+  let typeOptions = []
+  let behaviourReasonsOptions = []
+  let courseReasonsOptions = []
+  let orderReasonsOptions = []
+  let conversationStatusesOptions = []
 
-  DOCUMENTS.documentTypes.map(function(item) {
-    typeOptions.push({
-      value: item.id,
-      label: item.description.nb,
-      item
-    })
+  typeOptions = DOCUMENTS.documentTypes.map((item) => ({
+    value: item.id,
+    label: item.description.nb,
+    item
   })
+  )
 
-  DOCUMENTS.behaviourReasons.map(function(item) {
-    behaviourReasonsOptions.push({
-      value: item.id,
-      label: item.description.nb,
-      item
-    })
+  behaviourReasonsOptions = DOCUMENTS.behaviourReasons.map((item) => ({
+    value: item.id,
+    label: item.description.nb,
+    item
   })
+  )
 
-  DOCUMENTS.courseReasons.map(function(item) {
-    courseReasonsOptions.push({
-      value: item.id,
-      label: item.description.nb,
-      item
-    })
+  courseReasonsOptions = DOCUMENTS.courseReasons.map((item) => ({
+    value: item.id,
+    label: item.description.nb,
+    item
   })
+  )
 
-  DOCUMENTS.orderReasons.map(function(item) {
-    orderReasonsOptions.push({
-      value: item.id,
-      label: item.description.nb,
-      item
-    })
+  orderReasonsOptions = DOCUMENTS.orderReasons.map((item) => ({
+    value: item.id,
+    label: item.description.nb,
+    item
   })
+  )
 
-  DOCUMENTS.conversationStatuses.map(function(item) {
-    conversationStatusesOptions.push({
-      value: item.id,
-      label: item.value.nb,
-      item
-    })
+  conversationStatusesOptions = DOCUMENTS.conversationStatuses.map((item) => ({
+    value: item.id,
+    label: item.value.nb,
+    item
   })
+  )
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -168,7 +162,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
         open={previewModalState}
         title='Lukk forhåndsvisning'
         onDismiss={() => { setPreviewModalState(false) }}
-        loading={true}
+        loading
         base64={null}
         error={null}
       />
@@ -211,67 +205,67 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
             {
               /* --------------------
                 Atferd
-              --------------------*/
+              -------------------- */
               type &&
               type.value === 'atferd' &&
-              <Fragment>
-                <SelectMultiple
-                  placeholder='Hva er årsaken til varselet?'
-                  items={behaviourReasonsOptions}
-                  selectedItems={behaviourReasons}
-                  onChange={(item) => { changedMultiSelect(item, behaviourReasons, setBehaviourReasons) }}
-                />
-              </Fragment>
+                <>
+                  <SelectMultiple
+                    placeholder='Hva er årsaken til varselet?'
+                    items={behaviourReasonsOptions}
+                    selectedItems={behaviourReasons}
+                    onChange={(item) => { changedMultiSelect(item, behaviourReasons, setBehaviourReasons) }}
+                  />
+                </>
             }
 
             {
               /* --------------------
                 Fag
-              --------------------*/
+              -------------------- */
               type &&
               type.value === 'fag' &&
-              <Fragment>
-                <div style={ { marginTop: 40, marginBottom: 40, padding: 20, backgroundColor: 'lightyellow' } }>[TODO: Velg fag]</div>
+                <>
+                  <div style={{ marginTop: 40, marginBottom: 40, padding: 20, backgroundColor: 'lightyellow' }}>[TODO: Velg fag]</div>
 
-                <SelectMultiple
-                  placeholder='Hva er årsaken til varselet?'
-                  items={courseReasonsOptions}
-                  selectedItems={courseReasons}
-                  onChange={(item) => { changedMultiSelect(item, courseReasons, setCourseReasons) }}
-                />
-              </Fragment>
+                  <SelectMultiple
+                    placeholder='Hva er årsaken til varselet?'
+                    items={courseReasonsOptions}
+                    selectedItems={courseReasons}
+                    onChange={(item) => { changedMultiSelect(item, courseReasons, setCourseReasons) }}
+                  />
+                </>
             }
 
             {
               /* --------------------
                 Orden
-              --------------------*/
+              -------------------- */
               type &&
               type.value === 'orden' &&
-              <Fragment>
-                <SelectMultiple
-                  placeholder='Hva er årsaken til varselet?'
-                  items={orderReasonsOptions}
-                  selectedItems={orderReasons}
-                  onChange={(item) => { changedMultiSelect(item, orderReasons, setOrderReasons) }}
-                />
-              </Fragment>
+                <>
+                  <SelectMultiple
+                    placeholder='Hva er årsaken til varselet?'
+                    items={orderReasonsOptions}
+                    selectedItems={orderReasons}
+                    onChange={(item) => { changedMultiSelect(item, orderReasons, setOrderReasons) }}
+                  />
+                </>
             }
 
             {
               /* --------------------
                 Samtale
-              --------------------*/
+              -------------------- */
               type &&
               type.value === 'samtale' &&
-              <Fragment>
-                <Select
-                  placeholder='Er det gjennomført en elevsamtale?'
-                  items={conversationStatusesOptions}
-                  selectedItem={conversationStatus}
-                  onChange={(item) => { setConversationStatus(item) }}
-                />
-              </Fragment>
+                <>
+                  <Select
+                    placeholder='Er det gjennomført en elevsamtale?'
+                    items={conversationStatusesOptions}
+                    selectedItem={conversationStatus}
+                    onChange={(item) => { setConversationStatus(item) }}
+                  />
+                </>
             }
           </div>
         </ModalBody>

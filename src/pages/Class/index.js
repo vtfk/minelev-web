@@ -10,18 +10,12 @@ import { useSession } from '@vtfk/react-msal'
 
 import { Heading1, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { Icon } from '../../_lib-components/Icon'
 
 import './styles.scss'
 
 export function Class ({ match, ...props }) {
   const { id } = match.params
-  const [confirmationModalState, setConfirmationModalState] = useState(false)
-  const [curriculumModalState, setCurriculumModalState] = useState(false)
-  const [sendModalState, setSendModalState] = useState(false)
-  const [documentModalState, setDocumentModalState] = useState(false)
-  const [noteModalState, setNoteModalState] = useState(false)
   const [schoolClass, setSchoolClass] = useState({})
   const [documents, setDocuments] = useState([])
   const { apiGet } = useSession()
@@ -39,26 +33,6 @@ export function Class ({ match, ...props }) {
     }
     getDocuments()
   }, [])
-
-  function openConfirmationModal () {
-    setConfirmationModalState(true)
-  }
-
-  function openCurriculumModal () {
-    setCurriculumModalState(true)
-  }
-
-  function openSendModal () {
-    setSendModalState(true)
-  }
-
-  function openDocumentModal (activity) {
-    setDocumentModalState(true)
-  }
-
-  function openNoteModal (activity) {
-    setNoteModalState(true)
-  }
 
   return (
     <DefaultLayout>
@@ -176,13 +150,6 @@ export function Class ({ match, ...props }) {
                             <td>
                               <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
                             </td>
-                            <td>
-                              <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
-                                <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
-                                <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
-                              </IconDropdownNav>
-                            </td>
                           </tr>
                         )
                       })
@@ -211,13 +178,6 @@ export function Class ({ match, ...props }) {
                             </td>
                             <td>
                               <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
-                            </td>
-                            <td>
-                              <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
-                                <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
-                                <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
-                              </IconDropdownNav>
                             </td>
                           </tr>
                         )

@@ -24,7 +24,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     { value: 3, label: 'Valg 3' }
   ])
   const [text, setText] = useState('')
-  const { apiGet, apiPost } = useSession()
+  const { apiGet } = useSession()
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)

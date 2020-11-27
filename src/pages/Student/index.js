@@ -85,42 +85,42 @@ export function Student ({ match, ...props }) {
       {
         student &&
         student.username &&
-        <Fragment>
-          <YffConfirmationModal
-            open={confirmationModalState}
-            selectedStudentId={student.username}
-            title='Bekreftelse om utplassering av elev'
-            onDismiss={() => { setConfirmationModalState(false) }}
-          />
+          <>
+            <YffConfirmationModal
+              open={confirmationModalState}
+              selectedStudentId={student.username}
+              title='Bekreftelse om utplassering av elev'
+              onDismiss={() => { setConfirmationModalState(false) }}
+            />
 
-          <YffCurriculumModal
-            open={curriculumModalState}
-            selectedStudentId={student.username}
-            title='Lokal læreplan'
-            onDismiss={() => { setCurriculumModalState(false) }}
-          />
+            <YffCurriculumModal
+              open={curriculumModalState}
+              selectedStudentId={student.username}
+              title='Lokal læreplan'
+              onDismiss={() => { setCurriculumModalState(false) }}
+            />
 
-          <YffSendModal
-            open={sendModalState}
-            selectedStudentId={student.username}
-            title='Send og arkiver lokal læreplan'
-            onDismiss={() => { setSendModalState(false) }}
-          />
+            <YffSendModal
+              open={sendModalState}
+              selectedStudentId={student.username}
+              title='Send og arkiver lokal læreplan'
+              onDismiss={() => { setSendModalState(false) }}
+            />
 
-          <NewDocumentModal
-            open={documentModalState}
-            selectedStudentId={student.username}
-            title='Nytt dokument'
-            onDismiss={() => { setDocumentModalState(false) }}
-          />
+            <NewDocumentModal
+              open={documentModalState}
+              selectedStudentId={student.username}
+              title='Nytt dokument'
+              onDismiss={() => { setDocumentModalState(false) }}
+            />
 
-          <NewNoteModal
-            open={noteModalState}
-            selectedStudentId={student.username}
-            title='Notat til elevmappen'
-            onDismiss={() => { setNoteModalState(false) }}
-          />
-        </Fragment>
+            <NewNoteModal
+              open={noteModalState}
+              selectedStudentId={student.username}
+              title='Notat til elevmappen'
+              onDismiss={() => { setNoteModalState(false) }}
+            />
+          </>
       }
 
       <div className='student'>

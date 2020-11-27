@@ -22,9 +22,9 @@ export function PDFPreviewModal ({ open, title, className, onDismiss, loading, b
             }
             <div className='preview-modal-content'>
               <div className='preview-modal-body'>
-                {base64 ? base64 : ''}
-                {loading && !base64 && !error ? <div className="preview-modal-loading"><span>.</span><span>.</span><span>.</span></div> : ''}
-                {error ? <div className="preview-modal-error">Det har skjedd en feil, vennligst prøv igjen.</div> : ''}
+                {base64 || ''}
+                {loading && !base64 && !error ? <div className='preview-modal-loading'><span>.</span><span>.</span><span>.</span></div> : ''}
+                {error ? <div className='preview-modal-error'>Det har skjedd en feil, vennligst prøv igjen.</div> : ''}
               </div>
             </div>
           </div>
@@ -38,5 +38,5 @@ PDFPreviewModal.propTypes = {
   title: PropTypes.string,
   onDismiss: PropTypes.func.isRequired,
   className: PropTypes.string,
-  base64: PropTypes.string,
+  base64: PropTypes.string
 }
