@@ -1,6 +1,5 @@
 import { generateErrorObject, generateResponseObject } from './handlers'
 import { CURRENT_USER, DOCUMENTS, STUDENTS, TEACHERS, getRandomObjectId } from './mock-data'
-import { readFileSync } from 'fs'
 
 export const getAllDocuments = () => {
   return generateResponseObject(DOCUMENTS)
