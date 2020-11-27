@@ -125,7 +125,7 @@ export function Home () {
         <div className='statistics-class-reports-wrapper'>
           <div className='statistics-panel'>
             <Heading3 as='h2' className='panel-title'>
-              <Icon name='statistics' size='small' /> Statistikk
+              <Icon name='statistics' size='small' /> Statistikk for dine elever
             </Heading3>
 
             <div className='statistics'>
@@ -166,32 +166,40 @@ export function Home () {
 
           <div className='class-reports-panel'>
             <Heading3 as='h2' className='panel-title'>
-              <Icon name='classes' /> Siste 5 klasserapporter
+              <Icon name='help' /> Support
             </Heading3>
 
-            <div className='class-reports-group'>
-              <Paragraph className='class-reports-group-title'>[Kragerø videregående skole]</Paragraph>
-              <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
-            </div>
+            {
+              /*
+              <div className='class-reports-group'>
+                <Paragraph className='class-reports-group-title'>[Kragerø videregående skole]</Paragraph>
+                <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
+              </div>
 
-            <div className='class-reports-group'>
-              <Paragraph className='class-reports-group-title'>[Skogmo videregående skole]</Paragraph>
-              <Paragraph className='class-reports-group-text'>[VG1 – Elektro]</Paragraph>
-            </div>
+              <div className='class-reports-group'>
+                <Paragraph className='class-reports-group-title'>[Skogmo videregående skole]</Paragraph>
+                <Paragraph className='class-reports-group-text'>[VG1 – Elektro]</Paragraph>
+              </div>
 
-            <div className='class-reports-group'>
-              <Paragraph className='class-reports-group-title'>[Bamle videregående skole]</Paragraph>
-              <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
-            </div>
+              <div className='class-reports-group'>
+                <Paragraph className='class-reports-group-title'>[Bamle videregående skole]</Paragraph>
+                <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
+              </div>
 
-            <div className='class-reports-group'>
-              <Paragraph className='class-reports-group-title'>[Sandefjord videregående skole]</Paragraph>
-              <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
-            </div>
+              <div className='class-reports-group'>
+                <Paragraph className='class-reports-group-title'>[Sandefjord videregående skole]</Paragraph>
+                <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
+              </div>
+              */
+            }
 
-            <div className='panel-link'>
-              <Link href={`/${ROUTES.classes}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Alle klasser</Link>
-            </div>
+            {
+              /*
+              <div className='panel-link'>
+                <Link href={`/${ROUTES.classes}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Alle klasser</Link>
+              </div>
+              */
+            }
           </div>
         </div>
       </div>

@@ -10,15 +10,14 @@ import { useSession } from '@vtfk/react-msal'
 
 import { Heading1, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { Icon } from '../../_lib-components/Icon'
 
 import './styles.scss'
 
 export function Class ({ match, ...props }) {
   const { id } = match.params
-
   const [schoolClass, setSchoolClass] = useState({})
+  const [documents, setDocuments] = useState([])
   const { apiGet } = useSession()
 
   useEffect(() => {
@@ -27,9 +26,13 @@ export function Class ({ match, ...props }) {
       setSchoolClass(c.data)
     }
     getClass()
-  }, [])
 
-  const activities = [] // <--- needs to be populated
+    async function getDocuments () {
+      const docs = await apiGet(API.URL + '/classes/' + id + '/documents')
+      setDocuments(docs.data)
+    }
+    getDocuments()
+  }, [])
 
   return (
     <DefaultLayout>
@@ -96,7 +99,7 @@ export function Class ({ match, ...props }) {
 
               <div className='activity-panel'>
                 <Heading3 as='h2' className='panel-title'>
-                  <Icon name='students' size='small' /> Elever
+                  <Icon name='students' size='small' /> Elever ({schoolClass.students.length})
                 </Heading3>
 
                 <table className='activity-panel-table'>
@@ -134,24 +137,18 @@ export function Class ({ match, ...props }) {
                 <table className='activity-panel-table'>
                   <tbody>
                     {
-                      activities.map(function (activity, index) {
+                      documents &&
+                      documents.map(function (doc, index) {
                         return (
-                          <tr key={activity.id}>
+                          <tr key={doc.id}>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph>{doc.type}</Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
-                            </td>
-                            <td>
-                              <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 1' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 2' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 3' />
-                              </IconDropdownNav>
+                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
                             </td>
                           </tr>
                         )
@@ -169,24 +166,18 @@ export function Class ({ match, ...props }) {
                 <table className='activity-panel-table'>
                   <tbody>
                     {
-                      activities.map(function (activity, index) {
+                      documents &&
+                      documents.map(function (doc, index) {
                         return (
-                          <tr key={activity.id}>
+                          <tr key={doc.id}>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph>{doc.type}</Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>Tekst</Paragraph>
-                            </td>
-                            <td>
-                              <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 1' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 2' />
-                                <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Element 3' />
-                              </IconDropdownNav>
+                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
                             </td>
                           </tr>
                         )

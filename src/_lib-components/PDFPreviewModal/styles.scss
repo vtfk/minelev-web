@@ -1,0 +1,149 @@
+@import "../Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.preview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+
+  .preview-modal-positioner {
+    z-index: 1001;
+
+    @media (max-width: 1000px) {
+      width: 100%;
+    }
+  }
+
+  .preview-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(#000, 0.97);
+    z-index: 1000;
+
+    @media (max-width: 1000px) {
+      background: #F8F6F0;
+    }
+  }
+
+  .preview-modal-title {
+    font-size: 28px;
+    line-height: 1em;
+    margin-top: -($baseUnit * 3);
+    margin-bottom: $baseUnit * 3;
+    padding: 0 ($baseUnit * 2.5);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #fff;
+
+    @media (max-width: 1000px) {
+      height: 75px;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 21px;
+    }
+
+    .preview-modal-close-button {
+      @include reset-button();
+      margin-right: $baseUnit * 2;
+      outline: 0;
+      margin-top: -2px;
+
+      img {
+        margin-right: $baseUnit;
+      }
+
+      @media (max-width: 1000px) {
+        img {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+
+  .preview-modal-content {
+    display: flex;
+    width: 82vw;
+    max-width: 1400px;
+    z-index: 102;
+    background: #fff;
+    box-shadow: 0 20px 13px 0 rgba(0, 0, 0, 0.04);
+    height: 80vh;
+
+    @media (max-width: 1000px) {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 75px);
+      max-width: 100%;
+      overflow-y: scroll;
+    }
+
+    .preview-modal-body {
+      flex: 1;
+      padding: 0;
+      overflow-y: scroll;
+      position: relative;
+
+      @media (max-width: 1000px) {
+        padding: 0;
+        overflow-y: auto;
+      }
+
+      .preview-modal-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 80px;
+        line-height: 1em;
+
+        span {
+            animation-name: blink;
+            animation-duration: 1.4s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: both;
+        }
+
+        span:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        span:nth-child(3) {
+            animation-delay: .4s;
+        }
+      }
+
+      .preview-modal-error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        line-height: 1em;
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}
