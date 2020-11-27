@@ -43,7 +43,7 @@ export function DefaultLayout (props) {
 
   function clickContainer () {
     if (openTopNavSide) {
-       setOpenTopNavSide(false)
+      setOpenTopNavSide(false)
     }
   }
 
