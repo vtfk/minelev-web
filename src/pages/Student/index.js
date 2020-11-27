@@ -43,14 +43,14 @@ export function Student ({ match, ...props }) {
     getStudent()
 
     async function getDocuments () {
-      const docs = await apiGet(API.URL + '/documents/' + id)
+      const docs = await apiGet(API.URL + '/students/' + id + '/documents')
       const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
       setDocuments(docsOrderedByModified)
     }
     getDocuments()
 
     async function getNotes () {
-      const n = await apiGet(API.URL + '/documents/' + id + '/notat')
+      const n = await apiGet(API.URL + '/students/' + id + '/documents?type=notat')
 
       if (n.data) {
         setNotes(n.data)
