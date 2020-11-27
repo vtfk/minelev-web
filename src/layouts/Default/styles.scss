@@ -184,7 +184,7 @@
       margin-bottom: $baseUnit * 2;
 
       .search {
-        max-width: 80%;
+        width: 100%;
 
         .search-input {
           width: 100%;
@@ -204,6 +204,12 @@
       align-items: center;
       padding: ($baseUnit * 2) 0;
       padding-bottom: $baseUnit * 6;
+      overflow-y: scroll;
+
+      @media(max-width: 1000px) and (orientation: landscape) {
+        align-items: flex-start;
+        padding-top: 0;
+      }
 
       .topnav-side-list-inner {
         width: 100%;
