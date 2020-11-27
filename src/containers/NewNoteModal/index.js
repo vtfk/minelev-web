@@ -35,7 +35,7 @@ export function NewNoteModal ({ selectedStudent, ...props }) {
 
   async function send () {
     if (noteText !== '') {
-      const postNote = await apiPost(API.URL + '/documents/' + selectedStudent.username, {
+      const postNote = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
         type: 'notat',
         variant: 'notat',
         content: {

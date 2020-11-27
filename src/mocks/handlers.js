@@ -1,6 +1,6 @@
 import { rest } from 'msw'
 import { API } from '../config/app'
-import { getAllDocuments, getDocuments, newDocument } from './documents'
+import { getAllDocuments, getDocumentPreview, getDocuments, newDocument } from './documents'
 
 import { getStudents, getStudent, getStudentClasses, getStudentTeachers, getClasses, getClass, getClassStudents, getClassTeachers } from './pifu'
 import generateYFF from './yff'
@@ -111,9 +111,28 @@ export const handlers = [
     )
   }),
 
-  rest.get(`${API.URL}/documents/:student`, (req, res, ctx) => {
-    const { student } = req.params
-    const documents = getDocuments(student)
+  rest.get(`${API.URL}/documents/:id`, (req, res, ctx) => {
+    const { id } = req.params
+    return res(
+      ctx.status(200),
+      ctx.json(getAllDocuments().filter(doc => doc._id === id))
+    )
+  }),
+
+  /*
+    {
+      type: 'varsel',
+      variant: 'fag',
+      student: {
+        username: 'abc123'
+      }
+      content: {}
+    }
+  */
+  rest.post(`${API.URL}/documents`, (req, res, ctx) => {
+    // @ts-ignore
+    const { type, student, variant, content } = req.body
+    const documents = newDocument(student.username, type, variant, content)
     return res(
       ctx.status(documents.error ? documents.error.statusCode : 200),
       ctx.json(documents)
@@ -127,7 +146,7 @@ export const handlers = [
       content: {}
     }
   */
-  rest.post(`${API.URL}/documents/:student`, (req, res, ctx) => {
+  rest.post(`${API.URL}/students/:student/documents`, (req, res, ctx) => {
     // @ts-ignore
     const { type, variant, content } = req.body
     const { student } = req.params
@@ -138,8 +157,10 @@ export const handlers = [
     )
   }),
 
-  rest.get(`${API.URL}/documents/:student/:type`, (req, res, ctx) => {
-    const { student, type } = req.params
+  rest.get(`${API.URL}/students/:student/documents`, (req, res, ctx) => {
+    const { student } = req.params
+    const type = req.url.searchParams.get('type')
+
     const documents = getDocuments(student, type)
     return res(
       ctx.status(documents.error ? documents.error.statusCode : 200),

@@ -1,5 +1,6 @@
 import { generateErrorObject, generateResponseObject } from './handlers'
 import { CURRENT_USER, DOCUMENTS, STUDENTS, TEACHERS, getRandomObjectId } from './mock-data'
+import { readFileSync } from 'fs'
 
 export const getAllDocuments = () => {
   return generateResponseObject(DOCUMENTS)
@@ -30,7 +31,7 @@ export const getDocuments = (studentId, type, documentId) => {
   // Return all by type (/documents/:student/:type)
   if (type) {
     const documentsWithType = documents.filter(document => document.type === type)
-    if (!documentsWithType || documentsWithType.length === 0) {
+    if (!documentsWithType) {
       return generateErrorObject(404, 'No documents was found with given type for this student.', { studentId, type })
     }
 
