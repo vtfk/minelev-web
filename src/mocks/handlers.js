@@ -147,12 +147,13 @@ export const handlers = [
     )
   }),
 
-  rest.get(`${API.URL}/documents/:student/:type/:id`, (req, res, ctx) => {
-    const { student, type, id } = req.params
-    const documents = getDocuments(student, type, id)
+  rest.post(`${API.URL}/preview/:lang`, (req, res, ctx) => {
+    // @ts-ignore
+    const { lang } = req.params
+    const preview = getDocumentPreview(req.body, lang)
     return res(
-      ctx.status(documents.error ? documents.error.statusCode : 200),
-      ctx.json(documents)
+      ctx.status(200),
+      ctx.json(preview)
     )
   }),
 
