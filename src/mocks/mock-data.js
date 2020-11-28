@@ -21,6 +21,7 @@ export const STUDENTS = [
     username: 'alv1706',
     mail: 'alv1706@skole.vtfk.no',
     mobile: 4798765432,
+    isContactTeacher: true,
     schoolId: 'TESVS',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
@@ -268,6 +269,7 @@ export const STUDENTS = [
     username: 'ett09051',
     mail: 'ett09051@skole.vtfk.no',
     mobile: 4748765678,
+    isContactTeacher: true,
     schoolId: 'TESVS',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
@@ -515,6 +517,7 @@ export const STUDENTS = [
     username: 'opp2004',
     mail: 'opp2004@skole.vtfk.no',
     mobile: 4794321000,
+    isContactTeacher: true,
     schoolId: 'TESVS',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
@@ -767,6 +770,7 @@ export const STUDENTS = [
     schoolShortName: 'Testen vgs',
     classId: 'TESVS:2STB',
     classShortId: '2STB',
+    isContactTeacher: false,
     programomraade: {
       kode: 'STSSA2----',
       type: 'studieforberedende',
@@ -1009,6 +1013,7 @@ export const STUDENTS = [
     username: 'tro1407',
     mail: 'tro1407@skole.vtfk.no',
     mobile: 4747474747,
+    isContactTeacher: true,
     schoolId: 'TESVS',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
@@ -1250,6 +1255,7 @@ export const STUDENTS = [
     username: 'lil1312',
     mail: 'lil1312@skole.vtfk.no',
     mobile: '',
+    isContactTeacher: false,
     schoolId: 'TESVS',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
@@ -1457,6 +1463,7 @@ export const STUDENTS = [
     username: 'dyn06061',
     mail: 'dyn06061@skole.vtfk.no',
     mobile: 4791234567,
+    isContactTeacher: false,
     schoolId: 'TESVS',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
@@ -1710,6 +1717,7 @@ export const STUDENTS = [
     username: 'uin2704',
     mail: 'uin2704@skole.vtfk.no',
     mobile: 4794567891,
+    isContactTeacher: false,
     schoolId: 'TESVS',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
@@ -1964,7 +1972,7 @@ export const TEACHERS = [
     firstName: 'Presis',
     lastName: 'Damesykkel',
     mail: 'presis.damesykkel@vtfk.no',
-    contactTeacher: true,
+    isContactTeacher: true,
     relatedGroupIds: [
       '1_1HOA_TESVS@38099',
       '2_1HOA/ATF1_TESVS@38099',
@@ -1982,7 +1990,7 @@ export const TEACHERS = [
     firstName: 'Falsk',
     lastName: 'Handlekraft',
     mail: 'falsk.handlekraft@vtfk.no',
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_1ENYA/ENG1009_TESVS@38099'
     ]
@@ -1994,7 +2002,7 @@ export const TEACHERS = [
     firstName: 'Viktig',
     lastName: 'Kjærlig',
     mail: 'viktig.kaerlig@vtfk.no',
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_1HOA/YFF4106_TESVS@38099',
       '2_1HOA/HSF1006_TESVS@38099'
@@ -2008,7 +2016,7 @@ export const TEACHERS = [
     lastName: 'Sovealkove',
     mail: 'ru.sovealkove@vtfk.no',
     mobile: 4748048048,
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_1HOA/HSF1007_TESVS@38099'
     ]
@@ -2021,7 +2029,7 @@ export const TEACHERS = [
     lastName: 'Kråke',
     mail: 'oppfyllende.krake@vtfk.no',
     mobile: 4791111119,
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_1HOA/HSF1008_TESVS@38099'
     ]
@@ -2034,7 +2042,7 @@ export const TEACHERS = [
     lastName: 'Plikt',
     mail: 'skjoenn.initiativrik.plikt@vtfk.no',
     mobile: 4799779977,
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_1HOA/KRO1017_TESVS@38099',
       '2_2STB/KRO1005_TESVS@38099'
@@ -2048,7 +2056,7 @@ export const TEACHERS = [
     lastName: 'Testesen',
     mail: 'trine.testesen@vtfk.no',
     mobile: 4794949494,
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_1HOA/YFF4106_TESVS@38099',
       '1_2STB_TESVS@38099',
@@ -2066,7 +2074,7 @@ export const TEACHERS = [
     lastName: 'Turbin',
     mail: 'bevisst.turbin@vtfk.no',
     mobile: 4795959595,
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_1MPYA/MAT1117_TESVS@38099'
     ]
@@ -2078,7 +2086,7 @@ export const TEACHERS = [
     firstName: 'Usedvanlig',
     lastName: 'Eske',
     mail: 'usedvanlig.eske@vtfk.no',
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_2FY1A/REA3004_TESVS@38099'
     ]
@@ -2090,7 +2098,7 @@ export const TEACHERS = [
     firstName: 'Flyktig',
     lastName: 'Logg',
     mail: 'flyktig.logg@vtfk.no',
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_2TY2B/FSP5122_TESVS@38099'
     ]
@@ -2103,7 +2111,7 @@ export const TEACHERS = [
     lastName: 'Eplekake',
     mail: 'barmhjertig.eplekake@vtfk.no',
     mobile: 4745000054,
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_2IT1/REA3014_TESVS@38099'
     ]
@@ -2115,7 +2123,7 @@ export const TEACHERS = [
     firstName: 'Diskret',
     lastName: 'Telefonkiosk',
     mail: 'diskret.telefonkiosk@vtfk.no',
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_2KJ1B/REA3011_TESVS@38099'
     ]
@@ -2127,7 +2135,7 @@ export const TEACHERS = [
     firstName: 'Vennlig',
     lastName: 'Arm',
     mail: 'vennlig.arm@vtfk.no',
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_2MR1B/REA3022_TESVS@38099'
     ]
@@ -2140,7 +2148,7 @@ export const TEACHERS = [
     lastName: 'Blindvegsjiraff',
     mail: 'stolt.blindvegsjiraff@vtfk.no',
     mobile: 4793949494,
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_2STB/HIS1001_TESVS@38099'
     ]
@@ -2152,7 +2160,7 @@ export const TEACHERS = [
     firstName: 'Kranglete',
     lastName: 'Sykkel',
     mail: 'kra0801@skole.vtfk.no',
-    contactTeacher: false,
+    isContactTeacher: false,
     relatedGroupIds: [
       '2_2STB/HIS1001_TESVS@38099'
     ]
