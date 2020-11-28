@@ -25,14 +25,6 @@ export const generateErrorObject = (statusCode, message, innerError) => {
 }
 
 export const handlers = [
-  rest.get(`${API.URL}/brreg/`, (req, res, ctx) => {
-    const data = getBrregData()
-    return res(
-      ctx.status(200),
-      ctx.json(data)
-    )
-  }),
-
   rest.get(`${API.URL}/brreg/:query`, (req, res, ctx) => {
     const { query } = req.params
     const data = getBrregData(query)
