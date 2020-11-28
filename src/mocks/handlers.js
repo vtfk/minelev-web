@@ -4,6 +4,7 @@ import { getAllDocuments, getDocumentPreview, getDocuments, newDocument } from '
 
 import { getStudents, getStudent, getStudentClasses, getStudentTeachers, getClasses, getClass, getClassStudents, getClassTeachers } from './pifu'
 import generateYFF from './yff'
+import getBrregData from './brreg'
 
 export const generateResponseObject = (response) => {
   return {
@@ -23,6 +24,24 @@ export const generateErrorObject = (statusCode, message, innerError) => {
 }
 
 export const handlers = [
+  rest.get(`${API.URL}/brreg/`, (req, res, ctx) => {
+    const data = getBrregData()
+    console.log(data)
+    return res(
+      ctx.status(200),
+      ctx.json(data)
+    )
+  }),
+
+  rest.get(`${API.URL}/brreg/:query`, (req, res, ctx) => {
+    const { query } = req.params
+    const data = getBrregData(query)
+    return res(
+      ctx.status(200),
+      ctx.json(data)
+    )
+  }),
+
   rest.get(`${API.URL}/students`, (req, res, ctx) => {
     const students = getStudents()
 
