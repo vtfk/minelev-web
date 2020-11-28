@@ -57,37 +57,37 @@ export function Statistics () {
         <div className='numbers'>
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
-              1000
+              [X]
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>varselbrev</Heading3>
           </div>
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
-              1000
+              [X]
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>dokumenterte elevsamtaler</Heading3>
           </div>
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
-              1000
+              [X]
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>lokale læreplaner arkivert</Heading3>
           </div>
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
-              1000
+              [X]
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>notater til elevmappa</Heading3>
           </div>
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
-              1000
+              [X]
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>utplasseringer</Heading3>
           </div>
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
-              1000
+              [X]
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>tilbakemeldinger</Heading3>
           </div>

@@ -18,6 +18,8 @@ export function Class ({ match, ...props }) {
   const { id } = match.params
   const [schoolClass, setSchoolClass] = useState({})
   const [documents, setDocuments] = useState([])
+  const [conversations, setConversations] = useState([])
+  const [notes, setNotes] = useState([])
   const { apiGet } = useSession()
 
   useEffect(() => {
@@ -29,7 +31,17 @@ export function Class ({ match, ...props }) {
 
     async function getDocuments () {
       const docs = await apiGet(API.URL + '/classes/' + id + '/documents')
-      setDocuments(docs.data)
+
+      if (docs && docs.data && docs.data.length > 0) {
+        const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+        const docsVarsler = docsOrderedByModified.filter((item) => item.type === 'varsel')
+        const docsConversations = docsOrderedByModified.filter((item) => item.type === 'samtale')
+        const docsNotes = docsOrderedByModified.filter((item) => item.type === 'notat')
+
+        setDocuments(docsVarsler)
+        setConversations(docsConversations)
+        setNotes(docsNotes)
+      }
     }
     getDocuments()
   }, [])
@@ -61,13 +73,13 @@ export function Class ({ match, ...props }) {
               <div className='numbers'>
                 <div className='numbers-item'>
                   <Heading1 as='h2' className='numbers-item-title'>
-                    [X]
+                    {documents.length}
                   </Heading1>
                   <Heading3 as='p' className='numbers-item-text'>varselbrev</Heading3>
                 </div>
                 <div className='numbers-item'>
                   <Heading1 as='h2' className='numbers-item-title'>
-                    [X]
+                    {conversations.length}
                   </Heading1>
                   <Heading3 as='p' className='numbers-item-text'>dokumenterte elevsamtaler</Heading3>
                 </div>
@@ -79,7 +91,7 @@ export function Class ({ match, ...props }) {
                 </div>
                 <div className='numbers-item'>
                   <Heading1 as='h2' className='numbers-item-title'>
-                    [X]
+                    {notes.length}
                   </Heading1>
                   <Heading3 as='p' className='numbers-item-text'>notater til elevmappa</Heading3>
                 </div>
@@ -142,6 +154,16 @@ export function Class ({ match, ...props }) {
                         return (
                           <tr key={doc.id}>
                             <td>
+                              <div className='activity-name'>
+                                <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
+                                <Paragraph>
+                                  <Link href={`/${ROUTES.students}/${doc.student.username}`}>
+                                    {doc.student.name}
+                                  </Link>
+                                </Paragraph>
+                              </div>
+                            </td>
+                            <td>
                               <Paragraph>{doc.type}</Paragraph>
                             </td>
                             <td>
@@ -153,6 +175,15 @@ export function Class ({ match, ...props }) {
                           </tr>
                         )
                       })
+                    }
+
+                    {
+                      documents.length === 0 &&
+                      <tr>
+                        <td style={{ textAlign: 'left' }}>
+                          <Paragraph>Denne klassen har ingen varsler.</Paragraph>
+                        </td>
+                      </tr>
                     }
                   </tbody>
                 </table>
@@ -166,8 +197,56 @@ export function Class ({ match, ...props }) {
                 <table className='activity-panel-table'>
                   <tbody>
                     {
-                      documents &&
-                      documents.map(function (doc, index) {
+                      conversations &&
+                      conversations.map(function (doc, index) {
+                        return (
+                          <tr key={doc.id}>
+                            <td>
+                              <div className='activity-name'>
+                                <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
+                                <Paragraph>
+                                  <Link href={`/${ROUTES.students}/${doc.student.username}`}>
+                                    {doc.student.name}
+                                  </Link>
+                                </Paragraph>
+                              </div>
+                            </td>
+                            <td>
+                              <Paragraph>{doc.type}</Paragraph>
+                            </td>
+                            <td>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
+                            </td>
+                            <td>
+                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
+                            </td>
+                          </tr>
+                        )
+                      })
+                    }
+
+                    {
+                      conversations.length === 0 &&
+                      <tr>
+                        <td style={{ textAlign: 'left' }}>
+                          <Paragraph>Denne klassen har ingen samtaler.</Paragraph>
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+
+              <div className='activity-panel'>
+                <Heading3 as='h2' className='panel-title'>
+                  <Icon name='activity' size='small' /> Notater
+                </Heading3>
+
+                <table className='activity-panel-table'>
+                  <tbody>
+                    {
+                      notes &&
+                      notes.map(function (doc, index) {
                         return (
                           <tr key={doc.id}>
                             <td>
@@ -182,6 +261,15 @@ export function Class ({ match, ...props }) {
                           </tr>
                         )
                       })
+                    }
+
+                    {
+                      notes.length === 0 &&
+                      <tr>
+                        <td style={{ textAlign: 'left' }}>
+                          <Paragraph>Denne klassen har ingen notater.</Paragraph>
+                        </td>
+                      </tr>
                     }
                   </tbody>
                 </table>

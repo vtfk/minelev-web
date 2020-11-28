@@ -72,7 +72,6 @@ export function DefaultLayout (props) {
                 </div>
                 <div className='user-menu'>
                   <IconDropdownNav>
-                    <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Min konto' />
                     <IconDropdownNavItem onClick={() => logout()} title='Logg ut' />
                   </IconDropdownNav>
                 </div>
@@ -167,7 +166,6 @@ export function DefaultLayout (props) {
                 <InitialsBadge className='user-image' firstName={user.givenName} lastName={user.surname} />
                 <div className='user-menu'>
                   <IconDropdownNav>
-                    <IconDropdownNavItem onClick={() => { window.alert('Ikke implementert') }} title='Min konto' />
                     <IconDropdownNavItem onClick={() => logout()} title='Logg ut' />
                   </IconDropdownNav>
                 </div>

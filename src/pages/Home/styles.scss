@@ -87,7 +87,7 @@
     }
   }
 
-  .statistics-class-reports-wrapper {
+  .statistics-class-support-wrapper {
     display: flex;
     flex-wrap: nowrap;
 
@@ -142,30 +142,30 @@
     }
   }
 
-  .class-reports-panel {
+  .class-support-panel {
     background: $ecruWhite;
     padding: ($baseUnit * 5) ($baseUnit * 4);
+    padding-right: ($baseUnit * 6);
     flex: 1;
 
     @media(max-width: 1000px) {
       padding: ($baseUnit * 3) ($baseUnit * 2);
     }
 
-    .class-reports-group {
-      margin-bottom: $baseUnit * 2;
+    .panel-title {
+      margin: 0 0 ($baseUnit * 3) 0;
+    }
 
-      .class-reports-group-title {
-        font-weight: 700;
-        margin-bottom: 0;
-      }
+    a {
+      color: inherit;
+    }
 
-      .class-reports-group-text {
-        margin-bottom: $baseUnit;
-      }
+    .paragraph {
+      margin-bottom: $baseUnit * 3;
     }
 
     .panel-link {
-      margin-top: $baseUnit * 5;
+      margin-top: $baseUnit * 8;
     }
   }
 }
