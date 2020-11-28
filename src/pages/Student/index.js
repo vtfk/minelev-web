@@ -10,7 +10,6 @@ import { useSession } from '@vtfk/react-msal'
 
 import { Heading2, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { Icon } from '../../_lib-components/Icon'
 import { CardLink } from '../../_lib-components/CardLink'
 
@@ -42,12 +41,11 @@ export function Student ({ match, ...props }) {
     }
     getStudent()
 
-
     async function getDocuments () {
       const docs = await apiGet(API.URL + '/students/' + id + '/documents')
       const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
-      const docsExceptNotes = docs.data.filter((item) => item.type !== 'notat')
-      const notes = docs.data.filter((item) => item.type === 'notat')
+      const docsExceptNotes = docsOrderedByModified.data.filter((item) => item.type !== 'notat')
+      const notes = docsOrderedByModified.data.filter((item) => item.type === 'notat')
       setDocuments(docsExceptNotes)
       setNotes(notes)
     }
@@ -259,11 +257,11 @@ export function Student ({ match, ...props }) {
 
                     {
                       notes.length === 0 &&
-                      <tr>
-                        <td style={{ textAlign: 'left' }}>
-                          <Paragraph>Denne eleven har ingen notater.</Paragraph>
-                        </td>
-                      </tr>
+                        <tr>
+                          <td style={{ textAlign: 'left' }}>
+                            <Paragraph>Denne eleven har ingen notater.</Paragraph>
+                          </td>
+                        </tr>
                     }
                   </tbody>
                 </table>

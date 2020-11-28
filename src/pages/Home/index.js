@@ -184,13 +184,13 @@ export function Home () {
             </Paragraph>
 
             <Paragraph>
-              <strong>IKT Servicedesk</strong><br/>
-              Telefon: 33 488 565<br/>
-              E-post: <a href="mailto:servicedeskikt@vtfk.no">servicedeskikt@vtfk.no</a>
+              <strong>IKT Servicedesk</strong><br />
+              Telefon: 33 488 565<br />
+              E-post: <a href='mailto:servicedeskikt@vtfk.no'>servicedeskikt@vtfk.no</a>
             </Paragraph>
 
             <Paragraph>
-              <strong>Åpningstider:</strong><br/>
+              <strong>Åpningstider:</strong><br />
               Hverdager kl. 08.00-15.30
             </Paragraph>
 

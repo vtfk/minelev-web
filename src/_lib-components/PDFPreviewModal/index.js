@@ -14,7 +14,7 @@ export function PDFPreviewModal ({ open, title, className, onDismiss, loading, b
         type: 'application/pdf',
         data: 'data:application/pdf;base64,' + base64,
         width: '100%',
-        height: '100%',
+        height: '100%'
       }
     )
   }

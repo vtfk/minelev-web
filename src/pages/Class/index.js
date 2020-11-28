@@ -179,11 +179,11 @@ export function Class ({ match, ...props }) {
 
                     {
                       documents.length === 0 &&
-                      <tr>
-                        <td style={{ textAlign: 'left' }}>
-                          <Paragraph>Denne klassen har ingen varsler.</Paragraph>
-                        </td>
-                      </tr>
+                        <tr>
+                          <td style={{ textAlign: 'left' }}>
+                            <Paragraph>Denne klassen har ingen varsler.</Paragraph>
+                          </td>
+                        </tr>
                     }
                   </tbody>
                 </table>
@@ -227,11 +227,11 @@ export function Class ({ match, ...props }) {
 
                     {
                       conversations.length === 0 &&
-                      <tr>
-                        <td style={{ textAlign: 'left' }}>
-                          <Paragraph>Denne klassen har ingen samtaler.</Paragraph>
-                        </td>
-                      </tr>
+                        <tr>
+                          <td style={{ textAlign: 'left' }}>
+                            <Paragraph>Denne klassen har ingen samtaler.</Paragraph>
+                          </td>
+                        </tr>
                     }
                   </tbody>
                 </table>
@@ -265,11 +265,11 @@ export function Class ({ match, ...props }) {
 
                     {
                       notes.length === 0 &&
-                      <tr>
-                        <td style={{ textAlign: 'left' }}>
-                          <Paragraph>Denne klassen har ingen notater.</Paragraph>
-                        </td>
-                      </tr>
+                        <tr>
+                          <td style={{ textAlign: 'left' }}>
+                            <Paragraph>Denne klassen har ingen notater.</Paragraph>
+                          </td>
+                        </tr>
                     }
                   </tbody>
                 </table>

@@ -96,7 +96,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
             value: item.id,
             label: item.name,
             item
-        }))
+          }))
 
         setGroupOptions(groupsOptionsArray)
       }
