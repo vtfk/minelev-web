@@ -124,7 +124,6 @@ export function Student ({ match, ...props }) {
       }
 
       <div className='student'>
-
         <Link className='back-link' href={`/${ROUTES.students}`} noStyle leftIcon={<Icon name='arrowLeft' size='xsmall' />}>Til elevoversikten</Link>
 
         {
