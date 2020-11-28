@@ -8,6 +8,7 @@
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "standard && CI=true react-scripts test",
+    "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "standard-fix": "standard --fix"
@@ -54,7 +55,9 @@
     "sass": "1.29.0"
   },
   "devDependencies": {
+    "axios": "0.21.0",
     "msw": "0.22.3",
+    "react-test-renderer": "17.0.1",
     "standard": "16.0.3"
   }
 }

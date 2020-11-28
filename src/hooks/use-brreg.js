@@ -1,30 +1,30 @@
 import * as React from 'react'
-import { useSession } from '@vtfk/react-msal'
 import { API } from '../config/app'
 
 /**
  * Send inn firmanavn, få svar fra Brreg
- * @param {}
- * @returns {Array<Function, Array>} setQuery og resultData
+ * @param {fetcher} funksjon for å hente data fra url
+ * @returns {object} data og setQuery
  */
-function useBrreg () {
+function useBrreg (fetcher) {
   const [data, setData] = React.useState(false)
   const [query, setQuery] = React.useState(false)
-  const { apiGet } = useSession()
 
   React.useEffect(() => {
     async function queryBrreg (query) {
       const url = `${API.URL}/brreg/${query}`
-      const data = await apiGet(url)
+      const data = await fetcher(url)
       setData(data)
     }
     if (query) {
-      console.log('got query')
       queryBrreg(query)
     }
-  }, [query, apiGet])
+  }, [query, fetcher])
 
-  return [data, setQuery]
+  return {
+    data,
+    setQuery
+  }
 }
 
 export default useBrreg
