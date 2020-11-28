@@ -42,7 +42,7 @@ export const handlers = [
     )
   }),
 
-  rest.get(`${API.URL}/utdanningsprogrammer/`, (req, res, ctx) => {
+  rest.get(`${API.URL}/utdanningsprogrammer`, (req, res, ctx) => {
     const data = getGrepData()
     return res(
       ctx.status(200),
