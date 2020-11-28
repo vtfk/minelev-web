@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useSession } from '@vtfk/react-msal'
-import { API } from '../../config/app'
+import { API } from '../config/app'
 
 /**
  * Send inn firmanavn, få svar fra Brreg
@@ -14,15 +14,17 @@ function useBrreg () {
 
   React.useEffect(() => {
     async function queryBrreg (query) {
-      const url = `${API.url}/brreg/${query}`
+      const url = `${API.URL}/brreg/${query}`
       const data = await apiGet(url)
       setData(data)
     }
     if (query) {
+      console.log('got query')
       queryBrreg(query)
     }
-  }, [query])
-  return [setQuery, data]
+  }, [query, apiGet])
+
+  return [data, setQuery]
 }
 
 export default useBrreg
