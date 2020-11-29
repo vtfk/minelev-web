@@ -4,7 +4,7 @@ import { TextField } from '../../_lib-components/TextField'
 
 const EntitySearch = props => {
   const { setBrregData, fetcher } = props
-  const [searchValue, setSearchValue] = useState(null)
+  const [searchValue, setSearchValue] = useState(false)
   const {
     data,
     setQuery
