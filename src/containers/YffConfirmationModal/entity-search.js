@@ -4,7 +4,7 @@ import { TextField } from '../../_lib-components/TextField'
 
 const EntitySearch = props => {
   const { setBrregData, fetcher } = props
-  const [searchValue, setSearchValue] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
   const {
     data,
     setQuery
@@ -26,6 +26,7 @@ const EntitySearch = props => {
     <div className='input-element'>
       <TextField
         hasSearchIcon
+        value={searchValue}
         placeholder='Søk etter virksomheten hvor eleven skal på utplassering'
         onChange={(event) => setSearchValue(event.target.value)}
         onKeyDown={startBrregSok}

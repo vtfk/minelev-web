@@ -8,7 +8,7 @@ import './styles.scss'
 export function TextField ({ type, className, placeholder, value, disabled, rows, hasSearchIcon, ...props }) {
   const [focusState, setFocusState] = useState(false)
   const { searchAction } = props
-
+  delete props.searchAction
   return (
     <div className={`
       text-field 
