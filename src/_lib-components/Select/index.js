@@ -7,9 +7,8 @@ import iconCheck from './icon-check.svg'
 
 import './styles.scss'
 
-export function Select ({ placeholder, label, items, selectedItem, onChange, ...props }) {
-  const isOpen = props.isOpen || false
-  const [selectState, setSelectState] = useState(isOpen)
+export function Select ({ placeholder, label, items, selectedItem, onChange, isOpen, ...props }) {
+  const [selectState, setSelectState] = useState(isOpen || false)
 
   function toggleSelect () {
     setSelectState(prevSelectState => !prevSelectState)
@@ -167,7 +166,8 @@ Select.propTypes = {
   placeholder: PropTypes.string,
   items: PropTypes.array.isRequired,
   selectedItem: PropTypes.object,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool
 }
 
 SelectMultiple.propTypes = {
