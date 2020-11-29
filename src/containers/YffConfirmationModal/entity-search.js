@@ -11,7 +11,7 @@ const EntitySearch = props => {
   } = useBrreg(fetcher)
 
   function startBrregSok (event) {
-    if (event.key === 'Enter' || event.type === 'click') {
+    if (event.key === 'Enter' || event.type === 'click' || event.type === 'blur') {
       setQuery(searchValue)
     }
   }
@@ -27,9 +27,9 @@ const EntitySearch = props => {
       <TextField
         hasSearchIcon
         placeholder='Søk etter virksomheten hvor eleven skal på utplassering'
-        value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
         onKeyDown={startBrregSok}
+        onBlur={startBrregSok}
         searchAction={startBrregSok}
       />
     </div>
