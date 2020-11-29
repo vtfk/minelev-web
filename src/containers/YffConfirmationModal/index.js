@@ -12,13 +12,14 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
-import BedriftVelger from './bedrift-velger'
+import CompanySelector from './company-selector'
 import EntitySearch from './entity-search'
 
 import './styles.scss'
 
 export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const [brregData, setBrregData] = useState(null)
+  const [company, setCompany] = useState()
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [select, setSelect] = useState(null)
   const [selectMultiple, setSelectMultiple] = useState([
@@ -55,6 +56,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     window.alert('Bekreftelse om utplassering av elev er sendt.')
   }
 
+  console.log(company)
   return (
     <>
       <Modal
@@ -95,7 +97,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
 
             <h2 className='subheader'>Mellomheader</h2>
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
-            <BedriftVelger brregData={brregData} />
+            <CompanySelector brregData={brregData} setCompany={setCompany} />
             <div className='prefilled'>
               <div className='prefilled-label'>Ferdig utfylt</div>
               <div className='prefilled-text'>Hentet info her</div>
