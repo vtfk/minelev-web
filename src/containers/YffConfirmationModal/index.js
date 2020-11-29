@@ -28,7 +28,6 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const { apiGet } = useSession()
   const {
     data: brregData,
-    query: search,
     setQuery: setSearch
   } = useBrreg(apiGet)
 
@@ -58,6 +57,12 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   function send () {
     props.onDismiss()
     window.alert('Bekreftelse om utplassering av elev er sendt.')
+  }
+
+  function startBrregSok (event) {
+    if (event.key === 'Enter') {
+      setSearch(event.target.value)
+    }
   }
 
   return (
@@ -104,8 +109,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
               <TextField
                 hasSearchIcon
                 placeholder='Søk etter virksomheten hvor eleven skal på utplassering'
-                value={search}
-                onChange={(event) => { setSearch(event.target.value) }}
+                onKeyDown={startBrregSok}
               />
             </div>
             <BedriftVelger brregData={brregData} />
