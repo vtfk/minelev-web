@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
-import useBrreg from '../../hooks/use-brreg'
 
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
@@ -14,11 +13,12 @@ import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
 import BedriftVelger from './bedrift-velger'
+import EntitySearch from './entity-search'
 
 import './styles.scss'
 
 export function YffConfirmationModal ({ selectedStudentId, ...props }) {
-  const [searchValue, setSearchValue] = useState(null)
+  const [brregData, setBrregData] = useState(null)
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [select, setSelect] = useState(null)
   const [selectMultiple, setSelectMultiple] = useState([
@@ -27,11 +27,6 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   ])
   const [text, setText] = useState('')
   const { apiGet } = useSession()
-  const {
-    data: brregData,
-    setQuery: setSearch
-  } = useBrreg(apiGet)
-  const brregRef = useRef('')
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -58,12 +53,6 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   function send () {
     props.onDismiss()
     window.alert('Bekreftelse om utplassering av elev er sendt.')
-  }
-
-  function startBrregSok (event) {
-    if (event.key === 'Enter' || event.type === 'click') {
-      setSearch(searchValue)
-    }
   }
 
   return (
@@ -105,18 +94,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
           <div className='form'>
 
             <h2 className='subheader'>Mellomheader</h2>
-
-            <div className='input-element'>
-              <TextField
-                hasSearchIcon
-                placeholder='Søk etter virksomheten hvor eleven skal på utplassering'
-                value={searchValue}
-                onChange={(event) => setSearchValue(event.target.value)}
-                onKeyDown={startBrregSok}
-                searchAction={startBrregSok}
-                ref={brregRef}
-              />
-            </div>
+            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
             <BedriftVelger brregData={brregData} />
             <div className='prefilled'>
               <div className='prefilled-label'>Ferdig utfylt</div>
