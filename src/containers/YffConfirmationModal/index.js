@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
@@ -18,6 +18,7 @@ import BedriftVelger from './bedrift-velger'
 import './styles.scss'
 
 export function YffConfirmationModal ({ selectedStudentId, ...props }) {
+  const [searchValue, setSearchValue] = useState(null)
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [select, setSelect] = useState(null)
   const [selectMultiple, setSelectMultiple] = useState([
@@ -30,8 +31,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     data: brregData,
     setQuery: setSearch
   } = useBrreg(apiGet)
+  const brregRef = useRef('')
 
-  console.log(brregData)
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
 
@@ -60,8 +61,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   }
 
   function startBrregSok (event) {
-    if (event.key === 'Enter') {
-      setSearch(event.target.value)
+    if (event.key === 'Enter' || event.type === 'click') {
+      setSearch(searchValue)
     }
   }
 
@@ -109,7 +110,11 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
               <TextField
                 hasSearchIcon
                 placeholder='Søk etter virksomheten hvor eleven skal på utplassering'
+                value={searchValue}
+                onChange={(event) => setSearchValue(event.target.value)}
                 onKeyDown={startBrregSok}
+                searchAction={startBrregSok}
+                ref={brregRef}
               />
             </div>
             <BedriftVelger brregData={brregData} />

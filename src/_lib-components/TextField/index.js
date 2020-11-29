@@ -7,6 +7,7 @@ import './styles.scss'
 
 export function TextField ({ type, className, placeholder, value, disabled, rows, hasSearchIcon, ...props }) {
   const [focusState, setFocusState] = useState(false)
+  const { searchAction } = props
 
   return (
     <div className={`
@@ -52,7 +53,7 @@ export function TextField ({ type, className, placeholder, value, disabled, rows
       {
         hasSearchIcon &&
           <div className='icon'>
-            <img src={iconSearch} alt='' />
+            <img src={iconSearch} alt='' onClick={searchAction || false} />
           </div>
       }
     </div>
@@ -65,6 +66,7 @@ TextField.propTypes = {
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  searchAction: PropTypes.func,
   disabled: PropTypes.bool,
   rows: PropTypes.number
 }
