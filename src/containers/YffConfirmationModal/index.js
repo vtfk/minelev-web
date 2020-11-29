@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
+import useBrreg from '../../hooks/use-brreg'
 
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
@@ -17,7 +18,6 @@ import './styles.scss'
 
 export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
-  const [search, setSearch] = useState('Metro Branding')
   const [select, setSelect] = useState(null)
   const [selectMultiple, setSelectMultiple] = useState([
     { value: 2, label: 'Valg 2' },
@@ -25,7 +25,13 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   ])
   const [text, setText] = useState('')
   const { apiGet } = useSession()
+  const {
+    data: brregData,
+    query: search,
+    setQuery: setSearch
+  } = useBrreg(apiGet)
 
+  console.log(brregData)
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
 
