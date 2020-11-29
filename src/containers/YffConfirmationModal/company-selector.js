@@ -11,7 +11,7 @@ const CompanySelector = props => {
     if (select) {
       setCompany(bedrifter.find(bedrift => bedrift.orgnr === select.value))
     }
-  }, select)
+  }, [select])
 
   if (!kanViseKomponent) {
     return null
