@@ -13,6 +13,7 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
+import BedriftVelger from './bedrift-velger'
 
 import './styles.scss'
 
@@ -107,7 +108,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 onChange={(event) => { setSearch(event.target.value) }}
               />
             </div>
-
+            <BedriftVelger brregData={brregData} />
             <div className='prefilled'>
               <div className='prefilled-label'>Ferdig utfylt</div>
               <div className='prefilled-text'>Hentet info her</div>
