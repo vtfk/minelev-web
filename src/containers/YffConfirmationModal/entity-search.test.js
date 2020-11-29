@@ -1,4 +1,5 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
+import { act, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import EntitySearch from './entity-search'
 
 describe('Tester EntitySearch komponenten', () => {
@@ -12,13 +13,12 @@ describe('Tester EntitySearch komponenten', () => {
     const mockSetBrregData = jest.fn(data => data)
     render(<EntitySearch fetcher={mockFetcher} setBrregData={mockSetBrregData} />)
     const input = screen.getByPlaceholderText(/søk etter virksomheten hvor eleven skal på utplassering/i)
-    act(() => {
-      fireEvent.change(input, { target: { value: 'vtfk' } })
-    })
+
+    userEvent.type(input, 'vtfk')
     expect(input.value).toBe('vtfk')
-    act(() => {
-      fireEvent.keyDown(input, { key: 'Enter' })
-    })
+
+    await act(() => userEvent.type(input, 'vtfk{enter}'))
     expect(mockFetcher).toBeCalledTimes(1)
+    expect(mockSetBrregData).toBeCalledTimes(1)
   })
 })
