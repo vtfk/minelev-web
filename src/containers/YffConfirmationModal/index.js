@@ -14,6 +14,7 @@ import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
 import CompanySelector from './company-selector'
 import EntitySearch from './entity-search'
+import CompanyDetails from './company-details'
 
 import './styles.scss'
 
@@ -56,7 +57,6 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     window.alert('Bekreftelse om utplassering av elev er sendt.')
   }
 
-  console.log(company)
   return (
     <>
       <Modal
@@ -98,6 +98,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
             <h2 className='subheader'>Mellomheader</h2>
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
             <CompanySelector brregData={brregData} setCompany={setCompany} />
+            <CompanyDetails company={company} />
+
             <div className='prefilled'>
               <div className='prefilled-label'>Ferdig utfylt</div>
               <div className='prefilled-text'>Hentet info her</div>
