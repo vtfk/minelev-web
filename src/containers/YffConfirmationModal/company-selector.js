@@ -28,6 +28,7 @@ const CompanySelector = props => {
           selectedItem={select}
           onChange={(item) => { setSelect(item) }}
           isOpen
+          closeOnSelect
         />
       </div>
     </>

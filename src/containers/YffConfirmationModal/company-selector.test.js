@@ -17,10 +17,8 @@ describe('Tester at CompanySelector oppfører seg som forventet', () => {
   test('komponenten sender valgt data videre', () => {
     const mockSetCompany = jest.fn()
     render(<CompanySelector brregData={brregData} setCompany={mockSetCompany} />)
-    const select = screen.getByText(/velg bedrift for utplassering/i)
     const item = screen.getByText(/vestfold og telemark fylkeskommune avd tønsberg pp-tjenesten/i)
     userEvent.click(item)
-    userEvent.click(select)
     expect(screen.getByText(/vestfold og telemark fylkeskommune avd tønsberg pp-tjenesten/i)).toBeInTheDocument()
     expect(mockSetCompany).toHaveBeenCalledTimes(1)
   })
