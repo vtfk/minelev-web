@@ -5,9 +5,8 @@ import iconSearch from './icon-search.svg'
 
 import './styles.scss'
 
-export function TextField ({ type, className, placeholder, value, disabled, rows, hasSearchIcon, ...props }) {
+export function TextField ({ type, className, placeholder, value, disabled, rows, hasSearchIcon, searchAction, ...props }) {
   const [focusState, setFocusState] = useState(false)
-
   return (
     <div className={`
       text-field 
@@ -52,7 +51,7 @@ export function TextField ({ type, className, placeholder, value, disabled, rows
       {
         hasSearchIcon &&
           <div className='icon'>
-            <img src={iconSearch} alt='' />
+            <img src={iconSearch} alt='' onClick={searchAction || false} />
           </div>
       }
     </div>
@@ -65,6 +64,7 @@ TextField.propTypes = {
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  searchAction: PropTypes.func,
   disabled: PropTypes.bool,
   rows: PropTypes.number
 }

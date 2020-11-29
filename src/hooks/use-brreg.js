@@ -3,12 +3,13 @@ import { API } from '../config/app'
 
 /**
  * Send inn firmanavn, få svar fra Brreg
- * @param {fetcher} funksjon for å hente data fra url
- * @returns {object} data og setQuery
+ * @param {Function} fetcher funksjon for å hente data fra url
+ * @returns {object} data, query og setQuery
  */
+
 function useBrreg (fetcher) {
   const [data, setData] = React.useState(false)
-  const [query, setQuery] = React.useState(false)
+  const [query, setQuery] = React.useState('')
 
   React.useEffect(() => {
     async function queryBrreg (query) {
@@ -23,6 +24,7 @@ function useBrreg (fetcher) {
 
   return {
     data,
+    query,
     setQuery
   }
 }

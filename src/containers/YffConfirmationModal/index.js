@@ -12,12 +12,16 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
+import CompanySelector from './company-selector'
+import EntitySearch from './entity-search'
+import CompanyDetails from './company-details'
 
 import './styles.scss'
 
 export function YffConfirmationModal ({ selectedStudentId, ...props }) {
+  const [brregData, setBrregData] = useState(null)
+  const [company, setCompany] = useState()
   const [selectedStudent, setSelectedStudent] = useState(null)
-  const [search, setSearch] = useState('Metro Branding')
   const [select, setSelect] = useState(null)
   const [selectMultiple, setSelectMultiple] = useState([
     { value: 2, label: 'Valg 2' },
@@ -92,15 +96,9 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
           <div className='form'>
 
             <h2 className='subheader'>Mellomheader</h2>
-
-            <div className='input-element'>
-              <TextField
-                hasSearchIcon
-                placeholder='Søk etter virksomheten hvor eleven skal på utplassering'
-                value={search}
-                onChange={(event) => { setSearch(event.target.value) }}
-              />
-            </div>
+            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
+            <CompanySelector brregData={brregData} setCompany={setCompany} />
+            <CompanyDetails company={company} />
 
             <div className='prefilled'>
               <div className='prefilled-label'>Ferdig utfylt</div>
