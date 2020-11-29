@@ -1,0 +1,1405 @@
+{
+  "data": {
+    "kode": "BA",
+    "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/BA",
+    "tittel": {
+      "sme": "Huksen- ja ráhkadusteknihkka",
+      "nob": "Bygg- og anleggsteknikk",
+      "eng": "Building and Construction",
+      "nno": "Bygg- og anleggsteknikk",
+      "default": "Bygg- og anleggsteknikk"
+    },
+    "trinn": [
+      {
+        "kode": "vg2",
+        "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
+        "tittel": {
+          "nno": "Vidaregåande trinn 2",
+          "nob": "Videregående trinn 2",
+          "default": "Videregående trinn 2"
+        },
+        "programomraader": [
+          {
+            "kode": "BAANL2----",
+            "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAANL2----",
+            "tittel": {
+              "nob": "Anleggsteknikk",
+              "eng": "Construction",
+              "sme": "Ráhkadusteknihkka",
+              "nno": "Anleggsteknikk",
+              "default": "Anleggsteknikk"
+            },
+            "maal": [
+              {
+                "kode": "K832",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K832",
+                "tittel": {
+                  "eng": "plan, perform, document and evaluate own work",
+                  "nob": "planlegge, utføre, dokumentere og vurdere eget arbeid",
+                  "default": "planlegge, utføre, dokumentere og vurdere eget arbeid"
+                }
+              },
+              {
+                "kode": "K833",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K833",
+                "tittel": {
+                  "eng": "give an account of the history of such construction techniques, and discuss their significance in a social perspective",
+                  "nob": "gjøre rede for anleggsfagenes historiske utvikling og diskutere deres betydning i samfunnsperspektiv",
+                  "default": "gjøre rede for anleggsfagenes historiske utvikling og diskutere deres betydning i samfunnsperspektiv"
+                }
+              },
+              {
+                "kode": "K834",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K834",
+                "tittel": {
+                  "nob": "bruke gravemaskin og minst én annen anleggsmaskin til graving og flytting av løsmasser",
+                  "eng": "use digging machines and at least one other construction machine to dig and moving loose masses",
+                  "default": "bruke gravemaskin og minst én annen anleggsmaskin til graving og flytting av løsmasser"
+                }
+              },
+              {
+                "kode": "K835",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K835",
+                "tittel": {
+                  "eng": "perform daily controls and periodic maintenance on machines and equipment based on servicing the machines and using manuals",
+                  "nob": "utføre daglig kontroll og periodisk vedlikehold av maskiner og utstyr i henhold til service- og brukermanualer",
+                  "default": "utføre daglig kontroll og periodisk vedlikehold av maskiner og utstyr i henhold til service- og brukermanualer"
+                }
+              },
+              {
+                "kode": "K836",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K836",
+                "tittel": {
+                  "eng": "select and use correct tools, equipment and machines",
+                  "nob": "velge ut og bruke riktig verktøy, utstyr og maskiner",
+                  "default": "velge ut og bruke riktig verktøy, utstyr og maskiner"
+                }
+              },
+              {
+                "kode": "K837",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K837",
+                "tittel": {
+                  "nob": "beregne fall og vinkler og foreta nødvendige masseberegninger",
+                  "eng": "calculate slopes and angles, and do necessary calculation of quantities",
+                  "default": "beregne fall og vinkler og foreta nødvendige masseberegninger"
+                }
+              },
+              {
+                "kode": "K838",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K838",
+                "tittel": {
+                  "eng": "raise basic roads and rail surfaces according to drawings and descriptions",
+                  "nob": "utføre grunnleggende veg- og baneoppbygging etter tegninger og beskrivelser",
+                  "default": "utføre grunnleggende veg- og baneoppbygging etter tegninger og beskrivelser"
+                }
+              },
+              {
+                "kode": "K839",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K839",
+                "tittel": {
+                  "eng": "do basic work in digging ditches and digging for piping systems according to drawings and descriptions",
+                  "nob": "utføre grunnleggende arbeider med grøfter og ledningsanlegg etter tegninger og beskrivelser",
+                  "default": "utføre grunnleggende arbeider med grøfter og ledningsanlegg etter tegninger og beskrivelser"
+                }
+              },
+              {
+                "kode": "K840",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K840",
+                "tittel": {
+                  "eng": "prepare  blast and burst blasting plans",
+                  "nob": "utarbeide sprengnings- og salveplan",
+                  "default": "utarbeide sprengnings- og salveplan"
+                }
+              },
+              {
+                "kode": "K841",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K841",
+                "tittel": {
+                  "eng": "do drilling work and blasting according to prepared plans in accordance with applicable regulations",
+                  "nob": "utføre borearbeid og sprengning etter utarbeidet plan og i samsvar med gjeldende regelverk",
+                  "default": "utføre borearbeid og sprengning etter utarbeidet plan og i samsvar med gjeldende regelverk"
+                }
+              },
+              {
+                "kode": "K842",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K842",
+                "tittel": {
+                  "eng": "perform simple soil surveys and give an account of the properties of different soil types and rocks",
+                  "nob": "utføre enkle grunnundersøkelser og gjøre rede for egenskapene til forskjellige jordtyper og bergarter",
+                  "default": "utføre enkle grunnundersøkelser og gjøre rede for egenskapene til forskjellige jordtyper og bergarter"
+                }
+              },
+              {
+                "kode": "K843",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K843",
+                "tittel": {
+                  "nob": "bruke verne- og sikkerhetsutstyr",
+                  "eng": "use protective gear and safety equipment",
+                  "default": "bruke verne- og sikkerhetsutstyr"
+                }
+              },
+              {
+                "kode": "K844",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K844",
+                "tittel": {
+                  "eng": "follow requirement for environment, health and safety (EHS), and do quality controls on your own work",
+                  "nob": "følge krav til helse, miljø og sikkerhet og kvalitetssikre eget arbeid",
+                  "default": "følge krav til helse, miljø og sikkerhet og kvalitetssikre eget arbeid"
+                }
+              },
+              {
+                "kode": "K845",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K845",
+                "tittel": {
+                  "eng": "document having carried out safety course on use of earth-moving machines and related equipment",
+                  "nob": "dokumentere gjennomført sikkerhetskurs for bruk av masseforflytningsmaskiner og arbeidsutstyr",
+                  "default": "dokumentere gjennomført sikkerhetskurs for bruk av masseforflytningsmaskiner og arbeidsutstyr"
+                }
+              },
+              {
+                "kode": "K846",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K846",
+                "tittel": {
+                  "nob": "lese og bruke tegninger og beskrivelser",
+                  "eng": "read and use drawings and descriptions",
+                  "default": "lese og bruke tegninger og beskrivelser"
+                }
+              },
+              {
+                "kode": "K847",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K847",
+                "tittel": {
+                  "nob": "bruke relevant måleutstyr til oppmåling og utsetting av høyder og vinkler",
+                  "eng": "use relevant testing equipment for surveying and setting out heights and angles",
+                  "default": "bruke relevant måleutstyr til oppmåling og utsetting av høyder og vinkler"
+                }
+              },
+              {
+                "kode": "K848",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K848",
+                "tittel": {
+                  "eng": "give an account of current requirements related to the construction sites, operations and controls for ditch and digging work for piping systems",
+                  "nob": "gjøre rede for gjeldende krav til anlegg, drift og kontroll av grøfter og ledningsanlegg",
+                  "default": "gjøre rede for gjeldende krav til anlegg, drift og kontroll av grøfter og ledningsanlegg"
+                }
+              },
+              {
+                "kode": "K849",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K849",
+                "tittel": {
+                  "eng": "follow current requirements for handling and using explosive goods for blasting work under and above ground",
+                  "nob": "følge gjeldende krav til håndtering og bruk av eksplosiv vare for sprengningsarbeider under jord og i dagen",
+                  "default": "følge gjeldende krav til håndtering og bruk av eksplosiv vare for sprengningsarbeider under jord og i dagen"
+                }
+              },
+              {
+                "kode": "K850",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K850",
+                "tittel": {
+                  "eng": "create roadwork warnings for work on and alongside public roads",
+                  "nob": "utføre arbeidsvarsling for arbeider på og inntil offentlig veg",
+                  "default": "utføre arbeidsvarsling for arbeider på og inntil offentlig veg"
+                }
+              },
+              {
+                "kode": "K851",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K851",
+                "tittel": {
+                  "nob": "anvende digitale verktøy i kommunikasjon, planlegging og dokumentasjon av anleggsarbeider",
+                  "eng": "use digital tools in communication, planning and documentation of construction work",
+                  "default": "anvende digitale verktøy i kommunikasjon, planlegging og dokumentasjon av anleggsarbeider"
+                }
+              },
+              {
+                "kode": "K852",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K852",
+                "tittel": {
+                  "eng": "give an account of a system of agreements that regulates the relationship between employee and employer",
+                  "nob": "gjøre rede for avtaleverket som regulerer forholdet mellom arbeidstaker og arbeidsgiver",
+                  "default": "gjøre rede for avtaleverket som regulerer forholdet mellom arbeidstaker og arbeidsgiver"
+                }
+              },
+              {
+                "kode": "K853",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K853",
+                "tittel": {
+                  "eng": "do work according to laws, regulations and pre-accepted solutions",
+                  "nob": "utføre arbeid i henhold til lover, forskrifter og preaksepterte løsninger",
+                  "default": "utføre arbeid i henhold til lover, forskrifter og preaksepterte løsninger"
+                }
+              },
+              {
+                "kode": "K854",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K854",
+                "tittel": {
+                  "eng": "handle waste and materials in accordance with requirements for safety, environment and use of resources",
+                  "nob": "håndtere avfall og materialer i samsvar med krav til sikkerhet, miljø og ressursbruk",
+                  "default": "håndtere avfall og materialer i samsvar med krav til sikkerhet, miljø og ressursbruk"
+                }
+              }
+            ]
+          },
+          {
+            "kode": "BABYG2----",
+            "url-data": "https://data.udir.no/kl06/v201906/programomraader/BABYG2----",
+            "tittel": {
+              "nob": "Byggteknikk",
+              "eng": "Construction Techniques",
+              "sme": "Huksenteknihkka",
+              "nno": "Byggteknikk",
+              "default": "Byggteknikk"
+            },
+            "maal": [
+              {
+                "kode": "K684",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K684",
+                "tittel": {
+                  "nob": "utføre arbeid i henhold til gjeldende regelverk og preaksepterte løsninger",
+                  "default": "utføre arbeid i henhold til gjeldende regelverk og preaksepterte løsninger"
+                }
+              },
+              {
+                "kode": "K685",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K685",
+                "tittel": {
+                  "nob": "planlegge, utføre, dokumentere og vurdere eget arbeid",
+                  "default": "planlegge, utføre, dokumentere og vurdere eget arbeid"
+                }
+              },
+              {
+                "kode": "K686",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K686",
+                "tittel": {
+                  "nob": "velge ut, bruke og bearbeide materialer tilpasset arbeidsoppgaver",
+                  "default": "velge ut, bruke og bearbeide materialer tilpasset arbeidsoppgaver"
+                }
+              },
+              {
+                "kode": "K687",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K687",
+                "tittel": {
+                  "nob": "lese og bruke tegninger og beskrivelser",
+                  "default": "lese og bruke tegninger og beskrivelser"
+                }
+              },
+              {
+                "kode": "K688",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K688",
+                "tittel": {
+                  "nob": "bygge komplett, bærende yttervegg",
+                  "default": "bygge komplett, bærende yttervegg"
+                }
+              },
+              {
+                "kode": "K689",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K689",
+                "tittel": {
+                  "nob": "bygge og montere et bjelkelag",
+                  "default": "bygge og montere et bjelkelag"
+                }
+              },
+              {
+                "kode": "K690",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K690",
+                "tittel": {
+                  "nob": "utføre innvendig kledning med plater eller panel",
+                  "default": "utføre innvendig kledning med plater eller panel"
+                }
+              },
+              {
+                "kode": "K691",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K691",
+                "tittel": {
+                  "nob": "utføre tradisjonell veggforskaling",
+                  "default": "utføre tradisjonell veggforskaling"
+                }
+              },
+              {
+                "kode": "K692",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K692",
+                "tittel": {
+                  "nob": "kappe, bøye og montere armeringsjern etter bøyeliste og tegning",
+                  "default": "kappe, bøye og montere armeringsjern etter bøyeliste og tegning"
+                }
+              },
+              {
+                "kode": "K693",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K693",
+                "tittel": {
+                  "nob": "utføre teglsteinsmuring med ulike forbandløsninger til spekking",
+                  "default": "utføre teglsteinsmuring med ulike forbandløsninger til spekking"
+                }
+              },
+              {
+                "kode": "K694",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K694",
+                "tittel": {
+                  "nob": "utføre fliselegging på vegg",
+                  "default": "utføre fliselegging på vegg"
+                }
+              },
+              {
+                "kode": "K695",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K695",
+                "tittel": {
+                  "nob": "montere forskjellige typer stillas og utføre sikring",
+                  "default": "montere forskjellige typer stillas og utføre sikring"
+                }
+              },
+              {
+                "kode": "K696",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K696",
+                "tittel": {
+                  "nob": "utføre stropping, anhuking, signalgiving og rigging",
+                  "default": "utføre stropping, anhuking, signalgiving og rigging"
+                }
+              },
+              {
+                "kode": "K697",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K697",
+                "tittel": {
+                  "nob": "utføre enkle bygningsarbeider i våtrom",
+                  "default": "utføre enkle bygningsarbeider i våtrom"
+                }
+              },
+              {
+                "kode": "K698",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K698",
+                "tittel": {
+                  "nob": "velge ut, bruke og vedlikeholde verktøy og utstyr",
+                  "default": "velge ut, bruke og vedlikeholde verktøy og utstyr"
+                }
+              },
+              {
+                "kode": "K699",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K699",
+                "tittel": {
+                  "nob": "velge ut og bruke måleverktøy til å sette ut høyder og vinkler",
+                  "default": "velge ut og bruke måleverktøy til å sette ut høyder og vinkler"
+                }
+              },
+              {
+                "kode": "K700",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K700",
+                "tittel": {
+                  "nob": "foreta målinger og beregninger i forbindelse med konstruksjoner",
+                  "default": "foreta målinger og beregninger i forbindelse med konstruksjoner"
+                }
+              },
+              {
+                "kode": "K701",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K701",
+                "tittel": {
+                  "nob": "følge krav til helse, miljø og sikkerhet",
+                  "default": "følge krav til helse, miljø og sikkerhet"
+                }
+              },
+              {
+                "kode": "K702",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K702",
+                "tittel": {
+                  "nob": "dokumentere gjennomført kurs i varmearbeid",
+                  "default": "dokumentere gjennomført kurs i varmearbeid"
+                }
+              },
+              {
+                "kode": "K703",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K703",
+                "tittel": {
+                  "nob": "bruke verne- og sikkerhetsutstyr",
+                  "default": "bruke verne- og sikkerhetsutstyr"
+                }
+              },
+              {
+                "kode": "K704",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K704",
+                "tittel": {
+                  "nob": "håndtere avfall og materialer i samsvar med krav til sikkerhet, miljø og ressursbruk",
+                  "default": "håndtere avfall og materialer i samsvar med krav til sikkerhet, miljø og ressursbruk"
+                }
+              },
+              {
+                "kode": "K705",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K705",
+                "tittel": {
+                  "nob": "gjøre rede for fagenes historiske utvikling og diskutere deres betydning i et samfunnsperspektiv",
+                  "default": "gjøre rede for fagenes historiske utvikling og diskutere deres betydning i et samfunnsperspektiv"
+                }
+              },
+              {
+                "kode": "K706",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K706",
+                "tittel": {
+                  "nob": "tegne skisser og konstruksjoner i målestokk",
+                  "default": "tegne skisser og konstruksjoner i målestokk"
+                }
+              },
+              {
+                "kode": "K707",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K707",
+                "tittel": {
+                  "nob": "bruke digitale verktøy til å lage tegninger og foreta beregninger",
+                  "default": "bruke digitale verktøy til å lage tegninger og foreta beregninger"
+                }
+              },
+              {
+                "kode": "K708",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K708",
+                "tittel": {
+                  "nob": "gi eksempler på hvordan avtaleverket regulerer forholdet mellom arbeidstaker og arbeidsgiver",
+                  "default": "gi eksempler på hvordan avtaleverket regulerer forholdet mellom arbeidstaker og arbeidsgiver"
+                }
+              },
+              {
+                "kode": "K709",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K709",
+                "tittel": {
+                  "nob": "gjøre rede for saksgang i en enkel byggesak",
+                  "default": "gjøre rede for saksgang i en enkel byggesak"
+                }
+              },
+              {
+                "kode": "K710",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K710",
+                "tittel": {
+                  "nob": "gjøre rede for gjeldende regelverk for helse, miljø og sikkerhet som er relevant for byggteknikk",
+                  "default": "gjøre rede for gjeldende regelverk for helse, miljø og sikkerhet som er relevant for byggteknikk"
+                }
+              },
+              {
+                "kode": "K711",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K711",
+                "tittel": {
+                  "nob": "gjøre rede for egenskapene til de vanligste materialene som brukes i byggteknikk",
+                  "default": "gjøre rede for egenskapene til de vanligste materialene som brukes i byggteknikk"
+                }
+              }
+            ]
+          },
+          {
+            "kode": "BAKEM2----",
+            "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAKEM2----",
+            "tittel": {
+              "nob": "Klima-, energi- og miljøteknikk",
+              "eng": "Climate, Energy and Environment Work",
+              "sme": "Dálkkádat-, energiija- ja birasteknihkka",
+              "nno": "Klima-, energi- og miljøteknikk",
+              "default": "Klima-, energi- og miljøteknikk"
+            },
+            "maal": [
+              {
+                "kode": "K5913",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5913",
+                "tittel": {
+                  "nob": "utføre arbeid i henhold til regelverk og preaksepterte løsninger",
+                  "default": "utføre arbeid i henhold til regelverk og preaksepterte løsninger"
+                }
+              },
+              {
+                "kode": "K5914",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5914",
+                "tittel": {
+                  "nob": "bruke og vedlikeholde verktøy og maskiner",
+                  "default": "bruke og vedlikeholde verktøy og maskiner"
+                }
+              },
+              {
+                "kode": "K5915",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5915",
+                "tittel": {
+                  "nob": "følge retningslinjer for bruk av farlig arbeidsutstyr, verktøy og maskiner",
+                  "default": "følge retningslinjer for bruk av farlig arbeidsutstyr, verktøy og maskiner"
+                }
+              },
+              {
+                "kode": "K5916",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5916",
+                "tittel": {
+                  "nob": "bearbeide og bruke metaller, plast, isolasjon, tekkematerialer og kjemiske stoffer",
+                  "default": "bearbeide og bruke metaller, plast, isolasjon, tekkematerialer og kjemiske stoffer"
+                }
+              },
+              {
+                "kode": "K5917",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5917",
+                "tittel": {
+                  "nob": "utføre lodding, sveising og andre sammenføyninger med ulike metoder",
+                  "default": "utføre lodding, sveising og andre sammenføyninger med ulike metoder"
+                }
+              },
+              {
+                "kode": "K5918",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5918",
+                "tittel": {
+                  "nob": "utføre enkel isolering og brannsikring og gjøre rede for betydningen av dette",
+                  "default": "utføre enkel isolering og brannsikring og gjøre rede for betydningen av dette"
+                }
+              },
+              {
+                "kode": "K5919",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5919",
+                "tittel": {
+                  "nob": "feste ulike materialer i tre, gips, metall, lettbetong og betong",
+                  "default": "feste ulike materialer i tre, gips, metall, lettbetong og betong"
+                }
+              },
+              {
+                "kode": "K5920",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5920",
+                "tittel": {
+                  "nob": "tegne, utfolde, lage og montere ventilasjonsdeler",
+                  "default": "tegne, utfolde, lage og montere ventilasjonsdeler"
+                }
+              },
+              {
+                "kode": "K5921",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5921",
+                "tittel": {
+                  "nob": "montere enkelt varme- og sanitæranlegg",
+                  "default": "montere enkelt varme- og sanitæranlegg"
+                }
+              },
+              {
+                "kode": "K5922",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5922",
+                "tittel": {
+                  "nob": "ta mål av, tegne skisse for, produsere og montere beslagløsninger",
+                  "default": "ta mål av, tegne skisse for, produsere og montere beslagløsninger"
+                }
+              },
+              {
+                "kode": "K5923",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5923",
+                "tittel": {
+                  "nob": "utføre tak- og membrantekking med aktuelle materialtyper",
+                  "default": "utføre tak- og membrantekking med aktuelle materialtyper"
+                }
+              },
+              {
+                "kode": "K5924",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5924",
+                "tittel": {
+                  "nob": "velge ut relevante materialer og verktøy ut fra arbeidstegninger og beskrivelser",
+                  "default": "velge ut relevante materialer og verktøy ut fra arbeidstegninger og beskrivelser"
+                }
+              },
+              {
+                "kode": "K5925",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5925",
+                "tittel": {
+                  "nob": "planlegge, gjennomføre og vurdere eget arbeid",
+                  "default": "planlegge, gjennomføre og vurdere eget arbeid"
+                }
+              },
+              {
+                "kode": "K5926",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5926",
+                "tittel": {
+                  "nob": "utføre arbeid i henhold til kvalitetssikringssystem",
+                  "default": "utføre arbeid i henhold til kvalitetssikringssystem"
+                }
+              },
+              {
+                "kode": "K5927",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5927",
+                "tittel": {
+                  "nob": "utføre arbeid på økonomisk og rasjonell måte og i henhold til yrkesetiske normer og regler",
+                  "default": "utføre arbeid på økonomisk og rasjonell måte og i henhold til yrkesetiske normer og regler"
+                }
+              },
+              {
+                "kode": "K5928",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5928",
+                "tittel": {
+                  "nob": "finne fram til og bruke relevant produktinformasjon",
+                  "default": "finne fram til og bruke relevant produktinformasjon"
+                }
+              },
+              {
+                "kode": "K5929",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5929",
+                "tittel": {
+                  "nob": "bruke verne- og sikkerhetsutstyr",
+                  "default": "bruke verne- og sikkerhetsutstyr"
+                }
+              },
+              {
+                "kode": "K5930",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5930",
+                "tittel": {
+                  "nob": "bruke arbeidsplattformer og stiger",
+                  "default": "bruke arbeidsplattformer og stiger"
+                }
+              },
+              {
+                "kode": "K5931",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5931",
+                "tittel": {
+                  "nob": "vurdere risiko og utføre arbeid etter regler for helse, miljø og sikkerhet",
+                  "default": "vurdere risiko og utføre arbeid etter regler for helse, miljø og sikkerhet"
+                }
+              },
+              {
+                "kode": "K5932",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5932",
+                "tittel": {
+                  "nob": "gjøre rede for fagenes historiske utvikling og diskutere deres betydning i et samfunnsperspektiv",
+                  "default": "gjøre rede for fagenes historiske utvikling og diskutere deres betydning i et samfunnsperspektiv"
+                }
+              },
+              {
+                "kode": "K5933",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5933",
+                "tittel": {
+                  "nob": "utføre kostnadsberegninger og andre relevante beregninger",
+                  "default": "utføre kostnadsberegninger og andre relevante beregninger"
+                }
+              },
+              {
+                "kode": "K5934",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5934",
+                "tittel": {
+                  "nob": "beregne og vurdere styrkeforhold i konstruksjoner og installasjoner",
+                  "default": "beregne og vurdere styrkeforhold i konstruksjoner og installasjoner"
+                }
+              },
+              {
+                "kode": "K5935",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5935",
+                "tittel": {
+                  "nob": "lage fagtegninger med riktige dimensjoner og symboler, og i målestokk",
+                  "default": "lage fagtegninger med riktige dimensjoner og symboler, og i målestokk"
+                }
+              },
+              {
+                "kode": "K5936",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5936",
+                "tittel": {
+                  "nob": "bruke digitale verktøy til å hente inn informasjon, lage tegninger og dokumentere arbeidet",
+                  "default": "bruke digitale verktøy til å hente inn informasjon, lage tegninger og dokumentere arbeidet"
+                }
+              },
+              {
+                "kode": "K5937",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5937",
+                "tittel": {
+                  "nob": "forebygge lekkasje og kondensproblemer",
+                  "default": "forebygge lekkasje og kondensproblemer"
+                }
+              },
+              {
+                "kode": "K5938",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5938",
+                "tittel": {
+                  "nob": "utføre enkle arbeidsoppgaver i våtrom",
+                  "default": "utføre enkle arbeidsoppgaver i våtrom"
+                }
+              },
+              {
+                "kode": "K5939",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5939",
+                "tittel": {
+                  "nob": "gjøre rede for ulike oppvarmings- og ventilasjonssystemer og diskutere energisparende tiltak og alternative energiløsninger",
+                  "default": "gjøre rede for ulike oppvarmings- og ventilasjonssystemer og diskutere energisparende tiltak og alternative energiløsninger"
+                }
+              },
+              {
+                "kode": "K5940",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5940",
+                "tittel": {
+                  "nob": "håndtere avfall, helsefarlige kjemikalier og gasser i samsvar med krav til sikkerhet, miljø og ressursbruk",
+                  "default": "håndtere avfall, helsefarlige kjemikalier og gasser i samsvar med krav til sikkerhet, miljø og ressursbruk"
+                }
+              },
+              {
+                "kode": "K5941",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5941",
+                "tittel": {
+                  "nob": "lese monteringsanvisninger og kunne anvende disse",
+                  "default": "lese monteringsanvisninger og kunne anvende disse"
+                }
+              },
+              {
+                "kode": "K5942",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5942",
+                "tittel": {
+                  "nob": "gjøre rede for aktuelle lover og forskrifter og utføre arbeidet i henhold til disse",
+                  "default": "gjøre rede for aktuelle lover og forskrifter og utføre arbeidet i henhold til disse"
+                }
+              },
+              {
+                "kode": "K5943",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5943",
+                "tittel": {
+                  "nob": "utføre anhuking, stropping og signalvisning ved forflytting av materialer og utstyr",
+                  "default": "utføre anhuking, stropping og signalvisning ved forflytting av materialer og utstyr"
+                }
+              },
+              {
+                "kode": "K5944",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K5944",
+                "tittel": {
+                  "nob": "dokumentere gjennomført kurs i varmearbeid",
+                  "default": "dokumentere gjennomført kurs i varmearbeid"
+                }
+              }
+            ]
+          },
+          {
+            "kode": "BAOFT2----",
+            "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAOFT2----",
+            "tittel": {
+              "nob": "Overflateteknikk",
+              "eng": "Surface Treatment Work",
+              "sme": "Bajildusteknihkka",
+              "nno": "Overflateteknikk",
+              "default": "Overflateteknikk"
+            },
+            "maal": [
+              {
+                "kode": "K8042",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8042",
+                "tittel": {
+                  "eng": "give an account of and perform work according to laws, regulations and standards",
+                  "nno": "gjere greie for og utføre arbeid i samsvar med lover, forskrifter og standardar",
+                  "default": "gjere greie for og utføre arbeid i samsvar med lover, forskrifter og standardar"
+                }
+              },
+              {
+                "kode": "K8043",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8043",
+                "tittel": {
+                  "eng": "plan, perform, document and evaluate own work",
+                  "nno": "planleggje, utføre, dokumentere og vurdere eige arbeid",
+                  "default": "planleggje, utføre, dokumentere og vurdere eige arbeid"
+                }
+              },
+              {
+                "kode": "K8044",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8044",
+                "tittel": {
+                  "eng": "control and evaluate surfaces and find visible errors or deficiencies",
+                  "nno": "kontrollere og vurdere underlaget og påvise synlege feil eller manglar",
+                  "default": "kontrollere og vurdere underlaget og påvise synlege feil eller manglar"
+                }
+              },
+              {
+                "kode": "K8045",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8045",
+                "tittel": {
+                  "nno": "rapportere avvik og utbetre feil og manglar",
+                  "eng": "report deviations and do improvements to problems or deficiencies",
+                  "default": "rapportere avvik og utbetre feil og manglar"
+                }
+              },
+              {
+                "kode": "K8046",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8046",
+                "tittel": {
+                  "eng": "evaluate the need for and perform surface treatment on organic, mineral and metallic surfaces",
+                  "nno": "vurdere behov for og utføre overflatebehandling på organiske, mineralske og metalliske underlag",
+                  "default": "vurdere behov for og utføre overflatebehandling på organiske, mineralske og metalliske underlag"
+                }
+              },
+              {
+                "kode": "K8047",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8047",
+                "tittel": {
+                  "eng": "evaluate the need for and perform regular and periodic maintenance based on material properties, conditions and areas of use for surfaces",
+                  "nno": "vurdere behov for og utføre regelmessig og periodisk vedlikehald ut frå eigenskapane, tilstanden, og bruksområdet til overflata",
+                  "default": "vurdere behov for og utføre regelmessig og periodisk vedlikehald ut frå eigenskapane, tilstanden, og bruksområdet til overflata"
+                }
+              },
+              {
+                "kode": "K8048",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8048",
+                "tittel": {
+                  "eng": "select, handle and care for materials",
+                  "nno": "velje ut, handtere og oppbevare materiale",
+                  "default": "velje ut, handtere og oppbevare materiale"
+                }
+              },
+              {
+                "kode": "K8049",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8049",
+                "tittel": {
+                  "eng": "select, use and maintain tools, machines and equipment",
+                  "nno": "velje ut, bruke og halde ved like verktøy, maskiner og utstyr",
+                  "default": "velje ut, bruke og halde ved like verktøy, maskiner og utstyr"
+                }
+              },
+              {
+                "kode": "K8050",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8050",
+                "tittel": {
+                  "nno": "bruke fargesystem i samband med fargesetjing av overflater",
+                  "eng": "use colour systems together with colouration of surfaces",
+                  "default": "bruke fargesystem i samband med fargesetjing av overflater"
+                }
+              },
+              {
+                "kode": "K8051",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8051",
+                "tittel": {
+                  "eng": "do calculations for treating surfaces",
+                  "nno": "gjere berekningar omkring behandling av overflater",
+                  "default": "gjere berekningar omkring behandling av overflater"
+                }
+              },
+              {
+                "kode": "K8052",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8052",
+                "tittel": {
+                  "nno": "arbeide på ein økonomisk og rasjonell måte",
+                  "eng": "work in an economic and rational manner",
+                  "default": "arbeide på ein økonomisk og rasjonell måte"
+                }
+              },
+              {
+                "kode": "K8053",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8053",
+                "tittel": {
+                  "eng": "perform work in accordance with requirements to EHS",
+                  "nno": "utføre arbeid i samsvar med krav til helse, miljø og tryggleik",
+                  "default": "utføre arbeid i samsvar med krav til helse, miljø og tryggleik"
+                }
+              },
+              {
+                "kode": "K8054",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8054",
+                "tittel": {
+                  "nno": "bruke verne- og tryggleiksutstyr",
+                  "eng": "use protection and safety equipment",
+                  "default": "bruke verne- og tryggleiksutstyr"
+                }
+              },
+              {
+                "kode": "K8055",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8055",
+                "tittel": {
+                  "nno": "lese og bruke relevante teikningar og beskrivingar",
+                  "eng": "read and use relevant drawing and descriptions",
+                  "default": "lese og bruke relevante teikningar og beskrivingar"
+                }
+              },
+              {
+                "kode": "K8056",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8056",
+                "tittel": {
+                  "nno": "bruke digitale verktøy til å hente inn informasjon, kommunisere og kvalitetssikre eige arbeid",
+                  "eng": "use digital tools to gather information, communicate and control the quality of their own work",
+                  "default": "bruke digitale verktøy til å hente inn informasjon, kommunisere og kvalitetssikre eige arbeid"
+                }
+              },
+              {
+                "kode": "K8057",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8057",
+                "tittel": {
+                  "eng": "discuss ethical rules and norms for the trade, and consider principles for good customer service",
+                  "nno": "diskutere etiske reglar og normer for bransjen og prinsipp for god kundebehandling",
+                  "default": "diskutere etiske reglar og normer for bransjen og prinsipp for god kundebehandling"
+                }
+              },
+              {
+                "kode": "K8058",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8058",
+                "tittel": {
+                  "nno": "bruke stigar, arbeidsplattformer og stillas",
+                  "eng": "use ladders, working platforms and scaffolding",
+                  "default": "bruke stigar, arbeidsplattformer og stillas"
+                }
+              },
+              {
+                "kode": "K8059",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8059",
+                "tittel": {
+                  "eng": "handle chemicals, waste and materials in accordance with regulations for EHS and resource use",
+                  "nno": "handtere kjemikalium, avfall og materiale i samsvar med krav til tryggleik, miljø og ressursbruk",
+                  "default": "handtere kjemikalium, avfall og materiale i samsvar med krav til tryggleik, miljø og ressursbruk"
+                }
+              },
+              {
+                "kode": "K8060",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K8060",
+                "tittel": {
+                  "eng": "give an account of systems of agreements that regulate the relationship between employer and employee",
+                  "nno": "gjere greie for avtaleverket som regulerer forholdet mellom arbeidstakar og arbeidsgjevar",
+                  "default": "gjere greie for avtaleverket som regulerer forholdet mellom arbeidstakar og arbeidsgjevar"
+                }
+              }
+            ]
+          },
+          {
+            "kode": "BATRT2----",
+            "url-data": "https://data.udir.no/kl06/v201906/programomraader/BATRT2----",
+            "tittel": {
+              "nob": "Treteknikk",
+              "eng": "Woodworking",
+              "sme": "Muorrateknihkka",
+              "nno": "Treteknikk",
+              "default": "Treteknikk"
+            },
+            "maal": [
+              {
+                "kode": "K960",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K960",
+                "tittel": {
+                  "eng": "give an account of historical development in the trade, and discuss its social significance",
+                  "nob": "gjøre rede for fagenes historiske utvikling og diskutere deres betydning i samfunnsperspektiv",
+                  "default": "gjøre rede for fagenes historiske utvikling og diskutere deres betydning i samfunnsperspektiv"
+                }
+              },
+              {
+                "kode": "K961",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K961",
+                "tittel": {
+                  "eng": "discuss what the forest means as a resource and source of raw materials",
+                  "nob": "diskutere hva skogen betyr som ressurs og råstoffkilde",
+                  "default": "diskutere hva skogen betyr som ressurs og råstoffkilde"
+                }
+              },
+              {
+                "kode": "K962",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K962",
+                "tittel": {
+                  "eng": "give an account of the properties of and areas of use for wooden and other relevant materials",
+                  "nob": "gjøre rede for egenskaper ved og bruksområder for trematerialer og andre relevante materialer",
+                  "default": "gjøre rede for egenskaper ved og bruksområder for trematerialer og andre relevante materialer"
+                }
+              },
+              {
+                "kode": "K963",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K963",
+                "tittel": {
+                  "eng": "measure and calculate moisture in wood and give an account of how drying processes influence material properties",
+                  "nob": "måle og beregne trefuktighet og gjøre rede for hvordan tørkeprosessen påvirker materialenes egenskaper",
+                  "default": "måle og beregne trefuktighet og gjøre rede for hvordan tørkeprosessen påvirker materialenes egenskaper"
+                }
+              },
+              {
+                "kode": "K964",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K964",
+                "tittel": {
+                  "eng": "give an account of the properties of, areas of use for and application methods for various glues",
+                  "nob": "gjøre rede for egenskaper, bruksområder og påføringsmetoder for aktuelle limtyper",
+                  "default": "gjøre rede for egenskaper, bruksområder og påføringsmetoder for aktuelle limtyper"
+                }
+              },
+              {
+                "kode": "K965",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K965",
+                "tittel": {
+                  "eng": "discuss and elaborate on the interrelationship between idea, design and production technique",
+                  "nob": "drøfte sammenhenger mellom idé, design og produksjonsteknikk",
+                  "default": "drøfte sammenhenger mellom idé, design og produksjonsteknikk"
+                }
+              },
+              {
+                "kode": "K966",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K966",
+                "tittel": {
+                  "nob": "bruke tegninger i planlegging og produksjon",
+                  "eng": "use drawings in planning and production",
+                  "default": "bruke tegninger i planlegging og produksjon"
+                }
+              },
+              {
+                "kode": "K967",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K967",
+                "tittel": {
+                  "nob": "bruke dataassisterte tegneprogrammer til å lage skjemategninger, enkle arbeidstegninger og arbeidsbeskrivelser og overføre disse til en datastyrt maskin",
+                  "eng": "use computer-controlled drawing programs to create schematics, simple working drawings and work descriptions and transfer these to a computer-controlled machine",
+                  "default": "bruke dataassisterte tegneprogrammer til å lage skjemategninger, enkle arbeidstegninger og arbeidsbeskrivelser og overføre disse til en datastyrt maskin"
+                }
+              },
+              {
+                "kode": "K968",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K968",
+                "tittel": {
+                  "eng": "give an account of central environmental standards and norms for quality in the area of woodworking",
+                  "nob": "gjøre rede for sentrale miljø- og kvalitetsstandarder innen treteknikk",
+                  "default": "gjøre rede for sentrale miljø- og kvalitetsstandarder innen treteknikk"
+                }
+              },
+              {
+                "kode": "K969",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K969",
+                "tittel": {
+                  "nob": "gi eksempler på hvordan avtaleverket regulerer forholdet mellom arbeidstaker og arbeidsgiver",
+                  "eng": "give examples of how a system of agreements regulates a relationship between employee and employer",
+                  "default": "gi eksempler på hvordan avtaleverket regulerer forholdet mellom arbeidstaker og arbeidsgiver"
+                }
+              },
+              {
+                "kode": "K970",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K970",
+                "tittel": {
+                  "eng": "perform work according to current applicable regulations and pre-accepted solutions",
+                  "nob": "utføre arbeidet i henhold til gjeldende regelverk og preaksepterte løsninger",
+                  "default": "utføre arbeidet i henhold til gjeldende regelverk og preaksepterte løsninger"
+                }
+              },
+              {
+                "kode": "K971",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K971",
+                "tittel": {
+                  "eng": "plan, perform, document and evaluate own work",
+                  "nob": "planlegge, utføre, dokumentere og vurdere eget arbeid",
+                  "default": "planlegge, utføre, dokumentere og vurdere eget arbeid"
+                }
+              },
+              {
+                "kode": "K972",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K972",
+                "tittel": {
+                  "nob": "lage ulike typer trevareprodukter til bygg etter tegninger og beskrivelser",
+                  "eng": "make different wood products for use in the building industry based on drawings and descriptions",
+                  "default": "lage ulike typer trevareprodukter til bygg etter tegninger og beskrivelser"
+                }
+              },
+              {
+                "kode": "K973",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K973",
+                "tittel": {
+                  "eng": "adjustments and use relevant tools, woodworking equipment and assembly equipment for producing different wooden products",
+                  "nob": "stille inn og bruke relevante verktøy og trearbeids- og sammensetningsutstyr for produksjon av ulike trevareprodukter",
+                  "default": "stille inn og bruke relevante verktøy og trearbeids- og sammensetningsutstyr for produksjon av ulike trevareprodukter"
+                }
+              },
+              {
+                "kode": "K974",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K974",
+                "tittel": {
+                  "eng": "maintain tools, equipment and machines",
+                  "nob": "vedlikeholde verktøy, utstyr og maskiner",
+                  "default": "vedlikeholde verktøy, utstyr og maskiner"
+                }
+              },
+              {
+                "kode": "K975",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K975",
+                "tittel": {
+                  "nob": "overflatebehandle trevareprodukter og gjøre rede for ulike trebeskyttelsesmetoder",
+                  "eng": "treat the surfaces of wooden products and give an account of different methods for protecting wood",
+                  "default": "overflatebehandle trevareprodukter og gjøre rede for ulike trebeskyttelsesmetoder"
+                }
+              },
+              {
+                "kode": "K976",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K976",
+                "tittel": {
+                  "eng": "program and use computer-controlled machines to create parts for simple wooden products",
+                  "nob": "programmere og bruke en datastyrt maskin til å lage deler til trevareprodukter og enkle ferdigprodukter",
+                  "default": "programmere og bruke en datastyrt maskin til å lage deler til trevareprodukter og enkle ferdigprodukter"
+                }
+              },
+              {
+                "kode": "K977",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K977",
+                "tittel": {
+                  "nob": "bruke riktige arbeidsteknikker og arbeidsstillinger",
+                  "eng": "use correct working techniques and working postures",
+                  "default": "bruke riktige arbeidsteknikker og arbeidsstillinger"
+                }
+              },
+              {
+                "kode": "K978",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K978",
+                "tittel": {
+                  "nob": "bruke verne- og sikkerhetsutstyr",
+                  "eng": "use protective gear and safety equipment",
+                  "default": "bruke verne- og sikkerhetsutstyr"
+                }
+              },
+              {
+                "kode": "K979",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K979",
+                "tittel": {
+                  "eng": "plan and do work in accordance with requirements for EHS",
+                  "nob": "planlegge og gjennomføre arbeid i samsvar med krav til helse, miljø og sikkerhet",
+                  "default": "planlegge og gjennomføre arbeid i samsvar med krav til helse, miljø og sikkerhet"
+                }
+              },
+              {
+                "kode": "K980",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K980",
+                "tittel": {
+                  "eng": "do quality controls on own work",
+                  "nob": "kvalitetssikre eget arbeid",
+                  "default": "kvalitetssikre eget arbeid"
+                }
+              },
+              {
+                "kode": "K981",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K981",
+                "tittel": {
+                  "eng": "handle materials and waste in accordance with requirements for safety, environment and resource use",
+                  "nob": "håndtere materialer og avfall i samsvar med krav til sikkerhet, miljø og ressursbruk",
+                  "default": "håndtere materialer og avfall i samsvar med krav til sikkerhet, miljø og ressursbruk"
+                }
+              },
+              {
+                "kode": "K982",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K982",
+                "tittel": {
+                  "eng": "discuss and elaborate on the central principles for material and production management, and organize cutting lists and materials lists for the products in question",
+                  "nob": "drøfte sentrale prinsipper for material- og produksjonsstyring og sette opp kapp- og materiallister for aktuelle produkter",
+                  "default": "drøfte sentrale prinsipper for material- og produksjonsstyring og sette opp kapp- og materiallister for aktuelle produkter"
+                }
+              },
+              {
+                "kode": "K983",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal/K983",
+                "tittel": {
+                  "eng": "assemble parts for products based on drawings and descriptions, and give an account of methods and principles of assembly ",
+                  "nob": "sette sammen deler til produkter ut fra tegninger og beskrivelser, og gjøre rede for metoder og prinsipper for sammensetting",
+                  "default": "sette sammen deler til produkter ut fra tegninger og beskrivelser, og gjøre rede for metoder og prinsipper for sammensetting"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kode": "vg1",
+        "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
+        "tittel": {
+          "nno": "Vidaregåande trinn 1",
+          "nob": "Videregående trinn 1",
+          "default": "Videregående trinn 1"
+        },
+        "programomraader": [
+          {
+            "kode": "BABAT1----",
+            "url-data": "https://data.udir.no/kl06/v201906/programomraader/BABAT1----",
+            "tittel": {
+              "nob": "Bygg- og anleggsteknikk",
+              "eng": "Building and Construction",
+              "sme": "Huksen- ja ráhkadusteknihkka",
+              "nno": "Bygg- og anleggsteknikk",
+              "default": "Bygg- og anleggsteknikk"
+            },
+            "maal": [
+              {
+                "kode": "KM2677",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2677",
+                "tittel": {
+                  "default": "vurdere risiko og utføre forebyggende tiltak",
+                  "nob": "vurdere risiko og utføre forebyggende tiltak"
+                }
+              },
+              {
+                "kode": "KM2678",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2678",
+                "tittel": {
+                  "default": "utforske og presentere kjennetegn ved kulturarv og byggeskikk",
+                  "nob": "utforske og presentere kjennetegn ved kulturarv og byggeskikk"
+                }
+              },
+              {
+                "kode": "KM2679",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2679",
+                "tittel": {
+                  "default": "bruke enkel tredimensjonal modellering i arbeidsoppdrag",
+                  "nob": "bruke enkel tredimensjonal modellering i arbeidsoppdrag"
+                }
+              },
+              {
+                "kode": "KM2680",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2680",
+                "tittel": {
+                  "default": "bruke digitale ressurser til å beregne, måle opp og merke etter beskrivelse og tegning",
+                  "nob": "bruke digitale ressurser til å beregne, måle opp og merke etter beskrivelse og tegning"
+                }
+              },
+              {
+                "kode": "KM2681",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2681",
+                "tittel": {
+                  "default": "oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte",
+                  "nob": "oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte"
+                }
+              },
+              {
+                "kode": "KM2682",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2682",
+                "tittel": {
+                  "default": "velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner",
+                  "nob": "velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner"
+                }
+              },
+              {
+                "kode": "KM2683",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2683",
+                "tittel": {
+                  "default": "velge ut og bruke personlig verneutstyr og vurdere konsekvenser av feilbruk",
+                  "nob": "velge ut og bruke personlig verneutstyr og vurdere konsekvenser av feilbruk"
+                }
+              },
+              {
+                "kode": "KM2684",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2684",
+                "tittel": {
+                  "default": "montere og bruke arbeidsplattformer opp til 5 meter og gjennomføre risikotiltak ved arbeid i høyden",
+                  "nob": "montere og bruke arbeidsplattformer opp til 5 meter og gjennomføre risikotiltak ved arbeid i høyden"
+                }
+              },
+              {
+                "kode": "KM2685",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2685",
+                "tittel": {
+                  "default": "velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering",
+                  "nob": "velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering"
+                }
+              },
+              {
+                "kode": "KM2686",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2686",
+                "tittel": {
+                  "default": "tegne skisser og konstruksjoner i målestokk",
+                  "nob": "tegne skisser og konstruksjoner i målestokk"
+                }
+              },
+              {
+                "kode": "KM2687",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2687",
+                "tittel": {
+                  "default": "forstå og arbeide etter tegninger og beskrivelser",
+                  "nob": "forstå og arbeide etter tegninger og beskrivelser"
+                }
+              },
+              {
+                "kode": "KM2688",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2688",
+                "tittel": {
+                  "default": "vurdere hvordan miljø- og klimaendringer påvirker bygg- og anleggsbransjen",
+                  "nob": "vurdere hvordan miljø- og klimaendringer påvirker bygg- og anleggsbransjen"
+                }
+              },
+              {
+                "kode": "KM2689",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2689",
+                "tittel": {
+                  "default": "planlegge og bygge en konstruksjon",
+                  "nob": "planlegge og bygge en konstruksjon"
+                }
+              },
+              {
+                "kode": "KM2690",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2690",
+                "tittel": {
+                  "default": "forstå og bruke fagterminologi i samhandling med ulike målgrupper",
+                  "nob": "forstå og bruke fagterminologi i samhandling med ulike målgrupper"
+                }
+              },
+              {
+                "kode": "KM2691",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2691",
+                "tittel": {
+                  "default": "gjøre rede for og vurdere hvordan partene i arbeidslivet samarbeider for å utvikle et bedre arbeidsliv",
+                  "nob": "gjøre rede for og vurdere hvordan partene i arbeidslivet samarbeider for å utvikle et bedre arbeidsliv"
+                }
+              },
+              {
+                "kode": "KM2692",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2692",
+                "tittel": {
+                  "default": "kildesortere avfall etter gitte retningslinjer og reflektere over konsekvenser av feilhåndtering av avfall.",
+                  "nob": "kildesortere avfall etter gitte retningslinjer og reflektere over konsekvenser av feilhåndtering av avfall."
+                }
+              },
+              {
+                "kode": "KM2693",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2693",
+                "tittel": {
+                  "default": "vedlikeholde maskiner og verktøy",
+                  "nob": "vedlikeholde maskiner og verktøy"
+                }
+              },
+              {
+                "kode": "KM2694",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2694",
+                "tittel": {
+                  "default": "planlegge, gjennomføre, vurdere og dokumentere eget arbeid",
+                  "nob": "planlegge, gjennomføre, vurdere og dokumentere eget arbeid"
+                }
+              },
+              {
+                "kode": "KM2695",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2695",
+                "tittel": {
+                  "default": "vurdere risiko og følge rutiner for å stroppe, anhuke og gi signal ved lasting og lossing",
+                  "nob": "vurdere risiko og følge rutiner for å stroppe, anhuke og gi signal ved lasting og lossing"
+                }
+              },
+              {
+                "kode": "KM2696",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2696",
+                "tittel": {
+                  "default": "gjøre rede for betydningen av orden på bygge- og anleggsplasser og følge rutiner for dette",
+                  "nob": "gjøre rede for betydningen av orden på bygge- og anleggsplasser og følge rutiner for dette"
+                }
+              },
+              {
+                "kode": "KM2697",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2697",
+                "tittel": {
+                  "default": "beskrive og bruke arbeidsteknikker og arbeidsstillinger som forebygger helseskader",
+                  "nob": "beskrive og bruke arbeidsteknikker og arbeidsstillinger som forebygger helseskader"
+                }
+              },
+              {
+                "kode": "KM2698",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2698",
+                "tittel": {
+                  "default": "anvende sikkerhetsdatablad og følge anvisninger ved bruk av kjemikalier",
+                  "nob": "anvende sikkerhetsdatablad og følge anvisninger ved bruk av kjemikalier"
+                }
+              },
+              {
+                "kode": "KM2699",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2699",
+                "tittel": {
+                  "default": "gjøre rede for varme arbeider som brannårsak, gjennomføre sikkerhetstiltak og hindre brann",
+                  "nob": "gjøre rede for varme arbeider som brannårsak, gjennomføre sikkerhetstiltak og hindre brann"
+                }
+              },
+              {
+                "kode": "KM2700",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2700",
+                "tittel": {
+                  "default": "utføre livreddende førstehjelp",
+                  "nob": "utføre livreddende førstehjelp"
+                }
+              },
+              {
+                "kode": "KM2701",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2701",
+                "tittel": {
+                  "default": "gjennomføre og dokumentere arbeid i samsvar med gjeldende bestemmelser for helse, miljø og sikkerhet, og rapportere om uønskede hendelser",
+                  "nob": "gjennomføre og dokumentere arbeid i samsvar med gjeldende bestemmelser for helse, miljø og sikkerhet, og rapportere om uønskede hendelser"
+                }
+              },
+              {
+                "kode": "KM2702",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2702",
+                "tittel": {
+                  "default": "kommunisere og formidle budskap tilpasset ulike målgrupper",
+                  "nob": "kommunisere og formidle budskap tilpasset ulike målgrupper"
+                }
+              },
+              {
+                "kode": "KM2703",
+                "url-data": "https://data.udir.no/kl06/v201906/kompetansemaal-lk20/KM2703",
+                "tittel": {
+                  "default": "beskrive hvilke krav og forventninger samfunnet stiller til en profesjonell yrkesutøver, og reflektere over egen praksis",
+                  "nob": "beskrive hvilke krav og forventninger samfunnet stiller til en profesjonell yrkesutøver, og reflektere over egen praksis"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
