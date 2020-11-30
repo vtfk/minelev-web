@@ -2,9 +2,16 @@ import * as React from 'react'
 import { API } from '../config/app'
 
 /**
+ * @typedef {Object} Hook
+ * @property {Array} data - resultatet fra grep
+ * @property {string} query - spørringen mot grep
+ * @property {Function} setQuery - setter ny query i state
+ */
+
+/**
  * Send inn kode, få utdanningsprogram fra grep api
- * @param {<Promise>} fetcher funksjon for å hente data fra url
- * @returns {object} data og setQuery
+ * @param {Function} fetcher funksjon for å hente data fra url
+ * @returns {Hook} data og setQuery
  */
 function useGrep (fetcher) {
   const [data, setData] = React.useState(false)
@@ -21,6 +28,7 @@ function useGrep (fetcher) {
 
   return {
     data,
+    query,
     setQuery
   }
 }
