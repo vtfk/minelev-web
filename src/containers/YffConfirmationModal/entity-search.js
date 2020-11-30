@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react'
 import useBrreg from '../../hooks/use-brreg'
 import { TextField } from '../../_lib-components/TextField'
 
-const NoneFound = () => {
+const NoneFound = props => {
+  const { searchValue, data } = props
+  const kanViseKomponent = searchValue && (data && data.data && data.data.length === 0)
+  if (!kanViseKomponent) {
+    return null
+  }
   return (
     <div>
       Ingen funnet, vennligst forsøk andre søkefraser
@@ -41,7 +46,7 @@ const EntitySearch = props => {
         onBlur={startBrregSok}
         searchAction={startBrregSok}
       />
-      {searchValue && data && data.data.length === 0 && <NoneFound />}
+      <NoneFound searchValue={searchValue} data={data} />
     </div>
   )
 }
