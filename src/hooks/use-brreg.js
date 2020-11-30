@@ -1,10 +1,18 @@
+/** @module useBrreg */
 import * as React from 'react'
 import { API } from '../config/app'
 
 /**
+ * @typedef {Object} Hook
+ * @property {Array} data - resultatet fra brreg
+ * @property {string} query - spørringen mot brreg
+ * @property {Function} setQuery - setter ny query i state
+ */
+
+/**
  * Send inn firmanavn, få svar fra Brreg
  * @param {Function} fetcher funksjon for å hente data fra url
- * @returns {object} data, query og setQuery
+ * @return {Hook} data, query, setQuery
  */
 
 function useBrreg (fetcher) {
