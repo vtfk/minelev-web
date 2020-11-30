@@ -10,7 +10,6 @@ import { useSession } from '@vtfk/react-msal'
 
 import { Heading2, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { Icon } from '../../_lib-components/Icon'
 import { CardLink } from '../../_lib-components/CardLink'
 
@@ -45,18 +44,12 @@ export function Student ({ match, ...props }) {
     async function getDocuments () {
       const docs = await apiGet(API.URL + '/students/' + id + '/documents')
       const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
-      setDocuments(docsOrderedByModified)
+      const docsExceptNotes = docsOrderedByModified.filter((item) => item.type !== 'notat')
+      const notes = docsOrderedByModified.filter((item) => item.type === 'notat')
+      setDocuments(docsExceptNotes)
+      setNotes(notes)
     }
     getDocuments()
-
-    async function getNotes () {
-      const n = await apiGet(API.URL + '/students/' + id + '/documents?type=notat')
-
-      if (n.data) {
-        setNotes(n.data)
-      }
-    }
-    getNotes()
   }, [])
 
   function openConfirmationModal () {
@@ -200,7 +193,7 @@ export function Student ({ match, ...props }) {
 
               <div className='activity-panel'>
                 <Heading3 as='h2' className='panel-title'>
-                  <Icon name='activity' size='small' /> Aktivitet
+                  <Icon name='activity' size='small' /> Varsler og samtaler
                 </Heading3>
 
                 <table className='activity-panel-table'>
@@ -210,10 +203,10 @@ export function Student ({ match, ...props }) {
                         return (
                           <tr key={doc.id}>
                             <td>
-                              <Paragraph>{doc.type}</Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
+                              <Paragraph>{doc.type}</Paragraph>
                             </td>
                             <td>
                               <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
@@ -256,20 +249,13 @@ export function Student ({ match, ...props }) {
                             <td>
                               <Paragraph>{note.status && note.status[note.status.length - 1] ? note.status[note.status.length - 1].status : '-'}</Paragraph>
                             </td>
-                            <td>
-                              <IconDropdownNav>
-                                <IconDropdownNavItem onClick={() => { openDocumentModal(note) }} title='Nytt dokument' />
-                                <IconDropdownNavItem onClick={() => { openNoteModal(note) }} title='Nytt notat' />
-                                <IconDropdownNavItem href={`/${ROUTES.students}/${note.student.username}`} title={`YFF for ${note.student.name}`} />
-                              </IconDropdownNav>
-                            </td>
                           </tr>
                         )
                       })
                     }
 
                     {
-                      !notes &&
+                      notes.length === 0 &&
                         <tr>
                           <td style={{ textAlign: 'left' }}>
                             <Paragraph>Denne eleven har ingen notater.</Paragraph>

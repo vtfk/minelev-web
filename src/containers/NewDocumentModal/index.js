@@ -18,12 +18,17 @@ import './styles.scss'
 
 export function NewDocumentModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
+  const [previewModalState, setPreviewModalState] = useState(false)
   const [type, setType] = useState(null)
   const [behaviourReasons, setBehaviourReasons] = useState([])
   const [courseReasons, setCourseReasons] = useState([])
   const [orderReasons, setOrderReasons] = useState([])
   const [conversationStatus, setConversationStatus] = useState([])
-  const [previewModalState, setPreviewModalState] = useState(false)
+  const [group, setGroup] = useState(null)
+  const [groupOptions, setGroupOptions] = useState([])
+  const [pdfPreviewBase64, setPdfPreviewBase64] = useState(null)
+  const [pdfPreviewLoading, setPdfPreviewLoading] = useState(null)
+  const [pdfPreviewError, setPdfPreviewError] = useState(null)
   const { apiGet, apiPost } = useSession()
 
   let typeOptions = []
@@ -32,39 +37,44 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   let orderReasonsOptions = []
   let conversationStatusesOptions = []
 
-  typeOptions = DOCUMENTS.documentTypes.map((item) => ({
-    value: item.id,
-    label: item.description.nb,
-    item
-  })
+  typeOptions = DOCUMENTS.documentTypes.map(
+    (item) => ({
+      value: item.id,
+      label: item.description.nb,
+      item
+    })
   )
 
-  behaviourReasonsOptions = DOCUMENTS.behaviourReasons.map((item) => ({
-    value: item.id,
-    label: item.description.nb,
-    item
-  })
+  behaviourReasonsOptions = DOCUMENTS.behaviourReasons.map(
+    (item) => ({
+      value: item.id,
+      label: item.description.nb,
+      item
+    })
   )
 
-  courseReasonsOptions = DOCUMENTS.courseReasons.map((item) => ({
-    value: item.id,
-    label: item.description.nb,
-    item
-  })
+  courseReasonsOptions = DOCUMENTS.courseReasons.map(
+    (item) => ({
+      value: item.id,
+      label: item.description.nb,
+      item
+    })
   )
 
-  orderReasonsOptions = DOCUMENTS.orderReasons.map((item) => ({
-    value: item.id,
-    label: item.description.nb,
-    item
-  })
+  orderReasonsOptions = DOCUMENTS.orderReasons.map(
+    (item) => ({
+      value: item.id,
+      label: item.description.nb,
+      item
+    })
   )
 
-  conversationStatusesOptions = DOCUMENTS.conversationStatuses.map((item) => ({
-    value: item.id,
-    label: item.value.nb,
-    item
-  })
+  conversationStatusesOptions = DOCUMENTS.conversationStatuses.map(
+    (item) => ({
+      value: item.id,
+      label: item.value.nb,
+      item
+    })
   )
 
   useEffect(() => {
@@ -79,6 +89,17 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
     async function getStudent () {
       const student = await apiGet(API.URL + '/students/' + selectedStudentId)
       setSelectedStudent(student.data)
+
+      if (student.data.groups) {
+        const groupsOptionsArray = student.data.groups.map(
+          (item) => ({
+            value: item.id,
+            label: item.name,
+            item
+          }))
+
+        setGroupOptions(groupsOptionsArray)
+      }
     }
     getStudent()
 
@@ -156,15 +177,40 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
     }
   }
 
+  async function getPdfPreview () {
+    setPdfPreviewError(null)
+    setPdfPreviewLoading(true)
+
+    const pdf = await apiPost(API.URL + '/preview/nb')
+
+    if (pdf.base64) {
+      setPdfPreviewBase64(pdf.base64)
+      setPdfPreviewError(null)
+      setPdfPreviewLoading(false)
+    } else {
+      setPdfPreviewBase64(null)
+      setPdfPreviewError(true)
+      setPdfPreviewLoading(false)
+    }
+  }
+
+  function openPreviewModal () {
+    setPdfPreviewBase64(null)
+    setPdfPreviewError(null)
+    setPdfPreviewLoading(true)
+    setPreviewModalState(true)
+    getPdfPreview()
+  }
+
   return (
     <>
       <PDFPreviewModal
         open={previewModalState}
         title='Lukk forhåndsvisning'
         onDismiss={() => { setPreviewModalState(false) }}
-        loading
-        base64={null}
-        error={null}
+        loading={pdfPreviewLoading}
+        base64={pdfPreviewBase64}
+        error={pdfPreviewError}
       />
 
       <Modal
@@ -225,7 +271,12 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
               type &&
               type.value === 'fag' &&
                 <>
-                  <div style={{ marginTop: 40, marginBottom: 40, padding: 20, backgroundColor: 'lightyellow' }}>[TODO: Velg fag]</div>
+                  <Select
+                    placeholder='Velg fag'
+                    items={groupOptions}
+                    selectedItem={group}
+                    onChange={(item) => { setGroup(item) }}
+                  />
 
                   <SelectMultiple
                     placeholder='Hva er årsaken til varselet?'
@@ -272,7 +323,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => { setPreviewModalState(true) }}>Forhåndsvisning</Link>
+            <Link onClick={() => { openPreviewModal() }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             {/* TODO: component */}

@@ -23,6 +23,9 @@ export function Home () {
   const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [documents, setDocuments] = useState([])
+  const [varsler, setVarsler] = useState([])
+  const [conversations, setConversations] = useState([])
+  const [notes, setNotes] = useState([])
 
   const { apiGet } = useSession()
 
@@ -40,7 +43,14 @@ export function Home () {
     async function getClass () {
       const docs = await apiGet(API.URL + '/documents')
       const lastModifiedDocuments = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+      const docsVarsler = lastModifiedDocuments.filter((item) => item.type === 'varsel')
+      const docsConversations = lastModifiedDocuments.filter((item) => item.type === 'samtale')
+      const docsNotes = lastModifiedDocuments.filter((item) => item.type === 'notat')
+
       setDocuments(lastModifiedDocuments)
+      setVarsler(docsVarsler)
+      setConversations(docsConversations)
+      setNotes(docsNotes)
     }
     getClass()
   }, [])
@@ -122,7 +132,7 @@ export function Home () {
           </div>
         </div>
 
-        <div className='statistics-class-reports-wrapper'>
+        <div className='statistics-class-support-wrapper'>
           <div className='statistics-panel'>
             <Heading3 as='h2' className='panel-title'>
               <Icon name='statistics' size='small' /> Statistikk for dine elever
@@ -132,13 +142,13 @@ export function Home () {
               <div className='statistics-row'>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    [X]
+                    {varsler.length}
                   </Heading1>
                   <Paragraph className='statistics-item-text'>varselbrev</Paragraph>
                 </div>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    [X]
+                    {conversations.length}
                   </Heading1>
                   <Paragraph className='statistics-item-text'>dokumenterte elevsamtaler</Paragraph>
                 </div>
@@ -146,7 +156,7 @@ export function Home () {
               <div className='statistics-row'>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    [X]
+                    {notes.length}
                   </Heading1>
                   <Paragraph className='statistics-item-text'>notater til elevmappa</Paragraph>
                 </div>
@@ -164,39 +174,30 @@ export function Home () {
             </div>
           </div>
 
-          <div className='class-reports-panel'>
+          <div className='class-support-panel'>
             <Heading3 as='h2' className='panel-title'>
-              <Icon name='help' /> Support
+              <Icon name='help' /> Trenger du hjelp?
             </Heading3>
 
-            {
-              /*
-              <div className='class-reports-group'>
-                <Paragraph className='class-reports-group-title'>[Kragerø videregående skole]</Paragraph>
-                <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
-              </div>
+            <Paragraph>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </Paragraph>
 
-              <div className='class-reports-group'>
-                <Paragraph className='class-reports-group-title'>[Skogmo videregående skole]</Paragraph>
-                <Paragraph className='class-reports-group-text'>[VG1 – Elektro]</Paragraph>
-              </div>
+            <Paragraph>
+              <strong>IKT Servicedesk</strong><br />
+              Telefon: 33 488 565<br />
+              E-post: <a href='mailto:servicedeskikt@vtfk.no'>servicedeskikt@vtfk.no</a>
+            </Paragraph>
 
-              <div className='class-reports-group'>
-                <Paragraph className='class-reports-group-title'>[Bamle videregående skole]</Paragraph>
-                <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
-              </div>
-
-              <div className='class-reports-group'>
-                <Paragraph className='class-reports-group-title'>[Sandefjord videregående skole]</Paragraph>
-                <Paragraph className='class-reports-group-text'>[VG1 – Helsefag]</Paragraph>
-              </div>
-              */
-            }
+            <Paragraph>
+              <strong>Åpningstider:</strong><br />
+              Hverdager kl. 08.00-15.30
+            </Paragraph>
 
             {
               /*
               <div className='panel-link'>
-                <Link href={`/${ROUTES.classes}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Alle klasser</Link>
+                <Link href={`/${ROUTES.classes}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Gå til support</Link>
               </div>
               */
             }
