@@ -10,6 +10,7 @@ import { API } from '../../config/app'
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
+import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
 import CompanySelector from './company-selector'
@@ -22,6 +23,12 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const [brregData, setBrregData] = useState(null)
   const [company, setCompany] = useState()
   const [selectedStudent, setSelectedStudent] = useState(null)
+  const [select, setSelect] = useState(null)
+  const [selectMultiple, setSelectMultiple] = useState([
+    { value: 2, label: 'Valg 2' },
+    { value: 3, label: 'Valg 3' }
+  ])
+  const [text, setText] = useState('')
   const { register, handleSubmit } = useForm()
   const { apiGet } = useSession()
   const onSubmit = data => console.log(data)
@@ -90,6 +97,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
           </p>
 
           <div className='form'>
+
+            <h2 className='subheader'>Mellomheader</h2>
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
             <CompanySelector brregData={brregData} setCompany={setCompany} />
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -138,6 +147,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                   Legg til kontaktperson
                 </div>
               </button>
+              <h2 className='subheader'>Kopi på e-post</h2>
               <div className='input-element'>
                 <TextField
                   name='kopiPrEpost'
@@ -204,6 +214,140 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 </div>
               </button>
             </form>
+
+            <div className='prefilled'>
+              <div className='prefilled-label'>Ferdig utfylt</div>
+              <div className='prefilled-text'>Hentet info her</div>
+            </div>
+
+            <div className='prefilled'>
+              <div className='prefilled-label'>Ferdig utfylt</div>
+              <div className='prefilled-text'>Hentet info her</div>
+            </div>
+
+            <h2 className='subheader'>Mellomheader</h2>
+
+            <div className='input-element'>
+              <TextField
+                placeholder='Placeholder tekstinput'
+                value={text}
+                onChange={(event) => { setText(event.target.value) }}
+              />
+            </div>
+
+            <div className='input-element'>
+              <Select
+                placeholder='Placeholder select enkeltelement'
+                items={[
+                  { value: 1, label: 'Valg 1' },
+                  { value: 2, label: 'Valg 2' },
+                  { value: 3, label: 'Valg 3' }
+                ]}
+                selectedItem={select}
+                onChange={(item) => { setSelect(item) }}
+              />
+            </div>
+
+            <div className='input-element'>
+              <SelectMultiple
+                placeholder='Placeholder select flere'
+                items={[
+                  { value: 1, label: 'Valg 1' },
+                  { value: 2, label: 'Valg 2' },
+                  { value: 3, label: 'Valg 3' },
+                  { value: 4, label: 'Valg 4' },
+                  { value: 5, label: 'Valg 5' }
+                ]}
+                selectedItems={selectMultiple}
+                onChange={(item) => {
+                  setSelectMultiple([
+                    { value: 1, label: 'Valg 1' },
+                    { value: 2, label: 'Valg 2' },
+                    { value: 3, label: 'Valg 3' },
+                    { value: 4, label: 'Valg 4' },
+                    { value: 5, label: 'Valg 5' }
+                  ])
+                }}
+              />
+            </div>
+
+            <h2 className='subheader'>Kontaktperson</h2>
+
+            <div className='contact-person'>
+              <div className='input-element'>
+                <TextField
+                  placeholder='Fornavn og etternavn'
+                  value=''
+                  onChange={(event) => { console.log(event.target.value) }}
+                />
+              </div>
+
+              <div className='input-element'>
+                <TextField
+                  placeholder='Telefonnummer'
+                  value=''
+                  onChange={(event) => { console.log(event.target.value) }}
+                />
+              </div>
+
+              <div className='input-element'>
+                <TextField
+                  type='email'
+                  placeholder='E-post'
+                  value=''
+                  onChange={(event) => { console.log(event.target.value) }}
+                />
+              </div>
+
+              <div className='input-element'>
+                <TextField
+                  placeholder='Avdeling'
+                  value=''
+                  onChange={(event) => { console.log(event.target.value) }}
+                />
+              </div>
+            </div>
+
+            {/* TODO: component */}
+            <button className='add-more-button button-left-icon button-primary'>
+              <div className='button-left-icon-icon'>
+                <Icon name='add' size='small' />
+              </div>
+              <div className='button-left-icon-text'>
+                Legg til kontaktperson
+              </div>
+            </button>
+
+            <h2 className='subheader'>Pårørende</h2>
+
+            <div className='dependent-person'>
+              <div className='input-element'>
+                <TextField
+                  placeholder='Fornavn og etternavn'
+                  value=''
+                  onChange={(event) => { console.log(event.target.value) }}
+                />
+              </div>
+
+              <div className='input-element'>
+                <TextField
+                  placeholder='Telefonnummer'
+                  value=''
+                  onChange={(event) => { console.log(event.target.value) }}
+                />
+              </div>
+            </div>
+
+            {/* TODO: component */}
+            <button className='add-more-button button-left-icon button-primary'>
+              <div className='button-left-icon-icon'>
+                <Icon name='add' size='small' />
+              </div>
+              <div className='button-left-icon-text'>
+                Legg til pårørende
+              </div>
+            </button>
+
           </div>
         </ModalBody>
 
