@@ -40,6 +40,7 @@
     "@vtfk/react-msal": "1.0.4",
     "express": "4.17.1",
     "moment": "2.29.1",
+    "nanoid": "3.1.20",
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
 import { useForm } from 'react-hook-form'
+import { nanoid } from 'nanoid'
 
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
@@ -18,12 +19,48 @@ import CompanyDetails from './company-details'
 
 import './styles.scss'
 
+const OrganisasjonKontaktperson = ({ refName }) => {
+  return (
+    <>
+      <div className='input-element'>
+        <TextField
+          name='kontaktpersonNavn'
+          placeholder='Kontaktperson'
+          ref={refName}
+        />
+      </div>
+      <div className='input-element'>
+        <TextField
+          name='kontaktpersonTelefon'
+          placeholder='Telefon'
+          ref={refName}
+        />
+      </div>
+      <div className='input-element'>
+        <TextField
+          name='kontaktpersonEpost'
+          placeholder='E-post'
+          ref={refName}
+        />
+      </div>
+      <div className='input-element'>
+        <TextField
+          name='kontaktpersonAvdeling'
+          placeholder='Avdeling'
+          ref={refName}
+        />
+      </div>
+    </>
+  )
+}
+
 export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const [brregData, setBrregData] = useState(null)
   const [company, setCompany] = useState()
   const [selectedStudent, setSelectedStudent] = useState(null)
   const { register, handleSubmit } = useForm()
   const { apiGet } = useSession()
+  const [kontaktpersonOrg, setKontaktpersonOrg] = useState([<OrganisasjonKontaktperson refName={register} key={nanoid()} />])
   const onSubmit = data => console.log(data)
 
   useEffect(() => {
@@ -41,6 +78,12 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     }
     getStudent()
   }, [selectedStudentId])
+
+  function addOrgKontaktperson () {
+    const copykontaktpersonOrg = [...kontaktpersonOrg]
+    copykontaktpersonOrg.push(<OrganisasjonKontaktperson refName={register} key={nanoid()} />)
+    setKontaktpersonOrg(() => [...copykontaktpersonOrg])
+  }
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
@@ -102,35 +145,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 />
               </div>
               <h2 className='subheader'>Kontaktpersoner</h2>
-              <div className='input-element'>
-                <TextField
-                  name='kontaktpersonNavn'
-                  placeholder='Kontaktperson'
-                  ref={register}
-                />
-              </div>
-              <div className='input-element'>
-                <TextField
-                  name='kontaktpersonTelefon'
-                  placeholder='Telefon'
-                  ref={register}
-                />
-              </div>
-              <div className='input-element'>
-                <TextField
-                  name='kontaktpersonEpost'
-                  placeholder='E-post'
-                  ref={register}
-                />
-              </div>
-              <div className='input-element'>
-                <TextField
-                  name='kontaktpersonAvdeling'
-                  placeholder='Avdeling'
-                  ref={register}
-                />
-              </div>
-              <button className='add-more-button button-left-icon button-primary'>
+              {kontaktpersonOrg.map(person => person)}
+              <button className='add-more-button button-left-icon button-primary' onClick={() => addOrgKontaktperson()}>
                 <div className='button-left-icon-icon'>
                   <Icon name='add' size='small' />
                 </div>
