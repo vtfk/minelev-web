@@ -82,7 +82,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   function addOrgKontaktperson () {
     const copykontaktpersonOrg = [...kontaktpersonOrg]
     copykontaktpersonOrg.push(<OrganisasjonKontaktperson refName={register} key={nanoid()} />)
-    setKontaktpersonOrg(() => [...copykontaktpersonOrg])
+    setKontaktpersonOrg(copykontaktpersonOrg)
   }
 
   function handleKeyPress (event) {
