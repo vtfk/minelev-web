@@ -114,7 +114,6 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
             <br />
             Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
           </p>
-
           <div className='form'>
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
             <CompanySelector brregData={brregData} setCompany={setCompany} />
@@ -171,8 +170,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 />
               </div>
               <h2 className='subheader'>Elevinformasjon</h2>
-              klassetrinn
-              programområdevelger
+              klassetrinn - Vg1, Vg2, Vg2
+              programområdevelger - filterer på klassetrinn
               <h2 className='subheader'>Pårørende</h2>
               {contactPersonsStudent.map(person => person)}
               <button className='add-more-button button-left-icon button-primary' onClick={() => addStudentContactPerson()}>
