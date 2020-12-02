@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
@@ -18,6 +19,7 @@ import EntitySearch from './entity-search'
 import CompanyDetails from './company-details'
 import CompanyContactPerson from './company-contact-person'
 import StudentContactPerson from './student-contact-person'
+import serializeForm from '../../lib/serialize-form'
 
 import './styles.scss'
 
@@ -29,11 +31,13 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const { apiGet } = useSession()
   const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson key={nanoid()} />])
   const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
-  const onSubmit = (data, e) => console.log(data, e)
+  const onSubmit = (data, event) => {
+    event.preventDefault()
+  }
   const sendForm = () => {
     const form = document.getElementById('bekreftelse-form')
     const data = new FormData(form)
-    const json = JSON.stringify(Object.fromEntries(data))
+    const json = serializeForm(data)
     console.log(json)
   }
 
