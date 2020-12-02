@@ -16,43 +16,10 @@ import { Icon } from '../../_lib-components/Icon'
 import CompanySelector from './company-selector'
 import EntitySearch from './entity-search'
 import CompanyDetails from './company-details'
+import CompanyContactPerson from './company-contact-person'
+import StudentContactPerson from './student-contact-person'
 
 import './styles.scss'
-
-const OrganisasjonKontaktperson = ({ refName }) => {
-  return (
-    <>
-      <div className='input-element'>
-        <TextField
-          name='kontaktpersonNavn'
-          placeholder='Kontaktperson'
-          ref={refName}
-        />
-      </div>
-      <div className='input-element'>
-        <TextField
-          name='kontaktpersonTelefon'
-          placeholder='Telefon'
-          ref={refName}
-        />
-      </div>
-      <div className='input-element'>
-        <TextField
-          name='kontaktpersonEpost'
-          placeholder='E-post'
-          ref={refName}
-        />
-      </div>
-      <div className='input-element'>
-        <TextField
-          name='kontaktpersonAvdeling'
-          placeholder='Avdeling'
-          ref={refName}
-        />
-      </div>
-    </>
-  )
-}
 
 export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const [brregData, setBrregData] = useState(null)
@@ -60,7 +27,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const { register, handleSubmit } = useForm()
   const { apiGet } = useSession()
-  const [kontaktpersonOrg, setKontaktpersonOrg] = useState([<OrganisasjonKontaktperson refName={register} key={nanoid()} />])
+  const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson refName={register} key={nanoid()} />])
+  const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson refName={register} key={nanoid()} />])
   const onSubmit = data => console.log(data)
 
   useEffect(() => {
@@ -79,10 +47,16 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     getStudent()
   }, [selectedStudentId])
 
-  function addOrgKontaktperson () {
-    const copykontaktpersonOrg = [...kontaktpersonOrg]
-    copykontaktpersonOrg.push(<OrganisasjonKontaktperson refName={register} key={nanoid()} />)
-    setKontaktpersonOrg(copykontaktpersonOrg)
+  function addCompanyContactPerson () {
+    const copyContactPersonsCompany = [...contactPersonsCompany]
+    copyContactPersonsCompany.push(<CompanyContactPerson refName={register} key={nanoid()} />)
+    setContactPersonsCompany(copyContactPersonsCompany)
+  }
+
+  function addStudentContactPerson () {
+    const copyStudentContactPerson = [...contactPersonsStudent]
+    copyStudentContactPerson.push(<StudentContactPerson refName={register} key={nanoid()} />)
+    setContactPersonsStudent(copyStudentContactPerson)
   }
 
   function handleKeyPress (event) {
@@ -145,8 +119,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 />
               </div>
               <h2 className='subheader'>Kontaktpersoner</h2>
-              {kontaktpersonOrg.map(person => person)}
-              <button className='add-more-button button-left-icon button-primary' onClick={() => addOrgKontaktperson()}>
+              {contactPersonsCompany.map(person => person)}
+              <button className='add-more-button button-left-icon button-primary' onClick={() => addCompanyContactPerson()}>
                 <div className='button-left-icon-icon'>
                   <Icon name='add' size='small' />
                 </div>
@@ -157,7 +131,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
               <div className='input-element'>
                 <TextField
                   name='kopiPrEpost'
-                  placeholder='Legg inn en eller flere e-postadresser som skal få tilsendt kopi av bekreftelsen. Bruk mellomrom som skilletegn ved flere adresser'
+                  placeholder='Legg e-postadresse(r) som skal få kopi av bekreftelsen. Bruk mellomrom som skilletegn ved flere adresser'
                   ref={register}
                 />
               </div>
@@ -197,21 +171,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
               klassetrinn
               programområdevelger
               <h2 className='subheader'>Pårørende</h2>
-              <div className='input-element'>
-                <TextField
-                  name='parorendeNavn'
-                  placeholder='Navn'
-                  ref={register}
-                />
-              </div>
-              <div className='input-element'>
-                <TextField
-                  name='parorendeTelefon'
-                  placeholder='Telefon'
-                  ref={register}
-                />
-              </div>
-              <button className='add-more-button button-left-icon button-primary'>
+              {contactPersonsStudent.map(person => person)}
+              <button className='add-more-button button-left-icon button-primary' onClick={() => addStudentContactPerson()}>
                 <div className='button-left-icon-icon'>
                   <Icon name='add' size='small' />
                 </div>
