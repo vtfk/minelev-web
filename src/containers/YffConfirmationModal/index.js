@@ -25,11 +25,17 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const [brregData, setBrregData] = useState(null)
   const [company, setCompany] = useState()
   const [selectedStudent, setSelectedStudent] = useState(null)
-  const { register, handleSubmit } = useForm()
+  const { handleSubmit } = useForm()
   const { apiGet } = useSession()
-  const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson refName={register} key={nanoid()} />])
-  const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson refName={register} key={nanoid()} />])
-  const onSubmit = data => console.log(data)
+  const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson key={nanoid()} />])
+  const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
+  const onSubmit = (data, e) => console.log(data, e)
+  const sendForm = () => {
+    const form = document.getElementById('bekreftelse-form')
+    const data = new FormData(form)
+    const json = JSON.stringify(Object.fromEntries(data))
+    console.log(json)
+  }
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -49,13 +55,13 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
 
   function addCompanyContactPerson () {
     const copyContactPersonsCompany = [...contactPersonsCompany]
-    copyContactPersonsCompany.push(<CompanyContactPerson refName={register} key={nanoid()} />)
+    copyContactPersonsCompany.push(<CompanyContactPerson key={nanoid()} />)
     setContactPersonsCompany(copyContactPersonsCompany)
   }
 
   function addStudentContactPerson () {
     const copyStudentContactPerson = [...contactPersonsStudent]
-    copyStudentContactPerson.push(<StudentContactPerson refName={register} key={nanoid()} />)
+    copyStudentContactPerson.push(<StudentContactPerson key={nanoid()} />)
     setContactPersonsStudent(copyStudentContactPerson)
   }
 
@@ -66,8 +72,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   }
 
   function send () {
-    props.onDismiss()
-    window.alert('Bekreftelse om utplassering av elev er sendt.')
+    sendForm()
   }
 
   return (
@@ -109,13 +114,12 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
           <div className='form'>
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
             <CompanySelector brregData={brregData} setCompany={setCompany} />
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
               <CompanyDetails company={company} />
               <div className='input-element'>
                 <TextField
                   name='organisasjonsAvdeling'
                   placeholder='Avdeling'
-                  ref={register}
                 />
               </div>
               <h2 className='subheader'>Kontaktpersoner</h2>
@@ -132,7 +136,6 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 <TextField
                   name='kopiPrEpost'
                   placeholder='Legg e-postadresse(r) som skal få kopi av bekreftelsen. Bruk mellomrom som skilletegn ved flere adresser'
-                  ref={register}
                 />
               </div>
               <h2 className='subheader'>Tidsrom</h2>
@@ -141,7 +144,6 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 <TextField
                   name='daysPerWeek'
                   placeholder='Antall dager i uken'
-                  ref={register}
                 />
               </div>
               <div className='input-element'>
@@ -149,7 +151,6 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                   name='startTid'
                   placeholder='Fra kl'
                   value='08:00'
-                  ref={register}
                 />
               </div>
               <div className='input-element'>
@@ -157,14 +158,12 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                   name='sluttTid'
                   placeholder='Til kl'
                   value='16:00'
-                  ref={register}
                 />
               </div>
               <div className='input-element'>
                 <TextField
                   name='oppmotested'
                   placeholder='Oppmøtested'
-                  ref={register}
                 />
               </div>
               <h2 className='subheader'>Elevinformasjon</h2>
