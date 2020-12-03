@@ -19,6 +19,7 @@ import EntitySearch from './entity-search'
 import CompanyDetails from './company-details'
 import CompanyContactPerson from './company-contact-person'
 import StudentContactPerson from './student-contact-person'
+import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import serializeForm from '../../lib/serialize-form'
 
 import './styles.scss'
@@ -170,8 +171,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 />
               </div>
               <h2 className='subheader'>Elevinformasjon</h2>
-              klassetrinn - Vg1, Vg2, Vg2
-              programområdevelger - filterer på klassetrinn
+              <UtdanningsprogrammerSelectorForm />
               <h2 className='subheader'>Pårørende</h2>
               {contactPersonsStudent.map(person => person)}
               <button className='add-more-button button-left-icon button-primary' onClick={() => addStudentContactPerson()}>

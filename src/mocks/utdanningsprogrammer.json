@@ -4,75 +4,63 @@
       "kode": "BA",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/BA",
       "tittel": {
-        "sme": "Huksen- ja ráhkadusteknihkka",
-        "nob": "Bygg- og anleggsteknikk",
-        "eng": "Building and Construction",
-        "nno": "Bygg- og anleggsteknikk",
-        "default": "Bygg- og anleggsteknikk"
+        "nb": "Bygg- og anleggsteknikk",
+        "nn": "Bygg- og anleggsteknikkk",
+        "en": "Building and Construction"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "BAANL2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAANL2----",
               "tittel": {
-                "nob": "Anleggsteknikk",
-                "eng": "Construction",
-                "sme": "Ráhkadusteknihkka",
-                "nno": "Anleggsteknikk",
-                "default": "Anleggsteknikk"
+                "nb": "Anleggsteknikk",
+                "nn": "Anleggsteknikk",
+                "en": "Construction"
               }
             },
             {
               "kode": "BABYG2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/BABYG2----",
               "tittel": {
-                "nob": "Byggteknikk",
-                "eng": "Construction Techniques",
-                "sme": "Huksenteknihkka",
-                "nno": "Byggteknikk",
-                "default": "Byggteknikk"
+                "nb": "Byggteknikk",
+                "nn": "Byggteknikk",
+                "en": "Construction Techniques"
               }
             },
             {
               "kode": "BAKEM2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAKEM2----",
               "tittel": {
-                "nob": "Klima-, energi- og miljøteknikk",
-                "eng": "Climate, Energy and Environment Work",
-                "sme": "Dálkkádat-, energiija- ja birasteknihkka",
-                "nno": "Klima-, energi- og miljøteknikk",
-                "default": "Klima-, energi- og miljøteknikk"
+                "nb": "Klima-, energi- og miljøteknikk",
+                "nn": "Klima-, energi- og miljøteknikk",
+                "en": "Climate, Energy and Environment Work"
               }
             },
             {
               "kode": "BAOFT2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAOFT2----",
               "tittel": {
-                "nob": "Overflateteknikk",
-                "eng": "Surface Treatment Work",
-                "sme": "Bajildusteknihkka",
-                "nno": "Overflateteknikk",
-                "default": "Overflateteknikk"
+                "nb": "Overflateteknikk",
+                "nn": "Overflateteknikk",
+                "en": "Surface Treatment Work"
               }
             },
             {
               "kode": "BATRT2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/BATRT2----",
               "tittel": {
-                "nob": "Treteknikk",
-                "eng": "Woodworking",
-                "sme": "Muorrateknihkka",
-                "nno": "Treteknikk",
-                "default": "Treteknikk"
+                "nb": "Treteknikk",
+                "nn": "Treteknikk",
+                "en": "Woodworking"
               }
             }
           ]
@@ -81,20 +69,18 @@
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "BABAT1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/BABAT1----",
               "tittel": {
-                "nob": "Bygg- og anleggsteknikk",
-                "eng": "Building and Construction",
-                "sme": "Huksen- ja ráhkadusteknihkka",
-                "nno": "Bygg- og anleggsteknikk",
-                "default": "Bygg- og anleggsteknikk"
+                "nb": "Bygg- og anleggsteknikk",
+                "nn": "Bygg- og anleggsteknikk",
+                "en": "Building and Construction"
               }
             }
           ]
@@ -105,174 +91,144 @@
       "kode": "DH",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/DH",
       "tittel": {
-        "eng": "Design, Arts and Crafts",
-        "sme": "Design ja giehtaduodji",
-        "nno": "Design og handverk",
-        "nob": "Design og håndverk",
-        "default": "Design og håndverk"
+        "nb": "Design og håndverk",
+        "nn": "Design og handverk",
+        "en": "Design, Arts and Crafts"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "DHAKT2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHAKT2----",
               "tittel": {
-                "nob": "Aktivitør",
-                "eng": "Occupational Therapy",
-                "sme": "Aktivitevra",
-                "nno": "Aktivitør",
-                "default": "Aktivitør"
+                "nb": "Aktivitør",
+                "nn": "Aktivitør",
+                "en": "Occupational Therapy"
               }
             },
             {
               "kode": "DHBBF2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHBBF2----",
               "tittel": {
-                "nob": "Båtbyggerfag",
-                "eng": "Boatbuilding",
-                "sme": "Fanashuksejeaddjifága",
-                "nno": "Båtbyggjarfag",
-                "default": "Båtbyggerfag"
+                "nb": "Båtbyggerfag",
+                "nn": "Båtbyggjarfag",
+                "en": "Boatbuilding"
               }
             },
             {
               "kode": "DHBLD2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHBLD2----",
               "tittel": {
-                "nob": "Blomsterdekoratør",
-                "eng": "Floral Design",
-                "sme": "Lieđđehervejeaddji",
-                "nno": "Blomsterdekoratør",
-                "default": "Blomsterdekoratør"
+                "nb": "Blomsterdekoratør",
+                "nn": "Blomsterdekoratør",
+                "en": "Floral Design"
               }
             },
             {
               "kode": "DHBMF2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHBMF2----",
               "tittel": {
-                "nob": "Børsemaker",
-                "eng": "Gunsmithing",
-                "sme": "Bissodahkki",
-                "nno": "Børsemakar",
-                "default": "Børsemaker"
+                "nb": "Børsemaker",
+                "nn": "Børsemakar",
+                "en": "Gunsmithing"
               }
             },
             {
               "kode": "DHDDU2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHDDU2----",
               "tittel": {
-                "nob": "Design og duodji",
-                "eng": "Design and Duodji (traditional Sami handicrafts)",
-                "sme": "Design ja duodji",
-                "nno": "Design og duodji",
-                "default": "Design og duodji"
+                "nb": "Design og duodji",
+                "nn": "Design og duodji",
+                "en": "Design and Duodji (traditional Sami handicrafts)"
               }
             },
             {
               "kode": "DHDGH2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHDGH2----",
               "tittel": {
-                "nob": "Design og gullsmedhåndverk",
-                "eng": "Design and Goldsmith Crafts",
-                "sme": "Design ja gollerávdegiehtaduodji",
-                "nno": "Design og gullsmedhandverk",
-                "default": "Design og gullsmedhåndverk"
+                "nb": "Design og gullsmedhåndverk",
+                "nn": "Design og gullsmedhandverk",
+                "en": "Design and Goldsmith Crafts"
               }
             },
             {
               "kode": "DHDTE2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHDTE2----",
               "tittel": {
-                "nob": "Design og tekstil",
-                "eng": "Design and Textiles",
-                "sme": "Design ja tekstiila",
-                "nno": "Design og tekstil",
-                "default": "Design og tekstil"
+                "nb": "Design og tekstil",
+                "nn": "Design og tekstil",
+                "en": "Design and Textiles"
               }
             },
             {
               "kode": "DHDTR2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHDTR2----",
               "tittel": {
-                "nob": "Design og trearbeid",
-                "eng": "Design and Woodworking",
-                "sme": "Design ja muorrabargu",
-                "nno": "Design og trearbeid",
-                "default": "Design og trearbeid"
+                "nb": "Design og trearbeid",
+                "nn": "Design og trearbeid",
+                "en": "Design and Woodworking"
               }
             },
             {
               "kode": "DHFRI2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHFRI2----",
               "tittel": {
-                "nob": "Frisør",
-                "eng": "Hairdresser",
-                "sme": "Vuoktačuohppi",
-                "nno": "Frisør",
-                "default": "Frisør"
+                "nb": "Frisør",
+                "nn": "Frisør",
+                "en": "Hairdresser"
               }
             },
             {
               "kode": "DHIUD2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHIUD2----",
               "tittel": {
-                "nob": "Interiør og utstillingsdesign",
-                "eng": "Interior and Display Design",
-                "sme": "Sisbiras ja čájáhusdesign",
-                "nno": "Interiør og utstillingsdesign",
-                "default": "Interiør og utstillingsdesign"
+                "nb": "Interiør og utstillingsdesign",
+                "nn": "Interiør og utstillingsdesign",
+                "en": "Interior and Display Design"
               }
             },
             {
               "kode": "DHMED2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHMED2----",
               "tittel": {
-                "nob": "Medieproduksjon Vg2",
-                "eng": "Media production upper secondary level 2 (Vg 2)",
-                "sme": "Mediabuvttadeapmi Jo2",
-                "nno": "Medieproduksjon Vg2",
-                "default": "Medieproduksjon Vg2"
+                "nb": "Medieproduksjon Vg2",
+                "nn": "Medieproduksjon Vg2",
+                "en": "Media production upper secondary level 2 (Vg 2)"
               }
             },
             {
               "kode": "DHPST2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHPST2----",
               "tittel": {
-                "nob": "Pianostemming og pianoteknikk",
-                "eng": "Piano Tuning and Repair",
-                "sme": "Pianojietnaheiveheapmi ja pianoteknihkka",
-                "nno": "Pianostemming og pianoteknikk",
-                "default": "Pianostemming og pianoteknikk"
+                "nb": "Pianostemming og pianoteknikk",
+                "nn": "Pianostemming og pianoteknikk",
+                "en": "Piano Tuning and Repair"
               }
             },
             {
               "kode": "DHSME2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHSME2----",
               "tittel": {
-                "nob": "Smed",
-                "eng": "Blacksmithing",
-                "sme": "Rávdi",
-                "nno": "Smed",
-                "default": "Smed"
+                "nb": "Smed",
+                "nn": "Smed",
+                "en": "Blacksmithing"
               }
             },
             {
               "kode": "DHUIM2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHUIM2----",
               "tittel": {
-                "nob": "Ur- og instrumentmaker",
-                "eng": "Watch, clock and instrument maker",
-                "sme": "Diibmo- ja instrumeantadahkki",
-                "nno": "Ur- og instrumentmakar",
-                "default": "Ur- og instrumentmaker"
+                "nb": "Ur- og instrumentmaker",
+                "nn": "Ur- og instrumentmakar",
+                "en": "Watch, clock and instrument maker"
               }
             }
           ]
@@ -281,42 +237,36 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "DHINT3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHINT3----",
               "tittel": {
-                "nob": "Interiør",
-                "eng": "Interior Design",
-                "sme": "Sisbiras",
-                "nno": "Interiør",
-                "default": "Interiør"
+                "nb": "Interiør",
+                "nn": "Interiør",
+                "en": "Interior Design"
               }
             },
             {
               "kode": "DHPST3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHPST3----",
               "tittel": {
-                "nob": "Pianostemming og pianoteknikk",
-                "eng": "Piano Tuning and Repair",
-                "sme": "Pianojietnaheiveheapmi ja pianoteknihkka",
-                "nno": "Pianostemming og pianoteknikk",
-                "default": "Pianostemming og pianoteknikk"
+                "nb": "Pianostemming og pianoteknikk",
+                "nn": "Pianostemming og pianoteknikk",
+                "en": "Piano Tuning and Repair"
               }
             },
             {
               "kode": "DHUTS3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHUTS3----",
               "tittel": {
-                "nob": "Utstillingsdesign",
-                "eng": "Exhibition Design",
-                "sme": "Čájáhusdesign",
-                "nno": "Utstillingsdesign",
-                "default": "Utstillingsdesign"
+                "nb": "Utstillingsdesign",
+                "nn": "Utstillingsdesign",
+                "en": "Exhibition Design"
               }
             }
           ]
@@ -327,27 +277,27 @@
       "kode": "DT",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/DT",
       "tittel": {
-        "nob": "Håndverk, design og produktutvikling",
-        "nno": "Handverk, design og produktutvikling",
-        "default": "Håndverk, design og produktutvikling"
+        "nb": "Håndverk, design og produktutvikling",
+        "nn": "Handverk, design og produktutvikling",
+        "en": "Håndverk, design og produktutvikling"
       },
       "trinn": [
         {
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "DTDTH1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DTDTH1----",
               "tittel": {
-                "nob": "Håndverk, design og produktutvikling",
-                "nno": "Handverk, design og produktutvikling",
-                "default": "Håndverk, design og produktutvikling"
+                "nb": "Håndverk, design og produktutvikling",
+                "nn": "Handverk, design og produktutvikling",
+                "en": "Håndverk, design og produktutvikling"
               }
             }
           ]
@@ -358,75 +308,63 @@
       "kode": "EL",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/EL",
       "tittel": {
-        "sme": "Elektrofágat",
-        "eng": "Electricity and Electronics",
-        "nno": "Elektro og datateknologi",
-        "nob": "Elektro og datateknologi",
-        "default": "Elektro og datateknologi"
+        "nb": "Elektro og datateknologi",
+        "nn": "Elektro og datateknologi",
+        "en": "Electricity and Electronics"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "ELAUT2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELAUT2----",
               "tittel": {
-                "nob": "Automatisering",
-                "eng": "Automation",
-                "sme": "Automatiseren",
-                "nno": "Automatisering",
-                "default": "Automatisering"
+                "nb": "Automatisering",
+                "nn": "Automatisering",
+                "en": "Automation"
               }
             },
             {
               "kode": "ELDEL2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELDEL2----",
               "tittel": {
-                "nob": "Data og elektronikk",
-                "eng": "Computers and electronics",
-                "sme": "Dáhta ja elektronihkka",
-                "nno": "Data og elektronikk",
-                "default": "Data og elektronikk"
+                "nb": "Data og elektronikk",
+                "nn": "Data og elektronikk",
+                "en": "Computers and electronics"
               }
             },
             {
               "kode": "ELELE2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELELE2----",
               "tittel": {
-                "nob": "Elenergi",
-                "eng": "Electrical Power",
-                "sme": "Rávdnjeenergiija",
-                "nno": "Elenergi",
-                "default": "Elenergi"
+                "nb": "Elenergi",
+                "nn": "Elenergi",
+                "en": "Electrical Power"
               }
             },
             {
               "kode": "ELFLY2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELFLY2----",
               "tittel": {
-                "nob": "Flyfag",
-                "eng": "Aeronautics",
-                "sme": "Girdifágat",
-                "nno": "Flyfag",
-                "default": "Flyfag"
+                "nb": "Flyfag",
+                "nn": "Flyfag",
+                "en": "Aeronautics"
               }
             },
             {
               "kode": "ELKVT2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELKVT2----",
               "tittel": {
-                "nob": "Kulde- og varmepumpeteknikk",
-                "eng": "Refrigeration and Heat Pumps",
-                "sme": "Galbma- ja lieggapumpateknihkka",
-                "nno": "Kulde- og varmepumpeteknikk",
-                "default": "Kulde- og varmepumpeteknikk"
+                "nb": "Kulde- og varmepumpeteknikk",
+                "nn": "Kulde- og varmepumpeteknikk",
+                "en": "Refrigeration and Heat Pumps"
               }
             }
           ]
@@ -435,73 +373,63 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "ELAUT3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELAUT3----",
               "tittel": {
-                "nob": "Automatiseringsfaget",
-                "eng": "Automation",
-                "sme": "Automatiserenfága",
-                "nno": "Automatiseringsfaget",
-                "default": "Automatiseringsfaget"
+                "nb": "Automatiseringsfaget",
+                "nn": "Automatiseringsfaget",
+                "en": "Automation"
               }
             },
             {
               "kode": "ELAVI3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELAVI3----",
               "tittel": {
-                "nob": "Avionikerfaget",
-                "eng": "Avionics",
-                "sme": "Avionihkarfága ",
-                "nno": "Avionikarfaget",
-                "default": "Avionikerfaget"
+                "nb": "Avionikerfaget",
+                "nn": "Avionikarfaget",
+                "en": "Avionics"
               }
             },
             {
               "kode": "ELDAT3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELDAT3----",
               "tittel": {
-                "nob": "Dataelektronikerfaget",
-                "eng": "Computer Electronics",
-                "sme": "Dáhtaelektronihkarfága",
-                "nno": "Dataelektronikarfaget",
-                "default": "Dataelektronikerfaget"
+                "nb": "Dataelektronikerfaget",
+                "nn": "Dataelektronikarfaget",
+                "en": "Computer Electronics"
               }
             },
             {
               "kode": "ELFLY3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELFLY3----",
               "tittel": {
-                "nob": "Flytekniske fag",
-                "eng": "Technical Aeronautics",
-                "sme": "Girditeknihkalaš fágat ",
-                "nno": "Flytekniske fag",
-                "default": "Flytekniske fag"
+                "nb": "Flytekniske fag",
+                "nn": "Flytekniske fag",
+                "en": "Technical Aeronautics"
               }
             },
             {
               "kode": "ELMEL3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELMEL3----",
               "tittel": {
-                "nob": "Maritim elektrikerfaget Vg3",
-                "nno": "Maritim elektrikarfaget Vg3",
-                "default": "Maritim elektrikerfaget Vg3"
+                "nb": "Maritim elektrikerfaget Vg3",
+                "nn": "Maritim elektrikarfaget Vg3",
+                "en": "Maritim elektrikerfaget Vg3"
               }
             },
             {
               "kode": "ELROM3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELROM3----",
               "tittel": {
-                "nob": "Romteknologi",
-                "eng": "Space Technology",
-                "sme": "Ávusteknologiija ",
-                "nno": "Romteknologi",
-                "default": "Romteknologi"
+                "nb": "Romteknologi",
+                "nn": "Romteknologi",
+                "en": "Space Technology"
               }
             }
           ]
@@ -510,20 +438,18 @@
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "ELELE1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELELE1----",
               "tittel": {
-                "nob": "Elektro og datateknologi",
-                "eng": "Electricity and Electronics",
-                "sme": "Elektrofága",
-                "nno": "Elektro og datateknologi",
-                "default": "Elektro og datateknologi"
+                "nb": "Elektro og datateknologi",
+                "nn": "Elektro og datateknologi",
+                "en": "Electricity and Electronics"
               }
             }
           ]
@@ -534,27 +460,27 @@
       "kode": "FD",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/FD",
       "tittel": {
-        "nno": "Frisør, blomar, interiør og eksponeringsdesign",
-        "nob": "Frisør, blomster, interiør og eksponeringsdesign",
-        "default": "Frisør, blomster, interiør og eksponeringsdesign"
+        "nb": "Frisør, blomster, interiør og eksponeringsdesign",
+        "nn": "Frisør, blomar, interiør og eksponeringsdesign",
+        "en": "Frisør, blomster, interiør og eksponeringsdesign"
       },
       "trinn": [
         {
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "FDFBI1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/FDFBI1----",
               "tittel": {
-                "nob": "Frisør, blomster, interiør og eksponeringsdesign",
-                "nno": "Frisør, blomar, interiør og eksponeringsdesign",
-                "default": "Frisør, blomster, interiør og eksponeringsdesign"
+                "nb": "Frisør, blomster, interiør og eksponeringsdesign",
+                "nn": "Frisør, blomar, interiør og eksponeringsdesign",
+                "en": "Frisør, blomster, interiør og eksponeringsdesign"
               }
             }
           ]
@@ -565,89 +491,72 @@
       "kode": "HS",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/HS",
       "tittel": {
-        "eng": "Healthcare, Childhood and Youth Development",
-        "nob": "Helse- og oppvekstfag",
-        "sme": "Dearvvašvuođa- ja bajásšaddanfága",
-        "nno": "Helse- og oppvekstfag",
-        "default": "Helse- og oppvekstfag"
+        "nb": "Helse- og oppvekstfag",
+        "nn": "Helse- og oppvekstfag",
+        "en": "Healthcare, Childhood and Youth Development"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "HSAMB2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSAMB2----",
               "tittel": {
-                "nob": "Ambulansefag",
-                "eng": "Ambulance Service Skills",
-                "fra": " ",
-                "sme": "Ambulánsafágat",
-                "nno": "Ambulansefag",
-                "spa": " ",
-                "deu": " ",
-                "default": "Ambulansefag"
+                "nb": "Ambulansefag",
+                "nn": "Ambulansefag",
+                "en": "Ambulance Service Skills"
               }
             },
             {
               "kode": "HSBUA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSBUA2----",
               "tittel": {
-                "nob": "Barne- og ungdomsarbeiderfag",
-                "eng": "Child Care and Youth Work",
-                "sme": "Mánáid- ja nuoraidbargifágat",
-                "nno": "Barne- og ungdomsarbeidarfag",
-                "default": "Barne- og ungdomsarbeiderfag"
+                "nb": "Barne- og ungdomsarbeiderfag",
+                "nn": "Barne- og ungdomsarbeidarfag",
+                "en": "Child Care and Youth Work"
               }
             },
             {
               "kode": "HSFOT2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSFOT2----",
               "tittel": {
-                "nob": "Fotterapi og ortopediteknikk",
-                "eng": "Chiropody and Orthopaedics",
-                "sme": "Juolgeterapiija ja ortopediijateknihkka",
-                "nno": "Fotterapi og ortopediteknikk",
-                "default": "Fotterapi og ortopediteknikk"
+                "nb": "Fotterapi og ortopediteknikk",
+                "nn": "Fotterapi og ortopediteknikk",
+                "en": "Chiropody and Orthopaedics"
               }
             },
             {
               "kode": "HSHEA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSHEA2----",
               "tittel": {
-                "nob": "Helsearbeiderfag",
-                "eng": "Health Work",
-                "sme": "Dearvvasvuođabargifágat",
-                "nno": "Helsearbeidarfag",
-                "default": "Helsearbeiderfag"
+                "nb": "Helsearbeiderfag",
+                "nn": "Helsearbeidarfag",
+                "en": "Health Work"
               }
             },
             {
               "kode": "HSHES2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSHES2----",
               "tittel": {
-                "nob": "Helseservicefag",
-                "eng": "Health Service",
-                "sme": "Dearvvasvuođabálvalusfágat",
-                "nno": "Helseservicefag",
-                "default": "Helseservicefag"
+                "nb": "Helseservicefag",
+                "nn": "Helseservicefag",
+                "en": "Health Service"
               }
             },
             {
               "kode": "HSHUD2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSHUD2----",
               "tittel": {
-                "nob": "Hudpleie",
-                "eng": "Skin Care",
-                "sme": "Liikedikšun",
-                "nno": "Hudpleie",
-                "default": "Hudpleie"
+                "nb": "Hudpleie",
+                "nn": "Hudpleie",
+                "en": "Skin Care"
               }
             }
           ]
@@ -656,64 +565,54 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "HSAPO3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSAPO3----",
               "tittel": {
-                "nob": "Apotekteknikk",
-                "eng": "Pharmacy Skills",
-                "sme": "Apotehkateknihkka",
-                "nno": "Apotekteknikk",
-                "default": "Apotekteknikk"
+                "nb": "Apotekteknikk",
+                "nn": "Apotekteknikk",
+                "en": "Pharmacy Skills"
               }
             },
             {
               "kode": "HSFOT3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSFOT3----",
               "tittel": {
-                "nob": "Fotterapi",
-                "eng": "Chiropody",
-                "sme": "Juolgeterapiija",
-                "nno": "Fotterapi",
-                "default": "Fotterapi"
+                "nb": "Fotterapi",
+                "nn": "Fotterapi",
+                "en": "Chiropody"
               }
             },
             {
               "kode": "HSHSE3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSHSE3----",
               "tittel": {
-                "nob": "Helsesekretær",
-                "eng": "Medical Secretarial Skills",
-                "sme": "Dearvvasvuođačálli ",
-                "nno": "Helsesekretær",
-                "default": "Helsesekretær"
+                "nb": "Helsesekretær",
+                "nn": "Helsesekretær",
+                "en": "Medical Secretarial Skills"
               }
             },
             {
               "kode": "HSHUD3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSHUD3----",
               "tittel": {
-                "nob": "Hudpleier",
-                "eng": "Skin care worker",
-                "sme": "Liikedikšu",
-                "nno": "Hudpleiar",
-                "default": "Hudpleier"
+                "nb": "Hudpleier",
+                "nn": "Hudpleiar",
+                "en": "Skin care worker"
               }
             },
             {
               "kode": "HSTAN3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSTAN3----",
               "tittel": {
-                "nob": "Tannhelsesekretær",
-                "eng": "Dental Health Secretarial Skills",
-                "sme": "Bátnedearvvasvuođačálli",
-                "nno": "Tannhelsesekretær",
-                "default": "Tannhelsesekretær"
+                "nb": "Tannhelsesekretær",
+                "nn": "Tannhelsesekretær",
+                "en": "Dental Health Secretarial Skills"
               }
             }
           ]
@@ -722,20 +621,18 @@
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "HSHSF1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSHSF1----",
               "tittel": {
-                "nob": "Helse- og oppvekstfag",
-                "eng": "Healthcare, Childhood and Youth Development",
-                "sme": "Dearvvašvuođa- ja bajásšaddanfága",
-                "nno": "Helse- og oppvekstfag",
-                "default": "Helse- og oppvekstfag"
+                "nb": "Helse- og oppvekstfag",
+                "nn": "Helse- og oppvekstfag",
+                "en": "Healthcare, Childhood and Youth Development"
               }
             }
           ]
@@ -746,53 +643,45 @@
       "kode": "ID",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/ID",
       "tittel": {
-        "nob": "Idrettsfag",
-        "sme": "Valáštallanfágat ",
-        "eng": "Sports and Physical Education ",
-        "nno": "Idrettsfag",
-        "default": "Idrettsfag"
+        "nb": "Idrettsfag",
+        "nn": "Idrettsfag",
+        "en": "Sports and Physical Education "
       },
       "trinn": [
         {
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "IDIDR2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IDIDR2----",
               "tittel": {
-                "nob": "Idrettsfag Vg2",
-                "eng": "Sports and Physical Education Vg2",
-                "sme": "Valáštallanfágat Jo2",
-                "nno": "Idrettsfag Vg2",
-                "default": "Idrettsfag Vg2"
+                "nb": "Idrettsfag Vg2",
+                "nn": "Idrettsfag Vg2",
+                "en": "Sports and Physical Education Vg2"
               }
             },
             {
               "kode": "IDIDR3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IDIDR3----",
               "tittel": {
-                "nob": "Idrettsfag Vg3",
-                "eng": "Sports and Physical Education Vg3",
-                "sme": "Valáštallanfágat Jo3",
-                "nno": "Idrettsfag Vg3",
-                "default": "Idrettsfag Vg3"
+                "nb": "Idrettsfag Vg3",
+                "nn": "Idrettsfag Vg3",
+                "en": "Sports and Physical Education Vg3"
               }
             },
             {
               "kode": "IDRET1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IDRET1----",
               "tittel": {
-                "nob": "Idrettsfag Vg1",
-                "eng": "Sports and Physical Education Vg1",
-                "sme": "Valáštallanfágat Jo1",
-                "nno": "Idrettsfag Vg1",
-                "default": "Idrettsfag Vg1"
+                "nb": "Idrettsfag Vg1",
+                "nn": "Idrettsfag Vg1",
+                "en": "Sports and Physical Education Vg1"
               }
             }
           ]
@@ -801,42 +690,36 @@
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "IDIDR2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IDIDR2----",
               "tittel": {
-                "nob": "Idrettsfag Vg2",
-                "eng": "Sports and Physical Education Vg2",
-                "sme": "Valáštallanfágat Jo2",
-                "nno": "Idrettsfag Vg2",
-                "default": "Idrettsfag Vg2"
+                "nb": "Idrettsfag Vg2",
+                "nn": "Idrettsfag Vg2",
+                "en": "Sports and Physical Education Vg2"
               }
             },
             {
               "kode": "IDIDR3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IDIDR3----",
               "tittel": {
-                "nob": "Idrettsfag Vg3",
-                "eng": "Sports and Physical Education Vg3",
-                "sme": "Valáštallanfágat Jo3",
-                "nno": "Idrettsfag Vg3",
-                "default": "Idrettsfag Vg3"
+                "nb": "Idrettsfag Vg3",
+                "nn": "Idrettsfag Vg3",
+                "en": "Sports and Physical Education Vg3"
               }
             },
             {
               "kode": "IDRET1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IDRET1----",
               "tittel": {
-                "nob": "Idrettsfag Vg1",
-                "eng": "Sports and Physical Education Vg1",
-                "sme": "Valáštallanfágat Jo1",
-                "nno": "Idrettsfag Vg1",
-                "default": "Idrettsfag Vg1"
+                "nb": "Idrettsfag Vg1",
+                "nn": "Idrettsfag Vg1",
+                "en": "Sports and Physical Education Vg1"
               }
             }
           ]
@@ -845,42 +728,36 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "IDIDR2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IDIDR2----",
               "tittel": {
-                "nob": "Idrettsfag Vg2",
-                "eng": "Sports and Physical Education Vg2",
-                "sme": "Valáštallanfágat Jo2",
-                "nno": "Idrettsfag Vg2",
-                "default": "Idrettsfag Vg2"
+                "nb": "Idrettsfag Vg2",
+                "nn": "Idrettsfag Vg2",
+                "en": "Sports and Physical Education Vg2"
               }
             },
             {
               "kode": "IDIDR3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IDIDR3----",
               "tittel": {
-                "nob": "Idrettsfag Vg3",
-                "eng": "Sports and Physical Education Vg3",
-                "sme": "Valáštallanfágat Jo3",
-                "nno": "Idrettsfag Vg3",
-                "default": "Idrettsfag Vg3"
+                "nb": "Idrettsfag Vg3",
+                "nn": "Idrettsfag Vg3",
+                "en": "Sports and Physical Education Vg3"
               }
             },
             {
               "kode": "IDRET1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IDRET1----",
               "tittel": {
-                "nob": "Idrettsfag Vg1",
-                "eng": "Sports and Physical Education Vg1",
-                "sme": "Valáštallanfágat Jo1",
-                "nno": "Idrettsfag Vg1",
-                "default": "Idrettsfag Vg1"
+                "nb": "Idrettsfag Vg1",
+                "nn": "Idrettsfag Vg1",
+                "en": "Sports and Physical Education Vg1"
               }
             }
           ]
@@ -891,27 +768,27 @@
       "kode": "IM",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/IM",
       "tittel": {
-        "nob": "Informasjonsteknologi og medieproduksjon",
-        "nno": "Informasjonsteknologi og medieproduksjon",
-        "default": "Informasjonsteknologi og medieproduksjon"
+        "nb": "Informasjonsteknologi og medieproduksjon",
+        "nn": "Informasjonsteknologi og medieproduksjon",
+        "en": "Informasjonsteknologi og medieproduksjon"
       },
       "trinn": [
         {
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "IMIKM1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/IMIKM1----",
               "tittel": {
-                "nob": "Informasjonsteknologi og medieproduksjon",
-                "nno": "Informasjonsteknologi og medieproduksjon",
-                "default": "Informasjonsteknologi og medieproduksjon"
+                "nb": "Informasjonsteknologi og medieproduksjon",
+                "nn": "Informasjonsteknologi og medieproduksjon",
+                "en": "Informasjonsteknologi og medieproduksjon"
               }
             }
           ]
@@ -922,31 +799,27 @@
       "kode": "KD",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/KD",
       "tittel": {
-        "nno": "Kunst, design og arkitektur",
-        "eng": "Art, design and architecture",
-        "nob": "Kunst, design og arkitektur",
-        "sme": "Dáidda, design ja arkitektuvra",
-        "default": "Kunst, design og arkitektur"
+        "nb": "Kunst, design og arkitektur",
+        "nn": "Kunst, design og arkitektur",
+        "en": "Art, design and architecture"
       },
       "trinn": [
         {
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "KDKDA1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/KDKDA1----",
               "tittel": {
-                "nob": "Kunst, design og arkitektur Vg1",
-                "eng": "Art, design and architecture Vg1",
-                "sme": "Dáidda, design ja arkitektuvra Jo1",
-                "nno": "Kunst, design og arkitektur Vg1",
-                "default": "Kunst, design og arkitektur Vg1"
+                "nb": "Kunst, design og arkitektur Vg1",
+                "nn": "Kunst, design og arkitektur Vg1",
+                "en": "Art, design and architecture Vg1"
               }
             }
           ]
@@ -955,31 +828,27 @@
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "KDKDA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/KDKDA2----",
               "tittel": {
-                "nob": "Kunst, design og arkitektur Vg2",
-                "eng": "Art, design and architecture Vg2",
-                "sme": "Dáidda, design ja arkitektuvra Jo2",
-                "nno": "Kunst, design og arkitektur Vg2",
-                "default": "Kunst, design og arkitektur Vg2"
+                "nb": "Kunst, design og arkitektur Vg2",
+                "nn": "Kunst, design og arkitektur Vg2",
+                "en": "Art, design and architecture Vg2"
               }
             },
             {
               "kode": "KDKDA3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/KDKDA3----",
               "tittel": {
-                "nob": "Kunst, design og arkitektur Vg3",
-                "eng": "Art, design and architecture Vg3",
-                "sme": "Dáidda, design ja arkitektuvra Jo3",
-                "nno": "Kunst, design og arkitektur Vg3",
-                "default": "Kunst, design og arkitektur Vg3"
+                "nb": "Kunst, design og arkitektur Vg3",
+                "nn": "Kunst, design og arkitektur Vg3",
+                "en": "Art, design and architecture Vg3"
               }
             }
           ]
@@ -988,31 +857,27 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "KDKDA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/KDKDA2----",
               "tittel": {
-                "nob": "Kunst, design og arkitektur Vg2",
-                "eng": "Art, design and architecture Vg2",
-                "sme": "Dáidda, design ja arkitektuvra Jo2",
-                "nno": "Kunst, design og arkitektur Vg2",
-                "default": "Kunst, design og arkitektur Vg2"
+                "nb": "Kunst, design og arkitektur Vg2",
+                "nn": "Kunst, design og arkitektur Vg2",
+                "en": "Art, design and architecture Vg2"
               }
             },
             {
               "kode": "KDKDA3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/KDKDA3----",
               "tittel": {
-                "nob": "Kunst, design og arkitektur Vg3",
-                "eng": "Art, design and architecture Vg3",
-                "sme": "Dáidda, design ja arkitektuvra Jo3",
-                "nno": "Kunst, design og arkitektur Vg3",
-                "default": "Kunst, design og arkitektur Vg3"
+                "nb": "Kunst, design og arkitektur Vg3",
+                "nn": "Kunst, design og arkitektur Vg3",
+                "en": "Art, design and architecture Vg3"
               }
             }
           ]
@@ -1023,97 +888,81 @@
       "kode": "MD",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/MD",
       "tittel": {
-        "nno": "Musikk, dans og drama",
-        "sme": "Musihkka, dánsun ja dráma",
-        "eng": "Music, Dance and Drama",
-        "nob": "Musikk, dans og drama",
-        "default": "Musikk, dans og drama"
+        "nb": "Musikk, dans og drama",
+        "nn": "Musikk, dans og drama",
+        "en": "Music, Dance and Drama"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "MDDAN2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDAN2----",
               "tittel": {
-                "nob": "Dans Vg2",
-                "eng": "Dance Studies Vg2",
-                "sme": "Dánsun Jo2",
-                "nno": "Dans Vg2",
-                "default": "Dans Vg2"
+                "nb": "Dans Vg2",
+                "nn": "Dans Vg2",
+                "en": "Dance Studies Vg2"
               }
             },
             {
               "kode": "MDDAN3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDAN3----",
               "tittel": {
-                "nob": "Dans Vg3",
-                "eng": "Dance Studies Vg3",
-                "sme": "Dánsun Jo3",
-                "nno": "Dans Vg3",
-                "default": "Dans Vg3"
+                "nb": "Dans Vg3",
+                "nn": "Dans Vg3",
+                "en": "Dance Studies Vg3"
               }
             },
             {
               "kode": "MDDRA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDRA2----",
               "tittel": {
-                "nob": "Drama Vg2",
-                "eng": "Drama Studies Vg2",
-                "sme": "Dráma Jo2",
-                "nno": "Drama Vg2",
-                "default": "Drama Vg2"
+                "nb": "Drama Vg2",
+                "nn": "Drama Vg2",
+                "en": "Drama Studies Vg2"
               }
             },
             {
               "kode": "MDDRA3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDRA3----",
               "tittel": {
-                "nob": "Drama Vg3",
-                "eng": "Drama Studies Vg3",
-                "sme": "Dráma Jo3",
-                "nno": "Drama Vg3",
-                "default": "Drama Vg3"
+                "nb": "Drama Vg3",
+                "nn": "Drama Vg3",
+                "en": "Drama Studies Vg3"
               }
             },
             {
               "kode": "MDMDD1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDMDD1----",
               "tittel": {
-                "nob": "Musikk, dans og drama Vg1",
-                "eng": "Music, Dance and Drama Vg1",
-                "sme": "Musihkka, dánsun ja dráma Jo1",
-                "nno": "Musikk, dans og drama Vg1",
-                "default": "Musikk, dans og drama Vg1"
+                "nb": "Musikk, dans og drama Vg1",
+                "nn": "Musikk, dans og drama Vg1",
+                "en": "Music, Dance and Drama Vg1"
               }
             },
             {
               "kode": "MDMUS2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDMUS2----",
               "tittel": {
-                "nob": "Musikk Vg2",
-                "eng": "Music Studies Vg2",
-                "sme": "Musihkka Jo2",
-                "nno": "Musikk Vg2",
-                "default": "Musikk Vg2"
+                "nb": "Musikk Vg2",
+                "nn": "Musikk Vg2",
+                "en": "Music Studies Vg2"
               }
             },
             {
               "kode": "MDMUS3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDMUS3----",
               "tittel": {
-                "nob": "Musikk Vg3",
-                "eng": "Music Studies Vg3",
-                "sme": "Musihkka Jo3",
-                "nno": "Musikk Vg3",
-                "default": "Musikk Vg3"
+                "nb": "Musikk Vg3",
+                "nn": "Musikk Vg3",
+                "en": "Music Studies Vg3"
               }
             }
           ]
@@ -1122,86 +971,72 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "MDDAN2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDAN2----",
               "tittel": {
-                "nob": "Dans Vg2",
-                "eng": "Dance Studies Vg2",
-                "sme": "Dánsun Jo2",
-                "nno": "Dans Vg2",
-                "default": "Dans Vg2"
+                "nb": "Dans Vg2",
+                "nn": "Dans Vg2",
+                "en": "Dance Studies Vg2"
               }
             },
             {
               "kode": "MDDAN3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDAN3----",
               "tittel": {
-                "nob": "Dans Vg3",
-                "eng": "Dance Studies Vg3",
-                "sme": "Dánsun Jo3",
-                "nno": "Dans Vg3",
-                "default": "Dans Vg3"
+                "nb": "Dans Vg3",
+                "nn": "Dans Vg3",
+                "en": "Dance Studies Vg3"
               }
             },
             {
               "kode": "MDDRA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDRA2----",
               "tittel": {
-                "nob": "Drama Vg2",
-                "eng": "Drama Studies Vg2",
-                "sme": "Dráma Jo2",
-                "nno": "Drama Vg2",
-                "default": "Drama Vg2"
+                "nb": "Drama Vg2",
+                "nn": "Drama Vg2",
+                "en": "Drama Studies Vg2"
               }
             },
             {
               "kode": "MDDRA3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDRA3----",
               "tittel": {
-                "nob": "Drama Vg3",
-                "eng": "Drama Studies Vg3",
-                "sme": "Dráma Jo3",
-                "nno": "Drama Vg3",
-                "default": "Drama Vg3"
+                "nb": "Drama Vg3",
+                "nn": "Drama Vg3",
+                "en": "Drama Studies Vg3"
               }
             },
             {
               "kode": "MDMDD1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDMDD1----",
               "tittel": {
-                "nob": "Musikk, dans og drama Vg1",
-                "eng": "Music, Dance and Drama Vg1",
-                "sme": "Musihkka, dánsun ja dráma Jo1",
-                "nno": "Musikk, dans og drama Vg1",
-                "default": "Musikk, dans og drama Vg1"
+                "nb": "Musikk, dans og drama Vg1",
+                "nn": "Musikk, dans og drama Vg1",
+                "en": "Music, Dance and Drama Vg1"
               }
             },
             {
               "kode": "MDMUS2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDMUS2----",
               "tittel": {
-                "nob": "Musikk Vg2",
-                "eng": "Music Studies Vg2",
-                "sme": "Musihkka Jo2",
-                "nno": "Musikk Vg2",
-                "default": "Musikk Vg2"
+                "nb": "Musikk Vg2",
+                "nn": "Musikk Vg2",
+                "en": "Music Studies Vg2"
               }
             },
             {
               "kode": "MDMUS3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDMUS3----",
               "tittel": {
-                "nob": "Musikk Vg3",
-                "eng": "Music Studies Vg3",
-                "sme": "Musihkka Jo3",
-                "nno": "Musikk Vg3",
-                "default": "Musikk Vg3"
+                "nb": "Musikk Vg3",
+                "nn": "Musikk Vg3",
+                "en": "Music Studies Vg3"
               }
             }
           ]
@@ -1210,64 +1045,54 @@
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "MDDRA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDRA2----",
               "tittel": {
-                "nob": "Drama Vg2",
-                "eng": "Drama Studies Vg2",
-                "sme": "Dráma Jo2",
-                "nno": "Drama Vg2",
-                "default": "Drama Vg2"
+                "nb": "Drama Vg2",
+                "nn": "Drama Vg2",
+                "en": "Drama Studies Vg2"
               }
             },
             {
               "kode": "MDDRA3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDDRA3----",
               "tittel": {
-                "nob": "Drama Vg3",
-                "eng": "Drama Studies Vg3",
-                "sme": "Dráma Jo3",
-                "nno": "Drama Vg3",
-                "default": "Drama Vg3"
+                "nb": "Drama Vg3",
+                "nn": "Drama Vg3",
+                "en": "Drama Studies Vg3"
               }
             },
             {
               "kode": "MDMDD1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDMDD1----",
               "tittel": {
-                "nob": "Musikk, dans og drama Vg1",
-                "eng": "Music, Dance and Drama Vg1",
-                "sme": "Musihkka, dánsun ja dráma Jo1",
-                "nno": "Musikk, dans og drama Vg1",
-                "default": "Musikk, dans og drama Vg1"
+                "nb": "Musikk, dans og drama Vg1",
+                "nn": "Musikk, dans og drama Vg1",
+                "en": "Music, Dance and Drama Vg1"
               }
             },
             {
               "kode": "MDMUS2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDMUS2----",
               "tittel": {
-                "nob": "Musikk Vg2",
-                "eng": "Music Studies Vg2",
-                "sme": "Musihkka Jo2",
-                "nno": "Musikk Vg2",
-                "default": "Musikk Vg2"
+                "nb": "Musikk Vg2",
+                "nn": "Musikk Vg2",
+                "en": "Music Studies Vg2"
               }
             },
             {
               "kode": "MDMUS3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MDMUS3----",
               "tittel": {
-                "nob": "Musikk Vg3",
-                "eng": "Music Studies Vg3",
-                "sme": "Musihkka Jo3",
-                "nno": "Musikk Vg3",
-                "default": "Musikk Vg3"
+                "nb": "Musikk Vg3",
+                "nn": "Musikk Vg3",
+                "en": "Music Studies Vg3"
               }
             }
           ]
@@ -1278,31 +1103,27 @@
       "kode": "ME",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/ME",
       "tittel": {
-        "nno": "Medium og kommunikasjon",
-        "nob": "Medier og kommunikasjon",
-        "eng": "Media and Communication",
-        "sme": "Mediat ja gulahallan",
-        "default": "Medier og kommunikasjon"
+        "nb": "Medier og kommunikasjon",
+        "nn": "Medium og kommunikasjon",
+        "en": "Media and Communication"
       },
       "trinn": [
         {
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "MEMOK1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MEMOK1----",
               "tittel": {
-                "nob": "Medier og kommunikasjon Vg1",
-                "eng": "Media and Communication Vg1",
-                "sme": "Mediat ja gulahallan Jo1",
-                "nno": "Medium og kommunikasjon Vg1",
-                "default": "Medier og kommunikasjon Vg1"
+                "nb": "Medier og kommunikasjon Vg1",
+                "nn": "Medium og kommunikasjon Vg1",
+                "en": "Media and Communication Vg1"
               }
             }
           ]
@@ -1311,31 +1132,27 @@
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "MEMOK2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MEMOK2----",
               "tittel": {
-                "nob": "Medier og kommunikasjon Vg2",
-                "eng": "Media and Communication Vg2",
-                "sme": "Mediat ja gulahallan Jo2",
-                "nno": "Medium og kommunikasjon Vg2",
-                "default": "Medier og kommunikasjon Vg2"
+                "nb": "Medier og kommunikasjon Vg2",
+                "nn": "Medium og kommunikasjon Vg2",
+                "en": "Media and Communication Vg2"
               }
             },
             {
               "kode": "MEMOK3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MEMOK3----",
               "tittel": {
-                "nob": "Medier og kommunikasjon Vg3",
-                "eng": "Media and Communication Vg3",
-                "sme": "Mediat ja gulahallan Vg3",
-                "nno": "Medium og kommunikasjon Vg3",
-                "default": "Medier og kommunikasjon Vg3"
+                "nb": "Medier og kommunikasjon Vg3",
+                "nn": "Medium og kommunikasjon Vg3",
+                "en": "Media and Communication Vg3"
               }
             }
           ]
@@ -1344,31 +1161,27 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "MEMOK2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MEMOK2----",
               "tittel": {
-                "nob": "Medier og kommunikasjon Vg2",
-                "eng": "Media and Communication Vg2",
-                "sme": "Mediat ja gulahallan Jo2",
-                "nno": "Medium og kommunikasjon Vg2",
-                "default": "Medier og kommunikasjon Vg2"
+                "nb": "Medier og kommunikasjon Vg2",
+                "nn": "Medium og kommunikasjon Vg2",
+                "en": "Media and Communication Vg2"
               }
             },
             {
               "kode": "MEMOK3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/MEMOK3----",
               "tittel": {
-                "nob": "Medier og kommunikasjon Vg3",
-                "eng": "Media and Communication Vg3",
-                "sme": "Mediat ja gulahallan Vg3",
-                "nno": "Medium og kommunikasjon Vg3",
-                "default": "Medier og kommunikasjon Vg3"
+                "nb": "Medier og kommunikasjon Vg3",
+                "nn": "Medium og kommunikasjon Vg3",
+                "en": "Media and Communication Vg3"
               }
             }
           ]
@@ -1379,97 +1192,81 @@
       "kode": "NA",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/NA",
       "tittel": {
-        "sme": "Luonddudoallu",
-        "nob": "Naturbruk",
-        "eng": "Agriculture, Fishing and Forestry",
-        "nno": "Naturbruk",
-        "default": "Naturbruk"
+        "nb": "Naturbruk",
+        "nn": "Naturbruk",
+        "en": "Agriculture, Fishing and Forestry"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "NAAID2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAAID2----",
               "tittel": {
-                "nob": "Anleggsgartner- og idrettsanleggsfag",
-                "eng": "Landscaping and Sports Facilities operator",
-                "sme": "Ráhkadusšaddogárde- ja valáštallanrusttetfága",
-                "nno": "Anleggsgartnar- og idrettsanleggsfag",
-                "default": "Anleggsgartner- og idrettsanleggsfag"
+                "nb": "Anleggsgartner- og idrettsanleggsfag",
+                "nn": "Anleggsgartnar- og idrettsanleggsfag",
+                "en": "Landscaping and Sports Facilities operator"
               }
             },
             {
               "kode": "NAAKV2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAAKV2----",
               "tittel": {
-                "nob": "Akvakultur",
-                "eng": "Aquaculture",
-                "sme": "Akvakultuvra",
-                "nno": "Akvakultur",
-                "default": "Akvakultur"
+                "nb": "Akvakultur",
+                "nn": "Akvakultur",
+                "en": "Aquaculture"
               }
             },
             {
               "kode": "NAFFA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAFFA2----",
               "tittel": {
-                "nob": "Fiske og fangst",
-                "eng": "Fishing and General Seamanship",
-                "sme": "Guolástus ja bivdu",
-                "nno": "Fiske og fangst",
-                "default": "Fiske og fangst"
+                "nb": "Fiske og fangst",
+                "nn": "Fiske og fangst",
+                "en": "Fishing and General Seamanship"
               }
             },
             {
               "kode": "NAHHO2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAHHO2----",
               "tittel": {
-                "nob": "Heste- og hovslagerfag",
-                "eng": "Equestrian and Farrier Activities",
-                "sme": "Heasta- ja gámaheaddjifága ",
-                "nno": "Heste- og hovslagarfag",
-                "default": "Heste- og hovslagerfag"
+                "nb": "Heste- og hovslagerfag",
+                "nn": "Heste- og hovslagarfag",
+                "en": "Equestrian and Farrier Activities"
               }
             },
             {
               "kode": "NALGA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NALGA2----",
               "tittel": {
-                "nob": "Landbruk og gartnernæring",
-                "eng": "Agriculture and Horticulture",
-                "sme": "Eanadoallo- ja šaddogárdeealáhus",
-                "nno": "Landbruk og gartnarnæring",
-                "default": "Landbruk og gartnernæring"
+                "nb": "Landbruk og gartnernæring",
+                "nn": "Landbruk og gartnarnæring",
+                "en": "Agriculture and Horticulture"
               }
             },
             {
               "kode": "NAREI2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAREI2----",
               "tittel": {
-                "nob": "Reindrift",
-                "eng": "Reindeer Husbandry",
-                "sme": "Boazodoallu",
-                "nno": "Reindrift",
-                "default": "Reindrift"
+                "nb": "Reindrift",
+                "nn": "Reindrift",
+                "en": "Reindeer Husbandry"
               }
             },
             {
               "kode": "NASBR2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NASBR2----",
               "tittel": {
-                "nob": "Skogbruk",
-                "eng": "Forestry",
-                "sme": "Vuovdedoallu",
-                "nno": "Skogbruk",
-                "default": "Skogbruk"
+                "nb": "Skogbruk",
+                "nn": "Skogbruk",
+                "en": "Forestry"
               }
             }
           ]
@@ -1478,42 +1275,36 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "NAGAN3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAGAN3----",
               "tittel": {
-                "nob": "Gartnernæring",
-                "eng": "Gardening",
-                "sme": "Šaddaniehkkeealáhus",
-                "nno": "Gartnernæring",
-                "default": "Gartnernæring"
+                "nb": "Gartnernæring",
+                "nn": "Gartnernæring",
+                "en": "Gardening"
               }
             },
             {
               "kode": "NALBR3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NALBR3----",
               "tittel": {
-                "nob": "Landbruk",
-                "eng": "Agriculture",
-                "sme": "Eanadoallu",
-                "nno": "Landbruk",
-                "default": "Landbruk"
+                "nb": "Landbruk",
+                "nn": "Landbruk",
+                "en": "Agriculture"
               }
             },
             {
               "kode": "NANAB3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NANAB3----",
               "tittel": {
-                "nob": "Studieforberedende Vg3 innen naturbruk",
-                "eng": "Vg3 General Studies in Fishing and Forestry",
-                "sme": "Luonddudoallu Jo3 studeremii ráhkkanahtti",
-                "nno": "Studieførebuande Vg3 innan naturbruk",
-                "default": "Studieforberedende Vg3 innen naturbruk"
+                "nb": "Studieforberedende Vg3 innen naturbruk",
+                "nn": "Studieførebuande Vg3 innan naturbruk",
+                "en": "Vg3 General Studies in Fishing and Forestry"
               }
             }
           ]
@@ -1522,20 +1313,18 @@
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "NANAB1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/NANAB1----",
               "tittel": {
-                "nob": "Naturbruk",
-                "eng": "Agriculture, Fishing and Forestry",
-                "sme": "Luonddudoallu ",
-                "nno": "Naturbruk",
-                "default": "Naturbruk"
+                "nb": "Naturbruk",
+                "nn": "Naturbruk",
+                "en": "Agriculture, Fishing and Forestry"
               }
             }
           ]
@@ -1546,42 +1335,36 @@
       "kode": "RM",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/RM",
       "tittel": {
-        "sme": "Restauránta- ja biebmofágat",
-        "nob": "Restaurant- og matfag",
-        "eng": "Restaurant and Food Processing",
-        "nno": "Restaurant- og matfag",
-        "default": "Restaurant- og matfag"
+        "nb": "Restaurant- og matfag",
+        "nn": "Restaurant- og matfag",
+        "en": "Restaurant and Food Processing"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "RMKOS2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMKOS2----",
               "tittel": {
-                "nob": "Kokk- og servitørfag",
-                "eng": "Cookery and Waiting",
-                "sme": "Goahkka- ja dárjufágat",
-                "nno": "Kokk- og servitørfag",
-                "default": "Kokk- og servitørfag"
+                "nb": "Kokk- og servitørfag",
+                "nn": "Kokk- og servitørfag",
+                "en": "Cookery and Waiting"
               }
             },
             {
               "kode": "RMMFG2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMMFG2----",
               "tittel": {
-                "nob": "Matfag",
-                "eng": "Food and Beverages",
-                "sme": "Biebmofágat",
-                "nno": "Matfag",
-                "default": "Matfag"
+                "nb": "Matfag",
+                "nn": "Matfag",
+                "en": "Food and Beverages"
               }
             }
           ]
@@ -1590,20 +1373,18 @@
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "RMRMF1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMRMF1----",
               "tittel": {
-                "nob": "Restaurant- og matfag",
-                "eng": "Restaurant and Food Processing",
-                "sme": "Restauránta- ja biebmofágat",
-                "nno": "Restaurant- og matfag",
-                "default": "Restaurant- og matfag"
+                "nb": "Restaurant- og matfag",
+                "nn": "Restaurant- og matfag",
+                "en": "Restaurant and Food Processing"
               }
             }
           ]
@@ -1614,27 +1395,27 @@
       "kode": "SR",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/SR",
       "tittel": {
-        "nno": "Sal, service og reiseliv",
-        "nob": "Salg, service og reiseliv",
-        "default": "Salg, service og reiseliv"
+        "nb": "Salg, service og reiseliv",
+        "nn": "Sal, service og reiseliv",
+        "en": "Salg, service og reiseliv"
       },
       "trinn": [
         {
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "SRSSR1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/SRSSR1----",
               "tittel": {
-                "nob": "Salg, service og reiseliv",
-                "nno": "Sal, service og reiseliv",
-                "default": "Salg, service og reiseliv"
+                "nb": "Salg, service og reiseliv",
+                "nn": "Sal, service og reiseliv",
+                "en": "Salg, service og reiseliv"
               }
             }
           ]
@@ -1645,75 +1426,63 @@
       "kode": "SS",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/SS",
       "tittel": {
-        "sme": "Bálvalus ja johtalus",
-        "nob": "Service og samferdsel",
-        "nno": "Service og samferdsel",
-        "eng": "Service and Transport",
-        "default": "Service og samferdsel"
+        "nb": "Service og samferdsel",
+        "nn": "Service og samferdsel",
+        "en": "Service and Transport"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "SSISF2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSISF2----",
               "tittel": {
-                "nob": "IKT-servicefag",
-                "eng": "ICT Service",
-                "sme": "DGT-bálvalanfágat",
-                "nno": "IKT-servicefag",
-                "default": "IKT-servicefag"
+                "nb": "IKT-servicefag",
+                "nn": "IKT-servicefag",
+                "en": "ICT Service"
               }
             },
             {
               "kode": "SSRLV2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSRLV2----",
               "tittel": {
-                "nob": "Reiseliv",
-                "eng": "Tourism",
-                "sme": "Mátkkoštanealáhus",
-                "nno": "Reiseliv",
-                "default": "Reiseliv"
+                "nb": "Reiseliv",
+                "nn": "Reiseliv",
+                "en": "Tourism"
               }
             },
             {
               "kode": "SSSSS2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSSSS2----",
               "tittel": {
-                "nob": "Salg, service og sikkerhet",
-                "eng": "Sales, Service and Security",
-                "sme": "Vuovdin, bálvaleapmi ja sihkkarvuohta",
-                "nno": "Sal, service og tryggleik",
-                "default": "Salg, service og sikkerhet"
+                "nb": "Salg, service og sikkerhet",
+                "nn": "Sal, service og tryggleik",
+                "en": "Sales, Service and Security"
               }
             },
             {
               "kode": "SSTRL2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSTRL2----",
               "tittel": {
-                "nob": "Transport og logistikk",
-                "eng": "Transport and Logistics",
-                "sme": "Fievrrideapmi ja logistihkka",
-                "nno": "Transport og logistikk",
-                "default": "Transport og logistikk"
+                "nb": "Transport og logistikk",
+                "nn": "Transport og logistikk",
+                "en": "Transport and Logistics"
               }
             },
             {
               "kode": "SSYSL3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSYSL3----",
               "tittel": {
-                "nob": "Yrkessjåførkurs for voksne",
-                "eng": "Transport Driver Course for Adults",
-                "sme": "Fidnovuoddjikursa rávisolbmuide",
-                "nno": "Yrkessjåførkurs for vaksne",
-                "default": "Yrkessjåførkurs for voksne"
+                "nb": "Yrkessjåførkurs for voksne",
+                "nn": "Yrkessjåførkurs for vaksne",
+                "en": "Transport Driver Course for Adults"
               }
             }
           ]
@@ -1722,31 +1491,27 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "SSTRL2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSTRL2----",
               "tittel": {
-                "nob": "Transport og logistikk",
-                "eng": "Transport and Logistics",
-                "sme": "Fievrrideapmi ja logistihkka",
-                "nno": "Transport og logistikk",
-                "default": "Transport og logistikk"
+                "nb": "Transport og logistikk",
+                "nn": "Transport og logistikk",
+                "en": "Transport and Logistics"
               }
             },
             {
               "kode": "SSYSL3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSYSL3----",
               "tittel": {
-                "nob": "Yrkessjåførkurs for voksne",
-                "eng": "Transport Driver Course for Adults",
-                "sme": "Fidnovuoddjikursa rávisolbmuide",
-                "nno": "Yrkessjåførkurs for vaksne",
-                "default": "Yrkessjåførkurs for voksne"
+                "nb": "Yrkessjåførkurs for voksne",
+                "nn": "Yrkessjåførkurs for vaksne",
+                "en": "Transport Driver Course for Adults"
               }
             }
           ]
@@ -1757,64 +1522,54 @@
       "kode": "ST",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/ST",
       "tittel": {
-        "eng": "Specialization in General Studies",
-        "nob": "Studiespesialisering",
-        "nno": "Studiespesialisering",
-        "sme": "Oahppospesialiseren",
-        "default": "Studiespesialisering"
+        "nb": "Studiespesialisering",
+        "nn": "Studiespesialisering",
+        "en": "Specialization in General Studies"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "STREA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/STREA2----",
               "tittel": {
-                "nob": "Realfag Vg2",
-                "eng": "Natural Science and Mathematics Studies Vg2",
-                "sme": "Reálafágat Jo2",
-                "nno": "Realfag Vg2",
-                "default": "Realfag Vg2"
+                "nb": "Realfag Vg2",
+                "nn": "Realfag Vg2",
+                "en": "Natural Science and Mathematics Studies Vg2"
               }
             },
             {
               "kode": "STREA3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/STREA3----",
               "tittel": {
-                "nob": "Realfag Vg3",
-                "eng": "Natural Science and Mathematics Studies Vg3",
-                "sme": "Reálafágat Jo3",
-                "nno": "Realfag Vg3",
-                "default": "Realfag Vg3"
+                "nb": "Realfag Vg3",
+                "nn": "Realfag Vg3",
+                "en": "Natural Science and Mathematics Studies Vg3"
               }
             },
             {
               "kode": "STSSA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/STSSA2----",
               "tittel": {
-                "nob": "Språk, samfunnsfag og økonomi Vg2",
-                "eng": "Languages, Social Sciences and Economics Studies Vg2",
-                "sme": "Giella, servodatfága ja ekonomiija Jo2",
-                "nno": "Språk, samfunnsfag og økonomi Vg2",
-                "default": "Språk, samfunnsfag og økonomi Vg2"
+                "nb": "Språk, samfunnsfag og økonomi Vg2",
+                "nn": "Språk, samfunnsfag og økonomi Vg2",
+                "en": "Languages, Social Sciences and Economics Studies Vg2"
               }
             },
             {
               "kode": "STSSA3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/STSSA3----",
               "tittel": {
-                "nob": "Språk, samfunnsfag og økonomi Vg3",
-                "eng": "Languages, Social Sciences and Economics Studies Vg3",
-                "sme": "Giella, servodatfága ja ekonomiija Jo3",
-                "nno": "Språk, samfunnsfag og økonomi Vg3",
-                "default": "Språk, samfunnsfag og økonomi Vg3"
+                "nb": "Språk, samfunnsfag og økonomi Vg3",
+                "nn": "Språk, samfunnsfag og økonomi Vg3",
+                "en": "Languages, Social Sciences and Economics Studies Vg3"
               }
             }
           ]
@@ -1823,53 +1578,45 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "STREA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/STREA2----",
               "tittel": {
-                "nob": "Realfag Vg2",
-                "eng": "Natural Science and Mathematics Studies Vg2",
-                "sme": "Reálafágat Jo2",
-                "nno": "Realfag Vg2",
-                "default": "Realfag Vg2"
+                "nb": "Realfag Vg2",
+                "nn": "Realfag Vg2",
+                "en": "Natural Science and Mathematics Studies Vg2"
               }
             },
             {
               "kode": "STREA3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/STREA3----",
               "tittel": {
-                "nob": "Realfag Vg3",
-                "eng": "Natural Science and Mathematics Studies Vg3",
-                "sme": "Reálafágat Jo3",
-                "nno": "Realfag Vg3",
-                "default": "Realfag Vg3"
+                "nb": "Realfag Vg3",
+                "nn": "Realfag Vg3",
+                "en": "Natural Science and Mathematics Studies Vg3"
               }
             },
             {
               "kode": "STSSA2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/STSSA2----",
               "tittel": {
-                "nob": "Språk, samfunnsfag og økonomi Vg2",
-                "eng": "Languages, Social Sciences and Economics Studies Vg2",
-                "sme": "Giella, servodatfága ja ekonomiija Jo2",
-                "nno": "Språk, samfunnsfag og økonomi Vg2",
-                "default": "Språk, samfunnsfag og økonomi Vg2"
+                "nb": "Språk, samfunnsfag og økonomi Vg2",
+                "nn": "Språk, samfunnsfag og økonomi Vg2",
+                "en": "Languages, Social Sciences and Economics Studies Vg2"
               }
             },
             {
               "kode": "STSSA3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/STSSA3----",
               "tittel": {
-                "nob": "Språk, samfunnsfag og økonomi Vg3",
-                "eng": "Languages, Social Sciences and Economics Studies Vg3",
-                "sme": "Giella, servodatfága ja ekonomiija Jo3",
-                "nno": "Språk, samfunnsfag og økonomi Vg3",
-                "default": "Språk, samfunnsfag og økonomi Vg3"
+                "nb": "Språk, samfunnsfag og økonomi Vg3",
+                "nn": "Språk, samfunnsfag og økonomi Vg3",
+                "en": "Languages, Social Sciences and Economics Studies Vg3"
               }
             }
           ]
@@ -1880,141 +1627,117 @@
       "kode": "TP",
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/TP",
       "tittel": {
-        "nob": "Teknologi- og industrifag",
-        "eng": "Technical and Industrial Production",
-        "nno": "Teknologi- og industrifag",
-        "sme": "Teknihkka ja industriijabuvttadeapmi",
-        "default": "Teknologi- og industrifag"
+        "nb": "Teknologi- og industrifag",
+        "nn": "Teknologi- og industrifag",
+        "en": "Technical and Industrial Production"
       },
       "trinn": [
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
           "tittel": {
-            "nno": "Vidaregåande trinn 2",
-            "nob": "Videregående trinn 2",
-            "default": "Videregående trinn 2"
+            "nb": "Videregående trinn 2",
+            "nn": "Vidaregåande trinn 2",
+            "en": "Videregående trinn 2"
           },
           "programomraader": [
             {
               "kode": "TPAMK2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPAMK2----",
               "tittel": {
-                "nob": "Arbeidsmaskiner",
-                "eng": "Machinery",
-                "sme": "Bargomašiinnat",
-                "nno": "Arbeidsmaskinar",
-                "default": "Arbeidsmaskiner"
+                "nb": "Arbeidsmaskiner",
+                "nn": "Arbeidsmaskinar",
+                "en": "Machinery"
               }
             },
             {
               "kode": "TPBLK2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBLK2----",
               "tittel": {
-                "nob": "Bilskade, lakk og karosseri",
-                "eng": "Car Damage, Paintwork and Bodywork",
-                "sme": "Biilavahát, láhkka ja fievroolggoš ",
-                "nno": "Bilskade, lakk og karosseri",
-                "default": "Bilskade, lakk og karosseri"
+                "nb": "Bilskade, lakk og karosseri",
+                "nn": "Bilskade, lakk og karosseri",
+                "en": "Car Damage, Paintwork and Bodywork"
               }
             },
             {
               "kode": "TPBRT2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBRT2----",
               "tittel": {
-                "nob": "Brønnteknikk",
-                "eng": "Well Technology",
-                "sme": "Gáivoteknihkka",
-                "nno": "Brønnteknikk",
-                "default": "Brønnteknikk"
+                "nb": "Brønnteknikk",
+                "nn": "Brønnteknikk",
+                "en": "Well Technology"
               }
             },
             {
               "kode": "TPIMS2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIMS2----",
               "tittel": {
-                "nob": "Industriell møbelproduksjon",
-                "eng": "Industrial Furniture Production",
-                "sme": "Industriijastohpogálvobuvttadeapmi",
-                "nno": "Industriell møbelproduksjon",
-                "default": "Industriell møbelproduksjon"
+                "nb": "Industriell møbelproduksjon",
+                "nn": "Industriell møbelproduksjon",
+                "en": "Industrial Furniture Production"
               }
             },
             {
               "kode": "TPIND2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIND2----",
               "tittel": {
-                "nob": "Industritekstil og design",
-                "eng": "Industrial Textile Design",
-                "sme": "Industriijatekstiilafága ja design ",
-                "nno": "Industritekstil og design",
-                "default": "Industritekstil og design"
+                "nb": "Industritekstil og design",
+                "nn": "Industritekstil og design",
+                "en": "Industrial Textile Design"
               }
             },
             {
               "kode": "TPKJP2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPKJP2----",
               "tittel": {
-                "nob": "Kjemiprosess",
-                "eng": "Chemical Processing",
-                "sme": "Kemiijaproseassa",
-                "nno": "Kjemiprosess",
-                "default": "Kjemiprosess"
+                "nb": "Kjemiprosess",
+                "nn": "Kjemiprosess",
+                "en": "Chemical Processing"
               }
             },
             {
               "kode": "TPKJT2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPKJT2----",
               "tittel": {
-                "nob": "Kjøretøy",
-                "eng": "Motor Vehicles",
-                "sme": "Fievrrut",
-                "nno": "Kjøretøy",
-                "default": "Kjøretøy"
+                "nb": "Kjøretøy",
+                "nn": "Kjøretøy",
+                "en": "Motor Vehicles"
               }
             },
             {
               "kode": "TPLAB2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPLAB2----",
               "tittel": {
-                "nob": "Laboratoriefag",
-                "eng": "Laboratory Work",
-                "sme": "Laboratoriafágat",
-                "nno": "Laboratoriefag",
-                "default": "Laboratoriefag"
+                "nb": "Laboratoriefag",
+                "nn": "Laboratoriefag",
+                "en": "Laboratory Work"
               }
             },
             {
               "kode": "TPMAR2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPMAR2----",
               "tittel": {
-                "nob": "Maritime fag",
-                "eng": "Maritime Subjects",
-                "sme": "Maritiibma fágat",
-                "nno": "Maritime fag",
-                "default": "Maritime fag"
+                "nb": "Maritime fag",
+                "nn": "Maritime fag",
+                "en": "Maritime Subjects"
               }
             },
             {
               "kode": "TPPIN2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPPIN2----",
               "tittel": {
-                "nob": "Industriteknologi",
-                "eng": "Industrial Technology",
-                "sme": "Industriijateknologiija",
-                "nno": "Industriteknologi",
-                "default": "Industriteknologi"
+                "nb": "Industriteknologi",
+                "nn": "Industriteknologi",
+                "en": "Industrial Technology"
               }
             },
             {
               "kode": "TPPOK2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPPOK2----",
               "tittel": {
-                "nob": "Plast og kompositt",
-                "eng": "Plastics and composites",
-                "sme": "Plásta ja komposihtta",
-                "nno": "Plast og kompositt",
-                "default": "Plast og kompositt"
+                "nb": "Plast og kompositt",
+                "nn": "Plast og kompositt",
+                "en": "Plastics and composites"
               }
             }
           ]
@@ -2023,20 +1746,18 @@
           "kode": "vg3",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
           "tittel": {
-            "nno": "Vidaregåande trinn 3",
-            "nob": "Videregående trinn 3",
-            "default": "Videregående trinn 3"
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
           },
           "programomraader": [
             {
               "kode": "TPAMM3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPAMM3----",
               "tittel": {
-                "nob": "Anleggsmaskinmekanikerfaget",
-                "eng": "Heavy Equipment Repair and Maintenance",
-                "sme": "Bargomašiidnamekanihkarfága ",
-                "nno": "Anleggsmaskinmekanikarfaget",
-                "default": "Anleggsmaskinmekanikerfaget"
+                "nb": "Anleggsmaskinmekanikerfaget",
+                "nn": "Anleggsmaskinmekanikarfaget",
+                "en": "Heavy Equipment Repair and Maintenance"
               }
             }
           ]
@@ -2045,20 +1766,18 @@
           "kode": "vg1",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg1",
           "tittel": {
-            "nno": "Vidaregåande trinn 1",
-            "nob": "Videregående trinn 1",
-            "default": "Videregående trinn 1"
+            "nb": "Videregående trinn 1",
+            "nn": "Vidaregåande trinn 1",
+            "en": "Videregående trinn 1"
           },
           "programomraader": [
             {
               "kode": "TPTIP1----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPTIP1----",
               "tittel": {
-                "nob": "Teknologi- og industrifag",
-                "eng": "Technical and Industrial Production",
-                "sme": "Teknihkka ja industriijabuvttadeapmi",
-                "nno": "Teknologi- og industrifag",
-                "default": "Teknologi- og industrifag"
+                "nb": "Teknologi- og industrifag",
+                "nn": "Teknologi- og industrifag",
+                "en": "Technical and Industrial Production"
               }
             }
           ]
