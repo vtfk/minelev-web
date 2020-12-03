@@ -15,7 +15,7 @@ import { API } from '../config/app'
  */
 function useGrep (fetcher) {
   const [data, setData] = React.useState(false)
-  const [query, setQuery] = React.useState(false)
+  const [query, setQuery] = React.useState('')
 
   React.useEffect(() => {
     async function queryGrep (query) {

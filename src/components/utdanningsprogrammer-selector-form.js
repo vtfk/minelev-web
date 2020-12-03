@@ -1,13 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSession } from '@vtfk/react-msal'
 import useGrep from '../hooks/use-grep'
 import { Select } from '../_lib-components/Select'
 
+function Utdanningsprogrammer ({ data }) {
+  const [select, setSelect] = useState('')
+  if (!data) {
+    return null
+  }
+  const items = data.map(item => {
+    const { kode, tittel } = item
+    return {
+      value: kode,
+      label: tittel.nb
+    }
+  })
+  return (
+    <div className='input-element'>
+      <Select
+        placeholder='Velg klassetrinn'
+        items={items}
+        selectedItem={select}
+        onChange={(item) => { setSelect(item) }}
+        isOpen
+        closeOnSelect
+      />
+    </div>
+  )
+}
+
 function UtdanningsprogrammerSelectorForm () {
   const [select, setSelect] = useState('VG1')
-  const [filteredData, setFilteredData] = useState([])
+  const [programomrader, setProgramomrader] = useState([])
   const { apiGet } = useSession()
-  const { data } = useGrep(apiGet)
+  const { data, setQuery } = useGrep(apiGet)
+
+
 
   return (
     <div className='input-element'>
@@ -22,7 +50,7 @@ function UtdanningsprogrammerSelectorForm () {
         onChange={(item) => { setSelect(item) }}
         closeOnSelect
       />
-      {JSON.stringify(data)}
+      <Utdanningsprogrammer data={data} />
     </div>
   )
 }
