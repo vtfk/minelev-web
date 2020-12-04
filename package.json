@@ -44,9 +44,9 @@
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-hook-form": "6.12.1",
+    "react-hook-form": "6.12.2",
     "react-moment": "1.0.0",
-    "react-notifications-component": "3.0.2",
+    "react-notifications-component": "3.0.3",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.1",
     "react-scrolllock": "5.0.1",
@@ -56,9 +56,9 @@
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
     "@testing-library/react-hooks": "3.4.2",
-    "@testing-library/user-event": "12.2.2",
+    "@testing-library/user-event": "12.5.0",
     "axios": "0.21.0",
-    "msw": "0.22.3",
+    "msw": "0.24.1",
     "react-test-renderer": "17.0.1",
     "standard": "16.0.3"
   }
