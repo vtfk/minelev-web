@@ -31,6 +31,6 @@ test('Sjekker grunnleggende funksjonalitet', async () => {
 
   await waitForNextUpdate()
 
-  expect(result.current.programomrader.count).toBe(1)
+  expect(result.current.programomrader.data).toBeTruthy()
   expect(result.current.utdanningsprogrammer.count).toBe(17)
 })
