@@ -5,10 +5,309 @@
       "url-data": "https://data.udir.no/kl06/v201906/utdanningsprogram/BA",
       "tittel": {
         "nb": "Bygg- og anleggsteknikk",
-        "nn": "Bygg- og anleggsteknikkk",
+        "nn": "Bygg- og anleggsteknikk",
         "en": "Building and Construction"
       },
       "trinn": [
+        {
+          "kode": "vg3",
+          "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
+          "tittel": {
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
+          },
+          "programomraader": [
+            {
+              "kode": "BAAMF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAAMF3----",
+              "tittel": {
+                "nb": "Anleggsmaskinførerfaget",
+                "nn": "Anleggsmaskinførarfaget",
+                "en": "Heavy Equipment Operations"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAASF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAASF3----",
+              "tittel": {
+                "nb": "Asfaltfaget",
+                "nn": "Asfaltfaget",
+                "en": "Asphalt Surfacing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BABAN3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BABAN3----",
+              "tittel": {
+                "nb": "Banemontørfaget",
+                "nn": "Banemontørfaget",
+                "en": "Railway Track Construction"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BABDR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BABDR3----",
+              "tittel": {
+                "nb": "Byggdrifterfaget",
+                "nn": "Byggdriftarfaget",
+                "en": "Building operator"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BABET3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BABET3----",
+              "tittel": {
+                "nb": "Betongfaget",
+                "nn": "Betongfaget",
+                "en": "Concrete Work"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BABRO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BABRO3----",
+              "tittel": {
+                "nb": "Brønn- og borefaget",
+                "nn": "Brønn- og borefaget",
+                "en": "Brønn- og borefaget"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAFEI3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAFEI3----",
+              "tittel": {
+                "nb": "Feierfaget",
+                "nn": "Feiarfaget",
+                "en": "Chimney Sweeping"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAFJE3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAFJE3----",
+              "tittel": {
+                "nb": "Fjell- og bergverksfaget",
+                "nn": "Fjell- og bergverksfaget",
+                "en": "Rock Blasting and Mining"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAGLA3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAGLA3----",
+              "tittel": {
+                "nb": "Glassfaget",
+                "nn": "Glasfaget",
+                "en": "Glasswork"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAIMF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAIMF3----",
+              "tittel": {
+                "nb": "Industrimalerfaget",
+                "nn": "Industrimålarfaget",
+                "en": "Industrial Painting"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAISO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAISO3----",
+              "tittel": {
+                "nb": "Isolatørfaget",
+                "nn": "Isolatørfaget",
+                "en": "Insulation"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BALIM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BALIM3----",
+              "tittel": {
+                "nb": "Limtreproduksjonsfaget",
+                "nn": "Limtreproduksjonsfaget",
+                "en": "Laminated Timber Production"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAMAL3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAMAL3----",
+              "tittel": {
+                "nb": "Malerfaget",
+                "nn": "Målarfaget",
+                "en": "Painting/Decorating"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAMUR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAMUR3----",
+              "tittel": {
+                "nb": "Murerfaget",
+                "nn": "Murarfaget",
+                "en": "Bricklaying"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BARHO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BARHO3----",
+              "tittel": {
+                "nb": "Renholdsoperatørfaget",
+                "nn": "Reinhaldsoperatørfaget",
+                "en": "Institutional Cleaning"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BARLF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BARLF3----",
+              "tittel": {
+                "nb": "Rørleggerfaget",
+                "nn": "Rørleggjarfaget",
+                "en": "Plumbing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BASTE3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BASTE3----",
+              "tittel": {
+                "nb": "Steinfaget",
+                "nn": "Steinfaget",
+                "en": "Masonry"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BASTI3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BASTI3----",
+              "tittel": {
+                "nb": "Stillasbyggerfaget",
+                "nn": "Stillasbyggjarfaget",
+                "en": "Scaffolding"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BATAK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BATAK3----",
+              "tittel": {
+                "nb": "Tak- og membrantekkerfaget",
+                "nn": "Tak- og membrantekkjarfaget",
+                "en": "Roofing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BATBY3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BATBY3----",
+              "tittel": {
+                "nb": "Trevare- og bygginnredningsfaget",
+                "nn": "Trevare- og bygginnreiingsfaget",
+                "en": "Wood products and building furnishings"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BATLF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BATLF3----",
+              "tittel": {
+                "nb": "Trelastfaget",
+                "nn": "Trelastfaget",
+                "en": "Timber Processing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BATMF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BATMF3----",
+              "tittel": {
+                "nb": "Tømrerfaget",
+                "nn": "Tømrarfaget",
+                "en": "Carpentry"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAVBL3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAVBL3----",
+              "tittel": {
+                "nb": "Ventilasjons- og blikkenslagerfaget",
+                "nn": "Ventilasjons- og blekkslagarfaget",
+                "en": "Ventilation and Tinsmith Work"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "BAVOA3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAVOA3----",
+              "tittel": {
+                "nb": "Vei- og anleggsfaget",
+                "nn": "Veg- og anleggsfaget",
+                "en": "Road and Construction Work"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            }
+          ]
+        },
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
@@ -25,7 +324,10 @@
                 "nb": "Anleggsteknikk",
                 "nn": "Anleggsteknikk",
                 "en": "Construction"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "BABYG2----",
@@ -34,16 +336,22 @@
                 "nb": "Byggteknikk",
                 "nn": "Byggteknikk",
                 "en": "Construction Techniques"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "BAKEM2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/BAKEM2----",
               "tittel": {
-                "nb": "Klima-, energi- og miljøteknikk",
-                "nn": "Klima-, energi- og miljøteknikk",
+                "nb": "Klima-, energi- og miljø",
+                "nn": "Klima-, energi- og miljø",
                 "en": "Climate, Energy and Environment Work"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "BAOFT2----",
@@ -52,7 +360,10 @@
                 "nb": "Overflateteknikk",
                 "nn": "Overflateteknikk",
                 "en": "Surface Treatment Work"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "BATRT2----",
@@ -61,7 +372,10 @@
                 "nb": "Treteknikk",
                 "nn": "Treteknikk",
                 "en": "Woodworking"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -81,7 +395,10 @@
                 "nb": "Bygg- og anleggsteknikk",
                 "nn": "Bygg- og anleggsteknikk",
                 "en": "Building and Construction"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -112,7 +429,10 @@
                 "nb": "Aktivitør",
                 "nn": "Aktivitør",
                 "en": "Occupational Therapy"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHBBF2----",
@@ -121,7 +441,10 @@
                 "nb": "Båtbyggerfag",
                 "nn": "Båtbyggjarfag",
                 "en": "Boatbuilding"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHBLD2----",
@@ -130,7 +453,10 @@
                 "nb": "Blomsterdekoratør",
                 "nn": "Blomsterdekoratør",
                 "en": "Floral Design"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHBMF2----",
@@ -139,7 +465,10 @@
                 "nb": "Børsemaker",
                 "nn": "Børsemakar",
                 "en": "Gunsmithing"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHDDU2----",
@@ -148,7 +477,10 @@
                 "nb": "Design og duodji",
                 "nn": "Design og duodji",
                 "en": "Design and Duodji (traditional Sami handicrafts)"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHDGH2----",
@@ -157,7 +489,10 @@
                 "nb": "Design og gullsmedhåndverk",
                 "nn": "Design og gullsmedhandverk",
                 "en": "Design and Goldsmith Crafts"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHDTE2----",
@@ -166,7 +501,10 @@
                 "nb": "Design og tekstil",
                 "nn": "Design og tekstil",
                 "en": "Design and Textiles"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHDTR2----",
@@ -175,7 +513,10 @@
                 "nb": "Design og trearbeid",
                 "nn": "Design og trearbeid",
                 "en": "Design and Woodworking"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHFRI2----",
@@ -184,7 +525,10 @@
                 "nb": "Frisør",
                 "nn": "Frisør",
                 "en": "Hairdresser"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHIUD2----",
@@ -193,7 +537,10 @@
                 "nb": "Interiør og utstillingsdesign",
                 "nn": "Interiør og utstillingsdesign",
                 "en": "Interior and Display Design"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHMED2----",
@@ -202,7 +549,10 @@
                 "nb": "Medieproduksjon Vg2",
                 "nn": "Medieproduksjon Vg2",
                 "en": "Media production upper secondary level 2 (Vg 2)"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHPST2----",
@@ -211,7 +561,10 @@
                 "nb": "Pianostemming og pianoteknikk",
                 "nn": "Pianostemming og pianoteknikk",
                 "en": "Piano Tuning and Repair"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHSME2----",
@@ -220,7 +573,10 @@
                 "nb": "Smed",
                 "nn": "Smed",
                 "en": "Blacksmithing"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "DHUIM2----",
@@ -229,7 +585,10 @@
                 "nb": "Ur- og instrumentmaker",
                 "nn": "Ur- og instrumentmakar",
                 "en": "Watch, clock and instrument maker"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -243,13 +602,436 @@
           },
           "programomraader": [
             {
+              "kode": "DHAKT3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHAKT3----",
+              "tittel": {
+                "nb": "Aktivitørfaget",
+                "nn": "Aktivitørfaget",
+                "en": "Occupational Therapy"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHBKF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHBKF3----",
+              "tittel": {
+                "nb": "Bøkkerfaget",
+                "nn": "Bøkkarfaget",
+                "en": "Cooperage"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHBLD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHBLD3----",
+              "tittel": {
+                "nb": "Blomsterdekoratørfaget",
+                "nn": "Blomsterdekoratørfaget",
+                "en": "Floral Design"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHBLY3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHBLY3----",
+              "tittel": {
+                "nb": "Blyglasshåndverkerfaget",
+                "nn": "Blyglashandverkarfaget",
+                "en": "Stained Glass Work"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHBMF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHBMF3----",
+              "tittel": {
+                "nb": "Børsemakerfaget",
+                "nn": "Børsemakarfaget",
+                "en": "Gunsmithing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHBNT3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHBNT3----",
+              "tittel": {
+                "nb": "Buntmakerfaget",
+                "nn": "Buntmakarfaget",
+                "en": "Furriery"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHBUN3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHBUN3----",
+              "tittel": {
+                "nb": "Bunadtilvirkerfaget",
+                "nn": "Bunadtilverkarfaget",
+                "en": "National Costume (Bunad) Making"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHFGY3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHFGY3----",
+              "tittel": {
+                "nb": "Forgyllerfaget",
+                "nn": "Forgyllarfaget",
+                "en": "Gilding"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHFIL3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHFIL3----",
+              "tittel": {
+                "nb": "Filigranssølvsmedfaget",
+                "nn": "Filigranssølvsmedfaget",
+                "en": "Filigree Silversmithing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHFRI3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHFRI3----",
+              "tittel": {
+                "nb": "Frisørfaget",
+                "nn": "Frisørfaget",
+                "en": "Hairdressing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHFTG3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHFTG3----",
+              "tittel": {
+                "nb": "Fotograffaget",
+                "nn": "Fotograffaget",
+                "en": "Photography"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHGIP3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHGIP3----",
+              "tittel": {
+                "nb": "Gipsmakerfaget",
+                "nn": "Gipsmakarfaget",
+                "en": "Plastering and Stucco Masonry"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHGLH3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHGLH3----",
+              "tittel": {
+                "nb": "Glasshåndverkerfaget",
+                "nn": "Glashandverkarfaget",
+                "en": "Glass Handicrafts"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHGRF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHGRF3----",
+              "tittel": {
+                "nb": "Gravørfaget",
+                "nn": "Gravørfaget",
+                "en": "Engraving"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHGTL3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHGTL3----",
+              "tittel": {
+                "nb": "Gjørtlerfaget",
+                "nn": "Gjørtlarfaget",
+                "en": "Brazing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHGUL3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHGUL3----",
+              "tittel": {
+                "nb": "Gullsmedfaget",
+                "nn": "Gullsmedfaget",
+                "en": "Goldsmithing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHHBB3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHHBB3----",
+              "tittel": {
+                "nb": "Håndbokbinderfaget",
+                "nn": "Handbokbindarfaget",
+                "en": "Hand Bookbinding"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHHMD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHHMD3----",
+              "tittel": {
+                "nb": "Horn-, bein- og metallduodjifaget",
+                "nn": "Horn-, bein- og metallduodjifaget",
+                "en": "Horn, Bone and Metal Duodji"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHHSK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHHSK3----",
+              "tittel": {
+                "nb": "Herreskredderfaget",
+                "nn": "Herreskreddarfaget",
+                "en": "Men’s Tailoring"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHHVF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHHVF3----",
+              "tittel": {
+                "nb": "Håndveverfaget",
+                "nn": "Handvevarfaget",
+                "en": "Handweaving"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
               "kode": "DHINT3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHINT3----",
               "tittel": {
                 "nb": "Interiør",
                 "nn": "Interiør",
                 "en": "Interior Design"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "DHKBB3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHKBB3----",
+              "tittel": {
+                "nb": "Komposittbåtbyggerfaget",
+                "nn": "Komposittbåtbyggjarfaget",
+                "en": "Composite Boat Building"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHKER3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHKER3----",
+              "tittel": {
+                "nb": "Keramikerfaget",
+                "nn": "Keramikarfaget",
+                "en": "Ceramics Making"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHKJD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHKJD3----",
+              "tittel": {
+                "nb": "Kjole- og draktsyerfaget",
+                "nn": "Kjole- og draktsyarfaget",
+                "en": "Dressmaking"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHKRV3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHKRV3----",
+              "tittel": {
+                "nb": "Kurvmakerfaget",
+                "nn": "Korgmakarfaget",
+                "en": "Basketmaking"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHKST3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHKST3----",
+              "tittel": {
+                "nb": "Kostymesyerfaget",
+                "nn": "Kostymesyarfaget",
+                "en": "Costume Making"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHMDE3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHMDE3----",
+              "tittel": {
+                "nb": "Mediedesign",
+                "nn": "Mediedesign",
+                "en": "Media design"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "DHMGR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHMGR3----",
+              "tittel": {
+                "nb": "Mediegrafikerfaget",
+                "nn": "Mediegrafikarfaget",
+                "en": "Media Graphic"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHMOD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHMOD3----",
+              "tittel": {
+                "nb": "Modistfaget",
+                "nn": "Modistfaget",
+                "en": "Millinery"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHMPM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHMPM3----",
+              "tittel": {
+                "nb": "Maskør- og parykkmakerfaget",
+                "nn": "Maskør- og parykkmakarfaget",
+                "en": "Wigmaking and Stage Make-up"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHMSF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHMSF3----",
+              "tittel": {
+                "nb": "Møbelsnekkerfaget",
+                "nn": "Møbelsnikkarfaget",
+                "en": "Cabinetmaking"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHMTF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHMTF3----",
+              "tittel": {
+                "nb": "Møbeltapetsererfaget",
+                "nn": "Møbeltapetserarfaget",
+                "en": "Furniture Upholstering"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHNAU3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHNAU3----",
+              "tittel": {
+                "nb": "Nautisk instrumentmakerfaget",
+                "nn": "Nautisk instrumentmakarfaget",
+                "en": "Nautical Instrument Making"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHOPT3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHOPT3----",
+              "tittel": {
+                "nb": "Optronikerfaget",
+                "nn": "Optronikarfaget",
+                "en": "Optical and Geodetic Instrument Making"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHORG3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHORG3----",
+              "tittel": {
+                "nb": "Orgelbyggerfaget",
+                "nn": "Orgelbyggjarfaget",
+                "en": "Organ Building"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHPFD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHPFD3----",
+              "tittel": {
+                "nb": "Profileringsdesignfaget",
+                "nn": "Profileringsdesignfaget",
+                "en": "Profile Design"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             },
             {
               "kode": "DHPST3----",
@@ -258,7 +1040,202 @@
                 "nb": "Pianostemming og pianoteknikk",
                 "nn": "Pianostemming og pianoteknikk",
                 "en": "Piano Tuning and Repair"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "DHREP3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHREP3----",
+              "tittel": {
+                "nb": "Repslagerfaget",
+                "nn": "Reipslagarfaget",
+                "en": "Ropemaking"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHSAL3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHSAL3----",
+              "tittel": {
+                "nb": "Salmakerfaget",
+                "nn": "Salmakarfaget",
+                "en": "Saddlery"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHSEI3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHSEI3----",
+              "tittel": {
+                "nb": "Seilmakerfaget",
+                "nn": "Seglmakarfaget",
+                "en": "Sailmaking"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHSKO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHSKO3----",
+              "tittel": {
+                "nb": "Skomakerfaget",
+                "nn": "Skomakarfaget",
+                "en": "Shoemaking"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHSLV3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHSLV3----",
+              "tittel": {
+                "nb": "Sølvsmedfaget",
+                "nn": "Sølvsmedfaget",
+                "en": "Silversmithing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHSME3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHSME3----",
+              "tittel": {
+                "nb": "Smedfaget",
+                "nn": "Smedfaget",
+                "en": "Blacksmithing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHSPD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHSPD3----",
+              "tittel": {
+                "nb": "Skinn- og pelsduodjifaget",
+                "nn": "Skinn- og pelsduodjifaget",
+                "en": "Leather and Fur Duodji"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHSTR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHSTR3----",
+              "tittel": {
+                "nb": "Strikkefaget",
+                "nn": "Strikkefaget",
+                "en": "Knitting"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHSTU3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHSTU3----",
+              "tittel": {
+                "nb": "Storurmakerfaget",
+                "nn": "Storurmakarfaget",
+                "en": "Large Clock Repairs"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHTDR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHTDR3----",
+              "tittel": {
+                "nb": "Tredreierfaget",
+                "nn": "Tredreiarfaget",
+                "en": "Wood Turning"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHTED3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHTED3----",
+              "tittel": {
+                "nb": "Tekstilduodjifaget",
+                "nn": "Tekstilduodjifaget",
+                "en": "Textile Duodji"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHTKS3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHTKS3----",
+              "tittel": {
+                "nb": "Taksidermistfaget",
+                "nn": "Taksidermistfaget",
+                "en": "Taxidermy"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHTRB3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHTRB3----",
+              "tittel": {
+                "nb": "Trebåtbyggerfaget",
+                "nn": "Trebåtbyggjarfaget",
+                "en": "Wooden Boat Building"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHTRD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHTRD3----",
+              "tittel": {
+                "nb": "Treduodjifaget",
+                "nn": "Treduodjifaget",
+                "en": "Wood Duodji"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHTSK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHTSK3----",
+              "tittel": {
+                "nb": "Treskjærerfaget",
+                "nn": "Treskjerarfaget",
+                "en": "Wood carving"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "DHURM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHURM3----",
+              "tittel": {
+                "nb": "Urmakerfaget",
+                "nn": "Urmakarfaget",
+                "en": "Watch and Clock Repairs"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             },
             {
               "kode": "DHUTS3----",
@@ -267,7 +1244,22 @@
                 "nb": "Utstillingsdesign",
                 "nn": "Utstillingsdesign",
                 "en": "Exhibition Design"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "DHVHD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/DHVHD3----",
+              "tittel": {
+                "nb": "Veve- og håndstrikkeduodjifaget",
+                "nn": "Veve- og handstrikkeduodjifaget",
+                "en": "Weaving and Knitting Duodji"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             }
           ]
         }
@@ -298,7 +1290,10 @@
                 "nb": "Håndverk, design og produktutvikling",
                 "nn": "Handverk, design og produktutvikling",
                 "en": "Håndverk, design og produktutvikling"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -329,25 +1324,34 @@
                 "nb": "Automatisering",
                 "nn": "Automatisering",
                 "en": "Automation"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "ELDEL2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELDEL2----",
               "tittel": {
-                "nb": "Data og elektronikk",
-                "nn": "Data og elektronikk",
+                "nb": "Datateknologi og elektronikk",
+                "nn": "Datateknologi og elektronikk",
                 "en": "Computers and electronics"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "ELELE2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELELE2----",
               "tittel": {
-                "nb": "Elenergi",
-                "nn": "Elenergi",
+                "nb": "Elenergi og ekom",
+                "nn": "Elenergi og ekom",
                 "en": "Electrical Power"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "ELFLY2----",
@@ -356,7 +1360,10 @@
                 "nb": "Flyfag",
                 "nn": "Flyfag",
                 "en": "Aeronautics"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "ELKVT2----",
@@ -365,7 +1372,10 @@
                 "nb": "Kulde- og varmepumpeteknikk",
                 "nn": "Kulde- og varmepumpeteknikk",
                 "en": "Refrigeration and Heat Pumps"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -385,7 +1395,10 @@
                 "nb": "Automatiseringsfaget",
                 "nn": "Automatiseringsfaget",
                 "en": "Automation"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "ELAVI3----",
@@ -394,7 +1407,10 @@
                 "nb": "Avionikerfaget",
                 "nn": "Avionikarfaget",
                 "en": "Avionics"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "ELDAT3----",
@@ -403,7 +1419,58 @@
                 "nb": "Dataelektronikerfaget",
                 "nn": "Dataelektronikarfaget",
                 "en": "Computer Electronics"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "ELELE3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELELE3----",
+              "tittel": {
+                "nb": "Elektrikerfaget",
+                "nn": "Elektrikarfaget",
+                "en": "Electrical Installation and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELEMO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELEMO3----",
+              "tittel": {
+                "nb": "Energimontørfaget",
+                "nn": "Energimontørfaget",
+                "en": "Power-supply Fitter Operation"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELEOP3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELEOP3----",
+              "tittel": {
+                "nb": "Energioperatørfaget",
+                "nn": "Energioperatørfaget",
+                "en": "Power-supply Operation"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELERF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELERF3----",
+              "tittel": {
+                "nb": "Elektroreparatørfaget",
+                "nn": "Elektroreparatørfaget",
+                "en": "Electrical Repair"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             },
             {
               "kode": "ELFLY3----",
@@ -412,7 +1479,46 @@
                 "nb": "Flytekniske fag",
                 "nn": "Flytekniske fag",
                 "en": "Technical Aeronautics"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "ELFUO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELFUO3----",
+              "tittel": {
+                "nb": "Fjernstyrte undervannsoperasjoner",
+                "nn": "Fjernstyrte undervassoperasjonar",
+                "en": "Remote Operated Underwater Vehicle Operations"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELHEI3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELHEI3----",
+              "tittel": {
+                "nb": "Heismontørfaget",
+                "nn": "Heismontørfaget",
+                "en": "Lift Installation"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELKUL3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELKUL3----",
+              "tittel": {
+                "nb": "Kulde- og varmepumpemontørfaget",
+                "nn": "Kulde- og varmepumpemontørfaget",
+                "en": "Refrigeration and Heat Pump Installation and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             },
             {
               "kode": "ELMEL3----",
@@ -421,7 +1527,22 @@
                 "nb": "Maritim elektrikerfaget Vg3",
                 "nn": "Maritim elektrikarfaget Vg3",
                 "en": "Maritim elektrikerfaget Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "ELPRO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELPRO3----",
+              "tittel": {
+                "nb": "Produksjonselektronikerfaget",
+                "nn": "Produksjonselektronikarfaget",
+                "en": "Production Electronics"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             },
             {
               "kode": "ELROM3----",
@@ -430,7 +1551,141 @@
                 "nb": "Romteknologi",
                 "nn": "Romteknologi",
                 "en": "Space Technology"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "ELSIG3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELSIG3----",
+              "tittel": {
+                "nb": "Signalmontørfaget",
+                "nn": "Signalmontørfaget",
+                "en": "Signal Installation and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELTAV3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELTAV3----",
+              "tittel": {
+                "nb": "Tavlemontørfaget",
+                "nn": "Tavlemontørfaget",
+                "en": "Power Distribution Fitter Trade"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELTEL3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELTEL3----",
+              "tittel": {
+                "nb": "Telekommunikasjonsmontørfaget",
+                "nn": "Telekommunikasjonsmontørfaget",
+                "en": "Telecommunications Installation and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELTOG3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELTOG3----",
+              "tittel": {
+                "nb": "Togelektrikerfaget",
+                "nn": "Togelektrikarfaget",
+                "en": "Electrical Train Installation and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELVIK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELVIK3----",
+              "tittel": {
+                "nb": "Viklerfaget",
+                "nn": "Viklarfaget",
+                "en": "Coil Winder"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            }
+          ]
+        },
+        {
+          "kode": "opplaering_bedrift",
+          "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/opplaering_bedrift",
+          "tittel": {
+            "nb": "Opplæring i bedrift",
+            "nn": "Opplæring i bedrift",
+            "en": "Opplæring i bedrift"
+          },
+          "programomraader": [
+            {
+              "kode": "ELAVI4----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELAVI4----",
+              "tittel": {
+                "nb": "Avionikerfaget",
+                "nn": "Avionikarfaget",
+                "en": "Avionics"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELFMO4----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELFMO4----",
+              "tittel": {
+                "nb": "Flymotormekanikerfaget",
+                "nn": "Flymotormekanikarfaget",
+                "en": "Aircraft Powerplant Repair and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELFST4----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELFST4----",
+              "tittel": {
+                "nb": "Flystrukturmekanikerfaget",
+                "nn": "Flystrukturmekanikarfaget",
+                "en": "Airframe Repair and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELFSY4----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELFSY4----",
+              "tittel": {
+                "nb": "Flysystemmekanikerfaget",
+                "nn": "Flysystemmekanikarfaget",
+                "en": "Aircraft Systems Repair and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "ELMEL4----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/ELMEL4----",
+              "tittel": {
+                "nb": "Maritim elektrikerfaget Vg4",
+                "nn": "Maritim elektrikarfaget Vg4",
+                "en": "Maritim elektrikerfaget Vg4"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             }
           ]
         },
@@ -450,7 +1705,10 @@
                 "nb": "Elektro og datateknologi",
                 "nn": "Elektro og datateknologi",
                 "en": "Electricity and Electronics"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -481,7 +1739,10 @@
                 "nb": "Frisør, blomster, interiør og eksponeringsdesign",
                 "nn": "Frisør, blomar, interiør og eksponeringsdesign",
                 "en": "Frisør, blomster, interiør og eksponeringsdesign"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -512,7 +1773,10 @@
                 "nb": "Ambulansefag",
                 "nn": "Ambulansefag",
                 "en": "Ambulance Service Skills"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "HSBUA2----",
@@ -521,7 +1785,10 @@
                 "nb": "Barne- og ungdomsarbeiderfag",
                 "nn": "Barne- og ungdomsarbeidarfag",
                 "en": "Child Care and Youth Work"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "HSFOT2----",
@@ -530,7 +1797,10 @@
                 "nb": "Fotterapi og ortopediteknikk",
                 "nn": "Fotterapi og ortopediteknikk",
                 "en": "Chiropody and Orthopaedics"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "HSHEA2----",
@@ -539,7 +1809,10 @@
                 "nb": "Helsearbeiderfag",
                 "nn": "Helsearbeidarfag",
                 "en": "Health Work"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "HSHES2----",
@@ -548,7 +1821,10 @@
                 "nb": "Helseservicefag",
                 "nn": "Helseservicefag",
                 "en": "Health Service"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "HSHUD2----",
@@ -557,7 +1833,10 @@
                 "nb": "Hudpleie",
                 "nn": "Hudpleie",
                 "en": "Skin Care"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -571,13 +1850,40 @@
           },
           "programomraader": [
             {
+              "kode": "HSAMB3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSAMB3----",
+              "tittel": {
+                "nb": "Ambulansefaget",
+                "nn": "Ambulansefaget",
+                "en": "Ambulance Service Skills"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
               "kode": "HSAPO3----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSAPO3----",
               "tittel": {
                 "nb": "Apotekteknikk",
                 "nn": "Apotekteknikk",
                 "en": "Pharmacy Skills"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "HSBUA3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSBUA3----",
+              "tittel": {
+                "nb": "Barne- og ungdomsarbeiderfaget",
+                "nn": "Barne- og ungdomsarbeidarfaget",
+                "en": "Child Care and Youth Work"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             },
             {
               "kode": "HSFOT3----",
@@ -586,7 +1892,22 @@
                 "nb": "Fotterapi",
                 "nn": "Fotterapi",
                 "en": "Chiropody"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "HSHEA3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSHEA3----",
+              "tittel": {
+                "nb": "Helsearbeiderfaget",
+                "nn": "Helsearbeidarfaget",
+                "en": "Health Work"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             },
             {
               "kode": "HSHSE3----",
@@ -595,7 +1916,10 @@
                 "nb": "Helsesekretær",
                 "nn": "Helsesekretær",
                 "en": "Medical Secretarial Skills"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "HSHUD3----",
@@ -604,7 +1928,34 @@
                 "nb": "Hudpleier",
                 "nn": "Hudpleiar",
                 "en": "Skin care worker"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "HSORT3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSORT3----",
+              "tittel": {
+                "nb": "Ortopediteknikkfaget",
+                "nn": "Ortopediteknikkfaget",
+                "en": "Orthopaedic Technician Skills"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "HSPOR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/HSPOR3----",
+              "tittel": {
+                "nb": "Portørfaget",
+                "nn": "Portørfaget",
+                "en": "Portørfaget"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             },
             {
               "kode": "HSTAN3----",
@@ -613,7 +1964,10 @@
                 "nb": "Tannhelsesekretær",
                 "nn": "Tannhelsesekretær",
                 "en": "Dental Health Secretarial Skills"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -633,7 +1987,10 @@
                 "nb": "Helse- og oppvekstfag",
                 "nn": "Helse- og oppvekstfag",
                 "en": "Healthcare, Childhood and Youth Development"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -664,7 +2021,10 @@
                 "nb": "Idrettsfag Vg2",
                 "nn": "Idrettsfag Vg2",
                 "en": "Sports and Physical Education Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "IDIDR3----",
@@ -673,7 +2033,10 @@
                 "nb": "Idrettsfag Vg3",
                 "nn": "Idrettsfag Vg3",
                 "en": "Sports and Physical Education Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "IDRET1----",
@@ -682,7 +2045,10 @@
                 "nb": "Idrettsfag Vg1",
                 "nn": "Idrettsfag Vg1",
                 "en": "Sports and Physical Education Vg1"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -702,7 +2068,10 @@
                 "nb": "Idrettsfag Vg2",
                 "nn": "Idrettsfag Vg2",
                 "en": "Sports and Physical Education Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "IDIDR3----",
@@ -711,7 +2080,10 @@
                 "nb": "Idrettsfag Vg3",
                 "nn": "Idrettsfag Vg3",
                 "en": "Sports and Physical Education Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "IDRET1----",
@@ -720,7 +2092,10 @@
                 "nb": "Idrettsfag Vg1",
                 "nn": "Idrettsfag Vg1",
                 "en": "Sports and Physical Education Vg1"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -740,7 +2115,10 @@
                 "nb": "Idrettsfag Vg2",
                 "nn": "Idrettsfag Vg2",
                 "en": "Sports and Physical Education Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "IDIDR3----",
@@ -749,7 +2127,10 @@
                 "nb": "Idrettsfag Vg3",
                 "nn": "Idrettsfag Vg3",
                 "en": "Sports and Physical Education Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "IDRET1----",
@@ -758,7 +2139,10 @@
                 "nb": "Idrettsfag Vg1",
                 "nn": "Idrettsfag Vg1",
                 "en": "Sports and Physical Education Vg1"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -789,7 +2173,10 @@
                 "nb": "Informasjonsteknologi og medieproduksjon",
                 "nn": "Informasjonsteknologi og medieproduksjon",
                 "en": "Informasjonsteknologi og medieproduksjon"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -820,7 +2207,10 @@
                 "nb": "Kunst, design og arkitektur Vg1",
                 "nn": "Kunst, design og arkitektur Vg1",
                 "en": "Art, design and architecture Vg1"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -840,7 +2230,10 @@
                 "nb": "Kunst, design og arkitektur Vg2",
                 "nn": "Kunst, design og arkitektur Vg2",
                 "en": "Art, design and architecture Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "KDKDA3----",
@@ -849,7 +2242,10 @@
                 "nb": "Kunst, design og arkitektur Vg3",
                 "nn": "Kunst, design og arkitektur Vg3",
                 "en": "Art, design and architecture Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -869,7 +2265,10 @@
                 "nb": "Kunst, design og arkitektur Vg2",
                 "nn": "Kunst, design og arkitektur Vg2",
                 "en": "Art, design and architecture Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "KDKDA3----",
@@ -878,7 +2277,10 @@
                 "nb": "Kunst, design og arkitektur Vg3",
                 "nn": "Kunst, design og arkitektur Vg3",
                 "en": "Art, design and architecture Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -909,7 +2311,10 @@
                 "nb": "Dans Vg2",
                 "nn": "Dans Vg2",
                 "en": "Dance Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDDAN3----",
@@ -918,7 +2323,10 @@
                 "nb": "Dans Vg3",
                 "nn": "Dans Vg3",
                 "en": "Dance Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDDRA2----",
@@ -927,7 +2335,10 @@
                 "nb": "Drama Vg2",
                 "nn": "Drama Vg2",
                 "en": "Drama Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDDRA3----",
@@ -936,7 +2347,10 @@
                 "nb": "Drama Vg3",
                 "nn": "Drama Vg3",
                 "en": "Drama Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDMDD1----",
@@ -945,7 +2359,10 @@
                 "nb": "Musikk, dans og drama Vg1",
                 "nn": "Musikk, dans og drama Vg1",
                 "en": "Music, Dance and Drama Vg1"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDMUS2----",
@@ -954,7 +2371,10 @@
                 "nb": "Musikk Vg2",
                 "nn": "Musikk Vg2",
                 "en": "Music Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDMUS3----",
@@ -963,7 +2383,10 @@
                 "nb": "Musikk Vg3",
                 "nn": "Musikk Vg3",
                 "en": "Music Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -983,7 +2406,10 @@
                 "nb": "Dans Vg2",
                 "nn": "Dans Vg2",
                 "en": "Dance Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDDAN3----",
@@ -992,7 +2418,10 @@
                 "nb": "Dans Vg3",
                 "nn": "Dans Vg3",
                 "en": "Dance Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDDRA2----",
@@ -1001,7 +2430,10 @@
                 "nb": "Drama Vg2",
                 "nn": "Drama Vg2",
                 "en": "Drama Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDDRA3----",
@@ -1010,7 +2442,10 @@
                 "nb": "Drama Vg3",
                 "nn": "Drama Vg3",
                 "en": "Drama Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDMDD1----",
@@ -1019,7 +2454,10 @@
                 "nb": "Musikk, dans og drama Vg1",
                 "nn": "Musikk, dans og drama Vg1",
                 "en": "Music, Dance and Drama Vg1"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDMUS2----",
@@ -1028,7 +2466,10 @@
                 "nb": "Musikk Vg2",
                 "nn": "Musikk Vg2",
                 "en": "Music Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDMUS3----",
@@ -1037,7 +2478,10 @@
                 "nb": "Musikk Vg3",
                 "nn": "Musikk Vg3",
                 "en": "Music Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -1057,7 +2501,10 @@
                 "nb": "Drama Vg2",
                 "nn": "Drama Vg2",
                 "en": "Drama Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDDRA3----",
@@ -1066,7 +2513,10 @@
                 "nb": "Drama Vg3",
                 "nn": "Drama Vg3",
                 "en": "Drama Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDMDD1----",
@@ -1075,7 +2525,10 @@
                 "nb": "Musikk, dans og drama Vg1",
                 "nn": "Musikk, dans og drama Vg1",
                 "en": "Music, Dance and Drama Vg1"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDMUS2----",
@@ -1084,7 +2537,10 @@
                 "nb": "Musikk Vg2",
                 "nn": "Musikk Vg2",
                 "en": "Music Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MDMUS3----",
@@ -1093,7 +2549,10 @@
                 "nb": "Musikk Vg3",
                 "nn": "Musikk Vg3",
                 "en": "Music Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -1124,7 +2583,10 @@
                 "nb": "Medier og kommunikasjon Vg1",
                 "nn": "Medium og kommunikasjon Vg1",
                 "en": "Media and Communication Vg1"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -1144,7 +2606,10 @@
                 "nb": "Medier og kommunikasjon Vg2",
                 "nn": "Medium og kommunikasjon Vg2",
                 "en": "Media and Communication Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MEMOK3----",
@@ -1153,7 +2618,10 @@
                 "nb": "Medier og kommunikasjon Vg3",
                 "nn": "Medium og kommunikasjon Vg3",
                 "en": "Media and Communication Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -1173,7 +2641,10 @@
                 "nb": "Medier og kommunikasjon Vg2",
                 "nn": "Medium og kommunikasjon Vg2",
                 "en": "Media and Communication Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "MEMOK3----",
@@ -1182,7 +2653,10 @@
                 "nb": "Medier og kommunikasjon Vg3",
                 "nn": "Medium og kommunikasjon Vg3",
                 "en": "Media and Communication Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -1197,6 +2671,173 @@
         "en": "Agriculture, Fishing and Forestry"
       },
       "trinn": [
+        {
+          "kode": "vg3",
+          "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
+          "tittel": {
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
+          },
+          "programomraader": [
+            {
+              "kode": "NAAGR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAAGR3----",
+              "tittel": {
+                "nb": "Landbruk",
+                "nn": "Landbruk",
+                "en": "Agriculture"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "NAAKV3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAAKV3----",
+              "tittel": {
+                "nb": "Akvakulturfaget",
+                "nn": "Akvakulturfaget",
+                "en": "Aquaculture"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "NAANG3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAANG3----",
+              "tittel": {
+                "nb": "Anleggsgartnerfaget",
+                "nn": "Anleggsgartnarfaget",
+                "en": "Landscaping"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "NAFFA3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAFFA3----",
+              "tittel": {
+                "nb": "Fiske og fangst",
+                "nn": "Fiske og fangst",
+                "en": "Fishing and General Seamanship"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "NAGAN3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAGAN3----",
+              "tittel": {
+                "nb": "Gartnernæring",
+                "nn": "Gartnernæring",
+                "en": "Gardening"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "NAGAR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAGAR3----",
+              "tittel": {
+                "nb": "Gartnerfaget",
+                "nn": "Gartnarfaget",
+                "en": "Gardening"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "NAHOV3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAHOV3----",
+              "tittel": {
+                "nb": "Hovslagerfaget",
+                "nn": "Hovslagarfaget",
+                "en": "Farriery"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "NAHST3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAHST3----",
+              "tittel": {
+                "nb": "Hestefaget",
+                "nn": "Hestefaget",
+                "en": "Equestrian Trades"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "NAIAN3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAIAN3----",
+              "tittel": {
+                "nb": "Idrettsanleggsfaget",
+                "nn": "Idrettsanleggsfaget",
+                "en": "Sports Facilities Management"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "NALBR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NALBR3----",
+              "tittel": {
+                "nb": "Landbruk",
+                "nn": "Landbruk",
+                "en": "Agriculture"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "NANAB3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NANAB3----",
+              "tittel": {
+                "nb": "Studieforberedende Vg3 innen naturbruk",
+                "nn": "Studieførebuande Vg3 innan naturbruk",
+                "en": "Vg3 General Studies in Fishing and Forestry"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "NAREI3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAREI3----",
+              "tittel": {
+                "nb": "Reindriftsfaget",
+                "nn": "Reindriftsfaget",
+                "en": "Reindeer Husbandry"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "NASKF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NASKF3----",
+              "tittel": {
+                "nb": "Skogfaget",
+                "nn": "Skogfaget",
+                "en": "Forestry"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            }
+          ]
+        },
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
@@ -1213,7 +2854,10 @@
                 "nb": "Anleggsgartner- og idrettsanleggsfag",
                 "nn": "Anleggsgartnar- og idrettsanleggsfag",
                 "en": "Landscaping and Sports Facilities operator"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "NAAKV2----",
@@ -1222,7 +2866,10 @@
                 "nb": "Akvakultur",
                 "nn": "Akvakultur",
                 "en": "Aquaculture"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "NAFFA2----",
@@ -1231,7 +2878,10 @@
                 "nb": "Fiske og fangst",
                 "nn": "Fiske og fangst",
                 "en": "Fishing and General Seamanship"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "NAHHO2----",
@@ -1240,7 +2890,10 @@
                 "nb": "Heste- og hovslagerfag",
                 "nn": "Heste- og hovslagarfag",
                 "en": "Equestrian and Farrier Activities"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "NALGA2----",
@@ -1249,7 +2902,10 @@
                 "nb": "Landbruk og gartnernæring",
                 "nn": "Landbruk og gartnarnæring",
                 "en": "Agriculture and Horticulture"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "NAREI2----",
@@ -1258,7 +2914,10 @@
                 "nb": "Reindrift",
                 "nn": "Reindrift",
                 "en": "Reindeer Husbandry"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "NASBR2----",
@@ -1267,45 +2926,10 @@
                 "nb": "Skogbruk",
                 "nn": "Skogbruk",
                 "en": "Forestry"
-              }
-            }
-          ]
-        },
-        {
-          "kode": "vg3",
-          "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
-          "tittel": {
-            "nb": "Videregående trinn 3",
-            "nn": "Vidaregåande trinn 3",
-            "en": "Videregående trinn 3"
-          },
-          "programomraader": [
-            {
-              "kode": "NAGAN3----",
-              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NAGAN3----",
-              "tittel": {
-                "nb": "Gartnernæring",
-                "nn": "Gartnernæring",
-                "en": "Gardening"
-              }
-            },
-            {
-              "kode": "NALBR3----",
-              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NALBR3----",
-              "tittel": {
-                "nb": "Landbruk",
-                "nn": "Landbruk",
-                "en": "Agriculture"
-              }
-            },
-            {
-              "kode": "NANAB3----",
-              "url-data": "https://data.udir.no/kl06/v201906/programomraader/NANAB3----",
-              "tittel": {
-                "nb": "Studieforberedende Vg3 innen naturbruk",
-                "nn": "Studieførebuande Vg3 innan naturbruk",
-                "en": "Vg3 General Studies in Fishing and Forestry"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -1325,7 +2949,10 @@
                 "nb": "Naturbruk",
                 "nn": "Naturbruk",
                 "en": "Agriculture, Fishing and Forestry"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -1340,6 +2967,161 @@
         "en": "Restaurant and Food Processing"
       },
       "trinn": [
+        {
+          "kode": "vg3",
+          "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
+          "tittel": {
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
+          },
+          "programomraader": [
+            {
+              "kode": "RMBAK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMBAK3----",
+              "tittel": {
+                "nb": "Bakerfaget",
+                "nn": "Bakarfaget",
+                "en": "Baking"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMBUT3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMBUT3----",
+              "tittel": {
+                "nb": "Butikkslakterfaget",
+                "nn": "Butikkslaktarfaget",
+                "en": "Retail Butchery"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMIKO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMIKO3----",
+              "tittel": {
+                "nb": "Institusjonskokkfaget",
+                "nn": "Institusjonskokkfaget",
+                "en": "Institutional Cookery"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMIMP3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMIMP3----",
+              "tittel": {
+                "nb": "Industriell matproduksjon",
+                "nn": "Industriell matproduksjon",
+                "en": "Industrial Food Production"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMKOK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMKOK3----",
+              "tittel": {
+                "nb": "Kokkfaget",
+                "nn": "Kokkfaget",
+                "en": "Cookery"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMKON3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMKON3----",
+              "tittel": {
+                "nb": "Konditorfaget",
+                "nn": "Konditorfaget",
+                "en": "Confectionary"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMKSK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMKSK3----",
+              "tittel": {
+                "nb": "Kjøttskjærerfaget",
+                "nn": "Kjøttskjerarfaget",
+                "en": "Meat Cutting"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMPMF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMPMF3----",
+              "tittel": {
+                "nb": "Pølsemakerfaget",
+                "nn": "Pølsemakarfaget",
+                "en": "Sausage Making"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMSER3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMSER3----",
+              "tittel": {
+                "nb": "Servitørfaget",
+                "nn": "Servitørfaget",
+                "en": "Waiting"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMSLF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMSLF3----",
+              "tittel": {
+                "nb": "Slakterfaget",
+                "nn": "Slaktarfaget",
+                "en": "Butchering"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMSMH3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMSMH3----",
+              "tittel": {
+                "nb": "Sjømathandlerfaget",
+                "nn": "Sjømathandlarfaget",
+                "en": "Seafood Purchasing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "RMSMP3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/RMSMP3----",
+              "tittel": {
+                "nb": "Sjømatproduksjon",
+                "nn": "Sjømatproduksjon",
+                "en": "Seafood Production"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            }
+          ]
+        },
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
@@ -1356,7 +3138,10 @@
                 "nb": "Kokk- og servitørfag",
                 "nn": "Kokk- og servitørfag",
                 "en": "Cookery and Waiting"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "RMMFG2----",
@@ -1365,7 +3150,10 @@
                 "nb": "Matfag",
                 "nn": "Matfag",
                 "en": "Food and Beverages"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -1385,7 +3173,10 @@
                 "nb": "Restaurant- og matfag",
                 "nn": "Restaurant- og matfag",
                 "en": "Restaurant and Food Processing"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -1416,7 +3207,10 @@
                 "nb": "Salg, service og reiseliv",
                 "nn": "Sal, service og reiseliv",
                 "en": "Salg, service og reiseliv"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -1447,7 +3241,10 @@
                 "nb": "IKT-servicefag",
                 "nn": "IKT-servicefag",
                 "en": "ICT Service"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "SSRLV2----",
@@ -1456,7 +3253,10 @@
                 "nb": "Reiseliv",
                 "nn": "Reiseliv",
                 "en": "Tourism"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "SSSSS2----",
@@ -1465,7 +3265,10 @@
                 "nb": "Salg, service og sikkerhet",
                 "nn": "Sal, service og tryggleik",
                 "en": "Sales, Service and Security"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "SSTRL2----",
@@ -1474,7 +3277,10 @@
                 "nb": "Transport og logistikk",
                 "nn": "Transport og logistikk",
                 "en": "Transport and Logistics"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "SSYSL3----",
@@ -1483,7 +3289,10 @@
                 "nb": "Yrkessjåførkurs for voksne",
                 "nn": "Yrkessjåførkurs for vaksne",
                 "en": "Transport Driver Course for Adults"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -1497,13 +3306,112 @@
           },
           "programomraader": [
             {
+              "kode": "SSISF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSISF3----",
+              "tittel": {
+                "nb": "IKT-servicefaget",
+                "nn": "IKT-servicefaget",
+                "en": "ICT Service Operations"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "SSKAD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSKAD3----",
+              "tittel": {
+                "nb": "Kontor- og administrasjonsfaget",
+                "nn": "Kontor- og administrasjonsfaget",
+                "en": "Office and Administrative Skills"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "SSLOG3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSLOG3----",
+              "tittel": {
+                "nb": "Logistikkfaget",
+                "nn": "Logistikkfaget",
+                "en": "Logistics"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "SSRES3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSRES3----",
+              "tittel": {
+                "nb": "Resepsjonsfaget",
+                "nn": "Resepsjonsfaget",
+                "en": "Reception Desk Services"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "SSRLV3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSRLV3----",
+              "tittel": {
+                "nb": "Reiselivsfaget",
+                "nn": "Reiselivsfaget",
+                "en": "Travel and Tourism"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "SSSIK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSSIK3----",
+              "tittel": {
+                "nb": "Sikkerhetsfaget",
+                "nn": "Tryggleiksfaget",
+                "en": "Safety and Security Services"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "SSSLG3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSSLG3----",
+              "tittel": {
+                "nb": "Salgsfaget",
+                "nn": "Salsfaget",
+                "en": "Sales"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
               "kode": "SSTRL2----",
               "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSTRL2----",
               "tittel": {
                 "nb": "Transport og logistikk",
                 "nn": "Transport og logistikk",
                 "en": "Transport and Logistics"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "SSYRK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/SSYRK3----",
+              "tittel": {
+                "nb": "Yrkessjåførfaget",
+                "nn": "Yrkessjåførfaget",
+                "en": "Transport Driving"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
             },
             {
               "kode": "SSYSL3----",
@@ -1512,7 +3420,10 @@
                 "nb": "Yrkessjåførkurs for voksne",
                 "nn": "Yrkessjåførkurs for vaksne",
                 "en": "Transport Driver Course for Adults"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -1543,7 +3454,10 @@
                 "nb": "Realfag Vg2",
                 "nn": "Realfag Vg2",
                 "en": "Natural Science and Mathematics Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "STREA3----",
@@ -1552,7 +3466,10 @@
                 "nb": "Realfag Vg3",
                 "nn": "Realfag Vg3",
                 "en": "Natural Science and Mathematics Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "STSSA2----",
@@ -1561,7 +3478,10 @@
                 "nb": "Språk, samfunnsfag og økonomi Vg2",
                 "nn": "Språk, samfunnsfag og økonomi Vg2",
                 "en": "Languages, Social Sciences and Economics Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "STSSA3----",
@@ -1570,7 +3490,10 @@
                 "nb": "Språk, samfunnsfag og økonomi Vg3",
                 "nn": "Språk, samfunnsfag og økonomi Vg3",
                 "en": "Languages, Social Sciences and Economics Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -1590,7 +3513,10 @@
                 "nb": "Realfag Vg2",
                 "nn": "Realfag Vg2",
                 "en": "Natural Science and Mathematics Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "STREA3----",
@@ -1599,7 +3525,10 @@
                 "nb": "Realfag Vg3",
                 "nn": "Realfag Vg3",
                 "en": "Natural Science and Mathematics Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "STSSA2----",
@@ -1608,7 +3537,10 @@
                 "nb": "Språk, samfunnsfag og økonomi Vg2",
                 "nn": "Språk, samfunnsfag og økonomi Vg2",
                 "en": "Languages, Social Sciences and Economics Studies Vg2"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "STSSA3----",
@@ -1617,7 +3549,10 @@
                 "nb": "Språk, samfunnsfag og økonomi Vg3",
                 "nn": "Språk, samfunnsfag og økonomi Vg3",
                 "en": "Languages, Social Sciences and Economics Studies Vg3"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
@@ -1632,6 +3567,713 @@
         "en": "Technical and Industrial Production"
       },
       "trinn": [
+        {
+          "kode": "vg3",
+          "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
+          "tittel": {
+            "nb": "Videregående trinn 3",
+            "nn": "Vidaregåande trinn 3",
+            "en": "Videregående trinn 3"
+          },
+          "programomraader": [
+            {
+              "kode": "TPALU3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPALU3----",
+              "tittel": {
+                "nb": "Aluminiumskonstruksjonsfaget",
+                "nn": "Aluminiumskonstruksjonsfaget",
+                "en": "Aluminium Constructions"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPAMM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPAMM3----",
+              "tittel": {
+                "nb": "Anleggsmaskinmekanikerfaget",
+                "nn": "Anleggsmaskinmekanikarfaget",
+                "en": "Heavy Equipment Repair and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
+            },
+            {
+              "kode": "TPBKO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBKO3----",
+              "tittel": {
+                "nb": "Brønnfaget, komplettering",
+                "nn": "Brønnfaget, komplettering",
+                "en": "Well Drilling and Rigging, Completions"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBKV3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBKV3----",
+              "tittel": {
+                "nb": "Brønnfaget, kveilerøroperasjoner",
+                "nn": "Brønnfaget, kveilerøroperasjonar",
+                "en": "Well Drilling and Rigging, Coiled Tubing Operations"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBLA3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBLA3----",
+              "tittel": {
+                "nb": "Billakkererfaget",
+                "nn": "Billakkerarfaget",
+                "en": "Vehicle Spraying"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBMK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBMK3----",
+              "tittel": {
+                "nb": "Bilfaget, lette kjøretøy",
+                "nn": "Bilfaget, lette kjøretøy",
+                "en": "Motor Vehicles, Light Vehicle Repair"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBOR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBOR3----",
+              "tittel": {
+                "nb": "Boreoperatørfaget",
+                "nn": "Boreoperatørfaget",
+                "en": "Drilling Operations"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBRE3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBRE3----",
+              "tittel": {
+                "nb": "Brønnfaget, elektriske kabeloperasjoner",
+                "nn": "Brønnfaget, elektriske kabeloperasjonar",
+                "en": "Well Drilling and Rigging, Electrical Cable Operations"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBRH3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBRH3----",
+              "tittel": {
+                "nb": "Brønnfaget, havbunnsinstallasjoner",
+                "nn": "Brønnfaget, havbotnintallasjonar",
+                "en": "Well Drilling and Rigging, Sea-Floor Installations"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBRM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBRM3----",
+              "tittel": {
+                "nb": "Brønnfaget, mekaniske kabeloperasjoner",
+                "nn": "Brønnfaget, mekaniske kabeloperasjonar",
+                "en": "Well Drilling and Rigging, Mechanical Cable Operations"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBRS3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBRS3----",
+              "tittel": {
+                "nb": "Brønnfaget, sementering",
+                "nn": "Brønnfaget, sementering",
+                "en": "Well Drilling and Rigging, Cementation"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBSK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBSK3----",
+              "tittel": {
+                "nb": "Bilskadefaget",
+                "nn": "Bilskadefaget",
+                "en": "Motor Vehicle Body Repair"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPBTK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPBTK3----",
+              "tittel": {
+                "nb": "Bilfaget, tunge kjøretøy",
+                "nn": "Bilfaget, tunge kjøretøy",
+                "en": "Motor Vehicles, Heavy Vehicle Repair"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPCNC3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPCNC3----",
+              "tittel": {
+                "nb": "CNC-maskineringsfaget",
+                "nn": "CNC-maskineringsfaget",
+                "en": "CNC machine Operation"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPDKO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPDKO3----",
+              "tittel": {
+                "nb": "Dimensjonskontrollfaget",
+                "nn": "Dimensjonskontrollfaget",
+                "en": "Dimensions Inspection"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPFIR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPFIR3----",
+              "tittel": {
+                "nb": "Industritekstilfaget, fiskeredskap",
+                "nn": "Industritekstilfaget, fiskereiskapar",
+                "en": "Industrial Textiles, Fishing Gear"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPFMK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPFMK3----",
+              "tittel": {
+                "nb": "Finmekanikerfaget",
+                "nn": "Finmekanikarfaget",
+                "en": "Instrument and Toolmaking"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPGJE3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPGJE3----",
+              "tittel": {
+                "nb": "Gjenvinningsfaget",
+                "nn": "Gjenvinningsfaget",
+                "en": "Waste Recovery"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPGPT3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPGPT3----",
+              "tittel": {
+                "nb": "Grafisk produksjonsteknikk ",
+                "nn": "Grafisk produksjonsteknikk ",
+                "en": "Grafisk produksjonsteknikk "
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPGRV3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPGRV3----",
+              "tittel": {
+                "nb": "Garverifaget",
+                "nn": "Garverifaget",
+                "en": "Tanning"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPHJU3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPHJU3----",
+              "tittel": {
+                "nb": "Hjulutrustningsfaget",
+                "nn": "Hjulutrustningsfaget",
+                "en": "Wheels and Suspension Skills"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPIFT3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIFT3----",
+              "tittel": {
+                "nb": "Industritekstilfaget, farging, trykking og etterbehandling",
+                "nn": "Industritekstilfaget, farging, trykking og etterhandsaming",
+                "en": "Industrial Textiles, Dyeing, Printing and Finishing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPIGS3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIGS3----",
+              "tittel": {
+                "nb": "Industritekstilfaget, garnframstilling",
+                "nn": "Industritekstilfaget, garnframstilling",
+                "en": "Industrial textiles, Yarn Production"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPIME3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIME3----",
+              "tittel": {
+                "nb": "Industrimekanikerfaget",
+                "nn": "Industrimekanikarfaget",
+                "en": "Industrial Machine Operation and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPIMO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIMO3----",
+              "tittel": {
+                "nb": "Industrimontørfaget",
+                "nn": "Industrimontørfaget",
+                "en": "Industrial Installation"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPIOM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIOM3----",
+              "tittel": {
+                "nb": "Industrioppmålingsfaget",
+                "nn": "Industrioppmålingsfaget",
+                "en": "Industrial Surveying"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPIOV3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIOV3----",
+              "tittel": {
+                "nb": "Industriell overflatebehandling",
+                "nn": "Industriell overflatebehandling",
+                "en": "Industrial Surface Treatment"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPIRL3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIRL3----",
+              "tittel": {
+                "nb": "Industrirørleggerfaget",
+                "nn": "Industrirørleggjarfaget",
+                "en": "Industrial Plumbing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPISK3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPISK3----",
+              "tittel": {
+                "nb": "Industriell skotøyproduksjon",
+                "nn": "Industriell skotøyproduksjon",
+                "en": "Industrial Footwear Production"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPISM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPISM3----",
+              "tittel": {
+                "nb": "Industrisømfaget",
+                "nn": "Industrisaumfaget",
+                "en": "Industrial Sewing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPISN3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPISN3----",
+              "tittel": {
+                "nb": "Industrisnekkerfaget",
+                "nn": "Industrisnikkarfaget",
+                "en": "Industrial Carpentry"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPITA3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPITA3----",
+              "tittel": {
+                "nb": "Industritapetsererfaget",
+                "nn": "Industritapetserarfaget",
+                "en": "Industrial Furniture Upholstery"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPITR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPITR3----",
+              "tittel": {
+                "nb": "Industritekstilfaget, trikotasje",
+                "nn": "Industritekstilfaget, trikotasje",
+                "en": "Industrial Textiles, Knitwear"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPIVE3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPIVE3----",
+              "tittel": {
+                "nb": "Industritekstilfaget, veving",
+                "nn": "Industritekstilfaget, veving",
+                "en": "Industrial Textiles, Weaving"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPKAR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPKAR3----",
+              "tittel": {
+                "nb": "Chassispåbyggerfaget",
+                "nn": "Chassispåbyggjarfaget",
+                "en": "Chassis Building"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPKJP3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPKJP3----",
+              "tittel": {
+                "nb": "Kjemiprosessfaget",
+                "nn": "Kjemiprosessfaget",
+                "en": "Chemical Processing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPKLO3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPKLO3----",
+              "tittel": {
+                "nb": "Kran- og løfteoperasjonsfaget",
+                "nn": "Kran- og lyfteoperasjonsfaget",
+                "en": "Crane and Lifting Operations"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPLAB3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPLAB3----",
+              "tittel": {
+                "nb": "Laboratoriefaget",
+                "nn": "Laboratoriefaget",
+                "en": "Laboratory Work"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPLMM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPLMM3----",
+              "tittel": {
+                "nb": "Landbruksmaskinmekanikerfaget",
+                "nn": "Landbruksmaskinmekanikarfaget",
+                "en": "Agricultural Machinery Operation and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPLSF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPLSF3----",
+              "tittel": {
+                "nb": "Låsesmedfaget",
+                "nn": "Låsesmedfaget",
+                "en": "Locksmithing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPMME3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPMME3----",
+              "tittel": {
+                "nb": "Motormekanikerfaget",
+                "nn": "Motormekanikarfaget",
+                "en": "Engine Installation, Repair and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPMOB3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPMOB3----",
+              "tittel": {
+                "nb": "Modellbyggerfaget",
+                "nn": "Modellbyggjarfaget",
+                "en": "Model Building"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPMOM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPMOM3----",
+              "tittel": {
+                "nb": "Motormannfaget",
+                "nn": "Motormannfaget",
+                "en": "Motorman Skills"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPMSY3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPMSY3----",
+              "tittel": {
+                "nb": "Motorsykkelfaget",
+                "nn": "Motorsykkelfaget",
+                "en": "Motorcycle Repair"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPMTS3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPMTS3----",
+              "tittel": {
+                "nb": "Matrosfaget",
+                "nn": "Matrosfaget",
+                "en": "Able Seaman Skills"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPNDT3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPNDT3----",
+              "tittel": {
+                "nb": "NDT-kontrollørfaget",
+                "nn": "NDT-kontrollørfaget",
+                "en": "NDT inspection"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPPLA3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPPLA3----",
+              "tittel": {
+                "nb": "Platearbeiderfaget",
+                "nn": "Platearbeidarfaget",
+                "en": "Sheet Metal Work"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPPLM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPPLM3----",
+              "tittel": {
+                "nb": "Plastmekanikerfaget",
+                "nn": "Plastmekanikarfaget",
+                "en": "Plastics Materials Repairs and Maintenance"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPPOM3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPPOM3----",
+              "tittel": {
+                "nb": "Polymerkomposittfaget",
+                "nn": "Polymerkomposittfaget",
+                "en": "Composite Polymers"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPPRT3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPPRT3----",
+              "tittel": {
+                "nb": "Produksjonsteknikkfaget",
+                "nn": "Produksjonsteknikkfaget",
+                "en": "Production Techniques"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPRSD3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPRSD3----",
+              "tittel": {
+                "nb": "Reservedelsfaget",
+                "nn": "Reservedelsfaget",
+                "en": "Motor Vehicle Parts Supply Skills"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPSGR3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPSGR3----",
+              "tittel": {
+                "nb": "Serigrafifaget",
+                "nn": "Serigrafifaget",
+                "en": "Screen Printing"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPSTF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPSTF3----",
+              "tittel": {
+                "nb": "Støperifaget",
+                "nn": "Støyperifaget",
+                "en": "Forging"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPSVE3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPSVE3----",
+              "tittel": {
+                "nb": "Sveisefaget",
+                "nn": "Sveisefaget",
+                "en": "Welding"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPTEP3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPTEP3----",
+              "tittel": {
+                "nb": "Termoplastfaget",
+                "nn": "Termoplastfaget",
+                "en": "Thermoplastics"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPTRF3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPTRF3----",
+              "tittel": {
+                "nb": "Tekstilrensfaget",
+                "nn": "Tekstilrensfaget",
+                "en": "Dry Cleaning Skills"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPVAS3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPVAS3----",
+              "tittel": {
+                "nb": "Vaskerifaget",
+                "nn": "Vaskerifaget",
+                "en": "Laundry Skills"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            },
+            {
+              "kode": "TPVER3----",
+              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPVER3----",
+              "tittel": {
+                "nb": "Verktøymakerfaget",
+                "nn": "Verktøymakarfaget",
+                "en": "Toolmaking"
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_bedrift"
+              ]
+            }
+          ]
+        },
         {
           "kode": "vg2",
           "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg2",
@@ -1648,7 +4290,10 @@
                 "nb": "Arbeidsmaskiner",
                 "nn": "Arbeidsmaskinar",
                 "en": "Machinery"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPBLK2----",
@@ -1657,7 +4302,10 @@
                 "nb": "Bilskade, lakk og karosseri",
                 "nn": "Bilskade, lakk og karosseri",
                 "en": "Car Damage, Paintwork and Bodywork"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPBRT2----",
@@ -1666,7 +4314,10 @@
                 "nb": "Brønnteknikk",
                 "nn": "Brønnteknikk",
                 "en": "Well Technology"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPIMS2----",
@@ -1675,7 +4326,10 @@
                 "nb": "Industriell møbelproduksjon",
                 "nn": "Industriell møbelproduksjon",
                 "en": "Industrial Furniture Production"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPIND2----",
@@ -1684,7 +4338,10 @@
                 "nb": "Industritekstil og design",
                 "nn": "Industritekstil og design",
                 "en": "Industrial Textile Design"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPKJP2----",
@@ -1693,7 +4350,10 @@
                 "nb": "Kjemiprosess",
                 "nn": "Kjemiprosess",
                 "en": "Chemical Processing"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPKJT2----",
@@ -1702,7 +4362,10 @@
                 "nb": "Kjøretøy",
                 "nn": "Kjøretøy",
                 "en": "Motor Vehicles"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPLAB2----",
@@ -1711,7 +4374,10 @@
                 "nb": "Laboratoriefag",
                 "nn": "Laboratoriefag",
                 "en": "Laboratory Work"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPMAR2----",
@@ -1720,7 +4386,10 @@
                 "nb": "Maritime fag",
                 "nn": "Maritime fag",
                 "en": "Maritime Subjects"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPPIN2----",
@@ -1729,7 +4398,10 @@
                 "nb": "Industriteknologi",
                 "nn": "Industriteknologi",
                 "en": "Industrial Technology"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             },
             {
               "kode": "TPPOK2----",
@@ -1738,27 +4410,10 @@
                 "nb": "Plast og kompositt",
                 "nn": "Plast og kompositt",
                 "en": "Plastics and composites"
-              }
-            }
-          ]
-        },
-        {
-          "kode": "vg3",
-          "url-data": "https://data.udir.no/kl06/v201906/aarstrinn/vg3",
-          "tittel": {
-            "nb": "Videregående trinn 3",
-            "nn": "Vidaregåande trinn 3",
-            "en": "Videregående trinn 3"
-          },
-          "programomraader": [
-            {
-              "kode": "TPAMM3----",
-              "url-data": "https://data.udir.no/kl06/v201906/programomraader/TPAMM3----",
-              "tittel": {
-                "nb": "Anleggsmaskinmekanikerfaget",
-                "nn": "Anleggsmaskinmekanikarfaget",
-                "en": "Heavy Equipment Repair and Maintenance"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         },
@@ -1778,7 +4433,10 @@
                 "nb": "Teknologi- og industrifag",
                 "nn": "Teknologi- og industrifag",
                 "en": "Technical and Industrial Production"
-              }
+              },
+              "opplaeringssted": [
+                "http://psi.udir.no/kl06/opplaeringssted_skole"
+              ]
             }
           ]
         }
