@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useSession } from '@vtfk/react-msal'
 import useGrep from '../hooks/use-grep'
 import { Select } from '../_lib-components/Select'
 
@@ -9,8 +8,7 @@ function Programomrader ({ data, trinn }) {
 
   useEffect(() => {
     if (trinn && data) {
-      const omrade = data[0].data
-      const trinnData = omrade.trinn.find(item => item.kode === trinn.value)
+      const trinnData = data.trinn.find(item => item.kode === trinn.value)
       if (trinnData) {
         setFilteredData(trinnData.programomraader)
       }
@@ -73,14 +71,14 @@ function Utdanningsprogrammer ({ data, setQuery }) {
   )
 }
 
-function UtdanningsprogrammerSelectorForm () {
+function UtdanningsprogrammerSelectorForm (props) {
   const [select, setSelect] = useState()
-  const { apiGet } = useSession()
+  const { fetcher } = props
   const {
     utdanningsprogrammer,
     programomrader,
     setQuery
-  } = useGrep(apiGet)
+  } = useGrep(fetcher)
 
   useEffect(() => {
     setQuery('')

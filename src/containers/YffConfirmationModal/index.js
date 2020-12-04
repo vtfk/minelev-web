@@ -171,7 +171,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 />
               </div>
               <h2 className='subheader'>Elevinformasjon</h2>
-              <UtdanningsprogrammerSelectorForm />
+              <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
               <h2 className='subheader'>Pårørende</h2>
               {contactPersonsStudent.map(person => person)}
               <button className='add-more-button button-left-icon button-primary' onClick={() => addStudentContactPerson()}>
