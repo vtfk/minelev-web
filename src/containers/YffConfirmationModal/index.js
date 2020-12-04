@@ -29,17 +29,20 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const [company, setCompany] = useState()
   const [selectedStudent, setSelectedStudent] = useState(null)
   const { handleSubmit } = useForm()
-  const { apiGet } = useSession()
+  const { apiGet, apiPost } = useSession()
   const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson key={nanoid()} />])
   const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
   const onSubmit = (data, event) => {
     event.preventDefault()
   }
-  const sendForm = () => {
+  const sendForm = async () => {
     const form = document.getElementById('bekreftelse-form')
     const data = new FormData(form)
+    // TODO: Fikse skikkelig serializing
     const json = serializeForm(data)
-    console.log(json)
+    const result = await apiPost(`${API.URL}/yff/${selectedStudentId}/bekreftelse`, json)
+    console.log(result)
+    props.onDismiss()
   }
 
   useEffect(() => {
