@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
@@ -11,6 +12,7 @@ import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { Icon } from '../../_lib-components/Icon'
+import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 
 import './styles.scss'
 
@@ -79,7 +81,6 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
           </p>
 
           <div className='form'>
-
             <h2 className='subheader'>Klassetrinn</h2>
 
             <div className='input-element'>
@@ -119,43 +120,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
                   onChange={(item) => { console.log(item) }}
                 />
               </div>
-
-              <div className='input-element'>
-                <Select
-                  placeholder='Velg utdanningsprogram'
-                  items={[
-                    { value: 1, label: 'Bygg- og anleggsteknikk' },
-                    { value: 2, label: 'Noe annet' }
-                  ]}
-                  selectedItem={{ value: 1, label: 'Bygg- og anleggsteknikk' }}
-                  onChange={(item) => { console.log(item) }}
-                />
-              </div>
-
-              <div className='input-element'>
-                <Select
-                  placeholder='Velg klassetrinn'
-                  items={[
-                    { value: 1, label: 'VG3' },
-                    { value: 2, label: 'Noe annet' }
-                  ]}
-                  selectedItem={{ value: 1, label: 'VG3' }}
-                  onChange={(item) => { console.log(item) }}
-                />
-              </div>
-
-              <div className='input-element'>
-                <Select
-                  placeholder='Velg programområde'
-                  items={[
-                    { value: 1, label: 'Anleggsmaskinførerfaget' },
-                    { value: 2, label: 'Noe annet' }
-                  ]}
-                  selectedItem={{ value: 1, label: 'Anleggsmaskinførerfaget' }}
-                  onChange={(item) => { console.log(item) }}
-                />
-              </div>
-
+              <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
               <div className='input-element'>
                 <SelectMultiple
                   placeholder='Velg kompetansemål'
@@ -181,6 +146,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
                   Lagre kompetansemål i lokal læreplan
                 </div>
               </button>
+
             </div>
 
             <h2 className='subheader'>Innhold i lokal læreplan</h2>
