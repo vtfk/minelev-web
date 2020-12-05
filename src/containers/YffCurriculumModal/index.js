@@ -13,6 +13,7 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { Icon } from '../../_lib-components/Icon'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
+import SchoolSelectorForm from '../../components/scool-selector-form'
 
 import './styles.scss'
 
@@ -109,17 +110,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
                 />
               </div>
 
-              <div className='input-element'>
-                <Select
-                  placeholder='Velg skole'
-                  items={[
-                    { value: 1, label: 'Bamble videregående skole, avdeling Croftholmen' },
-                    { value: 2, label: 'Skogmo videregående skole' }
-                  ]}
-                  selectedItem={{ value: 1, label: 'Bamble videregående skole, avdeling Croftholmen' }}
-                  onChange={(item) => { console.log(item) }}
-                />
-              </div>
+              <SchoolSelectorForm />
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
               <div className='input-element'>
                 <SelectMultiple
