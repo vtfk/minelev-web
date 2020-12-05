@@ -11,7 +11,8 @@ const fetcher = async url => {
 test('Sjekker grunnleggende funksjonalitet', async () => {
   const { result, waitForNextUpdate } = renderHook(() => useGrep(fetcher))
   // Tester initial state
-  expect(result.current.data).toBe(false)
+  expect(result.current.utdanningsprogrammer).toBe(false)
+  expect(result.current.programomrader).toBe(false)
 
   // Henter alle utdanningsprogrammer
   act(() => {
@@ -20,7 +21,8 @@ test('Sjekker grunnleggende funksjonalitet', async () => {
 
   await waitForNextUpdate()
 
-  expect(result.current.data.count).toBe(17)
+  expect(result.current.utdanningsprogrammer.count).toBe(17)
+  expect(result.current.programomrader).toBe(false)
 
   // Spør på grep kode
   act(() => {
@@ -29,5 +31,6 @@ test('Sjekker grunnleggende funksjonalitet', async () => {
 
   await waitForNextUpdate()
 
-  expect(result.current.data.count).toBe(1)
+  expect(result.current.programomrader.data).toBeTruthy()
+  expect(result.current.utdanningsprogrammer.count).toBe(17)
 })

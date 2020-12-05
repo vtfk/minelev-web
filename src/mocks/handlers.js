@@ -229,6 +229,14 @@ export const handlers = [
     )
   }),
 
+  rest.post(`${API.URL}/yff/:student/:type`, (req, res, ctx) => {
+    const { student, type } = req.params
+    return res(
+      ctx.status(200),
+      ctx.json(generateYFF({ student, type, id: false }))
+    )
+  }),
+
   rest.get(`${API.URL}/yff/:student/:type/:id`, (req, res, ctx) => {
     const { student, type, id } = req.params
     return res(

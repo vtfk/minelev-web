@@ -3,8 +3,8 @@ import { API } from '../config/app'
 
 /**
  * @typedef {Object} Hook
- * @property {Array} data - resultatet fra grep
- * @property {string} query - spørringen mot grep
+ * @property {Array} utdanningsprogrammer - utdanningsprogrammer fra grep
+ * @property {Array} programomrader - programområder fra grep
  * @property {Function} setQuery - setter ny query i state
  */
 
@@ -14,21 +14,26 @@ import { API } from '../config/app'
  * @returns {Hook} data og setQuery
  */
 function useGrep (fetcher) {
-  const [data, setData] = React.useState(false)
+  const [utdanningsprogrammer, setUtdanningsprogrammer] = React.useState(false)
+  const [programomrader, setProgramomrader] = React.useState(false)
   const [query, setQuery] = React.useState(false)
 
   React.useEffect(() => {
     async function queryGrep (query) {
       const url = `${API.URL}/utdanningsprogrammer/${query}`
       const data = await fetcher(url)
-      setData(data)
+      if (data && query === '') {
+        setUtdanningsprogrammer(data)
+      } else if (data && query !== '' && query !== false) {
+        setProgramomrader(data)
+      }
     }
     queryGrep(query)
   }, [query, fetcher])
 
   return {
-    data,
-    query,
+    utdanningsprogrammer,
+    programomrader,
     setQuery
   }
 }
