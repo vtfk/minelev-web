@@ -37,6 +37,7 @@
     "node": ">=12.0.0"
   },
   "dependencies": {
+    "@vtfk/company-info": "0.2.2",
     "@vtfk/react-msal": "1.0.4",
     "express": "4.17.1",
     "moment": "2.29.1",
