@@ -14,6 +14,16 @@ function idFromString (input) {
   return input
 }
 
+function labelSort (a, b) {
+  if (a.label < b.label) {
+    return -1
+  }
+  if (a.label > b.label) {
+    return 1
+  }
+  return 0
+}
+
 function SchoolSelectorForm () {
   const [select, setSelect] = useState()
   const schools = getSchools()
@@ -23,6 +33,7 @@ function SchoolSelectorForm () {
       label: school.fullName
     }
   })
+  items.sort(labelSort)
   return (
     <div className='input-element'>
       <Select
