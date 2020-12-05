@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getSchools } from '@vtfk/company-info'
+import getSchools from 'vtfk-schools-info'
 import { Select } from '../_lib-components/Select'
 
 function idFromString (input) {
@@ -17,10 +17,10 @@ function idFromString (input) {
 function SchoolSelectorForm () {
   const [select, setSelect] = useState()
   const schools = getSchools()
-  const items = schools.filter(school => school.minelev.yff === true).map(school => {
+  const items = schools.filter(school => school.yff === true).map(school => {
     return {
-      value: `${school.organizationNumber}-${idFromString(school.name.display)}`,
-      label: school.name.display
+      value: `${school.schoolId}-${idFromString(school.name)}`,
+      label: school.fullName
     }
   })
   return (
