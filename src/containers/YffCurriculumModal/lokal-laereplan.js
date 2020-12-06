@@ -1,6 +1,45 @@
+import { useEffect, useState } from 'react'
+import { API } from '../../config/app'
 import { Paragraph, Link } from '../../_lib-components/Typography'
 
-function LokalLaereplan () {
+function Maal (props) {
+  const { tittel, arbeidsoppgaver, utplasseringssted, _id, deleteMal } = props
+  if (!tittel) return null
+  return (
+    <tr>
+      <td>
+        <Paragraph>
+          {tittel.nb} / {arbeidsoppgaver}
+        </Paragraph>
+      </td>
+      <td>
+        {utplasseringssted}
+      </td>
+      <td className='actions'>
+        <Link onClick={() => deleteMal(_id)}>Fjern</Link>
+      </td>
+    </tr>
+  )
+}
+
+function LokalLaereplan (props) {
+  const [maal, setMaal] = useState([])
+  const { fetcher, selectedStudentId } = props
+  useEffect(() => {
+    const getLaereplan = async () => {
+      const data = await fetcher(`${API.URL}/yff/${selectedStudentId}/laereplan`)
+      setMaal(data[0].default)
+    }
+    getLaereplan()
+  }, [])
+
+  const deleteMal = async id => {
+    const copyMaal = [...maal]
+    const filtered = copyMaal.filter(maal => maal._id !== id)
+    setMaal(filtered)
+    // await deleter(`${API.URL}/yff/${selectedStudentId}/maal/${id}`)
+  }
+
   return (
     <>
       <h2 className='subheader'>Innhold i lokal læreplan</h2>
@@ -13,45 +52,7 @@ function LokalLaereplan () {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <Paragraph>
-                Utarbeide framdriftsplanar for arbeidet og bestille materiale i samsvar med teikningar og beskrivingar
-              </Paragraph>
-            </td>
-            <td>
-              Vest-Telemark vidaregåande skule, avdeling Seljord
-            </td>
-            <td className='actions'>
-              <Link onClick={() => { window.alert('Ikke implementert') }}>Fjern</Link>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Paragraph>
-                Bruke digitale måleverktøy
-              </Paragraph>
-            </td>
-            <td>
-              Vest-Telemark vidaregåande skule, avdeling Seljord
-            </td>
-            <td className='actions'>
-              <Link onClick={() => { window.alert('Ikke implementert') }}>Fjern</Link>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Paragraph>
-                Bruke nivellerings- og oppmålingsutstyr til stikking av anleggstekniske arbeid
-              </Paragraph>
-            </td>
-            <td>
-              Vest-Telemark vidaregåande skule, avdeling Seljord
-            </td>
-            <td className='actions'>
-              <Link onClick={() => { window.alert('Ikke implementert') }}>Fjern</Link>
-            </td>
-          </tr>
+          {maal.length > 0 && maal.map(item => <Maal key={item._id} {...item} deleteMal={deleteMal} />)}
         </tbody>
       </table>
     </>

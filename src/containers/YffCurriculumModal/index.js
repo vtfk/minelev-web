@@ -111,7 +111,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
 
             </div>
 
-            <LokalLaereplan />
+            <LokalLaereplan fetcher={apiGet} selectedStudentId={selectedStudentId} />
 
           </div>
         </ModalBody>

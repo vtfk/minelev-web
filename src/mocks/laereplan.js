@@ -14,6 +14,7 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
+    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
     kode: '63646',
     tittel: {
       nb: 'mestre tre ulike typer masseflyttingsmaskiner'
@@ -35,6 +36,7 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
+    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
     kode: '63646',
     tittel: {
       nb: 'bruke relevant måleutstyr'
@@ -56,6 +58,7 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
+    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
     kode: '63646',
     tittel: {
       nb: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser'
@@ -98,6 +101,7 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
+    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
     kode: '63646',
     tittel: {
       nb: 'mestre tre ulike typer masseflyttingsmaskiner'
