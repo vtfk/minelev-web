@@ -15,15 +15,13 @@ import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogram
 import SchoolSelectorForm from '../../components/scool-selector-form'
 import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
 import KompetansemalSelectorForm from '../../components/kompetansemal-selector-form'
-import ba from '../../mocks/ba.json'
 
 import './styles.scss'
-
-const kompetansemaal = ba.data.trinn[0].programomraader[0].maal
 
 export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
+  const [kompetansemaal, setKompetansemaal] = useState()
   const { apiGet } = useSession()
   console.log(selectedKlassetrinn)
 
@@ -107,7 +105,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
               </div>
 
               <SchoolSelectorForm />
-              <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
+              <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
               <KompetansemalSelectorForm kompetansemaal={kompetansemaal} />
 
             </div>
