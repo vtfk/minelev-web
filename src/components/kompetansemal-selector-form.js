@@ -1,10 +1,37 @@
+/* eslint-env browser */
 import { useState } from 'react'
 import { SelectMultiple } from '../_lib-components/Select'
+import { TextField } from '../_lib-components/TextField'
 import { Icon } from '../_lib-components/Icon'
+import serializeForm from '../lib/serialize-form'
+import { API } from '../config/app'
+
+function Beskrivelse (props) {
+  const { tittel, kode } = props
+  return (
+    <div className='input-element'>
+      <TextField
+        name={kode}
+        placeholder={tittel.nb}
+      />
+    </div>
+  )
+}
+
+function Arbeidsoppgaver (props) {
+  const { maal } = props
+  if (!maal) return null
+  return (
+    <>
+      <h2 className='subheader'>Beskriv arbeidsoppgaver</h2>
+      {maal.map(item => <Beskrivelse key={item.kode} {...item} />)}
+    </>
+  )
+}
 
 function KompetansemalVelger (props) {
   const [selectedMaal, setSelectedMaal] = useState([])
-  const { kompetansemaal } = props
+  const { kompetansemaal, apiPost, selectedStudentId } = props
   if (!kompetansemaal) {
     return null
   }
@@ -23,6 +50,21 @@ function KompetansemalVelger (props) {
     setSelectedMaal(copySelectedMaal)
   }
 
+  const sendForm = async () => {
+    const form = document.getElementById('kompetansemaal-form')
+    const data = new FormData(form)
+    const json = JSON.parse(serializeForm(data))
+    const keys = Object.keys(json)
+    const copyOfMaal = [...kompetansemaal]
+    const selectedMaal = copyOfMaal.filter(maal => keys.includes(maal.kode)).reduce((list, maal) => {
+      const arbeidsoppgaver = json[maal.kode]
+      list.push({ ...maal, arbeidsoppgaver })
+      return list
+    }, [])
+    const url = `${API.URL}/yff/${selectedStudentId}/maal`
+    await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
+  }
+
   return (
     <>
       <div className='input-element'>
@@ -33,7 +75,10 @@ function KompetansemalVelger (props) {
           onChange={(item) => updateMaal(item)}
         />
       </div>
-      <button className='check-button button-left-icon button-primary'>
+      <form id='kompetansemaal-form'>
+        <Arbeidsoppgaver maal={selectedMaal} />
+      </form>
+      <button className='check-button button-left-icon button-primary' onClick={sendForm}>
         <div className='button-left-icon-icon'>
           <Icon name='check' size='small' />
         </div>

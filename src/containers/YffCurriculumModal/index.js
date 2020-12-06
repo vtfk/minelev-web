@@ -22,7 +22,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const [kompetansemaal, setKompetansemaal] = useState()
-  const { apiGet } = useSession()
+  const { apiGet, apiPost } = useSession()
   console.log(selectedKlassetrinn)
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
 
               <SchoolSelectorForm />
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
-              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} />
+              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={selectedStudentId} />
 
             </div>
 
