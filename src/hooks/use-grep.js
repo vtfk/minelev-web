@@ -4,14 +4,14 @@ import { API } from '../config/app'
 /**
  * @typedef {Object} Hook
  * @property {Array} utdanningsprogrammer - utdanningsprogrammer fra grep
- * @property {Array} programomrader - programområder fra grep
+ * @property {Array} programomrader - programområder fra valgt utdanningsprogram
  * @property {Function} setQuery - setter ny query i state
  */
 
 /**
  * Send inn kode, få utdanningsprogram fra grep api
  * @param {Function} fetcher funksjon for å hente data fra url
- * @returns {Hook} data og setQuery
+ * @returns {Hook} utdanningsprogrammer, programområder og setQuery
  */
 function useGrep (fetcher) {
   const [utdanningsprogrammer, setUtdanningsprogrammer] = React.useState(false)

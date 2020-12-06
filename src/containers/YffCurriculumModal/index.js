@@ -10,11 +10,11 @@ import { API } from '../../config/app'
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { Select, SelectMultiple } from '../../_lib-components/Select'
-import { Icon } from '../../_lib-components/Icon'
+import { Select } from '../../_lib-components/Select'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
 import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
+import KompetansemalSelectorForm from '../../components/kompetansemal-selector-form'
 
 import './styles.scss'
 
@@ -104,33 +104,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
 
               <SchoolSelectorForm />
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
-              {selectedKlassetrinn.label}
-
-              <div className='input-element'>
-                <SelectMultiple
-                  placeholder='Velg kompetansemål'
-                  items={[
-                    { value: 1, label: 'Mestre tre ulike typer masseflyttingsmaskiner' },
-                    { value: 2, label: 'Utføre arbeid innenfor graving, lasting, transport, utlegging og finavretting' },
-                    { value: 3, label: 'Bruke tilleggsutstyr tilpasset arbeidsoppgaven på en forsvarlig og hensiktsmessig måte' }
-                  ]}
-                  selectedItems={[
-                    { value: 2, label: 'Utføre arbeid innenfor graving, lasting, transport, utlegging og finavretting' },
-                    { value: 3, label: 'Bruke tilleggsutstyr tilpasset arbeidsoppgaven på en forsvarlig og hensiktsmessig måte' }
-                  ]}
-                  onChange={(item) => { window.alert('Valgt: ' + item.label) }}
-                />
-              </div>
-
-              {/* TODO: component */}
-              <button className='check-button button-left-icon button-primary'>
-                <div className='button-left-icon-icon'>
-                  <Icon name='check' size='small' />
-                </div>
-                <div className='button-left-icon-text'>
-                  Lagre kompetansemål i lokal læreplan
-                </div>
-              </button>
+              <KompetansemalSelectorForm />
 
             </div>
 
