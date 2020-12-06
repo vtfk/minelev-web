@@ -3,7 +3,7 @@ import useGrep from '../hooks/use-grep'
 import { Select } from '../_lib-components/Select'
 import KlassetrinnSelectorForm from './klassetrinn-selector-form'
 
-function Programomrader ({ data, trinn }) {
+function Programomrader ({ data, trinn, setKompetansemaal }) {
   const [selectedOmrade, setSelectedOmrade] = useState()
   const [filteredData, setFilteredData] = useState(false)
 
@@ -15,6 +15,13 @@ function Programomrader ({ data, trinn }) {
       }
     }
   }, [trinn, data])
+
+  useEffect(() => {
+    if (selectedOmrade && typeof setKompetansemaal === 'function') {
+      const program = filteredData.find(item => item.kode === selectedOmrade.value)
+      setKompetansemaal(program.maal)
+    }
+  }, [selectedOmrade, filteredData])
 
   if (!filteredData) {
     return null
@@ -74,7 +81,7 @@ function Utdanningsprogrammer ({ data, setQuery }) {
 
 function UtdanningsprogrammerSelectorForm (props) {
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState()
-  const { fetcher } = props
+  const { fetcher, setKompetansemaal } = props
   const {
     utdanningsprogrammer,
     programomrader,
@@ -89,7 +96,7 @@ function UtdanningsprogrammerSelectorForm (props) {
     <>
       <KlassetrinnSelectorForm setSelected={setSelectedKlassetrinn} />
       {utdanningsprogrammer && selectedKlassetrinn && <Utdanningsprogrammer data={utdanningsprogrammer.data} setQuery={setQuery} />}
-      {programomrader && selectedKlassetrinn && <Programomrader data={programomrader.data} trinn={selectedKlassetrinn} />}
+      {programomrader && selectedKlassetrinn && <Programomrader data={programomrader.data} trinn={selectedKlassetrinn} setKompetansemaal={setKompetansemaal} />}
     </>
   )
 }
