@@ -7,10 +7,13 @@ import serializeForm from '../lib/serialize-form'
 import { API } from '../config/app'
 
 function Beskrivelse (props) {
+  const [text, setText] = useState('')
   const { tittel, kode } = props
   return (
     <div className='input-element'>
       <TextField
+        value={text}
+        onChange={event => setText(event.target.value)}
         name={kode}
         placeholder={tittel.nb}
       />
@@ -65,6 +68,18 @@ function KompetansemalVelger (props) {
     await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
   }
 
+  const SaveButton = () => {
+    return (
+      <button className='check-button button-left-icon button-primary' onClick={sendForm}>
+        <div className='button-left-icon-icon'>
+          <Icon name='check' size='small' />
+        </div>
+        <div className='button-left-icon-text'>
+          Lagre kompetansemål i lokal læreplan
+        </div>
+      </button>
+    )
+  }
   return (
     <>
       <div className='input-element'>
@@ -76,16 +91,9 @@ function KompetansemalVelger (props) {
         />
       </div>
       <form id='kompetansemaal-form'>
-        <Arbeidsoppgaver maal={selectedMaal} />
+        {selectedMaal.length > 0 && <Arbeidsoppgaver maal={selectedMaal} />}
       </form>
-      <button className='check-button button-left-icon button-primary' onClick={sendForm}>
-        <div className='button-left-icon-icon'>
-          <Icon name='check' size='small' />
-        </div>
-        <div className='button-left-icon-text'>
-          Lagre kompetansemål i lokal læreplan
-        </div>
-      </button>
+      {selectedMaal.length > 0 && <SaveButton />}
     </>
   )
 }
