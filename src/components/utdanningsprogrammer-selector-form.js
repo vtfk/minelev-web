@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import useGrep from '../hooks/use-grep'
 import { Select } from '../_lib-components/Select'
+import KlassetrinnSelectorForm from './klassetrinn-selector-form'
 
 function Programomrader ({ data, trinn }) {
-  const [select, setSelect] = useState('')
+  const [selectedOmrade, setSelectedOmrade] = useState()
   const [filteredData, setFilteredData] = useState(false)
 
   useEffect(() => {
@@ -30,8 +31,8 @@ function Programomrader ({ data, trinn }) {
       <Select
         placeholder='Velg programområde'
         items={items}
-        selectedItem={select}
-        onChange={(item) => { setSelect(item) }}
+        selectedItem={selectedOmrade}
+        onChange={(item) => { setSelectedOmrade(item) }}
         isOpen
         closeOnSelect
       />
@@ -40,13 +41,13 @@ function Programomrader ({ data, trinn }) {
 }
 
 function Utdanningsprogrammer ({ data, setQuery }) {
-  const [select, setSelect] = useState('')
+  const [selectedProgram, setSelectedProgram] = useState()
 
   useEffect(() => {
-    if (select !== '') {
-      setQuery(select.value)
+    if (selectedProgram) {
+      setQuery(selectedProgram.value)
     }
-  }, [select])
+  }, [selectedProgram])
   if (!data) {
     return null
   }
@@ -62,8 +63,8 @@ function Utdanningsprogrammer ({ data, setQuery }) {
       <Select
         placeholder='Velg utdanningsprogram'
         items={items}
-        selectedItem={select}
-        onChange={(item) => { setSelect(item) }}
+        selectedItem={selectedProgram}
+        onChange={(item) => { setSelectedProgram(item) }}
         isOpen
         closeOnSelect
       />
@@ -72,7 +73,7 @@ function Utdanningsprogrammer ({ data, setQuery }) {
 }
 
 function UtdanningsprogrammerSelectorForm (props) {
-  const [select, setSelect] = useState()
+  const [selectedKlassetrinn, setSelectedKlassetrinn] = useState()
   const { fetcher } = props
   const {
     utdanningsprogrammer,
@@ -86,22 +87,9 @@ function UtdanningsprogrammerSelectorForm (props) {
 
   return (
     <>
-      <div className='input-element'>
-        <Select
-          placeholder='Velg klassetrinn'
-          items={[
-            { value: 'vg1', label: 'VG 1' },
-            { value: 'vg2', label: 'VG 2' },
-            { value: 'vg3', label: 'VG 3' }
-          ]}
-          selectedItem={select}
-          onChange={(item) => { setSelect(item) }}
-          closeOnSelect
-          isOpen
-        />
-      </div>
-      {utdanningsprogrammer && select && <Utdanningsprogrammer data={utdanningsprogrammer.data} setQuery={setQuery} />}
-      {programomrader && select && <Programomrader data={programomrader.data} trinn={select} />}
+      <KlassetrinnSelectorForm setSelected={setSelectedKlassetrinn} />
+      {utdanningsprogrammer && selectedKlassetrinn && <Utdanningsprogrammer data={utdanningsprogrammer.data} setQuery={setQuery} />}
+      {programomrader && selectedKlassetrinn && <Programomrader data={programomrader.data} trinn={selectedKlassetrinn} />}
     </>
   )
 }

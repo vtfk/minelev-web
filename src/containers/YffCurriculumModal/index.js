@@ -14,11 +14,13 @@ import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { Icon } from '../../_lib-components/Icon'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
+import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
 
 import './styles.scss'
 
 export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
+  const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const { apiGet } = useSession()
 
   useEffect(() => {
@@ -84,17 +86,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
           <div className='form'>
             <h2 className='subheader'>Klassetrinn</h2>
 
-            <div className='input-element'>
-              <Select
-                placeholder='Klassetrinn'
-                items={[
-                  { value: 1, label: 'Vg1' },
-                  { value: 2, label: 'Vg2' }
-                ]}
-                selectedItem={{ value: 1, label: 'Vg1' }}
-                onChange={(item) => { console.log(item) }}
-              />
-            </div>
+            <KlassetrinSelectorForm setSelected={setSelectedKlassetrinn} />
 
             <h2 className='subheader'>Legg til nye kompetansemål</h2>
             <div className='add-new-curriculum'>
@@ -112,6 +104,8 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
 
               <SchoolSelectorForm />
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
+              {selectedKlassetrinn.label}
+
               <div className='input-element'>
                 <SelectMultiple
                   placeholder='Velg kompetansemål'
