@@ -1,10 +1,10 @@
 /* eslint-env browser */
 import { useState } from 'react'
-import { SelectMultiple } from '../_lib-components/Select'
-import { TextField } from '../_lib-components/TextField'
-import { Icon } from '../_lib-components/Icon'
-import serializeForm from '../lib/serialize-form'
-import { API } from '../config/app'
+import { SelectMultiple } from '../../_lib-components/Select'
+import { TextField } from '../../_lib-components/TextField'
+import { Icon } from '../../_lib-components/Icon'
+import serializeForm from '../../lib/serialize-form'
+import { API } from '../../config/app'
 
 function Beskrivelse (props) {
   const [text, setText] = useState('')

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import KompetansemalSelectorForm from './kompetansemal-selector-form'
-import ba from '../mocks/ba.json'
+import ba from '../../mocks/ba.json'
 import userEvent from '@testing-library/user-event'
 const kompetansemaal = ba.data.trinn[0].programomraader[0].maal
 

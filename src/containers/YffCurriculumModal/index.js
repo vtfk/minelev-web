@@ -14,7 +14,7 @@ import { Select } from '../../_lib-components/Select'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
 import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
-import KompetansemalSelectorForm from '../../components/kompetansemal-selector-form'
+import KompetansemalSelectorForm from './kompetansemal-selector-form'
 
 import './styles.scss'
 
