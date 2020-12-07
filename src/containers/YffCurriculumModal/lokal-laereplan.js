@@ -24,7 +24,7 @@ function Maal (props) {
 
 function LokalLaereplan (props) {
   const [maal, setMaal] = useState([])
-  const { fetcher, selectedStudentId } = props
+  const { deleter, fetcher, selectedStudentId } = props
   useEffect(() => {
     const getLaereplan = async () => {
       const data = await fetcher(`${API.URL}/yff/${selectedStudentId}/laereplan`)
@@ -37,7 +37,8 @@ function LokalLaereplan (props) {
     const copyMaal = [...maal]
     const filtered = copyMaal.filter(maal => maal._id !== id)
     setMaal(filtered)
-    // await deleter(`${API.URL}/yff/${selectedStudentId}/maal/${id}`)
+    const result = await deleter(`${API.URL}/yff/${selectedStudentId}/maal/${id}`)
+    console.log(result)
   }
 
   return (

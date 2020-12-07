@@ -23,7 +23,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const [kompetansemaal, setKompetansemaal] = useState()
-  const { apiGet, apiPost } = useSession()
+  const { apiDelete, apiGet, apiPost } = useSession()
   console.log(selectedKlassetrinn)
 
   useEffect(() => {
@@ -111,7 +111,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
 
             </div>
 
-            <LokalLaereplan fetcher={apiGet} selectedStudentId={selectedStudentId} />
+            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={selectedStudentId} />
 
           </div>
         </ModalBody>

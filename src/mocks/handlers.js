@@ -221,6 +221,14 @@ export const handlers = [
     )
   }),
 
+  rest.delete(`${API.URL}/yff/:student/:type/:id`, (req, res, ctx) => {
+    const { student, type, id } = req.params
+    return res(
+      ctx.status(200),
+      ctx.json({ student, type, id, deleted: true })
+    )
+  }),
+
   rest.get(`${API.URL}/yff/:student/:type`, (req, res, ctx) => {
     const { student, type } = req.params
     return res(
