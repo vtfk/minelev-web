@@ -16,6 +16,8 @@ import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
 
 import './styles.scss'
+import repackDocumentType from '../../lib/repack-document-type'
+import repackDocumentStatus from '../../lib/repack-document-status'
 
 export function Home () {
   const { user } = useSession()
@@ -105,13 +107,13 @@ export function Home () {
                         </div>
                       </td>
                       <td>
-                        <Paragraph>{doc.type}</Paragraph>
+                        <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
                       </td>
                       <td>
-                        <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
+                        <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                       </td>
                       <td>
-                        <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
+                        <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
                       </td>
                       <td>
                         <IconDropdownNav>
