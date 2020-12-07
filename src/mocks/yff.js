@@ -1,3 +1,5 @@
+const laereplan = require('./laereplan')
+
 const maal = {
   _id: '5d7f2af09f7cda0008d292d4',
   type: 'maal',
@@ -201,13 +203,15 @@ module.exports = params => {
     maal,
     maalmal,
     utplassering,
-    tilbakemelding
+    tilbakemelding,
+    laereplan
   }
   if (student && !type && !id) {
     return {
       maal: arr.fill(maal),
       utplasseringer: [utplassering],
-      tilbakemeldinger: [tilbakemelding]
+      tilbakemeldinger: [tilbakemelding],
+      laereplan: laereplan
     }
   } else {
     return data[type] ? arr.fill(data[type]) : []

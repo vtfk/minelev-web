@@ -11,7 +11,6 @@ const fetcher = async url => {
 describe('tester utdanningsprogrammer-selector-form', () => {
   test('Komponenten rendrer som forventet', async () => {
     render(<UtdanningsprogrammerSelectorForm fetcher={fetcher} />)
-    expect(screen.getByText(/velg klassetrinn/i)).toBeInTheDocument()
 
     userEvent.click(screen.getByText(/vg 3/i))
     await waitFor(() => expect(screen.getByText(/velg utdanningsprogram/i)).toBeInTheDocument())
@@ -25,5 +24,20 @@ describe('tester utdanningsprogrammer-selector-form', () => {
 
     userEvent.click(screen.getByText(/betongfaget/i))
     expect(await screen.queryByText(/glassfaget/i)).not.toBeInTheDocument()
+  })
+
+  test('Komponenten sender kompetansemål videre i treet', async () => {
+    const mockSetKompetansemaal = jest.fn()
+    render(<UtdanningsprogrammerSelectorForm fetcher={fetcher} setKompetansemaal={mockSetKompetansemaal} />)
+
+    userEvent.click(screen.getByText(/vg 3/i))
+    await waitFor(() => expect(screen.getByText(/velg utdanningsprogram/i)).toBeInTheDocument())
+
+    userEvent.click(screen.getByText(/bygg- og anleggsteknikk/i))
+    await waitFor(() => expect(screen.getByText(/velg programområde/i)).toBeInTheDocument())
+
+    userEvent.click(screen.getByText(/betongfaget/i))
+    expect(await screen.queryByText(/glassfaget/i)).not.toBeInTheDocument()
+    expect(mockSetKompetansemaal).toHaveBeenCalledTimes(1)
   })
 })

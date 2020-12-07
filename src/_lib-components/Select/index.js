@@ -150,7 +150,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
                       <div className='select-item-icon'>
                         {
                           isSelected(item) &&
-                            <img src={iconCheck} alt='' />
+                            <img src={iconCheck} alt='item checked' />
                         }
                       </div>
                       <div className='select-item-text'>{item.label}</div>
