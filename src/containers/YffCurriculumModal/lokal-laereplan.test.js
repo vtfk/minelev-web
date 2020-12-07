@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { act, cleanup, render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react'
+import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import LokalLaereplan from './lokal-laereplan'
 
