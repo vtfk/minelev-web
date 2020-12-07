@@ -18,6 +18,7 @@ import getSkoleAar from 'get-skole-aar'
 import repackGrepLang from '../../lib/repack-grep-lang'
 
 import './styles.scss'
+import Moment from 'react-moment'
 
 export function NewDocumentModal ({ selectedStudentId, ...props }) {
   const { apiGet, apiPost } = useSession()
@@ -267,7 +268,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
                   <div className='other'>
                     <Paragraph>{selectedStudent.schoolName}</Paragraph>
                     <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.classId}</Link></Paragraph>
-                    <Paragraph>{selectedStudent.birthdate}</Paragraph>
+                    <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{selectedStudent.birthdate}</Moment></Paragraph>
                     <Paragraph>{selectedStudent.mail}</Paragraph>
                   </div>
                 </div>
