@@ -326,7 +326,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
                     placeholder='Hvilke fag gjelder varselet?'
                     items={groupOptions}
                     selectedItems={groups}
-                    onChange={(item) => { changedMultiSelect(item, groupOptions, setGroups) }}
+                    onChange={(item) => { changedMultiSelect(item, groups, setGroups) }}
                   />
 
                   <SelectMultiple
