@@ -2319,11 +2319,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601557954198,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601557954218,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2368,15 +2368,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601490382619,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601490382629,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1601490382639,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2421,15 +2421,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600258358720,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600258358730,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600258358740,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2471,15 +2471,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600809487966,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600809487976,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600809487986,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2521,11 +2521,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1602865392823,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1602865392843,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2567,15 +2567,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600650072239,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600650072249,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600650072259,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2621,15 +2621,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1602495682375,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1602495682385,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1602495682395,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2671,11 +2671,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599453926144,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599453926164,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2721,15 +2721,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599030208075,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599030208085,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1599030208095,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2771,11 +2771,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601402806095,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601402806115,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2817,15 +2817,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598732617838,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598732617848,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1598732617858,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2867,11 +2867,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1597953142230,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1597953142250,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2917,15 +2917,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598833191091,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598833191101,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1598833191111,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -2967,15 +2967,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599206972644,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599206972654,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1599206972664,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3017,11 +3017,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1597777699304,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1597777699324,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3063,11 +3063,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1597971632052,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1597971632072,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3109,15 +3109,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599313534086,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599313534096,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1599313534106,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3166,15 +3166,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601746377500,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601746377510,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1601746377520,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3223,15 +3223,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601917341017,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601917341027,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1601917341037,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3277,15 +3277,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1604072226472,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1604072226482,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1604072226492,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3327,15 +3327,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600960994640,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600960994650,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600960994660,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3377,15 +3377,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1602870609990,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1602870610000,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1602870610010,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3431,15 +3431,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1604347514248,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1604347514258,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1604347514268,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3481,15 +3481,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1602292228780,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1602292228790,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1602292228800,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3531,15 +3531,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1597928834727,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1597928834737,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1597928834747,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3588,15 +3588,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1602006464562,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1602006464572,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1602006464582,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3641,15 +3641,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600277377532,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600277377542,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600277377552,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3694,15 +3694,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1604186806754,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1604186806764,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1604186806774,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3744,11 +3744,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1602818303334,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1602818303354,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3797,15 +3797,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1602595420172,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1602595420182,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1602595420192,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3854,15 +3854,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1603237798683,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1603237798693,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1603237798703,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3904,15 +3904,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601474996085,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601474996095,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1601474996105,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -3961,15 +3961,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598133490679,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598133490689,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1598133490699,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4014,15 +4014,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600352983308,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600352983318,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600352983328,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4064,15 +4064,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1604478430700,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1604478430710,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1604478430720,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4114,11 +4114,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1603488966683,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1603488966703,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4160,11 +4160,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601923442560,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601923442580,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4209,15 +4209,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600946652285,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600946652295,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600946652305,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4262,15 +4262,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598907632132,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598907632142,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1598907632152,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4312,11 +4312,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1597796486937,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1597796486957,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4361,15 +4361,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599743332073,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599743332083,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1599743332093,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4411,15 +4411,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598039525189,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598039525199,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1598039525209,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4461,15 +4461,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598175435076,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598175435086,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1598175435096,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4516,15 +4516,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599146020639,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599146020649,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1599146020659,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4571,15 +4571,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1603095899820,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1603095899830,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1603095899840,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4621,11 +4621,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600364365628,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600364365648,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4670,15 +4670,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598390881071,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598390881081,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1598390881091,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4720,11 +4720,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601958525263,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601958525283,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4766,15 +4766,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601305127595,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601305127605,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1601305127615,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4816,11 +4816,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598453724856,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598453724876,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4865,15 +4865,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1602462719313,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1602462719323,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1602462719333,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4915,15 +4915,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600230827016,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600230827026,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600230827036,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -4968,15 +4968,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598707478054,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598707478064,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1598707478074,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5022,15 +5022,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1597821508409,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1597821508419,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1597821508429,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5076,15 +5076,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601151223154,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601151223164,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1601151223174,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5130,15 +5130,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600099240914,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600099240924,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600099240934,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5180,11 +5180,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598428341261,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598428341281,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5226,11 +5226,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599484407456,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599484407476,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5272,11 +5272,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1603000236779,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1603000236799,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5322,15 +5322,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598424198048,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598424198058,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1598424198068,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5375,15 +5375,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1601282808947,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1601282808957,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1601282808967,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5425,11 +5425,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600506404763,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600506404783,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5471,15 +5471,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599981639613,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599981639623,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1599981639633,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5521,11 +5521,11 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1598920368545,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1598920368565,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5574,15 +5574,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1602497629119,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1602497629129,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1602497629139,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5627,15 +5627,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600756351729,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600756351739,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600756351749,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5677,15 +5677,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599687535241,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599687535251,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1599687535261,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5732,15 +5732,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1600336414748,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1600336414758,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1600336414768,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   },
@@ -5787,15 +5787,15 @@ export const DOCUMENTS = [
     status: [
       {
         timestamp: 1599031288490,
-        status: 'I kø'
+        status: 'queued'
       },
       {
         timestamp: 1599031288500,
-        status: 'Sendt med SvarUt'
+        status: 'sent'
       },
       {
         timestamp: 1599031288510,
-        status: 'Arkivert i Public 360'
+        status: 'archived'
       }
     ]
   }
