@@ -20,6 +20,8 @@ import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
 
 import './styles.scss'
+import repackDocumentType from '../../lib/repack-document-type'
+import repackDocumentStatus from '../../lib/repack-document-status'
 
 export function Student ({ match, ...props }) {
   const [confirmationModalState, setConfirmationModalState] = useState(false)
@@ -203,13 +205,13 @@ export function Student ({ match, ...props }) {
                         return (
                           <tr key={doc.id}>
                             <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>{doc.type}</Paragraph>
+                              <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
                             </td>
                             <td>
-                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
+                              <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
                             </td>
                           </tr>
                         )
@@ -244,10 +246,10 @@ export function Student ({ match, ...props }) {
                         return (
                           <tr key={note.id}>
                             <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.status && note.status[note.status.length - 1] ? note.status[note.status.length - 1].timestamp : '-'}</Moment></Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.created.timestamp}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>{note.status && note.status[note.status.length - 1] ? note.status[note.status.length - 1].status : '-'}</Paragraph>
+                              <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>
                             </td>
                           </tr>
                         )
