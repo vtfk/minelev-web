@@ -167,6 +167,16 @@ export const handlers = [
     )
   }),
 
+  rest.post(`${API.URL}/documents/preview`, (req, res, ctx) => {
+    // @ts-ignore
+    const lang = req.url.searchParams.get('language')
+    const preview = getDocumentPreview(req.body, lang)
+    return res(
+      ctx.status(200),
+      ctx.json(preview)
+    )
+  }),
+
   /*
     {
       type: 'varsel',
@@ -200,16 +210,6 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json(getAllDocuments())
-    )
-  }),
-
-  rest.post(`${API.URL}/preview/:lang`, (req, res, ctx) => {
-    // @ts-ignore
-    const { lang } = req.params
-    const preview = getDocumentPreview(req.body, lang)
-    return res(
-      ctx.status(200),
-      ctx.json(preview)
     )
   }),
 
