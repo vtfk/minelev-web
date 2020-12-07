@@ -37,8 +37,7 @@ function LokalLaereplan (props) {
     const copyMaal = [...maal]
     const filtered = copyMaal.filter(maal => maal._id !== id)
     setMaal(filtered)
-    const result = await deleter(`${API.URL}/yff/${selectedStudentId}/maal/${id}`)
-    console.log(result)
+    await deleter(`${API.URL}/yff/${selectedStudentId}/maal/${id}`)
   }
 
   return (
