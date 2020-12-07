@@ -14,30 +14,30 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
 
+import getSkoleAar from 'get-skole-aar'
+import repackGrepLang from '../../lib/repack-grep-lang'
+
 import './styles.scss'
 
 export function NewDocumentModal ({ selectedStudentId, ...props }) {
+  const { apiGet, apiPost } = useSession()
+
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [previewModalState, setPreviewModalState] = useState(false)
   const [type, setType] = useState(null)
+  const [period, setPeriod] = useState(null)
   const [behaviourReasons, setBehaviourReasons] = useState([])
   const [courseReasons, setCourseReasons] = useState([])
   const [orderReasons, setOrderReasons] = useState([])
   const [conversationStatus, setConversationStatus] = useState([])
-  const [group, setGroup] = useState(null)
+  const [groups, setGroups] = useState([])
   const [groupOptions, setGroupOptions] = useState([])
+
   const [pdfPreviewBase64, setPdfPreviewBase64] = useState(null)
   const [pdfPreviewLoading, setPdfPreviewLoading] = useState(null)
   const [pdfPreviewError, setPdfPreviewError] = useState(null)
-  const { apiGet, apiPost } = useSession()
 
-  let typeOptions = []
-  let behaviourReasonsOptions = []
-  let courseReasonsOptions = []
-  let orderReasonsOptions = []
-  let conversationStatusesOptions = []
-
-  typeOptions = DOCUMENTS.documentTypes.map(
+  const typeOptions = DOCUMENTS.documentTypes.map(
     (item) => ({
       value: item.id,
       label: item.description.nb,
@@ -45,7 +45,15 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
     })
   )
 
-  behaviourReasonsOptions = DOCUMENTS.behaviourReasons.map(
+  const periodOptions = DOCUMENTS.periods.map(
+    (item) => ({
+      value: item.id,
+      label: item.value.nb,
+      item
+    })
+  )
+
+  const behaviourReasonsOptions = DOCUMENTS.behaviourReasons.map(
     (item) => ({
       value: item.id,
       label: item.description.nb,
@@ -53,7 +61,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
     })
   )
 
-  courseReasonsOptions = DOCUMENTS.courseReasons.map(
+  const courseReasonsOptions = DOCUMENTS.courseReasons.map(
     (item) => ({
       value: item.id,
       label: item.description.nb,
@@ -61,7 +69,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
     })
   )
 
-  orderReasonsOptions = DOCUMENTS.orderReasons.map(
+  const orderReasonsOptions = DOCUMENTS.orderReasons.map(
     (item) => ({
       value: item.id,
       label: item.description.nb,
@@ -69,7 +77,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
     })
   )
 
-  conversationStatusesOptions = DOCUMENTS.conversationStatuses.map(
+  const conversationStatusesOptions = DOCUMENTS.conversationStatuses.map(
     (item) => ({
       value: item.id,
       label: item.value.nb,
@@ -91,10 +99,11 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
       setSelectedStudent(student.data)
 
       if (student.data.groups) {
-        const groupsOptionsArray = student.data.groups.map(
-          (item) => ({
+        const groupsOptionsArray = student.data.groups
+          .filter(group => group.type === 'undervisningsgruppe')
+          .map((item) => ({
             value: item.id,
-            label: item.name,
+            label: `${item.grep.kortform.nob} (${item.name})`.trim(),
             item
           }))
 
@@ -129,14 +138,38 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
     setFunction(newArray)
   }
 
+  function createDocment () {
+    const docType = type.value.includes('samtale') ? 'samtale' : 'varsel'
+    const docVariant = docType === 'samtale' ? conversationStatus.value : type.value
+
+    const docContent = {
+      year: getSkoleAar()
+    }
+
+    if (docType === 'varsel') {
+      const reasons = docVariant === 'fag' ? courseReasons : docVariant === 'orden' ? orderReasons : behaviourReasons
+      docContent.reasons = reasons.map(({ item }) => ({ id: item.id, ...item.value }))
+      docContent.period = { id: period.item.id, ...period.item.value }
+    }
+
+    if (docVariant === 'fag') {
+      docContent.classes = groups.map(({ item }) => ({ id: item.id, ...repackGrepLang(item.grep.kortform) }))
+    }
+
+    return {
+      type: docType,
+      variant: docVariant,
+      student: {
+        username: selectedStudent.username
+      },
+      content: docContent
+    }
+  }
+
   async function send () {
     if (type && true) { // properly validate form
-      const postDocument = await apiPost(API.URL + '/documents', {
-        type: type,
-        content: {
-          // TODO
-        }
-      })
+      const document = createDocment()
+      const postDocument = await apiPost(API.URL + '/documents', document)
 
       if (postDocument) {
         store.addNotification({
@@ -181,10 +214,11 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
     setPdfPreviewError(null)
     setPdfPreviewLoading(true)
 
-    const pdf = await apiPost(API.URL + '/preview/nb')
+    const document = createDocment()
+    const { data } = await apiPost(API.URL + '/documents/preview', document)
 
-    if (pdf.base64) {
-      setPdfPreviewBase64(pdf.base64)
+    if (data.base64) {
+      setPdfPreviewBase64(data.base64)
       setPdfPreviewError(null)
       setPdfPreviewLoading(false)
     } else {
@@ -233,8 +267,8 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
                   <div className='other'>
                     <Paragraph>{selectedStudent.schoolName}</Paragraph>
                     <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.classId}</Link></Paragraph>
-                    <Paragraph>26. april 2001</Paragraph>
-                    <Paragraph>bra26041@skole.vtfk.no</Paragraph>
+                    <Paragraph>{selectedStudent.birthdate}</Paragraph>
+                    <Paragraph>{selectedStudent.mail}</Paragraph>
                   </div>
                 </div>
               </div>
@@ -247,6 +281,22 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
               selectedItem={type}
               onChange={(item) => { setType(item) }}
             />
+
+            {
+              /* --------------------
+                Periode
+              -------------------- */
+              type &&
+              type.value !== 'samtale' &&
+                <>
+                  <Select
+                    placeholder='Velg periode'
+                    items={periodOptions}
+                    selectedItem={period}
+                    onChange={(item) => { setPeriod(item) }}
+                  />
+                </>
+            }
 
             {
               /* --------------------
@@ -271,11 +321,11 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
               type &&
               type.value === 'fag' &&
                 <>
-                  <Select
-                    placeholder='Velg fag'
+                  <SelectMultiple
+                    placeholder='Hvilke fag gjelder varselet?'
                     items={groupOptions}
-                    selectedItem={group}
-                    onChange={(item) => { setGroup(item) }}
+                    selectedItems={groups}
+                    onChange={(item) => { changedMultiSelect(item, groups, setGroups) }}
                   />
 
                   <SelectMultiple

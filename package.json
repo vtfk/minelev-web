@@ -39,6 +39,7 @@
   "dependencies": {
     "@vtfk/react-msal": "1.0.5",
     "express": "4.17.1",
+    "get-skole-aar": "2.1.0",
     "moment": "2.29.1",
     "nanoid": "3.1.20",
     "prop-types": "15.7.2",
