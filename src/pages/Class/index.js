@@ -13,6 +13,8 @@ import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Icon } from '../../_lib-components/Icon'
 
 import './styles.scss'
+import repackDocumentStatus from '../../lib/repack-document-status'
+import repackDocumentType from '../../lib/repack-document-type'
 
 export function Class ({ match, ...props }) {
   const { id } = match.params
@@ -164,13 +166,13 @@ export function Class ({ match, ...props }) {
                               </div>
                             </td>
                             <td>
-                              <Paragraph>{doc.type}</Paragraph>
+                              <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
                             </td>
                             <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
+                              <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
                             </td>
                           </tr>
                         )
@@ -212,13 +214,10 @@ export function Class ({ match, ...props }) {
                               </div>
                             </td>
                             <td>
-                              <Paragraph>{doc.type}</Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
+                              <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
                             </td>
                           </tr>
                         )
@@ -253,10 +252,10 @@ export function Class ({ match, ...props }) {
                               <Paragraph>{doc.type}</Paragraph>
                             </td>
                             <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].timestamp : '-'}</Moment></Paragraph>
+                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                             </td>
                             <td>
-                              <Paragraph>{doc.status && doc.status[doc.status.length - 1] ? doc.status[doc.status.length - 1].status : '-'}</Paragraph>
+                              <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
                             </td>
                           </tr>
                         )
