@@ -251,5 +251,46 @@ export const DOCUMENTS = {
         en: 'Eleven ønsker ikke samtale'
       }
     }
+  ],
+  documentStatuses: [
+    {
+      id: 'queued',
+      short: {
+        nb: 'I kø',
+        nn: 'I kø',
+        en: 'Queued'
+      },
+      description: {
+        nb: 'Venter i kø',
+        nn: 'Venter i kø',
+        en: 'Queued'
+      }
+    },
+    {
+      id: 'sent',
+      short: {
+        nb: 'Sendt',
+        nn: 'Sendt',
+        en: 'Sent'
+      },
+      description: {
+        nb: 'Sendt til digital postkasse med SvarUT',
+        nn: 'Sendt til digital postkasse med SvarUT',
+        en: 'Sent to digital mailbox with SvarUT'
+      }
+    },
+    {
+      id: 'archived',
+      short: {
+        nb: 'Arkivert',
+        nn: 'Arkivert',
+        en: 'Archived'
+      },
+      description: {
+        nb: 'Arkivert i elevens elevmappe',
+        nn: 'Arkivert i elevens elevmappe',
+        en: 'Archived in student file'
+      }
+    }
   ]
 }
