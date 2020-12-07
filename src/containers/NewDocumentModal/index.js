@@ -106,7 +106,6 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
             label: `${item.grep.kortform.nob} (${item.name})`.trim(),
             item
           }))
-        console.log(groupsOptionsArray)
 
         setGroupOptions(groupsOptionsArray)
       }
