@@ -77,7 +77,7 @@ export function ActivityLog () {
           <thead>
             <tr>
               <th><Paragraph size='small'>Elev</Paragraph></th>
-              <th><Paragraph size='small'>Dokument type</Paragraph></th>
+              <th><Paragraph size='small'>Dokumenttype</Paragraph></th>
               <th><Paragraph size='small'>Dato</Paragraph></th>
               <th><Paragraph size='small'>Status</Paragraph></th>
               <th><Paragraph size='small'>Sendt av</Paragraph></th>
