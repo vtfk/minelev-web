@@ -31,7 +31,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   const [behaviourReasons, setBehaviourReasons] = useState([])
   const [courseReasons, setCourseReasons] = useState([])
   const [orderReasons, setOrderReasons] = useState([])
-  const [conversationStatus, setConversationStatus] = useState([])
+  const [conversationStatus, setConversationStatus] = useState(null)
   const [groups, setGroups] = useState([])
   const [groupOptions, setGroupOptions] = useState([])
 
