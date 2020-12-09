@@ -80,6 +80,7 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
+    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
     kode: '63646',
     tittel: {
       nb: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang'
