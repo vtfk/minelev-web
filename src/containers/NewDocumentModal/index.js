@@ -31,7 +31,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   const [behaviourReasons, setBehaviourReasons] = useState([])
   const [courseReasons, setCourseReasons] = useState([])
   const [orderReasons, setOrderReasons] = useState([])
-  const [conversationStatus, setConversationStatus] = useState([])
+  const [conversationStatus, setConversationStatus] = useState(null)
   const [groups, setGroups] = useState([])
   const [groupOptions, setGroupOptions] = useState([])
 
@@ -60,6 +60,15 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   }, [])
 
   useEffect(() => {
+    setPeriod(null)
+    setBehaviourReasons([])
+    setCourseReasons([])
+    setOrderReasons([])
+    setGroups([])
+    setConversationStatus(conversationStatusesOptions[0])
+  }, [selectedStudentId])
+
+  useEffect(() => {
     async function getStudent () {
       const { data: student } = await apiGet(API.URL + '/students/' + selectedStudentId)
       setSelectedStudent(student)
@@ -86,12 +95,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
       setType(typeOptions[0])
     }
 
-    function setDefaults () {
-      setConversationStatus(conversationStatusesOptions[0])
-    }
-
     getStudent()
-    setDefaults()
   }, [selectedStudentId, apiGet])
 
   function handleKeyPress (event) {
