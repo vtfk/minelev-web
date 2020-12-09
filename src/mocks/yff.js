@@ -197,7 +197,7 @@ const tilbakemelding = {
 
 module.exports = params => {
   const { student, type, id } = params
-  console.log(student, type, id)
+  // console.log(student, type, id)
   const arr = id ? [0] : [1, 2, 3, 4, 5]
   const data = {
     maal,

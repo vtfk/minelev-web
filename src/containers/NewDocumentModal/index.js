@@ -26,11 +26,12 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [previewModalState, setPreviewModalState] = useState(false)
   const [type, setType] = useState(null)
+  const [typeOptions, setTypeOptions] = useState([])
   const [period, setPeriod] = useState(null)
   const [behaviourReasons, setBehaviourReasons] = useState([])
   const [courseReasons, setCourseReasons] = useState([])
   const [orderReasons, setOrderReasons] = useState([])
-  const [conversationStatus, setConversationStatus] = useState([])
+  const [conversationStatus, setConversationStatus] = useState(null)
   const [groups, setGroups] = useState([])
   const [groupOptions, setGroupOptions] = useState([])
 
@@ -38,53 +39,17 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   const [pdfPreviewLoading, setPdfPreviewLoading] = useState(null)
   const [pdfPreviewError, setPdfPreviewError] = useState(null)
 
-  const typeOptions = DOCUMENTS.documentTypes.map(
-    (item) => ({
-      value: item.id,
-      label: item.description.nb,
-      item
-    })
-  )
+  const repackTypeOptions = (item, labelProp = 'description') => ({
+    value: item.id,
+    label: item[labelProp].nb,
+    item
+  })
 
-  const periodOptions = DOCUMENTS.periods.map(
-    (item) => ({
-      value: item.id,
-      label: item.value.nb,
-      item
-    })
-  )
-
-  const behaviourReasonsOptions = DOCUMENTS.behaviourReasons.map(
-    (item) => ({
-      value: item.id,
-      label: item.description.nb,
-      item
-    })
-  )
-
-  const courseReasonsOptions = DOCUMENTS.courseReasons.map(
-    (item) => ({
-      value: item.id,
-      label: item.description.nb,
-      item
-    })
-  )
-
-  const orderReasonsOptions = DOCUMENTS.orderReasons.map(
-    (item) => ({
-      value: item.id,
-      label: item.description.nb,
-      item
-    })
-  )
-
-  const conversationStatusesOptions = DOCUMENTS.conversationStatuses.map(
-    (item) => ({
-      value: item.id,
-      label: item.value.nb,
-      item
-    })
-  )
+  const periodOptions = DOCUMENTS.periods.map(item => repackTypeOptions(item, 'value'))
+  const conversationStatusesOptions = DOCUMENTS.conversationStatuses.map(item => repackTypeOptions(item, 'value'))
+  const behaviourReasonsOptions = DOCUMENTS.behaviourReasons.map(item => repackTypeOptions(item))
+  const courseReasonsOptions = DOCUMENTS.courseReasons.map(item => repackTypeOptions(item))
+  const orderReasonsOptions = DOCUMENTS.orderReasons.map(item => repackTypeOptions(item))
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -95,12 +60,21 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   }, [])
 
   useEffect(() => {
-    async function getStudent () {
-      const student = await apiGet(API.URL + '/students/' + selectedStudentId)
-      setSelectedStudent(student.data)
+    setPeriod(null)
+    setBehaviourReasons([])
+    setCourseReasons([])
+    setOrderReasons([])
+    setGroups([])
+    setConversationStatus(conversationStatusesOptions[0])
+  }, [selectedStudentId])
 
-      if (student.data.groups) {
-        const groupsOptionsArray = student.data.groups
+  useEffect(() => {
+    async function getStudent () {
+      const { data: student } = await apiGet(API.URL + '/students/' + selectedStudentId)
+      setSelectedStudent(student)
+
+      if (student.groups) {
+        const groupsOptionsArray = student.groups
           .filter(group => group.type === 'undervisningsgruppe')
           .map((item) => ({
             value: item.id,
@@ -110,15 +84,19 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
 
         setGroupOptions(groupsOptionsArray)
       }
-    }
-    getStudent()
 
-    function setDefaults () {
+      // Filter documentTypes where the teacher is required to be a contact teacher
+      const typeOptions = DOCUMENTS.documentTypes
+        .filter(type => student.isContactTeacher || !type.requireContactTeacher)
+        .map(type => repackTypeOptions(type))
+
+      // Assign filtered types and set first element as default selection
+      setTypeOptions(typeOptions)
       setType(typeOptions[0])
-      setConversationStatus(conversationStatusesOptions[0])
     }
-    setDefaults()
-  }, [selectedStudentId])
+
+    getStudent()
+  }, [selectedStudentId, apiGet])
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
@@ -281,6 +259,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
               items={typeOptions}
               selectedItem={type}
               onChange={(item) => { setType(item) }}
+              closeOnSelect
             />
 
             {
@@ -295,6 +274,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
                     items={periodOptions}
                     selectedItem={period}
                     onChange={(item) => { setPeriod(item) }}
+                    closeOnSelect
                   />
                 </>
             }

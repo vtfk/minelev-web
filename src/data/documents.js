@@ -2,6 +2,7 @@ export const DOCUMENTS = {
   documentTypes: [
     {
       id: 'atferd',
+      requireContactTeacher: true,
       description: {
         nb: 'Varsel atferd',
         nn: 'Varsel atferd',
@@ -10,6 +11,7 @@ export const DOCUMENTS = {
     },
     {
       id: 'fag',
+      requireContactTeacher: false,
       description: {
         nb: 'Varsel fag',
         nn: 'Varsel fag',
@@ -18,6 +20,7 @@ export const DOCUMENTS = {
     },
     {
       id: 'orden',
+      requireContactTeacher: true,
       description: {
         nb: 'Varsel orden',
         nn: 'Varsel orden',
@@ -26,6 +29,7 @@ export const DOCUMENTS = {
     },
     {
       id: 'samtale',
+      requireContactTeacher: true,
       description: {
         nb: 'Elevsamtale',
         nn: 'Elevsamtale',

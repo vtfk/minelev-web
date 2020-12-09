@@ -2,8 +2,7 @@ import { generateErrorObject, generateResponseObject } from './handlers'
 import { CLASSES, STUDENTS, TEACHERS } from './mock-data'
 
 export function getStudents () {
-  const students = STUDENTS.map(student => {
-    delete student.groups
+  const students = STUDENTS.map(({ groups, ...student }) => {
     return student
   })
 
@@ -58,11 +57,7 @@ export function getClass (id) {
   const { data: teachers } = getClassTeachers(id)
 
   schoolClass.teachers = teachers
-  schoolClass.students = students.map(student => {
-    delete student.programomraade
-    delete student.utdanningsprogram
-    return student
-  })
+  schoolClass.students = students.map(({ programomraade, utdanningsprogram, ...student }) => student)
 
   return generateResponseObject(schoolClass)
 }
@@ -75,10 +70,7 @@ export function getClassStudents (id) {
 
   // Get student by groupId and remove groups
   const students = STUDENTS.filter(student => student.groups ? student.groups.some(group => group.id === schoolClass.id || group.groupId === id) : false)
-  const repackedStudents = students.map(student => {
-    delete student.groups
-    return student
-  })
+  const repackedStudents = students.map(({ groups, ...student }) => student)
 
   return generateResponseObject(repackedStudents)
 }
@@ -91,10 +83,7 @@ export function getClassTeachers (id) {
 
   // Get teacher by relatedGroupId and remove related groups
   const teachers = TEACHERS.filter(teacher => teacher.relatedGroupIds ? teacher.relatedGroupIds.includes(schoolClass.id) : false)
-  const repackedTeachers = teachers.map(teacher => {
-    delete teacher.relatedGroupIds
-    return teacher
-  })
+  const repackedTeachers = teachers.map(({ relatedGroupIds, ...teacher }) => teacher)
 
   return generateResponseObject(repackedTeachers)
 }
