@@ -204,6 +204,7 @@ export function Student ({ match, ...props }) {
                   <br />
                   <Paragraph size='small'>Du må først opprette lokal læreplan</Paragraph>
                 </CardLink>
+                {/* TODO: knytte utplassering til utplassering */}
                 <CardLink className='action-link' onClick={() => { openReviewModal() }}>
                   Tilbakemelding på utplassering
                 </CardLink>

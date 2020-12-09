@@ -48,6 +48,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     }
   }
 
+  // TODO: implementere sending av læreplan
   function send () {
     props.onDismiss()
     window.alert('Læreplan er opprettet.')

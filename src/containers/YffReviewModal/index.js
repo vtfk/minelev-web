@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
@@ -13,7 +14,8 @@ import { TextField } from '../../_lib-components/TextField'
 import Evaluation from './evaluation'
 import Review from './review'
 import Attitude from './attitude'
-import maal from '../../mocks/laereplan'
+import maal from '../../mocks/laereplan' // TODO: Hente utplasseringsdata
+import serializeForm from '../../lib/serialize-form'
 
 import './styles.scss'
 
@@ -43,9 +45,13 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
     }
   }
 
+  // TODO: repack og post av serialisering
   function send () {
+    const form = document.getElementById('review-form')
+    const data = new FormData(form)
+    const json = serializeForm(data)
+    console.log(json)
     props.onDismiss()
-    window.alert('Tilbakemelding er sendt og arkivert.')
   }
 
   return (
