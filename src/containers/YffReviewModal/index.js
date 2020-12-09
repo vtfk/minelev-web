@@ -9,6 +9,8 @@ import { API } from '../../config/app'
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
+import { TextField } from '../../_lib-components/TextField'
+import Evaluation from './evaluation'
 
 import './styles.scss'
 
@@ -130,7 +132,33 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
                 </tr>
               </tbody>
             </table>
-
+            <form id='review-form'>
+              <Evaluation />
+              <h2 className='subheader'>Fravær under utplasseringen</h2>
+              <div className='input-element'>
+                <TextField
+                  name='fravarDager'
+                  placeholder='Antall hele dager fravær'
+                />
+              </div>
+              <div className='input-element'>
+                <TextField
+                  name='fravarTimer'
+                  placeholder='Antall timer fravær'
+                />
+              </div>
+              <fieldset>
+                <legend>Varslet eleven selv om fraværet?</legend>
+                <label for='fravar-ja'>Ja</label>
+                <input type='radio' name='varsletFravar' id='fravar-ja' value='ja' />
+                <label for='fravar-nei'>Nei</label>
+                <input type='radio' name='varsletFravar' id='fravar-nei' value='nei' />
+                <label for='fravar-noen'>Av og til</label>
+                <input type='radio' name='varsletFravar' id='fravar-noe' value='av og til' />
+                <label for='fravar-uaktuelt'>Ikke aktuelt</label>
+                <input type='radio' name='varsletFravar' id='fravar-ja' value='0' />
+              </fieldset>
+            </form>
           </div>
         </ModalBody>
 

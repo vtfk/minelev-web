@@ -1,0 +1,73 @@
+{
+  "evaluation": [
+    {
+      "id": "hms",
+      "description": "Eleven følger retningslinjer og HMS innenfor fagområdet",
+      "value": "Eleven følger retningslinjer og HMS innenfor fagområdet"
+    },
+    {
+      "id": "respekt-retningslinjer",
+      "description": "Eleven viser gode holdninger og respekt for opplæringsstedets regler og retningslinjer",
+      "value": "Eleven viser gode holdninger og respekt for opplæringsstedets regler og retningslinjer"
+    },
+    {
+      "id": "respekt-mennesker",
+      "description": "Eleven viser gode holdninger og respekt for mennesker de møter under utplasseringen",
+      "value": "Eleven viser gode holdninger og respekt for mennesker de møter under utplasseringen"
+    },
+    {
+      "id": "tilpasningsdyktig",
+      "description": "Eleven er tilpasningsdyktig og kan samarbeide",
+      "value": "Eleven er tilpasningsdyktig og kan samarbeide"
+    },
+    {
+      "id": "kommunikasjon",
+      "description": "Eleven har kommunikasjonsevner i møte med kollegaer, kunder og brukere",
+      "value": "Eleven har kommunikasjonsevner i møte med kollegaer, kunder og brukere"
+    },
+    {
+      "id": "veiledning",
+      "description": "Eleven tar imot veiledning",
+      "value": "Eleven tar imot veiledning"
+    },
+    {
+      "id": "oppfylle",
+      "description": "Eleven utfører tildelte arbeidsoppgaver",
+      "value": "Eleven utfører tildelte arbeidsoppgaver"
+    },
+    {
+      "id": "initiativ",
+      "description": "Eleven viser initiativ og interesse for arbeidet",
+      "value": "Eleven viser initiativ og interesse for arbeidet"
+    }
+  ],
+  "order": [
+    {
+      "id": "orden",
+      "description": "Orden (punktlighet)",
+      "value": "Orden (punktlighet)"
+    },
+    {
+      "id": "atferd",
+      "description": "Atferd (holdninger, respekt)",
+      "value": "Atferd (holdninger, respekt)"
+    }
+  ],
+  "utplasseringsSted": [
+    {
+      "id": "bedrift",
+      "description": "Virksomhet",
+      "value": "Virksomhet"
+    },
+    {
+      "id": "skole",
+      "description": "Skole",
+      "value": "Skole"
+    },
+    {
+      "id": "ub",
+      "description": "Ungdomsbedrift (entreprenørskap)",
+      "value": "Ungdomsbedrift (entreprenørskap)"
+    }
+  ]
+}
