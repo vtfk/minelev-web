@@ -12,6 +12,7 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
 import Evaluation from './evaluation'
 import Review from './review'
+import Attitude from './attitude'
 import maal from '../../mocks/laereplan'
 
 import './styles.scss'
@@ -84,6 +85,7 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
             <form id='review-form'>
               <Review maal={maal} />
               <Evaluation />
+              <Attitude />
               <h2 className='subheader'>Fravær under utplasseringen</h2>
               <div className='input-element'>
                 <TextField
@@ -118,7 +120,7 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
           </div>
           <div className='action'>
             {/* TODO: component */}
-            <button onClick={() => { send() }} className='button button-primary'>Send brev og arkiver</button>
+            <button onClick={() => { send() }} className='button button-primary'>Lagre og arkiver</button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avbryt og lukk</Link>
