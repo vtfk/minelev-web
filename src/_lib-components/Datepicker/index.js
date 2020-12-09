@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import DatePicker, { registerLocale } from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css';
-import nb from 'date-fns/locale/nb';
+import 'react-datepicker/dist/react-datepicker.css'
+import nb from 'date-fns/locale/nb'
 
 import iconCalendar from './icon-calendar.svg'
 
@@ -13,11 +13,10 @@ export function Datepicker ({ placeholder, value, ...props }) {
   registerLocale('nb', nb)
 
   return (
-    <div className='datepicker-field'
-    >
+    <div className='datepicker-field'>
       {
         value !== '' &&
-        <div className='placeholder-label'>{placeholder}</div>
+          <div className='placeholder-label'>{placeholder}</div>
       }
 
       <DatePicker
@@ -37,5 +36,5 @@ export function Datepicker ({ placeholder, value, ...props }) {
 
 Datepicker.propTypes = {
   placeholder: PropTypes.string.isRequired,
-  value: PropTypes.instanceOf(Date).isRequired,
+  value: PropTypes.instanceOf(Date).isRequired
 }
