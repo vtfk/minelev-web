@@ -61,7 +61,6 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
 
   useEffect(() => {
     async function getStudent () {
-
       const { data: student } = await apiGet(API.URL + '/students/' + selectedStudentId)
       setSelectedStudent(student)
 
