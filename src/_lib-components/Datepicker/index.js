@@ -24,6 +24,7 @@ export function Datepicker ({ placeholder, value, ...props }) {
         placeholder={placeholder || ''}
         selected={value}
         locale='nb'
+        dateFormat='dd.MM.yyyy'
         {...props}
       />
 
