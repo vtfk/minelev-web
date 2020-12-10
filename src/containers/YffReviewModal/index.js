@@ -21,7 +21,7 @@ import './styles.scss'
 
 export function YffReviewModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
-  const { apiGet } = useSession()
+  const { apiGet, apiPut } = useSession()
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -46,21 +46,20 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
   }
 
   // TODO: repack og post av serialisering
-  function send () {
+  async function send () {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
     const json = serializeForm(data)
-    console.log(Object.keys(json))
-    const kompetansemal = Object.keys(json)
+    // oppdaterer alle mål med tilbakemeldinger
+    const kompetanseMaalUrl = `${API.URL}/yff/${selectedStudentId}/maal`
+    const kompetansemalJobs = Object.keys(json)
       .filter(key => key.startsWith('kompetansemaal'))
       .reduce((array, key) => {
-        array.push({
-          _id: key.split('-')[1],
-          tilbakemelding: json[key]
-        })
+        const url = `${kompetanseMaalUrl}/${key}`
+        array.push(apiPut(url, { tilbakemelding: json[key] }))
         return array
       }, [])
-    console.log(kompetansemal)
+    await Promise.all(kompetansemalJobs)
     props.onDismiss()
   }
 
