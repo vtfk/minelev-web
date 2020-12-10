@@ -55,7 +55,8 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
     const kompetansemalJobs = Object.keys(json)
       .filter(key => key.startsWith('kompetansemaal'))
       .reduce((array, key) => {
-        const url = `${kompetanseMaalUrl}/${key}`
+        const _id = key.split('-')[1]
+        const url = `${kompetanseMaalUrl}/${_id}`
         array.push(apiPut(url, { tilbakemelding: json[key] }))
         return array
       }, [])
