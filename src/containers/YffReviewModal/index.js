@@ -10,21 +10,18 @@ import { API } from '../../config/app'
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { Select } from '../../_lib-components/Select'
-import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
-import SchoolSelectorForm from '../../components/scool-selector-form'
-import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
-import KompetansemalSelectorForm from './kompetansemal-selector-form'
-import LokalLaereplan from './lokal-laereplan.js'
+import { TextField } from '../../_lib-components/TextField'
+import Evaluation from './evaluation'
+import Review from './review'
+import Attitude from './attitude'
+import maal from '../../mocks/laereplan' // TODO: Hente utplasseringsdata
+import serializeForm from '../../lib/serialize-form'
 
 import './styles.scss'
 
-export function YffCurriculumModal ({ selectedStudentId, ...props }) {
+export function YffReviewModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
-  const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
-  const [kompetansemaal, setKompetansemaal] = useState()
-  const { apiDelete, apiGet, apiPost } = useSession()
-  console.log(selectedKlassetrinn)
+  const { apiGet } = useSession()
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -48,17 +45,20 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     }
   }
 
-  // TODO: implementere sending av læreplan
+  // TODO: repack og post av serialisering
   function send () {
+    const form = document.getElementById('review-form')
+    const data = new FormData(form)
+    const json = serializeForm(data)
+    console.log(json)
     props.onDismiss()
-    window.alert('Læreplan er opprettet.')
   }
 
   return (
     <>
       <Modal
         {...props}
-        className='yff-curriculum-modal'
+        className='yff-send-modal'
         onDismiss={props.onDismiss}
       >
         <ModalBody>
@@ -84,46 +84,52 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
           }
 
           <p className='intro'>
-            Her endrer du den lokale læreplanen for eleven og velger kompetansemål eleven skal jobbe med i løpet av utplasseringen. Du skriver også inn elevens arbeidsoppgaver knyttet til hvert kompetansemål.
+            Tilbakemelding for elevens utplassering
           </p>
 
           <div className='form'>
-            <h2 className='subheader'>Klassetrinn</h2>
-
-            <KlassetrinSelectorForm setSelected={setSelectedKlassetrinn} />
-
-            <h2 className='subheader'>Legg til nye kompetansemål</h2>
-            <div className='add-new-curriculum'>
+            <form id='review-form'>
+              <Review maal={maal} />
+              <Evaluation />
+              <Attitude />
+              <h2 className='subheader'>Fravær under utplasseringen</h2>
               <div className='input-element'>
-                <Select
-                  placeholder='Velg utplasseringssted'
-                  items={[
-                    { value: 1, label: 'Skole' },
-                    { value: 2, label: 'Ungdomsbedrift (entreprenørskap)' }
-                  ]}
-                  selectedItem={{ value: 1, label: 'Skole' }}
-                  onChange={(item) => { console.log(item) }}
+                <TextField
+                  name='fravarDager'
+                  placeholder='Antall hele dager fravær'
                 />
               </div>
-
-              <SchoolSelectorForm />
-              <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
-              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={selectedStudentId} />
-
-            </div>
-
-            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={selectedStudentId} />
-
+              <div className='input-element'>
+                <TextField
+                  name='fravarTimer'
+                  placeholder='Antall timer fravær'
+                />
+              </div>
+              <fieldset>
+                <legend>Varslet eleven selv om fraværet?</legend>
+                <label for='fravar-ja'>Ja</label>
+                <input type='radio' name='varsletFravar' id='fravar-ja' value='ja' />
+                <label for='fravar-nei'>Nei</label>
+                <input type='radio' name='varsletFravar' id='fravar-nei' value='nei' />
+                <label for='fravar-noen'>Av og til</label>
+                <input type='radio' name='varsletFravar' id='fravar-noe' value='av og til' />
+                <label for='fravar-uaktuelt'>Ikke aktuelt</label>
+                <input type='radio' name='varsletFravar' id='fravar-ja' value='0' />
+              </fieldset>
+            </form>
           </div>
         </ModalBody>
 
         <ModalSideActions>
           <div className='action'>
-            {/* TODO: component */}
-            <button onClick={() => { send() }} className='button button-primary'>Send</button>
+            <Link onClick={() => { window.alert('Ikke implementert') }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Lagre og lukk</Link>
+            {/* TODO: component */}
+            <button onClick={() => { send() }} className='button button-primary'>Lagre og arkiver</button>
+          </div>
+          <div className='action'>
+            <Link onClick={props.onDismiss}>Avbryt og lukk</Link>
           </div>
         </ModalSideActions>
       </Modal>
@@ -131,7 +137,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   )
 }
 
-YffCurriculumModal.propTypes = {
+YffReviewModal.propTypes = {
   open: PropTypes.bool.isRequired,
   title: PropTypes.string,
   onDismiss: PropTypes.func.isRequired,

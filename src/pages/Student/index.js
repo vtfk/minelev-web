@@ -16,6 +16,7 @@ import { CardLink } from '../../_lib-components/CardLink'
 import { YffConfirmationModal } from '../../containers/YffConfirmationModal'
 import { YffCurriculumModal } from '../../containers/YffCurriculumModal'
 import { YffSendModal } from '../../containers/YffSendModal'
+import { YffReviewModal } from '../../containers/YffReviewModal'
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
 
@@ -29,6 +30,7 @@ export function Student ({ match, ...props }) {
   const [sendModalState, setSendModalState] = useState(false)
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
+  const [reviewModalState, setReviewModalState] = useState(false)
   const [student, setStudent] = useState({})
   const [documents, setDocuments] = useState([])
   const [notes, setNotes] = useState([])
@@ -62,6 +64,10 @@ export function Student ({ match, ...props }) {
     setCurriculumModalState(true)
   }
 
+  function openReviewModal () {
+    setReviewModalState(true)
+  }
+
   function openSendModal () {
     setSendModalState(true)
   }
@@ -93,6 +99,13 @@ export function Student ({ match, ...props }) {
               selectedStudentId={student.username}
               title='Lokal læreplan'
               onDismiss={() => { setCurriculumModalState(false) }}
+            />
+
+            <YffReviewModal
+              open={reviewModalState}
+              selectedStudentId={student.username}
+              title='Tilbakemelding på utplassering'
+              onDismiss={() => { setReviewModalState(false) }}
             />
 
             <YffSendModal
@@ -190,6 +203,10 @@ export function Student ({ match, ...props }) {
                   Send og arkiver lokal læreplan
                   <br />
                   <Paragraph size='small'>Du må først opprette lokal læreplan</Paragraph>
+                </CardLink>
+                {/* TODO: knytte utplassering til utplassering */}
+                <CardLink className='action-link' onClick={() => { openReviewModal() }}>
+                  Tilbakemelding på utplassering
                 </CardLink>
               </div>
 
