@@ -50,7 +50,17 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
     const json = serializeForm(data)
-    console.log(json)
+    console.log(Object.keys(json))
+    const kompetansemal = Object.keys(json)
+      .filter(key => key.startsWith('kompetansemaal'))
+      .reduce((array, key) => {
+        array.push({
+          _id: key.split('-')[1],
+          tilbakemelding: json[key]
+        })
+        return array
+      }, [])
+    console.log(kompetansemal)
     props.onDismiss()
   }
 

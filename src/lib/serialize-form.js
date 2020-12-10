@@ -12,7 +12,7 @@ function serializeForm (formdata) {
       data[key] = value
     }
   })
-  return JSON.stringify(data)
+  return data
 }
 
 export default serializeForm
