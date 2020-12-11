@@ -16,12 +16,13 @@ const scores = [
 ]
 
 function Score (props) {
-  const { id, value, description, key } = props
+  const { id, value, description } = props
+  const key = nanoid()
   return (
-    <>
-      <label for={key}>{description}</label>
+    <label htmlFor={key}>
+      {description}
       <input type='radio' name={`kompetansemaal-${id}`} id={key} value={value} />
-    </>
+    </label>
   )
 }
 
