@@ -21,7 +21,8 @@ import './styles.scss'
 
 export function YffReviewModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
-  const { apiGet } = useSession()
+  const { apiGet, apiPut } = useSession()
+  const utplasseringsId = '123445' // TODO hente utplasseringsid
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -46,11 +47,30 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
   }
 
   // TODO: repack og post av serialisering
-  function send () {
+  async function send () {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
     const json = serializeForm(data)
-    console.log(json)
+    // filterer ut alle kompetansemål fra tilbakemeldingen
+    const evalueringsdata = Object.keys(json)
+      .filter(key => !key.startsWith('kompetansemaal'))
+      .reduce((data, key) => {
+        data[key] = json[key]
+        return data
+      }, {})
+    const tilbakemeldingsUrl = `${API.URL}/yff/${selectedStudentId}/utplassering/${utplasseringsId}`
+    // oppdaterer alle mål med tilbakemeldinger
+    const kompetanseMaalUrl = `${API.URL}/yff/${selectedStudentId}/maal`
+    const jobs = Object.keys(json)
+      .filter(key => key.startsWith('kompetansemaal'))
+      .reduce((array, key) => {
+        const _id = key.split('-')[1]
+        const url = `${kompetanseMaalUrl}/${_id}`
+        array.push(apiPut(url, { tilbakemelding: json[key] }))
+        return array
+      }, [])
+    jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
+    await Promise.all(jobs)
     props.onDismiss()
   }
 
