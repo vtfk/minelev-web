@@ -14,12 +14,14 @@ import { TextField } from '../../_lib-components/TextField'
 import Evaluation from './evaluation'
 import Review from './review'
 import Attitude from './attitude'
+import Details from './details'
 import serializeForm from '../../lib/serialize-form'
 
 import './styles.scss'
 
 export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
+  const [utplassering, setUtplassering] = useState()
   const [maal, setMaal] = useState()
   const { apiGet, apiPut } = useSession()
   // TODO hente data fra utplassering
@@ -40,10 +42,14 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     async function getMaal () {
       const laereplan = await apiGet(`${API.URL}/yff/${selectedStudentId}/laereplan`)
       const maal = laereplan[0].default.filter(maal => maal.referanseID === utplasseringsId)
-      console.log(maal)
       setMaal(maal)
     }
+    async function getUtplassering () {
+      const utplassering = await apiGet(`${API.URL}/yff/${selectedStudentId}/utplassering/${utplasseringsId}`)
+      setUtplassering(utplassering[0])
+    }
     getStudent()
+    getUtplassering()
     getMaal()
   }, [selectedStudentId])
 
@@ -110,7 +116,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
                 </div>
               </div>
           }
-          {/** TODO: data om utplasseringen */}
+          <Details utplassering={utplassering} />
           <p className='intro'>
             Tilbakemelding for elevens utplassering
           </p>
