@@ -14,15 +14,15 @@ import { TextField } from '../../_lib-components/TextField'
 import Evaluation from './evaluation'
 import Review from './review'
 import Attitude from './attitude'
-import maal from '../../mocks/laereplan' // TODO: Hente utplasseringsdata
 import serializeForm from '../../lib/serialize-form'
 
 import './styles.scss'
 
-export function YffReviewModal ({ selectedStudentId, ...props }) {
+export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
+  const [maal, setMaal] = useState()
   const { apiGet, apiPut } = useSession()
-  const utplasseringsId = '123445' // TODO hente utplasseringsid
+  // TODO hente data fra utplassering
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -37,7 +37,14 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
       const student = await apiGet(API.URL + '/students/' + selectedStudentId)
       setSelectedStudent(student.data)
     }
+    async function getMaal () {
+      const laereplan = await apiGet(`${API.URL}/yff/${selectedStudentId}/laereplan`)
+      const maal = laereplan[0].default.filter(maal => maal.referanseID === utplasseringsId)
+      console.log(maal)
+      setMaal(maal)
+    }
     getStudent()
+    getMaal()
   }, [selectedStudentId])
 
   function handleKeyPress (event) {
@@ -46,7 +53,7 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
     }
   }
 
-  // TODO: repack og post av serialisering
+  // TODO implementere forhåndsvisning
   async function send () {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
@@ -71,6 +78,7 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
       }, [])
     jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
     await Promise.all(jobs)
+    // TODO: Cleanup state
     props.onDismiss()
   }
 
@@ -102,7 +110,7 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
                 </div>
               </div>
           }
-
+          {/** TODO: data om utplasseringen */}
           <p className='intro'>
             Tilbakemelding for elevens utplassering
           </p>
@@ -145,7 +153,6 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
             <Link onClick={() => { window.alert('Ikke implementert') }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            {/* TODO: component */}
             <button onClick={() => { send() }} className='button button-primary'>Lagre og arkiver</button>
           </div>
           <div className='action'>
