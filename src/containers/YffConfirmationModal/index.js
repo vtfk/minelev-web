@@ -21,6 +21,7 @@ import CompanyContactPerson from './company-contact-person'
 import StudentContactPerson from './student-contact-person'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import serializeForm from '../../lib/serialize-form'
+import repackBekreftelse from '../../lib/repack-bekreftelse'
 
 import './styles.scss'
 
@@ -38,11 +39,12 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const sendForm = async () => {
     const form = document.getElementById('bekreftelse-form')
     const data = new FormData(form)
-    // TODO: Fikse skikkelig serializing
+    // TODO: Teste form ved ikke utfylte felter (pårørende og kontaktpersoner)
     const json = serializeForm(data)
-    console.log(JSON.stringify(json, null, 2))
-    // const result = await apiPost(`${API.URL}/yff/${selectedStudentId}/bekreftelse`, json)
-    // console.log(result)
+    const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
+    console.log(JSON.stringify(bekreftelse, null, 2))
+    const result = await apiPost(`${API.URL}/yff/${selectedStudentId}/bekreftelse`, bekreftelse)
+    console.log(result)
     props.onDismiss()
   }
 

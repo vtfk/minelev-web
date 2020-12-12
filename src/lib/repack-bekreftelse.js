@@ -1,3 +1,7 @@
+function arrify (input) {
+  return Array.isArray(input) ? input : [input]
+}
+
 function fixCopyViaEmail (input) {
   return input.split(' ').filter(line => line !== ' ').filter(line => line !== '')
 }
@@ -21,10 +25,10 @@ function repackBekreftelse (data) {
   bekreftelse.kopiPrEpost = fixCopyViaEmail(bekreftelse.kopiPrEpost)
   // oppdaterer kontaktpersoner
   bekreftelse.kontaktPersoner = mergeArrays({
-    navn: bekreftelse.kontaktpersonNavn,
-    telefon: bekreftelse.kontaktpersonTelefon,
-    epost: bekreftelse.kontaktpersonEpost,
-    avdeling: bekreftelse.kontaktpersonAvdeling
+    navn: arrify(bekreftelse.kontaktpersonNavn),
+    telefon: arrify(bekreftelse.kontaktpersonTelefon),
+    epost: arrify(bekreftelse.kontaktpersonEpost),
+    avdeling: arrify(bekreftelse.kontaktpersonAvdeling)
   })
   // cleanup kontaktpersoner
   delete bekreftelse.kontaktpersonNavn
@@ -34,8 +38,8 @@ function repackBekreftelse (data) {
 
   // oppdaterer pårørende
   bekreftelse.parorende = mergeArrays({
-    navn: bekreftelse.parorendeNavn,
-    telefon: bekreftelse.parorendeTelefon
+    navn: arrify(bekreftelse.parorendeNavn),
+    telefon: arrify(bekreftelse.parorendeTelefon)
   })
   // cleanup pårørende
   delete bekreftelse.parorendeNavn
