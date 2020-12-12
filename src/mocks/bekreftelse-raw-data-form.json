@@ -1,0 +1,36 @@
+{
+  "organisasjonsAvdeling": "gdgdggd",
+  "kontaktpersonNavn": [
+    "kontaktpersonnavn 1",
+    "kontaktpersonnavn 2",
+    "kontaktpersonnavn 3"
+  ],
+  "kontaktpersonTelefon": [
+    "kontaktpersontelefon 1",
+    "kontaktpersontelefon 2",
+    "kontaktpersontelefon 3"
+  ],
+  "kontaktpersonEpost": [
+    "kontaktpersonepost 1",
+    "kontaktpersonepost 2",
+    "kontaktpersonepost 3"
+  ],
+  "kontaktpersonAvdeling": [
+    "kontaktpersonavdeling 1",
+    "kontaktpersonavdeling 2",
+    "kontaktpersonavdeling 2"
+  ],
+  "kopiPrEpost": "epost1@e.no  epost2@d.no   epost3@f.no ",
+  "daysPerWeek": "6",
+  "startTid": "08:00",
+  "sluttTid": "16:00",
+  "oppmotested": "whwwhggwfefe",
+  "parorendeNavn": [
+    "parorendeNavn 1",
+    "parorendeNavn 2"
+  ],
+  "parorendeTelefon": [
+    "parorendeTelefon 1",
+    "parorendeTelefon 2"
+  ]
+}

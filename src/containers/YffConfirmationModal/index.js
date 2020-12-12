@@ -40,8 +40,9 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     const data = new FormData(form)
     // TODO: Fikse skikkelig serializing
     const json = serializeForm(data)
-    const result = await apiPost(`${API.URL}/yff/${selectedStudentId}/bekreftelse`, json)
-    console.log(result)
+    console.log(JSON.stringify(json, null, 2))
+    // const result = await apiPost(`${API.URL}/yff/${selectedStudentId}/bekreftelse`, json)
+    // console.log(result)
     props.onDismiss()
   }
 
