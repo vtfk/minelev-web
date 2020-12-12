@@ -1,3 +1,4 @@
+// TODO: Vise hentet info
 const CompanyDetails = props => {
   const { company } = props
   const kanViseKomponent = company
