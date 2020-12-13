@@ -61,6 +61,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     }
   }
 
+  // TODO repacke document for preview
   function createDocument () {
     return {
       type: 'samtale',
@@ -73,7 +74,6 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
       }
     }
   }
-  // TODO repacke document for preview
 
   async function send () {
     const form = document.getElementById('review-form')

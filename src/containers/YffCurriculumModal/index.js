@@ -11,6 +11,7 @@ import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select } from '../../_lib-components/Select'
+import pfdPreview from '../../lib/pdf-preview'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
 import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
@@ -24,6 +25,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const [kompetansemaal, setKompetansemaal] = useState()
   const { apiDelete, apiGet, apiPost } = useSession()
+  const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   console.log(selectedKlassetrinn)
 
   useEffect(() => {
@@ -54,8 +56,23 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     window.alert('Læreplan er opprettet.')
   }
 
+  // Repacke document for preview
+  function createDocument () {
+    return {
+      type: 'samtale',
+      variant: 'samtale',
+      student: {
+        username: selectedStudentId
+      },
+      content: {
+        year: new Date().getFullYear()
+      }
+    }
+  }
+
   return (
     <>
+      <PreviewModal />
       <Modal
         {...props}
         className='yff-curriculum-modal'
@@ -118,6 +135,9 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
         </ModalBody>
 
         <ModalSideActions>
+          <div className='action'>
+            <Link onClick={() => openPreviewModal(createDocument())}>Forhåndsvisning</Link>
+          </div>
           <div className='action'>
             {/* TODO: component */}
             <button onClick={() => { send() }} className='button button-primary'>Send</button>
