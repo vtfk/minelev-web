@@ -51,15 +51,18 @@ function repackBekreftelse (data) {
     orgnr: organisasjonsNummer,
     postadresse: adresse,
     ppoststed: poststed,
-    ppostnr: postnummer
+    ppostnr: postnummer,
+    forretningsadr: forretningsadresse,
+    forradrpostnr: forretningspostnummer,
+    forradrpoststed: forretningspoststed
   } = company
   bekreftelse.bedriftsNavn = bedriftsNavn
   bekreftelse.bedriftsData = {
     organisasjonsNummer,
     navn: bedriftsNavn,
-    adresse,
-    postnummer,
-    poststed,
+    adresse: adresse || forretningsadresse,
+    postnummer: postnummer || forretningspostnummer,
+    poststed: poststed || forretningspoststed,
     avdeling: bekreftelse.organisasjonsAvdeling
   }
 

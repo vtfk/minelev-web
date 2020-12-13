@@ -23,6 +23,26 @@ const company = {
   ppostnr: '3702'
 }
 
+const companyAlternative = {
+  forradrpostnr: '3715',
+  ansatte_antall: '',
+  postadresse: '',
+  nkode3: '',
+  ppoststed: '',
+  organisasjonsform: 'FLI',
+  navn: 'FAGFORBUNDET VESTFOLD OG TELEMARK FYLKESKOMMUNE AVD. 095',
+  forretningsadr: 'c/o Fylkeshuset Fylkesbakken 10',
+  forradrpoststed: 'SKIEN',
+  tlf: '35 58 43 48',
+  nkode1: '94.200',
+  nkode2: '',
+  forradrkommnavn: 'SKIEN',
+  regdato: '09.05.1996',
+  orgnr: '975658015',
+  regiaa: 'N',
+  ppostnr: ''
+}
+
 const expectedBedriftsData = {
   organisasjonsNummer: '973754807',
   navn: 'VESTFOLD OG TELEMARK FYLKESKOMMUNE AVD TØNSBERG PP-TJENESTEN',
@@ -59,5 +79,14 @@ describe('tester repack-bekreftelse', () => {
     const { bedriftsNavn, bedriftsData } = repacked
     expect(bedriftsNavn).toBe('VESTFOLD OG TELEMARK FYLKESKOMMUNE AVD TØNSBERG PP-TJENESTEN')
     expect(bedriftsData).toStrictEqual(expectedBedriftsData)
+  })
+
+  test('den bruker forretningsadresse om postadresse er tom', () => {
+    const repacked = repackBekreftelse({ bekreftelse: { ...bekreftelse }, company: { ...companyAlternative } })
+    const { bedriftsData } = repacked
+    const { adresse, postnummer, poststed } = bedriftsData
+    expect(adresse).toBe('c/o Fylkeshuset Fylkesbakken 10')
+    expect(postnummer).toBe('3715')
+    expect(poststed).toBe('SKIEN')
   })
 })
