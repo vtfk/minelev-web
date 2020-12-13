@@ -22,6 +22,7 @@ import StudentContactPerson from './student-contact-person'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import serializeForm from '../../lib/serialize-form'
 import repackBekreftelse from '../../lib/repack-bekreftelse'
+import pfdPreview from '../../lib/pdf-preview'
 
 import './styles.scss'
 
@@ -33,6 +34,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const { apiGet, apiPost } = useSession()
   const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson key={nanoid()} />])
   const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
+  const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const onSubmit = (data, event) => {
     event.preventDefault()
   }
@@ -86,8 +88,22 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     sendForm()
   }
 
+  function createDocument () {
+    return {
+      type: 'samtale',
+      variant: 'samtale',
+      student: {
+        username: selectedStudentId
+      },
+      content: {
+        year: new Date().getFullYear()
+      }
+    }
+  }
+
   return (
     <>
+      <PreviewModal />
       <Modal
         {...props}
         className='yff-confirmation-modal'
@@ -194,7 +210,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => { window.alert('Ikke implementert') }}>Forhåndsvisning</Link>
+            <Link onClick={() => openPreviewModal(createDocument())}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             {/* TODO: component */}
