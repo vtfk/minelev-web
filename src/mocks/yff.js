@@ -217,3 +217,5 @@ module.exports = params => {
     return data[type] ? arr.fill(data[type]) : []
   }
 }
+
+module.exports.utplassering = utplassering

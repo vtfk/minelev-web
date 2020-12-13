@@ -11,18 +11,25 @@ import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
+import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
 import Evaluation from './evaluation'
 import Review from './review'
 import Attitude from './attitude'
-import maal from '../../mocks/laereplan' // TODO: Hente utplasseringsdata
+import Details from './details'
 import serializeForm from '../../lib/serialize-form'
+import { successMessage } from '../../lib/toasts'
 
 import './styles.scss'
 
-export function YffReviewModal ({ selectedStudentId, ...props }) {
+export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
-  const { apiGet, apiPut } = useSession()
-  const utplasseringsId = '123445' // TODO hente utplasseringsid
+  const [utplassering, setUtplassering] = useState()
+  const [maal, setMaal] = useState()
+  const [previewModalState, setPreviewModalState] = useState(false)
+  const [pdfPreviewBase64, setPdfPreviewBase64] = useState(null)
+  const [pdfPreviewLoading, setPdfPreviewLoading] = useState(null)
+  const [pdfPreviewError, setPdfPreviewError] = useState(null)
+  const { apiGet, apiPost, apiPut } = useSession()
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -37,7 +44,18 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
       const student = await apiGet(API.URL + '/students/' + selectedStudentId)
       setSelectedStudent(student.data)
     }
+    async function getMaal () {
+      const laereplan = await apiGet(`${API.URL}/yff/${selectedStudentId}/laereplan`)
+      const maal = laereplan[0].default.filter(maal => maal.referanseID === utplasseringsId)
+      setMaal(maal)
+    }
+    async function getUtplassering () {
+      const utplassering = await apiGet(`${API.URL}/yff/${selectedStudentId}/utplassering/${utplasseringsId}`)
+      setUtplassering(utplassering[0])
+    }
     getStudent()
+    getUtplassering()
+    getMaal()
   }, [selectedStudentId])
 
   function handleKeyPress (event) {
@@ -46,7 +64,11 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
     }
   }
 
-  // TODO: repack og post av serialisering
+  function createDocment () {
+    return {}
+  }
+  // TODO repacke document for preview
+
   async function send () {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
@@ -71,11 +93,50 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
       }, [])
     jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
     await Promise.all(jobs)
+    successMessage('👍', 'Tilbakemeldingen er lagret.')
+    // Cleanup state
+    setSelectedStudent(null)
+    setUtplassering(false)
+    setMaal(false)
     props.onDismiss()
+  }
+
+  async function getPdfPreview () {
+    setPdfPreviewError(null)
+    setPdfPreviewLoading(true)
+
+    const document = createDocment()
+    const { data } = await apiPost(API.URL + '/documents/preview', document)
+
+    if (data.base64) {
+      setPdfPreviewBase64(data.base64)
+      setPdfPreviewError(null)
+      setPdfPreviewLoading(false)
+    } else {
+      setPdfPreviewBase64(null)
+      setPdfPreviewError(true)
+      setPdfPreviewLoading(false)
+    }
+  }
+
+  function openPreviewModal () {
+    setPdfPreviewBase64(null)
+    setPdfPreviewError(null)
+    setPdfPreviewLoading(true)
+    setPreviewModalState(true)
+    getPdfPreview()
   }
 
   return (
     <>
+      <PDFPreviewModal
+        open={previewModalState}
+        title='Lukk forhåndsvisning'
+        onDismiss={() => { setPreviewModalState(false) }}
+        loading={pdfPreviewLoading}
+        base64={pdfPreviewBase64}
+        error={pdfPreviewError}
+      />
       <Modal
         {...props}
         className='yff-send-modal'
@@ -102,7 +163,7 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
                 </div>
               </div>
           }
-
+          <Details utplassering={utplassering} />
           <p className='intro'>
             Tilbakemelding for elevens utplassering
           </p>
@@ -142,10 +203,9 @@ export function YffReviewModal ({ selectedStudentId, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => { window.alert('Ikke implementert') }}>Forhåndsvisning</Link>
+            <Link onClick={() => { openPreviewModal() }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            {/* TODO: component */}
             <button onClick={() => { send() }} className='button button-primary'>Lagre og arkiver</button>
           </div>
           <div className='action'>

@@ -104,6 +104,7 @@ export function Student ({ match, ...props }) {
             <YffReviewModal
               open={reviewModalState}
               selectedStudentId={student.username}
+              utplasseringsId='5d7f29d059e31d0007cc9ff5' // TODO: Gjøre denne dynamisk
               title='Tilbakemelding på utplassering'
               onDismiss={() => { setReviewModalState(false) }}
             />
