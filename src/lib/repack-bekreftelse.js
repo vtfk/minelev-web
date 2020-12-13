@@ -24,7 +24,7 @@ function repackBekreftelse (data) {
   // Gjør bekreftelse via e-post til array, fjerner tomme linjer
   bekreftelse.kopiPrEpost = fixCopyViaEmail(bekreftelse.kopiPrEpost)
   // oppdaterer kontaktpersoner
-  bekreftelse.kontaktPersoner = mergeArrays({
+  bekreftelse.kontaktpersonData = mergeArrays({
     navn: arrify(bekreftelse.kontaktpersonNavn),
     telefon: arrify(bekreftelse.kontaktpersonTelefon),
     epost: arrify(bekreftelse.kontaktpersonEpost),
@@ -37,7 +37,7 @@ function repackBekreftelse (data) {
   delete bekreftelse.kontaktpersonAvdeling
 
   // oppdaterer pårørende
-  bekreftelse.parorende = mergeArrays({
+  bekreftelse.parorendeData = mergeArrays({
     navn: arrify(bekreftelse.parorendeNavn),
     telefon: arrify(bekreftelse.parorendeTelefon)
   })

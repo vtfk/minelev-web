@@ -12,15 +12,15 @@ describe('tester repack-bekreftelse', () => {
 
   test('den pakker kontaktpersoner som forventet', () => {
     const repacked = repackBekreftelse({ bekreftelse: { ...bekreftelse }, company: { ...company } })
-    const { kontaktPersoner } = repacked.bekreftelse
-    expect(Array.isArray(kontaktPersoner)).toBeTruthy()
-    expect(kontaktPersoner.length).toBe(3)
+    const { kontaktpersonData } = repacked.bekreftelse
+    expect(Array.isArray(kontaktpersonData)).toBeTruthy()
+    expect(kontaktpersonData.length).toBe(3)
   })
 
   test('den pakker pårørende som forventet', () => {
     const repacked = repackBekreftelse({ bekreftelse: { ...bekreftelse }, company: { ...company } })
-    const { parorende } = repacked.bekreftelse
-    expect(Array.isArray(parorende)).toBeTruthy()
-    expect(parorende.length).toBe(2)
+    const { parorendeData } = repacked.bekreftelse
+    expect(Array.isArray(parorendeData)).toBeTruthy()
+    expect(parorendeData.length).toBe(2)
   })
 })
