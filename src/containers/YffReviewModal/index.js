@@ -18,13 +18,12 @@ import Details from './details'
 import serializeForm from '../../lib/serialize-form'
 
 import './styles.scss'
-
+// TODO: bekreftelse eller utplassering?
 export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [utplassering, setUtplassering] = useState()
   const [maal, setMaal] = useState()
   const { apiGet, apiPut } = useSession()
-  // TODO hente data fra utplassering
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -84,7 +83,10 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
       }, [])
     jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
     await Promise.all(jobs)
-    // TODO: Cleanup state
+    // Cleanup stats
+    setSelectedStudent(null)
+    setUtplassering(false)
+    setMaal(false)
     props.onDismiss()
   }
 
