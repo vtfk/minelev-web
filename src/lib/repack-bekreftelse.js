@@ -45,10 +45,28 @@ function repackBekreftelse (data) {
   delete bekreftelse.parorendeNavn
   delete bekreftelse.parorendeTelefon
 
-  return {
-    bekreftelse,
-    company
+  // bedriftsinformasjon
+  const {
+    navn: bedriftsNavn,
+    orgnr: organisasjonsNummer,
+    postadresse: adresse,
+    ppoststed: poststed,
+    ppostnr: postnummer
+  } = company
+  bekreftelse.bedriftsNavn = bedriftsNavn
+  bekreftelse.bedriftsData = {
+    organisasjonsNummer,
+    navn: bedriftsNavn,
+    adresse,
+    postnummer,
+    poststed,
+    avdeling: bekreftelse.organisasjonsAvdeling
   }
+
+  // cleanup bedrift
+  delete bekreftelse.organisasjonsAvdeling
+
+  return bekreftelse
 }
 
 export default repackBekreftelse
