@@ -23,6 +23,7 @@ import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogram
 import serializeForm from '../../lib/serialize-form'
 import repackBekreftelse from '../../lib/repack-bekreftelse'
 import pfdPreview from '../../lib/pdf-preview'
+import { successMessage } from '../../lib/toasts'
 
 import './styles.scss'
 
@@ -44,6 +45,8 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     const json = serializeForm(data)
     const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
     await apiPost(`${API.URL}/yff/${selectedStudentId}/utplassering`, bekreftelse)
+    // TODO: cleanup state
+    successMessage('👍', 'Bekreftelse om utplassering sendt.')
     props.onDismiss()
   }
 
