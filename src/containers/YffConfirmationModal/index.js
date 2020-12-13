@@ -43,7 +43,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     const data = new FormData(form)
     const json = serializeForm(data)
     const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
-    await apiPost(`${API.URL}/yff/${selectedStudentId}/bekreftelse`, bekreftelse)
+    await apiPost(`${API.URL}/yff/${selectedStudentId}/utplassering`, bekreftelse)
     props.onDismiss()
   }
 
@@ -162,7 +162,12 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 />
               </div>
               <h2 className='subheader'>Tidsrom</h2>
-              startdato(datovelger) - sluttdato(datovelger)
+              <div className='input-element'>
+                <label htmlFor='datofra'>Fra og med: </label>
+                <input type='date' name='fraDato' id='datofra' placeholder='f.o.m' />
+                <label htmlFor='datotil'>Til og med:</label>
+                <input type='date' name='tilDato' id='datotil' placeholder='t.o.m' />
+              </div>
               <div className='input-element'>
                 <TextField
                   name='daysPerWeek'
