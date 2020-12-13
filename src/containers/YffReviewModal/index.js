@@ -65,7 +65,16 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
   }
 
   function createDocment () {
-    return {}
+    return {
+      type: 'samtale',
+      variant: 'samtale',
+      student: {
+        username: selectedStudentId
+      },
+      content: {
+        year: new Date().getFullYear()
+      }
+    }
   }
   // TODO repacke document for preview
 
