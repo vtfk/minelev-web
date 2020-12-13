@@ -41,12 +41,9 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const sendForm = async () => {
     const form = document.getElementById('bekreftelse-form')
     const data = new FormData(form)
-    // TODO: Teste form ved ikke utfylte felter (pårørende og kontaktpersoner)
     const json = serializeForm(data)
     const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
-    console.log(JSON.stringify(bekreftelse, null, 2))
-    const result = await apiPost(`${API.URL}/yff/${selectedStudentId}/bekreftelse`, bekreftelse)
-    console.log(result)
+    await apiPost(`${API.URL}/yff/${selectedStudentId}/bekreftelse`, bekreftelse)
     props.onDismiss()
   }
 
