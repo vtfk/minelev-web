@@ -45,8 +45,13 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     const json = serializeForm(data)
     const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
     await apiPost(`${API.URL}/yff/${selectedStudentId}/utplassering`, bekreftelse)
-    // TODO: cleanup state
     successMessage('👍', 'Bekreftelse om utplassering sendt.')
+    // cleanup state
+    setBrregData(null)
+    setCompany(false)
+    setSelectedStudent(null)
+    setContactPersonsCompany([<CompanyContactPerson key={nanoid()} />])
+    setContactPersonsStudent([<StudentContactPerson key={nanoid()} />])
     props.onDismiss()
   }
 
