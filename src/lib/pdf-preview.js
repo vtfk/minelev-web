@@ -2,6 +2,17 @@ import * as React from 'react'
 import { PDFPreviewModal } from '../_lib-components/PDFPreviewModal'
 import { API } from '../config/app'
 
+/**
+ * @typedef {Object} Hook
+ * @property {Function} openPreviewModal - åpner modal med innsendt dokument
+ * @property {Function} PreviewModal - jsx for selve modalen
+ */
+
+/**
+ * Funksjon som håndterer pdf preview
+ * @param {function} poster funksjon som håndterer asynkron posting til API
+ * @returns {Hook} PreviewModal, openPreviewModal
+ */
 function usePreview (poster) {
   const [previewModalState, setPreviewModalState] = React.useState(false)
   const [pdfPreviewBase64, setPdfPreviewBase64] = React.useState(null)
