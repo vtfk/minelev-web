@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
+import { store } from 'react-notifications-component'
 
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
@@ -66,7 +67,24 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
   function createDocment () {
     return {}
   }
-  // TODO implementere forhåndsvisning
+  // TODO repacke document for preview
+
+  function successMessage () {
+    store.addNotification({
+      title: '👍',
+      message: 'Dokumentet ble sendt.',
+      type: 'success',
+      insert: 'top',
+      container: 'top-right',
+      animationIn: ['animate__animated', 'animate__fadeIn'],
+      animationOut: ['animate__animated', 'animate__fadeOut'],
+      dismiss: {
+        duration: 5000,
+        onScreen: false
+      }
+    })
+  }
+
   async function send () {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
@@ -91,6 +109,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
       }, [])
     jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
     await Promise.all(jobs)
+    successMessage()
     // Cleanup state
     setSelectedStudent(null)
     setUtplassering(false)
