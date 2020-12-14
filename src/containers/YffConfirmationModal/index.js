@@ -23,6 +23,7 @@ import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogram
 import serializeForm from '../../lib/serialize-form'
 import repackBekreftelse from '../../lib/repack-bekreftelse'
 import pfdPreview from '../../lib/pdf-preview'
+import { successMessage } from '../../lib/toasts'
 
 import './styles.scss'
 
@@ -41,12 +42,16 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const sendForm = async () => {
     const form = document.getElementById('bekreftelse-form')
     const data = new FormData(form)
-    // TODO: Teste form ved ikke utfylte felter (pårørende og kontaktpersoner)
     const json = serializeForm(data)
     const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
-    console.log(JSON.stringify(bekreftelse, null, 2))
-    const result = await apiPost(`${API.URL}/yff/${selectedStudentId}/bekreftelse`, bekreftelse)
-    console.log(result)
+    await apiPost(`${API.URL}/yff/${selectedStudentId}/utplassering`, bekreftelse)
+    successMessage('👍', 'Bekreftelse om utplassering sendt.')
+    // cleanup state
+    setBrregData(null)
+    setCompany(false)
+    setSelectedStudent(null)
+    setContactPersonsCompany([<CompanyContactPerson key={nanoid()} />])
+    setContactPersonsStudent([<StudentContactPerson key={nanoid()} />])
     props.onDismiss()
   }
 
@@ -165,7 +170,12 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 />
               </div>
               <h2 className='subheader'>Tidsrom</h2>
-              startdato(datovelger) - sluttdato(datovelger)
+              <div className='input-element'>
+                <label htmlFor='datofra'>Fra og med: </label>
+                <input type='date' name='fraDato' id='datofra' placeholder='f.o.m' />
+                <label htmlFor='datotil'>Til og med:</label>
+                <input type='date' name='tilDato' id='datotil' placeholder='t.o.m' />
+              </div>
               <div className='input-element'>
                 <TextField
                   name='daysPerWeek'

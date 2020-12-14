@@ -24,7 +24,7 @@ function repackBekreftelse (data) {
   // Gjør bekreftelse via e-post til array, fjerner tomme linjer
   bekreftelse.kopiPrEpost = fixCopyViaEmail(bekreftelse.kopiPrEpost)
   // oppdaterer kontaktpersoner
-  bekreftelse.kontaktPersoner = mergeArrays({
+  bekreftelse.kontaktpersonData = mergeArrays({
     navn: arrify(bekreftelse.kontaktpersonNavn),
     telefon: arrify(bekreftelse.kontaktpersonTelefon),
     epost: arrify(bekreftelse.kontaktpersonEpost),
@@ -37,7 +37,7 @@ function repackBekreftelse (data) {
   delete bekreftelse.kontaktpersonAvdeling
 
   // oppdaterer pårørende
-  bekreftelse.parorende = mergeArrays({
+  bekreftelse.parorendeData = mergeArrays({
     navn: arrify(bekreftelse.parorendeNavn),
     telefon: arrify(bekreftelse.parorendeTelefon)
   })
@@ -45,10 +45,31 @@ function repackBekreftelse (data) {
   delete bekreftelse.parorendeNavn
   delete bekreftelse.parorendeTelefon
 
-  return {
-    bekreftelse,
-    company
+  // bedriftsinformasjon
+  const {
+    navn: bedriftsNavn,
+    orgnr: organisasjonsNummer,
+    postadresse: adresse,
+    ppoststed: poststed,
+    ppostnr: postnummer,
+    forretningsadr: forretningsadresse,
+    forradrpostnr: forretningspostnummer,
+    forradrpoststed: forretningspoststed
+  } = company
+  bekreftelse.bedriftsNavn = bedriftsNavn
+  bekreftelse.bedriftsData = {
+    organisasjonsNummer,
+    navn: bedriftsNavn,
+    adresse: adresse || forretningsadresse,
+    postnummer: postnummer || forretningspostnummer,
+    poststed: poststed || forretningspoststed,
+    avdeling: bekreftelse.organisasjonsAvdeling
   }
+
+  // cleanup bedrift
+  delete bekreftelse.organisasjonsAvdeling
+
+  return bekreftelse
 }
 
 export default repackBekreftelse
