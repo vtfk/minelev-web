@@ -207,6 +207,8 @@
       overflow-y: scroll;
 
       @media(max-width: 1000px) and (orientation: landscape) {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: auto;
         align-items: flex-start;
         padding-top: 0;
       }

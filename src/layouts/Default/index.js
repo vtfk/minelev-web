@@ -11,7 +11,7 @@ import 'react-notifications-component/dist/theme.css'
 
 import { ROUTES } from '../../config/constants'
 
-import ScrollLock from 'react-scrolllock'
+import ScrollLock, { TouchScrollable } from 'react-scrolllock'
 
 import { SideNav, SideNavItem } from '../../_lib-components/SideNav'
 import { SearchField } from '../../_lib-components/SearchField'
@@ -48,56 +48,56 @@ export function DefaultLayout (props) {
   }
 
   return (
-    <ScrollLock isActive={scrollLock}>
-      <div>
-        <ReactNotification />
+    <div>
+      <ReactNotification />
 
-        <div className='default-layout'>
-          <SideNav title='MinElev'>
-            <SideNavItem icon={<Icon name='home' />} active={location.pathname === '/'} href='/' title='Forside' />
-            <SideNavItem icon={<Icon name='activity' />} active={location.pathname === `/${ROUTES.activityLog}`} href={`/${ROUTES.activityLog}`} title='Aktivitetslogg' />
-            <SideNavItem icon={<Icon name='students' />} active={location.pathname === `/${ROUTES.students}`} href={`/${ROUTES.students}`} title='Elever' />
-            <SideNavItem icon={<Icon name='classes' />} active={location.pathname === `/${ROUTES.classes}`} href={`/${ROUTES.classes}`} title='Klasser' />
-            <SideNavItem icon={<Icon name='statistics' />} active={location.pathname === `/${ROUTES.statistics}`} href={`/${ROUTES.statistics}`} title='Statistikk' />
-            <SideNavItem icon={<Icon name='help' />} active={location.pathname === `/${ROUTES.help}`} href={`/${ROUTES.help}`} title='Hjelp' />
-          </SideNav>
+      <div className='default-layout'>
+        <SideNav title='MinElev'>
+          <SideNavItem icon={<Icon name='home' />} active={location.pathname === '/'} href='/' title='Forside' />
+          <SideNavItem icon={<Icon name='activity' />} active={location.pathname === `/${ROUTES.activityLog}`} href={`/${ROUTES.activityLog}`} title='Aktivitetslogg' />
+          <SideNavItem icon={<Icon name='students' />} active={location.pathname === `/${ROUTES.students}`} href={`/${ROUTES.students}`} title='Elever' />
+          <SideNavItem icon={<Icon name='classes' />} active={location.pathname === `/${ROUTES.classes}`} href={`/${ROUTES.classes}`} title='Klasser' />
+          <SideNavItem icon={<Icon name='statistics' />} active={location.pathname === `/${ROUTES.statistics}`} href={`/${ROUTES.statistics}`} title='Statistikk' />
+          <SideNavItem icon={<Icon name='help' />} active={location.pathname === `/${ROUTES.help}`} href={`/${ROUTES.help}`} title='Hjelp' />
+        </SideNav>
 
-          {/* TODO: To lib component when desktop design is in place */}
-          <nav role='navigation' className={`topnav-side ${openTopNavSide ? 'open' : ''}`}>
-            <div className='topnav-side-user'>
-              <div className='user'>
-                <InitialsBadge className='user-image' firstName={user.givenName} lastName={user.surname} />
-                <div className='user-name'>
-                  <Paragraph>{user.displayName}</Paragraph>
-                </div>
-                <div className='user-menu'>
-                  <IconDropdownNav>
-                    <IconDropdownNavItem onClick={() => logout()} title='Logg ut' />
-                  </IconDropdownNav>
-                </div>
+        {/* TODO: To lib component when desktop design is in place */}
+        <nav role='navigation' className={`topnav-side ${openTopNavSide ? 'open' : ''}`}>
+          <div className='topnav-side-user'>
+            <div className='user'>
+              <InitialsBadge className='user-image' firstName={user.givenName} lastName={user.surname} />
+              <div className='user-name'>
+                <Paragraph>{user.displayName}</Paragraph>
               </div>
-
-              <Link to='' aria-label='Lukk meny' className='topnav-side-top-close' onClick={clickTopNavToggle}>
-                <Icon name='close' size='xsmall' />
-              </Link>
-            </div>
-
-            <div className='topnav-side-search'>
-              <div className='search'>
-                <SearchField
-                  className='search-input'
-                  type='text' placeholder='Søk etter elev ...'
-                  onChange={(event) => { setSearchTerm(event.target.value) }}
-                  value={searchTerm || ''}
-                  onKeyPress={event => {
-                    if (event.key === 'Enter') {
-                      window.location.replace(`/${ROUTES.students}?s=${event.target.value}`)
-                    }
-                  }}
-                />
+              <div className='user-menu'>
+                <IconDropdownNav>
+                  <IconDropdownNavItem onClick={() => logout()} title='Logg ut' />
+                </IconDropdownNav>
               </div>
             </div>
 
+            <Link to='' aria-label='Lukk meny' className='topnav-side-top-close' onClick={clickTopNavToggle}>
+              <Icon name='close' size='xsmall' />
+            </Link>
+          </div>
+
+          <div className='topnav-side-search'>
+            <div className='search'>
+              <SearchField
+                className='search-input'
+                type='text' placeholder='Søk etter elev ...'
+                onChange={(event) => { setSearchTerm(event.target.value) }}
+                value={searchTerm || ''}
+                onKeyPress={event => {
+                  if (event.key === 'Enter') {
+                    window.location.replace(`/${ROUTES.students}?s=${event.target.value}`)
+                  }
+                }}
+              />
+            </div>
+          </div>
+
+          <TouchScrollable>
             <div className='topnav-side-list'>
               <div className='topnav-side-list-inner'>
                 <Link className={`topnav-side-list-item ${location.pathname === '/' ? 'active' : ''}`} to='/'>
@@ -126,56 +126,58 @@ export function DefaultLayout (props) {
                 </Link>
               </div>
             </div>
-          </nav>
+          </TouchScrollable>
+        </nav>
 
-          <div className='container' onClick={() => { clickContainer() }}>
-            <div className='topnav'>
-              <a href='/' className='topnav-brand'>
-                <div className='brand-logo'>
-                  <Logo />
-                </div>
-                <div className='brand-name'>
-                  MinElev
-                </div>
-              </a>
-              <button aria-label='Åpne meny' className='topnav-toggles' onClick={clickTopNavToggle}>
-                <Icon size='small' name='search' />
-                <Icon size='small' name='menu' />
-              </button>
-            </div>
-
-            <div className='action-bar'>
-              <div className='search'>
-                <SearchField
-                  className='search-input'
-                  type='text' placeholder='Søk etter elev ...'
-                  onChange={(event) => { setSearchTerm(event.target.value) }}
-                  value={searchTerm || ''}
-                  onKeyPress={event => {
-                    if (event.key === 'Enter') {
-                      window.location.replace(`/${ROUTES.students}?s=${event.target.value}`)
-                    }
-                  }}
-                />
+        <div className='container' onClick={() => { clickContainer() }}>
+          <div className='topnav'>
+            <a href='/' className='topnav-brand'>
+              <div className='brand-logo'>
+                <Logo />
               </div>
-
-              <div className='user'>
-                <div className='user-name'>
-                  <Paragraph>{user.displayName}</Paragraph>
-                </div>
-                <InitialsBadge className='user-image' firstName={user.givenName} lastName={user.surname} />
-                <div className='user-menu'>
-                  <IconDropdownNav>
-                    <IconDropdownNavItem onClick={() => logout()} title='Logg ut' />
-                  </IconDropdownNav>
-                </div>
+              <div className='brand-name'>
+                MinElev
               </div>
-            </div>
-
-            {props.children}
+            </a>
+            <button aria-label='Åpne meny' className='topnav-toggles' onClick={clickTopNavToggle}>
+              <Icon size='small' name='search' />
+              <Icon size='small' name='menu' />
+            </button>
           </div>
+
+          <div className='action-bar'>
+            <div className='search'>
+              <SearchField
+                className='search-input'
+                type='text' placeholder='Søk etter elev ...'
+                onChange={(event) => { setSearchTerm(event.target.value) }}
+                value={searchTerm || ''}
+                onKeyPress={event => {
+                  if (event.key === 'Enter') {
+                    window.location.replace(`/${ROUTES.students}?s=${event.target.value}`)
+                  }
+                }}
+              />
+            </div>
+
+            <div className='user'>
+              <div className='user-name'>
+                <Paragraph>{user.displayName}</Paragraph>
+              </div>
+              <InitialsBadge className='user-image' firstName={user.givenName} lastName={user.surname} />
+              <div className='user-menu'>
+                <IconDropdownNav>
+                  <IconDropdownNavItem onClick={() => logout()} title='Logg ut' />
+                </IconDropdownNav>
+              </div>
+            </div>
+          </div>
+
+          <ScrollLock isActive={scrollLock}>
+            <div>{props.children}</div>
+          </ScrollLock>
         </div>
       </div>
-    </ScrollLock>
+    </div>
   )
 }
