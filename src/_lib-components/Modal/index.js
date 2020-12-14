@@ -25,7 +25,7 @@ export function Modal ({ open, title, className, onDismiss, ...props }) {
               }
               <TouchScrollable>
                 <div className='modal-content'>
-                      {props.children}
+                  {props.children}
                 </div>
               </TouchScrollable>
             </div>
