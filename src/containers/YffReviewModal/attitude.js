@@ -19,10 +19,7 @@ const scores = [
 
 function Score (props) {
   const { id, value, description } = props
-  const key = nanoid()
-  return (
-    <RadioButton name={`evaluationscore-${id}`} value={value} id={key} label={description} />
-  )
+  return <RadioButton name={`evaluationscore-${id}`} value={value} label={description} />
 }
 
 function Scores ({ id }) {
