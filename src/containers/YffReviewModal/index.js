@@ -8,6 +8,7 @@ import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
+import { RadioButton } from '../../_lib-components/RadioButton'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
@@ -79,6 +80,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     const form = document.getElementById('review-form')
     const data = new FormData(form)
     const json = serializeForm(data)
+    console.log(json)
     // filterer ut alle kompetansemål fra tilbakemeldingen
     const evalueringsdata = Object.keys(json)
       .filter(key => !key.startsWith('kompetansemaal'))
@@ -159,17 +161,13 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
                   placeholder='Antall timer fravær'
                 />
               </div>
-              <fieldset>
-                <legend>Varslet eleven selv om fraværet?</legend>
-                <label for='fravar-ja'>Ja</label>
-                <input type='radio' name='varsletFravar' id='fravar-ja' value='ja' />
-                <label for='fravar-nei'>Nei</label>
-                <input type='radio' name='varsletFravar' id='fravar-nei' value='nei' />
-                <label for='fravar-noen'>Av og til</label>
-                <input type='radio' name='varsletFravar' id='fravar-noe' value='av og til' />
-                <label for='fravar-uaktuelt'>Ikke aktuelt</label>
-                <input type='radio' name='varsletFravar' id='fravar-ja' value='0' />
-              </fieldset>
+              <div>
+                <Heading3>Varslet eleven selv om fraværet?</Heading3>
+                <RadioButton name='varsletFravar' value='ja' label='Ja' />
+                <RadioButton name='varsletFravar' value='nei' label='Nei' />
+                <RadioButton name='varsletFravar' value='av og til' label='Av og til' />
+                <RadioButton name='varsletFravar' value='0' label='Ikke aktuelt' />
+              </div>
             </form>
           </div>
         </ModalBody>
