@@ -20,6 +20,6 @@ export function RadioButton ({ name, value, onChange, label, ...props }) {
 RadioButton.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   label: PropTypes.string.isRequired
 }
