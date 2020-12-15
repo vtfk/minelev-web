@@ -24,9 +24,7 @@ function Score (props) {
 function Scores ({ id }) {
   return (
     <>
-      <fieldset>
-        {scores.map(item => <Score id={id} {...item} key={nanoid()} />)}
-      </fieldset>
+      {scores.map(item => <Score id={id} {...item} key={nanoid()} />)}
     </>
   )
 }
