@@ -11,7 +11,7 @@ export function RadioButton ({ name, value, onChange, label, ...props }) {
           <input id={`radio-${name}-${value}`} type='radio' name={name} value={value} onChange={(e) => { onChange(e.target.value) }} />
           <div className='radio' />
         </div>
-        <label for={`radio-${name}-${value}`}>{label}</label>
+        <label htmlFor={`radio-${name}-${value}`}>{label}</label>
       </div>
     </div>
   )
