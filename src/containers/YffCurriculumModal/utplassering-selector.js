@@ -7,7 +7,6 @@ function UtplasseringSelector (props) {
   const { utplasseringer, setUtplassering } = props
 
   useEffect(() => {
-    console.log('starter effect')
     const defaultItems = [
       { value: 1, label: 'Skole' },
       { value: 2, label: 'Ungdomsbedrift (entreprenørskap)' }
