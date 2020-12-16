@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import { RadioButton } from '../../_lib-components/RadioButton'
 import { evaluation } from '../../data/yff.json'
 
 const scores = [
@@ -22,20 +23,13 @@ const scores = [
 
 function Score (props) {
   const { id, value, description } = props
-  const key = nanoid()
-  return (
-    <label htmlFor={key}>{description}
-      <input type='radio' name={`evaluationscore-${id}`} id={key} value={value} />
-    </label>
-  )
+  return <RadioButton name={`evaluationscore-${id}`} value={value} label={description} />
 }
 
 function Scores ({ id }) {
   return (
     <>
-      <fieldset>
-        {scores.map(item => <Score id={id} {...item} key={nanoid()} />)}
-      </fieldset>
+      {scores.map(item => <Score id={id} {...item} key={nanoid()} />)}
     </>
   )
 }

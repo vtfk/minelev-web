@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid'
+import { RadioButton } from '../../_lib-components/RadioButton'
 
 const scores = [
   {
@@ -17,21 +18,13 @@ const scores = [
 
 function Score (props) {
   const { id, value, description } = props
-  const key = nanoid()
-  return (
-    <label htmlFor={key}>
-      {description}
-      <input type='radio' name={`kompetansemaal-${id}`} id={key} value={value} />
-    </label>
-  )
+  return <RadioButton name={`kompetansemaal-${id}`} value={value} label={description} />
 }
 
 function Scores ({ id }) {
   return (
     <>
-      <fieldset>
-        {scores.map(item => <Score id={id} {...item} key={nanoid()} />)}
-      </fieldset>
+      {scores.map(item => <Score id={id} {...item} key={nanoid()} />)}
     </>
   )
 }
@@ -53,7 +46,7 @@ function Review ({ maal }) {
   return (
     <>
       <h2 className='subheader'>Kompetansemål og arbeidsoppgaver</h2>
-      {maal && maal.map(item => <Maal {...item} key={nanoid} />)}
+      {maal && maal.map(item => <Maal {...item} key={nanoid()} />)}
     </>
   )
 }

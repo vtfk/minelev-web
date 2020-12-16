@@ -3,15 +3,15 @@ import PropTypes from 'prop-types'
 
 import './styles.scss'
 
-export function RadioButton ({ name, value, onChange, label, ...props }) {
+export function RadioButton ({ name, value, label, ...props }) {
   return (
     <div className='radio-button' {...props}>
       <div className='radio-button-inner'>
         <div className='radio-wrapper'>
-          <input id={`radio-${name}-${value}`} type='radio' name={name} value={value} onChange={(e) => { onChange(e.target.value) }} />
+          <input id={`radio-${name}-${value}`} type='radio' name={name} value={value} {...props} />
           <div className='radio' />
         </div>
-        <label for={`radio-${name}-${value}`}>{label}</label>
+        <label htmlFor={`radio-${name}-${value}`}>{label}</label>
       </div>
     </div>
   )
@@ -20,6 +20,6 @@ export function RadioButton ({ name, value, onChange, label, ...props }) {
 RadioButton.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   label: PropTypes.string.isRequired
 }
