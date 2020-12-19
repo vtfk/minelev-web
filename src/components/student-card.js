@@ -7,12 +7,14 @@ import { InitialsBadge } from '../_lib-components/InitialsBadge'
 
 function StudentCard (props) {
   const { student } = props
+
+  if (!student) return null
+
   const {
     firstName,
     lastName,
     schoolName,
     classId,
-    className,
     birthdate,
     mail
   } = student
@@ -28,7 +30,7 @@ function StudentCard (props) {
         </Heading3>
         <div className='other'>
           <Paragraph>{schoolName}</Paragraph>
-          <Paragraph><Link href={`/${ROUTES.classes}/${classId}`}>{className}</Link></Paragraph>
+          <Paragraph><Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link></Paragraph>
           <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{birthdate}</Moment></Paragraph>
           <Paragraph>{mail}</Paragraph>
         </div>
