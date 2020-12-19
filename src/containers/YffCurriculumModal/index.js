@@ -11,6 +11,7 @@ import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import pfdPreview from '../../lib/pdf-preview'
+import { successMessage } from '../../lib/toasts'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
 import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
@@ -19,7 +20,6 @@ import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
-// TODO: Hente inn utplasseringer
 export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
@@ -58,23 +58,26 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     }
   }
 
-  // TODO: implementere sending av læreplan
-  function send () {
+  async function send () {
+    const document = await createDocument()
+    await apiPost(`${API.URL}/documents`, document)
+    successMessage('👍', 'Lokal læreplan er sendt og arkivert')
     props.onDismiss()
-    window.alert('Læreplan er opprettet.')
   }
 
   // Repacke document for preview
   // TODO: fikse ekte dokument
-  function createDocument () {
+  async function createDocument () {
+    const maal = await apiGet(`${API.URL}/yff/${selectedStudentId}/maal`)
     return {
-      type: 'laereplan',
+      type: 'yff',
       variant: 'laereplan',
       student: {
         username: selectedStudentId
       },
       content: {
-        year: new Date().getFullYear()
+        year: new Date().getFullYear(),
+        maal
       }
     }
   }
@@ -134,7 +137,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => openPreviewModal(createDocument())}>Forhåndsvisning</Link>
+            <Link onClick={async () => { const document = await createDocument(); openPreviewModal(document) }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             <button onClick={() => { send() }} className='button button-primary'>Send og arkiver</button>
