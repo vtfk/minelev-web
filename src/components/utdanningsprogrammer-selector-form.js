@@ -94,7 +94,7 @@ function UtdanningsprogrammerSelectorForm (props) {
 
   return (
     <>
-      <KlassetrinnSelectorForm setSelected={setSelectedKlassetrinn} />
+      <KlassetrinnSelectorForm setSelected={setSelectedKlassetrinn} title='Hent kompetansemål fra' />
       {utdanningsprogrammer && selectedKlassetrinn && <Utdanningsprogrammer data={utdanningsprogrammer.data} setQuery={setQuery} />}
       {programomrader && selectedKlassetrinn && <Programomrader data={programomrader.data} trinn={selectedKlassetrinn} setKompetansemaal={setKompetansemaal} />}
     </>
