@@ -28,7 +28,7 @@ describe('tester komponenten LokalLaereplan', () => {
     render(<LokalLaereplan deleter={deleter} fetcher={fetcher} selectedStudentId={selectedStudentId} />)
     await waitFor(() => screen.getByText(/utføre fundamentering/i))
     expect(screen.getByText(/bruke relevant måleutstyr/i)).toBeInTheDocument()
-    const sletteKnapp = screen.getAllByText(/fjern/i)[1]
+    const sletteKnapp = screen.getAllByText(/fjern/i)[2]
     act(() => {
       userEvent.click(sletteKnapp)
     })
