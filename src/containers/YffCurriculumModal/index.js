@@ -10,20 +10,22 @@ import { API } from '../../config/app'
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { Select } from '../../_lib-components/Select'
 import pfdPreview from '../../lib/pdf-preview'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
 import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
 import KompetansemalSelectorForm from './kompetansemal-selector-form'
 import LokalLaereplan from './lokal-laereplan.js'
+import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
-
+// TODO: Hente inn utplasseringer
 export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const [kompetansemaal, setKompetansemaal] = useState()
+  const [utplasseringer, setUtplasseringer] = useState([])
+  const [utplassering, setUtplassering] = useState()
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   console.log(selectedKlassetrinn)
@@ -41,7 +43,13 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
       const student = await apiGet(API.URL + '/students/' + selectedStudentId)
       setSelectedStudent(student.data)
     }
+    async function getUtplasseringer () {
+      const url = `${API.URL}/yff/${selectedStudentId}/utplassering`
+      const data = await apiGet(url)
+      setUtplasseringer(data)
+    }
     getStudent()
+    getUtplasseringer()
   }, [selectedStudentId])
 
   function handleKeyPress (event) {
@@ -57,10 +65,11 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   }
 
   // Repacke document for preview
+  // TODO: fikse ekte dokument
   function createDocument () {
     return {
-      type: 'samtale',
-      variant: 'samtale',
+      type: 'laereplan',
+      variant: 'laereplan',
       student: {
         username: selectedStudentId
       },
@@ -111,19 +120,8 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
 
             <h2 className='subheader'>Legg til nye kompetansemål</h2>
             <div className='add-new-curriculum'>
-              <div className='input-element'>
-                <Select
-                  placeholder='Velg utplasseringssted'
-                  items={[
-                    { value: 1, label: 'Skole' },
-                    { value: 2, label: 'Ungdomsbedrift (entreprenørskap)' }
-                  ]}
-                  selectedItem={{ value: 1, label: 'Skole' }}
-                  onChange={(item) => { console.log(item) }}
-                />
-              </div>
-
-              <SchoolSelectorForm />
+              <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
+              {utplassering && utplassering.value === 1 && <SchoolSelectorForm />}
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
               <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={selectedStudentId} />
 
@@ -139,7 +137,6 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
             <Link onClick={() => openPreviewModal(createDocument())}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            {/* TODO: component */}
             <button onClick={() => { send() }} className='button button-primary'>Send</button>
           </div>
           <div className='action'>

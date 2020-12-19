@@ -56,7 +56,7 @@ function KompetansemalVelger (props) {
   const sendForm = async () => {
     const form = document.getElementById('kompetansemaal-form')
     const data = new FormData(form)
-    const json = JSON.parse(serializeForm(data))
+    const json = serializeForm(data)
     const keys = Object.keys(json)
     const copyOfMaal = [...kompetansemaal]
     const selectedMaal = copyOfMaal.filter(maal => keys.includes(maal.kode)).reduce((list, maal) => {
