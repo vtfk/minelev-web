@@ -23,6 +23,7 @@ import { NewNoteModal } from '../../containers/NewNoteModal'
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
+import { nanoid } from 'nanoid'
 
 export function Student ({ match, ...props }) {
   const [confirmationModalState, setConfirmationModalState] = useState(false)
@@ -34,6 +35,8 @@ export function Student ({ match, ...props }) {
   const [student, setStudent] = useState({})
   const [documents, setDocuments] = useState([])
   const [notes, setNotes] = useState([])
+  const [utplasseringer, setUtplasseringer] = useState([])
+  const [selectedUtplassering, setSelectedUtplassering] = useState()
   const { apiGet } = useSession()
 
   const { id } = match.params
@@ -54,6 +57,13 @@ export function Student ({ match, ...props }) {
       setNotes(notes)
     }
     getDocuments()
+
+    async function getUtplasseringer () {
+      const utplasseringer = await apiGet(`${API.URL}/yff/${id}/utplassering`)
+      // TODO: filter på alle som har fått tilbakemelding
+      setUtplasseringer(utplasseringer)
+    }
+    getUtplasseringer()
   }, [])
 
   function openConfirmationModal () {
@@ -64,7 +74,9 @@ export function Student ({ match, ...props }) {
     setCurriculumModalState(true)
   }
 
-  function openReviewModal () {
+  function openReviewModal ({ id }) {
+    console.log(id)
+    setSelectedUtplassering(id)
     setReviewModalState(true)
   }
 
@@ -80,6 +92,13 @@ export function Student ({ match, ...props }) {
     setNoteModalState(true)
   }
 
+  function Utplassering (id) {
+    return (
+      <CardLink className='action-link' onClick={() => { openReviewModal(id) }}>
+        Tilbakemelding på utplassering
+      </CardLink>
+    )
+  }
   return (
     <DefaultLayout>
 
@@ -101,11 +120,10 @@ export function Student ({ match, ...props }) {
               onDismiss={() => { setCurriculumModalState(false) }}
             />
 
-            {/** TODO: Det bør være en tilbakemelding pr utplassering (som ikke er utfyllt) */}
             <YffReviewModal
               open={reviewModalState}
               selectedStudentId={student.username}
-              utplasseringsId='5d7f29d059e31d0007cc9ff5' // TODO: Gjøre denne dynamisk
+              utplasseringsId={selectedUtplassering}
               title='Tilbakemelding på utplassering'
               onDismiss={() => { setReviewModalState(false) }}
             />
@@ -207,10 +225,8 @@ export function Student ({ match, ...props }) {
                   <br />
                   <Paragraph size='small'>Du må først opprette lokal læreplan</Paragraph>
                 </CardLink>
-                {/* TODO: knytte utplassering til utplassering */}
-                <CardLink className='action-link' onClick={() => { openReviewModal() }}>
-                  Tilbakemelding på utplassering
-                </CardLink>
+                {/* TODO: knytte utplassering til utplassering, en pr utplassering som ikke er ferdig tilbakemelding på */}
+                {utplasseringer && utplasseringer.map(utplassering => <Utplassering id={utplassering._id} key={nanoid()} />)}
               </div>
 
               <div className='activity-panel'>
