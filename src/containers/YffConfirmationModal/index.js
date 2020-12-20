@@ -110,76 +110,76 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   function FormView () {
     return (
       <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
-              <CompanyDetails company={company} />
-              <div className='input-element'>
-                <TextField
-                  name='organisasjonsAvdeling'
-                  placeholder='Avdeling'
-                />
-              </div>
-              <h2 className='subheader'>Kontaktpersoner</h2>
-              {contactPersonsCompany.map(person => person)}
-              <button className='add-more-button button-left-icon button-primary' onClick={() => addCompanyContactPerson()}>
-                <div className='button-left-icon-icon'>
-                  <Icon name='add' size='small' />
-                </div>
-                <div className='button-left-icon-text'>
-                  Legg til kontaktperson
-                </div>
-              </button>
-              <div className='input-element'>
-                <TextField
-                  name='kopiPrEpost'
-                  placeholder='Legg e-postadresse(r) som skal få kopi av bekreftelsen. Bruk mellomrom som skilletegn ved flere adresser'
-                />
-              </div>
-              <h2 className='subheader'>Tidsrom</h2>
-              {/** TODO: Vurdere å hente inn kalenderkomponenten */}
-              <div className='input-element'>
-                <label htmlFor='datofra'>Fra og med: </label>
-                <input type='date' name='fraDato' id='datofra' placeholder='f.o.m' />
-                <label htmlFor='datotil'>Til og med:</label>
-                <input type='date' name='tilDato' id='datotil' placeholder='t.o.m' />
-              </div>
-              <div className='input-element'>
-                <TextField
-                  name='daysPerWeek'
-                  placeholder='Antall dager i uken'
-                />
-              </div>
-              <div className='input-element'>
-                <TextField
-                  name='startTid'
-                  placeholder='Fra kl'
-                  value='08:00'
-                />
-              </div>
-              <div className='input-element'>
-                <TextField
-                  name='sluttTid'
-                  placeholder='Til kl'
-                  value='16:00'
-                />
-              </div>
-              <div className='input-element'>
-                <TextField
-                  name='oppmotested'
-                  placeholder='Oppmøtested'
-                />
-              </div>
-              <h2 className='subheader'>Elevinformasjon</h2>
-              <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
-              <h2 className='subheader'>Pårørende</h2>
-              {contactPersonsStudent.map(person => person)}
-              <button className='add-more-button button-left-icon button-primary' onClick={() => addStudentContactPerson()}>
-                <div className='button-left-icon-icon'>
-                  <Icon name='add' size='small' />
-                </div>
-                <div className='button-left-icon-text'>
-                  Legg til pårørende
-                </div>
-              </button>
-            </form>
+        <CompanyDetails company={company} />
+        <div className='input-element'>
+          <TextField
+            name='organisasjonsAvdeling'
+            placeholder='Avdeling'
+          />
+        </div>
+        <h2 className='subheader'>Kontaktpersoner</h2>
+        {contactPersonsCompany.map(person => person)}
+        <button className='add-more-button button-left-icon button-primary' onClick={() => addCompanyContactPerson()}>
+          <div className='button-left-icon-icon'>
+            <Icon name='add' size='small' />
+          </div>
+          <div className='button-left-icon-text'>
+            Legg til kontaktperson
+          </div>
+        </button>
+        <div className='input-element'>
+          <TextField
+            name='kopiPrEpost'
+            placeholder='Legg e-postadresse(r) som skal få kopi av bekreftelsen. Bruk mellomrom som skilletegn ved flere adresser'
+          />
+        </div>
+        <h2 className='subheader'>Tidsrom</h2>
+        {/** TODO: Vurdere å hente inn kalenderkomponenten */}
+        <div className='input-element'>
+          <label htmlFor='datofra'>Fra og med: </label>
+          <input type='date' name='fraDato' id='datofra' placeholder='f.o.m' />
+          <label htmlFor='datotil'>Til og med:</label>
+          <input type='date' name='tilDato' id='datotil' placeholder='t.o.m' />
+        </div>
+        <div className='input-element'>
+          <TextField
+            name='daysPerWeek'
+            placeholder='Antall dager i uken'
+          />
+        </div>
+        <div className='input-element'>
+          <TextField
+            name='startTid'
+            placeholder='Fra kl'
+            value='08:00'
+          />
+        </div>
+        <div className='input-element'>
+          <TextField
+            name='sluttTid'
+            placeholder='Til kl'
+            value='16:00'
+          />
+        </div>
+        <div className='input-element'>
+          <TextField
+            name='oppmotested'
+            placeholder='Oppmøtested'
+          />
+        </div>
+        <h2 className='subheader'>Elevinformasjon</h2>
+        <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
+        <h2 className='subheader'>Pårørende</h2>
+        {contactPersonsStudent.map(person => person)}
+        <button className='add-more-button button-left-icon button-primary' onClick={() => addStudentContactPerson()}>
+          <div className='button-left-icon-icon'>
+            <Icon name='add' size='small' />
+          </div>
+          <div className='button-left-icon-text'>
+            Legg til pårørende
+          </div>
+        </button>
+      </form>
     )
   }
 
