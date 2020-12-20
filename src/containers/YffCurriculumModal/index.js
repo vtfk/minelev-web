@@ -62,6 +62,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     const document = await createDocument()
     await apiPost(`${API.URL}/documents`, document)
     successMessage('👍', 'Lokal læreplan er sendt og arkivert')
+    //TODO cleanup state
     props.onDismiss()
   }
 
