@@ -31,4 +31,12 @@ describe('tester KlassetrinnSelectorForm', () => {
     expect(screen.getByText(/vg 3/i)).toBeInTheDocument()
     expect(screen.getByText(/vg 1/i)).toBeInTheDocument()
   })
+
+  test('Man kan sende in ny tittel til komponenten', async () => {
+    const title = 'Dette er en ny tittel'
+    render(<KlassetrinnSelectorForm title={title} />)
+    expect(screen.getByText(/dette er en ny tittel/i)).toBeInTheDocument()
+    expect(screen.getByText(/vg 1/i)).toBeInTheDocument()
+    expect(screen.getByText(/vg 3/i)).toBeInTheDocument()
+  })
 })

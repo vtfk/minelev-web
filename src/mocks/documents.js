@@ -47,7 +47,7 @@ export const newDocument = (studentId, type, variant, content) => {
   }
 
   if (!['varsel', 'samtale', 'yff', 'notat'].includes(type)) {
-    return generateErrorObject(400, 'Invlid type', { type })
+    return generateErrorObject(400, 'Invalid type', { type })
   }
 
   const student = STUDENTS.find(student => (student.id === studentId || student.username === studentId))

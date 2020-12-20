@@ -3,7 +3,7 @@ import { Select } from '../_lib-components/Select'
 
 function KlassetrinnSelectorForm (props) {
   const [select, setSelect] = useState()
-  const { setSelected } = props
+  const { setSelected, title = 'Velg klassetrinn' } = props
 
   useEffect(() => {
     if (typeof setSelected === 'function') {
@@ -14,7 +14,7 @@ function KlassetrinnSelectorForm (props) {
   return (
     <div className='input-element'>
       <Select
-        placeholder='Velg klassetrinn'
+        placeholder={title}
         items={[
           { value: 'vg1', label: 'VG 1' },
           { value: 'vg2', label: 'VG 2' },

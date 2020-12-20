@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
-import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import pfdPreview from '../../lib/pdf-preview'
+import { successMessage } from '../../lib/toasts'
+import StudentCard from '../../components/student-card'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
 import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
@@ -19,7 +19,6 @@ import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
-// TODO: Hente inn utplasseringer
 export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
@@ -41,6 +40,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   useEffect(() => {
     async function getStudent () {
       const student = await apiGet(API.URL + '/students/' + selectedStudentId)
+      console.log(student)
       setSelectedStudent(student.data)
     }
     async function getUtplasseringer () {
@@ -58,23 +58,25 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     }
   }
 
-  // TODO: implementere sending av læreplan
-  function send () {
+  async function send () {
+    const document = await createDocument()
+    await apiPost(`${API.URL}/documents`, document)
+    successMessage('👍', 'Lokal læreplan er sendt og arkivert')
     props.onDismiss()
-    window.alert('Læreplan er opprettet.')
   }
 
-  // Repacke document for preview
   // TODO: fikse ekte dokument
-  function createDocument () {
+  async function createDocument () {
+    const maal = await apiGet(`${API.URL}/yff/${selectedStudentId}/maal`)
     return {
-      type: 'laereplan',
+      type: 'yff',
       variant: 'laereplan',
       student: {
         username: selectedStudentId
       },
       content: {
-        year: new Date().getFullYear()
+        year: new Date().getFullYear(),
+        maal
       }
     }
   }
@@ -91,22 +93,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
           {
             selectedStudent &&
             selectedStudent.firstName &&
-              <div className='person-information'>
-                <div className='image'>
-                  <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
-                </div>
-                <div className='text-wrapper'>
-                  <Heading3 className='name'>
-                    {selectedStudent.firstName} {selectedStudent.lastName}
-                  </Heading3>
-                  <div className='other'>
-                    <Paragraph>{selectedStudent.schoolName}</Paragraph>
-                    <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.className}</Link></Paragraph>
-                    <Paragraph>26. april 2001</Paragraph>
-                    <Paragraph>bra26041@skole.vtfk.no</Paragraph>
-                  </div>
-                </div>
-              </div>
+              <StudentCard student={selectedStudent} />
           }
 
           <p className='intro'>
@@ -134,10 +121,10 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => openPreviewModal(createDocument())}>Forhåndsvisning</Link>
+            <Link onClick={async () => { const document = await createDocument(); openPreviewModal(document) }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <button onClick={() => { send() }} className='button button-primary'>Send</button>
+            <button onClick={() => { send() }} className='button button-primary'>Send og arkiver</button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Lagre og lukk</Link>

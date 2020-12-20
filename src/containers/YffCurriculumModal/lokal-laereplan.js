@@ -9,7 +9,10 @@ function Maal (props) {
     <tr>
       <td>
         <Paragraph>
-          {tittel.nb} / {arbeidsoppgaver}
+          <strong>Mål:</strong><br />
+          {tittel.nb}<br />
+          <strong>Arbeidsoppgaver:</strong><br />
+          {arbeidsoppgaver}
         </Paragraph>
       </td>
       <td>
@@ -28,6 +31,7 @@ function LokalLaereplan (props) {
   useEffect(() => {
     const getLaereplan = async () => {
       const data = await fetcher(`${API.URL}/yff/${selectedStudentId}/laereplan`)
+      // TODO: denne vil nok endres når api er oki
       setMaal(data[0].default)
     }
     getLaereplan()
@@ -48,7 +52,7 @@ function LokalLaereplan (props) {
           <tr>
             <th><Paragraph size='small'>Kompetansemål / Arbeidsoppgaver</Paragraph></th>
             <th><Paragraph size='small'>Utplasseringssted</Paragraph></th>
-            <th className='actions-th'><Paragraph size='small'>Ny handling</Paragraph></th>
+            <th className='actions-th'><Paragraph size='small'>Fjern fra planen</Paragraph></th>
           </tr>
         </thead>
         <tbody>
