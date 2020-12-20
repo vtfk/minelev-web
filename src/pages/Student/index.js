@@ -101,6 +101,7 @@ export function Student ({ match, ...props }) {
               onDismiss={() => { setCurriculumModalState(false) }}
             />
 
+            {/** TODO: Det bør være en tilbakemelding pr utplassering (som ikke er utfyllt) */}
             <YffReviewModal
               open={reviewModalState}
               selectedStudentId={student.username}
@@ -200,6 +201,7 @@ export function Student ({ match, ...props }) {
                 <CardLink className='action-link' onClick={() => { openCurriculumModal() }}>
                   Opprett lokal læreplan
                 </CardLink>
+                {/** TODO: Fjerne denne? Kan tas fra lokal læreplan */}
                 <CardLink title='Du må først opprette lokal læreplan' disabled className='action-link' onClick={() => { openSendModal() }}>
                   Send og arkiver lokal læreplan
                   <br />

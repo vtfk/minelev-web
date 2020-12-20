@@ -93,10 +93,11 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     sendForm()
   }
 
+  // TODO: Lage create content for yff
   function createDocument () {
     return {
-      type: 'samtale',
-      variant: 'samtale',
+      type: 'yff',
+      variant: 'bekreftelse',
       student: {
         username: selectedStudentId
       },
