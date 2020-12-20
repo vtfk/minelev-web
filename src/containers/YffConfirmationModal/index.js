@@ -106,31 +106,9 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     }
   }
 
-  return (
-    <>
-      <PreviewModal />
-      <Modal
-        {...props}
-        className='yff-confirmation-modal'
-        onDismiss={props.onDismiss}
-      >
-        <ModalBody>
-          {
-            selectedStudent &&
-            selectedStudent.firstName &&
-              <StudentCard student={selectedStudent} />
-          }
-
-          <p className='intro'>
-            Her oppretter du bekreftelse om utplassering av eleven. Du må ha navnet eller organisasjonsnummeret til virksomheten hvor eleven skal utplasseres, avdelingen hvor eleven skal arbeide, og oppmøtested. Du må også fylle ut kontaktinformasjon til kontaktperson(er) hos virksomheten, i tillegg til elevens pårørende.
-            <br />
-            <br />
-            Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
-          </p>
-          <div className='form'>
-            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
-            <CompanySelector brregData={brregData} setCompany={setCompany} />
-            <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
+  function FormView () {
+    return (
+      <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
               <CompanyDetails company={company} />
               <div className='input-element'>
                 <TextField
@@ -201,6 +179,34 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 </div>
               </button>
             </form>
+    )
+  }
+
+  return (
+    <>
+      <PreviewModal />
+      <Modal
+        {...props}
+        className='yff-confirmation-modal'
+        onDismiss={props.onDismiss}
+      >
+        <ModalBody>
+          {
+            selectedStudent &&
+            selectedStudent.firstName &&
+              <StudentCard student={selectedStudent} />
+          }
+
+          <p className='intro'>
+            Her oppretter du bekreftelse om utplassering av eleven. Du må ha navnet eller organisasjonsnummeret til virksomheten hvor eleven skal utplasseres, avdelingen hvor eleven skal arbeide, og oppmøtested. Du må også fylle ut kontaktinformasjon til kontaktperson(er) hos virksomheten, i tillegg til elevens pårørende.
+            <br />
+            <br />
+            Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
+          </p>
+          <div className='form'>
+            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
+            <CompanySelector brregData={brregData} setCompany={setCompany} />
+            {company && <FormView />}
           </div>
         </ModalBody>
 
