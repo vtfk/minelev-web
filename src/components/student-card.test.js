@@ -14,7 +14,7 @@ describe('tester StudentCard komponenten', () => {
     expect(screen.getByText(/lykke/i)).toBeInTheDocument()
     expect(screen.getByText(/testen videregående skole/i)).toBeInTheDocument()
     expect(screen.getByText(/TESVS:2STB/i)).toBeInTheDocument()
-    expect(screen.getByText(/17. juni 2004/i)).toBeInTheDocument()
+    expect(screen.getByText(/17. juni 2004/i) || screen.getByText(/June 17, 2004/i)).toBeInTheDocument()
     expect(screen.getByText(/alv1706@skole.vtfk.no/i)).toBeInTheDocument()
   })
 })

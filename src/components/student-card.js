@@ -4,7 +4,7 @@ import { Heading3, Paragraph, Link } from '../_lib-components/Typography'
 import { InitialsBadge } from '../_lib-components/InitialsBadge'
 
 function prettyPrintDate (date) {
-  return new Date(date).toLocaleDateString('nb-no', { day: '2-digit', month: 'long', year: 'numeric' })
+  return new Date(date).toLocaleDateString('nb-NO', { day: '2-digit', month: 'long', year: 'numeric' })
 }
 
 function StudentCard (props) {
