@@ -74,7 +74,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   // TODO: fikse ekte dokument og create content
   async function createDocument () {
     const maal = await apiGet(`${API.URL}/yff/${selectedStudentId}/maal`)
-    const content = createDocumentContent({maal})
+    const content = createDocumentContent({ maal })
     return {
       type: 'yff',
       variant: 'laereplan',
