@@ -1,5 +1,3 @@
-// TODO: Vise hentet info
-
 function repackCompany (company) {
   const {
     navn: bedriftsNavn,
