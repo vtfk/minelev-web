@@ -6,11 +6,9 @@ import { useSession } from '@vtfk/react-msal'
 import { useForm } from 'react-hook-form'
 import { nanoid } from 'nanoid'
 
-import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
-import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
