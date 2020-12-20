@@ -61,11 +61,11 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     }
   }
 
-  // TODO repacke document for preview
+  // TODO repacke document for preview og create content
   function createDocument () {
     return {
-      type: 'samtale',
-      variant: 'samtale',
+      type: 'yff',
+      variant: 'tilbakemelding',
       student: {
         username: selectedStudentId
       },

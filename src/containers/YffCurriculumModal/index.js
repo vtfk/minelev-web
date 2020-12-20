@@ -62,11 +62,15 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     const document = await createDocument()
     await apiPost(`${API.URL}/documents`, document)
     successMessage('👍', 'Lokal læreplan er sendt og arkivert')
-    // TODO cleanup state
+    // cleanup state
+    setSelectedKlassetrinn('')
+    setKompetansemaal(false)
+    setUtplasseringer([])
+    setUtplassering(false)
     props.onDismiss()
   }
 
-  // TODO: fikse ekte dokument
+  // TODO: fikse ekte dokument og create content
   async function createDocument () {
     const maal = await apiGet(`${API.URL}/yff/${selectedStudentId}/maal`)
     return {
