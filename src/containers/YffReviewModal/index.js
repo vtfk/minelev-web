@@ -10,6 +10,7 @@ import { Heading3, Link } from '../../_lib-components/Typography'
 import { RadioButton } from '../../_lib-components/RadioButton'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
+import createDocumentContent from '../../lib/create-yff-document-content'
 import StudentCard from '../../components/student-card'
 import Evaluation from './evaluation'
 import Review from './review'
@@ -63,15 +64,14 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
 
   // TODO repacke document for preview og create content
   function createDocument () {
+    const content = createDocumentContent({})
     return {
       type: 'yff',
       variant: 'tilbakemelding',
       student: {
         username: selectedStudentId
       },
-      content: {
-        year: new Date().getFullYear()
-      }
+      content
     }
   }
 

@@ -13,6 +13,7 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
 import StudentCard from '../../components/student-card'
+import createDocumentContent from '../../lib/create-yff-document-content'
 import CompanySelector from './company-selector'
 import EntitySearch from './entity-search'
 import CompanyDetails from './company-details'
@@ -95,15 +96,14 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
 
   // TODO: Lage create content for yff
   function createDocument () {
+    const content = createDocumentContent({})
     return {
       type: 'yff',
       variant: 'bekreftelse',
       student: {
         username: selectedStudentId
       },
-      content: {
-        year: new Date().getFullYear()
-      }
+      content
     }
   }
 

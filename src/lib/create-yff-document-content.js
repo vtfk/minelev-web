@@ -4,7 +4,9 @@
  * @returns {Object} ferdig content for dokument
  */
 function createYFFContent (data) {
-  return data
+  return {
+    year: new Date().getFullYear()
+  }
 }
 
 export default createYFFContent
