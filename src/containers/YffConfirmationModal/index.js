@@ -155,6 +155,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
                 />
               </div>
               <h2 className='subheader'>Tidsrom</h2>
+              {/** TODO: Vurdere å hente inn kalenderkomponenten */}
               <div className='input-element'>
                 <label htmlFor='datofra'>Fra og med: </label>
                 <input type='date' name='fraDato' id='datofra' placeholder='f.o.m' />

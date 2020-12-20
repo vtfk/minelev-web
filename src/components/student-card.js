@@ -1,9 +1,11 @@
-import Moment from 'react-moment'
-
 import { ROUTES } from '../config/constants'
 
 import { Heading3, Paragraph, Link } from '../_lib-components/Typography'
 import { InitialsBadge } from '../_lib-components/InitialsBadge'
+
+function prettyPrintDate (date) {
+  return new Date(date).toLocaleDateString('no', { day: '2-digit', month: 'long', year: 'numeric' })
+}
 
 function StudentCard (props) {
   const { student } = props
@@ -31,7 +33,7 @@ function StudentCard (props) {
         <div className='other'>
           <Paragraph>{schoolName}</Paragraph>
           <Paragraph><Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link></Paragraph>
-          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{birthdate}</Moment></Paragraph>
+          <Paragraph>{prettyPrintDate(birthdate)}</Paragraph>
           <Paragraph>{mail}</Paragraph>
         </div>
       </div>
