@@ -10,6 +10,7 @@ import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage } from '../../lib/toasts'
+import createDocumentContent from '../../lib/create-yff-document-content'
 import StudentCard from '../../components/student-card'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
@@ -62,22 +63,25 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     const document = await createDocument()
     await apiPost(`${API.URL}/documents`, document)
     successMessage('👍', 'Lokal læreplan er sendt og arkivert')
+    // cleanup state
+    setSelectedKlassetrinn('')
+    setKompetansemaal(false)
+    setUtplasseringer([])
+    setUtplassering(false)
     props.onDismiss()
   }
 
-  // TODO: fikse ekte dokument
+  // TODO: fikse ekte dokument og create content
   async function createDocument () {
     const maal = await apiGet(`${API.URL}/yff/${selectedStudentId}/maal`)
+    const content = createDocumentContent({ maal })
     return {
       type: 'yff',
       variant: 'laereplan',
       student: {
         username: selectedStudentId
       },
-      content: {
-        year: new Date().getFullYear(),
-        maal
-      }
+      content
     }
   }
 
