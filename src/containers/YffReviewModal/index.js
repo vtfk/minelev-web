@@ -62,6 +62,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     }
   }
 
+  // TODO: Bryte ut tilbakemelding i egen funksjon
   function generateDocument () {
     return createDocument({
       variant: 'tilbakemelding',
@@ -73,7 +74,6 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     const form = document.getElementById('review-form')
     const data = new FormData(form)
     const json = serializeForm(data)
-    console.log(json)
     // filterer ut alle kompetansemål fra tilbakemeldingen
     const evalueringsdata = Object.keys(json)
       .filter(key => !key.startsWith('kompetansemaal'))
