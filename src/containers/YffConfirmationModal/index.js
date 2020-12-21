@@ -39,11 +39,17 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const onSubmit = (data, event) => {
     event.preventDefault()
   }
-  const sendForm = async () => {
+
+  const generateBekreftelse = () => {
     const form = document.getElementById('bekreftelse-form')
     const data = new FormData(form)
     const json = serializeForm(data)
     const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
+    return bekreftelse
+  }
+
+  const sendForm = async () => {
+    const bekreftelse = generateBekreftelse()
     await apiPost(`${API.URL}/yff/${selectedStudentId}/utplassering`, bekreftelse)
     successMessage('👍', 'Bekreftelse om utplassering sendt.')
     // cleanup state
@@ -95,9 +101,11 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   }
 
   function generateDocument () {
+    const bekreftelse = generateBekreftelse()
     return createDocument({
       variant: 'bekreftelse',
-      student: selectedStudent
+      student: selectedStudent,
+      bekreftelse
     })
   }
 
