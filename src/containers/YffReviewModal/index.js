@@ -44,6 +44,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     }
     async function getMaal () {
       const laereplan = await apiGet(`${API.URL}/yff/${selectedStudentId}/laereplan`)
+      // TODO: denne må nok endres
       const maal = laereplan[0].default.filter(maal => maal.referanseID === utplasseringsId)
       setMaal(maal)
     }
@@ -62,7 +63,6 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     }
   }
 
-  // TODO: Hente ut komplette kompetansmål for document?
   function generateTilbakemeldingsdata () {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
@@ -78,10 +78,9 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
       .filter(key => key.startsWith('kompetansemaal'))
       .reduce((array, key) => {
         const _id = key.split('-')[1]
-        array.push({
-          _id,
-          tilbakemelding: json[key]
-        })
+        const maalInnhold = maal.find(item => item._id === _id)
+        const tilbakemelding = json[key]
+        array.push({ ...maalInnhold, tilbakemelding })
         return array
       }, [])
     return {
