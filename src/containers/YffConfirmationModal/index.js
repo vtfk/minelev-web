@@ -13,7 +13,7 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
 import StudentCard from '../../components/student-card'
-import createDocumentContent from '../../lib/create-yff-document-content'
+import createDocument from '../../lib/create-yff-document'
 import CompanySelector from './company-selector'
 import EntitySearch from './entity-search'
 import CompanyDetails from './company-details'
@@ -94,17 +94,11 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     sendForm()
   }
 
-  // TODO: Lage create content for yff
-  function createDocument () {
-    const content = createDocumentContent({})
-    return {
-      type: 'yff',
-      variant: 'bekreftelse',
-      student: {
-        username: selectedStudentId
-      },
-      content
-    }
+  function generateDocument () {
+    return createDocument({
+      variant: 'brekreftelse',
+      student: selectedStudent
+    })
   }
 
   function FormView () {
@@ -213,7 +207,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => openPreviewModal(createDocument())}>Forhåndsvisning</Link>
+            <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             {/* TODO: component */}
