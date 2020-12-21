@@ -62,15 +62,8 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     }
   }
 
-  // TODO: Bryte ut tilbakemelding i egen funksjon
-  function generateDocument () {
-    return createDocument({
-      variant: 'tilbakemelding',
-      student: selectedStudent
-    })
-  }
-
-  async function send () {
+  // TODO: Hente ut komplette kompetansmål for document?
+  function generateTilbakemeldingsdata () {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
     const json = serializeForm(data)
@@ -81,17 +74,42 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
         data[key] = json[key]
         return data
       }, {})
-    const tilbakemeldingsUrl = `${API.URL}/yff/${selectedStudentId}/utplassering/${utplasseringsId}`
-    // oppdaterer alle mål med tilbakemeldinger
-    const kompetanseMaalUrl = `${API.URL}/yff/${selectedStudentId}/maal`
-    const jobs = Object.keys(json)
+    const kompetansemal = Object.keys(json)
       .filter(key => key.startsWith('kompetansemaal'))
       .reduce((array, key) => {
         const _id = key.split('-')[1]
-        const url = `${kompetanseMaalUrl}/${_id}`
-        array.push(apiPut(url, { tilbakemelding: json[key] }))
+        array.push({
+          _id,
+          tilbakemelding: json[key]
+        })
         return array
       }, [])
+    return {
+      evalueringsdata,
+      kompetansemal
+    }
+  }
+
+  function generateDocument () {
+    const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
+    return createDocument({
+      variant: 'tilbakemelding',
+      student: selectedStudent,
+      evalueringsdata,
+      kompetansemal
+    })
+  }
+
+  async function send () {
+    const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
+    const tilbakemeldingsUrl = `${API.URL}/yff/${selectedStudentId}/utplassering/${utplasseringsId}`
+    // oppdaterer alle mål med tilbakemeldinger
+    const kompetanseMaalUrl = `${API.URL}/yff/${selectedStudentId}/maal`
+    const jobs = kompetansemal.map(maal => {
+      const { _id, tilbakemelding } = maal
+      const url = `${kompetanseMaalUrl}/${_id}`
+      return apiPut(url, { tilbakemelding })
+    })
     jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
     await Promise.all(jobs)
     successMessage('👍', 'Tilbakemeldingen er lagret.')
