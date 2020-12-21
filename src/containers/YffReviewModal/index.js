@@ -10,7 +10,7 @@ import { Heading3, Link } from '../../_lib-components/Typography'
 import { RadioButton } from '../../_lib-components/RadioButton'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
-import createDocumentContent from '../../lib/create-yff-document-content'
+import createDocument from '../../lib/create-yff-document'
 import StudentCard from '../../components/student-card'
 import Evaluation from './evaluation'
 import Review from './review'
@@ -62,17 +62,11 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     }
   }
 
-  // TODO repacke document for preview og create content
-  function createDocument () {
-    const content = createDocumentContent({})
-    return {
-      type: 'yff',
+  function generateDocument () {
+    return createDocument({
       variant: 'tilbakemelding',
-      student: {
-        username: selectedStudentId
-      },
-      content
-    }
+      student: selectedStudent
+    })
   }
 
   async function send () {
@@ -158,7 +152,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => openPreviewModal(createDocument())}>Forhåndsvisning</Link>
+            <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             <button onClick={() => { send() }} className='button button-primary'>Lagre og arkiver</button>
