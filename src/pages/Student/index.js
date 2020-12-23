@@ -60,8 +60,8 @@ export function Student ({ match, ...props }) {
 
     async function getUtplasseringer () {
       const utplasseringer = await apiGet(`${API.URL}/yff/${id}/utplassering`)
-      // TODO: filter på alle som har fått tilbakemelding
-      setUtplasseringer(utplasseringer)
+      const utenTilbakemelding = utplasseringer.filter(utplassering => !utplassering.tilbakemelding)
+      setUtplasseringer(utenTilbakemelding)
     }
     getUtplasseringer()
   }, [])
