@@ -7,7 +7,7 @@ import iconClose from './icon-close.svg'
 
 import './styles.scss'
 
-export function Modal ({ open, title, className, onDismiss, ...props }) {
+export function Modal ({ open, title, className, onDismiss, onFinished, ...props }) {
   return (
     open === true &&
       <>
@@ -61,6 +61,7 @@ Modal.propTypes = {
   open: PropTypes.bool.isRequired,
   title: PropTypes.string,
   onDismiss: PropTypes.func.isRequired,
+  onFinished: PropTypes.func,
   className: PropTypes.string
 }
 
