@@ -116,6 +116,9 @@ export function Student ({ match, ...props }) {
               title='Bekreftelse om utplassering av elev'
               onDismiss={() => {
                 setConfirmationModalState(false)
+              }}
+              onFinished={() => {
+                setConfirmationModalState(false)
                 getUtplasseringer()
               }}
             />
@@ -133,6 +136,9 @@ export function Student ({ match, ...props }) {
               utplasseringsId={selectedUtplassering}
               title='Tilbakemelding på utplassering'
               onDismiss={() => {
+                setReviewModalState(false)
+              }}
+              onFinished={() => {
                 setReviewModalState(false)
                 getUtplasseringer()
               }}

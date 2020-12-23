@@ -58,8 +58,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     setSelectedStudent(null)
     setContactPersonsCompany([<CompanyContactPerson key={nanoid()} />])
     setContactPersonsStudent([<StudentContactPerson key={nanoid()} />])
-    props.onDismiss()
-    // TODO: Refresh studentsiden etter oppdateringer
+    props.onFinished()
   }
 
   useEffect(() => {

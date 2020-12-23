@@ -118,7 +118,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     setSelectedStudent(null)
     setUtplassering(false)
     setMaal(false)
-    props.onDismiss()
+    props.onFinished()
   }
 
   return (
