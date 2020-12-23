@@ -94,8 +94,10 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     return createDocument({
       variant: 'tilbakemelding',
       student: selectedStudent,
-      evalueringsdata,
-      kompetansemal
+      content: {
+        evalueringsdata,
+        kompetansemal
+      }
     })
   }
 

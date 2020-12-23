@@ -76,7 +76,9 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     return createDocument({
       variant: 'laereplan',
       student: selectedStudent,
-      maal
+      content: {
+        maal
+      }
     })
   }
 

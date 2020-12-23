@@ -105,7 +105,9 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     return createDocument({
       variant: 'bekreftelse',
       student: selectedStudent,
-      bekreftelse
+      content: {
+        bekreftelse
+      }
     })
   }
 
