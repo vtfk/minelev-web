@@ -41,6 +41,12 @@ export function Student ({ match, ...props }) {
 
   const { id } = match.params
 
+  async function getUtplasseringer () {
+    const utplasseringer = await apiGet(`${API.URL}/yff/${id}/utplassering`)
+    const utenTilbakemelding = utplasseringer.filter(utplassering => !utplassering.tilbakemelding)
+    setUtplasseringer(utenTilbakemelding)
+  }
+
   useEffect(() => {
     async function getStudent () {
       const student = await apiGet(API.URL + '/students/' + id)
@@ -57,12 +63,6 @@ export function Student ({ match, ...props }) {
       setNotes(notes)
     }
     getDocuments()
-
-    async function getUtplasseringer () {
-      const utplasseringer = await apiGet(`${API.URL}/yff/${id}/utplassering`)
-      const utenTilbakemelding = utplasseringer.filter(utplassering => !utplassering.tilbakemelding)
-      setUtplasseringer(utenTilbakemelding)
-    }
     getUtplasseringer()
   }, [])
 
@@ -114,7 +114,10 @@ export function Student ({ match, ...props }) {
               open={confirmationModalState}
               selectedStudentId={student.username}
               title='Bekreftelse om utplassering av elev'
-              onDismiss={() => { setConfirmationModalState(false) }}
+              onDismiss={() => {
+                setConfirmationModalState(false)
+                getUtplasseringer()
+              }}
             />
 
             <YffCurriculumModal
@@ -129,7 +132,10 @@ export function Student ({ match, ...props }) {
               selectedStudentId={student.username}
               utplasseringsId={selectedUtplassering}
               title='Tilbakemelding på utplassering'
-              onDismiss={() => { setReviewModalState(false) }}
+              onDismiss={() => {
+                setReviewModalState(false)
+                getUtplasseringer()
+              }}
             />
 
             <YffSendModal
