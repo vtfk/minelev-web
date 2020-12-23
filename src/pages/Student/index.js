@@ -91,9 +91,9 @@ export function Student ({ match, ...props }) {
     setNoteModalState(true)
   }
 
-  function Utplassering ({ id, bedrift, data }) {
-    const { navn } = bedrift
-    const { startDato, sluttDato } = data
+  function Utplassering ({ _id: id, bedriftsData, utplasseringData }) {
+    const { navn } = bedriftsData
+    const { startDato, sluttDato } = utplasseringData
     return (
       <CardLink className='action-link' onClick={() => { openReviewModal(id) }}>
         Tilbakemelding på utplassering<br />
@@ -229,8 +229,7 @@ export function Student ({ match, ...props }) {
                   <br />
                   <Paragraph size='small'>Du må først opprette lokal læreplan</Paragraph>
                 </CardLink>
-                {/* TODO: knytte utplassering til utplassering, en pr utplassering som ikke er ferdig tilbakemelding på */}
-                {utplasseringer && utplasseringer.map(utplassering => <Utplassering id={utplassering._id} bedrift={utplassering.bedriftsData} data={utplassering.utplasseringData} key={nanoid()} />)}
+                {utplasseringer && utplasseringer.map(utplassering => <Utplassering {...utplassering} key={nanoid()} />)}
               </div>
 
               <div className='activity-panel'>
