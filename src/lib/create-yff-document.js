@@ -1,12 +1,12 @@
 /**
  * Funksjon som lager innhold for yff-dokumenter
  * @param {Object} data objekt med innhold som skal tilpasses
- * @returns {Object} ferdig content for dokument
+ * @returns {Object} ferdig dokumentinnhold
  */
-function createYFFContent (data) {
+function createYFFDocument (data) {
   return {
     year: new Date().getFullYear()
   }
 }
 
-export default createYFFContent
+export default createYFFDocument

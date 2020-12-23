@@ -10,7 +10,7 @@ import { Heading3, Link } from '../../_lib-components/Typography'
 import { RadioButton } from '../../_lib-components/RadioButton'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
-import createDocumentContent from '../../lib/create-yff-document-content'
+import createDocument from '../../lib/create-yff-document'
 import StudentCard from '../../components/student-card'
 import Evaluation from './evaluation'
 import Review from './review'
@@ -44,6 +44,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     }
     async function getMaal () {
       const laereplan = await apiGet(`${API.URL}/yff/${selectedStudentId}/laereplan`)
+      // TODO: denne må nok endres
       const maal = laereplan[0].default.filter(maal => maal.referanseID === utplasseringsId)
       setMaal(maal)
     }
@@ -62,24 +63,10 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     }
   }
 
-  // TODO repacke document for preview og create content
-  function createDocument () {
-    const content = createDocumentContent({})
-    return {
-      type: 'yff',
-      variant: 'tilbakemelding',
-      student: {
-        username: selectedStudentId
-      },
-      content
-    }
-  }
-
-  async function send () {
+  function generateTilbakemeldingsdata () {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
     const json = serializeForm(data)
-    console.log(json)
     // filterer ut alle kompetansemål fra tilbakemeldingen
     const evalueringsdata = Object.keys(json)
       .filter(key => !key.startsWith('kompetansemaal'))
@@ -87,17 +74,41 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
         data[key] = json[key]
         return data
       }, {})
-    const tilbakemeldingsUrl = `${API.URL}/yff/${selectedStudentId}/utplassering/${utplasseringsId}`
-    // oppdaterer alle mål med tilbakemeldinger
-    const kompetanseMaalUrl = `${API.URL}/yff/${selectedStudentId}/maal`
-    const jobs = Object.keys(json)
+    const kompetansemal = Object.keys(json)
       .filter(key => key.startsWith('kompetansemaal'))
       .reduce((array, key) => {
         const _id = key.split('-')[1]
-        const url = `${kompetanseMaalUrl}/${_id}`
-        array.push(apiPut(url, { tilbakemelding: json[key] }))
+        const maalInnhold = maal.find(item => item._id === _id)
+        const tilbakemelding = json[key]
+        array.push({ ...maalInnhold, tilbakemelding })
         return array
       }, [])
+    return {
+      evalueringsdata,
+      kompetansemal
+    }
+  }
+
+  function generateDocument () {
+    const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
+    return createDocument({
+      variant: 'tilbakemelding',
+      student: selectedStudent,
+      evalueringsdata,
+      kompetansemal
+    })
+  }
+
+  async function send () {
+    const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
+    const tilbakemeldingsUrl = `${API.URL}/yff/${selectedStudentId}/utplassering/${utplasseringsId}`
+    // oppdaterer alle mål med tilbakemeldinger
+    const kompetanseMaalUrl = `${API.URL}/yff/${selectedStudentId}/maal`
+    const jobs = kompetansemal.map(maal => {
+      const { _id, tilbakemelding } = maal
+      const url = `${kompetanseMaalUrl}/${_id}`
+      return apiPut(url, { tilbakemelding })
+    })
     jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
     await Promise.all(jobs)
     successMessage('👍', 'Tilbakemeldingen er lagret.')
@@ -158,7 +169,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => openPreviewModal(createDocument())}>Forhåndsvisning</Link>
+            <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             <button onClick={() => { send() }} className='button button-primary'>Lagre og arkiver</button>

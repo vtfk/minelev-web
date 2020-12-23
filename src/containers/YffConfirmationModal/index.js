@@ -13,7 +13,7 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
 import StudentCard from '../../components/student-card'
-import createDocumentContent from '../../lib/create-yff-document-content'
+import createDocument from '../../lib/create-yff-document'
 import CompanySelector from './company-selector'
 import EntitySearch from './entity-search'
 import CompanyDetails from './company-details'
@@ -39,11 +39,17 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
   const onSubmit = (data, event) => {
     event.preventDefault()
   }
-  const sendForm = async () => {
+
+  const generateBekreftelse = () => {
     const form = document.getElementById('bekreftelse-form')
     const data = new FormData(form)
     const json = serializeForm(data)
     const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
+    return bekreftelse
+  }
+
+  const sendForm = async () => {
+    const bekreftelse = generateBekreftelse()
     await apiPost(`${API.URL}/yff/${selectedStudentId}/utplassering`, bekreftelse)
     successMessage('👍', 'Bekreftelse om utplassering sendt.')
     // cleanup state
@@ -94,17 +100,13 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     sendForm()
   }
 
-  // TODO: Lage create content for yff
-  function createDocument () {
-    const content = createDocumentContent({})
-    return {
-      type: 'yff',
+  function generateDocument () {
+    const bekreftelse = generateBekreftelse()
+    return createDocument({
       variant: 'bekreftelse',
-      student: {
-        username: selectedStudentId
-      },
-      content
-    }
+      student: selectedStudent,
+      bekreftelse
+    })
   }
 
   function FormView () {
@@ -213,7 +215,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => openPreviewModal(createDocument())}>Forhåndsvisning</Link>
+            <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             {/* TODO: component */}

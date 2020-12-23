@@ -10,7 +10,7 @@ import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage } from '../../lib/toasts'
-import createDocumentContent from '../../lib/create-yff-document-content'
+import createDocument from '../../lib/create-yff-document'
 import StudentCard from '../../components/student-card'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
@@ -71,18 +71,13 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     props.onDismiss()
   }
 
-  // TODO: fikse ekte dokument og create content
-  async function createDocument () {
+  async function generateDocument () {
     const maal = await apiGet(`${API.URL}/yff/${selectedStudentId}/maal`)
-    const content = createDocumentContent({ maal })
-    return {
-      type: 'yff',
+    return createDocument({
       variant: 'laereplan',
-      student: {
-        username: selectedStudentId
-      },
-      content
-    }
+      student: selectedStudent,
+      maal
+    })
   }
 
   return (
@@ -125,7 +120,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={async () => { const document = await createDocument(); openPreviewModal(document) }}>Forhåndsvisning</Link>
+            <Link onClick={async () => { const document = await generateDocument(); openPreviewModal(document) }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             <button onClick={() => { send() }} className='button button-primary'>Send og arkiver</button>
