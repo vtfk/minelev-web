@@ -41,6 +41,12 @@ export function Student ({ match, ...props }) {
 
   const { id } = match.params
 
+  async function getUtplasseringer () {
+    const utplasseringer = await apiGet(`${API.URL}/yff/${id}/utplassering`)
+    const utenTilbakemelding = utplasseringer.filter(utplassering => !utplassering.tilbakemelding)
+    setUtplasseringer(utenTilbakemelding)
+  }
+
   useEffect(() => {
     async function getStudent () {
       const student = await apiGet(API.URL + '/students/' + id)
@@ -57,12 +63,6 @@ export function Student ({ match, ...props }) {
       setNotes(notes)
     }
     getDocuments()
-
-    async function getUtplasseringer () {
-      const utplasseringer = await apiGet(`${API.URL}/yff/${id}/utplassering`)
-      // TODO: filter på alle som har fått tilbakemelding
-      setUtplasseringer(utplasseringer)
-    }
     getUtplasseringer()
   }, [])
 
@@ -75,7 +75,6 @@ export function Student ({ match, ...props }) {
   }
 
   function openReviewModal ({ id }) {
-    console.log(id)
     setSelectedUtplassering(id)
     setReviewModalState(true)
   }
@@ -92,13 +91,18 @@ export function Student ({ match, ...props }) {
     setNoteModalState(true)
   }
 
-  function Utplassering (id) {
+  function Utplassering ({ _id: id, bedriftsData, utplasseringData }) {
+    const { navn } = bedriftsData
+    const { startDato, sluttDato } = utplasseringData
     return (
       <CardLink className='action-link' onClick={() => { openReviewModal(id) }}>
-        Tilbakemelding på utplassering
+        Tilbakemelding på utplassering<br />
+        <Paragraph size='small'>{navn}</Paragraph>
+        <Paragraph size='small'>{startDato} - {sluttDato}</Paragraph>
       </CardLink>
     )
   }
+
   return (
     <DefaultLayout>
 
@@ -110,7 +114,13 @@ export function Student ({ match, ...props }) {
               open={confirmationModalState}
               selectedStudentId={student.username}
               title='Bekreftelse om utplassering av elev'
-              onDismiss={() => { setConfirmationModalState(false) }}
+              onDismiss={() => {
+                setConfirmationModalState(false)
+              }}
+              onFinished={() => {
+                setConfirmationModalState(false)
+                getUtplasseringer()
+              }}
             />
 
             <YffCurriculumModal
@@ -125,7 +135,13 @@ export function Student ({ match, ...props }) {
               selectedStudentId={student.username}
               utplasseringsId={selectedUtplassering}
               title='Tilbakemelding på utplassering'
-              onDismiss={() => { setReviewModalState(false) }}
+              onDismiss={() => {
+                setReviewModalState(false)
+              }}
+              onFinished={() => {
+                setReviewModalState(false)
+                getUtplasseringer()
+              }}
             />
 
             <YffSendModal
@@ -225,8 +241,7 @@ export function Student ({ match, ...props }) {
                   <br />
                   <Paragraph size='small'>Du må først opprette lokal læreplan</Paragraph>
                 </CardLink>
-                {/* TODO: knytte utplassering til utplassering, en pr utplassering som ikke er ferdig tilbakemelding på */}
-                {utplasseringer && utplasseringer.map(utplassering => <Utplassering id={utplassering._id} key={nanoid()} />)}
+                {utplasseringer && utplasseringer.map(utplassering => <Utplassering {...utplassering} key={nanoid()} />)}
               </div>
 
               <div className='activity-panel'>

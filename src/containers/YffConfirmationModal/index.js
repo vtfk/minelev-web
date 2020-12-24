@@ -58,8 +58,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     setSelectedStudent(null)
     setContactPersonsCompany([<CompanyContactPerson key={nanoid()} />])
     setContactPersonsStudent([<StudentContactPerson key={nanoid()} />])
-    props.onDismiss()
-    // TODO: Refresh studentsiden etter oppdateringer
+    props.onFinished()
   }
 
   useEffect(() => {
@@ -105,7 +104,9 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     return createDocument({
       variant: 'bekreftelse',
       student: selectedStudent,
-      bekreftelse
+      content: {
+        bekreftelse
+      }
     })
   }
 

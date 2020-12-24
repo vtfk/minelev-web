@@ -4,8 +4,15 @@
  * @returns {Object} ferdig dokumentinnhold
  */
 function createYFFDocument (data) {
+  const { variant, student, content } = data
   return {
-    year: new Date().getFullYear()
+    type: 'yff',
+    variant,
+    student,
+    content: {
+      ...content,
+      year: new Date().getFullYear()
+    }
   }
 }
 
