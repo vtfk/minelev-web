@@ -34,10 +34,18 @@ function Arbeidsoppgaver (props) {
 
 function KompetansemalVelger (props) {
   const [selectedMaal, setSelectedMaal] = useState([])
-  const { kompetansemaal, apiPost, selectedStudentId } = props
+  const {
+    kompetansemaal,
+    apiPost,
+    selectedStudentId,
+    referanse
+  } = props
+
   if (!kompetansemaal) {
     return null
   }
+  const { referanseID, referanseTittel } = referanse
+
   const items = kompetansemaal.map(item => {
     return { value: item.kode, label: item.tittel.nb, ...item }
   })
@@ -55,13 +63,14 @@ function KompetansemalVelger (props) {
 
   const generateMaal = (grep, arbeidsOppgaver) => {
     return {
-      studentUserName: 'fer0804', // TODO må hentes inn
-      referanseID: '5d7f29d059e31d0007cc9ff5', // TODO må hentes inn
-      referanseTittel: 'Norges røde kors', // TODO må hentes inn
+      studentUserName: selectedStudentId,
+      referanseID,
+      referanseTittel,
       grep,
       arbeidsOppgaver
     }
   }
+
   const sendForm = async () => {
     const form = document.getElementById('kompetansemaal-form')
     const data = new FormData(form)
