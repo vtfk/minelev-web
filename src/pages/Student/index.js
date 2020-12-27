@@ -74,7 +74,7 @@ export function Student ({ match, ...props }) {
     setCurriculumModalState(true)
   }
 
-  function openReviewModal ({ id }) {
+  function openReviewModal (id) {
     setSelectedUtplassering(id)
     setReviewModalState(true)
   }
