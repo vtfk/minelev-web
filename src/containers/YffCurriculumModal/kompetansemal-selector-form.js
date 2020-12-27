@@ -53,6 +53,15 @@ function KompetansemalVelger (props) {
     setSelectedMaal(copySelectedMaal)
   }
 
+  const generateMaal = (grep, arbeidsOppgaver) => {
+    return {
+      studentUserName: 'fer0804', // TODO må hentes inn
+      referanseID: '5d7f29d059e31d0007cc9ff5', // TODO må hentes inn
+      referanseTittel: 'Norges røde kors', // TODO må hentes inn
+      grep,
+      arbeidsOppgaver
+    }
+  }
   const sendForm = async () => {
     const form = document.getElementById('kompetansemaal-form')
     const data = new FormData(form)
@@ -60,10 +69,12 @@ function KompetansemalVelger (props) {
     const keys = Object.keys(json)
     const copyOfMaal = [...kompetansemaal]
     const selectedMaal = copyOfMaal.filter(maal => keys.includes(maal.kode)).reduce((list, maal) => {
-      const arbeidsoppgaver = json[maal.kode]
-      list.push({ ...maal, arbeidsoppgaver })
+      const arbeidsOppgaver = json[maal.kode]
+      const kompetansemaal = generateMaal(maal, arbeidsOppgaver)
+      list.push(kompetansemaal)
       return list
     }, [])
+    console.log(selectedMaal)
     const url = `${API.URL}/yff/${selectedStudentId}/maal`
     await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
   }
