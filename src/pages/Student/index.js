@@ -233,7 +233,7 @@ export function Student ({ match, ...props }) {
                   Bekreftelse om utplassering av elev
                 </CardLink>
                 <CardLink className='action-link' onClick={() => { openCurriculumModal() }}>
-                  Opprett lokal læreplan
+                  Lokal læreplan
                 </CardLink>
                 {/** TODO: Fjerne denne? Kan tas fra lokal læreplan */}
                 <CardLink title='Du må først opprette lokal læreplan' disabled className='action-link' onClick={() => { openSendModal() }}>

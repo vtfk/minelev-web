@@ -46,8 +46,6 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
       const laereplan = await apiGet(`${API.URL}/yff/${selectedStudentId}/laereplan`)
       // TODO: denne må nok endres
       const maal = laereplan[0].default.filter(maal => maal.referanseID === utplasseringsId)
-      console.log('maaaaal')
-      console.log(maal)
       setMaal(maal)
     }
     async function getUtplassering () {
