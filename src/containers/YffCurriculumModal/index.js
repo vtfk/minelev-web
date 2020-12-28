@@ -20,8 +20,7 @@ import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
-export function YffCurriculumModal ({ selectedStudentId, ...props }) {
-  const [selectedStudent, setSelectedStudent] = useState(null)
+export function YffCurriculumModal ({ student, isOpen, ...props }) {
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
@@ -29,6 +28,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [referanse, setReferanse] = useState({})
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
+  const { id: studentID } = student
   console.log(selectedKlassetrinn) // TODO: bruk denne i velgeren
 
   useEffect(() => {
@@ -40,22 +40,18 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   }, [])
 
   useEffect(() => {
-    async function getStudent () {
-      const student = await apiGet(API.URL + '/students/' + selectedStudentId)
-      setSelectedStudent(student.data)
-    }
     async function getUtplasseringer () {
-      const url = `${API.URL}/yff/${selectedStudentId}/utplassering`
+      const url = `${API.URL}/yff/${studentID}/utplassering`
       const data = await apiGet(url)
       setUtplasseringer(data)
     }
-    getStudent()
-    getUtplasseringer()
-  }, [selectedStudentId])
+    if (isOpen) {
+      getUtplasseringer()
+    }
+  }, [isOpen])
 
   useEffect(() => {
     if (utplassering) {
-      console.log(utplassering)
       setReferanse({
         referanseID: utplassering.value,
         referanseTittel: utplassering.label
@@ -82,10 +78,10 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   }
 
   async function generateDocument () {
-    const maal = await apiGet(`${API.URL}/yff/${selectedStudentId}/maal`)
+    const maal = await apiGet(`${API.URL}/yff/${studentID}/maal`)
     return createDocument({
       variant: 'laereplan',
-      student: selectedStudent,
+      student,
       content: {
         maal
       }
@@ -101,12 +97,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
         onDismiss={props.onDismiss}
       >
         <ModalBody>
-          {
-            selectedStudent &&
-            selectedStudent.firstName &&
-              <StudentCard student={selectedStudent} />
-          }
-
+          <StudentCard student={student} />
           <p className='intro'>
             Her endrer du den lokale læreplanen for eleven og velger kompetansemål eleven skal jobbe med i løpet av utplasseringen. Du skriver også inn elevens arbeidsoppgaver knyttet til hvert kompetansemål.
           </p>
@@ -121,10 +112,10 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
               {utplassering && utplassering.value === 1 && <SchoolSelectorForm />}
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
-              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={selectedStudentId} referanse={referanse} />
+              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={studentID} referanse={referanse} />
             </div>
 
-            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={selectedStudentId} />
+            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={studentID} />
 
           </div>
         </ModalBody>

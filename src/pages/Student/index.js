@@ -125,7 +125,8 @@ export function Student ({ match, ...props }) {
 
             <YffCurriculumModal
               open={curriculumModalState}
-              selectedStudentId={student.username}
+              isOpen={curriculumModalState}
+              student={student}
               title='Lokal læreplan'
               onDismiss={() => { setCurriculumModalState(false) }}
             />
