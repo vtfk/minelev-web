@@ -22,7 +22,7 @@ import pfdPreview from '../../lib/pdf-preview'
 
 import './styles.scss'
 
-export function YffReviewModal ({ student, utplasseringsId, ...props }) {
+export function YffReviewModal ({ student, utplasseringsId, isOpen, ...props }) {
   const [utplassering, setUtplassering] = useState()
   const [maal, setMaal] = useState()
   const { apiGet, apiPost, apiPut } = useSession()
@@ -48,9 +48,11 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
       const utplassering = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
       setUtplassering(utplassering[0])
     }
-    getUtplassering()
-    getMaal()
-  }, [utplasseringsId])
+    if (isOpen) {
+      getUtplassering()
+      getMaal()
+    }
+  }, [isOpen, utplasseringsId])
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {

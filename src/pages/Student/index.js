@@ -135,6 +135,7 @@ export function Student ({ match, ...props }) {
               student={student}
               utplasseringsId={selectedUtplassering}
               title='Tilbakemelding på utplassering'
+              isOpen={reviewModalState}
               onDismiss={() => {
                 setReviewModalState(false)
               }}
