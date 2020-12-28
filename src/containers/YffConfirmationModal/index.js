@@ -36,7 +36,6 @@ export function YffConfirmationModal ({ student, ...props }) {
   const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const { id: studentID } = student
-  const isOpen = props.open
   const onSubmit = (data, event) => {
     event.preventDefault()
   }
