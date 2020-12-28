@@ -3,8 +3,10 @@ import { API } from '../../config/app'
 import { Paragraph, Link } from '../../_lib-components/Typography'
 
 function Maal (props) {
-  const { tittel, arbeidsoppgaver, utplasseringssted, _id, deleteMal } = props
-  if (!tittel) return null
+  const { grep, arbeidsoppgaver, referanseTittel, _id, deleteMal } = props
+  if (!grep) return null
+  const { tittel } = grep
+
   return (
     <tr>
       <td>
@@ -16,7 +18,7 @@ function Maal (props) {
         </Paragraph>
       </td>
       <td>
-        {utplasseringssted}
+        {referanseTittel}
       </td>
       <td className='actions'>
         <Link onClick={() => deleteMal(_id)}>Fjern</Link>

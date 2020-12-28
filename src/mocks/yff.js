@@ -1,3 +1,9 @@
+/**
+ * YFF består egentlig bare av mål og utplassering
+ * læreplan = alle mål
+ * tilbakemelding = utplassering og mål/arbeidsoppgaver lagt opp for den
+ */
+
 const laereplan = require('./laereplan')
 
 const maal = {
@@ -15,8 +21,18 @@ const maal = {
   ],
   studentUserName: 'fer0804',
   referanseID: '5d7f29d059e31d0007cc9ff5',
-  kompetanseMaal: 'foreslå og sette i verk tiltak som fremmer mestring, helse og trivsel, og som stimulerer til et aktivt liv ',
-  arbeidsOppgaver: 'lede morgentrimmen'
+  referanseTittel: 'Norges røde kors',
+  grep: {
+    kode: 'K3703',
+    'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+    tittel: {
+      nb: 'planleggje, gjennomføre, dokumentere og vurdere  arbeidet',
+      nn: 'planleggje, gjennomføre, dokumentere og vurdere  arbeidet',
+      en: 'planleggje, gjennomføre, dokumentere og vurdere  arbeidet'
+    }
+  },
+  arbeidsOppgaver: 'lede morgentrimmen',
+  tilbakemelding: false
 }
 
 const maalmal = {
@@ -82,7 +98,8 @@ const utplassering = {
     startTid: '07:30',
     sluttTid: '15:00',
     oppmotested: 'Sauheradvegen'
-  }
+  },
+  tilbakemelding: false
 }
 
 const tilbakemelding = {

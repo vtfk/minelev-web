@@ -30,7 +30,8 @@ function Scores ({ id }) {
 }
 
 function Maal (props) {
-  const { _id, tittel, arbeidsoppgaver } = props
+  const { _id, grep, arbeidsoppgaver } = props
+  const { tittel } = grep
   return (
     <div>
       <div>{tittel.nb}</div>

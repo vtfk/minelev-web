@@ -14,10 +14,12 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
-    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
-    kode: '63646',
-    tittel: {
-      nb: 'mestre tre ulike typer masseflyttingsmaskiner'
+    referanseTittel: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
+    grep: {
+      kode: '63646',
+      tittel: {
+        nb: 'mestre tre ulike typer masseflyttingsmaskiner'
+      }
     },
     arbeidsoppgaver: 'lede morgentrimmen'
   },
@@ -36,10 +38,12 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
-    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
-    kode: '63646',
-    tittel: {
-      nb: 'bruke relevant måleutstyr'
+    referanseTittel: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
+    grep: {
+      kode: '63646',
+      tittel: {
+        nb: 'bruke relevant måleutstyr'
+      }
     },
     arbeidsoppgaver: 'lede morgentrimmen'
   },
@@ -58,10 +62,12 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
-    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
-    kode: '63646',
-    tittel: {
-      nb: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser'
+    referanseTittel: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
+    grep: {
+      kode: '63646',
+      tittel: {
+        nb: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser'
+      }
     },
     arbeidsoppgaver: 'lede morgentrimmen'
   },
@@ -80,10 +86,12 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
-    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
-    kode: '63646',
-    tittel: {
-      nb: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang'
+    referanseTittel: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
+    grep: {
+      kode: '63646',
+      tittel: {
+        nb: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang'
+      }
     },
     arbeidsoppgaver: 'lede morgentrimmen'
   },
@@ -102,10 +110,12 @@ const laereplan = [
     ],
     studentUserName: 'tro1407',
     referanseID: '5d7f29d059e31d0007cc9ff5',
-    utplasseringssted: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
-    kode: '63646',
-    tittel: {
-      nb: 'mestre tre ulike typer masseflyttingsmaskiner'
+    referanseTittel: 'Vest-Telemark vidaregåande skule, avdeling Seljord',
+    grep: {
+      kode: '63646',
+      tittel: {
+        nb: 'mestre tre ulike typer masseflyttingsmaskiner'
+      }
     },
     arbeidsoppgaver: 'følge gjeldende regelverk for helse, miljø og sikkerhet i arbeid med vei, vann og avløp'
   }

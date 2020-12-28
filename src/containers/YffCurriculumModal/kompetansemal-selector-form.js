@@ -34,10 +34,18 @@ function Arbeidsoppgaver (props) {
 
 function KompetansemalVelger (props) {
   const [selectedMaal, setSelectedMaal] = useState([])
-  const { kompetansemaal, apiPost, selectedStudentId } = props
+  const {
+    kompetansemaal,
+    apiPost,
+    selectedStudentId,
+    referanse
+  } = props
+
   if (!kompetansemaal) {
     return null
   }
+  const { referanseID, referanseTittel } = referanse
+
   const items = kompetansemaal.map(item => {
     return { value: item.kode, label: item.tittel.nb, ...item }
   })
@@ -53,6 +61,16 @@ function KompetansemalVelger (props) {
     setSelectedMaal(copySelectedMaal)
   }
 
+  const generateMaal = (grep, arbeidsOppgaver) => {
+    return {
+      studentUserName: selectedStudentId,
+      referanseID,
+      referanseTittel,
+      grep,
+      arbeidsOppgaver
+    }
+  }
+
   const sendForm = async () => {
     const form = document.getElementById('kompetansemaal-form')
     const data = new FormData(form)
@@ -60,10 +78,12 @@ function KompetansemalVelger (props) {
     const keys = Object.keys(json)
     const copyOfMaal = [...kompetansemaal]
     const selectedMaal = copyOfMaal.filter(maal => keys.includes(maal.kode)).reduce((list, maal) => {
-      const arbeidsoppgaver = json[maal.kode]
-      list.push({ ...maal, arbeidsoppgaver })
+      const arbeidsOppgaver = json[maal.kode]
+      const kompetansemaal = generateMaal(maal, arbeidsOppgaver)
+      list.push(kompetansemaal)
       return list
     }, [])
+    console.log(selectedMaal)
     const url = `${API.URL}/yff/${selectedStudentId}/maal`
     await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
   }

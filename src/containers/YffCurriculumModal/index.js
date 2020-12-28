@@ -26,9 +26,10 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
   const [utplassering, setUtplassering] = useState()
+  const [referanse, setReferanse] = useState({})
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
-  console.log(selectedKlassetrinn)
+  console.log(selectedKlassetrinn) // TODO: bruk denne i velgeren
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -41,7 +42,6 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
   useEffect(() => {
     async function getStudent () {
       const student = await apiGet(API.URL + '/students/' + selectedStudentId)
-      console.log(student)
       setSelectedStudent(student.data)
     }
     async function getUtplasseringer () {
@@ -52,6 +52,16 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
     getStudent()
     getUtplasseringer()
   }, [selectedStudentId])
+
+  useEffect(() => {
+    if (utplassering) {
+      console.log(utplassering)
+      setReferanse({
+        referanseID: utplassering.value,
+        referanseTittel: utplassering.label
+      })
+    }
+  }, [utplassering])
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
@@ -111,8 +121,7 @@ export function YffCurriculumModal ({ selectedStudentId, ...props }) {
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
               {utplassering && utplassering.value === 1 && <SchoolSelectorForm />}
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
-              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={selectedStudentId} />
-
+              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={selectedStudentId} referanse={referanse} />
             </div>
 
             <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={selectedStudentId} />
