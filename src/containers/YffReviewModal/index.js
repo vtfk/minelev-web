@@ -55,7 +55,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     getStudent()
     getUtplassering()
     getMaal()
-  }, [selectedStudentId])
+  }, [selectedStudentId, utplasseringsId])
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
