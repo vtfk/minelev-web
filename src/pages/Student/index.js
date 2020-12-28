@@ -132,7 +132,7 @@ export function Student ({ match, ...props }) {
 
             <YffReviewModal
               open={reviewModalState}
-              selectedStudentId={student.username}
+              student={student}
               utplasseringsId={selectedUtplassering}
               title='Tilbakemelding på utplassering'
               onDismiss={() => {

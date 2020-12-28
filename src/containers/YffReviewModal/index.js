@@ -22,12 +22,12 @@ import pfdPreview from '../../lib/pdf-preview'
 
 import './styles.scss'
 
-export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }) {
-  const [selectedStudent, setSelectedStudent] = useState(null)
+export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   const [utplassering, setUtplassering] = useState()
   const [maal, setMaal] = useState()
   const { apiGet, apiPost, apiPut } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
+  const { id: studentID } = student
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -38,24 +38,19 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
   }, [])
 
   useEffect(() => {
-    async function getStudent () {
-      const student = await apiGet(API.URL + '/students/' + selectedStudentId)
-      setSelectedStudent(student.data)
-    }
     async function getMaal () {
-      const laereplan = await apiGet(`${API.URL}/yff/${selectedStudentId}/laereplan`)
+      const laereplan = await apiGet(`${API.URL}/yff/${studentID}/laereplan`)
       // TODO: denne må nok endres
       const maal = laereplan[0].default.filter(maal => maal.referanseID === utplasseringsId)
       setMaal(maal)
     }
     async function getUtplassering () {
-      const utplassering = await apiGet(`${API.URL}/yff/${selectedStudentId}/utplassering/${utplasseringsId}`)
+      const utplassering = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
       setUtplassering(utplassering[0])
     }
-    getStudent()
     getUtplassering()
     getMaal()
-  }, [selectedStudentId, utplasseringsId])
+  }, [utplasseringsId])
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
@@ -93,7 +88,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
     return createDocument({
       variant: 'tilbakemelding',
-      student: selectedStudent,
+      student,
       content: {
         evalueringsdata,
         kompetansemal
@@ -103,9 +98,9 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
 
   async function send () {
     const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
-    const tilbakemeldingsUrl = `${API.URL}/yff/${selectedStudentId}/utplassering/${utplasseringsId}`
+    const tilbakemeldingsUrl = `${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`
     // oppdaterer alle mål med tilbakemeldinger
-    const kompetanseMaalUrl = `${API.URL}/yff/${selectedStudentId}/maal`
+    const kompetanseMaalUrl = `${API.URL}/yff/${studentID}/maal`
     const jobs = kompetansemal.map(maal => {
       const { _id, tilbakemelding } = maal
       const url = `${kompetanseMaalUrl}/${_id}`
@@ -115,7 +110,6 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
     await Promise.all(jobs)
     successMessage('👍', 'Tilbakemeldingen er lagret.')
     // Cleanup state
-    setSelectedStudent(null)
     setUtplassering(false)
     setMaal(false)
     props.onFinished()
@@ -130,11 +124,7 @@ export function YffReviewModal ({ selectedStudentId, utplasseringsId, ...props }
         onDismiss={props.onDismiss}
       >
         <ModalBody>
-          {
-            selectedStudent &&
-            selectedStudent.firstName &&
-              <StudentCard student={selectedStudent} />
-          }
+          <StudentCard student={student} />
           <Details utplassering={utplassering} />
           <p className='intro'>
             Tilbakemelding for elevens utplassering
