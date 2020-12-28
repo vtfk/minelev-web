@@ -27,7 +27,7 @@ import { successMessage } from '../../lib/toasts'
 
 import './styles.scss'
 
-export function YffConfirmationModal ({ student, isOpen, ...props }) {
+export function YffConfirmationModal ({ student, ...props }) {
   const [brregData, setBrregData] = useState(null)
   const [company, setCompany] = useState()
   const { handleSubmit } = useForm()
@@ -36,6 +36,7 @@ export function YffConfirmationModal ({ student, isOpen, ...props }) {
   const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const { id: studentID } = student
+  const isOpen = props.open
   const onSubmit = (data, event) => {
     event.preventDefault()
   }

@@ -20,7 +20,7 @@ import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
-export function YffCurriculumModal ({ student, isOpen, ...props }) {
+export function YffCurriculumModal ({ student, ...props }) {
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
@@ -29,6 +29,7 @@ export function YffCurriculumModal ({ student, isOpen, ...props }) {
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const { id: studentID } = student
+  const isOpen = props.open
   console.log(selectedKlassetrinn) // TODO: bruk denne i velgeren
 
   useEffect(() => {

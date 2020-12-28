@@ -22,12 +22,13 @@ import pfdPreview from '../../lib/pdf-preview'
 
 import './styles.scss'
 
-export function YffReviewModal ({ student, utplasseringsId, isOpen, ...props }) {
+export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   const [utplassering, setUtplassering] = useState()
   const [maal, setMaal] = useState()
   const { apiGet, apiPost, apiPut } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const { id: studentID } = student
+  const isOpen = props.open
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
