@@ -27,15 +27,15 @@ import { successMessage } from '../../lib/toasts'
 
 import './styles.scss'
 
-export function YffConfirmationModal ({ selectedStudentId, ...props }) {
+export function YffConfirmationModal ({ student, isOpen, ...props }) {
   const [brregData, setBrregData] = useState(null)
   const [company, setCompany] = useState()
-  const [selectedStudent, setSelectedStudent] = useState(null)
   const { handleSubmit } = useForm()
   const { apiGet, apiPost } = useSession()
   const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson key={nanoid()} />])
   const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
+  const { id: studentID } = student
   const onSubmit = (data, event) => {
     event.preventDefault()
   }
@@ -50,12 +50,11 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
 
   const sendForm = async () => {
     const bekreftelse = generateBekreftelse()
-    await apiPost(`${API.URL}/yff/${selectedStudentId}/utplassering`, bekreftelse)
+    await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
     successMessage('👍', 'Bekreftelse om utplassering sendt.')
     // cleanup state
     setBrregData(null)
     setCompany(false)
-    setSelectedStudent(null)
     setContactPersonsCompany([<CompanyContactPerson key={nanoid()} />])
     setContactPersonsStudent([<StudentContactPerson key={nanoid()} />])
     props.onFinished()
@@ -68,14 +67,6 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
       document.removeEventListener('keyup', handleKeyPress)
     }
   }, [])
-
-  useEffect(() => {
-    async function getStudent () {
-      const student = await apiGet(API.URL + '/students/' + selectedStudentId)
-      setSelectedStudent(student.data)
-    }
-    getStudent()
-  }, [selectedStudentId])
 
   function addCompanyContactPerson () {
     const copyContactPersonsCompany = [...contactPersonsCompany]
@@ -103,7 +94,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
     const bekreftelse = generateBekreftelse()
     return createDocument({
       variant: 'bekreftelse',
-      student: selectedStudent,
+      student,
       content: {
         bekreftelse
       }
@@ -195,12 +186,7 @@ export function YffConfirmationModal ({ selectedStudentId, ...props }) {
         onDismiss={props.onDismiss}
       >
         <ModalBody>
-          {
-            selectedStudent &&
-            selectedStudent.firstName &&
-              <StudentCard student={selectedStudent} />
-          }
-
+          <StudentCard student={student} />
           <p className='intro'>
             Her oppretter du bekreftelse om utplassering av eleven. Du må ha navnet eller organisasjonsnummeret til virksomheten hvor eleven skal utplasseres, avdelingen hvor eleven skal arbeide, og oppmøtested. Du må også fylle ut kontaktinformasjon til kontaktperson(er) hos virksomheten, i tillegg til elevens pårørende.
             <br />

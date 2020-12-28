@@ -112,7 +112,8 @@ export function Student ({ match, ...props }) {
           <>
             <YffConfirmationModal
               open={confirmationModalState}
-              selectedStudentId={student.username}
+              isOpen={confirmationModalState}
+              student={student}
               title='Bekreftelse om utplassering av elev'
               onDismiss={() => {
                 setConfirmationModalState(false)
