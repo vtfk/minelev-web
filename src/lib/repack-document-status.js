@@ -22,7 +22,6 @@ const getLocalizedStatus = (status, long, language) => {
  */
 const repackDocumentStatus = (statuses = [], long = false, language = 'nb') => {
   const types = statuses.map(status => status.status)
-  console.log(types)
   if (types.includes('archived')) return getLocalizedStatus('archived', long, language)
   if (types.includes('sent')) return getLocalizedStatus('sent', long, language)
   if (types.includes('queued')) return getLocalizedStatus('queued', long, language)
