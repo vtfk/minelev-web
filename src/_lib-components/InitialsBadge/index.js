@@ -13,7 +13,7 @@ export function InitialsBadge ({ firstName, lastName, className, size, ...props 
   }
 
   return (
-    <div className={`initials-badge ${colorClass} ${className || ''} ${size || ''}`} {...props}>
+    <div className={`initials-badge ${colorClass} ${className || ''} ${size || ''}`} aria-hidden {...props}>
       {firstName.charAt(0)} {lastName.charAt(0)}
     </div>
   )
