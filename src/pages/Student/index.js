@@ -112,7 +112,7 @@ export function Student ({ match, ...props }) {
           <>
             <YffConfirmationModal
               open={confirmationModalState}
-              selectedStudentId={student.username}
+              student={student}
               title='Bekreftelse om utplassering av elev'
               onDismiss={() => {
                 setConfirmationModalState(false)
@@ -125,16 +125,18 @@ export function Student ({ match, ...props }) {
 
             <YffCurriculumModal
               open={curriculumModalState}
-              selectedStudentId={student.username}
+              isOpen={curriculumModalState}
+              student={student}
               title='Lokal læreplan'
               onDismiss={() => { setCurriculumModalState(false) }}
             />
 
             <YffReviewModal
               open={reviewModalState}
-              selectedStudentId={student.username}
+              student={student}
               utplasseringsId={selectedUtplassering}
               title='Tilbakemelding på utplassering'
+              isOpen={reviewModalState}
               onDismiss={() => {
                 setReviewModalState(false)
               }}
