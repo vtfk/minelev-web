@@ -61,13 +61,13 @@ function KompetansemalVelger (props) {
     setSelectedMaal(copySelectedMaal)
   }
 
-  const generateMaal = (grep, arbeidsOppgaver) => {
+  const generateMaal = (grep, arbeidsoppgaver) => {
     return {
       studentUserName: selectedStudentId,
       referanseID,
       referanseTittel,
       grep,
-      arbeidsOppgaver
+      arbeidsoppgaver
     }
   }
 
@@ -78,12 +78,11 @@ function KompetansemalVelger (props) {
     const keys = Object.keys(json)
     const copyOfMaal = [...kompetansemaal]
     const selectedMaal = copyOfMaal.filter(maal => keys.includes(maal.kode)).reduce((list, maal) => {
-      const arbeidsOppgaver = json[maal.kode]
-      const kompetansemaal = generateMaal(maal, arbeidsOppgaver)
+      const arbeidsoppgaver = json[maal.kode]
+      const kompetansemaal = generateMaal(maal, arbeidsoppgaver)
       list.push(kompetansemaal)
       return list
     }, [])
-    console.log(selectedMaal)
     const url = `${API.URL}/yff/${selectedStudentId}/maal`
     await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
   }

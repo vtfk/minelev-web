@@ -32,9 +32,8 @@ function LokalLaereplan (props) {
   const { deleter, fetcher, selectedStudentId } = props
   useEffect(() => {
     const getLaereplan = async () => {
-      const data = await fetcher(`${API.URL}/yff/${selectedStudentId}/laereplan`)
-      // TODO: denne vil nok endres når api er oki
-      setMaal(data[0].default)
+      const data = await fetcher(`${API.URL}/yff/${selectedStudentId}/maal`)
+      setMaal(data)
     }
     getLaereplan()
   }, [])
