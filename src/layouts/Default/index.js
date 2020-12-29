@@ -84,7 +84,7 @@ export function DefaultLayout (props) {
               </div>
             </div>
 
-            <button aria-label='Lukk meny' className='topnav-side-top-close' onClick={clickTopNavToggle}>
+            <button aria-label='Lukk meny' title='Lukk menyen' className='topnav-side-top-close' onClick={clickTopNavToggle}>
               <Icon name='close' size='xsmall' />
             </button>
           </div>
@@ -149,10 +149,10 @@ export function DefaultLayout (props) {
               </div>
             </a>
             <div className='topnav-toggles'>
-              <button aria-label='Søk etter elev' onClick={clickTopNavToggleSearch}>
+              <button aria-label='Søk etter elev' title='Søk etter elev' onClick={clickTopNavToggleSearch}>
                 <Icon size='small' name='search' />
               </button>
-              <button aria-label='Åpne meny' onClick={clickTopNavToggle}>
+              <button aria-label='Åpne meny' title='Åpne menyen' onClick={clickTopNavToggle}>
                 <Icon size='small' name='menu' />
               </button>
             </div>
