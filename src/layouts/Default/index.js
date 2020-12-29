@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useSession } from '@vtfk/react-msal'
 
 import {
@@ -29,6 +29,7 @@ export function DefaultLayout (props) {
   const [searchTerm, setSearchTerm] = useState(new URLSearchParams(location.search).get('s'))
   const [openTopNavSide, setOpenTopNavSide] = useState(false)
   const [scrollLock, setScrollLock] = useState(false)
+  const searchFieldRef = useRef()
 
   function clickTopNavToggle () {
     const newIsOpen = !openTopNavSide
@@ -39,6 +40,13 @@ export function DefaultLayout (props) {
     } else {
       setScrollLock(false)
     }
+
+    return newIsOpen
+  }
+
+  function clickTopNavToggleSearch () {
+    const opened = clickTopNavToggle()
+    if (opened && searchFieldRef.current) setTimeout(() => searchFieldRef.current.focus(), 0)
   }
 
   function clickContainer () {
@@ -76,9 +84,9 @@ export function DefaultLayout (props) {
               </div>
             </div>
 
-            <Link to='' aria-label='Lukk meny' className='topnav-side-top-close' onClick={clickTopNavToggle}>
+            <button aria-label='Lukk meny' className='topnav-side-top-close' onClick={clickTopNavToggle}>
               <Icon name='close' size='xsmall' />
-            </Link>
+            </button>
           </div>
 
           <div className='topnav-side-search'>
@@ -88,6 +96,7 @@ export function DefaultLayout (props) {
                 type='text' placeholder='Søk etter elev ...'
                 onChange={(event) => { setSearchTerm(event.target.value) }}
                 value={searchTerm || ''}
+                inputRef={searchFieldRef}
                 onKeyPress={event => {
                   if (event.key === 'Enter') {
                     window.location.replace(`/${ROUTES.students}?s=${event.target.value}`)
@@ -130,20 +139,24 @@ export function DefaultLayout (props) {
         </nav>
 
         <div className='container' onClick={() => { clickContainer() }}>
-          <div className='topnav'>
+          <header className='topnav'>
             <a href='/' className='topnav-brand'>
-              <div className='brand-logo'>
+              <div className='brand-logo' aria-hidden>
                 <Logo />
               </div>
               <div className='brand-name'>
                 MinElev
               </div>
             </a>
-            <button aria-label='Åpne meny' className='topnav-toggles' onClick={clickTopNavToggle}>
-              <Icon size='small' name='search' />
-              <Icon size='small' name='menu' />
-            </button>
-          </div>
+            <div className='topnav-toggles'>
+              <button aria-label='Søk etter elev' onClick={clickTopNavToggleSearch}>
+                <Icon size='small' name='search' />
+              </button>
+              <button aria-label='Åpne meny' onClick={clickTopNavToggle}>
+                <Icon size='small' name='menu' />
+              </button>
+            </div>
+          </header>
 
           <div className='action-bar'>
             <div className='search'>

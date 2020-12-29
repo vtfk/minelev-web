@@ -5,7 +5,7 @@ import iconSearch from './icon-search.svg'
 
 import './styles.scss'
 
-export function SearchField ({ type, className, placeholder, value, disabled, ...props }) {
+export function SearchField ({ type, className, placeholder, value, disabled, inputRef, ...props }) {
   return (
     <div className='search-field'>
       <input
@@ -14,6 +14,7 @@ export function SearchField ({ type, className, placeholder, value, disabled, ..
         placeholder={placeholder || ''}
         value={value}
         className={`text-field text-field-search ${className || ''}`}
+        ref={inputRef}
         {...props}
       />
 
