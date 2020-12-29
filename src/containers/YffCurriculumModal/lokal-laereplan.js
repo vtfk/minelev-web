@@ -33,7 +33,6 @@ function LokalLaereplan (props) {
   useEffect(() => {
     const getLaereplan = async () => {
       const data = await fetcher(`${API.URL}/yff/${selectedStudentId}/maal`)
-      // TODO: denne vil nok endres når api er oki
       setMaal(data)
     }
     getLaereplan()
