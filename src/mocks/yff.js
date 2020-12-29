@@ -296,3 +296,5 @@ module.exports = params => {
 module.exports.utplassering = utplassering[0]
 
 module.exports.tilbakemelding = tilbakemelding
+
+module.exports.maal = maal

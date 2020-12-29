@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import maal from '../../mocks/laereplan'
+import { maal } from '../../mocks/yff'
 import Review from './review'
 
 describe('tester komponenten Review', () => {
