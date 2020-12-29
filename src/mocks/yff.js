@@ -29,7 +29,7 @@ const maal = {
       en: 'planleggje, gjennomføre, dokumentere og vurdere  arbeidet'
     }
   },
-  arbeidsOppgaver: 'lede morgentrimmen',
+  arbeidsoppgaver: 'lede morgentrimmen',
   tilbakemelding: false
 }
 
