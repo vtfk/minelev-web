@@ -104,17 +104,21 @@
     }
 
     .topnav-toggles {
-      appearance: none;
-      background: none;
-      border: 0;
-      outline: 0;
-      box-shadow: none;
-      padding-left: $baseUnit;
       display: flex;
       align-items: center;
-
-      .icon {
-        margin-left: $baseUnit * 2;
+    
+      button {
+        appearance: none;
+        background: none;
+        border: 0;
+        outline: 0;
+        box-shadow: none;
+        padding-left: $baseUnit;
+        cursor: pointer;
+        
+        .icon {
+          margin-left: $baseUnit * 2;
+        }
       }
     }
 
@@ -167,11 +171,13 @@
       }
 
       .topnav-side-top-close {
-        color: inherit;
-        text-decoration: none;
+        appearance: none;
+        background: none;
         border: 0;
         outline: 0;
+        box-shadow: none;
         margin-right: $baseUnit;
+        cursor: pointer;
       }
     }
 
