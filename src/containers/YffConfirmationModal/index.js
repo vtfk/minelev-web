@@ -103,6 +103,11 @@ export function YffConfirmationModal ({ student, ...props }) {
   }
 
   function FormView () {
+    const [avdeling, setAvdeling] = useState('')
+    const [dager, setDager] = useState('')
+    const [sted, setSted] = useState('')
+    const [epost, setEpost] = useState('')
+
     return (
       <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
         <CompanyDetails company={company} />
@@ -110,6 +115,8 @@ export function YffConfirmationModal ({ student, ...props }) {
           <TextField
             name='organisasjonsAvdeling'
             placeholder='Avdeling'
+            value={avdeling}
+            onChange={event => setAvdeling(event.target.value)}
           />
         </div>
         <h2 className='subheader'>Kontaktpersoner</h2>
@@ -126,6 +133,8 @@ export function YffConfirmationModal ({ student, ...props }) {
           <TextField
             name='kopiPrEpost'
             placeholder='Legg e-postadresse(r) som skal få kopi av bekreftelsen. Bruk mellomrom som skilletegn ved flere adresser'
+            value={epost}
+            onChange={event => setEpost(event.target.value)}
           />
         </div>
         <h2 className='subheader'>Tidsrom</h2>
@@ -140,6 +149,8 @@ export function YffConfirmationModal ({ student, ...props }) {
           <TextField
             name='daysPerWeek'
             placeholder='Antall dager i uken'
+            value={dager}
+            onChange={event => setDager(event.target.value)}
           />
         </div>
         <div className='input-element'>
@@ -160,6 +171,8 @@ export function YffConfirmationModal ({ student, ...props }) {
           <TextField
             name='oppmotested'
             placeholder='Oppmøtested'
+            value={sted}
+            onChange={event => setSted(event.target.value)}
           />
         </div>
         <h2 className='subheader'>Elevinformasjon</h2>
