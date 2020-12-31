@@ -125,7 +125,6 @@ export function Student ({ match, ...props }) {
 
             <YffCurriculumModal
               open={curriculumModalState}
-              isOpen={curriculumModalState}
               student={student}
               title='Lokal læreplan'
               onDismiss={() => { setCurriculumModalState(false) }}
@@ -136,7 +135,6 @@ export function Student ({ match, ...props }) {
               student={student}
               utplasseringsId={selectedUtplassering}
               title='Tilbakemelding på utplassering'
-              isOpen={reviewModalState}
               onDismiss={() => {
                 setReviewModalState(false)
               }}

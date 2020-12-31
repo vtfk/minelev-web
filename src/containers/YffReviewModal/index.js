@@ -25,6 +25,8 @@ import './styles.scss'
 export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   const [utplassering, setUtplassering] = useState()
   const [maal, setMaal] = useState()
+  const [dager, setDager] = useState('')
+  const [timer, setTimer] = useState('')
   const { apiGet, apiPost, apiPut } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const { id: studentID } = student
@@ -40,9 +42,8 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
 
   useEffect(() => {
     async function getMaal () {
-      const laereplan = await apiGet(`${API.URL}/yff/${studentID}/laereplan`)
-      // TODO: denne må nok endres
-      const maal = laereplan[0].default.filter(maal => maal.referanseID === utplasseringsId)
+      const laereplan = await apiGet(`${API.URL}/yff/${studentID}/maal`)
+      const maal = laereplan.filter(maal => maal.referanseID === utplasseringsId)
       setMaal(maal)
     }
     async function getUtplassering () {
@@ -143,12 +144,16 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
                 <TextField
                   name='fravarDager'
                   placeholder='Antall hele dager fravær'
+                  value={dager}
+                  onChange={event => setDager(event.target.value)}
                 />
               </div>
               <div className='input-element'>
                 <TextField
                   name='fravarTimer'
                   placeholder='Antall timer fravær'
+                  value={timer}
+                  onChange={event => setTimer(event.target.value)}
                 />
               </div>
               <div>
