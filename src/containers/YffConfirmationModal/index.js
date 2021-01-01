@@ -109,6 +109,8 @@ export function YffConfirmationModal ({ student, ...props }) {
     const [dager, setDager] = useState('')
     const [sted, setSted] = useState('')
     const [epost, setEpost] = useState('')
+    const [start, setStart] = useState('08:00')
+    const [slutt, setSlutt] = useState('16:00')
 
     return (
       <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
@@ -159,14 +161,16 @@ export function YffConfirmationModal ({ student, ...props }) {
           <TextField
             name='startTid'
             placeholder='Fra kl'
-            value='08:00'
+            value={start}
+            onChange={event => setStart(event.target.value)}
           />
         </div>
         <div className='input-element'>
           <TextField
             name='sluttTid'
             placeholder='Til kl'
-            value='16:00'
+            value={slutt}
+            onChange={event => setSlutt(event.target.value)}
           />
         </div>
         <div className='input-element'>
