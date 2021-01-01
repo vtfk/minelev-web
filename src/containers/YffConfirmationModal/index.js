@@ -32,8 +32,6 @@ export function YffConfirmationModal ({ student, ...props }) {
   const [company, setCompany] = useState()
   const { handleSubmit } = useForm()
   const { apiGet, apiPost } = useSession()
-  const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson key={nanoid()} />])
-  const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const { id: studentID } = student
   const onSubmit = (data, event) => {
@@ -50,14 +48,11 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   const sendForm = async () => {
     const bekreftelse = generateBekreftelse()
-    console.log(bekreftelse)
     await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
     successMessage('👍', 'Bekreftelse om utplassering sendt.')
     // cleanup state
     setBrregData(null)
     setCompany(false)
-    setContactPersonsCompany([<CompanyContactPerson key={nanoid()} />])
-    setContactPersonsStudent([<StudentContactPerson key={nanoid()} />])
     props.onFinished()
   }
 
@@ -68,20 +63,6 @@ export function YffConfirmationModal ({ student, ...props }) {
       document.removeEventListener('keyup', handleKeyPress)
     }
   }, [])
-
-  function addCompanyContactPerson (event) {
-    event.preventDefault()
-    const copyContactPersonsCompany = [...contactPersonsCompany]
-    copyContactPersonsCompany.push(<CompanyContactPerson key={nanoid()} />)
-    setContactPersonsCompany(copyContactPersonsCompany)
-  }
-
-  function addStudentContactPerson (event) {
-    event.preventDefault()
-    const copyStudentContactPerson = [...contactPersonsStudent]
-    copyStudentContactPerson.push(<StudentContactPerson key={nanoid()} />)
-    setContactPersonsStudent(copyStudentContactPerson)
-  }
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
@@ -105,12 +86,28 @@ export function YffConfirmationModal ({ student, ...props }) {
   }
 
   function FormView () {
+    const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson key={nanoid()} />])
+    const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
     const [avdeling, setAvdeling] = useState('')
     const [dager, setDager] = useState('')
     const [sted, setSted] = useState('')
     const [epost, setEpost] = useState('')
     const [start, setStart] = useState('08:00')
     const [slutt, setSlutt] = useState('16:00')
+
+    function addCompanyContactPerson (event) {
+      event.preventDefault()
+      const copyContactPersonsCompany = [...contactPersonsCompany]
+      copyContactPersonsCompany.push(<CompanyContactPerson key={nanoid()} />)
+      setContactPersonsCompany(copyContactPersonsCompany)
+    }
+
+    function addStudentContactPerson (event) {
+      event.preventDefault()
+      const copyStudentContactPerson = [...contactPersonsStudent]
+      copyStudentContactPerson.push(<StudentContactPerson key={nanoid()} />)
+      setContactPersonsStudent(copyStudentContactPerson)
+    }
 
     return (
       <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
