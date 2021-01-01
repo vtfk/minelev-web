@@ -7,6 +7,7 @@ describe('Tester komponenten StudenContactPerson', () => {
     const { container } = render(<StudentContactPerson />)
     expect(container).not.toBeEmptyDOMElement()
   })
+
   test('komponenten fungerer som forventet', async () => {
     render(<StudentContactPerson />)
     expect(await screen.queryByText(/navn/i)).not.toBeInTheDocument()
