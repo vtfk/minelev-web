@@ -69,13 +69,15 @@ export function YffConfirmationModal ({ student, ...props }) {
     }
   }, [])
 
-  function addCompanyContactPerson () {
+  function addCompanyContactPerson (event) {
+    event.preventDefault()
     const copyContactPersonsCompany = [...contactPersonsCompany]
     copyContactPersonsCompany.push(<CompanyContactPerson key={nanoid()} />)
     setContactPersonsCompany(copyContactPersonsCompany)
   }
 
-  function addStudentContactPerson () {
+  function addStudentContactPerson (event) {
+    event.preventDefault()
     const copyStudentContactPerson = [...contactPersonsStudent]
     copyStudentContactPerson.push(<StudentContactPerson key={nanoid()} />)
     setContactPersonsStudent(copyStudentContactPerson)
@@ -121,7 +123,7 @@ export function YffConfirmationModal ({ student, ...props }) {
         </div>
         <h2 className='subheader'>Kontaktpersoner</h2>
         {contactPersonsCompany.map(person => person)}
-        <button className='add-more-button button-left-icon button-primary' onClick={() => addCompanyContactPerson()}>
+        <button className='add-more-button button-left-icon button-primary' onClick={addCompanyContactPerson}>
           <div className='button-left-icon-icon'>
             <Icon name='add' size='small' />
           </div>
@@ -179,7 +181,7 @@ export function YffConfirmationModal ({ student, ...props }) {
         <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
         <h2 className='subheader'>Pårørende</h2>
         {contactPersonsStudent.map(person => person)}
-        <button className='add-more-button button-left-icon button-primary' onClick={() => addStudentContactPerson()}>
+        <button className='add-more-button button-left-icon button-primary' onClick={addStudentContactPerson}>
           <div className='button-left-icon-icon'>
             <Icon name='add' size='small' />
           </div>
