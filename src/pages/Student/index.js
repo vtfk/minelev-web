@@ -162,7 +162,6 @@ export function Student ({ match, ...props }) {
             <NewDocumentModal
               open={documentModalState}
               student={student}
-              selectedStudentId={student.username}
               title='Nytt dokument'
               onDismiss={() => { setDocumentModalState(false) }}
               onFinished={() => {
