@@ -20,7 +20,7 @@ import repackGrepLang from '../../lib/repack-grep-lang'
 import './styles.scss'
 import Moment from 'react-moment'
 
-export function NewDocumentModal ({ selectedStudentId, ...props }) {
+export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
 
   const [selectedStudent, setSelectedStudent] = useState(null)
@@ -60,18 +60,23 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   }, [])
 
   useEffect(() => {
-    setPeriod(null)
-    setBehaviourReasons([])
-    setCourseReasons([])
-    setOrderReasons([])
-    setGroups([])
-    setConversationStatus(conversationStatusesOptions[0])
-  }, [selectedStudentId])
-
-  useEffect(() => {
     async function getStudent () {
-      const { data: student } = await apiGet(API.URL + '/students/' + selectedStudentId)
+      // Get student object from API if not passed or if its missing groups prop
+      if (!student || !student.groups) {
+        const { data } = await apiGet(API.URL + '/students/' + selectedStudentId)
+        student = data
+      }
+
       setSelectedStudent(student)
+
+      // Filter documentTypes where the teacher is required to be a contact teacher
+      const typeOptions = DOCUMENTS.documentTypes
+        .filter(type => student.isContactTeacher || !type.requireContactTeacher)
+        .map(type => repackTypeOptions(type))
+
+      // Assign filtered types and set first element as default selection
+      setTypeOptions(typeOptions)
+      setType(typeOptions[0])
 
       if (student.groups) {
         const groupsOptionsArray = student.groups
@@ -84,19 +89,19 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
 
         setGroupOptions(groupsOptionsArray)
       }
-
-      // Filter documentTypes where the teacher is required to be a contact teacher
-      const typeOptions = DOCUMENTS.documentTypes
-        .filter(type => student.isContactTeacher || !type.requireContactTeacher)
-        .map(type => repackTypeOptions(type))
-
-      // Assign filtered types and set first element as default selection
-      setTypeOptions(typeOptions)
-      setType(typeOptions[0])
     }
 
+    // Reset form
+    setPeriod(null)
+    setBehaviourReasons([])
+    setCourseReasons([])
+    setOrderReasons([])
+    setGroups([])
+    setConversationStatus(conversationStatusesOptions[0])
+
+    // Get student or assign given
     getStudent()
-  }, [selectedStudentId, apiGet])
+  }, [selectedStudentId, student])
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
