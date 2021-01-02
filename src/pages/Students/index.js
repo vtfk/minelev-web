@@ -64,6 +64,7 @@ export function Students (props) {
             selectedStudentId={selectedStudent.username}
             title='Nytt dokument'
             onDismiss={() => { setDocumentModalState(false) }}
+            onFinished={() => { setDocumentModalState(false) }}
           />
       }
 
@@ -74,6 +75,7 @@ export function Students (props) {
             selectedStudentId={selectedStudent.username}
             title='Notat til elevmappen'
             onDismiss={() => { setNoteModalState(false) }}
+            onFinished={() => { setNoteModalState(false) }}
           />
       }
 
@@ -86,8 +88,8 @@ export function Students (props) {
             <table className='data-actions-table'>
               <thead>
                 <tr>
-                  <th><Paragraph size='small'>Klasse</Paragraph></th>
-                  <th><Paragraph size='small'>F.dato</Paragraph></th>
+                  <th><Paragraph size='small'>Navn</Paragraph></th>
+                  <th><Paragraph size='small'>Fødselsdato</Paragraph></th>
                   <th><Paragraph size='small'>Klasse</Paragraph></th>
                   <th><Paragraph size='small'>Skole</Paragraph></th>
                   <th className='actions-th'><Paragraph size='small'>Ny handling</Paragraph></th>

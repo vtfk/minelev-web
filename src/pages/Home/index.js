@@ -41,20 +41,23 @@ export function Home () {
     setNoteModalState(true)
   }
 
-  useEffect(() => {
-    async function getClass () {
-      const docs = await apiGet(API.URL + '/documents')
-      const lastModifiedDocuments = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
-      const docsVarsler = lastModifiedDocuments.filter((item) => item.type === 'varsel')
-      const docsConversations = lastModifiedDocuments.filter((item) => item.type === 'samtale')
-      const docsNotes = lastModifiedDocuments.filter((item) => item.type === 'notat')
+  async function getDocuments () {
+    const docs = await apiGet(API.URL + '/documents')
+    if (!docs.data) return
 
-      setDocuments(lastModifiedDocuments)
-      setVarsler(docsVarsler)
-      setConversations(docsConversations)
-      setNotes(docsNotes)
-    }
-    getClass()
+    const lastModifiedDocuments = [...docs.data].sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+    const docsVarsler = lastModifiedDocuments.filter((item) => item.type === 'varsel')
+    const docsConversations = lastModifiedDocuments.filter((item) => item.type === 'samtale')
+    const docsNotes = lastModifiedDocuments.filter((item) => item.type === 'notat')
+
+    setDocuments(lastModifiedDocuments)
+    setVarsler(docsVarsler)
+    setConversations(docsConversations)
+    setNotes(docsNotes)
+  }
+
+  useEffect(() => {
+    getDocuments()
   }, [])
 
   return (
@@ -67,6 +70,10 @@ export function Home () {
             selectedStudentId={selectedStudent}
             title='Nytt dokument'
             onDismiss={() => { setDocumentModalState(false) }}
+            onFinished={() => {
+              setDocumentModalState(false)
+              getDocuments()
+            }}
           />
       }
 
@@ -77,6 +84,10 @@ export function Home () {
             selectedStudentId={selectedStudent}
             title='Notat til elevmappen'
             onDismiss={() => { setNoteModalState(false) }}
+            onFinished={() => {
+              setNoteModalState(false)
+              getDocuments()
+            }}
           />
       }
 
@@ -125,6 +136,9 @@ export function Home () {
                     </tr>
                   )
                 })
+              }
+              {
+                // TODO: Infomelding om man ikke har noen aktiviteter
               }
             </tbody>
           </table>
