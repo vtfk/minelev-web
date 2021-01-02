@@ -71,7 +71,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
           }
         })
 
-        props.onDismiss()
+        props.onFinished()
         setNoteText('')
       } else {
         console.log('Error', postNote)
@@ -99,6 +99,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         {...props}
         className='new-note-modal'
         onDismiss={props.onDismiss}
+        onFinished={props.onFinished}
       >
         <ModalBody>
           {

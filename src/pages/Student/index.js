@@ -175,6 +175,10 @@ export function Student ({ match, ...props }) {
               student={student}
               title='Notat til elevmappen'
               onDismiss={() => { setNoteModalState(false) }}
+              onFinished={() => {
+                setNoteModalState(false)
+                getDocuments()
+              }}
             />
           </>
       }
