@@ -91,6 +91,13 @@ export function Student ({ match, ...props }) {
     setNoteModalState(true)
   }
 
+  // Last inn elev, dokumenter og utplasseringer når siden lastes
+  useEffect(() => {
+    getStudent()
+    getDocuments()
+    getUtplasseringer()
+  }, [])
+
   function Utplassering ({ _id: id, bedriftsData, utplasseringData }) {
     const { navn } = bedriftsData
     const { startDato, sluttDato } = utplasseringData
