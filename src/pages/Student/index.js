@@ -11,41 +11,24 @@ import { useSession } from '@vtfk/react-msal'
 import { Heading2, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Icon } from '../../_lib-components/Icon'
-import { CardLink } from '../../_lib-components/CardLink'
 
-import { YffConfirmationModal } from '../../containers/YffConfirmationModal'
-import { YffCurriculumModal } from '../../containers/YffCurriculumModal'
-import { YffSendModal } from '../../containers/YffSendModal'
-import { YffReviewModal } from '../../containers/YffReviewModal'
+import Yff from './yff'
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
 
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
-import { nanoid } from 'nanoid'
 
 export function Student ({ match, ...props }) {
-  const [confirmationModalState, setConfirmationModalState] = useState(false)
-  const [curriculumModalState, setCurriculumModalState] = useState(false)
-  const [sendModalState, setSendModalState] = useState(false)
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
-  const [reviewModalState, setReviewModalState] = useState(false)
   const [student, setStudent] = useState({})
   const [documents, setDocuments] = useState([])
   const [notes, setNotes] = useState([])
-  const [utplasseringer, setUtplasseringer] = useState([])
-  const [selectedUtplassering, setSelectedUtplassering] = useState()
   const { apiGet } = useSession()
 
   const { id } = match.params
-
-  async function getUtplasseringer () {
-    const utplasseringer = await apiGet(`${API.URL}/yff/${id}/utplassering`)
-    const utenTilbakemelding = utplasseringer.filter(utplassering => !utplassering.tilbakemelding)
-    setUtplasseringer(utenTilbakemelding)
-  }
 
   useEffect(() => {
     async function getStudent () {
@@ -63,25 +46,7 @@ export function Student ({ match, ...props }) {
       setNotes(notes)
     }
     getDocuments()
-    getUtplasseringer()
   }, [])
-
-  function openConfirmationModal () {
-    setConfirmationModalState(true)
-  }
-
-  function openCurriculumModal () {
-    setCurriculumModalState(true)
-  }
-
-  function openReviewModal (id) {
-    setSelectedUtplassering(id)
-    setReviewModalState(true)
-  }
-
-  function openSendModal () {
-    setSendModalState(true)
-  }
 
   function openDocumentModal (activity) {
     setDocumentModalState(true)
@@ -91,18 +56,6 @@ export function Student ({ match, ...props }) {
     setNoteModalState(true)
   }
 
-  function Utplassering ({ _id: id, bedriftsData, utplasseringData }) {
-    const { navn } = bedriftsData
-    const { startDato, sluttDato } = utplasseringData
-    return (
-      <CardLink className='action-link' onClick={() => { openReviewModal(id) }}>
-        Tilbakemelding på utplassering<br />
-        <Paragraph size='small'>{navn}</Paragraph>
-        <Paragraph size='small'>{startDato} - {sluttDato}</Paragraph>
-      </CardLink>
-    )
-  }
-
   return (
     <DefaultLayout>
 
@@ -110,47 +63,6 @@ export function Student ({ match, ...props }) {
         student &&
         student.username &&
           <>
-            <YffConfirmationModal
-              open={confirmationModalState}
-              student={student}
-              title='Bekreftelse om utplassering av elev'
-              onDismiss={() => {
-                setConfirmationModalState(false)
-              }}
-              onFinished={() => {
-                setConfirmationModalState(false)
-                getUtplasseringer()
-              }}
-            />
-
-            <YffCurriculumModal
-              open={curriculumModalState}
-              student={student}
-              title='Lokal læreplan'
-              onDismiss={() => { setCurriculumModalState(false) }}
-            />
-
-            <YffReviewModal
-              open={reviewModalState}
-              student={student}
-              utplasseringsId={selectedUtplassering}
-              title='Tilbakemelding på utplassering'
-              onDismiss={() => {
-                setReviewModalState(false)
-              }}
-              onFinished={() => {
-                setReviewModalState(false)
-                getUtplasseringer()
-              }}
-            />
-
-            <YffSendModal
-              open={sendModalState}
-              selectedStudentId={student.username}
-              title='Send og arkiver lokal læreplan'
-              onDismiss={() => { setSendModalState(false) }}
-            />
-
             <NewDocumentModal
               open={documentModalState}
               selectedStudentId={student.username}
@@ -219,30 +131,7 @@ export function Student ({ match, ...props }) {
                 </div>
               </div>
 
-              <div className='intro'>
-                <Heading3 className='intro-title'>Om YFF og utplassering</Heading3>
-                <Paragraph>
-                  Her oppretter du bekreftelse om utplassering av eleven. Du må ha navnet eller organisasjonsnummeret til virksomheten hvor eleven skal utplasseres, avdelingen hvor eleven skal arbeide, og oppmøtested.
-                  <br />
-                  Du må også fylle ut kontaktinformasjon til kontaktperson(er) hos virksomheten, i tillegg til elevens pårørende.
-                </Paragraph>
-              </div>
-
-              <div className='actions'>
-                <CardLink className='action-link' onClick={() => { openConfirmationModal() }}>
-                  Bekreftelse om utplassering av elev
-                </CardLink>
-                <CardLink className='action-link' onClick={() => { openCurriculumModal() }}>
-                  Lokal læreplan
-                </CardLink>
-                {/** TODO: Fjerne denne? Kan tas fra lokal læreplan */}
-                <CardLink title='Du må først opprette lokal læreplan' disabled className='action-link' onClick={() => { openSendModal() }}>
-                  Send og arkiver lokal læreplan
-                  <br />
-                  <Paragraph size='small'>Du må først opprette lokal læreplan</Paragraph>
-                </CardLink>
-                {utplasseringer && utplasseringer.map(utplassering => <Utplassering {...utplassering} key={nanoid()} />)}
-              </div>
+              <Yff student={student} fetcher={apiGet} />
 
               <div className='activity-panel'>
                 <Heading3 as='h2' className='panel-title'>
