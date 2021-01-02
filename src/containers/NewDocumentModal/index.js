@@ -165,7 +165,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
           }
         })
 
-        props.onDismiss()
+        props.onFinished()
         setType(null)
         setBehaviourReasons([])
         setCourseReasons([])

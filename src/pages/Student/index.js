@@ -156,6 +156,10 @@ export function Student ({ match, ...props }) {
               selectedStudentId={student.username}
               title='Nytt dokument'
               onDismiss={() => { setDocumentModalState(false) }}
+              onFinished={() => {
+                setDocumentModalState(false)
+                getDocuments()
+              }}
             />
 
             <NewNoteModal
