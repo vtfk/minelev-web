@@ -37,13 +37,14 @@ export function ActivityLog () {
     setNoteModalState(true)
   }
 
+  async function getDocuments () {
+    const docs = await apiGet(API.URL + '/documents')
+    const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+    setDocuments(docsOrderedByModified)
+  }
+
   useEffect(() => {
-    async function getClass () {
-      const docs = await apiGet(API.URL + '/documents')
-      const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
-      setDocuments(docsOrderedByModified)
-    }
-    getClass()
+    getDocuments()
   }, [])
 
   return (
@@ -56,6 +57,10 @@ export function ActivityLog () {
             selectedStudentId={selectedStudent}
             title='Nytt dokument'
             onDismiss={() => { setDocumentModalState(false) }}
+            onFinished={() => {
+              setDocumentModalState(false)
+              getDocuments()
+            }}
           />
       }
 
@@ -66,6 +71,10 @@ export function ActivityLog () {
             selectedStudentId={selectedStudent}
             title='Notat til elevmappen'
             onDismiss={() => { setNoteModalState(false) }}
+            onFinished={() => {
+              setNoteModalState(false)
+              getDocuments()
+            }}
           />
       }
 

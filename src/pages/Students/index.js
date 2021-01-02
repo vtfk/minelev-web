@@ -64,6 +64,7 @@ export function Students (props) {
             selectedStudentId={selectedStudent.username}
             title='Nytt dokument'
             onDismiss={() => { setDocumentModalState(false) }}
+            onFinished={() => { setDocumentModalState(false) }}
           />
       }
 
@@ -74,6 +75,7 @@ export function Students (props) {
             selectedStudentId={selectedStudent.username}
             title='Notat til elevmappen'
             onDismiss={() => { setNoteModalState(false) }}
+            onFinished={() => { setNoteModalState(false) }}
           />
       }
 
