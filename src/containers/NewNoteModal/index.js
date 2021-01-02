@@ -151,5 +151,8 @@ NewNoteModal.propTypes = {
   open: PropTypes.bool.isRequired,
   title: PropTypes.string,
   onDismiss: PropTypes.func.isRequired,
+  onFinished: PropTypes.func.isRequired,
+  student: PropTypes.object,
+  selectedStudentId: PropTypes.string,
   className: PropTypes.string
 }
