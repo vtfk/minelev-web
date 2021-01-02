@@ -235,6 +235,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
         {...props}
         className='new-document-modal'
         onDismiss={props.onDismiss}
+        onFinished={props.onFinished}
       >
         <ModalBody>
 
