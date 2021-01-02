@@ -33,7 +33,7 @@ export function ActivityLog () {
   }
 
   function openNoteModal (document) {
-    setSelectedStudent(document)
+    setSelectedStudent(document.student.username)
     setNoteModalState(true)
   }
 
