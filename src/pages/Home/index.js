@@ -43,7 +43,9 @@ export function Home () {
 
   async function getDocuments () {
     const docs = await apiGet(API.URL + '/documents')
-    const lastModifiedDocuments = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+    if (!docs.data) return
+
+    const lastModifiedDocuments = [...docs.data].sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
     const docsVarsler = lastModifiedDocuments.filter((item) => item.type === 'varsel')
     const docsConversations = lastModifiedDocuments.filter((item) => item.type === 'samtale')
     const docsNotes = lastModifiedDocuments.filter((item) => item.type === 'notat')
@@ -134,6 +136,9 @@ export function Home () {
                     </tr>
                   )
                 })
+              }
+              {
+                // TODO: Infomelding om man ikke har noen aktiviteter
               }
             </tbody>
           </table>
