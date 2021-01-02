@@ -14,7 +14,7 @@ import { TextField } from '../../_lib-components/TextField'
 
 import './styles.scss'
 
-export function NewNoteModal ({ selectedStudentId, ...props }) {
+export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [noteText, setNoteText] = useState('')
   const { apiGet, apiPost } = useSession()
@@ -29,11 +29,16 @@ export function NewNoteModal ({ selectedStudentId, ...props }) {
 
   useEffect(() => {
     async function getStudent () {
-      const student = await apiGet(API.URL + '/students/' + selectedStudentId)
-      setSelectedStudent(student.data)
+      // Get student object from API if not passed
+      if (!student) {
+        const { data } = await apiGet(API.URL + '/students/' + selectedStudentId)
+        student = data
+      }
+
+      setSelectedStudent(student)
     }
     getStudent()
-  }, [selectedStudentId])
+  }, [selectedStudentId, student])
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {

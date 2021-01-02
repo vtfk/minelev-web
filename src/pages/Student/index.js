@@ -172,7 +172,7 @@ export function Student ({ match, ...props }) {
 
             <NewNoteModal
               open={noteModalState}
-              selectedStudentId={student.username}
+              student={student}
               title='Notat til elevmappen'
               onDismiss={() => { setNoteModalState(false) }}
             />
