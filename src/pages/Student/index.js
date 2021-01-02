@@ -50,12 +50,18 @@ export function Student ({ match, ...props }) {
   useEffect(() => {
     async function getStudent () {
       const student = await apiGet(API.URL + '/students/' + id)
+    if (!student.data) return
+    // TODO: Display error message
+
       setStudent(student.data)
     }
     getStudent()
 
     async function getDocuments () {
       const docs = await apiGet(API.URL + '/students/' + id + '/documents')
+    if (!docs.data) return
+    // TODO: Display error message
+
       const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
       const docsExceptNotes = docsOrderedByModified.filter((item) => item.type !== 'notat')
       const notes = docsOrderedByModified.filter((item) => item.type === 'notat')
