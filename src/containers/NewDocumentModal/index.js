@@ -4,12 +4,10 @@ import PropTypes from 'prop-types'
 import { useSession } from '@vtfk/react-msal'
 import { store } from 'react-notifications-component'
 
-import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 import { DOCUMENTS } from '../../data/documents'
 
-import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
@@ -18,7 +16,7 @@ import getSkoleAar from 'get-skole-aar'
 import repackGrepLang from '../../lib/repack-grep-lang'
 
 import './styles.scss'
-import Moment from 'react-moment'
+import StudentCard from '../../components/student-card'
 
 export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
@@ -241,22 +239,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
           {
             selectedStudent &&
-              <div className='person-information'>
-                <div className='image'>
-                  <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
-                </div>
-                <div className='text-wrapper'>
-                  <Heading3 className='name'>
-                    {selectedStudent.firstName} {selectedStudent.lastName}
-                  </Heading3>
-                  <div className='other'>
-                    <Paragraph>{selectedStudent.schoolName}</Paragraph>
-                    <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.classId}</Link></Paragraph>
-                    <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{selectedStudent.birthdate}</Moment></Paragraph>
-                    <Paragraph>{selectedStudent.mail}</Paragraph>
-                  </div>
-                </div>
-              </div>
+              <StudentCard student={selectedStudent} />
           }
 
           <div className='form'>

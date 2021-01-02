@@ -8,8 +8,7 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { Heading2, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { Icon } from '../../_lib-components/Icon'
 import { CardLink } from '../../_lib-components/CardLink'
 
@@ -24,6 +23,7 @@ import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
 import { nanoid } from 'nanoid'
+import StudentCard from '../../components/student-card'
 
 export function Student ({ match, ...props }) {
   const [confirmationModalState, setConfirmationModalState] = useState(false)
@@ -190,22 +190,8 @@ export function Student ({ match, ...props }) {
           student &&
           student.id &&
             <div>
-              <div className='person-information'>
-                <div className='image'>
-                  <InitialsBadge firstName={student.firstName} lastName={student.lastName} size='large' />
-                </div>
-                <div className='text-wrapper'>
-                  <Heading2 className='name'>
-                    {student.fullName}
-                  </Heading2>
-                  <div className='other'>
-                    <Paragraph>{student.schoolName}</Paragraph>
-                    <Paragraph><Link href={`/${ROUTES.classes}/${student.classId}`}>{student.className}</Link></Paragraph>
-                    <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{student.birthdate}</Moment></Paragraph>
-                    <Paragraph>{student.mail}</Paragraph>
-                  </div>
-                </div>
 
+              <StudentCard student={student} largeName>
                 <div className='person-information-actions'>
                   {/* TODO: component */}
                   <Link
@@ -233,7 +219,7 @@ export function Student ({ match, ...props }) {
                     </div>
                   </Link>
                 </div>
-              </div>
+              </StudentCard>
 
               <div className='intro'>
                 <Heading3 className='intro-title'>Om YFF og utplassering</Heading3>
