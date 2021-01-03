@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Moment from 'react-moment'
 
 import { DefaultLayout } from '../../layouts/Default'
 
@@ -8,43 +7,46 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { Heading1, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Heading4, Link, Paragraph } from '../../_lib-components/Typography'
 import { Icon } from '../../_lib-components/Icon'
 
 import './styles.scss'
-import repackDocumentStatus from '../../lib/repack-document-status'
-import repackDocumentType from '../../lib/repack-document-type'
+import { Undervisningsgruppe } from './undervisningsgruppe'
+import { Basisgruppe } from './basisgruppe'
+import ClassCard from '../../components/class-card'
 
 export function Class ({ match, ...props }) {
   const { id } = match.params
   const [schoolClass, setSchoolClass] = useState({})
+  const [error, setError] = useState(null)
   const [documents, setDocuments] = useState([])
   const [conversations, setConversations] = useState([])
   const [notes, setNotes] = useState([])
   const { apiGet } = useSession()
 
+  async function getClass () {
+    const group = await apiGet(API.URL + '/classes/' + id)
+    if (group.data) setSchoolClass(group.data)
+    if (!group || group.error) setError(true)
+  }
+
+  async function getDocuments () {
+    const docs = await apiGet(API.URL + '/classes/' + id + '/documents')
+
+    if (docs && docs.data && docs.data.length > 0) {
+      const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+      const docsVarsler = docsOrderedByModified.filter((item) => item.type === 'varsel')
+      const docsConversations = docsOrderedByModified.filter((item) => item.type === 'samtale')
+      const docsNotes = docsOrderedByModified.filter((item) => item.type === 'notat')
+
+      setDocuments(docsVarsler)
+      setConversations(docsConversations)
+      setNotes(docsNotes)
+    }
+  }
+
   useEffect(() => {
-    async function getClass () {
-      const c = await apiGet(API.URL + '/classes/' + id)
-      setSchoolClass(c.data)
-    }
     getClass()
-
-    async function getDocuments () {
-      const docs = await apiGet(API.URL + '/classes/' + id + '/documents')
-
-      if (docs && docs.data && docs.data.length > 0) {
-        const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
-        const docsVarsler = docsOrderedByModified.filter((item) => item.type === 'varsel')
-        const docsConversations = docsOrderedByModified.filter((item) => item.type === 'samtale')
-        const docsNotes = docsOrderedByModified.filter((item) => item.type === 'notat')
-
-        setDocuments(docsVarsler)
-        setConversations(docsConversations)
-        setNotes(docsNotes)
-      }
-    }
     getDocuments()
   }, [])
 
@@ -52,228 +54,37 @@ export function Class ({ match, ...props }) {
     <DefaultLayout>
       <div className='class'>
 
-        <Link className='back-link' href={`/${ROUTES.students}`} noStyle leftIcon={<Icon name='arrowLeft' size='xsmall' />}>Til klasseoversikten</Link>
+        <Link className='back-link' href={`/${ROUTES.classes}`} noStyle leftIcon={<Icon name='arrowLeft' size='xsmall' />}>Til klasseoversikten</Link>
 
         {
-          schoolClass &&
-          schoolClass.id &&
-            <div>
-              <div className='class-information'>
-                <div className='class-shortname'>
-                  [X]
-                </div>
-                <div className='text-wrapper'>
-                  <Heading3 className='name'>
-                    {schoolClass.name}
-                  </Heading3>
-                  <div className='other'>
-                    <Paragraph>{schoolClass.schoolName}</Paragraph>
-                  </div>
-                </div>
-              </div>
+          // Basisgrupper
+          (schoolClass && schoolClass.type === 'basisgruppe' &&
+            <Basisgruppe group={schoolClass} documents={documents} conversations={conversations} notes={notes} />) ||
 
-              <div className='numbers'>
-                <div className='numbers-item'>
-                  <Heading1 as='h2' className='numbers-item-title'>
-                    {documents.length}
-                  </Heading1>
-                  <Heading3 as='p' className='numbers-item-text'>varselbrev</Heading3>
-                </div>
-                <div className='numbers-item'>
-                  <Heading1 as='h2' className='numbers-item-title'>
-                    {conversations.length}
-                  </Heading1>
-                  <Heading3 as='p' className='numbers-item-text'>dokumenterte elevsamtaler</Heading3>
-                </div>
-                <div className='numbers-item'>
-                  <Heading1 as='h2' className='numbers-item-title'>
-                    [X]
-                  </Heading1>
-                  <Heading3 as='p' className='numbers-item-text'>lokale læreplaner arkivert</Heading3>
-                </div>
-                <div className='numbers-item'>
-                  <Heading1 as='h2' className='numbers-item-title'>
-                    {notes.length}
-                  </Heading1>
-                  <Heading3 as='p' className='numbers-item-text'>notater til elevmappa</Heading3>
-                </div>
-                <div className='numbers-item'>
-                  <Heading1 as='h2' className='numbers-item-title'>
-                    [X]
-                  </Heading1>
-                  <Heading3 as='p' className='numbers-item-text'>utplasseringer</Heading3>
-                </div>
-                <div className='numbers-item'>
-                  <Heading1 as='h2' className='numbers-item-title'>
-                    [X]
-                  </Heading1>
-                  <Heading3 as='p' className='numbers-item-text'>tilbakemeldinger</Heading3>
-                </div>
-              </div>
+          // Undervisningsgrupper
+          (schoolClass && schoolClass.type === 'undervisningsgruppe' &&
+            <Undervisningsgruppe group={schoolClass} documents={documents} />) ||
 
-              <div className='activity-panel'>
-                <Heading3 as='h2' className='panel-title'>
-                  <Icon name='students' size='small' /> Elever ({schoolClass.students.length})
-                </Heading3>
+          // Ukjent gruppetype
+          (schoolClass && schoolClass.type &&
+            <>😟 Klarte ikke å vise gruppa.. Kontakt systemansvarlig!</>) ||
 
-                <table className='activity-panel-table'>
-                  <tbody>
-                    {
-                      schoolClass.students.map(function (student, index) {
-                        return (
-                          <tr key={index}>
-                            <td>
-                              <div className='activity-name'>
-                                <InitialsBadge firstName={student.firstName} lastName={student.lastName} size='small' />
-                                <Paragraph>
-                                  <Link href={`/${ROUTES.students}/${student.username}`}>
-                                    {student.fullName}
-                                  </Link>
-                                </Paragraph>
-                              </div>
-                            </td>
-                            <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{student.birthdate}</Moment></Paragraph>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    }
-                  </tbody>
-                </table>
-              </div>
+          // HTTP error / ingen tilgang
+          (error &&
+            <>
+              <ClassCard group={{ name: decodeURIComponent(id) }} />
+              <Paragraph className='error-message'>
+                Du har ikke tilgang til klasseoversikten for denne klassen!<br />
+                Dersom du mener dette er feil, ta kontakt systemansvarlig ved din skole for å få rettet opp i feilen.
+              </Paragraph>
 
-              <div className='activity-panel'>
-                <Heading3 as='h2' className='panel-title'>
-                  <Icon name='activity' size='small' /> Varsler
-                </Heading3>
+              <Heading4 as='h2'>Er du faglærer for denne klassen?</Heading4>
+              <Paragraph>
+                For å se siden til undervisningsgruppa, gå til <Link href={`/${ROUTES.classes}`}>klasseoversikten</Link> og finn gruppa der.
+              </Paragraph>
+            </>)
 
-                <table className='activity-panel-table'>
-                  <tbody>
-                    {
-                      documents &&
-                      documents.map(function (doc, index) {
-                        return (
-                          <tr key={doc.id}>
-                            <td>
-                              <div className='activity-name'>
-                                <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
-                                <Paragraph>
-                                  <Link href={`/${ROUTES.students}/${doc.student.username}`}>
-                                    {doc.student.name}
-                                  </Link>
-                                </Paragraph>
-                              </div>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    }
-
-                    {
-                      documents.length === 0 &&
-                        <tr>
-                          <td style={{ textAlign: 'left' }}>
-                            <Paragraph>Denne klassen har ingen varsler.</Paragraph>
-                          </td>
-                        </tr>
-                    }
-                  </tbody>
-                </table>
-              </div>
-
-              <div className='activity-panel'>
-                <Heading3 as='h2' className='panel-title'>
-                  <Icon name='activity' size='small' /> Samtaler
-                </Heading3>
-
-                <table className='activity-panel-table'>
-                  <tbody>
-                    {
-                      conversations &&
-                      conversations.map(function (doc, index) {
-                        return (
-                          <tr key={doc.id}>
-                            <td>
-                              <div className='activity-name'>
-                                <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
-                                <Paragraph>
-                                  <Link href={`/${ROUTES.students}/${doc.student.username}`}>
-                                    {doc.student.name}
-                                  </Link>
-                                </Paragraph>
-                              </div>
-                            </td>
-                            <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    }
-
-                    {
-                      conversations.length === 0 &&
-                        <tr>
-                          <td style={{ textAlign: 'left' }}>
-                            <Paragraph>Denne klassen har ingen samtaler.</Paragraph>
-                          </td>
-                        </tr>
-                    }
-                  </tbody>
-                </table>
-              </div>
-
-              <div className='activity-panel'>
-                <Heading3 as='h2' className='panel-title'>
-                  <Icon name='activity' size='small' /> Notater
-                </Heading3>
-
-                <table className='activity-panel-table'>
-                  <tbody>
-                    {
-                      notes &&
-                      notes.map(function (doc, index) {
-                        return (
-                          <tr key={doc.id}>
-                            <td>
-                              <Paragraph>{doc.type}</Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    }
-
-                    {
-                      notes.length === 0 &&
-                        <tr>
-                          <td style={{ textAlign: 'left' }}>
-                            <Paragraph>Denne klassen har ingen notater.</Paragraph>
-                          </td>
-                        </tr>
-                    }
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          // TODO: Add loading/skeleton view?
         }
       </div>
     </DefaultLayout>
