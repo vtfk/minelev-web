@@ -18,11 +18,7 @@ import { NewNoteModal } from '../../containers/NewNoteModal'
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
-<<<<<<< HEAD
-=======
-import { nanoid } from 'nanoid'
 import StudentCard from '../../components/student-card'
->>>>>>> main
 
 export function Student ({ match, ...props }) {
   const [documentModalState, setDocumentModalState] = useState(false)
@@ -34,25 +30,6 @@ export function Student ({ match, ...props }) {
 
   const { id } = match.params
 
-<<<<<<< HEAD
-  useEffect(() => {
-    async function getStudent () {
-      const student = await apiGet(API.URL + '/students/' + id)
-      setStudent(student.data)
-    }
-    getStudent()
-
-    async function getDocuments () {
-      const docs = await apiGet(API.URL + '/students/' + id + '/documents')
-      const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
-      const docsExceptNotes = docsOrderedByModified.filter((item) => item.type !== 'notat')
-      const notes = docsOrderedByModified.filter((item) => item.type === 'notat')
-      setDocuments(docsExceptNotes)
-      setNotes(notes)
-    }
-    getDocuments()
-  }, [])
-=======
   async function getStudent () {
     const student = await apiGet(API.URL + '/students/' + id)
     if (!student.data) return
@@ -73,30 +50,6 @@ export function Student ({ match, ...props }) {
     setNotes(notes)
   }
 
-  async function getUtplasseringer () {
-    const utplasseringer = await apiGet(`${API.URL}/yff/${id}/utplassering`)
-    const utenTilbakemelding = utplasseringer.filter(utplassering => !utplassering.tilbakemelding)
-    setUtplasseringer(utenTilbakemelding)
-  }
-
-  function openConfirmationModal () {
-    setConfirmationModalState(true)
-  }
-
-  function openCurriculumModal () {
-    setCurriculumModalState(true)
-  }
-
-  function openReviewModal (id) {
-    setSelectedUtplassering(id)
-    setReviewModalState(true)
-  }
-
-  function openSendModal () {
-    setSendModalState(true)
-  }
->>>>>>> main
-
   function openDocumentModal (activity) {
     setDocumentModalState(true)
   }
@@ -105,28 +58,12 @@ export function Student ({ match, ...props }) {
     setNoteModalState(true)
   }
 
-<<<<<<< HEAD
-=======
   // Last inn elev, dokumenter og utplasseringer når siden lastes
   useEffect(() => {
     getStudent()
     getDocuments()
-    getUtplasseringer()
   }, [])
 
-  function Utplassering ({ _id: id, bedriftsData, utplasseringData }) {
-    const { navn } = bedriftsData
-    const { startDato, sluttDato } = utplasseringData
-    return (
-      <CardLink className='action-link' onClick={() => { openReviewModal(id) }}>
-        Tilbakemelding på utplassering<br />
-        <Paragraph size='small'>{navn}</Paragraph>
-        <Paragraph size='small'>{startDato} - {sluttDato}</Paragraph>
-      </CardLink>
-    )
-  }
-
->>>>>>> main
   return (
     <DefaultLayout>
 
