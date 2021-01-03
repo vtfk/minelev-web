@@ -7,6 +7,7 @@ import { YffSendModal } from '../../containers/YffSendModal'
 import { YffReviewModal } from '../../containers/YffReviewModal'
 import { CardLink } from '../../_lib-components/CardLink'
 import { Heading3, Paragraph } from '../../_lib-components/Typography'
+import isYff from '../../lib/is-yff'
 
 function Yff ({ student, fetcher }) {
   const [confirmationModalState, setConfirmationModalState] = useState(false)
@@ -35,7 +36,7 @@ function Yff ({ student, fetcher }) {
   }
 
   useEffect(() => {
-    if (student && student.username) {
+    if (student && student.username && isYff(student)) {
       getUtplasseringer(student.username)
     }
   }, [student])
@@ -57,7 +58,8 @@ function Yff ({ student, fetcher }) {
     setSendModalState(true)
   }
 
-  if (!student) return null
+  // Dersom det ikke finnes studentobjekt, eller studenten ikke har YFF returnes null
+  if (!student || (student && !isYff(student))) return null
 
   return (
     <>

@@ -6,4 +6,17 @@ describe('Tester Yff komponenten', () => {
     const { container } = render(<Yff />)
     expect(container).toBeEmptyDOMElement()
   })
+
+  test('Komponenten rendres ikke for student uten YFF', () => {
+    const student = {
+      programomraade: {
+        type: 'studieforberedende'
+      },
+      utdanningsprogram: {
+        type: 'Ukjent'
+      }
+    }
+    const { container } = render(<Yff student={student} />)
+    expect(container).toBeEmptyDOMElement()
+  })
 })
