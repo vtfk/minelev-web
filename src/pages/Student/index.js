@@ -8,8 +8,7 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { Heading2, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { Icon } from '../../_lib-components/Icon'
 
 import Yff from './yff'
@@ -19,6 +18,11 @@ import { NewNoteModal } from '../../containers/NewNoteModal'
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
+<<<<<<< HEAD
+=======
+import { nanoid } from 'nanoid'
+import StudentCard from '../../components/student-card'
+>>>>>>> main
 
 export function Student ({ match, ...props }) {
   const [documentModalState, setDocumentModalState] = useState(false)
@@ -30,6 +34,7 @@ export function Student ({ match, ...props }) {
 
   const { id } = match.params
 
+<<<<<<< HEAD
   useEffect(() => {
     async function getStudent () {
       const student = await apiGet(API.URL + '/students/' + id)
@@ -47,6 +52,50 @@ export function Student ({ match, ...props }) {
     }
     getDocuments()
   }, [])
+=======
+  async function getStudent () {
+    const student = await apiGet(API.URL + '/students/' + id)
+    if (!student.data) return
+    // TODO: Display error message
+
+    setStudent(student.data)
+  }
+
+  async function getDocuments () {
+    const docs = await apiGet(API.URL + '/students/' + id + '/documents')
+    if (!docs.data) return
+    // TODO: Display error message
+
+    const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+    const docsExceptNotes = docsOrderedByModified.filter((item) => item.type !== 'notat')
+    const notes = docsOrderedByModified.filter((item) => item.type === 'notat')
+    setDocuments(docsExceptNotes)
+    setNotes(notes)
+  }
+
+  async function getUtplasseringer () {
+    const utplasseringer = await apiGet(`${API.URL}/yff/${id}/utplassering`)
+    const utenTilbakemelding = utplasseringer.filter(utplassering => !utplassering.tilbakemelding)
+    setUtplasseringer(utenTilbakemelding)
+  }
+
+  function openConfirmationModal () {
+    setConfirmationModalState(true)
+  }
+
+  function openCurriculumModal () {
+    setCurriculumModalState(true)
+  }
+
+  function openReviewModal (id) {
+    setSelectedUtplassering(id)
+    setReviewModalState(true)
+  }
+
+  function openSendModal () {
+    setSendModalState(true)
+  }
+>>>>>>> main
 
   function openDocumentModal (activity) {
     setDocumentModalState(true)
@@ -56,6 +105,28 @@ export function Student ({ match, ...props }) {
     setNoteModalState(true)
   }
 
+<<<<<<< HEAD
+=======
+  // Last inn elev, dokumenter og utplasseringer når siden lastes
+  useEffect(() => {
+    getStudent()
+    getDocuments()
+    getUtplasseringer()
+  }, [])
+
+  function Utplassering ({ _id: id, bedriftsData, utplasseringData }) {
+    const { navn } = bedriftsData
+    const { startDato, sluttDato } = utplasseringData
+    return (
+      <CardLink className='action-link' onClick={() => { openReviewModal(id) }}>
+        Tilbakemelding på utplassering<br />
+        <Paragraph size='small'>{navn}</Paragraph>
+        <Paragraph size='small'>{startDato} - {sluttDato}</Paragraph>
+      </CardLink>
+    )
+  }
+
+>>>>>>> main
   return (
     <DefaultLayout>
 
@@ -65,16 +136,24 @@ export function Student ({ match, ...props }) {
           <>
             <NewDocumentModal
               open={documentModalState}
-              selectedStudentId={student.username}
+              student={student}
               title='Nytt dokument'
               onDismiss={() => { setDocumentModalState(false) }}
+              onFinished={() => {
+                setDocumentModalState(false)
+                getDocuments()
+              }}
             />
 
             <NewNoteModal
               open={noteModalState}
-              selectedStudentId={student.username}
+              student={student}
               title='Notat til elevmappen'
               onDismiss={() => { setNoteModalState(false) }}
+              onFinished={() => {
+                setNoteModalState(false)
+                getDocuments()
+              }}
             />
           </>
       }
@@ -86,22 +165,8 @@ export function Student ({ match, ...props }) {
           student &&
           student.id &&
             <div>
-              <div className='person-information'>
-                <div className='image'>
-                  <InitialsBadge firstName={student.firstName} lastName={student.lastName} size='large' />
-                </div>
-                <div className='text-wrapper'>
-                  <Heading2 className='name'>
-                    {student.fullName}
-                  </Heading2>
-                  <div className='other'>
-                    <Paragraph>{student.schoolName}</Paragraph>
-                    <Paragraph><Link href={`/${ROUTES.classes}/${student.classId}`}>{student.className}</Link></Paragraph>
-                    <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{student.birthdate}</Moment></Paragraph>
-                    <Paragraph>{student.mail}</Paragraph>
-                  </div>
-                </div>
 
+              <StudentCard student={student} largeName>
                 <div className='person-information-actions'>
                   {/* TODO: component */}
                   <Link
@@ -129,7 +194,7 @@ export function Student ({ match, ...props }) {
                     </div>
                   </Link>
                 </div>
-              </div>
+              </StudentCard>
 
               <Yff student={student} fetcher={apiGet} />
 

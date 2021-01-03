@@ -4,12 +4,10 @@ import PropTypes from 'prop-types'
 import { useSession } from '@vtfk/react-msal'
 import { store } from 'react-notifications-component'
 
-import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 import { DOCUMENTS } from '../../data/documents'
 
-import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
@@ -18,9 +16,9 @@ import getSkoleAar from 'get-skole-aar'
 import repackGrepLang from '../../lib/repack-grep-lang'
 
 import './styles.scss'
-import Moment from 'react-moment'
+import StudentCard from '../../components/student-card'
 
-export function NewDocumentModal ({ selectedStudentId, ...props }) {
+export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
 
   const [selectedStudent, setSelectedStudent] = useState(null)
@@ -60,18 +58,23 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
   }, [])
 
   useEffect(() => {
-    setPeriod(null)
-    setBehaviourReasons([])
-    setCourseReasons([])
-    setOrderReasons([])
-    setGroups([])
-    setConversationStatus(conversationStatusesOptions[0])
-  }, [selectedStudentId])
-
-  useEffect(() => {
     async function getStudent () {
-      const { data: student } = await apiGet(API.URL + '/students/' + selectedStudentId)
+      // Get student object from API if not passed or if its missing groups prop
+      if (!student || !student.groups) {
+        const { data } = await apiGet(API.URL + '/students/' + selectedStudentId)
+        student = data
+      }
+
       setSelectedStudent(student)
+
+      // Filter documentTypes where the teacher is required to be a contact teacher
+      const typeOptions = DOCUMENTS.documentTypes
+        .filter(type => student.isContactTeacher || !type.requireContactTeacher)
+        .map(type => repackTypeOptions(type))
+
+      // Assign filtered types and set first element as default selection
+      setTypeOptions(typeOptions)
+      setType(typeOptions[0])
 
       if (student.groups) {
         const groupsOptionsArray = student.groups
@@ -84,19 +87,19 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
 
         setGroupOptions(groupsOptionsArray)
       }
-
-      // Filter documentTypes where the teacher is required to be a contact teacher
-      const typeOptions = DOCUMENTS.documentTypes
-        .filter(type => student.isContactTeacher || !type.requireContactTeacher)
-        .map(type => repackTypeOptions(type))
-
-      // Assign filtered types and set first element as default selection
-      setTypeOptions(typeOptions)
-      setType(typeOptions[0])
     }
 
+    // Reset form
+    setPeriod(null)
+    setBehaviourReasons([])
+    setCourseReasons([])
+    setOrderReasons([])
+    setGroups([])
+    setConversationStatus(conversationStatusesOptions[0])
+
+    // Get student or assign given
     getStudent()
-  }, [selectedStudentId, apiGet])
+  }, [selectedStudentId, student])
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
@@ -165,7 +168,7 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
           }
         })
 
-        props.onDismiss()
+        props.onFinished()
         setType(null)
         setBehaviourReasons([])
         setCourseReasons([])
@@ -230,27 +233,13 @@ export function NewDocumentModal ({ selectedStudentId, ...props }) {
         {...props}
         className='new-document-modal'
         onDismiss={props.onDismiss}
+        onFinished={props.onFinished}
       >
         <ModalBody>
 
           {
             selectedStudent &&
-              <div className='person-information'>
-                <div className='image'>
-                  <InitialsBadge firstName={selectedStudent.firstName} lastName={selectedStudent.lastName} size='large' />
-                </div>
-                <div className='text-wrapper'>
-                  <Heading3 className='name'>
-                    {selectedStudent.firstName} {selectedStudent.lastName}
-                  </Heading3>
-                  <div className='other'>
-                    <Paragraph>{selectedStudent.schoolName}</Paragraph>
-                    <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.classId}</Link></Paragraph>
-                    <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{selectedStudent.birthdate}</Moment></Paragraph>
-                    <Paragraph>{selectedStudent.mail}</Paragraph>
-                  </div>
-                </div>
-              </div>
+              <StudentCard student={selectedStudent} />
           }
 
           <div className='form'>
@@ -373,5 +362,8 @@ NewDocumentModal.propTypes = {
   open: PropTypes.bool.isRequired,
   title: PropTypes.string,
   onDismiss: PropTypes.func.isRequired,
+  onFinished: PropTypes.func.isRequired,
+  student: PropTypes.object,
+  selectedStudentId: PropTypes.string,
   className: PropTypes.string
 }
