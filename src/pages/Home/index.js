@@ -196,13 +196,16 @@ export function Home () {
             </Heading3>
 
             <Paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              <strong>Mangler du en elev eller klasse?</strong><br />
+              Ta kontakt med Extensansvarlig på skolen din, så hjelper de deg.
             </Paragraph>
 
             <Paragraph>
-              <strong>IKT Servicedesk</strong><br />
-              Telefon: 33 488 565<br />
-              E-post: <a href='mailto:servicedeskikt@vtfk.no'>servicedeskikt@vtfk.no</a>
+              Andre henvendelser kan rettes til:<br />
+              <br />
+              <strong>Servicedesk IT</strong><br />
+              Telefon: 33 44 42 00<br />
+              E-post: <a href='mailto:servicedesk@vtfk.no'>servicedesk@vtfk.no</a><br />
             </Paragraph>
 
             <Paragraph>
@@ -210,13 +213,9 @@ export function Home () {
               Hverdager kl. 08.00-15.30
             </Paragraph>
 
-            {
-              /*
-              <div className='panel-link'>
-                <Link href={`/${ROUTES.classes}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Gå til support</Link>
-              </div>
-              */
-            }
+            <div className='panel-link'>
+              <Link href={`/${ROUTES.help}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Gå til hjelpesiden</Link>
+            </div>
           </div>
         </div>
       </div>
