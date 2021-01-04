@@ -87,6 +87,12 @@ export function Link ({ href, onClick, className, noStyle, leftIcon, rightIcon, 
   )
 }
 
+export function SkipLink ({ href, className, ...props }) {
+  return (
+    <Link href={href} className={`visually-hidden focusable skip-link ${className || ''}`} {...props} />
+  )
+}
+
 Heading1.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired
@@ -122,4 +128,9 @@ Link.propTypes = {
   rightIcon: PropTypes.node,
   size: PropTypes.string,
   children: PropTypes.node.isRequired
+}
+
+SkipLink.propTypes = {
+  href: PropTypes.string,
+  className: PropTypes.string
 }
