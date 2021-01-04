@@ -208,11 +208,6 @@ export function Home () {
               E-post: <a href='mailto:servicedesk@vtfk.no'>servicedesk@vtfk.no</a><br />
             </Paragraph>
 
-            <Paragraph>
-              <strong>Åpningstider:</strong><br />
-              Hverdager kl. 08.00-15.30
-            </Paragraph>
-
             <div className='panel-link'>
               <Link href={`/${ROUTES.help}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Gå til hjelpesiden</Link>
             </div>
