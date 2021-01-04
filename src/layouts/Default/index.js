@@ -16,7 +16,7 @@ import ScrollLock, { TouchScrollable } from 'react-scrolllock'
 import { SideNav, SideNavItem } from '../../_lib-components/SideNav'
 import { SearchField } from '../../_lib-components/SearchField'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { Paragraph } from '../../_lib-components/Typography'
+import { Paragraph, SkipLink } from '../../_lib-components/Typography'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { Icon } from '../../_lib-components/Icon'
 import { Logo } from '../../_lib-components/Logo'
@@ -57,6 +57,8 @@ export function DefaultLayout (props) {
 
   return (
     <div>
+      <SkipLink href='#main-content'>Hopp til hovedinnhold</SkipLink>
+
       <ReactNotification />
 
       <div className='default-layout'>
@@ -187,7 +189,9 @@ export function DefaultLayout (props) {
           </div>
 
           <ScrollLock isActive={scrollLock}>
-            <div>{props.children}</div>
+            <div id='main-content'>
+              {props.children}
+            </div>
           </ScrollLock>
         </div>
       </div>

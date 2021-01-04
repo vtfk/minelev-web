@@ -109,4 +109,34 @@
     font-weight: 700;
   }
 
+  &.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    width: 1px;
+    height: 1px;
+
+    &.focusable:active,
+    &.focusable:focus {
+      position: inherit;
+      overflow: visible;
+      clip: auto;
+      width: auto;
+      height: auto;
+    }
+  }
+
+
+  &.skip-link {
+    position: fixed !important;
+    z-index: 999999 !important;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    padding: 8px;
+    text-align: center;
+    background: $pixieGreen;
+  }
 }
