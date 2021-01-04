@@ -2,9 +2,23 @@ import React from 'react'
 
 import { DefaultLayout } from '../../layouts/Default'
 
-import { Heading2, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
+import { Heading2, Heading3, Paragraph, Link, Heading4 } from '../../_lib-components/Typography'
 
 import './styles.scss'
+
+const QuestionBlock = ({ question, children }) => {
+  return (
+    <div class='help-question-block'>
+      <Heading4 className='help-section-question'>
+        {question}
+      </Heading4>
+
+      <Paragraph className='help-text-block'>
+        {children}
+      </Paragraph>
+    </div>
+  )
+}
 
 export function Help () {
   return (
@@ -20,54 +34,34 @@ export function Help () {
         </Heading3>
 
         <Paragraph className='help-text-block'>
-          Nedenfor finner du ofte stilte spørsmål og svar og en forklaring på navigasjon og statuser i løsningen.
-        </Paragraph>
-
-        <Paragraph className='help-text-block'>
-          <Link href='https://skoletfk.sharepoint.com/sites/arbrom/laering/e-laering/kontorstotte/Sider/MinElev---elevsamtaler.aspx'>E-læringen til MinElev – elevsamtaler finner du her.</Link>
-        </Paragraph>
-
-        <Paragraph className='help-text-block'>
-          Det er også laget en kort <Link href='https://www.youtube.com/watch?v=EaphC5gz8fU'>opplæringsvideo</Link> du kan se på YouTube.
-        </Paragraph>
-
-        <Paragraph className='help-text-block'>
-          Feil, mangler og ønsker kan du sende til <Link href='mailto:post.opplaring@t-fk.no'>post.opplaring@t-fk.no</Link>
+          Nedenfor finner du ofte stilte spørsmål, en forklaring på navigasjon og statuser i løsningen.
+          <br />
+          Veiledning i bruk av MinElev, finner du <Link href='https://go.nanolearning.com/ViewActivity/?da=1919218&key=qOMBH3R6mvOOHJvC&mode=1'>her</Link>.
         </Paragraph>
 
         <Heading3 as='h2' className='help-section-title'>
-          Hvor finner jeg elevmappene?
+          Ofte stilte spørsmål
         </Heading3>
 
-        <Paragraph className='help-text-block'>
-          Du har tilgang til <Link href='https://elevmappa.vtfk.no/'>Elevmappa</Link>.
+        <QuestionBlock question='Jeg mangler tilgang til en elev eller en klasse'>
+          Tilgang til elever og klasser i MinElev styres fra Extens. Ta kontakt med Extensansvarlig på skolen din, så hjelper de deg!
+        </QuestionBlock>
+
+        <QuestionBlock question='Hvor finner jeg elevmappene?'>
+          Du har tilgang til elevmappene til dine elever i <Link href='https://elevmappa.no/'>Elevmappa</Link>.
           <br />
           Du må være pålogget fylkeskommunens nettverk for få tilgang til Elevmappa.
-        </Paragraph>
+        </QuestionBlock>
 
-        <Heading3 as='h2' className='help-section-title'>
-          Statuser
-        </Heading3>
+        <QuestionBlock question='Hvor finner jeg notater for en elev?'>
+          Notatet er arkivert i elevens elevmappe, og du må logge deg inn der for å kunne lese innholdet i notatet.
+        </QuestionBlock>
 
-        <Paragraph className='help-text-block'>
-          <strong>I kø</strong> – Dokumentet ligger klart til å behandles i MinElev
-        </Paragraph>
-
-        <Paragraph className='help-text-block'>
-          <strong>Sendt</strong> – Dokumentet er sendt til elev (og eventuelt foreldre) via SvarUt
-        </Paragraph>
-
-        <Paragraph className='help-text-block'>
-          <strong>Arkivert</strong> – Dokumentet er arkivert i ElevMappa
-        </Paragraph>
-
-        <Heading3 as='h2' className='help-section-title'>
-          Hvor finner jeg notater for en elev etter at jeg har sendt de til elevmappen?
-        </Heading3>
-
-        <Paragraph className='help-text-block'>
-          Notatet er arkivert i ElevMappa og du må logge deg inn der for å kunne lese innholdet
-        </Paragraph>
+        <QuestionBlock question='Statuser'>
+          <strong>I kø</strong> – Dokumentet ligger klart til å behandles i MinElev<br />
+          <strong>Sendt</strong> – Dokumentet er sendt til elev (og eventuelt foreldre) via SvarUt<br />
+          <strong>Arkivert</strong> – Dokumentet er arkivert i Elevmappa
+        </QuestionBlock>
 
       </div>
     </DefaultLayout>

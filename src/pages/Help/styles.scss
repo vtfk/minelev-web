@@ -12,13 +12,21 @@
     }
   }
 
-  .help-text-block {
-    margin-bottom: $baseUnit;
-  }
-
   .help-section-title {
     margin-top: $baseUnit * 5;
-    margin-bottom: $baseUnit * 2;
+    margin-bottom: $baseUnit;
     font-weight: 700;
+  }
+
+  .help-question-block {
+    margin-bottom: $baseUnit * 2;
+  }
+  
+  .help-section-question {
+    font-weight: 700;
+  }
+
+  .help-text-block {
+    margin-bottom: $baseUnit;
   }
 }
