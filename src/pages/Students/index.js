@@ -21,6 +21,7 @@ export function Students (props) {
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
+  const [status, setStatus] = useState('')
   const [students, setStudents] = useState([])
   const [didSearch, setDidSearch] = useState(false)
   const { apiGet } = useSession()
@@ -29,8 +30,13 @@ export function Students (props) {
 
   useEffect(() => {
     async function getStudents () {
+      setStatus('Loading')
       const students = await apiGet(API.URL + '/students')
-      setStudents(students.data)
+      if (students === false || students.error) setStatus('Error')
+      if (students.data) {
+        setStudents(students.data)
+        setStatus('Finish')
+      }
     }
     getStudents()
   }, [])
@@ -133,8 +139,29 @@ export function Students (props) {
         }
 
         {
-          students.length === 0 &&
-            <p>Det er ingen elev med valgt filtrering.</p>
+          (status === 'Loading' &&
+            <p>Laster...</p>) ||
+
+          (status === 'Error' &&
+            <>
+              <Paragraph>
+                Klarte ikke å hente elever.
+              </Paragraph>
+            </>) ||
+
+          (status === 'Finish' && searchTerm && students.length === 0 &&
+            <>
+              <Paragraph>
+                Det er ingen elever med valgt filtrering.
+              </Paragraph>
+            </>) ||
+
+          (status === 'Finish' && students.length === 0 &&
+            <>
+              <Paragraph>
+                Du har ikke tilgang til noen elever. Kontakt Extensansvarlig.
+              </Paragraph>
+            </>)
         }
 
       </div>

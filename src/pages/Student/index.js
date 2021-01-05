@@ -23,6 +23,7 @@ import StudentCard from '../../components/student-card'
 export function Student ({ match, ...props }) {
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
+  const [error, setError] = useState(false)
   const [student, setStudent] = useState({})
   const [documents, setDocuments] = useState([])
   const [notes, setNotes] = useState([])
@@ -32,10 +33,8 @@ export function Student ({ match, ...props }) {
 
   async function getStudent () {
     const student = await apiGet(API.URL + '/students/' + id)
-    if (!student.data) return
-    // TODO: Display error message
-
-    setStudent(student.data)
+    if (!student || student.error) setError(true)
+    if (student.data) setStudent(student.data)
   }
 
   async function getDocuments () {
@@ -99,7 +98,7 @@ export function Student ({ match, ...props }) {
         <Link className='back-link' href={`/${ROUTES.students}`} noStyle leftIcon={<Icon name='arrowLeft' size='xsmall' />}>Til elevoversikten</Link>
 
         {
-          student &&
+          (student &&
           student.id &&
             <div>
 
@@ -222,7 +221,14 @@ export function Student ({ match, ...props }) {
                   </div>
                 </Link>
               </div>
-            </div>
+            </div>) ||
+
+            (error &&
+              <>
+                <Paragraph>
+                  Du har ikke tilgang til denne eleven. Kontakt Extensansvarlig.
+                </Paragraph>
+              </>)
         }
 
       </div>
