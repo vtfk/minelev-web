@@ -26,8 +26,8 @@ export function Class ({ match, ...props }) {
 
   async function getClass () {
     const group = await apiGet(API.URL + '/classes/' + id)
-    if (group.data) setSchoolClass(group.data)
     if (!group || group.error) setError(true)
+    if (group.data) setSchoolClass(group.data)
   }
 
   async function getDocuments () {
