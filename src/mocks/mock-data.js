@@ -31,22 +31,22 @@ export const STUDENTS = [
       kode: 'STSSA2----',
       type: 'studieforberedende',
       tittel: {
-        default: 'Språk, samfunnsfag og økonomi Vg2',
-        nob: 'Språk, samfunnsfag og økonomi Vg2',
-        nno: 'Språk, samfunnsfag og økonomi Vg2'
+        en: 'Språk, samfunnsfag og økonomi Vg2',
+        nb: 'Språk, samfunnsfag og økonomi Vg2',
+        nn: 'Språk, samfunnsfag og økonomi Vg2'
       },
       kortform: {
-        default: 'Språk, samfunnsfag og økonomi',
-        nob: 'Språk, samfunnsfag og økonomi',
-        nno: 'Språk, samfunnsfag og økonomi'
+        en: 'Språk, samfunnsfag og økonomi',
+        nb: 'Språk, samfunnsfag og økonomi',
+        nn: 'Språk, samfunnsfag og økonomi'
       }
     },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
       kortform: {
-        default: 'Studiespesialisering',
-        nob: 'Studiespesialisering'
+        en: 'Studiespesialisering',
+        nb: 'Studiespesialisering'
       }
     },
     groups: [{
@@ -70,14 +70,14 @@ export const STUDENTS = [
         kode: 'KRO1005',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
         tittel: {
-          default: 'Kroppsøving Vg2',
-          nob: 'Kroppsøving Vg2',
-          nno: 'Kroppsøving Vg2'
+          en: 'Kroppsøving Vg2',
+          nb: 'Kroppsøving Vg2',
+          nn: 'Kroppsøving Vg2'
         },
         kortform: {
-          default: 'Kroppsøving',
-          nob: 'Kroppsøving',
-          nno: 'Kroppsøving'
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
         }
       }
     },
@@ -93,14 +93,14 @@ export const STUDENTS = [
         kode: 'HIS1001',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
         tittel: {
-          default: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nob: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nno: 'Historie Vg2 studieførebuande utdanningsprogram'
+          en: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
         },
         kortform: {
-          default: 'Historie',
-          nob: 'Historie',
-          nno: 'Historie'
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
         }
       }
     },
@@ -115,8 +115,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          default: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nob: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -132,14 +132,14 @@ export const STUDENTS = [
         kode: 'NOR1208',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
         tittel: {
-          default: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nob: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nno: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
         },
         kortform: {
-          default: 'Norsk hovedmål, skriftlig',
-          nob: 'Norsk hovedmål, skriftlig',
-          nno: 'Norsk hovudmål, skriftleg'
+          en: 'Norsk hovedmål, skriftlig',
+          nb: 'Norsk hovedmål, skriftlig',
+          nn: 'Norsk hovudmål, skriftleg'
         }
       }
     },
@@ -155,14 +155,14 @@ export const STUDENTS = [
         kode: 'MAT1015',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1015',
         tittel: {
-          default: 'Matematikk 2P',
-          nob: 'Matematikk 2P',
-          nno: 'Matematikk 2P'
+          en: 'Matematikk 2P',
+          nb: 'Matematikk 2P',
+          nn: 'Matematikk 2P'
         },
         kortform: {
-          default: 'Matematikk 2P',
-          nob: 'Matematikk 2P',
-          nno: 'Matematikk 2P'
+          en: 'Matematikk 2P',
+          nb: 'Matematikk 2P',
+          nn: 'Matematikk 2P'
         }
       }
     },
@@ -178,14 +178,14 @@ export const STUDENTS = [
         kode: 'SAM3022',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3022',
         tittel: {
-          default: 'Rettslære 1',
-          nob: 'Rettslære 1',
-          nno: 'Rettslære 1'
+          en: 'Rettslære 1',
+          nb: 'Rettslære 1',
+          nn: 'Rettslære 1'
         },
         kortform: {
-          default: 'Rettslære 1',
-          nob: 'Rettslære 1',
-          nno: 'Rettslære 1'
+          en: 'Rettslære 1',
+          nb: 'Rettslære 1',
+          nn: 'Rettslære 1'
         }
       }
     },
@@ -201,14 +201,14 @@ export const STUDENTS = [
         kode: 'SAM3037',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
         tittel: {
-          default: 'Psykologi 1',
-          nob: 'Psykologi 1',
-          nno: 'Psykologi 1'
+          en: 'Psykologi 1',
+          nb: 'Psykologi 1',
+          nn: 'Psykologi 1'
         },
         kortform: {
-          default: 'Psykologi 1',
-          nob: 'Psykologi 1',
-          nno: 'Psykologi 1'
+          en: 'Psykologi 1',
+          nb: 'Psykologi 1',
+          nn: 'Psykologi 1'
         }
       }
     },
@@ -224,14 +224,14 @@ export const STUDENTS = [
         kode: 'FSP5095',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5095',
         tittel: {
-          default: 'Spansk II',
-          nob: 'Spansk II',
-          nno: 'Spansk II'
+          en: 'Spansk II',
+          nb: 'Spansk II',
+          nn: 'Spansk II'
         },
         kortform: {
-          default: 'Spansk II',
-          nob: 'Spansk II',
-          nno: 'Spansk II'
+          en: 'Spansk II',
+          nb: 'Spansk II',
+          nn: 'Spansk II'
         }
       }
     },
@@ -247,14 +247,14 @@ export const STUDENTS = [
         kode: 'SAM3005',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3005',
         tittel: {
-          default: 'Markedsføring og ledelse 1',
-          nob: 'Markedsføring og ledelse 1',
-          nno: 'Marknadsføring og leiing 1'
+          en: 'Markedsføring og ledelse 1',
+          nb: 'Markedsføring og ledelse 1',
+          nn: 'Marknadsføring og leiing 1'
         },
         kortform: {
-          default: 'Markedsføring og ledelse 1',
-          nob: 'Markedsføring og ledelse 1',
-          nno: 'Marknadsføring og leiing 1'
+          en: 'Markedsføring og ledelse 1',
+          nb: 'Markedsføring og ledelse 1',
+          nn: 'Marknadsføring og leiing 1'
         }
       }
     }
@@ -279,22 +279,22 @@ export const STUDENTS = [
       kode: 'STSSA2----',
       type: 'studieforberedende',
       tittel: {
-        default: 'Språk, samfunnsfag og økonomi Vg2',
-        nob: 'Språk, samfunnsfag og økonomi Vg2',
-        nno: 'Språk, samfunnsfag og økonomi Vg2'
+        en: 'Språk, samfunnsfag og økonomi Vg2',
+        nb: 'Språk, samfunnsfag og økonomi Vg2',
+        nn: 'Språk, samfunnsfag og økonomi Vg2'
       },
       kortform: {
-        default: 'Språk, samfunnsfag og økonomi',
-        nob: 'Språk, samfunnsfag og økonomi',
-        nno: 'Språk, samfunnsfag og økonomi'
+        en: 'Språk, samfunnsfag og økonomi',
+        nb: 'Språk, samfunnsfag og økonomi',
+        nn: 'Språk, samfunnsfag og økonomi'
       }
     },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
       kortform: {
-        default: 'Studiespesialisering',
-        nob: 'Studiespesialisering'
+        en: 'Studiespesialisering',
+        nb: 'Studiespesialisering'
       }
     },
     groups: [{
@@ -318,14 +318,14 @@ export const STUDENTS = [
         kode: 'KRO1005',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
         tittel: {
-          default: 'Kroppsøving Vg2',
-          nob: 'Kroppsøving Vg2',
-          nno: 'Kroppsøving Vg2'
+          en: 'Kroppsøving Vg2',
+          nb: 'Kroppsøving Vg2',
+          nn: 'Kroppsøving Vg2'
         },
         kortform: {
-          default: 'Kroppsøving',
-          nob: 'Kroppsøving',
-          nno: 'Kroppsøving'
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
         }
       }
     },
@@ -341,14 +341,14 @@ export const STUDENTS = [
         kode: 'HIS1001',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
         tittel: {
-          default: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nob: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nno: 'Historie Vg2 studieførebuande utdanningsprogram'
+          en: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
         },
         kortform: {
-          default: 'Historie',
-          nob: 'Historie',
-          nno: 'Historie'
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
         }
       }
     },
@@ -363,8 +363,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          default: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nob: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -380,14 +380,14 @@ export const STUDENTS = [
         kode: 'NOR1208',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
         tittel: {
-          default: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nob: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nno: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
         },
         kortform: {
-          default: 'Norsk hovedmål, skriftlig',
-          nob: 'Norsk hovedmål, skriftlig',
-          nno: 'Norsk hovudmål, skriftleg'
+          en: 'Norsk hovedmål, skriftlig',
+          nb: 'Norsk hovedmål, skriftlig',
+          nn: 'Norsk hovudmål, skriftleg'
         }
       }
     },
@@ -403,14 +403,14 @@ export const STUDENTS = [
         kode: 'MAT1015',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1015',
         tittel: {
-          default: 'Matematikk 2P',
-          nob: 'Matematikk 2P',
-          nno: 'Matematikk 2P'
+          en: 'Matematikk 2P',
+          nb: 'Matematikk 2P',
+          nn: 'Matematikk 2P'
         },
         kortform: {
-          default: 'Matematikk 2P',
-          nob: 'Matematikk 2P',
-          nno: 'Matematikk 2P'
+          en: 'Matematikk 2P',
+          nb: 'Matematikk 2P',
+          nn: 'Matematikk 2P'
         }
       }
     },
@@ -426,14 +426,14 @@ export const STUDENTS = [
         kode: 'SAM3022',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3022',
         tittel: {
-          default: 'Rettslære 1',
-          nob: 'Rettslære 1',
-          nno: 'Rettslære 1'
+          en: 'Rettslære 1',
+          nb: 'Rettslære 1',
+          nn: 'Rettslære 1'
         },
         kortform: {
-          default: 'Rettslære 1',
-          nob: 'Rettslære 1',
-          nno: 'Rettslære 1'
+          en: 'Rettslære 1',
+          nb: 'Rettslære 1',
+          nn: 'Rettslære 1'
         }
       }
     },
@@ -449,14 +449,14 @@ export const STUDENTS = [
         kode: 'SAM3037',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
         tittel: {
-          default: 'Psykologi 1',
-          nob: 'Psykologi 1',
-          nno: 'Psykologi 1'
+          en: 'Psykologi 1',
+          nb: 'Psykologi 1',
+          nn: 'Psykologi 1'
         },
         kortform: {
-          default: 'Psykologi 1',
-          nob: 'Psykologi 1',
-          nno: 'Psykologi 1'
+          en: 'Psykologi 1',
+          nb: 'Psykologi 1',
+          nn: 'Psykologi 1'
         }
       }
     },
@@ -472,14 +472,14 @@ export const STUDENTS = [
         kode: 'FSP5122',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5122',
         tittel: {
-          default: 'Tysk II',
-          nob: 'Tysk II',
-          nno: 'Tysk II'
+          en: 'Tysk II',
+          nb: 'Tysk II',
+          nn: 'Tysk II'
         },
         kortform: {
-          default: 'Tysk II',
-          nob: 'Tysk II',
-          nno: 'Tysk II'
+          en: 'Tysk II',
+          nb: 'Tysk II',
+          nn: 'Tysk II'
         }
       }
     },
@@ -495,14 +495,14 @@ export const STUDENTS = [
         kode: 'SAM3019',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3019',
         tittel: {
-          default: 'Sosiologi og sosialantropologi',
-          nob: 'Sosiologi og sosialantropologi',
-          nno: 'Sosiologi og sosialantropologi'
+          en: 'Sosiologi og sosialantropologi',
+          nb: 'Sosiologi og sosialantropologi',
+          nn: 'Sosiologi og sosialantropologi'
         },
         kortform: {
-          default: 'Sosiologi og sosialantropologi',
-          nob: 'Sosiologi og sosialantropologi',
-          nno: 'Sosiologi og sosialantropologi'
+          en: 'Sosiologi og sosialantropologi',
+          nb: 'Sosiologi og sosialantropologi',
+          nn: 'Sosiologi og sosialantropologi'
         }
       }
     }
@@ -527,22 +527,22 @@ export const STUDENTS = [
       kode: 'STSSA2----',
       type: 'studieforberedende',
       tittel: {
-        default: 'Språk, samfunnsfag og økonomi Vg2',
-        nob: 'Språk, samfunnsfag og økonomi Vg2',
-        nno: 'Språk, samfunnsfag og økonomi Vg2'
+        en: 'Språk, samfunnsfag og økonomi Vg2',
+        nb: 'Språk, samfunnsfag og økonomi Vg2',
+        nn: 'Språk, samfunnsfag og økonomi Vg2'
       },
       kortform: {
-        default: 'Språk, samfunnsfag og økonomi',
-        nob: 'Språk, samfunnsfag og økonomi',
-        nno: 'Språk, samfunnsfag og økonomi'
+        en: 'Språk, samfunnsfag og økonomi',
+        nb: 'Språk, samfunnsfag og økonomi',
+        nn: 'Språk, samfunnsfag og økonomi'
       }
     },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
       kortform: {
-        default: 'Studiespesialisering',
-        nob: 'Studiespesialisering'
+        en: 'Studiespesialisering',
+        nb: 'Studiespesialisering'
       }
     },
     groups: [{
@@ -566,14 +566,14 @@ export const STUDENTS = [
         kode: 'KRO1005',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
         tittel: {
-          default: 'Kroppsøving Vg2',
-          nob: 'Kroppsøving Vg2',
-          nno: 'Kroppsøving Vg2'
+          en: 'Kroppsøving Vg2',
+          nb: 'Kroppsøving Vg2',
+          nn: 'Kroppsøving Vg2'
         },
         kortform: {
-          default: 'Kroppsøving',
-          nob: 'Kroppsøving',
-          nno: 'Kroppsøving'
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
         }
       }
     },
@@ -589,14 +589,14 @@ export const STUDENTS = [
         kode: 'HIS1001',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
         tittel: {
-          default: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nob: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nno: 'Historie Vg2 studieførebuande utdanningsprogram'
+          en: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
         },
         kortform: {
-          default: 'Historie',
-          nob: 'Historie',
-          nno: 'Historie'
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
         }
       }
     },
@@ -611,8 +611,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          default: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nob: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -628,14 +628,14 @@ export const STUDENTS = [
         kode: 'NOR1208',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
         tittel: {
-          default: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nob: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nno: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
         },
         kortform: {
-          default: 'Norsk hovedmål, skriftlig',
-          nob: 'Norsk hovedmål, skriftlig',
-          nno: 'Norsk hovudmål, skriftleg'
+          en: 'Norsk hovedmål, skriftlig',
+          nb: 'Norsk hovedmål, skriftlig',
+          nn: 'Norsk hovudmål, skriftleg'
         }
       }
     },
@@ -651,14 +651,14 @@ export const STUDENTS = [
         kode: 'SAM3022',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3022',
         tittel: {
-          default: 'Rettslære 1',
-          nob: 'Rettslære 1',
-          nno: 'Rettslære 1'
+          en: 'Rettslære 1',
+          nb: 'Rettslære 1',
+          nn: 'Rettslære 1'
         },
         kortform: {
-          default: 'Rettslære 1',
-          nob: 'Rettslære 1',
-          nno: 'Rettslære 1'
+          en: 'Rettslære 1',
+          nb: 'Rettslære 1',
+          nn: 'Rettslære 1'
         }
       }
     },
@@ -674,14 +674,14 @@ export const STUDENTS = [
         kode: 'SAM3019',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3019',
         tittel: {
-          default: 'Sosiologi og sosialantropologi',
-          nob: 'Sosiologi og sosialantropologi',
-          nno: 'Sosiologi og sosialantropologi'
+          en: 'Sosiologi og sosialantropologi',
+          nb: 'Sosiologi og sosialantropologi',
+          nn: 'Sosiologi og sosialantropologi'
         },
         kortform: {
-          default: 'Sosiologi og sosialantropologi',
-          nob: 'Sosiologi og sosialantropologi',
-          nno: 'Sosiologi og sosialantropologi'
+          en: 'Sosiologi og sosialantropologi',
+          nb: 'Sosiologi og sosialantropologi',
+          nn: 'Sosiologi og sosialantropologi'
         }
       }
     },
@@ -697,14 +697,14 @@ export const STUDENTS = [
         kode: 'SAM3037',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
         tittel: {
-          default: 'Psykologi 1',
-          nob: 'Psykologi 1',
-          nno: 'Psykologi 1'
+          en: 'Psykologi 1',
+          nb: 'Psykologi 1',
+          nn: 'Psykologi 1'
         },
         kortform: {
-          default: 'Psykologi 1',
-          nob: 'Psykologi 1',
-          nno: 'Psykologi 1'
+          en: 'Psykologi 1',
+          nb: 'Psykologi 1',
+          nn: 'Psykologi 1'
         }
       }
     },
@@ -720,14 +720,14 @@ export const STUDENTS = [
         kode: 'MAT1015',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1015',
         tittel: {
-          default: 'Matematikk 2P',
-          nob: 'Matematikk 2P',
-          nno: 'Matematikk 2P'
+          en: 'Matematikk 2P',
+          nb: 'Matematikk 2P',
+          nn: 'Matematikk 2P'
         },
         kortform: {
-          default: 'Matematikk 2P',
-          nob: 'Matematikk 2P',
-          nno: 'Matematikk 2P'
+          en: 'Matematikk 2P',
+          nb: 'Matematikk 2P',
+          nn: 'Matematikk 2P'
         }
       }
     },
@@ -743,14 +743,14 @@ export const STUDENTS = [
         kode: 'FSP5092',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5092',
         tittel: {
-          default: 'Spansk I',
-          nob: 'Spansk I',
-          nno: 'Spansk I'
+          en: 'Spansk I',
+          nb: 'Spansk I',
+          nn: 'Spansk I'
         },
         kortform: {
-          default: 'Spansk I',
-          nob: 'Spansk I',
-          nno: 'Spansk I'
+          en: 'Spansk I',
+          nb: 'Spansk I',
+          nn: 'Spansk I'
         }
       }
     }
@@ -775,22 +775,22 @@ export const STUDENTS = [
       kode: 'STSSA2----',
       type: 'studieforberedende',
       tittel: {
-        default: 'Språk, samfunnsfag og økonomi Vg2',
-        nob: 'Språk, samfunnsfag og økonomi Vg2',
-        nno: 'Språk, samfunnsfag og økonomi Vg2'
+        en: 'Språk, samfunnsfag og økonomi Vg2',
+        nb: 'Språk, samfunnsfag og økonomi Vg2',
+        nn: 'Språk, samfunnsfag og økonomi Vg2'
       },
       kortform: {
-        default: 'Språk, samfunnsfag og økonomi',
-        nob: 'Språk, samfunnsfag og økonomi',
-        nno: 'Språk, samfunnsfag og økonomi'
+        en: 'Språk, samfunnsfag og økonomi',
+        nb: 'Språk, samfunnsfag og økonomi',
+        nn: 'Språk, samfunnsfag og økonomi'
       }
     },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
       kortform: {
-        default: 'Studiespesialisering',
-        nob: 'Studiespesialisering'
+        en: 'Studiespesialisering',
+        nb: 'Studiespesialisering'
       }
     },
     groups: [{
@@ -814,14 +814,14 @@ export const STUDENTS = [
         kode: 'KRO1005',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
         tittel: {
-          default: 'Kroppsøving Vg2',
-          nob: 'Kroppsøving Vg2',
-          nno: 'Kroppsøving Vg2'
+          en: 'Kroppsøving Vg2',
+          nb: 'Kroppsøving Vg2',
+          nn: 'Kroppsøving Vg2'
         },
         kortform: {
-          default: 'Kroppsøving',
-          nob: 'Kroppsøving',
-          nno: 'Kroppsøving'
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
         }
       }
     },
@@ -837,14 +837,14 @@ export const STUDENTS = [
         kode: 'HIS1001',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
         tittel: {
-          default: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nob: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nno: 'Historie Vg2 studieførebuande utdanningsprogram'
+          en: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
         },
         kortform: {
-          default: 'Historie',
-          nob: 'Historie',
-          nno: 'Historie'
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
         }
       }
     },
@@ -859,8 +859,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          default: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nob: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -876,14 +876,14 @@ export const STUDENTS = [
         kode: 'NOR1208',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
         tittel: {
-          default: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nob: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nno: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
         },
         kortform: {
-          default: 'Norsk hovedmål, skriftlig',
-          nob: 'Norsk hovedmål, skriftlig',
-          nno: 'Norsk hovudmål, skriftleg'
+          en: 'Norsk hovedmål, skriftlig',
+          nb: 'Norsk hovedmål, skriftlig',
+          nn: 'Norsk hovudmål, skriftleg'
         }
       }
     },
@@ -899,14 +899,14 @@ export const STUDENTS = [
         kode: 'REA3026',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3026',
         tittel: {
-          default: 'Matematikk S1',
-          nob: 'Matematikk S1',
-          nno: 'Matematikk S1'
+          en: 'Matematikk S1',
+          nb: 'Matematikk S1',
+          nn: 'Matematikk S1'
         },
         kortform: {
-          default: 'Matematikk S1',
-          nob: 'Matematikk S1',
-          nno: 'Matematikk S1'
+          en: 'Matematikk S1',
+          nb: 'Matematikk S1',
+          nn: 'Matematikk S1'
         }
       }
     },
@@ -922,14 +922,14 @@ export const STUDENTS = [
         kode: 'SAM3019',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3019',
         tittel: {
-          default: 'Sosiologi og sosialantropologi',
-          nob: 'Sosiologi og sosialantropologi',
-          nno: 'Sosiologi og sosialantropologi'
+          en: 'Sosiologi og sosialantropologi',
+          nb: 'Sosiologi og sosialantropologi',
+          nn: 'Sosiologi og sosialantropologi'
         },
         kortform: {
-          default: 'Sosiologi og sosialantropologi',
-          nob: 'Sosiologi og sosialantropologi',
-          nno: 'Sosiologi og sosialantropologi'
+          en: 'Sosiologi og sosialantropologi',
+          nb: 'Sosiologi og sosialantropologi',
+          nn: 'Sosiologi og sosialantropologi'
         }
       }
     },
@@ -945,14 +945,14 @@ export const STUDENTS = [
         kode: 'SAM3037',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
         tittel: {
-          default: 'Psykologi 1',
-          nob: 'Psykologi 1',
-          nno: 'Psykologi 1'
+          en: 'Psykologi 1',
+          nb: 'Psykologi 1',
+          nn: 'Psykologi 1'
         },
         kortform: {
-          default: 'Psykologi 1',
-          nob: 'Psykologi 1',
-          nno: 'Psykologi 1'
+          en: 'Psykologi 1',
+          nb: 'Psykologi 1',
+          nn: 'Psykologi 1'
         }
       }
     },
@@ -968,14 +968,14 @@ export const STUDENTS = [
         kode: 'FSP5119',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5119',
         tittel: {
-          default: 'Tysk I',
-          nob: 'Tysk I',
-          nno: 'Tysk I'
+          en: 'Tysk I',
+          nb: 'Tysk I',
+          nn: 'Tysk I'
         },
         kortform: {
-          default: 'Tysk I',
-          nob: 'Tysk I',
-          nno: 'Tysk I'
+          en: 'Tysk I',
+          nb: 'Tysk I',
+          nn: 'Tysk I'
         }
       }
     },
@@ -991,14 +991,14 @@ export const STUDENTS = [
         kode: 'REA3014',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3014',
         tittel: {
-          default: 'Informasjonsteknologi 1',
-          nob: 'Informasjonsteknologi 1',
-          nno: 'Informasjonsteknologi 1'
+          en: 'Informasjonsteknologi 1',
+          nb: 'Informasjonsteknologi 1',
+          nn: 'Informasjonsteknologi 1'
         },
         kortform: {
-          default: 'Informasjonsteknologi 1',
-          nob: 'Informasjonsteknologi 1',
-          nno: 'Informasjonsteknologi 1'
+          en: 'Informasjonsteknologi 1',
+          nb: 'Informasjonsteknologi 1',
+          nn: 'Informasjonsteknologi 1'
         }
       }
     }
@@ -1023,16 +1023,16 @@ export const STUDENTS = [
       kode: 'STREA2----',
       type: 'Ukjent',
       kortform: {
-        default: 'Realfag',
-        nob: 'Realfag'
+        en: 'Realfag',
+        nb: 'Realfag'
       }
     },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
       kortform: {
-        default: 'Studiespesialisering',
-        nob: 'Studiespesialisering'
+        en: 'Studiespesialisering',
+        nb: 'Studiespesialisering'
       }
     },
     groups: [{
@@ -1056,14 +1056,14 @@ export const STUDENTS = [
         kode: 'KRO1005',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
         tittel: {
-          default: 'Kroppsøving Vg2',
-          nob: 'Kroppsøving Vg2',
-          nno: 'Kroppsøving Vg2'
+          en: 'Kroppsøving Vg2',
+          nb: 'Kroppsøving Vg2',
+          nn: 'Kroppsøving Vg2'
         },
         kortform: {
-          default: 'Kroppsøving',
-          nob: 'Kroppsøving',
-          nno: 'Kroppsøving'
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
         }
       }
     },
@@ -1079,14 +1079,14 @@ export const STUDENTS = [
         kode: 'HIS1001',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
         tittel: {
-          default: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nob: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nno: 'Historie Vg2 studieførebuande utdanningsprogram'
+          en: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
         },
         kortform: {
-          default: 'Historie',
-          nob: 'Historie',
-          nno: 'Historie'
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
         }
       }
     },
@@ -1101,8 +1101,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          default: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nob: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -1118,14 +1118,14 @@ export const STUDENTS = [
         kode: 'NOR1208',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
         tittel: {
-          default: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nob: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nno: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
         },
         kortform: {
-          default: 'Norsk hovedmål, skriftlig',
-          nob: 'Norsk hovedmål, skriftlig',
-          nno: 'Norsk hovudmål, skriftleg'
+          en: 'Norsk hovedmål, skriftlig',
+          nb: 'Norsk hovedmål, skriftlig',
+          nn: 'Norsk hovudmål, skriftleg'
         }
       }
     },
@@ -1141,14 +1141,14 @@ export const STUDENTS = [
         kode: 'REA3022',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3022',
         tittel: {
-          default: 'Matematikk R1',
-          nob: 'Matematikk R1',
-          nno: 'Matematikk R1'
+          en: 'Matematikk R1',
+          nb: 'Matematikk R1',
+          nn: 'Matematikk R1'
         },
         kortform: {
-          default: 'Matematikk R1',
-          nob: 'Matematikk R1',
-          nno: 'Matematikk R1'
+          en: 'Matematikk R1',
+          nb: 'Matematikk R1',
+          nn: 'Matematikk R1'
         }
       }
     },
@@ -1164,14 +1164,14 @@ export const STUDENTS = [
         kode: 'SPR3008',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SPR3008',
         tittel: {
-          default: 'Internasjonal engelsk, skriftlig',
-          nob: 'Internasjonal engelsk, skriftlig',
-          nno: 'Internasjonal engelsk, skriftleg'
+          en: 'Internasjonal engelsk, skriftlig',
+          nb: 'Internasjonal engelsk, skriftlig',
+          nn: 'Internasjonal engelsk, skriftleg'
         },
         kortform: {
-          default: 'Internasj. engelsk, skriftlig',
-          nob: 'Internasj. engelsk, skriftlig',
-          nno: 'Internasj. engelsk, skriftleg'
+          en: 'Internasj. engelsk, skriftlig',
+          nb: 'Internasj. engelsk, skriftlig',
+          nn: 'Internasj. engelsk, skriftleg'
         }
       }
     },
@@ -1187,14 +1187,14 @@ export const STUDENTS = [
         kode: 'REA3004',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3004',
         tittel: {
-          default: 'Fysikk 1',
-          nob: 'Fysikk 1',
-          nno: 'Fysikk 1'
+          en: 'Fysikk 1',
+          nb: 'Fysikk 1',
+          nn: 'Fysikk 1'
         },
         kortform: {
-          default: 'Fysikk 1',
-          nob: 'Fysikk 1',
-          nno: 'Fysikk 1'
+          en: 'Fysikk 1',
+          nb: 'Fysikk 1',
+          nn: 'Fysikk 1'
         }
       }
     },
@@ -1210,14 +1210,14 @@ export const STUDENTS = [
         kode: 'SPR3009',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SPR3009',
         tittel: {
-          default: 'Internasjonal engelsk, muntlig',
-          nob: 'Internasjonal engelsk, muntlig',
-          nno: 'Internasjonal engelsk, munnleg'
+          en: 'Internasjonal engelsk, muntlig',
+          nb: 'Internasjonal engelsk, muntlig',
+          nn: 'Internasjonal engelsk, munnleg'
         },
         kortform: {
-          default: 'Internasjonal engelsk, muntlig',
-          nob: 'Internasjonal engelsk, muntlig',
-          nno: 'Internasjonal engelsk, munnleg'
+          en: 'Internasjonal engelsk, muntlig',
+          nb: 'Internasjonal engelsk, muntlig',
+          nn: 'Internasjonal engelsk, munnleg'
         }
       }
     },
@@ -1233,14 +1233,14 @@ export const STUDENTS = [
         kode: 'REA3014',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3014',
         tittel: {
-          default: 'Informasjonsteknologi 1',
-          nob: 'Informasjonsteknologi 1',
-          nno: 'Informasjonsteknologi 1'
+          en: 'Informasjonsteknologi 1',
+          nb: 'Informasjonsteknologi 1',
+          nn: 'Informasjonsteknologi 1'
         },
         kortform: {
-          default: 'Informasjonsteknologi 1',
-          nob: 'Informasjonsteknologi 1',
-          nno: 'Informasjonsteknologi 1'
+          en: 'Informasjonsteknologi 1',
+          nb: 'Informasjonsteknologi 1',
+          nn: 'Informasjonsteknologi 1'
         }
       }
     }
@@ -1265,28 +1265,28 @@ export const STUDENTS = [
       kode: 'HSHSF1----',
       type: 'yrkesfaglig',
       tittel: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       },
       kortform: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       }
     },
     utdanningsprogram: {
       kode: 'HS',
       type: 'yrkesfaglig',
       tittel: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       },
       kortform: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       }
     },
     groups: [{
@@ -1310,14 +1310,14 @@ export const STUDENTS = [
         kode: 'ENG1009',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/ENG1009',
         tittel: {
-          default: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nob: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nno: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
+          en: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+          nb: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+          nn: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
         },
         kortform: {
-          default: 'Engelsk',
-          nob: 'Engelsk',
-          nno: 'Engelsk'
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
         }
       }
     },
@@ -1332,8 +1332,8 @@ export const STUDENTS = [
       grep: {
         kode: '1HOA/KLFAG',
         kortform: {
-          default: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nob: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -1349,14 +1349,14 @@ export const STUDENTS = [
         kode: 'HSF1008',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1008',
         tittel: {
-          default: 'Yrkesliv i helse- og oppvekstfag',
-          nob: 'Yrkesliv i helse- og oppvekstfag',
-          nno: 'Yrkesliv i helse- og oppvekstfag'
+          en: 'Yrkesliv i helse- og oppvekstfag',
+          nb: 'Yrkesliv i helse- og oppvekstfag',
+          nn: 'Yrkesliv i helse- og oppvekstfag'
         },
         kortform: {
-          default: 'Yrkesliv i helse- og oppv.fag',
-          nob: 'Yrkesliv i helse- og oppv.fag',
-          nno: 'Yrkesliv i helse- og oppv.fag'
+          en: 'Yrkesliv i helse- og oppv.fag',
+          nb: 'Yrkesliv i helse- og oppv.fag',
+          nn: 'Yrkesliv i helse- og oppv.fag'
         }
       }
     },
@@ -1372,14 +1372,14 @@ export const STUDENTS = [
         kode: 'HSF1006',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1006',
         tittel: {
-          default: 'Helsefremmende arbeid',
-          nob: 'Helsefremmende arbeid',
-          nno: 'Helsefremjande arbeid'
+          en: 'Helsefremmende arbeid',
+          nb: 'Helsefremmende arbeid',
+          nn: 'Helsefremjande arbeid'
         },
         kortform: {
-          default: 'Helsefremmende arbeid',
-          nob: 'Helsefremmende arbeid',
-          nno: 'Helsefremjande arbeid'
+          en: 'Helsefremmende arbeid',
+          nb: 'Helsefremmende arbeid',
+          nn: 'Helsefremjande arbeid'
         }
       }
     },
@@ -1395,14 +1395,14 @@ export const STUDENTS = [
         kode: 'KRO1017',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1017',
         tittel: {
-          default: 'Kroppsøving Vg1',
-          nob: 'Kroppsøving Vg1',
-          nno: 'Kroppsøving Vg1'
+          en: 'Kroppsøving Vg1',
+          nb: 'Kroppsøving Vg1',
+          nn: 'Kroppsøving Vg1'
         },
         kortform: {
-          default: 'Kroppsøving',
-          nob: 'Kroppsøving',
-          nno: 'Kroppsøving'
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
         }
       }
     },
@@ -1418,14 +1418,14 @@ export const STUDENTS = [
         kode: 'YFF4106',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
         tittel: {
-          default: 'Yrkesfaglig fordypning Vg1',
-          nob: 'Yrkesfaglig fordypning Vg1',
-          nno: 'Yrkesfagleg fordjuping Vg1'
+          en: 'Yrkesfaglig fordypning Vg1',
+          nb: 'Yrkesfaglig fordypning Vg1',
+          nn: 'Yrkesfagleg fordjuping Vg1'
         },
         kortform: {
-          default: 'Yrkesfaglig fordypning Vg1',
-          nob: 'Yrkesfaglig fordypning Vg1',
-          nno: 'Yrkesfagleg fordjuping Vg1'
+          en: 'Yrkesfaglig fordypning Vg1',
+          nb: 'Yrkesfaglig fordypning Vg1',
+          nn: 'Yrkesfagleg fordjuping Vg1'
         }
       }
     },
@@ -1441,14 +1441,14 @@ export const STUDENTS = [
         kode: 'HSF1007',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1007',
         tittel: {
-          default: 'Kommunikasjon og samhandling',
-          nob: 'Kommunikasjon og samhandling',
-          nno: 'Kommunikasjon og samhandling'
+          en: 'Kommunikasjon og samhandling',
+          nb: 'Kommunikasjon og samhandling',
+          nn: 'Kommunikasjon og samhandling'
         },
         kortform: {
-          default: 'Kommunikasjon og samhandling',
-          nob: 'Kommunikasjon og samhandling',
-          nno: 'Kommunikasjon og samhandling'
+          en: 'Kommunikasjon og samhandling',
+          nb: 'Kommunikasjon og samhandling',
+          nn: 'Kommunikasjon og samhandling'
         }
       }
     }
@@ -1473,28 +1473,28 @@ export const STUDENTS = [
       kode: 'HSHSF1----',
       type: 'yrkesfaglig',
       tittel: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       },
       kortform: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       }
     },
     utdanningsprogram: {
       kode: 'HS',
       type: 'yrkesfaglig',
       tittel: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       },
       kortform: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       }
     },
     groups: [{
@@ -1518,14 +1518,14 @@ export const STUDENTS = [
         kode: 'MAT1117',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1117',
         tittel: {
-          default: 'Matematikk 1P-Y  HS',
-          nob: 'Matematikk 1P-Y  HS',
-          nno: 'Matematikk 1P-Y  HS'
+          en: 'Matematikk 1P-Y  HS',
+          nb: 'Matematikk 1P-Y  HS',
+          nn: 'Matematikk 1P-Y  HS'
         },
         kortform: {
-          default: 'Matematikk 1P-Y',
-          nob: 'Matematikk 1P-Y',
-          nno: 'Matematikk 1P-Y'
+          en: 'Matematikk 1P-Y',
+          nb: 'Matematikk 1P-Y',
+          nn: 'Matematikk 1P-Y'
         }
       }
     },
@@ -1541,14 +1541,14 @@ export const STUDENTS = [
         kode: 'ENG1009',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/ENG1009',
         tittel: {
-          default: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nob: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nno: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
+          en: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+          nb: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+          nn: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
         },
         kortform: {
-          default: 'Engelsk',
-          nob: 'Engelsk',
-          nno: 'Engelsk'
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
         }
       }
     },
@@ -1563,8 +1563,8 @@ export const STUDENTS = [
       grep: {
         kode: '1HOA/KLFAG',
         kortform: {
-          default: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nob: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -1580,14 +1580,14 @@ export const STUDENTS = [
         kode: 'HSF1008',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1008',
         tittel: {
-          default: 'Yrkesliv i helse- og oppvekstfag',
-          nob: 'Yrkesliv i helse- og oppvekstfag',
-          nno: 'Yrkesliv i helse- og oppvekstfag'
+          en: 'Yrkesliv i helse- og oppvekstfag',
+          nb: 'Yrkesliv i helse- og oppvekstfag',
+          nn: 'Yrkesliv i helse- og oppvekstfag'
         },
         kortform: {
-          default: 'Yrkesliv i helse- og oppv.fag',
-          nob: 'Yrkesliv i helse- og oppv.fag',
-          nno: 'Yrkesliv i helse- og oppv.fag'
+          en: 'Yrkesliv i helse- og oppv.fag',
+          nb: 'Yrkesliv i helse- og oppv.fag',
+          nn: 'Yrkesliv i helse- og oppv.fag'
         }
       }
     },
@@ -1603,14 +1603,14 @@ export const STUDENTS = [
         kode: 'HSF1006',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1006',
         tittel: {
-          default: 'Helsefremmende arbeid',
-          nob: 'Helsefremmende arbeid',
-          nno: 'Helsefremjande arbeid'
+          en: 'Helsefremmende arbeid',
+          nb: 'Helsefremmende arbeid',
+          nn: 'Helsefremjande arbeid'
         },
         kortform: {
-          default: 'Helsefremmende arbeid',
-          nob: 'Helsefremmende arbeid',
-          nno: 'Helsefremjande arbeid'
+          en: 'Helsefremmende arbeid',
+          nb: 'Helsefremmende arbeid',
+          nn: 'Helsefremjande arbeid'
         }
       }
     },
@@ -1626,14 +1626,14 @@ export const STUDENTS = [
         kode: 'KRO1017',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1017',
         tittel: {
-          default: 'Kroppsøving Vg1',
-          nob: 'Kroppsøving Vg1',
-          nno: 'Kroppsøving Vg1'
+          en: 'Kroppsøving Vg1',
+          nb: 'Kroppsøving Vg1',
+          nn: 'Kroppsøving Vg1'
         },
         kortform: {
-          default: 'Kroppsøving',
-          nob: 'Kroppsøving',
-          nno: 'Kroppsøving'
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
         }
       }
     },
@@ -1649,14 +1649,14 @@ export const STUDENTS = [
         kode: 'YFF4106',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
         tittel: {
-          default: 'Yrkesfaglig fordypning Vg1',
-          nob: 'Yrkesfaglig fordypning Vg1',
-          nno: 'Yrkesfagleg fordjuping Vg1'
+          en: 'Yrkesfaglig fordypning Vg1',
+          nb: 'Yrkesfaglig fordypning Vg1',
+          nn: 'Yrkesfagleg fordjuping Vg1'
         },
         kortform: {
-          default: 'Yrkesfaglig fordypning Vg1',
-          nob: 'Yrkesfaglig fordypning Vg1',
-          nno: 'Yrkesfagleg fordjuping Vg1'
+          en: 'Yrkesfaglig fordypning Vg1',
+          nb: 'Yrkesfaglig fordypning Vg1',
+          nn: 'Yrkesfagleg fordjuping Vg1'
         }
       }
     },
@@ -1672,14 +1672,14 @@ export const STUDENTS = [
         kode: 'NAT1011',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NAT1011',
         tittel: {
-          default: 'Naturfag Vg1 HS',
-          nob: 'Naturfag Vg1 HS',
-          nno: 'Naturfag Vg1 HS'
+          en: 'Naturfag Vg1 HS',
+          nb: 'Naturfag Vg1 HS',
+          nn: 'Naturfag Vg1 HS'
         },
         kortform: {
-          default: 'Naturfag',
-          nob: 'Naturfag',
-          nno: 'Naturfag'
+          en: 'Naturfag',
+          nb: 'Naturfag',
+          nn: 'Naturfag'
         }
       }
     },
@@ -1695,14 +1695,14 @@ export const STUDENTS = [
         kode: 'HSF1007',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1007',
         tittel: {
-          default: 'Kommunikasjon og samhandling',
-          nob: 'Kommunikasjon og samhandling',
-          nno: 'Kommunikasjon og samhandling'
+          en: 'Kommunikasjon og samhandling',
+          nb: 'Kommunikasjon og samhandling',
+          nn: 'Kommunikasjon og samhandling'
         },
         kortform: {
-          default: 'Kommunikasjon og samhandling',
-          nob: 'Kommunikasjon og samhandling',
-          nno: 'Kommunikasjon og samhandling'
+          en: 'Kommunikasjon og samhandling',
+          nb: 'Kommunikasjon og samhandling',
+          nn: 'Kommunikasjon og samhandling'
         }
       }
     }
@@ -1727,28 +1727,28 @@ export const STUDENTS = [
       kode: 'HSHSF1----',
       type: 'yrkesfaglig',
       tittel: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       },
       kortform: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       }
     },
     utdanningsprogram: {
       kode: 'HS',
       type: 'yrkesfaglig',
       tittel: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       },
       kortform: {
-        default: 'Helse- og oppvekstfag',
-        nob: 'Helse- og oppvekstfag',
-        nno: 'Helse- og oppvekstfag'
+        en: 'Helse- og oppvekstfag',
+        nb: 'Helse- og oppvekstfag',
+        nn: 'Helse- og oppvekstfag'
       }
     },
     groups: [{
@@ -1772,14 +1772,14 @@ export const STUDENTS = [
         kode: 'ENG1009',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/ENG1009',
         tittel: {
-          default: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nob: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nno: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
+          en: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+          nb: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+          nn: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
         },
         kortform: {
-          default: 'Engelsk',
-          nob: 'Engelsk',
-          nno: 'Engelsk'
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
         }
       }
     },
@@ -1795,14 +1795,14 @@ export const STUDENTS = [
         kode: 'MAT1117',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1117',
         tittel: {
-          default: 'Matematikk 1P-Y  HS',
-          nob: 'Matematikk 1P-Y  HS',
-          nno: 'Matematikk 1P-Y  HS'
+          en: 'Matematikk 1P-Y  HS',
+          nb: 'Matematikk 1P-Y  HS',
+          nn: 'Matematikk 1P-Y  HS'
         },
         kortform: {
-          default: 'Matematikk 1P-Y',
-          nob: 'Matematikk 1P-Y',
-          nno: 'Matematikk 1P-Y'
+          en: 'Matematikk 1P-Y',
+          nb: 'Matematikk 1P-Y',
+          nn: 'Matematikk 1P-Y'
         }
       }
     },
@@ -1817,8 +1817,8 @@ export const STUDENTS = [
       grep: {
         kode: '1HOA/KLFAG',
         kortform: {
-          default: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nob: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -1834,14 +1834,14 @@ export const STUDENTS = [
         kode: 'HSF1008',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1008',
         tittel: {
-          default: 'Yrkesliv i helse- og oppvekstfag',
-          nob: 'Yrkesliv i helse- og oppvekstfag',
-          nno: 'Yrkesliv i helse- og oppvekstfag'
+          en: 'Yrkesliv i helse- og oppvekstfag',
+          nb: 'Yrkesliv i helse- og oppvekstfag',
+          nn: 'Yrkesliv i helse- og oppvekstfag'
         },
         kortform: {
-          default: 'Yrkesliv i helse- og oppv.fag',
-          nob: 'Yrkesliv i helse- og oppv.fag',
-          nno: 'Yrkesliv i helse- og oppv.fag'
+          en: 'Yrkesliv i helse- og oppv.fag',
+          nb: 'Yrkesliv i helse- og oppv.fag',
+          nn: 'Yrkesliv i helse- og oppv.fag'
         }
       }
     },
@@ -1857,14 +1857,14 @@ export const STUDENTS = [
         kode: 'HSF1006',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1006',
         tittel: {
-          default: 'Helsefremmende arbeid',
-          nob: 'Helsefremmende arbeid',
-          nno: 'Helsefremjande arbeid'
+          en: 'Helsefremmende arbeid',
+          nb: 'Helsefremmende arbeid',
+          nn: 'Helsefremjande arbeid'
         },
         kortform: {
-          default: 'Helsefremmende arbeid',
-          nob: 'Helsefremmende arbeid',
-          nno: 'Helsefremjande arbeid'
+          en: 'Helsefremmende arbeid',
+          nb: 'Helsefremmende arbeid',
+          nn: 'Helsefremjande arbeid'
         }
       }
     },
@@ -1880,14 +1880,14 @@ export const STUDENTS = [
         kode: 'KRO1017',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1017',
         tittel: {
-          default: 'Kroppsøving Vg1',
-          nob: 'Kroppsøving Vg1',
-          nno: 'Kroppsøving Vg1'
+          en: 'Kroppsøving Vg1',
+          nb: 'Kroppsøving Vg1',
+          nn: 'Kroppsøving Vg1'
         },
         kortform: {
-          default: 'Kroppsøving',
-          nob: 'Kroppsøving',
-          nno: 'Kroppsøving'
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
         }
       }
     },
@@ -1903,14 +1903,14 @@ export const STUDENTS = [
         kode: 'YFF4106',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
         tittel: {
-          default: 'Yrkesfaglig fordypning Vg1',
-          nob: 'Yrkesfaglig fordypning Vg1',
-          nno: 'Yrkesfagleg fordjuping Vg1'
+          en: 'Yrkesfaglig fordypning Vg1',
+          nb: 'Yrkesfaglig fordypning Vg1',
+          nn: 'Yrkesfagleg fordjuping Vg1'
         },
         kortform: {
-          default: 'Yrkesfaglig fordypning Vg1',
-          nob: 'Yrkesfaglig fordypning Vg1',
-          nno: 'Yrkesfagleg fordjuping Vg1'
+          en: 'Yrkesfaglig fordypning Vg1',
+          nb: 'Yrkesfaglig fordypning Vg1',
+          nn: 'Yrkesfagleg fordjuping Vg1'
         }
       }
     },
@@ -1926,14 +1926,14 @@ export const STUDENTS = [
         kode: 'NAT1011',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NAT1011',
         tittel: {
-          default: 'Naturfag Vg1 HS',
-          nob: 'Naturfag Vg1 HS',
-          nno: 'Naturfag Vg1 HS'
+          en: 'Naturfag Vg1 HS',
+          nb: 'Naturfag Vg1 HS',
+          nn: 'Naturfag Vg1 HS'
         },
         kortform: {
-          default: 'Naturfag',
-          nob: 'Naturfag',
-          nno: 'Naturfag'
+          en: 'Naturfag',
+          nb: 'Naturfag',
+          nn: 'Naturfag'
         }
       }
     },
@@ -1949,14 +1949,14 @@ export const STUDENTS = [
         kode: 'HSF1007',
         dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1007',
         tittel: {
-          default: 'Kommunikasjon og samhandling',
-          nob: 'Kommunikasjon og samhandling',
-          nno: 'Kommunikasjon og samhandling'
+          en: 'Kommunikasjon og samhandling',
+          nb: 'Kommunikasjon og samhandling',
+          nn: 'Kommunikasjon og samhandling'
         },
         kortform: {
-          default: 'Kommunikasjon og samhandling',
-          nob: 'Kommunikasjon og samhandling',
-          nno: 'Kommunikasjon og samhandling'
+          en: 'Kommunikasjon og samhandling',
+          nb: 'Kommunikasjon og samhandling',
+          nn: 'Kommunikasjon og samhandling'
         }
       }
     }
@@ -2189,14 +2189,14 @@ export const CLASSES = [
       kode: 'NOR1208',
       dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
       tittel: {
-        default: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-        nob: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-        nno: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+        en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+        nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+        nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
       },
       kortform: {
-        default: 'Norsk hovedmål, skriftlig',
-        nob: 'Norsk hovedmål, skriftlig',
-        nno: 'Norsk hovudmål, skriftleg'
+        en: 'Norsk hovedmål, skriftlig',
+        nb: 'Norsk hovedmål, skriftlig',
+        nn: 'Norsk hovudmål, skriftleg'
       }
     }
   },
@@ -2211,8 +2211,8 @@ export const CLASSES = [
     grep: {
       kode: '1GK',
       kortform: {
-        default: 'Undervisningsgruppa 1GK i Grunnkompetanse ved Testen videregående skole',
-        nob: 'Undervisningsgruppa 1GK i Grunnkompetanse ved Testen videregående skole'
+        en: 'Grunnkompetanse',
+        nb: 'Grunnkompetanse'
       }
     }
   },
@@ -2227,8 +2227,8 @@ export const CLASSES = [
     grep: {
       kode: '2STB/KLFAG',
       kortform: {
-        default: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-        nob: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+        en: 'Læreplan generell del',
+        nb: 'Læreplan generell del'
       }
     }
   },
@@ -2244,14 +2244,14 @@ export const CLASSES = [
       kode: 'YFF4106',
       dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
       tittel: {
-        default: 'Yrkesfaglig fordypning Vg1',
-        nob: 'Yrkesfaglig fordypning Vg1',
-        nno: 'Yrkesfagleg fordjuping Vg1'
+        en: 'Yrkesfaglig fordypning Vg1',
+        nb: 'Yrkesfaglig fordypning Vg1',
+        nn: 'Yrkesfagleg fordjuping Vg1'
       },
       kortform: {
-        default: 'Yrkesfaglig fordypning Vg1',
-        nob: 'Yrkesfaglig fordypning Vg1',
-        nno: 'Yrkesfagleg fordjuping Vg1'
+        en: 'Yrkesfaglig fordypning Vg1',
+        nb: 'Yrkesfaglig fordypning Vg1',
+        nn: 'Yrkesfagleg fordjuping Vg1'
       }
     }
   },
@@ -2267,14 +2267,14 @@ export const CLASSES = [
       kode: 'NOR1208',
       dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
       tittel: {
-        default: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-        nob: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-        nno: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+        en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+        nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+        nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
       },
       kortform: {
-        default: 'Norsk hovedmål, skriftlig',
-        nob: 'Norsk hovedmål, skriftlig',
-        nno: 'Norsk hovudmål, skriftleg'
+        en: 'Norsk hovedmål, skriftlig',
+        nb: 'Norsk hovedmål, skriftlig',
+        nn: 'Norsk hovudmål, skriftleg'
       }
     }
   }
