@@ -115,8 +115,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          en: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nb: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -363,8 +363,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          en: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nb: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -611,8 +611,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          en: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nb: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -859,8 +859,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          en: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nb: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -1101,8 +1101,8 @@ export const STUDENTS = [
       grep: {
         kode: '2STB/KLFAG',
         kortform: {
-          en: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nb: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -1332,8 +1332,8 @@ export const STUDENTS = [
       grep: {
         kode: '1HOA/KLFAG',
         kortform: {
-          en: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nb: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -1563,8 +1563,8 @@ export const STUDENTS = [
       grep: {
         kode: '1HOA/KLFAG',
         kortform: {
-          en: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nb: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -1817,8 +1817,8 @@ export const STUDENTS = [
       grep: {
         kode: '1HOA/KLFAG',
         kortform: {
-          en: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole',
-          nb: 'Undervisningsgruppa 1HOA/KLFAG i Læreplan generell del ved Testen videregående skole'
+          en: 'Læreplan generell del',
+          nb: 'Læreplan generell del'
         }
       }
     },
@@ -2211,8 +2211,8 @@ export const CLASSES = [
     grep: {
       kode: '1GK',
       kortform: {
-        en: 'Undervisningsgruppa 1GK i Grunnkompetanse ved Testen videregående skole',
-        nb: 'Undervisningsgruppa 1GK i Grunnkompetanse ved Testen videregående skole'
+        en: 'Grunnkompetanse',
+        nb: 'Grunnkompetanse'
       }
     }
   },
@@ -2227,8 +2227,8 @@ export const CLASSES = [
     grep: {
       kode: '2STB/KLFAG',
       kortform: {
-        en: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole',
-        nb: 'Undervisningsgruppa 2STB/KLFAG i Læreplan generell del ved Testen videregående skole'
+        en: 'Læreplan generell del',
+        nb: 'Læreplan generell del'
       }
     }
   },
