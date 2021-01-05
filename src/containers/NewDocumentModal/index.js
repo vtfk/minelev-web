@@ -81,7 +81,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           .filter(group => group.type === 'undervisningsgruppe')
           .map((item) => ({
             value: item.id,
-            label: `${item.grep.kortform.nob} (${item.name})`.trim(),
+            label: `${item.grep.kortform.nb} (${item.name})`.trim(),
             item
           }))
 

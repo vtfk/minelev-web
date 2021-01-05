@@ -16,7 +16,7 @@ function ClassCard ({ group, ...props }) {
       </div>
       <div className='text-wrapper'>
         <Heading3 className='name'>
-          {grep && grep.kortform ? grep.kortform.nob : name}
+          {grep && grep.kortform ? grep.kortform.nb : name}
         </Heading3>
         <div className='other'>
           {grep && grep.kortform ? <Paragraph>{name}</Paragraph> : ''}
