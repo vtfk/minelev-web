@@ -8,7 +8,8 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
+import ClassPanel from '../../components/class-panel'
+import { Paragraph, Link } from '../../_lib-components/Typography'
 import { Icon } from '../../_lib-components/Icon'
 
 import Yff from './yff'
@@ -134,32 +135,24 @@ export function Student ({ match, ...props }) {
 
               <Yff student={student} fetcher={apiGet} />
 
-              <div className='activity-panel'>
-                <Heading3 as='h2' className='panel-title'>
-                  <Icon name='activity' size='small' /> Varsler og samtaler
-                </Heading3>
-
-                <table className='activity-panel-table'>
-                  <tbody>
-                    {
-                      documents.map(function (doc, index) {
-                        return (
-                          <tr key={doc.id}>
-                            <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    }
-                  </tbody>
-                </table>
+              <ClassPanel icon='activity' title='Varsler og samtaler'>
+                {
+                  documents.map(function (doc, index) {
+                    return (
+                      <tr key={doc.id}>
+                        <td>
+                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
 
                 {/* TODO: component */}
                 <Link
@@ -173,40 +166,32 @@ export function Student ({ match, ...props }) {
                     Nytt dokument
                   </div>
                 </Link>
-              </div>
+              </ClassPanel>
 
-              <div className='activity-panel'>
-                <Heading3 as='h2' className='panel-title'>
-                  <Icon name='activity' size='small' /> Notater
-                </Heading3>
+              <ClassPanel icon='activity' title='Notater'>
+                {
+                  notes && notes.map(function (note, index) {
+                    return (
+                      <tr key={note.id}>
+                        <td>
+                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.created.timestamp}</Moment></Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
 
-                <table className='activity-panel-table'>
-                  <tbody>
-                    {
-                      notes && notes.map(function (note, index) {
-                        return (
-                          <tr key={note.id}>
-                            <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.created.timestamp}</Moment></Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    }
-
-                    {
-                      notes.length === 0 &&
-                        <tr>
-                          <td style={{ textAlign: 'left' }}>
-                            <Paragraph>Denne eleven har ingen notater.</Paragraph>
-                          </td>
-                        </tr>
-                    }
-                  </tbody>
-                </table>
+                {
+                  notes.length === 0 &&
+                    <tr>
+                      <td style={{ textAlign: 'left' }}>
+                        <Paragraph>Denne eleven har ingen notater.</Paragraph>
+                      </td>
+                    </tr>
+                }
 
                 {/* TODO: component */}
                 <Link
@@ -220,7 +205,7 @@ export function Student ({ match, ...props }) {
                     Nytt notat til elevmappen
                   </div>
                 </Link>
-              </div>
+              </ClassPanel>
             </div>) ||
 
             (error &&

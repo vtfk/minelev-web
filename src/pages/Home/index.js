@@ -7,6 +7,7 @@ import { DefaultLayout } from '../../layouts/Default'
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
+import ClassPanel from '../../components/class-panel'
 import { Heading1, Heading2, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
@@ -96,57 +97,49 @@ export function Home () {
           {`Hei ${user.givenName} og velkommen til MinElev`}
         </Heading2>
 
-        <div className='activity-panel'>
-          <Heading3 as='h2' className='panel-title'>
-            <Icon name='activity' size='small' /> Siste aktivitet
-          </Heading3>
-
-          <table className='activity-panel-table'>
-            <tbody>
-              {
-                documents && documents.splice(0, 5).map(function (doc, index) {
-                  return (
-                    <tr key={index}>
-                      <td>
-                        <div className='activity-name'>
-                          <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
-                          <Paragraph>
-                            <Link href={`/${ROUTES.students}/${doc.student.username}`}>
-                              {doc.student.name}
-                            </Link>
-                          </Paragraph>
-                        </div>
-                      </td>
-                      <td>
-                        <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
-                      </td>
-                      <td>
-                        <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
-                      </td>
-                      <td>
-                        <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
-                      </td>
-                      <td>
-                        <IconDropdownNav>
-                          <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
-                          <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
-                          <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
-                        </IconDropdownNav>
-                      </td>
-                    </tr>
-                  )
-                })
-              }
-              {
-                // TODO: Infomelding om man ikke har noen aktiviteter
-              }
-            </tbody>
-          </table>
+        <ClassPanel icon='activity' title='Siste aktivitet'>
+          {
+            documents && documents.splice(0, 5).map(function (doc, index) {
+              return (
+                <tr key={index}>
+                  <td>
+                    <div className='activity-name'>
+                      <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
+                      <Paragraph>
+                        <Link href={`/${ROUTES.students}/${doc.student.username}`}>
+                          {doc.student.name}
+                        </Link>
+                      </Paragraph>
+                    </div>
+                  </td>
+                  <td>
+                    <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
+                  </td>
+                  <td>
+                    <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
+                  </td>
+                  <td>
+                    <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
+                  </td>
+                  <td>
+                    <IconDropdownNav>
+                      <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
+                      <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
+                      <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
+                    </IconDropdownNav>
+                  </td>
+                </tr>
+              )
+            })
+          }
+          {
+            // TODO: Infomelding om man ikke har noen aktiviteter
+          }
 
           <div className='panel-link'>
             <Link href={`/${ROUTES.activityLog}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Aktivitetsloggen</Link>
           </div>
-        </div>
+        </ClassPanel>
 
         <div className='statistics-class-support-wrapper'>
           <div className='statistics-panel'>
