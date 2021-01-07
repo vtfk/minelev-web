@@ -8,7 +8,8 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
+import ClassPanel from '../../components/class-panel'
+import { Paragraph, Link } from '../../_lib-components/Typography'
 import { Icon } from '../../_lib-components/Icon'
 
 import Yff from './yff'
@@ -134,93 +135,81 @@ export function Student ({ match, ...props }) {
 
               <Yff student={student} fetcher={apiGet} />
 
-              <div className='activity-panel'>
-                <Heading3 as='h2' className='panel-title'>
-                  <Icon name='activity' size='small' /> Varsler og samtaler
-                </Heading3>
+              <ClassPanel
+                icon='activity' title='Varsler og samtaler' link={
+                /* TODO: component */
+                  <Link
+                    className='add-more-button button-left-icon button-primary'
+                    onClick={() => { openDocumentModal(student) }}
+                  >
+                    <div className='button-left-icon-icon'>
+                      <Icon name='add' size='small' />
+                    </div>
+                    <div className='button-left-icon-text'>
+                      Nytt dokument
+                    </div>
+                  </Link>
+              }
+              >
+                {
+                  documents.map(function (doc, index) {
+                    return (
+                      <tr key={doc.id}>
+                        <td>
+                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </ClassPanel>
 
-                <table className='activity-panel-table'>
-                  <tbody>
-                    {
-                      documents.map(function (doc, index) {
-                        return (
-                          <tr key={doc.id}>
-                            <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    }
-                  </tbody>
-                </table>
+              <ClassPanel
+                icon='activity' title='Notater' link={
+                /* TODO: component */
+                  <Link
+                    className='add-more-button button-left-icon button-primary'
+                    onClick={() => { openNoteModal(student) }}
+                  >
+                    <div className='button-left-icon-icon'>
+                      <Icon name='add' size='small' />
+                    </div>
+                    <div className='button-left-icon-text'>
+                      Nytt notat til elevmappen
+                    </div>
+                  </Link>
+              }
+              >
+                {
+                  notes && notes.map(function (note, index) {
+                    return (
+                      <tr key={note.id}>
+                        <td>
+                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.created.timestamp}</Moment></Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
 
-                {/* TODO: component */}
-                <Link
-                  className='add-more-button button-left-icon button-primary'
-                  onClick={() => { openDocumentModal(student) }}
-                >
-                  <div className='button-left-icon-icon'>
-                    <Icon name='add' size='small' />
-                  </div>
-                  <div className='button-left-icon-text'>
-                    Nytt dokument
-                  </div>
-                </Link>
-              </div>
-
-              <div className='activity-panel'>
-                <Heading3 as='h2' className='panel-title'>
-                  <Icon name='activity' size='small' /> Notater
-                </Heading3>
-
-                <table className='activity-panel-table'>
-                  <tbody>
-                    {
-                      notes && notes.map(function (note, index) {
-                        return (
-                          <tr key={note.id}>
-                            <td>
-                              <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.created.timestamp}</Moment></Paragraph>
-                            </td>
-                            <td>
-                              <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>
-                            </td>
-                          </tr>
-                        )
-                      })
-                    }
-
-                    {
-                      notes.length === 0 &&
-                        <tr>
-                          <td style={{ textAlign: 'left' }}>
-                            <Paragraph>Denne eleven har ingen notater.</Paragraph>
-                          </td>
-                        </tr>
-                    }
-                  </tbody>
-                </table>
-
-                {/* TODO: component */}
-                <Link
-                  className='add-more-button button-left-icon button-primary'
-                  onClick={() => { openNoteModal(student) }}
-                >
-                  <div className='button-left-icon-icon'>
-                    <Icon name='add' size='small' />
-                  </div>
-                  <div className='button-left-icon-text'>
-                    Nytt notat til elevmappen
-                  </div>
-                </Link>
-              </div>
+                {
+                  notes.length === 0 &&
+                    <tr>
+                      <td style={{ textAlign: 'left' }}>
+                        <Paragraph>Denne eleven har ingen notater.</Paragraph>
+                      </td>
+                    </tr>
+                }
+              </ClassPanel>
             </div>) ||
 
             (error &&
