@@ -97,7 +97,11 @@ export function Home () {
           {`Hei ${user.givenName} og velkommen til MinElev`}
         </Heading2>
 
-        <ClassPanel icon='activity' title='Siste aktivitet'>
+        <ClassPanel icon='activity' title='Siste aktivitet' link={
+          <div className='panel-link'>
+            <Link href={`/${ROUTES.activityLog}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Aktivitetsloggen</Link>
+          </div>
+        }>
           {
             documents && documents.splice(0, 5).map(function (doc, index) {
               return (
@@ -135,10 +139,6 @@ export function Home () {
           {
             // TODO: Infomelding om man ikke har noen aktiviteter
           }
-
-          <div className='panel-link'>
-            <Link href={`/${ROUTES.activityLog}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Aktivitetsloggen</Link>
-          </div>
         </ClassPanel>
 
         <div className='statistics-class-support-wrapper'>

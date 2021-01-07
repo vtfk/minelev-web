@@ -135,7 +135,20 @@ export function Student ({ match, ...props }) {
 
               <Yff student={student} fetcher={apiGet} />
 
-              <ClassPanel icon='activity' title='Varsler og samtaler'>
+              <ClassPanel icon='activity' title='Varsler og samtaler' link={
+                /* TODO: component */
+                <Link
+                  className='add-more-button button-left-icon button-primary'
+                  onClick={() => { openDocumentModal(student) }}
+                >
+                  <div className='button-left-icon-icon'>
+                    <Icon name='add' size='small' />
+                  </div>
+                  <div className='button-left-icon-text'>
+                    Nytt dokument
+                  </div>
+                </Link>
+              }>
                 {
                   documents.map(function (doc, index) {
                     return (
@@ -153,22 +166,22 @@ export function Student ({ match, ...props }) {
                     )
                   })
                 }
+              </ClassPanel>
 
-                {/* TODO: component */}
+              <ClassPanel icon='activity' title='Notater' link={
+                /* TODO: component */
                 <Link
                   className='add-more-button button-left-icon button-primary'
-                  onClick={() => { openDocumentModal(student) }}
+                  onClick={() => { openNoteModal(student) }}
                 >
                   <div className='button-left-icon-icon'>
                     <Icon name='add' size='small' />
                   </div>
                   <div className='button-left-icon-text'>
-                    Nytt dokument
+                    Nytt notat til elevmappen
                   </div>
                 </Link>
-              </ClassPanel>
-
-              <ClassPanel icon='activity' title='Notater'>
+              }>
                 {
                   notes && notes.map(function (note, index) {
                     return (
@@ -192,19 +205,6 @@ export function Student ({ match, ...props }) {
                       </td>
                     </tr>
                 }
-
-                {/* TODO: component */}
-                <Link
-                  className='add-more-button button-left-icon button-primary'
-                  onClick={() => { openNoteModal(student) }}
-                >
-                  <div className='button-left-icon-icon'>
-                    <Icon name='add' size='small' />
-                  </div>
-                  <div className='button-left-icon-text'>
-                    Nytt notat til elevmappen
-                  </div>
-                </Link>
               </ClassPanel>
             </div>) ||
 
