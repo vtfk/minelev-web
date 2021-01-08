@@ -11,6 +11,7 @@ import { useSession } from '@vtfk/react-msal'
 import ClassPanel from '../../components/class-panel'
 import { Paragraph, Link } from '../../_lib-components/Typography'
 import { Icon } from '../../_lib-components/Icon'
+import { IconButtonLink } from '../../_lib-components/Button'
 
 import Yff from './yff'
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
@@ -105,31 +106,23 @@ export function Student ({ match, ...props }) {
 
               <StudentCard student={student} largeName>
                 <div className='person-information-actions'>
-                  {/* TODO: component */}
-                  <Link
-                    className='person-information-action-button button-left-icon transparent-with-border'
+                  <IconButtonLink
+                    className='person-information-action-button'
                     onClick={() => { openDocumentModal(student) }}
+                    icon="add"
+                    type="transparent-bordered"
                   >
-                    <div className='button-left-icon-icon'>
-                      <Icon name='add' size='small' />
-                    </div>
-                    <div className='button-left-icon-text'>
-                      Nytt dokument
-                    </div>
-                  </Link>
+                    Nytt dokument
+                  </IconButtonLink>
 
-                  {/* TODO: component */}
-                  <Link
-                    className='person-information-action-button button-left-icon transparent-with-border'
+                  <IconButtonLink
+                    className='person-information-action-button'
                     onClick={() => { openNoteModal(student) }}
+                    icon="add"
+                    type="transparent-bordered"
                   >
-                    <div className='button-left-icon-icon'>
-                      <Icon name='add' size='small' />
-                    </div>
-                    <div className='button-left-icon-text'>
-                      Nytt notat
-                    </div>
-                  </Link>
+                    Nytt notat
+                  </IconButtonLink>
                 </div>
               </StudentCard>
 
@@ -137,18 +130,13 @@ export function Student ({ match, ...props }) {
 
               <ClassPanel
                 icon='activity' title='Varsler og samtaler' link={
-                /* TODO: component */
-                  <Link
-                    className='add-more-button button-left-icon button-primary'
+                  <IconButtonLink
+                    className='add-more-button'
                     onClick={() => { openDocumentModal(student) }}
+                    icon="add"
                   >
-                    <div className='button-left-icon-icon'>
-                      <Icon name='add' size='small' />
-                    </div>
-                    <div className='button-left-icon-text'>
-                      Nytt dokument
-                    </div>
-                  </Link>
+                    Nytt dokument
+                  </IconButtonLink>
               }
               >
                 {
@@ -172,18 +160,13 @@ export function Student ({ match, ...props }) {
 
               <ClassPanel
                 icon='activity' title='Notater' link={
-                /* TODO: component */
-                  <Link
-                    className='add-more-button button-left-icon button-primary'
+                  <IconButtonLink
+                    className='add-more-button'
                     onClick={() => { openNoteModal(student) }}
+                    icon="add"
                   >
-                    <div className='button-left-icon-icon'>
-                      <Icon name='add' size='small' />
-                    </div>
-                    <div className='button-left-icon-text'>
-                      Nytt notat til elevmappen
-                    </div>
-                  </Link>
+                    Nytt notat til elevmappen
+                  </IconButtonLink>
               }
               >
                 {
