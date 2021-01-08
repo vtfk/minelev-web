@@ -7,27 +7,21 @@ import { Checkbox } from '../../_lib-components/Checkbox'
 
 import './styles.scss'
 
-export function Select ({ placeholder, label, items, selectedItem, onChange, selectState, closeOnSelect, ...props }) {
-  const [isOpen, setIsOpen] = useState(selectState || false)
+export function Select ({ placeholder, label, items, selectedItem, onChange, isOpen, closeOnSelect, ...props }) {
+  const [open, setOpen] = useState(isOpen || false)
 
   function toggleSelect () {
-    setIsOpen(prevSelectState => !prevSelectState)
+    setOpen(prevSelectState => !prevSelectState)
   }
 
   function selectItem (item) {
     onChange(item)
-    if (closeOnSelect) {
-      toggleSelect()
-    }
-    // setIsOpen(prevSelectState => false)
+    if (closeOnSelect) setOpen(false)
   }
 
   return (
-    <div className={`select select-single ${isOpen === true ? 'is-open' : ''}`}>
-      <div
-        {...props}
-      >
-
+    <div className={`select select-single ${open === true ? 'is-open' : ''}`}>
+      <div {...props}>
         {
           placeholder &&
           selectedItem &&
@@ -37,7 +31,7 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, sel
               </div>
               <button className='select-trigger' onClick={() => { toggleSelect() }}>
                 <div className='select-trigger-text'>
-                  <div>{isOpen === true ? placeholder : selectedItem.label}</div>
+                  <div>{open === true ? placeholder : selectedItem.label}</div>
                 </div>
                 <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
               </button>
@@ -58,7 +52,7 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, sel
         }
 
         {
-          isOpen === true &&
+          open === true &&
             <div className='select-items'>
               {
                 items.map(function (item, index) {
@@ -82,16 +76,15 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, sel
   )
 }
 
-export function SelectMultiple ({ placeholder, label, items, selectedItems, onChange, ...props }) {
-  const [isOpen, setIsOpen] = useState(false)
+export function SelectMultiple ({ placeholder, label, items, selectedItems, isOpen, onChange, ...props }) {
+  const [open, setOpen] = useState(isOpen || false)
 
   function toggleSelect () {
-    setIsOpen(prevSelectState => !prevSelectState)
+    setOpen(prevSelectState => !prevSelectState)
   }
 
   function selectItem (item) {
     onChange(item)
-    // setIsOpen(prevSelectState => false)
   }
 
   function isSelected (item) {
@@ -99,10 +92,8 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
   }
 
   return (
-    <div className={`select select-multiple ${isOpen === true ? 'is-open' : ''}`}>
-      <div
-        {...props}
-      >
+    <div className={`select select-multiple ${open === true ? 'is-open' : ''}`}>
+      <div {...props}>
         {
           placeholder &&
           selectedItems.length > 0 &&
@@ -113,7 +104,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
               <button className='select-trigger' onClick={() => { toggleSelect() }}>
                 <div className='select-trigger-text'>
                   {
-                    isOpen === true
+                    open === true
                       ? placeholder
                       : selectedItems.map(function (item, index) {
                         return (
@@ -138,7 +129,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
         }
 
         {
-          isOpen === true &&
+          open === true &&
             <div className='select-items'>
               {
                 items.map(function (item, index) {
@@ -175,5 +166,6 @@ SelectMultiple.propTypes = {
   placeholder: PropTypes.string,
   items: PropTypes.array.isRequired,
   selectedItems: PropTypes.array,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool
 }
