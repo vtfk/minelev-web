@@ -59,38 +59,6 @@
     }
   }
 
-  .button {
-    @include reset-button();
-    outline: 0;
-    height: 48px;
-    line-height: 46px;
-    font-size: 16px;
-    letter-spacing: 0.4px;
-    color: #fff;
-    background: $deepSeaGreen;
-    border: 1px solid $deepSeaGreen;
-    border-radius: 24px;
-    display: block;
-    width: 100%;
-    padding: 0 ($baseUnit * 7);
-    font-weight: 700;
-
-    &.button-primary {
-      &:hover {
-        background: #fff;
-        color: $deepSeaGreen;
-        border-color: $deepSeaGreen;
-      }
-
-      &:active,
-      &:focus {
-        background: $catSkillWhite;
-        color: $deepSeaGreen;
-        border-color: $deepSeaGreen;
-      }
-    }
-  }
-
   .button-left-icon {
     @include reset-button();
     outline: 0;

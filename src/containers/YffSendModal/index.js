@@ -9,6 +9,7 @@ import { API } from '../../config/app'
 import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
+import { Button } from '../../_lib-components/Button'
 
 import './styles.scss'
 
@@ -143,8 +144,7 @@ export function YffSendModal ({ selectedStudentId, ...props }) {
             <Link onClick={() => { window.alert('Ikke implementert') }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            {/* TODO: component */}
-            <button onClick={() => { send() }} className='button button-primary'>Send brev og arkiver</button>
+            <Button onClick={() => { send() }} type='primary'>Send og arkiver</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avbryt og lukk</Link>

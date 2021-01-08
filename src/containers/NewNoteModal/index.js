@@ -9,6 +9,7 @@ import { API } from '../../config/app'
 import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
+import { Button } from '../../_lib-components/Button'
 
 import './styles.scss'
 import StudentCard from '../../components/student-card'
@@ -122,8 +123,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            {/* TODO: component */}
-            <button onClick={() => { send() }} className='button button-primary'>Send</button>
+            <Button onClick={() => { send() }} type='primary'>Send</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avslutt</Link>

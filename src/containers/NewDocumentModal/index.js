@@ -11,6 +11,7 @@ import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
+import { Button } from '../../_lib-components/Button'
 
 import getSkoleAar from 'get-skole-aar'
 import repackGrepLang from '../../lib/repack-grep-lang'
@@ -347,8 +348,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
             <Link onClick={() => { openPreviewModal() }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            {/* TODO: component */}
-            <button onClick={() => { send() }} className='button button-primary'>Send</button>
+            <Button onClick={() => { send() }} type='primary'>Send</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avslutt</Link>

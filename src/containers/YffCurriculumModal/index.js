@@ -8,6 +8,8 @@ import { API } from '../../config/app'
 
 import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
+import { Button } from '../../_lib-components/Button'
+
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage } from '../../lib/toasts'
 import createDocument from '../../lib/create-yff-document'
@@ -126,7 +128,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             <Link onClick={async () => { const document = await generateDocument(); openPreviewModal(document) }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <button onClick={() => { send() }} className='button button-primary'>Send og arkiver</button>
+            <Button onClick={() => { send() }} type='primary'>Send og arkiver</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Lagre og lukk</Link>

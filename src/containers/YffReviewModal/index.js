@@ -10,6 +10,8 @@ import { Heading3, Link } from '../../_lib-components/Typography'
 import { RadioButton } from '../../_lib-components/RadioButton'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
+import { Button } from '../../_lib-components/Button'
+
 import createDocument from '../../lib/create-yff-document'
 import StudentCard from '../../components/student-card'
 import Evaluation from './evaluation'
@@ -172,7 +174,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
             <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <button onClick={() => { send() }} className='button button-primary'>Lagre og arkiver</button>
+            <Button onClick={() => { send() }} type='primary'>Lagre og arkiver</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avbryt og lukk</Link>
