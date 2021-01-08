@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import ScrollLock, { TouchScrollable } from 'react-scrolllock'
 
-import iconClose from './icon-close.svg'
+import { ReactComponent as CloseIcon } from './icon-close.svg'
 
 import './styles.scss'
 
@@ -18,8 +18,8 @@ export function Modal ({ open, title, className, onDismiss, onFinished, ...props
               {
                 title &&
                   <div className='modal-title'>
-                    <button tabIndex='0' onClick={onDismiss} className='modal-close-button'>
-                      <img src={iconClose} alt='' />
+                    <button tabIndex='0' onClick={onDismiss} className='modal-close-button' aria-label='Lukk'>
+                      <CloseIcon alt='' />
                     </button> {title}
                   </div>
               }
