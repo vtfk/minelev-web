@@ -53,17 +53,18 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
 
         {
           open === true &&
-            <div className='select-items'>
+            <div className='select-items' aria-expanded='true' role='listbox' tabIndex={-1}>
               {
                 items.map(function (item, index) {
+                  const checked = selectedItem && selectedItem.value === item.value
                   return (
-                    <div className='select-item' key={index}>
+                    <div className='select-item' key={index} role='option' aria-selected={checked}>
                       <RadioButton
                         onChange={() => { selectItem(item) }}
                         name={`select-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
-                        checked={selectedItem && selectedItem.value === item.value}
+                        checked={checked}
                       />
                     </div>
                   )
