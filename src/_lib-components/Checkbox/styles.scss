@@ -51,7 +51,7 @@
         z-index: 2;
 
         &:before {
-          border-color: #005260;
+          border-color: $deepSeaGreen;
         }
 
         img {
@@ -68,7 +68,13 @@
 
       &:focus + .check {
         &:before {
-          border-color: #005260;
+          border-color: $deepSeaGreen;
+        }
+      }
+
+      &:focus-visible + .check {
+        &:before {
+          box-shadow: 0 0 0 4px $lightBlue;
         }
       }
     }
