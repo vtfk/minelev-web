@@ -1,142 +1,34 @@
 @import "../Tokens/tokens.scss";
 @import "../../assets/scss/helpers";
 
-.typography {
-  margin: 0;
+.button {
+  @include reset-button();
+  outline: 0;
+  height: 48px;
+  line-height: 46px;
+  font-size: 16px;
+  letter-spacing: 0.4px;
+  color: #fff;
+  background: $deepSeaGreen;
+  border: 1px solid $deepSeaGreen;
+  border-radius: 24px;
+  display: block;
+  width: 100%;
+  padding: 0 ($baseUnit * 7);
+  font-weight: 700;
 
-  &.paragraph {
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-
-    &.small {
-      font-size: 14px;
-      line-height: 24px;
-    }
-  }
-
-  &.link {
-    @include reset-button();
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    color: inherit;
-    cursor: pointer;
-
-    &.no-style {
-      text-decoration: none;
-    }
-
-    &.small {
-      font-size: 14px;
-      line-height: 24px;
-    }
-
-    &.has-icon {
-      .link-icon {
-        display: inline-block;
-        transition: all 200ms ease-in-out;
-
-        &.left-icon {
-          margin-right: $baseUnit * 2;
-        }
-
-        &.right-icon {
-          margin-left: $baseUnit * 2;
-        }
-      }
-
-      &:hover {
-        text-decoration: none;
-
-        .link-icon {
-          &.left-icon {
-            transform: translateX(-4px);
-          }
-
-          &.right-icon {
-            transform: translateX(4px);
-          }
-        }
-      }
-    }
-
+  &.button-primary {
     &:hover {
-        text-decoration: underline;
-      }
-  }
-
-  &.heading-one {
-    font-family: "Nunito", sans-serif;
-    font-size: 48px;
-    line-height: 66px;
-    font-weight: 700;
-
-    @media(max-width: 1000px) {
-      font-size: 36px;
-      line-height: 49px;
+      background: #fff;
+      color: $deepSeaGreen;
+      border-color: $deepSeaGreen;
     }
-  }
 
-  &.heading-two {
-    font-family: "Nunito", sans-serif;
-    font-size: 36px;
-    line-height: 40px;
-    font-weight: 400;
-
-    @media(max-width: 1000px) {
-      font-size: 28px;
-      line-height: 38px;
+    &:active,
+    &:focus {
+      background: $catSkillWhite;
+      color: $deepSeaGreen;
+      border-color: $deepSeaGreen;
     }
-  }
-
-  &.heading-three {
-    font-family: "Nunito", sans-serif;
-    font-size: 21px;
-    line-height: 28px;
-    font-weight: 400;
-
-    @media(max-width: 1000px) {
-      font-size: 18px;
-      line-height: 24px;
-    }
-  }
-
-  &.heading-four {
-    font-family: "Nunito", sans-serif;
-    font-size: 16px;
-    line-height: 25px;
-    font-weight: 700;
-  }
-
-  &.visually-hidden {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(1px,1px,1px,1px);
-    width: 1px;
-    height: 1px;
-
-    &.focusable:active,
-    &.focusable:focus {
-      position: inherit;
-      overflow: visible;
-      clip: auto;
-      width: auto;
-      height: auto;
-    }
-  }
-
-
-  &.skip-link {
-    position: fixed !important;
-    z-index: 999999 !important;
-    display: block;
-    top: 0;
-    left: 0;
-    right: 0;
-    
-    padding: 8px;
-    text-align: center;
-    background: $pixieGreen;
   }
 }
