@@ -104,7 +104,7 @@ export function Home () {
           <table className='activity-panel-table'>
             <tbody>
               {
-                documents && documents.splice(0, 5).map(function (doc, index) {
+                documents && [...documents].splice(0, 5).map(function (doc, index) {
                   return (
                     <tr key={index}>
                       <td>
