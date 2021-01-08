@@ -138,7 +138,14 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
             return (
               <tr key={doc._id}>
                 <td>
-                  <Paragraph>{doc.type}</Paragraph>
+                  <div className='activity-name'>
+                    <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
+                    <Paragraph>
+                      <Link href={`/${ROUTES.students}/${doc.student.username}`}>
+                        {doc.student.name}
+                      </Link>
+                    </Paragraph>
+                  </div>
                 </td>
                 <td>
                   <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
