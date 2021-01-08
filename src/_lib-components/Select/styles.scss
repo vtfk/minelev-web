@@ -18,6 +18,12 @@
   }
 
   .select-trigger {
+    border: 0;
+    outline: 0;
+    font: inherit;
+    padding: 0;
+    box-shadow: none;
+    background: none;
     position: relative;
     z-index: 3;
     font-size: 18px;
@@ -40,6 +46,12 @@
       left: 0;
       right: 0;
       border-bottom: 1px solid #979797;
+    }
+
+    &:focus {
+      &:after {
+        border-bottom: 2px solid #444;
+      }
     }
 
     .select-trigger-text {
@@ -71,75 +83,7 @@
     }
 
     .select-item {
-      font-size: 16px;
-      line-height: 1em;
-      margin-bottom: $baseUnit * 3;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
-    }
-  }
-
-  &.select-single {
-    .select-item {
-      .select-item-icon {
-        height: 24px;
-        width: 24px;
-        border: 1px solid #1D1D26;
-        border-radius: 50%;
-        margin-right: $baseUnit * 2;
-        position: relative;
-      }
-
-      &.selected {
-        .select-item-icon {
-          &:after {
-            content: "";
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background: #1D1D26;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-          }
-        }
-      }
-    }
-  }
-
-  &.select-multiple {
-    .select-item {
-      .select-item-icon {
-        width: 24px;
-        height: 24px;
-        border: 1px solid #979797;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: $baseUnit * 2;
-      }
-
-      &.selected {
-        .select-item-icon {
-          border-color: #000000;
-        }
-      }
-    }
-
-    .select-trigger {
-      .select-trigger-text {
-        div {
-          margin-bottom: $baseUnit;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-      }
+      margin-bottom: $baseUnit * 1;
     }
   }
 

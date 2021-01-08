@@ -1,22 +1,22 @@
 @import "../Tokens/tokens.scss";
 @import "../../assets/scss/helpers";
 
-.radio-button {
+.checkbox {
   display: inline-block;
   margin-right: $baseUnit * 3;
 
-  .radio-button-inner {
+  .checkbox-inner {
     display: flex;
     align-items: center;
   }
 
-  .radio-wrapper {
+  .check-wrapper {
     position: relative;
 
-    .radio {
+    .check {
       width: 26px;
       height: 26px;
-      margin: 0 $baseUnit 0 0;
+      margin: 0 ($baseUnit * 1.5) 0 0;
 
       &:before {
         content: "";
@@ -25,14 +25,17 @@
         top: 0px;
         width: 24px;
         height: 24px;
-        border-radius: 50%;
         background: #fff;
         border: 1px solid #A3A3A3;
         z-index: 1;
       }
+
+      img {
+        display: none;
+      }
     }
 
-    input[type="radio"] {
+    input[type="checkbox"] {
       position: absolute;
       top: 0;
       left: 0;
@@ -43,7 +46,7 @@
       opacity: 0;
       z-index: 3;
 
-      &:checked + .radio {
+      &:checked + .check {
         position: relative;
         z-index: 2;
 
@@ -51,21 +54,19 @@
           border-color: #005260;
         }
 
-        &:after {
-          content: "";
+        img {
+          display: block;
           position: absolute;
-          top: 50%;
           left: 50%;
+          top: 50%;
           transform: translate(-50%, -50%);
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          background: #005260;
           z-index: 3;
+          width: 16px;
+          height: 16px;
         }
       }
 
-      &:active + .check {
+      &:focus + .check {
         &:before {
           border-color: #005260;
         }
