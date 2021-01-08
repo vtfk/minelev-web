@@ -105,7 +105,7 @@ export function Home () {
         }
         >
           {
-            documents && documents.splice(0, 5).map(function (doc, index) {
+            documents && [...documents].splice(0, 5).map(function (doc, index) {
               return (
                 <tr key={index}>
                   <td>

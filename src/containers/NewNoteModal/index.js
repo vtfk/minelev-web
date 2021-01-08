@@ -34,6 +34,10 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         student = data
       }
 
+      // Reset form
+      setSelectedStudent(null)
+      setNoteText('')
+
       setSelectedStudent(student)
     }
     getStudent()

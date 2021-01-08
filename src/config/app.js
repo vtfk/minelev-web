@@ -1,3 +1,3 @@
 export const API = {
-  URL: process.env.APP_API_URL || 'https://api.minelev.no'
+  URL: process.env.REACT_APP_API_URL || 'https://api.minelev.no'
 }
