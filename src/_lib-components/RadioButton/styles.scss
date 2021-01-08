@@ -64,6 +64,12 @@
           z-index: 3;
         }
       }
+
+      &:active + .check {
+        &:before {
+          border-color: #005260;
+        }
+      }
     }
   }
 

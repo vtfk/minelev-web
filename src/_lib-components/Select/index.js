@@ -67,7 +67,7 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, sel
                   return (
                     <div className='select-item' key={index}>
                       <RadioButton
-                        onClick={() => { selectItem(item) }}
+                        onChange={() => { selectItem(item) }}
                         name={`select-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
@@ -112,7 +112,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
               <div className='select-label'>
                 {placeholder}
               </div>
-              <div className='select-trigger' onClick={() => { toggleSelect() }}>
+              <button className='select-trigger' onClick={() => { toggleSelect() }}>
                 <div className='select-trigger-text'>
                   {
                     isOpen === true
@@ -125,18 +125,18 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
                   }
                 </div>
                 <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
-              </div>
+              </button>
             </div>
         }
         {
           placeholder &&
           (!selectedItems || selectedItems.length === 0) &&
-            <div className='select-trigger' onClick={() => { toggleSelect() }}>
+            <button className='select-trigger' onClick={() => { toggleSelect() }}>
               <div className='select-trigger-text'>
                 {placeholder}
               </div>
               <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
-            </div>
+            </button>
         }
 
         {
