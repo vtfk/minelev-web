@@ -119,7 +119,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Button onClick={() => { send() }} type="primary">Send</Button>
+            <Button onClick={() => { send() }} type='primary'>Send</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avslutt</Link>

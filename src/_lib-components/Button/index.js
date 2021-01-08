@@ -33,11 +33,11 @@ export function IconButtonLink ({ className, type, icon, children, ...props }) {
 Button.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired
 }
 
 IconButtonLink.propTypes = {
   className: PropTypes.string,
   children: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired
 }

@@ -224,7 +224,7 @@ export function YffConfirmationModal ({ student, ...props }) {
             <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type="primary">Send</Button>
+            <Button onClick={() => { send() }} type='primary'>Send</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avslutt</Link>

@@ -144,7 +144,7 @@ export function YffSendModal ({ selectedStudentId, ...props }) {
             <Link onClick={() => { window.alert('Ikke implementert') }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type="primary">Send og arkiver</Button>
+            <Button onClick={() => { send() }} type='primary'>Send og arkiver</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avbryt og lukk</Link>

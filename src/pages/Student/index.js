@@ -109,8 +109,8 @@ export function Student ({ match, ...props }) {
                   <IconButtonLink
                     className='person-information-action-button'
                     onClick={() => { openDocumentModal(student) }}
-                    icon="add"
-                    type="transparent-bordered"
+                    icon='add'
+                    type='transparent-bordered'
                   >
                     Nytt dokument
                   </IconButtonLink>
@@ -118,8 +118,8 @@ export function Student ({ match, ...props }) {
                   <IconButtonLink
                     className='person-information-action-button'
                     onClick={() => { openNoteModal(student) }}
-                    icon="add"
-                    type="transparent-bordered"
+                    icon='add'
+                    type='transparent-bordered'
                   >
                     Nytt notat
                   </IconButtonLink>
@@ -133,7 +133,7 @@ export function Student ({ match, ...props }) {
                   <IconButtonLink
                     className='add-more-button'
                     onClick={() => { openDocumentModal(student) }}
-                    icon="add"
+                    icon='add'
                   >
                     Nytt dokument
                   </IconButtonLink>
@@ -163,7 +163,7 @@ export function Student ({ match, ...props }) {
                   <IconButtonLink
                     className='add-more-button'
                     onClick={() => { openNoteModal(student) }}
-                    icon="add"
+                    icon='add'
                   >
                     Nytt notat til elevmappen
                   </IconButtonLink>

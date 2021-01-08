@@ -174,7 +174,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
             <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type="primary">Lagre og arkiver</Button>
+            <Button onClick={() => { send() }} type='primary'>Lagre og arkiver</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avbryt og lukk</Link>

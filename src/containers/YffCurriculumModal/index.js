@@ -128,7 +128,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             <Link onClick={async () => { const document = await generateDocument(); openPreviewModal(document) }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type="primary">Send og arkiver</Button>
+            <Button onClick={() => { send() }} type='primary'>Send og arkiver</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Lagre og lukk</Link>
