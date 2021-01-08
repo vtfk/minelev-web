@@ -65,13 +65,12 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, sel
               {
                 items.map(function (item, index) {
                   return (
-                    <div className="select-item">
+                    <div className='select-item' key={index}>
                       <RadioButton
                         onClick={() => { selectItem(item) }}
                         name={`select-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
-                        key={index}
                         checked={selectedItem && selectedItem.value === item.value}
                       />
                     </div>
@@ -146,13 +145,12 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
               {
                 items.map(function (item, index) {
                   return (
-                    <div className="select-item">
+                    <div className='select-item' key={index}>
                       <Checkbox
                         onChange={() => { selectItem(item) }}
                         name={`select-multiple-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
-                        key={index}
                         checked={isSelected(item)}
                       />
                     </div>

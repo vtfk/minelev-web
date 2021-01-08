@@ -10,7 +10,7 @@ export function Checkbox ({ name, value, label, ...props }) {
     <div className='checkbox' {...props}>
       <div className='checkbox-inner'>
         <div className='check-wrapper'>
-          <input id={`check-${name}-${value}`} type='checkbox' name={name} value={value} {...props} tabIndex="0" />
+          <input id={`check-${name}-${value}`} type='checkbox' name={name} value={value} {...props} tabIndex='0' />
           <div className='check'>
             <img src={iconCheck} alt='item checked' />
           </div>
