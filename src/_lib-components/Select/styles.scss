@@ -59,7 +59,15 @@
     }
 
     .select-trigger-icon {
+      polygon {
+        fill: #979797;
+      }
+    }
 
+    &:focus > .select-trigger-icon {
+      polygon {
+        fill: #444;
+      }
     }
   }
 
