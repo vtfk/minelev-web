@@ -3,27 +3,29 @@ import PropTypes from 'prop-types'
 
 import iconDown from './icon-chevron-down.svg'
 import iconUp from './icon-chevron-up.svg'
-import iconCheck from './icon-check.svg'
+
+import { RadioButton } from '../../_lib-components/RadioButton'
+import { Checkbox } from '../../_lib-components/Checkbox'
 
 import './styles.scss'
 
-export function Select ({ placeholder, label, items, selectedItem, onChange, isOpen, closeOnSelect, ...props }) {
-  const [selectState, setSelectState] = useState(isOpen || false)
+export function Select ({ placeholder, label, items, selectedItem, onChange, selectState, closeOnSelect, ...props }) {
+  const [isOpen, setIsOpen] = useState(selectState || false)
 
   function toggleSelect () {
-    setSelectState(prevSelectState => !prevSelectState)
+    setIsOpen(prevSelectState => !prevSelectState)
   }
 
-  function clickItem (item) {
+  function selectItem (item) {
     onChange(item)
     if (closeOnSelect) {
       toggleSelect()
     }
-    // setSelectState(prevSelectState => false)
+    // setIsOpen(prevSelectState => false)
   }
 
   return (
-    <div className={`select select-single ${selectState === true ? 'is-open' : ''}`}>
+    <div className={`select select-single ${isOpen === true ? 'is-open' : ''}`}>
       <div
         {...props}
       >
@@ -35,41 +37,43 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
               <div className='select-label'>
                 {placeholder}
               </div>
-              <div className='select-trigger' onClick={() => { toggleSelect() }}>
+              <button className='select-trigger' onClick={() => { toggleSelect() }}>
                 <div className='select-trigger-text'>
-                  <div>{selectState === true ? placeholder : selectedItem.label}</div>
+                  <div>{isOpen === true ? placeholder : selectedItem.label}</div>
                 </div>
-                <img className='select-trigger-icon' src={selectState === true ? iconUp : iconDown} alt='' />
-              </div>
+                <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
+              </button>
             </div>
         }
 
         {
           placeholder &&
           !selectedItem &&
-            <div className='select-trigger' onClick={() => { toggleSelect() }}>
+            <button className='select-trigger' onClick={() => { toggleSelect() }}>
               <div className='select-trigger-text'>
                 <div>
                   {placeholder}
                 </div>
               </div>
-              <img className='select-trigger-icon' src={selectState === true ? iconUp : iconDown} alt='' />
-            </div>
+              <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
+            </button>
         }
 
         {
-          selectState === true &&
+          isOpen === true &&
             <div className='select-items'>
               {
                 items.map(function (item, index) {
                   return (
-                    <div
-                      className={`select-item ${selectedItem && selectedItem.value === item.value ? 'selected' : ''}`}
-                      onClick={() => { clickItem(item) }}
-                      key={item.value}
-                    >
-                      <div className='select-item-icon' />
-                      <div className='select-item-text'>{item.label}</div>
+                    <div className="select-item">
+                      <RadioButton
+                        onClick={() => { selectItem(item) }}
+                        name={`select-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
+                        value={item.value}
+                        label={item.label}
+                        key={index}
+                        checked={selectedItem && selectedItem.value === item.value}
+                      />
                     </div>
                   )
                 })
@@ -82,15 +86,15 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
 }
 
 export function SelectMultiple ({ placeholder, label, items, selectedItems, onChange, ...props }) {
-  const [selectState, setSelectState] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   function toggleSelect () {
-    setSelectState(prevSelectState => !prevSelectState)
+    setIsOpen(prevSelectState => !prevSelectState)
   }
 
-  function clickItem (item) {
+  function selectItem (item) {
     onChange(item)
-    // setSelectState(prevSelectState => false)
+    // setIsOpen(prevSelectState => false)
   }
 
   function isSelected (item) {
@@ -98,7 +102,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
   }
 
   return (
-    <div className={`select select-multiple ${selectState === true ? 'is-open' : ''}`}>
+    <div className={`select select-multiple ${isOpen === true ? 'is-open' : ''}`}>
       <div
         {...props}
       >
@@ -112,7 +116,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
               <div className='select-trigger' onClick={() => { toggleSelect() }}>
                 <div className='select-trigger-text'>
                   {
-                    selectState === true
+                    isOpen === true
                       ? placeholder
                       : selectedItems.map(function (item, index) {
                         return (
@@ -121,7 +125,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
                       })
                   }
                 </div>
-                <img className='select-trigger-icon' src={selectState === true ? iconUp : iconDown} alt='' />
+                <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
               </div>
             </div>
         }
@@ -132,28 +136,25 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
               <div className='select-trigger-text'>
                 {placeholder}
               </div>
-              <img className='select-trigger-icon' src={selectState === true ? iconUp : iconDown} alt='' />
+              <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
             </div>
         }
 
         {
-          selectState === true &&
+          isOpen === true &&
             <div className='select-items'>
               {
                 items.map(function (item, index) {
                   return (
-                    <div
-                      className={`select-item ${isSelected(item) ? 'selected' : ''}`}
-                      onClick={() => { clickItem(item) }}
-                      key={item.value}
-                    >
-                      <div className='select-item-icon'>
-                        {
-                          isSelected(item) &&
-                            <img src={iconCheck} alt='item checked' />
-                        }
-                      </div>
-                      <div className='select-item-text'>{item.label}</div>
+                    <div className="select-item">
+                      <Checkbox
+                        onChange={() => { selectItem(item) }}
+                        name={`select-multiple-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
+                        value={item.value}
+                        label={item.label}
+                        key={index}
+                        checked={isSelected(item)}
+                      />
                     </div>
                   )
                 })
