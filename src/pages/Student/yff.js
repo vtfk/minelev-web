@@ -18,8 +18,13 @@ function Yff ({ student, fetcher }) {
   const [selectedUtplassering, setSelectedUtplassering] = useState()
 
   async function getUtplasseringer (id) {
-    const utplasseringer = await fetcher(`${API.URL}/yff/${id}/utplassering`)
-    const utenTilbakemelding = utplasseringer.filter(utplassering => !utplassering.tilbakemelding)
+    const response = await fetcher(`${API.URL}/yff/${id}/utplassering`)
+    if (!response || response.error) {
+      console.error('Klarte ikke å hente utplasseringer', response)
+      return
+    }
+
+    const utenTilbakemelding = response.data.filter(utplassering => !utplassering.tilbakemelding)
     setUtplasseringer(utenTilbakemelding)
   }
 
