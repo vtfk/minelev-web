@@ -1,7 +1,7 @@
 import { Icon } from '../_lib-components/Icon'
 import { Heading3 } from '../_lib-components/Typography'
 
-function ClassPanel ({ icon, title, children, ...props }) {
+function ClassPanel ({ icon, title, link, children, ...props }) {
   return (
     <div className='activity-panel'>
       <Heading3 as='h2' className='panel-title'>
@@ -13,6 +13,8 @@ function ClassPanel ({ icon, title, children, ...props }) {
           {children}
         </tbody>
       </table>
+
+      {link}
     </div>
 
   )
