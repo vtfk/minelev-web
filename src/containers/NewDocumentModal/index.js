@@ -90,6 +90,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     }
 
     // Reset form
+    setSelectedStudent(null)
     setPeriod(null)
     setBehaviourReasons([])
     setCourseReasons([])
