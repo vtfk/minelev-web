@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import iconDown from './icon-chevron-down.svg'
-import iconUp from './icon-chevron-up.svg'
-
+import { Icon } from '../../_lib-components/Icon'
 import { RadioButton } from '../../_lib-components/RadioButton'
 import { Checkbox } from '../../_lib-components/Checkbox'
 
@@ -41,7 +39,7 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, sel
                 <div className='select-trigger-text'>
                   <div>{isOpen === true ? placeholder : selectedItem.label}</div>
                 </div>
-                <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
+                <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
               </button>
             </div>
         }
@@ -55,7 +53,7 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, sel
                   {placeholder}
                 </div>
               </div>
-              <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
+              <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
             </button>
         }
 
@@ -124,7 +122,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
                       })
                   }
                 </div>
-                <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
+                <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
               </button>
             </div>
         }
@@ -135,7 +133,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, onCh
               <div className='select-trigger-text'>
                 {placeholder}
               </div>
-              <img className='select-trigger-icon' src={isOpen === true ? iconUp : iconDown} alt='' />
+              <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
             </button>
         }
 
