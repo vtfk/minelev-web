@@ -29,7 +29,7 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
               <div className='select-label'>
                 {placeholder}
               </div>
-              <button className='select-trigger' onClick={() => { toggleSelect() }}>
+              <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
                 <div className='select-trigger-text'>
                   <div>{open === true ? placeholder : selectedItem.label}</div>
                 </div>
@@ -41,7 +41,7 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
         {
           placeholder &&
           !selectedItem &&
-            <button className='select-trigger' onClick={() => { toggleSelect() }}>
+            <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
               <div className='select-trigger-text'>
                 <div>
                   {placeholder}
@@ -53,18 +53,20 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
 
         {
           open === true &&
-            <div className='select-items' aria-expanded='true' role='listbox' tabIndex={-1}>
+            <div className='select-items' role='listbox' tabIndex={-1}>
               {
                 items.map(function (item, index) {
                   const checked = selectedItem && selectedItem.value === item.value
                   return (
-                    <div className='select-item' key={index} role='option' aria-selected={checked}>
+                    <div className='select-item' key={index}>
                       <RadioButton
+                        role='option'
                         onChange={() => { selectItem(item) }}
                         name={`select-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
                         checked={checked}
+                        aria-selected={checked}
                       />
                     </div>
                   )
