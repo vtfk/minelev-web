@@ -64,7 +64,7 @@ export function YffSendModal ({ selectedStudentId, ...props }) {
                   </Heading3>
                   <div className='other'>
                     <Paragraph>{selectedStudent.schoolName}</Paragraph>
-                    <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.className}</Link></Paragraph>
+                    <Paragraph><Link href={`/${ROUTES.classes}/${selectedStudent.classId}`}>{selectedStudent.className || selectedStudent.classId}</Link></Paragraph>
                     <Paragraph>26. april 2001</Paragraph>
                     <Paragraph>bra26041@skole.vtfk.no</Paragraph>
                   </div>
