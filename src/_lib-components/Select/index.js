@@ -53,7 +53,7 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
 
         {
           open === true &&
-            <div className='select-items' role='listbox' tabIndex='-1'>
+            <div className='select-items' role='listbox'>
               {
                 items.map(function (item, index) {
                   const checked = selectedItem && selectedItem.value === item.value
@@ -133,7 +133,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
 
         {
           open === true &&
-            <div className='select-items' role='listbox' tabIndex='-1'>
+            <div className='select-items' role='listbox'>
               {
                 items.map(function (item, index) {
                   return (
