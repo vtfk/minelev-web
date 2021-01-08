@@ -53,20 +53,20 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
 
         {
           open === true &&
-            <div className='select-items' role='listbox' tabIndex={-1}>
+            <div className='select-items' role='listbox' tabIndex='-1'>
               {
                 items.map(function (item, index) {
                   const checked = selectedItem && selectedItem.value === item.value
                   return (
                     <div className='select-item' key={index}>
                       <RadioButton
-                        role='option'
                         onChange={() => { selectItem(item) }}
                         name={`select-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
                         checked={checked}
                         aria-selected={checked}
+                        role='option'
                       />
                     </div>
                   )
@@ -104,7 +104,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
               <div className='select-label'>
                 {placeholder}
               </div>
-              <button className='select-trigger' onClick={() => { toggleSelect() }}>
+              <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
                 <div className='select-trigger-text'>
                   {
                     open === true
@@ -123,7 +123,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
         {
           placeholder &&
           (!selectedItems || selectedItems.length === 0) &&
-            <button className='select-trigger' onClick={() => { toggleSelect() }}>
+            <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
               <div className='select-trigger-text'>
                 {placeholder}
               </div>
@@ -133,7 +133,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
 
         {
           open === true &&
-            <div className='select-items'>
+            <div className='select-items' role='listbox' tabIndex='-1'>
               {
                 items.map(function (item, index) {
                   return (
@@ -144,6 +144,8 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
                         value={item.value}
                         label={item.label}
                         checked={isSelected(item)}
+                        aria-selected={isSelected(item)}
+                        role='option'
                       />
                     </div>
                   )
