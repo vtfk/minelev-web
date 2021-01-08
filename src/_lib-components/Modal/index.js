@@ -12,7 +12,7 @@ export function Modal ({ open, title, className, onDismiss, onFinished, ...props
     open === true &&
       <>
         <ScrollLock isActive={open}>
-          <div tabIndex='0' className={`modal ${className || ''}`} {...props}>
+          <div tabIndex='0' className={`modal ${className || ''}`} aria-modal='true' role='dialog' {...props}>
             <div className='modal-backdrop' />
             <div className='modal-positioner'>
               {
