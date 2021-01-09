@@ -17,7 +17,7 @@ export function Button ({ className, type, children, ...props }) {
 export function IconButtonLink ({ className, type, icon, children, ...props }) {
   return (
     <Link
-      className={`icon-button-link icon-button-link-${type} ${className}`}
+      className={`icon-button-link ${type ? `icon-button-link-${type}` : ''} ${className}`}
       {...props}
     >
       <div className='icon-button-link-icon'>
@@ -38,6 +38,7 @@ Button.propTypes = {
 
 IconButtonLink.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired
+  type: PropTypes.string,
+  icon: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired
 }
