@@ -1,20 +1,8 @@
-import { useState } from 'react'
-import { TextField } from '../../_lib-components/TextField'
+import EpostFelt from '../../lib/epost-felt'
 
-const KopiPrEpost = () => {
-  const [epost, setEpost] = useState('')
-
+function KopiPrEpost () {
   return (
-    <>
-      <div className='input-element'>
-        <TextField
-          name='kopiPrEpost'
-          placeholder='Send kopi på e-post'
-          value={epost}
-          onChange={event => setEpost(event.target.value)}
-        />
-      </div>
-    </>
+    <EpostFelt name='kopiPrEpost' placeholder='Send kopi på e-post' />
   )
 }
 

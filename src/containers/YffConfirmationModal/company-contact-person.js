@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { TextField } from '../../_lib-components/TextField'
+import EpostFelt from '../../lib/epost-felt'
 
 const OrganisasjonKontaktperson = () => {
   const [kontaktNavn, setKontaktNavn] = useState('')
   const [kontaktTelefon, setKontaktTelefon] = useState('')
-  const [kontaktEpost, setKontaktEpost] = useState('')
   const [kontaktAvdeling, setKontaktAvdeling] = useState('')
 
   return (
@@ -25,14 +25,7 @@ const OrganisasjonKontaktperson = () => {
           onChange={event => setKontaktTelefon(event.target.value)}
         />
       </div>
-      <div className='input-element'>
-        <TextField
-          name='kontaktpersonEpost'
-          placeholder='E-post'
-          value={kontaktEpost}
-          onChange={event => setKontaktEpost(event.target.value)}
-        />
-      </div>
+      <EpostFelt name='kontaktpersonEpost' placeholder='E-post' />
       <div className='input-element'>
         <TextField
           name='kontaktpersonAvdeling'
