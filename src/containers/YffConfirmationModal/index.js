@@ -20,6 +20,7 @@ import CompanySelector from './company-selector'
 import EntitySearch from './entity-search'
 import CompanyDetails from './company-details'
 import CompanyContactPerson from './company-contact-person'
+import CompanyEmailCopy from './company-email-copy'
 import StudentContactPerson from './student-contact-person'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import serializeForm from '../../lib/serialize-form'
@@ -90,10 +91,10 @@ export function YffConfirmationModal ({ student, ...props }) {
   function FormView () {
     const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson key={nanoid()} />])
     const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
+    const [copyEmails, setCopyEmails] = useState([<CompanyEmailCopy key={nanoid()} />])
     const [avdeling, setAvdeling] = useState('')
     const [dager, setDager] = useState('')
     const [sted, setSted] = useState('')
-    const [epost, setEpost] = useState('')
     const [start, setStart] = useState('08:00')
     const [slutt, setSlutt] = useState('16:00')
 
@@ -109,6 +110,13 @@ export function YffConfirmationModal ({ student, ...props }) {
       const copyStudentContactPerson = [...contactPersonsStudent]
       copyStudentContactPerson.push(<StudentContactPerson key={nanoid()} />)
       setContactPersonsStudent(copyStudentContactPerson)
+    }
+
+    function addCompanyContactCopyEmail (event) {
+      event.preventDefault()
+      const copyCompanyEmails = [...copyEmails]
+      copyCompanyEmails.push(<CompanyEmailCopy key={nanoid()} />)
+      setCopyEmails(copyCompanyEmails)
     }
 
     return (
@@ -132,14 +140,16 @@ export function YffConfirmationModal ({ student, ...props }) {
             Legg til kontaktperson
           </div>
         </button>
-        <div className='input-element'>
-          <TextField
-            name='kopiPrEpost'
-            placeholder='Legg e-postadresse(r) som skal få kopi av bekreftelsen. Bruk mellomrom som skilletegn ved flere adresser'
-            value={epost}
-            onChange={event => setEpost(event.target.value)}
-          />
-        </div>
+        <h2 className='subheader'>Kopi pr e-post</h2>
+        {copyEmails.map(email => email)}
+        <button className='add-more-button button-left-icon button-primary' onClick={addCompanyContactCopyEmail}>
+          <div className='button-left-icon-icon'>
+            <Icon name='add' size='small' />
+          </div>
+          <div className='button-left-icon-text'>
+            Legg til kopimottager
+          </div>
+        </button>
         <h2 className='subheader'>Tidsrom</h2>
         {/** TODO: Vurdere å hente inn kalenderkomponenten */}
         <div className='input-element'>
