@@ -8,8 +8,8 @@ function UtplasseringSelector (props) {
 
   useEffect(() => {
     const defaultItems = [
-      { value: 1, label: 'Skole' },
-      { value: 2, label: 'Ungdomsbedrift (entreprenørskap)' }
+      { value: '1', label: 'Skole' },
+      { value: '2', label: 'Ungdomsbedrift (entreprenørskap)' }
     ]
     if (utplasseringer && utplasseringer.length > 0) {
       const bedrifter = utplasseringer.map(bedrift => { return { value: bedrift._id, label: bedrift.bedriftsNavn } })
