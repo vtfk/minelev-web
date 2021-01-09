@@ -31,11 +31,11 @@ describe('Tester KompetansemalSelectorForm', () => {
     render(<KompetansemalSelectorForm kompetansemaal={kompetansemaal} referanse={referanse} />)
     userEvent.click(screen.getByText(/velg kompetansemål/i))
     expect(screen.getByText(/foreta masseberegninger/i)).toBeInTheDocument()
-    const knapp = screen.getByText(/foreta masseberegninger/i)
+    const knapp = screen.getByLabelText(/foreta masseberegninger/i)
     userEvent.click(knapp)
-    expect(screen.getByAltText(/item checked/i)).toBeInTheDocument()
+    expect(knapp.checked).toEqual(true)
     userEvent.click(knapp)
-    expect(await screen.queryByAltText(/item checked/i)).not.toBeInTheDocument()
+    expect(knapp.checked).toEqual(false)
   })
 
   test('man velger mål og arbeidsoppgaver dukker opp', async () => {
