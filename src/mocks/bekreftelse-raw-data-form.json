@@ -20,7 +20,11 @@
     "kontaktpersonavdeling 2",
     "kontaktpersonavdeling 2"
   ],
-  "kopiPrEpost": "epost1@e.no  epost2@d.no   epost3@f.no ",
+  "kopiPrEpost": [
+    "epost1@e.no",
+    "epost2@d.no",
+    "epost3@f.no "
+  ],
   "daysPerWeek": "6",
   "startTid": "08:00",
   "sluttTid": "16:00",
