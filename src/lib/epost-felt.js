@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { TextField } from '../../_lib-components/TextField'
+import { TextField } from '../_lib-components/TextField'
 
 function ErrorMessage () {
   return (
@@ -9,7 +9,7 @@ function ErrorMessage () {
   )
 }
 
-const KopiPrEpost = () => {
+const EpostFelt = ({ name, placeholder }) => {
   const [epost, setEpost] = useState('')
   const [invalid, setInvalid] = useState(false)
 
@@ -28,8 +28,8 @@ const KopiPrEpost = () => {
       <div className='input-element'>
         <TextField
           type='email'
-          name='kopiPrEpost'
-          placeholder='Send kopi på e-post'
+          name={name}
+          placeholder={placeholder}
           value={epost}
           onChange={event => setEpost(event.target.value)}
           onBlur={event => isValid(event)}
@@ -40,4 +40,4 @@ const KopiPrEpost = () => {
   )
 }
 
-export default KopiPrEpost
+export default EpostFelt
