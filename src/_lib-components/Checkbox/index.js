@@ -5,12 +5,12 @@ import iconCheck from './icon-check.svg'
 
 import './styles.scss'
 
-export function Checkbox ({ name, value, label, ...props }) {
+export function Checkbox ({ name, value, label, onChange, ...props }) {
   return (
     <div className='checkbox' {...props}>
       <div className='checkbox-inner'>
         <div className='check-wrapper'>
-          <input id={`check-${name}-${value}`} type='checkbox' name={name} value={value} {...props} tabIndex='0' />
+          <input id={`check-${name}-${value}`} type='checkbox' name={name} value={value} onChange={onChange} {...props} tabIndex='0' />
           <div className='check'>
             <img src={iconCheck} alt='item checked' />
           </div>

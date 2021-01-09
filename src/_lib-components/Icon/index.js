@@ -14,10 +14,12 @@ import { ReactComponent as Check } from './icon-check.svg'
 import { ReactComponent as Close } from './icon-close.svg'
 import { ReactComponent as Menu } from './icon-menu.svg'
 import { ReactComponent as Search } from './icon-search.svg'
+import { ReactComponent as ChevronUp } from './icon-chevron-up.svg'
+import { ReactComponent as ChevronDown } from './icon-chevron-down.svg'
 
 import './styles.scss'
 
-export function Icon ({ name, size }) {
+export function Icon ({ name, size, className, ...props }) {
   const iconNameMapping = {
     home: <Home />,
     activity: <Activity />,
@@ -27,6 +29,8 @@ export function Icon ({ name, size }) {
     help: <Help />,
     arrowRight: <ArrowRight />,
     arrowLeft: <ArrowLeft />,
+    chevronUp: <ChevronUp />,
+    chevronDown: <ChevronDown />,
     add: <Add />,
     check: <Check />,
     close: <Close />,
@@ -35,7 +39,7 @@ export function Icon ({ name, size }) {
   }
 
   return (
-    <span className={`icon ${size}`}>
+    <span className={`icon ${size} ${className}`} {...props}>
       {iconNameMapping[name]}
     </span>
   )
@@ -43,5 +47,6 @@ export function Icon ({ name, size }) {
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
-  size: PropTypes.string
+  size: PropTypes.string,
+  className: PropTypes.string
 }
