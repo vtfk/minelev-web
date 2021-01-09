@@ -2,10 +2,6 @@ function arrify (input) {
   return Array.isArray(input) ? input : [input]
 }
 
-function fixCopyViaEmail (input) {
-  return input.split(' ').filter(line => line !== ' ').filter(line => line !== '')
-}
-
 function mergeArrays (data) {
   const keys = Object.keys(data)
   const output = []
@@ -21,8 +17,8 @@ function mergeArrays (data) {
 
 function repackBekreftelse (data) {
   const { bekreftelse, company } = data
-  // Gjør bekreftelse via e-post til array, fjerner tomme linjer
-  bekreftelse.kopiPrEpost = fixCopyViaEmail(bekreftelse.kopiPrEpost)
+  // Sikrer at kopi pr epost er et arrat
+  bekreftelse.kopiPrEpost = arrify(bekreftelse.kopiPrEpost)
   // oppdaterer kontaktpersoner
   bekreftelse.kontaktpersonData = mergeArrays({
     navn: arrify(bekreftelse.kontaktpersonNavn),
