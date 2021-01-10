@@ -20,7 +20,7 @@ export function Datepicker ({ placeholder, selected, ...props }) {
       }
 
       <DatePicker
-        placeholder={placeholder || ''}
+        placeholderText={placeholder || ''}
         selected={selected}
         locale='nb'
         dateFormat='dd.MM.yyyy'
