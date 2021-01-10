@@ -171,15 +171,15 @@ export function YffConfirmationModal ({ student, ...props }) {
         <h2 className='subheader'>Tidsrom</h2>
         <div className='input-element'>
           <Datepicker
-            placeholder='Fra og med:'
+            placeholder='Fra og med'
             name='fraDato'
             selected={startDato}
-            onChange={date => setStartDato(date)}
+            onChange={onStartDateChange}
           />
         </div>
         <div className='input-element'>
           <Datepicker
-            placeholder='Til og med:'
+            placeholder='Til og med'
             name='tilDato'
             selected={sluttDato}
             minDate={startDato}
