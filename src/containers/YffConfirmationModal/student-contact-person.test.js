@@ -23,4 +23,12 @@ describe('Tester komponenten StudenContactPerson', () => {
     expect(navnefelt.value).toBe('her er mitt navn')
     expect(telefonfelt.value).toBe('her er mitt nummer')
   })
+
+  test('komponenten kan slettes', () => {
+    const { container } = render(<StudentContactPerson />)
+    expect(container).not.toBeEmptyDOMElement()
+    const sletteKnapp = screen.getByText(/slett/i)
+    userEvent.click(sletteKnapp)
+    expect(container).toBeEmptyDOMElement()
+  })
 })

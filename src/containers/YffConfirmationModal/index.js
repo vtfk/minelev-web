@@ -91,7 +91,7 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   function FormView () {
     const [contactPersonsCompany, setContactPersonsCompany] = useState([])
-    const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
+    const [contactPersonsStudent, setContactPersonsStudent] = useState([])
     const [copyEmails, setCopyEmails] = useState([<CompanyEmailCopy key={nanoid()} />])
     const [avdeling, setAvdeling] = useState('')
     const [dager, setDager] = useState('')
@@ -109,9 +109,11 @@ export function YffConfirmationModal ({ student, ...props }) {
     }
 
     function addStudentContactPerson (event) {
-      event.preventDefault()
+      if (event) {
+        event.preventDefault()
+      }
       const copyStudentContactPerson = [...contactPersonsStudent]
-      copyStudentContactPerson.push(<StudentContactPerson key={nanoid()} />)
+      copyStudentContactPerson.push(<StudentContactPerson />)
       setContactPersonsStudent(copyStudentContactPerson)
     }
 
@@ -124,6 +126,7 @@ export function YffConfirmationModal ({ student, ...props }) {
 
     useEffect(() => {
       addCompanyContactPerson()
+      addStudentContactPerson()
     }, [])
     return (
       <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
