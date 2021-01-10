@@ -12,6 +12,7 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
 import { Button } from '../../_lib-components/Button'
+import { Datepicker } from '../../_lib-components/Datepicker'
 
 import StudentCard from '../../components/student-card'
 import createDocument from '../../lib/create-yff-document'
@@ -50,7 +51,6 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   const sendForm = async () => {
     const bekreftelse = generateBekreftelse()
-    console.log(JSON.stringify(bekreftelse, null, 2))
     await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
     successMessage('👍', 'Bekreftelse om utplassering sendt.')
     // cleanup state
@@ -95,6 +95,8 @@ export function YffConfirmationModal ({ student, ...props }) {
     const [avdeling, setAvdeling] = useState('')
     const [dager, setDager] = useState('')
     const [sted, setSted] = useState('')
+    const [startDato, setStartDato] = useState(new Date())
+    const [sluttDato, setSluttDato] = useState(new Date())
     const [start, setStart] = useState('08:00')
     const [slutt, setSlutt] = useState('16:00')
 
@@ -162,12 +164,21 @@ export function YffConfirmationModal ({ student, ...props }) {
           </div>
         </button>
         <h2 className='subheader'>Tidsrom</h2>
-        {/** TODO: Vurdere å hente inn kalenderkomponenten */}
         <div className='input-element'>
-          <label htmlFor='datofra'>Fra og med: </label>
-          <input type='date' name='fraDato' id='datofra' placeholder='f.o.m' />
-          <label htmlFor='datotil'>Til og med:</label>
-          <input type='date' name='tilDato' id='datotil' placeholder='t.o.m' />
+          <Datepicker
+            placeholder='Fra og med:'
+            name='fraDato'
+            selected={startDato}
+            onChange={date => setStartDato(date)}
+          />
+        </div>
+        <div className='input-element'>
+          <Datepicker
+            placeholder='Til og med:'
+            name='tilDato'
+            selected={sluttDato}
+            onChange={date => setSluttDato(date)}
+          />
         </div>
         <div className='input-element'>
           <TextField
