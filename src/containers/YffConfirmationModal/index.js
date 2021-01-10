@@ -96,7 +96,7 @@ export function YffConfirmationModal ({ student, ...props }) {
     const [dager, setDager] = useState('')
     const [sted, setSted] = useState('')
     const [startDato, setStartDato] = useState(new Date())
-    const [sluttDato, setSluttDato] = useState(new Date())
+    const [sluttDato, setSluttDato] = useState(null)
     const [start, setStart] = useState('08:00')
     const [slutt, setSlutt] = useState('16:00')
 
