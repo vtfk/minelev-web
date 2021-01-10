@@ -12,7 +12,7 @@ function KopiPrEpost () {
     setIsOpen(false)
     setTimeout(() => {
       setIsDeleted(true)
-    }, 750)
+    }, 500)
   }
 
   if (isDeleted) return false
