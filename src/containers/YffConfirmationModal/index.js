@@ -51,6 +51,7 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   const sendForm = async () => {
     const bekreftelse = generateBekreftelse()
+    console.log(JSON.stringify(bekreftelse, null, 2))
     await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
     successMessage('👍', 'Bekreftelse om utplassering sendt.')
     // cleanup state
@@ -89,7 +90,7 @@ export function YffConfirmationModal ({ student, ...props }) {
   }
 
   function FormView () {
-    const [contactPersonsCompany, setContactPersonsCompany] = useState([<CompanyContactPerson key={nanoid()} />])
+    const [contactPersonsCompany, setContactPersonsCompany] = useState([])
     const [contactPersonsStudent, setContactPersonsStudent] = useState([<StudentContactPerson key={nanoid()} />])
     const [copyEmails, setCopyEmails] = useState([<CompanyEmailCopy key={nanoid()} />])
     const [avdeling, setAvdeling] = useState('')
@@ -99,9 +100,11 @@ export function YffConfirmationModal ({ student, ...props }) {
     const [slutt, setSlutt] = useState('16:00')
 
     function addCompanyContactPerson (event) {
-      event.preventDefault()
+      if (event) {
+        event.preventDefault()
+      }
       const copyContactPersonsCompany = [...contactPersonsCompany]
-      copyContactPersonsCompany.push(<CompanyContactPerson key={nanoid()} />)
+      copyContactPersonsCompany.push(<CompanyContactPerson />)
       setContactPersonsCompany(copyContactPersonsCompany)
     }
 
@@ -119,6 +122,9 @@ export function YffConfirmationModal ({ student, ...props }) {
       setCopyEmails(copyCompanyEmails)
     }
 
+    useEffect(() => {
+      addCompanyContactPerson()
+    }, [])
     return (
       <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
         <CompanyDetails company={company} />

@@ -35,4 +35,12 @@ describe('Tester komponenten CompanyContactPerson', () => {
     expect(epostfelt.value).toBe('email@example.com')
     expect(avdelingfelt.value).toBe('her er min avdeling')
   })
+
+  test('komponenten kan slettes', () => {
+    const { container } = render(<CompanyContactPerson />)
+    expect(container).not.toBeEmptyDOMElement()
+    const sletteKnapp = screen.getByText(/slett/i)
+    userEvent.click(sletteKnapp)
+    expect(container).toBeEmptyDOMElement()
+  })
 })
