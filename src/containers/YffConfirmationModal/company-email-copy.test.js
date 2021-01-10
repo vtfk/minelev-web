@@ -20,4 +20,12 @@ describe('Tester komponenten CompanyEmailCopy', () => {
     expect(screen.getByText(/send kopi på e-post/i)).toBeInTheDocument()
     expect(epostfelt.value).toBe('meg@example.com')
   })
+
+  test('komponenten kan slettes', () => {
+    const { container } = render(<CompanyEmailCopy />)
+    expect(container).not.toBeEmptyDOMElement()
+    const sletteKnapp = screen.getByText(/slett/i)
+    userEvent.click(sletteKnapp)
+    expect(container).toBeEmptyDOMElement()
+  })
 })

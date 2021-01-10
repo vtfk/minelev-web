@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
 import { useForm } from 'react-hook-form'
-import { nanoid } from 'nanoid'
 
 import { API } from '../../config/app'
 
@@ -92,7 +91,7 @@ export function YffConfirmationModal ({ student, ...props }) {
   function FormView () {
     const [contactPersonsCompany, setContactPersonsCompany] = useState([])
     const [contactPersonsStudent, setContactPersonsStudent] = useState([])
-    const [copyEmails, setCopyEmails] = useState([<CompanyEmailCopy key={nanoid()} />])
+    const [copyEmails, setCopyEmails] = useState([])
     const [avdeling, setAvdeling] = useState('')
     const [dager, setDager] = useState('')
     const [sted, setSted] = useState('')
@@ -118,15 +117,18 @@ export function YffConfirmationModal ({ student, ...props }) {
     }
 
     function addCompanyContactCopyEmail (event) {
-      event.preventDefault()
+      if (event) {
+        event.preventDefault()
+      }
       const copyCompanyEmails = [...copyEmails]
-      copyCompanyEmails.push(<CompanyEmailCopy key={nanoid()} />)
+      copyCompanyEmails.push(<CompanyEmailCopy />)
       setCopyEmails(copyCompanyEmails)
     }
 
     useEffect(() => {
       addCompanyContactPerson()
       addStudentContactPerson()
+      addCompanyContactCopyEmail()
     }, [])
     return (
       <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
