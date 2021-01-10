@@ -182,6 +182,7 @@ export function YffConfirmationModal ({ student, ...props }) {
             placeholder='Til og med:'
             name='tilDato'
             selected={sluttDato}
+            minDate={startDato}
             onChange={date => setSluttDato(date)}
           />
         </div>
