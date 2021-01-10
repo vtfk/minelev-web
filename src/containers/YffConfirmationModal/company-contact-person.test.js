@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import CompanyContactPerson from './company-contact-person'
 
@@ -34,5 +34,14 @@ describe('Tester komponenten CompanyContactPerson', () => {
     expect(telefonfelt.value).toBe('her er mitt nummer')
     expect(epostfelt.value).toBe('email@example.com')
     expect(avdelingfelt.value).toBe('her er min avdeling')
+  })
+
+  test('komponenten kan slettes', async () => {
+    const { container } = render(<CompanyContactPerson />)
+    expect(container).not.toBeEmptyDOMElement()
+    const sletteKnapp = screen.getByText(/slett/i)
+    userEvent.click(sletteKnapp)
+    await waitForElementToBeRemoved(sletteKnapp)
+    expect(container).toBeEmptyDOMElement()
   })
 })
