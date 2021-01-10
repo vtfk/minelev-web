@@ -127,6 +127,11 @@ export function YffConfirmationModal ({ student, ...props }) {
       setCopyEmails(copyCompanyEmails)
     }
 
+    function onStartDateChange (date) {
+      setStartDato(date)
+      if (date > sluttDato) setSluttDato(null)
+    }
+
     useEffect(() => {
       addCompanyContactPerson()
       addStudentContactPerson()
