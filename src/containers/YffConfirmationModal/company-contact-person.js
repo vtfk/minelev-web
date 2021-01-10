@@ -22,43 +22,41 @@ const OrganisasjonKontaktperson = () => {
   if (isDeleted) return null
 
   return (
-    <>
-      <Collapse isOpened={isOpen}>
-        <button className='add-more-button button-left-icon button-primary' onClick={handleClose}>
-          <div className='button-left-icon-icon'>
-            <Icon name='close' size='small' />
-          </div>
-          <div className='button-left-icon-text'>
-            Slett
-          </div>
-        </button>
-        <div className='input-element'>
-          <TextField
-            name='kontaktpersonNavn'
-            placeholder='Kontaktperson'
-            value={kontaktNavn}
-            onChange={event => setKontaktNavn(event.target.value)}
-          />
+    <Collapse isOpened={isOpen}>
+      <button className='add-more-button button-left-icon button-primary' onClick={handleClose}>
+        <div className='button-left-icon-icon'>
+          <Icon name='close' size='small' />
         </div>
-        <div className='input-element'>
-          <TextField
-            name='kontaktpersonTelefon'
-            placeholder='Telefon'
-            value={kontaktTelefon}
-            onChange={event => setKontaktTelefon(event.target.value)}
-          />
+        <div className='button-left-icon-text'>
+          Slett
         </div>
-        <EpostFelt name='kontaktpersonEpost' placeholder='E-post' />
-        <div className='input-element'>
-          <TextField
-            name='kontaktpersonAvdeling'
-            placeholder='Avdeling'
-            value={kontaktAvdeling}
-            onChange={event => setKontaktAvdeling(event.target.value)}
-          />
-        </div>
-      </Collapse>
-    </>
+      </button>
+      <div className='input-element'>
+        <TextField
+          name='kontaktpersonNavn'
+          placeholder='Kontaktperson'
+          value={kontaktNavn}
+          onChange={event => setKontaktNavn(event.target.value)}
+        />
+      </div>
+      <div className='input-element'>
+        <TextField
+          name='kontaktpersonTelefon'
+          placeholder='Telefon'
+          value={kontaktTelefon}
+          onChange={event => setKontaktTelefon(event.target.value)}
+        />
+      </div>
+      <EpostFelt name='kontaktpersonEpost' placeholder='E-post' />
+      <div className='input-element'>
+        <TextField
+          name='kontaktpersonAvdeling'
+          placeholder='Avdeling'
+          value={kontaktAvdeling}
+          onChange={event => setKontaktAvdeling(event.target.value)}
+        />
+      </div>
+    </Collapse>
   )
 }
 

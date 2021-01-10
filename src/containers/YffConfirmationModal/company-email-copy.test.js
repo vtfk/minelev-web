@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import CompanyEmailCopy from './company-email-copy'
 
@@ -21,11 +21,12 @@ describe('Tester komponenten CompanyEmailCopy', () => {
     expect(epostfelt.value).toBe('meg@example.com')
   })
 
-  test('komponenten kan slettes', () => {
+  test('komponenten kan slettes', async () => {
     const { container } = render(<CompanyEmailCopy />)
     expect(container).not.toBeEmptyDOMElement()
     const sletteKnapp = screen.getByText(/slett/i)
     userEvent.click(sletteKnapp)
+    await waitForElementToBeRemoved(sletteKnapp)
     expect(container).toBeEmptyDOMElement()
   })
 })

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import StudentContactPerson from './student-contact-person'
 
@@ -24,11 +24,12 @@ describe('Tester komponenten StudenContactPerson', () => {
     expect(telefonfelt.value).toBe('her er mitt nummer')
   })
 
-  test('komponenten kan slettes', () => {
+  test('komponenten kan slettes', async () => {
     const { container } = render(<StudentContactPerson />)
     expect(container).not.toBeEmptyDOMElement()
     const sletteKnapp = screen.getByText(/slett/i)
     userEvent.click(sletteKnapp)
+    await waitForElementToBeRemoved(sletteKnapp)
     expect(container).toBeEmptyDOMElement()
   })
 })
