@@ -96,7 +96,7 @@ export function YffConfirmationModal ({ student, ...props }) {
     const [dager, setDager] = useState('')
     const [sted, setSted] = useState('')
     const [startDato, setStartDato] = useState(new Date())
-    const [sluttDato, setSluttDato] = useState(new Date())
+    const [sluttDato, setSluttDato] = useState(null)
     const [start, setStart] = useState('08:00')
     const [slutt, setSlutt] = useState('16:00')
 
@@ -125,6 +125,11 @@ export function YffConfirmationModal ({ student, ...props }) {
       const copyCompanyEmails = [...copyEmails]
       copyCompanyEmails.push(<CompanyEmailCopy />)
       setCopyEmails(copyCompanyEmails)
+    }
+
+    function onStartDateChange (date) {
+      setStartDato(date)
+      if (date > sluttDato) setSluttDato(null)
     }
 
     useEffect(() => {
@@ -166,17 +171,18 @@ export function YffConfirmationModal ({ student, ...props }) {
         <h2 className='subheader'>Tidsrom</h2>
         <div className='input-element'>
           <Datepicker
-            placeholder='Fra og med:'
+            placeholder='Fra og med'
             name='fraDato'
             selected={startDato}
-            onChange={date => setStartDato(date)}
+            onChange={onStartDateChange}
           />
         </div>
         <div className='input-element'>
           <Datepicker
-            placeholder='Til og med:'
+            placeholder='Til og med'
             name='tilDato'
             selected={sluttDato}
+            minDate={startDato}
             onChange={date => setSluttDato(date)}
           />
         </div>

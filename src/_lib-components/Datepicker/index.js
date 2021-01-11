@@ -9,19 +9,19 @@ import iconCalendar from './icon-calendar.svg'
 
 import './styles.scss'
 
-export function Datepicker ({ placeholder, value, ...props }) {
+export function Datepicker ({ placeholder, selected, ...props }) {
   registerLocale('nb', nb)
 
   return (
     <div className='datepicker-field'>
       {
-        value !== '' &&
+        selected &&
           <div className='placeholder-label'>{placeholder}</div>
       }
 
       <DatePicker
-        placeholder={placeholder || ''}
-        selected={value}
+        placeholderText={placeholder || ''}
+        selected={selected}
         locale='nb'
         dateFormat='dd.MM.yyyy'
         {...props}
@@ -36,5 +36,5 @@ export function Datepicker ({ placeholder, value, ...props }) {
 
 Datepicker.propTypes = {
   placeholder: PropTypes.string.isRequired,
-  value: PropTypes.instanceOf(Date).isRequired
+  selected: PropTypes.instanceOf(Date).isRequired
 }
