@@ -34,8 +34,14 @@ function Maal (props) {
   const { tittel } = grep
   return (
     <div>
-      <div>{tittel.nb}</div>
-      <div>{arbeidsoppgaver}</div>
+      <div>
+        <strong>Mål:</strong><br />
+        {tittel.nb}
+      </div>
+      <div>
+        <strong>Arbeidsoppgaver:</strong><br />
+        {arbeidsoppgaver}
+      </div>
       <Scores id={_id} />
     </div>
   )
