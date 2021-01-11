@@ -35,7 +35,7 @@ function Tilbakemelding (props) {
   return (
     <div>
       <input type='hidden' name={`evaluation-${id}`} value={value} />
-      {description}
+      <p>{description}</p>
       <Scores id={id} />
     </div>
   )
