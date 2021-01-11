@@ -39,6 +39,31 @@
     @media (max-width: 1000px) {
       padding-bottom: $baseUnit * 2;
     }
+
+    .input-element {
+      margin-bottom: $baseUnit * 5;
+    }
+
+    .prefilled {
+      margin-bottom: $baseUnit * 4;
+
+      .prefilled-label {
+        font-size: 14px;
+        font-weight: bold;
+        position: relative;
+        color: rgba(#1D1C28, 0.4);
+        margin-bottom: $baseUnit;
+      }
+
+      .prefilled-text {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+
+    .add-more-button {
+      margin-bottom: $baseUnit * 4;
+    }
   }
 
   .subheader {
