@@ -6,7 +6,7 @@ import { useSession } from '@vtfk/react-msal'
 
 import { API } from '../../config/app'
 
-import { Heading3, Link } from '../../_lib-components/Typography'
+import { Link } from '../../_lib-components/Typography'
 import { RadioButton } from '../../_lib-components/RadioButton'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
@@ -135,9 +135,8 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
           <p className='intro'>
             Tilbakemelding for elevens utplassering
           </p>
-
-          <div className='form'>
-            <form id='review-form'>
+          <div>
+            <form id='review-form' className='form'>
               <Review maal={maal} />
               <Evaluation />
               <Attitude />
@@ -158,8 +157,8 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
                   onChange={event => setTimer(event.target.value)}
                 />
               </div>
-              <div>
-                <Heading3>Varslet eleven selv om fraværet?</Heading3>
+              <div className='input-element'>
+                <strong>Varslet eleven selv om fraværet?</strong><br />
                 <RadioButton name='varsletFravar' value='ja' label='Ja' />
                 <RadioButton name='varsletFravar' value='nei' label='Nei' />
                 <RadioButton name='varsletFravar' value='av og til' label='Av og til' />
