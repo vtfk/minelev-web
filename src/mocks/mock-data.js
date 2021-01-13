@@ -5801,6 +5801,143 @@ export const DOCUMENTS = [
   }
 ]
 
+export const STATS_TYPE = [
+  {
+    type: 'notat',
+    variants: [
+      {
+        variant: 'notat',
+        count: 222
+      }
+    ],
+    count: 222
+  },
+  {
+    type: 'samtale',
+    variants: [
+      {
+        variant: 'samtale',
+        count: 279
+      },
+      {
+        variant: 'ikke-samtale',
+        count: 10
+      }
+    ],
+    count: 289
+  },
+  {
+    type: 'varsel',
+    variants: [
+      {
+        variant: 'fag',
+        count: 750
+      },
+      {
+        variant: 'orden',
+        count: 329
+      },
+      {
+        variant: 'atferd',
+        count: 329
+      }
+    ],
+    count: 1408
+  }
+]
+
+export const STATS_SCHOOL = [
+  {
+    id: 'TESVS',
+    name: 'Testen videregående skole',
+    types: [
+      {
+        type: 'samtale',
+        count: 246
+      },
+      {
+        type: 'varsel',
+        count: 282
+      },
+      {
+        type: 'notat',
+        count: 75
+      }
+    ],
+    count: 603
+  },
+  {
+    id: 'FYLLVS',
+    name: 'Fylkeskommunal videregående skole',
+    types: [
+      {
+        type: 'samtale',
+        count: 43
+      },
+      {
+        type: 'varsel',
+        count: 1126
+      },
+      {
+        type: 'notat',
+        count: 147
+      }
+    ],
+    count: 1316
+  }
+]
+
+export const STATS_TYPE_SCHOOL = [
+  {
+    type: 'notat',
+    schools: [
+      {
+        id: 'TESVS',
+        name: 'Testen videregående skole',
+        count: 75
+      },
+      {
+        id: 'FYLLVS',
+        name: 'Fylkeskommunal videregående skole',
+        count: 147
+      }
+    ],
+    count: 222
+  },
+  {
+    type: 'samtale',
+    schools: [
+      {
+        id: 'TESVS',
+        name: 'Testen videregående skole',
+        count: 246
+      },
+      {
+        id: 'FYLLVS',
+        name: 'Fylkeskommunal videregående skole',
+        count: 43
+      }
+    ],
+    count: 289
+  },
+  {
+    type: 'varsel',
+    schools: [
+      {
+        id: 'TESVS',
+        name: 'Testen videregående skole',
+        count: 282
+      },
+      {
+        id: 'FYLLVS',
+        name: 'Fylkeskommunal videregående skole',
+        count: 1126
+      }
+    ],
+    count: 1408
+  }
+]
+
 export const getRandomObjectId = function () {
   const timestamp = (new Date().getTime() / 1000 | 0).toString(16)
   return timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, function () {

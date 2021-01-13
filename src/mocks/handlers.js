@@ -6,6 +6,7 @@ import { getStudents, getStudent, getStudentClasses, getStudentTeachers, getClas
 import generateYFF from './yff'
 import getBrregData from './brreg'
 import getGrepData from './grep'
+import { STATS_SCHOOL, STATS_TYPE, STATS_TYPE_SCHOOL } from './mock-data'
 
 export const generateResponseObject = (response) => {
   return {
@@ -258,6 +259,34 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json(generateYFF({ student, type, id }))
+    )
+  }),
+
+  rest.get(`${API.URL}/stats`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({ count: 1919 })
+    )
+  }),
+
+  rest.get(`${API.URL}/stats/type`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json(STATS_TYPE)
+    )
+  }),
+
+  rest.get(`${API.URL}/stats/school`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json(STATS_SCHOOL)
+    )
+  }),
+
+  rest.get(`${API.URL}/stats/type/school`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json(STATS_TYPE_SCHOOL)
     )
   })
 ]
