@@ -90,8 +90,8 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     }
   }
 
-  function generateDocument () {
-    const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
+  function generateDocument (data) {
+    const { evalueringsdata, kompetansemal } = data || generateTilbakemeldingsdata()
     return createDocument({
       variant: 'tilbakemelding',
       student,
@@ -114,7 +114,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     })
     jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
     await Promise.all(jobs)
-    const document = generateDocument()
+    const document = generateDocument({ evalueringsdata, kompetansemal })
     await apiPost(`${API.URL}/documents`, document)
     successMessage('👍', 'Tilbakemeldingen er lagret.')
     // Cleanup state
