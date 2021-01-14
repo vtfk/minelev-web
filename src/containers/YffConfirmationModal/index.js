@@ -52,6 +52,7 @@ export function YffConfirmationModal ({ student, ...props }) {
   const sendForm = async () => {
     const bekreftelse = generateBekreftelse()
     await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
+    await apiPost(`${API.URL}/documents`, generateDocument())
     successMessage('👍', 'Bekreftelse om utplassering sendt.')
     // cleanup state
     setBrregData(null)
