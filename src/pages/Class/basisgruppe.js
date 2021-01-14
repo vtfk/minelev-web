@@ -20,9 +20,9 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
         <ClassTile label='varselbrev' value={documents.length} />
         <ClassTile label='dokumenterte elevsamtaler' value={conversations.length} />
         <ClassTile label='notater til elevmappa' value={notes.length} />
-        <ClassTile label='utplasseringer' value={0} />
+        {/* <ClassTile label='utplasseringer' value={0} />
         <ClassTile label='lokale læreplaner arkivert' value={0} />
-        <ClassTile label='tilbakemeldinger' value={0} />
+        <ClassTile label='tilbakemeldinger' value={0} /> */}
       </ClassTileGroup>
 
       <ClassPanel icon='students' title='Elever'>

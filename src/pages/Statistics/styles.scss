@@ -72,9 +72,10 @@
               }
 
               .stats-collapse-table-progressbar {
-                height: $baseUnit * 2;
-                width: 0;
                 background: $onahau;
+                height: $baseUnit * 2;
+                width: 100%;
+                animation: animate-progressbar 1.5s ease-out;
               }
             }
           }
@@ -90,5 +91,18 @@
         padding-bottom: $baseUnit * 3;
       }
     }
+  }
+}
+
+@keyframes animate-progressbar {
+  0% {
+    width: 0%;
+    opacity: 0%;
+  }
+  25% {
+    opacity: 100%;
+  }
+  100% {
+    width: 100%
   }
 }
