@@ -114,6 +114,8 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     })
     jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
     await Promise.all(jobs)
+    const document = generateDocument()
+    await apiPost(`${API.URL}/documents`, document)
     successMessage('👍', 'Tilbakemeldingen er lagret.')
     // Cleanup state
     setUtplassering(false)
