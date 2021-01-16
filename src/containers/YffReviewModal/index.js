@@ -45,12 +45,20 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   useEffect(() => {
     async function getMaal () {
       const laereplan = await apiGet(`${API.URL}/yff/${studentID}/maal`)
-      const maal = laereplan.filter(maal => maal.referanseID === utplasseringsId)
-      setMaal(maal)
+      try {
+        const maal = laereplan.filter(maal => maal.referanseID === utplasseringsId)
+        setMaal(maal)
+      } catch (error) {
+        console.error(error)
+      }
     }
     async function getUtplassering () {
-      const utplassering = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
-      setUtplassering(utplassering[0])
+      try {
+        const utplassering = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
+        setUtplassering(utplassering[0])
+      } catch (error) {
+        console.error(error)
+      }
     }
     if (isOpen) {
       getUtplassering()
