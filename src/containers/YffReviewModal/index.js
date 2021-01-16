@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import React, { useState, useEffect } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
@@ -13,6 +14,7 @@ import { TextField } from '../../_lib-components/TextField'
 import { Button } from '../../_lib-components/Button'
 
 import createDocument from '../../lib/create-yff-document'
+import YffErrorFallback from '../../components/yff-error-fallback'
 import StudentCard from '../../components/student-card'
 import Evaluation from './evaluation'
 import Review from './review'
@@ -137,7 +139,10 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   }
 
   return (
-    <>
+    <ErrorBoundary
+      FallbackComponent={YffErrorFallback}
+      onReset={() => props.onDismiss()}
+    >
       <PreviewModal />
       <Modal
         {...props}
@@ -195,7 +200,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
           </div>
         </ModalSideActions>
       </Modal>
-    </>
+    </ErrorBoundary>
   )
 }
 
