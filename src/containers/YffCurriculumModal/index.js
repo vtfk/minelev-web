@@ -11,7 +11,7 @@ import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Button } from '../../_lib-components/Button'
 
 import pfdPreview from '../../lib/pdf-preview'
-import { successMessage } from '../../lib/toasts'
+import { successMessage, errorMessage } from '../../lib/toasts'
 import createDocument from '../../lib/create-yff-document'
 import StudentCard from '../../components/student-card'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
@@ -70,14 +70,19 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   async function send () {
     const document = await createDocument()
-    await apiPost(`${API.URL}/documents`, document)
-    successMessage('👍', 'Lokal læreplan er sendt og arkivert')
-    // cleanup state
-    setSelectedKlassetrinn('')
-    setKompetansemaal(false)
-    setUtplasseringer([])
-    setUtplassering(false)
-    props.onDismiss()
+    try {
+      await apiPost(`${API.URL}/documents`, document)
+      successMessage('👍', 'Lokal læreplan er sendt og arkivert')
+      // cleanup state
+      setSelectedKlassetrinn('')
+      setKompetansemaal(false)
+      setUtplasseringer([])
+      setUtplassering(false)
+      props.onDismiss()
+    } catch (error) {
+      console.error(error)
+      errorMessage('Læreplanen ble ikke lagret', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
+    }
   }
 
   async function generateDocument () {

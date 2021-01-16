@@ -61,7 +61,7 @@ export function YffConfirmationModal ({ student, ...props }) {
       props.onFinished()
     } catch (error) {
       console.error(error)
-      errorMessage('Noe gikk galt', 'Bekreftelsen kunne ikke opprettes')
+      errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
     }
   }
 
