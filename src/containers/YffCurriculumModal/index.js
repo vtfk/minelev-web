@@ -45,8 +45,12 @@ export function YffCurriculumModal ({ student, ...props }) {
   useEffect(() => {
     async function getUtplasseringer () {
       const url = `${API.URL}/yff/${studentID}/utplassering`
-      const data = await apiGet(url)
-      setUtplasseringer(data)
+      try {
+        const data = await apiGet(url)
+        setUtplasseringer(data)
+      } catch (error) {
+        console.error(error)
+      }
     }
     if (isOpen) {
       getUtplasseringer()
