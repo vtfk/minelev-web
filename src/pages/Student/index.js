@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import Moment from 'react-moment'
 
 import { DefaultLayout } from '../../layouts/Default'
@@ -14,6 +15,7 @@ import { Icon } from '../../_lib-components/Icon'
 import { IconButtonLink } from '../../_lib-components/Button'
 
 import Yff from './yff'
+import YffErrorFallback from './yff-error-fallback'
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
 
@@ -126,7 +128,11 @@ export function Student ({ match, ...props }) {
                 </div>
               </StudentCard>
 
-              <Yff student={student} fetcher={apiGet} />
+              <ErrorBoundary
+                FallbackComponent={YffErrorFallback}
+              >
+                <Yff student={student} fetcher={apiGet} />
+              </ErrorBoundary>
 
               <ClassPanel
                 icon='activity' title='Varsler og samtaler' link={
