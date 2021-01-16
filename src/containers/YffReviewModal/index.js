@@ -19,7 +19,7 @@ import Review from './review'
 import Attitude from './attitude'
 import Details from './details'
 import serializeForm from '../../lib/serialize-form'
-import { successMessage } from '../../lib/toasts'
+import { successMessage, errorMessage } from '../../lib/toasts'
 import pfdPreview from '../../lib/pdf-preview'
 
 import './styles.scss'
@@ -45,12 +45,20 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   useEffect(() => {
     async function getMaal () {
       const laereplan = await apiGet(`${API.URL}/yff/${studentID}/maal`)
-      const maal = laereplan.filter(maal => maal.referanseID === utplasseringsId)
-      setMaal(maal)
+      try {
+        const maal = laereplan.filter(maal => maal.referanseID === utplasseringsId)
+        setMaal(maal)
+      } catch (error) {
+        console.error(error)
+      }
     }
     async function getUtplassering () {
-      const utplassering = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
-      setUtplassering(utplassering[0])
+      try {
+        const utplassering = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
+        setUtplassering(utplassering[0])
+      } catch (error) {
+        console.error(error)
+      }
     }
     if (isOpen) {
       getUtplassering()
@@ -105,22 +113,27 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   async function send () {
     const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
     const tilbakemeldingsUrl = `${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`
-    // oppdaterer alle mål med tilbakemeldinger
-    const kompetanseMaalUrl = `${API.URL}/yff/${studentID}/maal`
-    const jobs = kompetansemal.map(maal => {
-      const { _id, tilbakemelding } = maal
-      const url = `${kompetanseMaalUrl}/${_id}`
-      return apiPut(url, { tilbakemelding })
-    })
-    jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
-    await Promise.all(jobs)
-    const document = generateDocument({ evalueringsdata, kompetansemal })
-    await apiPost(`${API.URL}/documents`, document)
-    successMessage('👍', 'Tilbakemeldingen er lagret.')
-    // Cleanup state
-    setUtplassering(false)
-    setMaal(false)
-    props.onFinished()
+    try {
+      // oppdaterer alle mål med tilbakemeldinger
+      const kompetanseMaalUrl = `${API.URL}/yff/${studentID}/maal`
+      const jobs = kompetansemal.map(maal => {
+        const { _id, tilbakemelding } = maal
+        const url = `${kompetanseMaalUrl}/${_id}`
+        return apiPut(url, { tilbakemelding })
+      })
+      jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
+      await Promise.all(jobs)
+      const document = generateDocument({ evalueringsdata, kompetansemal })
+      await apiPost(`${API.URL}/documents`, document)
+      successMessage('👍', 'Tilbakemeldingen er lagret.')
+      // Cleanup state
+      setUtplassering(false)
+      setMaal(false)
+      props.onFinished()
+    } catch (error) {
+      console.error(error)
+      errorMessage('Tilbakemeldingen ble ikke lagret', 'Du kan forsøke igjen, men dersom problemene vedvarer kontakter du systemadministrator')
+    }
   }
 
   return (

@@ -26,7 +26,7 @@ import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogram
 import serializeForm from '../../lib/serialize-form'
 import repackBekreftelse from '../../lib/repack-bekreftelse'
 import pfdPreview from '../../lib/pdf-preview'
-import { successMessage } from '../../lib/toasts'
+import { successMessage, errorMessage } from '../../lib/toasts'
 
 import './styles.scss'
 
@@ -51,13 +51,18 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   const sendForm = async () => {
     const bekreftelse = generateBekreftelse()
-    await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
-    await apiPost(`${API.URL}/documents`, generateDocument(bekreftelse))
-    successMessage('👍', 'Bekreftelse om utplassering sendt.')
-    // cleanup state
-    setBrregData(null)
-    setCompany(false)
-    props.onFinished()
+    try {
+      await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
+      successMessage('👍', 'Bekreftelse om utplassering sendt.')
+      await apiPost(`${API.URL}/documents`, generateDocument(bekreftelse))
+      // cleanup state
+      setBrregData(null)
+      setCompany(false)
+      props.onFinished()
+    } catch (error) {
+      console.error(error)
+      errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
+    }
   }
 
   useEffect(() => {
