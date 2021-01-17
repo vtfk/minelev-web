@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import React, { useState, useEffect } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
@@ -16,6 +17,7 @@ import { Datepicker } from '../../_lib-components/Datepicker'
 
 import StudentCard from '../../components/student-card'
 import createDocument from '../../lib/create-yff-document'
+import YffErrorFallback from '../../components/yff-error-fallback'
 import CompanySelector from './company-selector'
 import EntitySearch from './entity-search'
 import CompanyDetails from './company-details'
@@ -241,7 +243,10 @@ export function YffConfirmationModal ({ student, ...props }) {
   }
 
   return (
-    <>
+    <ErrorBoundary
+      FallbackComponent={YffErrorFallback}
+      onReset={() => props.onDismiss()}
+    >
       <PreviewModal />
       <Modal
         {...props}
@@ -275,7 +280,7 @@ export function YffConfirmationModal ({ student, ...props }) {
           </div>
         </ModalSideActions>
       </Modal>
-    </>
+    </ErrorBoundary>
   )
 }
 
