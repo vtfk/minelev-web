@@ -32,8 +32,13 @@ function LokalLaereplan (props) {
   const { deleter, fetcher, selectedStudentId } = props
   useEffect(() => {
     const getLaereplan = async () => {
-      const data = await fetcher(`${API.URL}/yff/${selectedStudentId}/maal`)
-      setMaal(data)
+      const response = await fetcher(`${API.URL}/yff/${selectedStudentId}/maal`)
+      if (!response || !response.data) {
+        console.error('Kunne ikke hente læreplan', response)
+        return
+      }
+
+      setMaal(response.data)
     }
     getLaereplan()
   }, [])
@@ -53,7 +58,7 @@ function LokalLaereplan (props) {
           <tr>
             <th><Paragraph size='small'>Kompetansemål / Arbeidsoppgaver</Paragraph></th>
             <th><Paragraph size='small'>Utplasseringssted</Paragraph></th>
-            <th className='actions-th'><Paragraph size='small'>Fjern fra planen</Paragraph></th>
+            <th className='actions-th'><Paragraph size='small'>Fjern</Paragraph></th>
           </tr>
         </thead>
         <tbody>
