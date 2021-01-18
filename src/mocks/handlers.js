@@ -218,7 +218,7 @@ export const handlers = [
     const { student } = req.params
     return res(
       ctx.status(200),
-      ctx.json(generateYFF({ student, type: false, id: false }))
+      ctx.json(generateResponseObject(generateYFF({ student, type: false, id: false })))
     )
   }),
 
@@ -226,7 +226,7 @@ export const handlers = [
     const { student, type, id } = req.params
     return res(
       ctx.status(200),
-      ctx.json({ student, type, id, deleted: true })
+      ctx.json(generateResponseObject({ student, type, id, deleted: true }))
     )
   }),
 
@@ -234,7 +234,7 @@ export const handlers = [
     const { student, type } = req.params
     return res(
       ctx.status(200),
-      ctx.json(generateYFF({ student, type, id: false }))
+      ctx.json(generateResponseObject(generateYFF({ student, type, id: false })))
     )
   }),
 
@@ -242,7 +242,7 @@ export const handlers = [
     const { student, type } = req.params
     return res(
       ctx.status(200),
-      ctx.json(generateYFF({ student, type, id: false }))
+      ctx.json(generateResponseObject(generateYFF({ student, type, id: false })))
     )
   }),
 
@@ -250,7 +250,7 @@ export const handlers = [
     const { student, type, id } = req.params
     return res(
       ctx.status(200),
-      ctx.json(generateYFF({ student, type, id }))
+      ctx.json(generateResponseObject(generateYFF({ student, type, id })))
     )
   }),
 
@@ -258,7 +258,7 @@ export const handlers = [
     const { student, type, id } = req.params
     return res(
       ctx.status(200),
-      ctx.json(generateYFF({ student, type, id }))
+      ctx.json(generateResponseObject(generateYFF({ student, type, id })))
     )
   }),
 

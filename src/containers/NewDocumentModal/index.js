@@ -201,7 +201,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     const document = createDocment()
     const { data } = await apiPost(API.URL + '/documents/preview', document)
 
-    if (data.base64) {
+    if (data && data.base64) {
       setPdfPreviewBase64(data.base64)
       setPdfPreviewError(null)
       setPdfPreviewLoading(false)
