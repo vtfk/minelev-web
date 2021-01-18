@@ -162,6 +162,15 @@ export function Student ({ match, ...props }) {
                     )
                   })
                 }
+                {
+                  documents.length === 0 &&
+                    <tr>
+                      <td style={{ textAlign: 'left' }}>
+                        <Paragraph>Denne eleven har ingen registrerte varsler eller samtaler.</Paragraph>
+                      </td>
+                    </tr>
+                }
+
               </ClassPanel>
 
               <ClassPanel
