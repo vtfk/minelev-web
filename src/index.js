@@ -24,7 +24,7 @@ if (SENTRY.dsn) {
     integrations: [new Integrations.BrowserTracing()],
     tracesSampleRate: 1.0,
     beforeSend: (event, hint) => {
-      // Check if it is an exception, and if so, show the report dialog
+      /* Check if it is an exception, and if so, show the report dialog
       if (event.exception) {
         Sentry.showReportDialog({
           eventId: event.event_id,
@@ -40,7 +40,7 @@ if (SENTRY.dsn) {
           errorGeneric: 'Noe gikk galt.. Prøv igjen!',
           successMessage: 'Takk for tilbakemeldingen, det hjelper oss godt på vei med å få fikset saken. Vi tar kontakt med deg om vi trenger mer informasjon.'
         })
-      }
+      } */
 
       return event
     }
