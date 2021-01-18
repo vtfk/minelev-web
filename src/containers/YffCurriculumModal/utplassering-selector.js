@@ -3,13 +3,13 @@ import { Select } from '../../_lib-components/Select'
 
 function UtplasseringSelector (props) {
   const [items, setItems] = useState([])
-  const [item, setItem] = useState({ value: '1', label: 'Skole' })
+  const [item, setItem] = useState({ value: 'skole', label: 'Skole' })
   const { utplasseringer, setUtplassering } = props
 
   useEffect(() => {
     const defaultItems = [
-      { value: '1', label: 'Skole' },
-      { value: '2', label: 'Ungdomsbedrift (entreprenørskap)' }
+      { value: 'skole', label: 'Skole' },
+      { value: 'ubedrift', label: 'Ungdomsbedrift (entreprenørskap)' }
     ]
     if (utplasseringer && utplasseringer.length > 0) {
       const bedrifter = utplasseringer.map(bedrift => { return { value: bedrift._id, label: bedrift.bedriftsNavn } })

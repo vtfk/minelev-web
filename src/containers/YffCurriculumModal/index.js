@@ -127,7 +127,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             <h2 className='subheader'>Legg til nye kompetansemål</h2>
             <div className='add-new-curriculum'>
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
-              {utplassering && utplassering.value === 1 && <SchoolSelectorForm />}
+              {utplassering && utplassering.value === 'skole' && <SchoolSelectorForm />}
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
               <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={studentID} referanse={referanse} />
             </div>
