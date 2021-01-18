@@ -25,7 +25,7 @@ function usePreview (poster) {
 
     const { data } = await poster(API.URL + '/documents/preview', document)
 
-    if (data.base64) {
+    if (data && data.base64) {
       setPdfPreviewBase64(data.base64)
       setPdfPreviewError(null)
       setPdfPreviewLoading(false)
