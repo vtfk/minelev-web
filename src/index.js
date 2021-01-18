@@ -38,7 +38,7 @@ if (SENTRY.dsn) {
           labelClose: 'Avbryt',
           errorFormEntry: 'Noen av feltene har ugyldige verdier. Sjekk over skjemaet nedenfor og prøv igjen.',
           errorGeneric: 'Noe gikk galt.. Prøv igjen!',
-          successMessage: 'Takk for tilbakemeldingen, det hjelper oss godt på vei med å få fikset saken. Vi tar kontakt med deg om vi trenger mer informasjon.'
+          successMessage: 'Takk for tilbakemeldingen, det hjelper oss godt på vei med å få fikset feilen. Vi tar kontakt med deg om vi trenger mer informasjon.'
         })
       } */
 
