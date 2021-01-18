@@ -153,7 +153,6 @@ body {
         &:not(.actions) {
           @media(max-width: 1000px) {
             font-weight: inherit;
-            display: inherit;
             padding-right: $baseUnit * 8;
           }
         }
