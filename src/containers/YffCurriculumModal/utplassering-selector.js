@@ -11,8 +11,8 @@ function UtplasseringSelector (props) {
       { value: 'skole', label: 'Skole' },
       { value: 'ubedrift', label: 'Ungdomsbedrift (entreprenørskap)' }
     ]
-    if (utplasseringer && utplasseringer.length > 0) {
-      const bedrifter = utplasseringer.map(bedrift => { return { value: bedrift._id, label: bedrift.bedriftsNavn } })
+    if (utplasseringer && utplasseringer.count > 0) {
+      const bedrifter = utplasseringer.data.map(bedrift => { return { value: bedrift._id, label: bedrift.bedriftsNavn } })
       setItems([...defaultItems, ...bedrifter])
     } else {
       setItems(defaultItems)
