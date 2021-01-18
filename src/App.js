@@ -11,6 +11,8 @@ import 'moment/locale/nb'
 import { useSession } from '@vtfk/react-msal'
 import { loginRequest } from './config/auth'
 
+import * as Sentry from '@sentry/react'
+
 import { Home } from './pages/Home'
 import { ActivityLog } from './pages/ActivityLog'
 import { Classes } from './pages/Classes'
@@ -46,7 +48,7 @@ const AppContent = () => {
 }
 
 function App () {
-  const { isAuthenticated, login, authStatus } = useSession()
+  const { isAuthenticated, login, authStatus, user } = useSession()
 
   if (['pending'].includes(authStatus)) {
     return <div>Loading...</div>
@@ -58,6 +60,12 @@ function App () {
   }
 
   if (isAuthenticated && authStatus === 'finished') {
+    Sentry.setUser({
+      email: user.userPrincipalName || undefined,
+      username: user.onPremisesSamAccountName || undefined,
+      ip_address: '{{auto}}'
+    })
+
     return <AppContent />
   } else if (process.env.REACT_APP_IS_MOCK) {
     return <></>

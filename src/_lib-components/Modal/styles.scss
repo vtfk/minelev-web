@@ -11,7 +11,7 @@
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 999;
 
   .modal-positioner {
     z-index: 1001;
@@ -28,7 +28,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(#F8F6F0, 0.87);
-    z-index: 1000;
+    z-index: 999;
 
     @media (max-width: 1000px) {
       background: #F8F6F0;
