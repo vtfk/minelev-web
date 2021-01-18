@@ -60,14 +60,11 @@ function App () {
   }
 
   if (isAuthenticated && authStatus === 'finished') {
-    const sentryUser = {
+    Sentry.setUser({
       email: user.userPrincipalName || undefined,
       username: user.onPremisesSamAccountName || undefined,
       ip_address: '{{auto}}'
-    }
-
-    Sentry.setUser(sentryUser)
-    console.debug('Set sentry user', sentryUser)
+    })
 
     return <AppContent />
   } else if (process.env.REACT_APP_IS_MOCK) {
