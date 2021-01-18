@@ -36,3 +36,10 @@ const put = await apiPut('url', payload)
 - Oppsett ligger i [src/mock](src/mock)
 - Legg ruter som skal mockes i [handlers.js](src/mock/handlers.js)
 - Les mer i [api.md](/src/mocks/api.md)
+
+## Sentry
+
+Applikasjonen bruker [Sentry](http://sentry.io/) for å logge feil i frontend. For å aktivere må man legge inn korrekt *dsn* (Data Source Name) fra Sentry i .env `REACT_APP_SENTRY_DSN`. Environment hentes fra `NODE_ENV`, ellers kan det spesifiseres i miljøvariabel `REACT_APP_SENTRY_ENV`.
+
+## Lisens
+[MIT](./LICENSE)
