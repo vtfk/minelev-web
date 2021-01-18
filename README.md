@@ -39,7 +39,7 @@ const put = await apiPut('url', payload)
 
 ## Sentry
 
-Applikasjonen bruker [Sentry](http://sentry.io/) for å logge feil i frontend. For å aktivere Sentry-logging må man legge inn korrekt *dsn* (Data Source Name) fra Sentry-prosjektet i .env `REACT_APP_SENTRY_DSN`. *Environment* hentes fra `NODE_ENV`, ellers kan det spesifiseres i miljøvariabel `REACT_APP_SENTRY_ENV`.
+Applikasjonen bruker [Sentry](http://sentry.io/) for å logge feil fra frontend. For å aktivere Sentry-logging må man legge inn korrekt *dsn* (Data Source Name) fra Sentry-prosjektet i .env `REACT_APP_SENTRY_DSN`. *Environment* hentes fra `NODE_ENV`, ellers kan det spesifiseres i miljøvariabel `REACT_APP_SENTRY_ENV`.
 
 ## Lisens
 [MIT](./LICENSE)
