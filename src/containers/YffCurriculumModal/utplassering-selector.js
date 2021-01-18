@@ -3,7 +3,7 @@ import { Select } from '../../_lib-components/Select'
 
 function UtplasseringSelector (props) {
   const [items, setItems] = useState([])
-  const [item, setItem] = useState({ value: 1, label: 'Skole' })
+  const [item, setItem] = useState({ value: '1', label: 'Skole' })
   const { utplasseringer, setUtplassering } = props
 
   useEffect(() => {
