@@ -62,7 +62,8 @@ function App () {
   if (isAuthenticated && authStatus === 'finished') {
     const sentryUser = {
       email: user.userPrincipalName || undefined,
-      username: user.onPremisesSamAccountName || undefined
+      username: user.onPremisesSamAccountName || undefined,
+      ip_address: '{{auto}}'
     }
 
     Sentry.setUser(sentryUser)
