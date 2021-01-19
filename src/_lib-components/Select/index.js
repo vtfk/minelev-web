@@ -85,8 +85,9 @@ export function Select ({ placeholder, label, items, selectedItem, id, onChange,
   )
 }
 
-export function SelectMultiple ({ placeholder, label, items, selectedItems, isOpen, onChange, ...props }) {
+export function SelectMultiple ({ placeholder, label, items, selectedItems, isOpen, id, onChange, ...props }) {
   const [open, setOpen] = useState(isOpen || false)
+  const [labelId] = useState(id || nanoid())
 
   function toggleSelect () {
     setOpen(prevSelectState => !prevSelectState)
@@ -110,10 +111,10 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
           placeholder &&
           selectedItems.length > 0 &&
             <div>
-              <div className='select-label'>
+              <label htmlFor={labelId} className='select-label'>
                 {placeholder}
-              </div>
-              <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
+              </label>
+              <button id={labelId} className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
                 <div className='select-trigger-text'>
                   {
                     open === true
@@ -132,17 +133,17 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
         {
           placeholder &&
           (!selectedItems || selectedItems.length === 0) &&
-            <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
-              <div className='select-trigger-text'>
+            <button id={labelId} className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
+              <label htmlFor={labelId} className='select-trigger-text'>
                 {placeholder}
-              </div>
+              </label>
               <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
             </button>
         }
 
         {
           open === true &&
-            <div className='select-items' role='listbox'>
+            <fieldset id={labelId} className='select-items' role='listbox'>
               {
                 items.map(function (item, index) {
                   return (
@@ -161,7 +162,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
                   )
                 })
               }
-            </div>
+            </fieldset>
         }
       </div>
     </div>
