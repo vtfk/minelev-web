@@ -23,7 +23,8 @@ export function TextField ({ type, className, placeholder, label, value, id, dis
         ${rounded ? 'rounded-input' : 'text-field'}
         ${type || 'text'} 
         ${error ? 'error' : ''}
-    `}>
+    `}
+    >
       <div className={`
         ${className || ''} 
         ${focusState ? 'focused' : ''}
@@ -34,16 +35,16 @@ export function TextField ({ type, className, placeholder, label, value, id, dis
             <label htmlFor={labelId} className='placeholder-label'>
               {label || placeholder}
             </label>
-            
+
         }
-        
+
         {
           rows &&
             <textarea
               id={labelId}
               type={type || 'text'}
               disabled={disabled || false}
-              aria-invalid={error ? true : false}
+              aria-invalid={!!error}
               placeholder={placeholder || ''}
               rows={rows}
               onFocus={handleFocus}
@@ -60,7 +61,7 @@ export function TextField ({ type, className, placeholder, label, value, id, dis
               id={labelId}
               type={type || 'text'}
               disabled={disabled || false}
-              aria-invalid={error ? true : false}
+              aria-invalid={!!error}
               placeholder={placeholder || ''}
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -72,7 +73,7 @@ export function TextField ({ type, className, placeholder, label, value, id, dis
       </div>
 
       {
-        error && 
+        error &&
           <label htmlFor={labelId} role='alert' className='error-message'>
             {error.message || error}
           </label>

@@ -102,7 +102,7 @@ export function Home () {
             <div className='panel-link'>
               <Link href={`/${ROUTES.activityLog}`} noStyle rightIcon={<Icon name='arrowRight' size='xsmall' />}>Aktivitetsloggen</Link>
             </div>
-        }
+          }
         >
           {
             documents && [...documents].splice(0, 5).map(function (doc, index) {

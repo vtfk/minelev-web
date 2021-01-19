@@ -143,7 +143,7 @@ export function Student ({ match, ...props }) {
                   >
                     Nytt dokument
                   </IconButtonLink>
-              }
+                }
               >
                 {
                   documents.map(function (doc, index) {
@@ -182,7 +182,7 @@ export function Student ({ match, ...props }) {
                   >
                     Nytt notat til elevmappen
                   </IconButtonLink>
-              }
+                }
               >
                 {
                   notes && notes.map(function (note, index) {

@@ -96,6 +96,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         }
       })
 
+      setSelectedStudent(null)
       props.onFinished()
     } else {
       console.log('Error', postNote)

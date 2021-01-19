@@ -79,7 +79,7 @@ export function Select ({ placeholder, label, items, selectedItem, id, onChange,
                 })
               }
               {
-                error && 
+                error &&
                   <label htmlFor={labelId} role='alert' className='error-message'>
                     {error.message || error}
                   </label>
@@ -88,7 +88,7 @@ export function Select ({ placeholder, label, items, selectedItem, id, onChange,
         }
 
         {
-          error && open === false && 
+          error && open === false &&
             <label htmlFor={labelId} role='alert' className='error-message'>
               {error.message || error}
             </label>
@@ -176,7 +176,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
                 })
               }
               {
-                error && 
+                error &&
                   <label htmlFor={labelId} role='alert' className='error-message'>
                     {error.message || error}
                   </label>
@@ -184,7 +184,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
             </fieldset>
         }
         {
-          error && open === false && 
+          error && open === false &&
             <label htmlFor={labelId} role='alert' className='error-message'>
               {error.message || error}
             </label>
