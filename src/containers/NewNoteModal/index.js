@@ -19,7 +19,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
 
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [errors, setErrors] = useState({})
-  const [formState, setFormState] = useState({ note: '' })
+  const [formState, setFormState] = useState({ })
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -39,7 +39,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
 
       // Reset form
       setSelectedStudent(null)
-      setNoteText('')
+      setFormState({})
 
       setSelectedStudent(student)
     }
@@ -90,7 +90,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
       type: 'notat',
       variant: 'notat',
       content: {
-        note: noteText
+        ...formState
       }
     })
 
@@ -110,7 +110,6 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
       })
 
       props.onFinished()
-      setNoteText('')
     } else {
       console.log('Error', postNote)
     }

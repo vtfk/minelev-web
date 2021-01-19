@@ -30,7 +30,7 @@ export function TextField ({ type, className, placeholder, label, value, id, dis
       `}
       >
         {
-          value !== '' && !rounded &&
+          value && value !== '' && !rounded &&
             <label htmlFor={labelId} className='placeholder-label'>
               {label || placeholder}
             </label>
