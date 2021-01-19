@@ -56,6 +56,6 @@ export const getValue = (obj) => obj && obj.value ? obj.value : obj
  */
 export const getValues = (obj) => {
   const valObj = {}
-  Object.keys(obj).forEach(key => valObj[key] = getValue(obj[key]))
+  Object.keys(obj).forEach(key => { valObj[key] = getValue(obj[key]) })
   return valObj
 }
