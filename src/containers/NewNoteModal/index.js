@@ -117,6 +117,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
               placeholder='Skriv inn notat her'
               value={noteText}
               onChange={(event) => { setNoteText(event.target.value) }}
+              error='Du må fylle ut et notat!'
             />
           </div>
         </ModalBody>

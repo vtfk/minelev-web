@@ -266,6 +266,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     selectedItem={period}
                     onChange={(item) => { setPeriod(item) }}
                     closeOnSelect
+                    error='Du må velge en periode'
                   />
                 </>
             }
