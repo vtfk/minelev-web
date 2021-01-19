@@ -37,17 +37,13 @@
     &:active,
     &:visited,
     &:focus {
-        color: inherit;
+      color: inherit;
     }
 
     &:active,
     &:focus {
       // box-shadow: 0 0 0 4px $lightBlue;
     }
-  }
-
-  textarea {
-    
   }
   
   .placeholder-label {
@@ -72,6 +68,43 @@
     }
   }
 }
+
+.rounded-input {
+  input {
+    height: 48px;
+    width: 100%;
+    line-height: 48px;
+    font-size: 16px;
+    border-radius: 24px;
+    padding: 0 ($baseUnit * 3);
+    padding-right: $baseUnit * 7;
+    background: #fff;
+    border: 1px solid #1D1D26;
+
+    &::placeholder {
+      color: rgba(#1D1C28, 0.58);
+      font-style: italic;
+    }
+
+    &:placeholder-shown {
+      border-color: #979797;
+    }
+
+    &:active,
+    &:visited,
+    &:focus {
+        color: inherit;
+        outline: 0;
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: 0 0 0 4px $lightBlue;
+      border-color: #1D1D26;
+    }
+  }
+}
+
 
 .has-search-icon {
   padding-right: $baseUnit * 6;

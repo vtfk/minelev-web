@@ -1,24 +1,32 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import iconSearch from './icon-search.svg'
-
 import './styles.scss'
 
-export function TextField ({ type, className, placeholder, value, disabled, rows, hasSearchIcon, searchAction, ...props }) {
+export function TextField ({ type, className, placeholder, label, value, disabled, rows, rounded, onFocus, onBlur, inputRef, ...props }) {
   const [focusState, setFocusState] = useState(false)
+
+  const handleFocus = (event) => {
+    setFocusState(true)
+    if (onFocus && typeof onFocus === 'function') onFocus(event)
+  }
+
+  const handleBlur = (event) => {
+    setFocusState(false)
+    if (onBlur && typeof onBlur === 'function') onBlur(event)
+  }
+
   return (
     <div className={`
-      text-field 
+      ${rounded ? 'rounded-input' : 'text-field'}
       ${className || ''} 
       ${type || 'text'} 
       ${focusState ? 'focused' : ''}
-      ${hasSearchIcon ? 'has-search-icon' : ''}
     `}
     >
       {
-        value !== '' &&
-          <div className='placeholder-label'>{placeholder}</div>
+        value !== '' && !rounded &&
+          <div className='placeholder-label'>{label || placeholder}</div>
       }
 
       {
@@ -28,9 +36,10 @@ export function TextField ({ type, className, placeholder, value, disabled, rows
             disabled={disabled || false}
             placeholder={placeholder || ''}
             rows={rows}
-            onFocus={() => { setFocusState(true) }}
-            onBlur={() => { setFocusState(false) }}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             value={value}
+            ref={inputRef}
             {...props}
           />
       }
@@ -41,18 +50,12 @@ export function TextField ({ type, className, placeholder, value, disabled, rows
             type={type || 'text'}
             disabled={disabled || false}
             placeholder={placeholder || ''}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             value={value}
-            onFocus={() => { setFocusState(true) }}
-            onBlur={() => { setFocusState(false) }}
+            ref={inputRef}
             {...props}
           />
-      }
-
-      {
-        hasSearchIcon &&
-          <div className='icon'>
-            <img src={iconSearch} alt='' onClick={searchAction || false} />
-          </div>
       }
     </div>
   )
@@ -64,7 +67,9 @@ TextField.propTypes = {
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  searchAction: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   disabled: PropTypes.bool,
-  rows: PropTypes.number
+  rows: PropTypes.number,
+  rounded: PropTypes.bool
 }
