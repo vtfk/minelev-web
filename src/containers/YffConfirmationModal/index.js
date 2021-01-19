@@ -96,7 +96,7 @@ export function YffConfirmationModal ({ student, ...props }) {
     })
   }
 
-  function FormView () {
+  function FormView ({ company }) {
     const [contactPersonsCompany, setContactPersonsCompany] = useState([])
     const [contactPersonsStudent, setContactPersonsStudent] = useState([])
     const [copyEmails, setCopyEmails] = useState([])
@@ -145,6 +145,9 @@ export function YffConfirmationModal ({ student, ...props }) {
       addStudentContactPerson()
       addCompanyContactCopyEmail()
     }, [])
+
+    if (!company) return null
+
     return (
       <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
         <CompanyDetails company={company} />
@@ -226,8 +229,6 @@ export function YffConfirmationModal ({ student, ...props }) {
             onChange={event => setSted(event.target.value)}
           />
         </div>
-        <h2 className='subheader'>Elevinformasjon</h2>
-        <UtdanningsprogrammerSelectorForm fetcher={apiGet} />
         <h2 className='subheader'>Pårørende</h2>
         {contactPersonsStudent.map(person => person)}
         <button className='add-more-button button-left-icon button-primary' onClick={addStudentContactPerson}>
@@ -264,13 +265,14 @@ export function YffConfirmationModal ({ student, ...props }) {
           <div className='form'>
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
             <CompanySelector brregData={brregData} setCompany={setCompany} />
-            {company && <FormView />}
+            <FormView company={company} />
+            {company && <UtdanningsprogrammerSelectorForm fetcher={apiGet} />}
           </div>
         </ModalBody>
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
+            <Link onClick={() => { openPreviewModal(generateDocument()) }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             <Button onClick={() => { send() }} type='primary'>Send</Button>
