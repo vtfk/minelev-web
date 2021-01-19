@@ -15,9 +15,11 @@ import './styles.scss'
 import StudentCard from '../../components/student-card'
 
 export function NewNoteModal ({ selectedStudentId, student, ...props }) {
-  const [selectedStudent, setSelectedStudent] = useState(null)
-  const [noteText, setNoteText] = useState('')
   const { apiGet, apiPost } = useSession()
+
+  const [selectedStudent, setSelectedStudent] = useState(null)
+  const [errors, setErrors] = useState({})
+  const [formState, setFormState] = useState({ note: '' })
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -50,41 +52,53 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
     }
   }
 
-  async function send () {
-    if (noteText !== '') {
-      const postNote = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
-        type: 'notat',
-        variant: 'notat',
-        content: {
-          note: noteText
-        }
-      })
-
-      if (postNote) {
-        store.addNotification({
-          title: '👍',
-          message: 'Notatet ble sendt.',
-          type: 'success',
-          insert: 'top',
-          container: 'top-right',
-          animationIn: ['animate__animated', 'animate__fadeIn'],
-          animationOut: ['animate__animated', 'animate__fadeOut'],
-          dismiss: {
-            duration: 5000,
-            onScreen: false
-          }
-        })
-
-        props.onFinished()
-        setNoteText('')
-      } else {
-        console.log('Error', postNote)
+  const validators = {
+    note: [
+      {
+        test: (v) => v && v.length,
+        error: 'Du må fylle ut et notat!'
+      },
+      {
+        test: (v) => v.length > 9,
+        error: 'Notatet må være på minst 10 tegn!'
       }
-    } else {
+    ]
+  }
+
+  const validateField = (name) =>
+    validators[name].find(
+      (validator) => !validator.test(formState[name])
+    )
+
+  const validateForm = () => {
+    const errors = {}
+
+    Object.keys(validators).forEach(key => {
+      const failedValidator = validateField(key)
+      if (failedValidator) errors[key] = failedValidator.error
+    })
+
+    setErrors(errors)
+    return Object.keys(errors).length ? errors : false
+  }
+
+  async function send () {
+    const errors = validateForm()
+    if (errors) return
+
+    const postNote = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
+      type: 'notat',
+      variant: 'notat',
+      content: {
+        note: noteText
+      }
+    })
+
+    if (postNote) {
       store.addNotification({
-        title: 'Notatet ble ikke sendt.',
-        message: 'Du må fylle inn tekst i notatfeltet.',
-        type: 'danger',
+        title: '👍',
+        message: 'Notatet ble sendt.',
+        type: 'success',
         insert: 'top',
         container: 'top-right',
         animationIn: ['animate__animated', 'animate__fadeIn'],
@@ -94,6 +108,11 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
           onScreen: false
         }
       })
+
+      props.onFinished()
+      setNoteText('')
+    } else {
+      console.log('Error', postNote)
     }
   }
 
@@ -113,11 +132,12 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
 
           <div className='form'>
             <TextField
+              id='s-note'
               rows={5}
               placeholder='Skriv inn notat her'
-              value={noteText}
-              onChange={(event) => { setNoteText(event.target.value) }}
-              error='Du må fylle ut et notat!'
+              onChange={(event) => { setFormState({ ...formState, note: event.target.value }) }}
+              value={formState.note}
+              error={errors.note}
             />
           </div>
         </ModalBody>
