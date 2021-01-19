@@ -46,13 +46,13 @@ export function DefaultLayout (props) {
 
   function clickTopNavToggleSearch () {
     const opened = clickTopNavToggle()
-    if (opened && searchFieldRef.current) setTimeout(() => searchFieldRef.current.focus(), 0)
+    if (opened && searchFieldRef.current) {
+      setTimeout(() => searchFieldRef.current.focus(), 1)
+    }
   }
 
   function clickContainer () {
-    if (openTopNavSide) {
-      setOpenTopNavSide(false)
-    }
+    if (openTopNavSide) setOpenTopNavSide(false)
   }
 
   return (
@@ -94,16 +94,13 @@ export function DefaultLayout (props) {
           <div className='topnav-side-search'>
             <div className='search'>
               <SearchField
-                className='search-input'
-                type='text' placeholder='Søk etter elev ...'
-                onChange={(event) => { setSearchTerm(event.target.value) }}
-                value={searchTerm || ''}
                 inputRef={searchFieldRef}
-                onKeyPress={event => {
-                  if (event.key === 'Enter') {
-                    window.location.replace(`/${ROUTES.students}?s=${event.target.value}`)
-                  }
-                }}
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                onSearch={() => { window.location.replace(`/${ROUTES.students}?s=${searchTerm}`) }}
+                placeholder='Søk etter elev ...'
+                className='search-input'
+                rounded
               />
             </div>
           </div>
@@ -163,15 +160,12 @@ export function DefaultLayout (props) {
           <div className='action-bar'>
             <div className='search'>
               <SearchField
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                onSearch={() => { window.location.replace(`/${ROUTES.students}?s=${searchTerm}`) }}
+                placeholder='Søk etter elev ...'
                 className='search-input'
-                type='text' placeholder='Søk etter elev ...'
-                onChange={(event) => { setSearchTerm(event.target.value) }}
-                value={searchTerm || ''}
-                onKeyPress={event => {
-                  if (event.key === 'Enter') {
-                    window.location.replace(`/${ROUTES.students}?s=${event.target.value}`)
-                  }
-                }}
+                rounded
               />
             </div>
 
