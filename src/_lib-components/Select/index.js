@@ -6,17 +6,23 @@ import { RadioButton } from '../../_lib-components/RadioButton'
 import { Checkbox } from '../../_lib-components/Checkbox'
 
 import './styles.scss'
+import { nanoid } from 'nanoid'
 
-export function Select ({ placeholder, label, items, selectedItem, onChange, isOpen, closeOnSelect, ...props }) {
+export function Select ({ placeholder, label, items, selectedItem, id, onChange, isOpen, closeOnSelect, ...props }) {
   const [open, setOpen] = useState(isOpen || false)
+  const [labelId] = useState(id || nanoid())
 
   function toggleSelect () {
     setOpen(prevSelectState => !prevSelectState)
   }
 
-  function selectItem (item) {
+  const handleMouseUp = (item) => {
     onChange(item)
     if (closeOnSelect) setOpen(false)
+  }
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' && closeOnSelect) setOpen(false)
   }
 
   return (
@@ -26,10 +32,10 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
           placeholder &&
           selectedItem &&
             <div>
-              <div className='select-label'>
+              <label htmlFor={labelId} className='select-label'>
                 {placeholder}
-              </div>
-              <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
+              </label>
+              <button className='select-trigger' id={labelId} onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
                 <div className='select-trigger-text'>
                   <div>{open === true ? placeholder : selectedItem.label}</div>
                 </div>
@@ -41,26 +47,26 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
         {
           placeholder &&
           !selectedItem &&
-            <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
-              <div className='select-trigger-text'>
-                <div>
-                  {placeholder}
-                </div>
-              </div>
+            <button className='select-trigger' id={labelId} onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
+              <label htmlFor={labelId} className='select-trigger-text'>
+                {placeholder}
+              </label>
               <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
             </button>
         }
 
         {
           open === true &&
-            <div className='select-items' role='listbox'>
+            <fieldset className='select-items' role='listbox' id={labelId}>
               {
                 items.map(function (item, index) {
                   const checked = selectedItem && selectedItem.value === item.value
                   return (
                     <div className='select-item' key={index}>
                       <RadioButton
-                        onChange={() => { selectItem(item) }}
+                        onChange={() => onChange(item)}
+                        onMouseUp={() => handleMouseUp(item)}
+                        onKeyPress={handleKeyPress}
                         name={`select-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
@@ -72,7 +78,7 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
                   )
                 })
               }
-            </div>
+            </fieldset>
         }
       </div>
     </div>
