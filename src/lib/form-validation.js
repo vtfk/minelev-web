@@ -1,7 +1,7 @@
 /**
  *
  * @param {object} validators Object containing the validators. `test` should return true if OK. `error` should be the error message.
- * @param {object} formFields State object with form fields.
+ * @param {object} formFields State object with form fields. If the values is packed within a object (with a `value` property, as for `Select`/`SelectMultiple`), these are unpacked.
  * @returns {object|false} Returns `false` if there is no errors, otherwise the errors are returned
  *
  * @example
@@ -21,11 +21,20 @@
  *          test: (val) => (new RegExp(/(?!.*\.\.)(^[^\.][^@\s]+@[^@\s]+\.[^@\s\.]+$)/)).test(val),
  *          error: 'Email is not valid!'
  *        }
+ *      ],
+ *      message: [
+ *        {
+ *          test: (val, formFields) => formFields.email === 'mats@matsa.no' || val && val.length > 999,
+ *          error: 'The message must be over 999 letters, if you are\'t cool enough.'
+ *        }
  *      ]
  *    },
  *    formFields: {
  *      name: '',
- *      email: 'test@test..com'
+ *      email: 'test@test..com',
+ *      message: {
+ *        value: 'This is a message!'
+ *      }
  *    }
  * }
  */
