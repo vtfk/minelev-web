@@ -53,11 +53,19 @@
         border-bottom: 2px solid #444;
       }
     }
-
+    
+     
     .select-trigger-text {
+      &:not([class*="selected"]) {
+        color: rgba(#1D1C28, 0.58);
+        font-style: italic;
+      }
+
+      cursor: pointer;
+      text-align: left;
       padding-right: $baseUnit * 6;
     }
-
+    
     .select-trigger-icon {
       polygon {
         fill: #979797;
@@ -86,7 +94,7 @@
       top: -($baseUnit * 10);
       left: -($baseUnit * 3);
       right: -($baseUnit * 3);
-      bottom: -($baseUnit * 5);
+      bottom: -($baseUnit * 3);
       background: #fff;
       box-shadow: 0 20px 12px 0 rgba(0, 0, 0, 0.025);
       z-index: -1;
@@ -99,9 +107,61 @@
   }
 
   &.is-open {
+    .select-trigger-text {
+      color: inherit !important;
+      font-style: inherit !important;
+    }
+
     .select-trigger {
       &:after {
         display: none;
+      }
+    }
+  }
+
+  &.error {
+    // Rødt input-felt
+    & button:after {
+      border-bottom: 1px solid $red;
+    }
+
+    & button:focus {
+      &:after {
+        border-bottom: 2px solid $red;
+      }
+    }
+
+    // Rød firkant rundt svevende boks
+    .select-items:before {
+      border: 1px solid $red !important;
+      box-shadow: 0 20px 12px 0 rgba($red, .05);
+    }
+
+    // Rødt ikon
+    .select-trigger-icon {
+      polygon {
+        fill: $red !important;
+      }
+    }
+
+    // Rød "placeholder" når det ikke er noe valgt
+    .select-trigger-text {
+      &:not([class*="selected"]) {
+        color: $red;
+      }
+    }
+
+    .error-message {
+      display: inline-block;
+      margin-top: $baseUnit * 3;
+      color: $red;
+      font-size: 14px; 
+      font-weight: bold;
+    }
+
+    &.is-open {
+      .error-message {
+        margin-top: $baseUnit;
       }
     }
   }
