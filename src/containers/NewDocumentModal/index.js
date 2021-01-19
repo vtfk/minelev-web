@@ -215,7 +215,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
         }
       })
 
-      selectedStudent(null)
+      setSelectedStudent(null)
       props.onFinished()
     } else {
       console.log('Error', postDocument)
