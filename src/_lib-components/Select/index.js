@@ -170,6 +170,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
 }
 
 Select.propTypes = {
+  id: PropTypes.string,
   placeholder: PropTypes.string,
   items: PropTypes.array.isRequired,
   selectedItem: PropTypes.object,
@@ -179,6 +180,7 @@ Select.propTypes = {
 }
 
 SelectMultiple.propTypes = {
+  id: PropTypes.string,
   placeholder: PropTypes.string,
   items: PropTypes.array.isRequired,
   selectedItems: PropTypes.array,
