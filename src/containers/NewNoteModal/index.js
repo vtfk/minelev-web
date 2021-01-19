@@ -23,11 +23,13 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   const [formState, setFormState] = useState({})
 
   useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
-
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') props.onDismiss()
     }
+
+    document.addEventListener('keyup', handleKeyPress)
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
   useEffect(() => {
@@ -37,19 +39,19 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         const { data } = await apiGet(API.URL + '/students/' + selectedStudentId)
         student = data
       }
-
-      // Reset form
       setSelectedStudent(student)
-      setFormState({})
-      setErrors({})
     }
+
+    resetForm()
+
+    // Remove current student and get
+    setSelectedStudent(null)
     getStudent()
   }, [selectedStudentId, student])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss()
-    }
+  const resetForm = () => {
+    setFormState({})
+    setErrors({})
   }
 
   const validators = {
@@ -69,7 +71,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
     ]
   }
 
-  async function send () {
+  const send = async () => {
     setErrors(validateForm(validators, formState))
     if (errors) return
 
@@ -96,7 +98,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         }
       })
 
-      setSelectedStudent(null)
+      resetForm()
       props.onFinished()
     } else {
       console.log('Error', postNote)

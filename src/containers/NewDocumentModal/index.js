@@ -48,11 +48,13 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const orderReasonsOptions = DOCUMENTS.orderReasons.map(item => repackTypeOptions(item))
 
   useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
-
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') props.onDismiss()
     }
+
+    document.addEventListener('keyup', handleKeyPress)
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
   useEffect(() => {
@@ -87,22 +89,21 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
       }
     }
 
-    // Reset form
+    // Reset type options
     setTypeOptions([])
-    setFormState({ conversationStatus: conversationStatusesOptions[0] })
-    setErrors({})
+    resetForm()
 
-    // Get student or assign given
+    // Clear current student and get
+    setSelectedStudent(null)
     getStudent()
   }, [selectedStudentId, student])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss()
-    }
+  const resetForm = () => {
+    setFormState({ conversationStatus: conversationStatusesOptions[0] })
+    setErrors({})
   }
 
-  function changedMultiSelect (item, property = '') {
+  const changedMultiSelect = (item, property = '') =>{
     const newArray = [...(formState[property] || [])]
     const removeIndex = newArray.map(function (item) { return item.value }).indexOf(item.value)
 
@@ -163,7 +164,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     ]
   }
 
-  function createDocument () {
+  const createDocument = () => {
     const { type, period, conversationStatus, courseReasons, orderReasons, behaviourReasons, groups } = formState
 
     const docType = type.value.includes('samtale') ? 'samtale' : 'varsel'
@@ -193,7 +194,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     }
   }
 
-  async function send () {
+  const send = async () => {
     const formErrors = validateForm(validators, formState)
     setErrors(formErrors)
     if (formErrors) return
@@ -216,14 +217,14 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
         }
       })
 
-      setSelectedStudent(null)
+      resetForm()
       props.onFinished()
     } else {
       console.log('Error', postDocument)
     }
   }
 
-  async function getPdfPreview () {
+  const getPdfPreview = async () => {
     setPdfPreviewError(null)
     setPdfPreviewLoading(true)
 
@@ -241,7 +242,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     }
   }
 
-  function openPreviewModal () {
+  const openPreviewModal = () => {
     setPdfPreviewBase64(null)
     setPdfPreviewError(null)
     setPdfPreviewLoading(true)
