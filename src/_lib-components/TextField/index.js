@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import './styles.scss'
+import { nanoid } from 'nanoid'
 
-export function TextField ({ type, className, placeholder, label, value, disabled, rows, rounded, onFocus, onBlur, inputRef, ...props }) {
+export function TextField ({ type, className, placeholder, label, value, id, disabled, rows, rounded, onFocus, onBlur, inputRef, ...props }) {
   const [focusState, setFocusState] = useState(false)
+  const [labelId] = useState(id || nanoid())
 
   const handleFocus = (event) => {
     setFocusState(true)
@@ -26,12 +28,15 @@ export function TextField ({ type, className, placeholder, label, value, disable
     >
       {
         value !== '' && !rounded &&
-          <div className='placeholder-label'>{label || placeholder}</div>
+          <label htmlFor={labelId} className='placeholder-label'>
+            {label || placeholder}
+          </label>
       }
 
       {
         rows &&
           <textarea
+            id={labelId}
             type={type || 'text'}
             disabled={disabled || false}
             placeholder={placeholder || ''}
@@ -47,6 +52,7 @@ export function TextField ({ type, className, placeholder, label, value, disable
       {
         !rows &&
           <input
+            id={labelId}
             type={type || 'text'}
             disabled={disabled || false}
             placeholder={placeholder || ''}
