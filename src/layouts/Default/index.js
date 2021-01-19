@@ -97,7 +97,7 @@ export function DefaultLayout (props) {
                 inputRef={searchFieldRef}
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
-                onSearch={() => { window.location.replace(`/${ROUTES.students}?s=${searchTerm}`) }}
+                onSearch={() => { window.location.replace(`/${ROUTES.students}?s=${searchTerm || ''}`) }}
                 placeholder='Søk etter elev ...'
                 className='search-input'
                 rounded
@@ -162,7 +162,7 @@ export function DefaultLayout (props) {
               <SearchField
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
-                onSearch={() => { window.location.replace(`/${ROUTES.students}?s=${searchTerm}`) }}
+                onSearch={() => { window.location.replace(`/${ROUTES.students}?s=${searchTerm || ''}`) }}
                 placeholder='Søk etter elev ...'
                 className='search-input'
                 rounded
