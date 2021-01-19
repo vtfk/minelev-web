@@ -6,17 +6,23 @@ import { RadioButton } from '../../_lib-components/RadioButton'
 import { Checkbox } from '../../_lib-components/Checkbox'
 
 import './styles.scss'
+import { nanoid } from 'nanoid'
 
-export function Select ({ placeholder, label, items, selectedItem, onChange, isOpen, closeOnSelect, ...props }) {
+export function Select ({ placeholder, label, items, selectedItem, id, onChange, isOpen, closeOnSelect, ...props }) {
   const [open, setOpen] = useState(isOpen || false)
+  const [labelId] = useState(id || nanoid())
 
   function toggleSelect () {
     setOpen(prevSelectState => !prevSelectState)
   }
 
-  function selectItem (item) {
+  const handleMouseUp = (item) => {
     onChange(item)
     if (closeOnSelect) setOpen(false)
+  }
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' && closeOnSelect) setOpen(false)
   }
 
   return (
@@ -26,10 +32,10 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
           placeholder &&
           selectedItem &&
             <div>
-              <div className='select-label'>
+              <label htmlFor={labelId} className='select-label'>
                 {placeholder}
-              </div>
-              <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
+              </label>
+              <button className='select-trigger' id={labelId} onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
                 <div className='select-trigger-text'>
                   <div>{open === true ? placeholder : selectedItem.label}</div>
                 </div>
@@ -41,26 +47,26 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
         {
           placeholder &&
           !selectedItem &&
-            <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
-              <div className='select-trigger-text'>
-                <div>
-                  {placeholder}
-                </div>
-              </div>
+            <button className='select-trigger' id={labelId} onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
+              <label htmlFor={labelId} className='select-trigger-text'>
+                {placeholder}
+              </label>
               <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
             </button>
         }
 
         {
           open === true &&
-            <div className='select-items' role='listbox'>
+            <fieldset className='select-items' role='listbox' id={labelId}>
               {
                 items.map(function (item, index) {
                   const checked = selectedItem && selectedItem.value === item.value
                   return (
                     <div className='select-item' key={index}>
                       <RadioButton
-                        onChange={() => { selectItem(item) }}
+                        onChange={() => onChange(item)}
+                        onMouseUp={() => handleMouseUp(item)}
+                        onKeyPress={handleKeyPress}
                         name={`select-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
@@ -72,26 +78,30 @@ export function Select ({ placeholder, label, items, selectedItem, onChange, isO
                   )
                 })
               }
-            </div>
+            </fieldset>
         }
       </div>
     </div>
   )
 }
 
-export function SelectMultiple ({ placeholder, label, items, selectedItems, isOpen, onChange, ...props }) {
+export function SelectMultiple ({ placeholder, label, items, selectedItems, isOpen, id, onChange, ...props }) {
   const [open, setOpen] = useState(isOpen || false)
+  const [labelId] = useState(id || nanoid())
 
   function toggleSelect () {
     setOpen(prevSelectState => !prevSelectState)
   }
 
-  function selectItem (item) {
-    onChange(item)
-  }
-
   function isSelected (item) {
     return selectedItems.filter(function (e) { return e.value === item.value }).length > 0
+  }
+
+  const handleKeyPress = (event, item) => {
+    if (event.key === 'Enter') {
+      if (selectedItems.length === 0) onChange(item)
+      setOpen(false)
+    }
   }
 
   return (
@@ -101,10 +111,10 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
           placeholder &&
           selectedItems.length > 0 &&
             <div>
-              <div className='select-label'>
+              <label htmlFor={labelId} className='select-label'>
                 {placeholder}
-              </div>
-              <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
+              </label>
+              <button id={labelId} className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
                 <div className='select-trigger-text'>
                   {
                     open === true
@@ -123,23 +133,24 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
         {
           placeholder &&
           (!selectedItems || selectedItems.length === 0) &&
-            <button className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
-              <div className='select-trigger-text'>
+            <button id={labelId} className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
+              <label htmlFor={labelId} className='select-trigger-text'>
                 {placeholder}
-              </div>
+              </label>
               <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
             </button>
         }
 
         {
           open === true &&
-            <div className='select-items' role='listbox'>
+            <fieldset id={labelId} className='select-items' role='listbox'>
               {
                 items.map(function (item, index) {
                   return (
                     <div className='select-item' key={index}>
                       <Checkbox
-                        onChange={() => { selectItem(item) }}
+                        onChange={() => { onChange(item) }}
+                        onKeyPress={(e) => handleKeyPress(e, item)}
                         name={`select-multiple-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
@@ -151,7 +162,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
                   )
                 })
               }
-            </div>
+            </fieldset>
         }
       </div>
     </div>
@@ -159,6 +170,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
 }
 
 Select.propTypes = {
+  id: PropTypes.string,
   placeholder: PropTypes.string,
   items: PropTypes.array.isRequired,
   selectedItem: PropTypes.object,
@@ -168,6 +180,7 @@ Select.propTypes = {
 }
 
 SelectMultiple.propTypes = {
+  id: PropTypes.string,
   placeholder: PropTypes.string,
   items: PropTypes.array.isRequired,
   selectedItems: PropTypes.array,
