@@ -103,7 +103,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     setErrors({})
   }
 
-  const changedMultiSelect = (item, property = '') =>{
+  const changedMultiSelect = (item, property = '') => {
     const newArray = [...(formState[property] || [])]
     const removeIndex = newArray.map(function (item) { return item.value }).indexOf(item.value)
 
@@ -276,7 +276,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
           <div className='form'>
             {
-              typeOptions && typeOptions.length && 
+              typeOptions && typeOptions.length &&
                 <Select
                   placeholder='Velg dokumenttype'
                   items={typeOptions}
