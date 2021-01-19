@@ -13,13 +13,14 @@ import { Button } from '../../_lib-components/Button'
 
 import './styles.scss'
 import StudentCard from '../../components/student-card'
+import { validateForm } from '../../lib/form-validation'
 
 export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
 
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [errors, setErrors] = useState({})
-  const [formState, setFormState] = useState({ })
+  const [formState, setFormState] = useState({})
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -38,10 +39,9 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
       }
 
       // Reset form
-      setSelectedStudent(null)
-      setFormState({})
-
       setSelectedStudent(student)
+      setFormState({})
+      setErrors({})
     }
     getStudent()
   }, [selectedStudentId, student])
@@ -56,34 +56,21 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
     note: [
       {
         test: (v) => v && v.length,
-        error: 'Du må fylle ut et notat!'
+        error: 'Du må fylle inn et notat'
       },
       {
         test: (v) => v.length > 9,
-        error: 'Notatet må være på minst 10 tegn!'
+        error: 'Notatet må være på minst 10 tegn'
+      },
+      {
+        test: (v) => v.length < 2147483600,
+        error: 'Notatet er for langt, prøv å forkort det litt'
       }
     ]
   }
 
-  const validateField = (name) =>
-    validators[name].find(
-      (validator) => !validator.test(formState[name])
-    )
-
-  const validateForm = () => {
-    const errors = {}
-
-    Object.keys(validators).forEach(key => {
-      const failedValidator = validateField(key)
-      if (failedValidator) errors[key] = failedValidator.error
-    })
-
-    setErrors(errors)
-    return Object.keys(errors).length ? errors : false
-  }
-
   async function send () {
-    const errors = validateForm()
+    setErrors(validateForm(validators, formState))
     if (errors) return
 
     const postNote = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
@@ -131,7 +118,6 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
 
           <div className='form'>
             <TextField
-              id='s-note'
               rows={5}
               placeholder='Skriv inn notat her'
               onChange={(event) => { setFormState({ ...formState, note: event.target.value }) }}
