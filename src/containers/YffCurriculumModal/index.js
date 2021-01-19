@@ -76,7 +76,11 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   async function send () {
-    const document = await createDocument()
+    const document = await createDocument({
+      variant: 'laereplan',
+      student,
+      content: undefined
+    })
     try {
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Lokal læreplan er sendt og arkivert')
