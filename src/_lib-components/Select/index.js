@@ -92,12 +92,15 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
     setOpen(prevSelectState => !prevSelectState)
   }
 
-  function selectItem (item) {
-    onChange(item)
-  }
-
   function isSelected (item) {
     return selectedItems.filter(function (e) { return e.value === item.value }).length > 0
+  }
+
+  const handleKeyPress = (event, item) => {
+    if (event.key === 'Enter') {
+      if (selectedItems.length === 0) onChange(item)
+      setOpen(false)
+    }
   }
 
   return (
@@ -145,7 +148,8 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
                   return (
                     <div className='select-item' key={index}>
                       <Checkbox
-                        onChange={() => { selectItem(item) }}
+                        onChange={() => { onChange(item) }}
+                        onKeyPress={(e) => handleKeyPress(e, item)}
                         name={`select-multiple-${placeholder.replace(/\s+/g, '-').toLowerCase()}`}
                         value={item.value}
                         label={item.label}
