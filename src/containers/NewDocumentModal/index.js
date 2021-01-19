@@ -88,6 +88,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     }
 
     // Reset form
+    setTypeOptions([])
     setFormState({ conversationStatus: conversationStatusesOptions[0] })
     setErrors({})
 
@@ -273,14 +274,18 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           }
 
           <div className='form'>
-            <Select
-              placeholder='Velg dokumenttype'
-              items={typeOptions}
-              selectedItem={formState.type}
-              onChange={item => setFormState({ ...formState, type: item })}
-              closeOnSelect
-              error={errors.type}
-            />
+            {
+              typeOptions && typeOptions.length && 
+                <Select
+                  placeholder='Velg dokumenttype'
+                  items={typeOptions}
+                  selectedItem={formState.type}
+                  onChange={item => setFormState({ ...formState, type: item })}
+                  isOpen={typeOptions && typeOptions.length > 1}
+                  closeOnSelect
+                  error={errors.type}
+                />
+            }
 
             {
               /* --------------------
