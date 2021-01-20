@@ -39,18 +39,20 @@
  * }
  */
 export const validateForm = (validators, formFields) => {
-  const validateField = (name) => validators[name].find((validator) => !validator.test(getValue(formFields[name]), getValues(formFields)))
-
   const errors = {}
 
   Object.keys(validators).forEach(key => {
-    const failedValidator = validateField(key)
+    const failedValidator = validateField(key, validators, formFields)
     if (failedValidator) errors[key] = failedValidator.error
   })
 
-  console.log('form errors', errors)
   return Object.keys(errors).length ? errors : false
 }
+
+export const validateField = (name, validators, formFields) =>
+  validators[name].find(
+    (validator) => !validator.test(getValue(formFields[name]), getValues(formFields))
+  )
 
 /**
  * Takes an object and returns the value property.

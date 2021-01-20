@@ -18,7 +18,7 @@ import repackGrepLang from '../../lib/repack-grep-lang'
 
 import './styles.scss'
 import StudentCard from '../../components/student-card'
-import { validateForm } from '../../lib/form-validation'
+import { validateForm, validateField } from '../../lib/form-validation'
 
 export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
@@ -103,20 +103,25 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     setErrors({})
   }
 
-  const changedMultiSelect = (item, property = '') => {
-    const newArray = [...(formState[property] || [])]
+  const handleMultiChange = (item, name) => {
+    const newArray = [...(formState[name] || [])]
     const removeIndex = newArray.map(function (item) { return item.value }).indexOf(item.value)
 
-    if (removeIndex === -1) {
-      newArray.push(item)
-    } else {
-      newArray.splice(removeIndex, 1)
+    if (removeIndex === -1) newArray.push(item)
+    else newArray.splice(removeIndex, 1)
+
+    handleChange(newArray, name)
+  }
+
+  const handleChange = (value, name) => {
+    const newState = { ...formState, [name]: value }
+    setFormState(newState)
+
+    // If the field has a validation error, rerun the validation
+    if (errors && Object.keys(errors).includes(name)) {
+      const invalid = validateField(name, validators, newState)
+      setErrors({ ...errors, [name]: invalid ? invalid.error : undefined })
     }
-
-    const newFormState = { ...formState }
-    newFormState[property] = newArray
-
-    setFormState(newFormState)
   }
 
   const validators = {
@@ -281,7 +286,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                   placeholder='Velg dokumenttype'
                   items={typeOptions}
                   selectedItem={formState.type}
-                  onChange={item => setFormState({ ...formState, type: item })}
+                  onChange={item => handleChange(item, 'type')}
                   isOpen={typeOptions && typeOptions.length > 1}
                   closeOnSelect
                   error={errors.type}
@@ -299,7 +304,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     placeholder='Velg periode'
                     items={periodOptions}
                     selectedItem={formState.period}
-                    onChange={item => setFormState({ ...formState, period: item })}
+                    onChange={item => handleChange(item, 'period')}
                     closeOnSelect
                     error={errors.period}
                   />
@@ -317,7 +322,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     placeholder='Hva er årsaken til varselet?'
                     items={behaviourReasonsOptions}
                     selectedItems={formState.behaviourReasons || []}
-                    onChange={item => changedMultiSelect(item, 'behaviourReasons')}
+                    onChange={item => handleMultiChange(item, 'behaviourReasons')}
                     error={errors.behaviourReasons}
                   />
                 </>
@@ -334,7 +339,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     placeholder='Hvilke fag gjelder varselet?'
                     items={groupOptions}
                     selectedItems={formState.groups || []}
-                    onChange={item => changedMultiSelect(item, 'groups')}
+                    onChange={item => handleMultiChange(item, 'groups')}
                     error={errors.groups}
                   />
 
@@ -342,7 +347,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     placeholder='Hva er årsaken til varselet?'
                     items={courseReasonsOptions}
                     selectedItems={formState.courseReasons || []}
-                    onChange={item => changedMultiSelect(item, 'courseReasons')}
+                    onChange={item => handleMultiChange(item, 'courseReasons')}
                     error={errors.courseReasons}
                   />
                 </>
@@ -359,7 +364,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     placeholder='Hva er årsaken til varselet?'
                     items={orderReasonsOptions}
                     selectedItems={formState.orderReasons || []}
-                    onChange={item => changedMultiSelect(item, 'orderReasons')}
+                    onChange={item => handleMultiChange(item, 'orderReasons')}
                     error={errors.orderReasons}
                   />
                 </>
@@ -376,7 +381,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     placeholder='Er det gjennomført en elevsamtale?'
                     items={conversationStatusesOptions}
                     selectedItem={formState.conversationStatus}
-                    onChange={item => setFormState({ ...formState, conversationStatus: item })}
+                    onChange={item => handleChange(item, 'conversationStatus')}
                     error={errors.conversationStatus}
                   />
                 </>
