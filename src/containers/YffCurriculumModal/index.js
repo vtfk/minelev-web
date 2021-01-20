@@ -69,10 +69,23 @@ export function YffCurriculumModal ({ student, ...props }) {
     }
   }, [utplassering])
 
+  function cleanupState () {
+    setSelectedKlassetrinn('')
+    setKompetansemaal(false)
+    setUtplasseringer([])
+    setUtplassering(false)
+  }
+
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
+      cleanupState()
       props.onDismiss()
     }
+  }
+
+  const handleClose = () => {
+    cleanupState()
+    props.onDismiss()
   }
 
   async function send () {
@@ -84,11 +97,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     try {
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Lokal læreplan er sendt og arkivert')
-      // cleanup state
-      setSelectedKlassetrinn('')
-      setKompetansemaal(false)
-      setUtplasseringer([])
-      setUtplassering(false)
+      cleanupState()
       props.onDismiss()
     } catch (error) {
       console.error(error)
@@ -150,7 +159,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             <Button onClick={() => { send() }} type='primary'>Send og arkiver</Button>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Lagre og lukk</Link>
+            <Link onClick={handleClose}>Lagre og lukk</Link>
           </div>
         </ModalSideActions>
       </Modal>

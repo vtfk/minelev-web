@@ -68,8 +68,19 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     }
   }, [isOpen, utplasseringsId])
 
+  const handleClose = () => {
+    cleanupState()
+    props.onDismiss()
+  }
+
+  function cleanupState () {
+    setUtplassering(false)
+    setMaal(false)
+  }
+
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
+      cleanupState()
       props.onDismiss()
     }
   }
@@ -128,9 +139,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
       const document = generateDocument({ evalueringsdata, kompetansemal })
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Tilbakemeldingen er lagret.')
-      // Cleanup state
-      setUtplassering(false)
-      setMaal(false)
+      cleanupState()
       props.onFinished()
     } catch (error) {
       console.error(error)
@@ -196,7 +205,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
             <Button onClick={() => { send() }} type='primary'>Lagre og arkiver</Button>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Avbryt og lukk</Link>
+            <Link onClick={handleClose}>Avbryt og lukk</Link>
           </div>
         </ModalSideActions>
       </Modal>
