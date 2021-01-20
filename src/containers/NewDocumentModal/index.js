@@ -47,6 +47,8 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const courseReasonsOptions = DOCUMENTS.courseReasons.map(item => repackTypeOptions(item))
   const orderReasonsOptions = DOCUMENTS.orderReasons.map(item => repackTypeOptions(item))
 
+  const defaultFormState = (typeOpts) => ({ conversationStatus: conversationStatusesOptions[0], type: (typeOpts ? typeOpts[0] : typeOptions[0]) || undefined })
+
   useEffect(() => {
     // Close modal on escape
     const handleKeyPress = (event) => {
@@ -74,7 +76,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
       // Assign filtered types and set first element as default selection
       setTypeOptions(typeOptions)
-      setFormState({ ...formState, type: typeOptions[0] })
+      setFormState(defaultFormState(typeOptions))
 
       if (student.groups) {
         const groupsOptionsArray = student.groups
@@ -89,7 +91,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
       }
     }
 
-    // Reset type options
+    // Reset type options and form
     setTypeOptions([])
     resetForm()
 
@@ -98,8 +100,8 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     getStudent()
   }, [selectedStudentId, student])
 
-  const resetForm = () => {
-    setFormState({ conversationStatus: conversationStatusesOptions[0] })
+  const resetForm = (typeOptions) => {
+    setFormState(defaultFormState(typeOptions))
     setErrors({})
   }
 
@@ -229,6 +231,11 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     }
   }
 
+  const dismiss = () => {
+    resetForm()
+    props.onDismiss()
+  }
+
   const getPdfPreview = async () => {
     setPdfPreviewError(null)
     setPdfPreviewLoading(true)
@@ -281,13 +288,13 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
           <div className='form'>
             {
-              typeOptions && typeOptions.length &&
+              typeOptions && typeOptions.length > 0 &&
                 <Select
                   placeholder='Velg dokumenttype'
                   items={typeOptions}
                   selectedItem={formState.type}
                   onChange={item => handleChange(item, 'type')}
-                  isOpen={typeOptions && typeOptions.length > 1}
+                  isOpen={typeOptions && typeOptions.length > 1 && Object.keys(formState).length <= 2} 
                   closeOnSelect
                   error={errors.type}
                 />
@@ -397,7 +404,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
             <Button onClick={() => { send() }} type='primary'>Send</Button>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Avslutt</Link>
+            <Link onClick={() => dismiss()}>Avslutt</Link>
           </div>
         </ModalSideActions>
       </Modal>
