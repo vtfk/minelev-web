@@ -275,8 +275,8 @@ export function YffConfirmationModal ({ student, ...props }) {
             Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
           </p>
           <div className='form'>
-            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={didSubmit} />
-            <CompanySelector brregData={brregData} setCompany={setCompany} showError={didSubmit && !!brregData} />
+            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={!brregData && didSubmit} />
+            <CompanySelector brregData={brregData} setCompany={setCompany} showError={!company && !!brregData && didSubmit} />
             <FormView company={company} />
             {company && <UtdanningsprogrammerSelectorForm fetcher={apiGet} />}
           </div>
