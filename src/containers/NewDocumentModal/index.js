@@ -234,7 +234,6 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     props.onDismiss()
   }
 
-
   const getPdfPreview = async () => {
     setPdfPreviewError(null)
     setPdfPreviewLoading(true)
