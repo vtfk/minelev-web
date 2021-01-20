@@ -74,7 +74,7 @@ export function TextField ({ type, className, placeholder, label, value, id, dis
 
       {
         error &&
-          <label htmlFor={labelId} role='alert' className='error-message'>
+          <label htmlFor={labelId} role='alert' aria-live='assertive' className='error-message'>
             {error.message || error}
           </label>
       }

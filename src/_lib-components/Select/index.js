@@ -80,7 +80,7 @@ export function Select ({ placeholder, label, items, selectedItem, id, onChange,
               }
               {
                 error &&
-                  <label htmlFor={labelId} role='alert' className='error-message'>
+                  <label htmlFor={labelId} role='alert' aria-live='assertive' className='error-message'>
                     {error.message || error}
                   </label>
               }
@@ -89,7 +89,7 @@ export function Select ({ placeholder, label, items, selectedItem, id, onChange,
 
         {
           error && open === false &&
-            <label htmlFor={labelId} role='alert' className='error-message'>
+            <label htmlFor={labelId} role='alert' aria-live='assertive' className='error-message'>
               {error.message || error}
             </label>
         }
@@ -177,7 +177,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
               }
               {
                 error &&
-                  <label htmlFor={labelId} role='alert' className='error-message'>
+                  <label htmlFor={labelId} role='alert' aria-live='assertive' className='error-message'>
                     {error.message || error}
                   </label>
               }
@@ -185,7 +185,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
         }
         {
           error && open === false &&
-            <label htmlFor={labelId} role='alert' className='error-message'>
+            <label htmlFor={labelId} role='alert' aria-live='assertive' className='error-message'>
               {error.message || error}
             </label>
         }
