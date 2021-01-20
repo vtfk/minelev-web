@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Select } from '../../_lib-components/Select'
+import { Paragraph } from '../../_lib-components/Typography'
 
 const CompanySelector = props => {
   const { brregData, setCompany, showError } = props
@@ -34,7 +35,10 @@ const CompanySelector = props => {
   const items = bedrifter.map(bedrift => Object.assign({}, { value: bedrift.orgnr, label: bedrift.navn }))
   return (
     <>
-      <h2 className='subheader'>Fant {items.length} bedrifter</h2>
+      {
+        !select && 
+          <Paragraph className='subtitle'>{`Fant ${items.length === 0 ? 'ingen' : items.length} bedrifter...`}</Paragraph>
+      }
       <div className='input-element'>
         <Select
           placeholder='Velg bedrift for utplassering'
