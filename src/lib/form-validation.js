@@ -71,14 +71,14 @@ export const getValues = (obj) => {
   return valObj
 }
 
-export const isValidMobile = (mobile = '') => 
+export const isValidMobile = (mobile = '') =>
   mobile.trim()
-  .replace(/ /g, '')
-  .replace(/^\+47/, '')
-  .replace(/^0047/, '')
-  .replace(/[^0-9]/g, '')
-  .length === 8
+    .replace(/ /g, '')
+    .replace(/^\+47/, '')
+    .replace(/^0047/, '')
+    .replace(/[^0-9]/g, '')
+    .length === 8
 
-export const isValidEmail = (email = '') => 
-  new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-   .test(email)
+export const isValidEmail = (email = '') =>
+  new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+    .test(email)

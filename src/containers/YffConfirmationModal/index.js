@@ -46,19 +46,19 @@ export function YffConfirmationModal ({ student, ...props }) {
     const handleKeyPress = (event) => {
       if (event.key === 'Escape') props.onDismiss()
     }
-    
+
     document.addEventListener('keyup', handleKeyPress)
     return () => document.removeEventListener('keyup', handleKeyPress)
-  }, [])  
-  
+  }, [])
+
   function send () {
     setDidSubmit(true)
     sendForm()
   }
 
-  const sendForm = async () => {    
+  const sendForm = async () => {
     const bekreftelse = generateBekreftelse()
-    if(!bekreftelse) return
+    if (!bekreftelse) return
     return
 
     try {
@@ -77,7 +77,7 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   const generateBekreftelse = () => {
     const form = document.getElementById('bekreftelse-form')
-    if(!form) return false
+    if (!form) return false
 
     const data = new FormData(form)
     console.log('formdata', data)
@@ -87,7 +87,6 @@ export function YffConfirmationModal ({ student, ...props }) {
     return bekreftelse
   }
 
-  
   function generateDocument (data) {
     const bekreftelse = data || generateBekreftelse()
     return createDocument({
@@ -98,21 +97,21 @@ export function YffConfirmationModal ({ student, ...props }) {
       }
     })
   }
-  
+
   useEffect(() => {
     setDidSubmit(false)
   }, [brregData, company])
-  
+
   function FormView ({ company }) {
     const [contactPersonsCompany, setContactPersonsCompany] = useState([])
     const [contactPersonsCompanyErrors, setContactPersonsCompanyErrors] = useState({})
-  
+
     const [contactPersonsStudent, setContactPersonsStudent] = useState([])
     const [contactPersonsStudentErrors, setContactPersonsStudentErrors] = useState({})
-  
+
     const [copyEmails, setCopyEmails] = useState([])
     const [copyEmailsErrors, setCopyEmailsErrors] = useState({})
-  
+
     const [avdeling, setAvdeling] = useState('')
     const [dager, setDager] = useState('')
     const [sted, setSted] = useState('')
@@ -130,36 +129,34 @@ export function YffConfirmationModal ({ student, ...props }) {
 
     function addCompanyContactPerson (event) {
       if (event) event.preventDefault()
-  
+
       const contactCopy = [...contactPersonsCompany]
-      contactCopy.push(<CompanyContactPerson showError={didSubmit || false} setHasError={hasError => setHasError(hasError, contactCopy.length, contactPersonsCompanyErrors, setContactPersonsCompanyErrors)}  />)
+      contactCopy.push(<CompanyContactPerson showError={didSubmit || false} setHasError={hasError => setHasError(hasError, contactCopy.length, contactPersonsCompanyErrors, setContactPersonsCompanyErrors)} />)
       setContactPersonsCompany(contactCopy)
     }
-  
-    
+
     function addStudentContactPerson (event) {
       if (event) event.preventDefault()
-      
+
       const contactCopy = [...contactPersonsStudent]
       contactCopy.push(<StudentContactPerson showError={didSubmit || false} setHasError={hasError => setHasError(hasError, contactCopy.length, contactPersonsStudentErrors, setContactPersonsStudentErrors)} />)
       setContactPersonsStudent(contactCopy)
     }
-    
+
     function addCompanyContactCopyEmail (event) {
       if (event) event.preventDefault()
-      
+
       const contactCopy = [...copyEmails]
       contactCopy.push(<CompanyEmailCopy showError={didSubmit || false} setHasError={hasError => setHasError(hasError, contactCopy.length, copyEmailsErrors, setCopyEmailsErrors)} />)
       setCopyEmails(contactCopy)
     }
-  
+
     useEffect(() => {
       addCompanyContactPerson()
       addStudentContactPerson()
     }, [company])
-    
-    if (!company) return null
 
+    if (!company) return null
 
     return (
       <form id='bekreftelse-form' onSubmit={handleSubmit((_, event) => event.preventDefault())}>
@@ -182,10 +179,9 @@ export function YffConfirmationModal ({ student, ...props }) {
           />
         </div>
 
-
-        <h2 className='subheader'>{`Kontaktperson${ contactPersonsCompany.filter(c => !!c).length <= 1 ? '' : 'er' } hos bedriften`}</h2>
+        <h2 className='subheader'>{`Kontaktperson${contactPersonsCompany.filter(c => !!c).length <= 1 ? '' : 'er'} hos bedriften`}</h2>
         {contactPersonsCompany.map(contactPerson => contactPerson)}
-        <button className='add-more-button button-left-icon button-primary' aria-label="Legg til en kontaktperson til" onClick={addCompanyContactPerson}>
+        <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kontaktperson til' onClick={addCompanyContactPerson}>
           <div className='button-left-icon-icon'>
             <Icon name='add' size='small' />
           </div>
@@ -200,7 +196,7 @@ export function YffConfirmationModal ({ student, ...props }) {
           i de tilfellene kan man legge kontaktpersonen(e) som kopimottager, og de vil få tilsendt kopi av dokumentene på e-post i tillegg.
         </Paragraph>
         {copyEmails.map(email => email)}
-        <button className='add-more-button button-left-icon button-primary' aria-label="Legg til en kopimottager til" onClick={addCompanyContactCopyEmail}>
+        <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kopimottager til' onClick={addCompanyContactCopyEmail}>
           <div className='button-left-icon-icon'>
             <Icon name='add' size='small' />
           </div>
@@ -250,7 +246,7 @@ export function YffConfirmationModal ({ student, ...props }) {
 
         <h2 className='subheader'>Kontaktinformasjon til elevens pårørende</h2>
         {contactPersonsStudent.map(person => person)}
-        <button className='add-more-button button-left-icon button-primary' aria-label="Legg til en pårørende til" onClick={addStudentContactPerson}>
+        <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en pårørende til' onClick={addStudentContactPerson}>
           <div className='button-left-icon-icon'>
             <Icon name='add' size='small' />
           </div>

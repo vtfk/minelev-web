@@ -6,7 +6,7 @@ import { isValidMobile, validateField, validateForm } from '../../lib/form-valid
 const StudentContactPerson = ({ showError, setHasError }) => {
   const [isOpen, setIsOpen] = useState(true)
   const [isDeleted, setIsDeleted] = useState(false)
-  
+
   const [formState, setFormState] = useState({})
   const [errors, setErrors] = useState(false)
 
@@ -32,13 +32,13 @@ const StudentContactPerson = ({ showError, setHasError }) => {
   const handleChange = (value, name) => {
     const newState = { ...formState, [name]: value }
     setFormState(newState)
-    
+
     const invalid = validateField(name, validators, newState)
     setErrors({ ...errors, [name]: invalid ? invalid.error : undefined })
   }
 
   const handleClose = event => {
-    if(event) event.preventDefault()
+    if (event) event.preventDefault()
 
     setIsOpen(false)
     setErrors(false)
@@ -55,7 +55,6 @@ const StudentContactPerson = ({ showError, setHasError }) => {
     const errorCount = Object.keys(errors).filter(field => !!errors[field]).length
     setHasError(errorCount === 0 ? false : errors)
   }, [errors])
-
 
   if (isDeleted) return null
 

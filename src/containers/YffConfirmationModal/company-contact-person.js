@@ -6,7 +6,7 @@ import { isValidEmail, isValidMobile, validateField, validateForm } from '../../
 const OrganisasjonKontaktperson = ({ showError, setHasError }) => {
   const [isOpen, setIsOpen] = useState(true)
   const [isDeleted, setIsDeleted] = useState(false)
-  
+
   const [formState, setFormState] = useState({})
   const [errors, setErrors] = useState(false)
 
@@ -40,17 +40,16 @@ const OrganisasjonKontaktperson = ({ showError, setHasError }) => {
   const handleChange = (value, name) => {
     const newState = { ...formState, [name]: value }
     setFormState(newState)
-    
+
     const invalid = validateField(name, validators, newState)
     setErrors({ ...errors, [name]: invalid ? invalid.error : undefined })
   }
 
-  
   const handleClose = event => {
-    if(event) event.preventDefault()
+    if (event) event.preventDefault()
     setIsOpen(false)
     setErrors(false)
-    
+
     setTimeout(() => {
       setIsDeleted(true)
     }, 500)

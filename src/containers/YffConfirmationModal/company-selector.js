@@ -10,16 +10,15 @@ const CompanySelector = props => {
   const bedrifter = brregData ? brregData.data : []
 
   useEffect(() => validateValue(), [brregData])
-  
+
   useEffect(() => {
     if (select) {
       setCompany(bedrifter.find(bedrift => bedrift.orgnr === select.value))
     }
   }, [select])
-  
-  
+
   const validateValue = (value) => {
-    if(!value) setError('Du må velge en bedrift')
+    if (!value) setError('Du må velge en bedrift')
     else setError(false)
   }
 
@@ -36,7 +35,7 @@ const CompanySelector = props => {
   return (
     <>
       {
-        !select && 
+        !select &&
           <Paragraph className='subtitle'>{`Fant ${items.length === 0 ? 'ingen' : items.length} bedrifter...`}</Paragraph>
       }
       <div className='input-element'>

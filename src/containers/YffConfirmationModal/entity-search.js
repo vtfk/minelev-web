@@ -26,9 +26,9 @@ const EntitySearch = props => {
       setQuery(searchValue)
     }
   }
-  
+
   const validateValue = (value) => {
-    if(!value) setError('Du må søke etter en bedrift')
+    if (!value) setError('Du må søke etter en bedrift')
     else setError(false)
   }
 
@@ -36,11 +36,10 @@ const EntitySearch = props => {
     setSearchValue(value)
     validateValue(value)
   }
-  
-  
+
   useEffect(() => {
     if (data) setBrregData(data)
-    validateValue(searchValue)  
+    validateValue(searchValue)
   }, [data])
 
   return (

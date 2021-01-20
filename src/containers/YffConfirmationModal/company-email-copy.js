@@ -28,10 +28,10 @@ function KopiPrEpost ({ showError, setHasError }) {
     setEmail(value)
     setErrors({ email: invalid ? invalid.error : undefined })
   }
-  
+
   const handleClose = event => {
-    if(event) event.preventDefault()
-    
+    if (event) event.preventDefault()
+
     setIsOpen(false)
     setErrors(false)
     setTimeout(() => {
@@ -42,11 +42,11 @@ function KopiPrEpost ({ showError, setHasError }) {
   useEffect(() => {
     setErrors(validateForm(validator, { email }))
   }, [showError])
-  
+
   useEffect(() => {
-    if(setHasError) setHasError(errors.email ? errors : false)
+    if (setHasError) setHasError(errors.email ? errors : false)
   }, [errors])
-  
+
   if (isDeleted) return false
 
   return (
