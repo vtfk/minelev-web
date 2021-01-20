@@ -99,7 +99,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   }, [selectedStudentId, student])
 
   const resetForm = () => {
-    setFormState({ conversationStatus: conversationStatusesOptions[0] })
+    setFormState({ conversationStatus: conversationStatusesOptions[0], type: typeOptions[0] })
     setErrors({})
   }
 
@@ -222,6 +222,11 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     } else {
       console.log('Error', postDocument)
     }
+  }
+
+  const dismiss = () => {
+    resetForm()
+    props.onDismiss()
   }
 
   const getPdfPreview = async () => {
@@ -392,7 +397,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
             <Button onClick={() => { send() }} type='primary'>Send</Button>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Avslutt</Link>
+            <Link onClick={() => { dismiss() }}>Avslutt</Link>
           </div>
         </ModalSideActions>
       </Modal>
