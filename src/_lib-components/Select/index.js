@@ -8,7 +8,7 @@ import { Checkbox } from '../../_lib-components/Checkbox'
 import './styles.scss'
 import { nanoid } from 'nanoid'
 
-export function Select ({ placeholder, label, items, selectedItem, id, onChange, isOpen, closeOnSelect, ...props }) {
+export function Select ({ placeholder, label, items, selectedItem, id, onChange, isOpen, closeOnSelect, error, ...props }) {
   const [open, setOpen] = useState(isOpen || false)
   const [labelId] = useState(id || nanoid())
 
@@ -26,7 +26,7 @@ export function Select ({ placeholder, label, items, selectedItem, id, onChange,
   }
 
   return (
-    <div className={`select select-single ${open === true ? 'is-open' : ''}`}>
+    <div className={`select select-single ${open === true ? 'is-open' : ''} ${error ? 'error' : ''}`}>
       <div {...props}>
         {
           placeholder &&
@@ -36,7 +36,7 @@ export function Select ({ placeholder, label, items, selectedItem, id, onChange,
                 {placeholder}
               </label>
               <button className='select-trigger' id={labelId} onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
-                <div className='select-trigger-text'>
+                <div className='select-trigger-text selected'>
                   <div>{open === true ? placeholder : selectedItem.label}</div>
                 </div>
                 <Icon className='select-trigger-icon' name={open ? 'chevronUp' : 'chevronDown'} size='auto' alt='' />
@@ -78,14 +78,27 @@ export function Select ({ placeholder, label, items, selectedItem, id, onChange,
                   )
                 })
               }
+              {
+                error &&
+                  <label htmlFor={labelId} role='alert' className='error-message'>
+                    {error.message || error}
+                  </label>
+              }
             </fieldset>
+        }
+
+        {
+          error && open === false &&
+            <label htmlFor={labelId} role='alert' className='error-message'>
+              {error.message || error}
+            </label>
         }
       </div>
     </div>
   )
 }
 
-export function SelectMultiple ({ placeholder, label, items, selectedItems, isOpen, id, onChange, ...props }) {
+export function SelectMultiple ({ placeholder, label, items, selectedItems, isOpen, id, onChange, error, ...props }) {
   const [open, setOpen] = useState(isOpen || false)
   const [labelId] = useState(id || nanoid())
 
@@ -105,7 +118,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
   }
 
   return (
-    <div className={`select select-multiple ${open === true ? 'is-open' : ''}`}>
+    <div className={`select select-multiple ${open === true ? 'is-open' : ''} ${error ? 'error' : ''}`}>
       <div {...props}>
         {
           placeholder &&
@@ -115,7 +128,7 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
                 {placeholder}
               </label>
               <button id={labelId} className='select-trigger' onClick={() => { toggleSelect() }} aria-haspopup='listbox' aria-expanded={open}>
-                <div className='select-trigger-text'>
+                <div className='select-trigger-text selected'>
                   {
                     open === true
                       ? placeholder
@@ -162,7 +175,19 @@ export function SelectMultiple ({ placeholder, label, items, selectedItems, isOp
                   )
                 })
               }
+              {
+                error &&
+                  <label htmlFor={labelId} role='alert' className='error-message'>
+                    {error.message || error}
+                  </label>
+              }
             </fieldset>
+        }
+        {
+          error && open === false &&
+            <label htmlFor={labelId} role='alert' className='error-message'>
+              {error.message || error}
+            </label>
         }
       </div>
     </div>
@@ -176,7 +201,11 @@ Select.propTypes = {
   selectedItem: PropTypes.object,
   onChange: PropTypes.func.isRequired,
   isOpen: PropTypes.bool,
-  closeOnSelect: PropTypes.bool
+  closeOnSelect: PropTypes.bool,
+  error: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool
+  ])
 }
 
 SelectMultiple.propTypes = {
@@ -185,5 +214,9 @@ SelectMultiple.propTypes = {
   items: PropTypes.array.isRequired,
   selectedItems: PropTypes.array,
   onChange: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
+  error: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool
+  ])
 }

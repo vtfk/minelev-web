@@ -13,18 +13,23 @@ import { Button } from '../../_lib-components/Button'
 
 import './styles.scss'
 import StudentCard from '../../components/student-card'
+import { validateField, validateForm } from '../../lib/form-validation'
 
 export function NewNoteModal ({ selectedStudentId, student, ...props }) {
-  const [selectedStudent, setSelectedStudent] = useState(null)
-  const [noteText, setNoteText] = useState('')
   const { apiGet, apiPost } = useSession()
 
-  useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
+  const [selectedStudent, setSelectedStudent] = useState(null)
+  const [errors, setErrors] = useState({})
+  const [formState, setFormState] = useState({})
 
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+  useEffect(() => {
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') props.onDismiss()
     }
+
+    document.addEventListener('keyup', handleKeyPress)
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
   useEffect(() => {
@@ -34,57 +39,66 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         const { data } = await apiGet(API.URL + '/students/' + selectedStudentId)
         student = data
       }
-
-      // Reset form
-      setSelectedStudent(null)
-      setNoteText('')
-
       setSelectedStudent(student)
     }
+
+    resetForm()
+
+    // Remove current student and get
+    setSelectedStudent(null)
     getStudent()
   }, [selectedStudentId, student])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss()
+  const resetForm = () => {
+    setFormState({})
+    setErrors({})
+  }
+
+  const handleChange = (value, name) => {
+    const newState = { ...formState, [name]: value }
+    setFormState(newState)
+
+    // If the field has a validation error, rerun the validation
+    if (errors && Object.keys(errors).includes(name)) {
+      const invalid = validateField(name, validators, newState)
+      setErrors({ ...errors, [name]: invalid ? invalid.error : undefined })
     }
   }
 
-  async function send () {
-    if (noteText !== '') {
-      const postNote = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
-        type: 'notat',
-        variant: 'notat',
-        content: {
-          note: noteText
-        }
-      })
-
-      if (postNote) {
-        store.addNotification({
-          title: '👍',
-          message: 'Notatet ble sendt.',
-          type: 'success',
-          insert: 'top',
-          container: 'top-right',
-          animationIn: ['animate__animated', 'animate__fadeIn'],
-          animationOut: ['animate__animated', 'animate__fadeOut'],
-          dismiss: {
-            duration: 5000,
-            onScreen: false
-          }
-        })
-
-        props.onFinished()
-        setNoteText('')
-      } else {
-        console.log('Error', postNote)
+  const validators = {
+    note: [
+      {
+        test: (v) => v && v.length,
+        error: 'Du må fylle inn et notat'
+      },
+      {
+        test: (v) => v.length > 9,
+        error: 'Notatet må være på minst 10 tegn'
+      },
+      {
+        test: (v) => v.length < 2147483600,
+        error: 'Notatet er for langt, prøv å forkort det litt'
       }
-    } else {
+    ]
+  }
+
+  const send = async () => {
+    setErrors(validateForm(validators, formState))
+    if (errors) return
+
+    const postNote = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
+      type: 'notat',
+      variant: 'notat',
+      content: {
+        ...formState
+      }
+    })
+
+    if (postNote) {
       store.addNotification({
-        title: 'Notatet ble ikke sendt.',
-        message: 'Du må fylle inn tekst i notatfeltet.',
-        type: 'danger',
+        title: '👍',
+        message: 'Notatet ble sendt.',
+        type: 'success',
         insert: 'top',
         container: 'top-right',
         animationIn: ['animate__animated', 'animate__fadeIn'],
@@ -94,6 +108,11 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
           onScreen: false
         }
       })
+
+      resetForm()
+      props.onFinished()
+    } else {
+      console.log('Error', postNote)
     }
   }
 
@@ -115,8 +134,9 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
             <TextField
               rows={5}
               placeholder='Skriv inn notat her'
-              value={noteText}
-              onChange={(event) => { setNoteText(event.target.value) }}
+              onChange={event => handleChange(event.target.value, 'note')}
+              value={formState.note}
+              error={errors.note}
             />
           </div>
         </ModalBody>

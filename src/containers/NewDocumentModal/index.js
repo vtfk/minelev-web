@@ -18,21 +18,18 @@ import repackGrepLang from '../../lib/repack-grep-lang'
 
 import './styles.scss'
 import StudentCard from '../../components/student-card'
+import { validateForm, validateField } from '../../lib/form-validation'
 
 export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
 
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [previewModalState, setPreviewModalState] = useState(false)
-  const [type, setType] = useState(null)
   const [typeOptions, setTypeOptions] = useState([])
-  const [period, setPeriod] = useState(null)
-  const [behaviourReasons, setBehaviourReasons] = useState([])
-  const [courseReasons, setCourseReasons] = useState([])
-  const [orderReasons, setOrderReasons] = useState([])
-  const [conversationStatus, setConversationStatus] = useState(null)
-  const [groups, setGroups] = useState([])
   const [groupOptions, setGroupOptions] = useState([])
+
+  const [errors, setErrors] = useState({})
+  const [formState, setFormState] = useState({})
 
   const [pdfPreviewBase64, setPdfPreviewBase64] = useState(null)
   const [pdfPreviewLoading, setPdfPreviewLoading] = useState(null)
@@ -51,11 +48,13 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const orderReasonsOptions = DOCUMENTS.orderReasons.map(item => repackTypeOptions(item))
 
   useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
-
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') props.onDismiss()
     }
+
+    document.addEventListener('keyup', handleKeyPress)
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
   useEffect(() => {
@@ -75,7 +74,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
       // Assign filtered types and set first element as default selection
       setTypeOptions(typeOptions)
-      setType(typeOptions[0])
+      setFormState({ ...formState, type: typeOptions[0] })
 
       if (student.groups) {
         const groupsOptionsArray = student.groups
@@ -90,39 +89,89 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
       }
     }
 
-    // Reset form
-    setSelectedStudent(null)
-    setPeriod(null)
-    setBehaviourReasons([])
-    setCourseReasons([])
-    setOrderReasons([])
-    setGroups([])
-    setConversationStatus(conversationStatusesOptions[0])
+    // Reset type options
+    setTypeOptions([])
+    resetForm()
 
-    // Get student or assign given
+    // Clear current student and get
+    setSelectedStudent(null)
     getStudent()
   }, [selectedStudentId, student])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss()
-    }
+  const resetForm = () => {
+    setFormState({ conversationStatus: conversationStatusesOptions[0] })
+    setErrors({})
   }
 
-  function changedMultiSelect (item, array, setFunction) {
-    const newArray = [...array]
+  const handleMultiChange = (item, name) => {
+    const newArray = [...(formState[name] || [])]
     const removeIndex = newArray.map(function (item) { return item.value }).indexOf(item.value)
 
-    if (removeIndex === -1) {
-      newArray.push(item)
-    } else {
-      newArray.splice(removeIndex, 1)
-    }
+    if (removeIndex === -1) newArray.push(item)
+    else newArray.splice(removeIndex, 1)
 
-    setFunction(newArray)
+    handleChange(newArray, name)
   }
 
-  function createDocment () {
+  const handleChange = (value, name) => {
+    const newState = { ...formState, [name]: value }
+    setFormState(newState)
+
+    // If the field has a validation error, rerun the validation
+    if (errors && Object.keys(errors).includes(name)) {
+      const invalid = validateField(name, validators, newState)
+      setErrors({ ...errors, [name]: invalid ? invalid.error : undefined })
+    }
+  }
+
+  const validators = {
+    type: [
+      {
+        test: (item) => item && item.length,
+        error: 'Du må velge en dokumenttype'
+      }
+    ],
+    period: [
+      {
+        test: (item, { type }) => type === 'samtale' || (item && item.length),
+        error: 'Du må velge en periode'
+      }
+    ],
+    groups: [
+      {
+        test: (item, { type }) => type !== 'fag' || (item && item.length),
+        error: 'Du må velge minst én klasse'
+      }
+    ],
+    behaviourReasons: [
+      {
+        test: (item, { type }) => type !== 'atferd' || (item && item.length),
+        error: 'Du må velge minst én grunn'
+      }
+    ],
+    courseReasons: [
+      {
+        test: (item, { type }) => type !== 'fag' || (item && item.length),
+        error: 'Du må velge minst én grunn'
+      }
+    ],
+    orderReasons: [
+      {
+        test: (item, { type }) => type !== 'orden' || (item && item.length),
+        error: 'Du må velge minst én grunn'
+      }
+    ],
+    conversationStatus: [
+      {
+        test: (item, { type }) => type !== 'samtale' || (item && item.length),
+        error: 'Du må velge om samtalen har blitt utført eller ikke'
+      }
+    ]
+  }
+
+  const createDocument = () => {
+    const { type, period, conversationStatus, courseReasons, orderReasons, behaviourReasons, groups } = formState
+
     const docType = type.value.includes('samtale') ? 'samtale' : 'varsel'
     const docVariant = docType === 'samtale' ? conversationStatus.value : type.value
 
@@ -150,38 +199,19 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     }
   }
 
-  async function send () {
-    if (type && true) { // properly validate form
-      const document = createDocment()
-      const postDocument = await apiPost(API.URL + '/documents', document)
+  const send = async () => {
+    const formErrors = validateForm(validators, formState)
+    setErrors(formErrors)
+    if (formErrors) return
 
-      if (postDocument) {
-        store.addNotification({
-          title: '👍',
-          message: 'Dokumentet ble sendt.',
-          type: 'success',
-          insert: 'top',
-          container: 'top-right',
-          animationIn: ['animate__animated', 'animate__fadeIn'],
-          animationOut: ['animate__animated', 'animate__fadeOut'],
-          dismiss: {
-            duration: 5000,
-            onScreen: false
-          }
-        })
+    const document = createDocument()
+    const postDocument = await apiPost(API.URL + '/documents', document)
 
-        props.onFinished()
-        setType(null)
-        setBehaviourReasons([])
-        setCourseReasons([])
-      } else {
-        console.log('Error', postDocument)
-      }
-    } else {
+    if (postDocument) {
       store.addNotification({
-        title: 'Dokumentet ble ikke sendt.',
-        message: 'Du må fylle alle felter.',
-        type: 'danger',
+        title: '👍',
+        message: 'Dokumentet ble sendt.',
+        type: 'success',
         insert: 'top',
         container: 'top-right',
         animationIn: ['animate__animated', 'animate__fadeIn'],
@@ -191,14 +221,19 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           onScreen: false
         }
       })
+
+      resetForm()
+      props.onFinished()
+    } else {
+      console.log('Error', postDocument)
     }
   }
 
-  async function getPdfPreview () {
+  const getPdfPreview = async () => {
     setPdfPreviewError(null)
     setPdfPreviewLoading(true)
 
-    const document = createDocment()
+    const document = createDocument()
     const { data } = await apiPost(API.URL + '/documents/preview', document)
 
     if (data && data.base64) {
@@ -212,7 +247,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     }
   }
 
-  function openPreviewModal () {
+  const openPreviewModal = () => {
     setPdfPreviewBase64(null)
     setPdfPreviewError(null)
     setPdfPreviewLoading(true)
@@ -245,27 +280,33 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           }
 
           <div className='form'>
-            <Select
-              placeholder='Velg dokumenttype'
-              items={typeOptions}
-              selectedItem={type}
-              onChange={(item) => { setType(item) }}
-              closeOnSelect
-            />
+            {
+              typeOptions && typeOptions.length &&
+                <Select
+                  placeholder='Velg dokumenttype'
+                  items={typeOptions}
+                  selectedItem={formState.type}
+                  onChange={item => handleChange(item, 'type')}
+                  isOpen={typeOptions && typeOptions.length > 1}
+                  closeOnSelect
+                  error={errors.type}
+                />
+            }
 
             {
               /* --------------------
                 Periode
               -------------------- */
-              type &&
-              type.value !== 'samtale' &&
+              formState.type &&
+              formState.type.value !== 'samtale' &&
                 <>
                   <Select
                     placeholder='Velg periode'
                     items={periodOptions}
-                    selectedItem={period}
-                    onChange={(item) => { setPeriod(item) }}
+                    selectedItem={formState.period}
+                    onChange={item => handleChange(item, 'period')}
                     closeOnSelect
+                    error={errors.period}
                   />
                 </>
             }
@@ -274,14 +315,15 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Atferd
               -------------------- */
-              type &&
-              type.value === 'atferd' &&
+              formState.type &&
+              formState.type.value === 'atferd' &&
                 <>
                   <SelectMultiple
                     placeholder='Hva er årsaken til varselet?'
                     items={behaviourReasonsOptions}
-                    selectedItems={behaviourReasons}
-                    onChange={(item) => { changedMultiSelect(item, behaviourReasons, setBehaviourReasons) }}
+                    selectedItems={formState.behaviourReasons || []}
+                    onChange={item => handleMultiChange(item, 'behaviourReasons')}
+                    error={errors.behaviourReasons}
                   />
                 </>
             }
@@ -290,21 +332,23 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Fag
               -------------------- */
-              type &&
-              type.value === 'fag' &&
+              formState.type &&
+              formState.type.value === 'fag' &&
                 <>
                   <SelectMultiple
                     placeholder='Hvilke fag gjelder varselet?'
                     items={groupOptions}
-                    selectedItems={groups}
-                    onChange={(item) => { changedMultiSelect(item, groups, setGroups) }}
+                    selectedItems={formState.groups || []}
+                    onChange={item => handleMultiChange(item, 'groups')}
+                    error={errors.groups}
                   />
 
                   <SelectMultiple
                     placeholder='Hva er årsaken til varselet?'
                     items={courseReasonsOptions}
-                    selectedItems={courseReasons}
-                    onChange={(item) => { changedMultiSelect(item, courseReasons, setCourseReasons) }}
+                    selectedItems={formState.courseReasons || []}
+                    onChange={item => handleMultiChange(item, 'courseReasons')}
+                    error={errors.courseReasons}
                   />
                 </>
             }
@@ -313,14 +357,15 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Orden
               -------------------- */
-              type &&
-              type.value === 'orden' &&
+              formState.type &&
+              formState.type.value === 'orden' &&
                 <>
                   <SelectMultiple
                     placeholder='Hva er årsaken til varselet?'
                     items={orderReasonsOptions}
-                    selectedItems={orderReasons}
-                    onChange={(item) => { changedMultiSelect(item, orderReasons, setOrderReasons) }}
+                    selectedItems={formState.orderReasons || []}
+                    onChange={item => handleMultiChange(item, 'orderReasons')}
+                    error={errors.orderReasons}
                   />
                 </>
             }
@@ -329,14 +374,15 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Samtale
               -------------------- */
-              type &&
-              type.value === 'samtale' &&
+              formState.type &&
+              formState.type.value === 'samtale' &&
                 <>
                   <Select
                     placeholder='Er det gjennomført en elevsamtale?'
                     items={conversationStatusesOptions}
-                    selectedItem={conversationStatus}
-                    onChange={(item) => { setConversationStatus(item) }}
+                    selectedItem={formState.conversationStatus}
+                    onChange={item => handleChange(item, 'conversationStatus')}
+                    error={errors.conversationStatus}
                   />
                 </>
             }
