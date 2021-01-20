@@ -35,6 +35,7 @@ import './styles.scss'
 export function YffConfirmationModal ({ student, ...props }) {
   const [brregData, setBrregData] = useState(null)
   const [company, setCompany] = useState()
+  const [didSubmit, setDidSubmit] = useState(false)
   const { handleSubmit } = useForm()
   const { apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
@@ -45,14 +46,20 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   const generateBekreftelse = () => {
     const form = document.getElementById('bekreftelse-form')
+    if(!form) return false
+
     const data = new FormData(form)
+    console.log('formdata', data)
     const json = serializeForm(data)
+    console.log('json', json)
     const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
     return bekreftelse
   }
 
-  const sendForm = async () => {
+  const sendForm = async () => {    
     const bekreftelse = generateBekreftelse()
+    if(!bekreftelse) return
+
     try {
       await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
       successMessage('👍', 'Bekreftelse om utplassering sendt.')
@@ -82,8 +89,13 @@ export function YffConfirmationModal ({ student, ...props }) {
   }
 
   function send () {
+    setDidSubmit(true)
     sendForm()
   }
+
+  useEffect(() => {
+    setDidSubmit(false)
+  }, [brregData, company])
 
   function generateDocument (data) {
     const bekreftelse = data || generateBekreftelse()
@@ -263,8 +275,8 @@ export function YffConfirmationModal ({ student, ...props }) {
             Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
           </p>
           <div className='form'>
-            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
-            <CompanySelector brregData={brregData} setCompany={setCompany} />
+            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={didSubmit} />
+            <CompanySelector brregData={brregData} setCompany={setCompany} showError={didSubmit && !!brregData} />
             <FormView company={company} />
             {company && <UtdanningsprogrammerSelectorForm fetcher={apiGet} />}
           </div>

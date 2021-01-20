@@ -2,16 +2,30 @@ import React, { useState, useEffect } from 'react'
 import { Select } from '../../_lib-components/Select'
 
 const CompanySelector = props => {
-  const { brregData, setCompany } = props
+  const { brregData, setCompany, showError } = props
   const [select, setSelect] = useState(null)
+  const [error, setError] = useState(false)
   const kanViseKomponent = brregData && brregData.count && brregData.count > 0
   const bedrifter = brregData ? brregData.data : []
 
+  useEffect(() => validateValue(), [brregData])
+  
   useEffect(() => {
     if (select) {
       setCompany(bedrifter.find(bedrift => bedrift.orgnr === select.value))
     }
   }, [select])
+  
+  
+  const validateValue = (value) => {
+    if(!value) setError('Du må velge en bedrift')
+    else setError(false)
+  }
+
+  const onChange = (item) => {
+    setSelect(item)
+    validateValue(item)
+  }
 
   if (!kanViseKomponent) {
     return null
@@ -26,7 +40,8 @@ const CompanySelector = props => {
           placeholder='Velg bedrift for utplassering'
           items={items}
           selectedItem={select}
-          onChange={(item) => { setSelect(item) }}
+          onChange={onChange}
+          error={!!showError && error ? error : false}
           isOpen
           closeOnSelect
         />

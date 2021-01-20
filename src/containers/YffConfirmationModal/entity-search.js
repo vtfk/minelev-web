@@ -16,18 +16,31 @@ const NoneFound = props => {
 }
 
 const EntitySearch = props => {
-  const { setBrregData, fetcher } = props
+  const { setBrregData, fetcher, showError } = props
   const { data, setQuery } = useBrreg(fetcher)
   const [searchValue, setSearchValue] = useState('')
+  const [error, setError] = useState(false)
 
   function startBrregSok (event) {
     if (event.key === 'Enter' || event.type === 'click' || event.type === 'blur') {
       setQuery(searchValue)
     }
   }
+  
+  const validateValue = (value) => {
+    if(!value) setError('Du må søke etter en bedrift')
+    else setError(false)
+  }
 
+  const onChange = (value) => {
+    setSearchValue(value)
+    validateValue(value)
+  }
+  
+  
   useEffect(() => {
     if (data) setBrregData(data)
+    validateValue(searchValue)  
   }, [data])
 
   return (
@@ -35,9 +48,10 @@ const EntitySearch = props => {
       <SearchField
         placeholder='Søk etter virksomheten hvor eleven skal på utplassering'
         value={searchValue}
-        onChange={(event) => setSearchValue(event.target.value)}
+        onChange={event => onChange(event.target.value)}
         onBlur={startBrregSok}
         onSearch={setQuery}
+        error={!!showError && error ? error : false}
       />
       <NoneFound searchValue={searchValue} data={data} />
     </div>
