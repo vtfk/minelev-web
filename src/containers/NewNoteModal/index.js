@@ -13,7 +13,7 @@ import { Button } from '../../_lib-components/Button'
 
 import './styles.scss'
 import StudentCard from '../../components/student-card'
-import { validateForm } from '../../lib/form-validation'
+import { validateField, validateForm } from '../../lib/form-validation'
 
 export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
@@ -52,6 +52,17 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   const resetForm = () => {
     setFormState({})
     setErrors({})
+  }
+
+  const handleChange = (value, name) => {
+    const newState = { ...formState, [name]: value }
+    setFormState(newState)
+
+    // If the field has a validation error, rerun the validation
+    if (errors && Object.keys(errors).includes(name)) {
+      const invalid = validateField(name, validators, newState)
+      setErrors({ ...errors, [name]: invalid ? invalid.error : undefined })
+    }
   }
 
   const validators = {
@@ -123,7 +134,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
             <TextField
               rows={5}
               placeholder='Skriv inn notat her'
-              onChange={(event) => { setFormState({ ...formState, note: event.target.value }) }}
+              onChange={event => handleChange(event.target.value, 'note')}
               value={formState.note}
               error={errors.note}
             />
