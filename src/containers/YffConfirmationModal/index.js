@@ -59,8 +59,8 @@ export function YffConfirmationModal ({ student, ...props }) {
   const sendForm = async () => {
     const bekreftelse = generateBekreftelse()
     if (!bekreftelse) return
-    return
-
+    
+/*
     try {
       await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
       successMessage('👍', 'Bekreftelse om utplassering sendt.')
@@ -72,7 +72,7 @@ export function YffConfirmationModal ({ student, ...props }) {
     } catch (error) {
       console.error(error)
       errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
-    }
+    }*/
   }
 
   const generateBekreftelse = () => {
