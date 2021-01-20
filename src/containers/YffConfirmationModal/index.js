@@ -34,13 +34,23 @@ import './styles.scss'
 
 export function YffConfirmationModal ({ student, ...props }) {
   const [brregData, setBrregData] = useState(null)
-  const [company, setCompany] = useState()
+  const [company, setCompany] = useState(null)
   const { handleSubmit } = useForm()
   const { apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const { id: studentID } = student
   const onSubmit = (data, event) => {
     event.preventDefault()
+  }
+
+  const cleanupState = () => {
+    setBrregData(null)
+    setCompany(null)
+  }
+
+  const handleClose = () => {
+    cleanupState()
+    props.onDismiss()
   }
 
   const generateBekreftelse = () => {
@@ -57,9 +67,7 @@ export function YffConfirmationModal ({ student, ...props }) {
       await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
       successMessage('👍', 'Bekreftelse om utplassering sendt.')
       await apiPost(`${API.URL}/documents`, generateDocument(bekreftelse))
-      // cleanup state
-      setBrregData(null)
-      setCompany(false)
+      cleanupState()
       props.onFinished()
     } catch (error) {
       console.error(error)
@@ -77,6 +85,7 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
+      cleanupState()
       props.onDismiss()
     }
   }
@@ -278,7 +287,7 @@ export function YffConfirmationModal ({ student, ...props }) {
             <Button onClick={() => { send() }} type='primary'>Send</Button>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Avslutt</Link>
+            <Link onClick={handleClose}>Avslutt</Link>
           </div>
         </ModalSideActions>
       </Modal>
