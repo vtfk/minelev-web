@@ -30,13 +30,13 @@ function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate
       </div>
       <div className='text-wrapper'>
         <NameHeading className='name'>
-          { loading ? <SkeletonLoader style={{ maxWidth: 300 } } /> : `${firstName} ${lastName}` }
+          {loading ? <SkeletonLoader style={{ maxWidth: 300 }} /> : `${firstName} ${lastName}`}
         </NameHeading>
         <div className='other'>
-          {hideSchool ? '' : <Paragraph>{loading ? <SkeletonLoader size="small" style={{marginTop: 3, maxWidth: 200}} /> : schoolName}</Paragraph>}
-          {hideClass ? '' : <Paragraph>{loading ? <SkeletonLoader size="small" style={{marginTop: 3, maxWidth: 200}} /> : <Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link>}</Paragraph>}
-          {hideBirthdate ? '' : <Paragraph>{ loading ? <SkeletonLoader size="small" style={{marginTop: 3, maxWidth: 200}} /> : prettyPrintDate(birthdate)}</Paragraph>}
-          {hideMail ? '' : <Paragraph>{loading ? <SkeletonLoader size="small" style={{marginTop: 3, maxWidth: 200}} /> : mail}</Paragraph>}
+          {hideSchool ? '' : <Paragraph>{loading ? <SkeletonLoader size='small' style={{ marginTop: 3, maxWidth: 200 }} /> : schoolName}</Paragraph>}
+          {hideClass ? '' : <Paragraph>{loading ? <SkeletonLoader size='small' style={{ marginTop: 3, maxWidth: 200 }} /> : <Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link>}</Paragraph>}
+          {hideBirthdate ? '' : <Paragraph>{loading ? <SkeletonLoader size='small' style={{ marginTop: 3, maxWidth: 200 }} /> : prettyPrintDate(birthdate)}</Paragraph>}
+          {hideMail ? '' : <Paragraph>{loading ? <SkeletonLoader size='small' style={{ marginTop: 3, maxWidth: 200 }} /> : mail}</Paragraph>}
         </div>
       </div>
       {props.children}
