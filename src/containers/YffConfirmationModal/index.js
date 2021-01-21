@@ -31,6 +31,7 @@ import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
 
 import './styles.scss'
+import { validateField, validateForm } from '../../lib/form-validation'
 
 export function YffConfirmationModal ({ student, ...props }) {
   const { id: studentID } = student
@@ -38,9 +39,7 @@ export function YffConfirmationModal ({ student, ...props }) {
   const { apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
 
-  const [brregData, setBrregData] = useState(null)
-  const [company, setCompany] = useState()
-  const [didSubmit, setDidSubmit] = useState(false)
+  const [formAction, setFormAction] = useState('')
 
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -51,57 +50,12 @@ export function YffConfirmationModal ({ student, ...props }) {
     return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
-  function send () {
-    setDidSubmit(true)
-    sendForm()
-  }
+  const send = () => setFormAction(`send-${new Date().getTime()}`)
+  const preview = () => setFormAction(`preview-${new Date().getTime()}`)
 
-  const sendForm = async () => {
-    const bekreftelse = generateBekreftelse()
-    if (!bekreftelse) return
+  console.log('Modal re-render')
 
-    try {
-      await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
-      successMessage('👍', 'Bekreftelse om utplassering sendt.')
-      await apiPost(`${API.URL}/documents`, generateDocument(bekreftelse))
-      // cleanup state
-      /* setBrregData(null)
-      setCompany(false)
-      props.onFinished() */
-    } catch (error) {
-      console.error(error)
-      errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
-    }
-  }
-
-  const generateBekreftelse = () => {
-    const form = document.getElementById('bekreftelse-form')
-    if (!form) return false
-
-    const data = new FormData(form)
-    console.log('formdata', data)
-    const json = serializeForm(data)
-    console.log('json', json)
-    const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
-    return bekreftelse
-  }
-
-  function generateDocument (data) {
-    const bekreftelse = data || generateBekreftelse()
-    return createDocument({
-      variant: 'bekreftelse',
-      student,
-      content: {
-        bekreftelse
-      }
-    })
-  }
-
-  useEffect(() => {
-    setDidSubmit(false)
-  }, [brregData, company])
-
-  function FormView ({ company }) {
+  function FormView ({ action }) {
     const [contactPersonsCompany, setContactPersonsCompany] = useState([])
     const [contactPersonsCompanyErrors, setContactPersonsCompanyErrors] = useState({})
 
@@ -111,17 +65,147 @@ export function YffConfirmationModal ({ student, ...props }) {
     const [copyEmails, setCopyEmails] = useState([])
     const [copyEmailsErrors, setCopyEmailsErrors] = useState({})
 
-    const [avdeling, setAvdeling] = useState('')
-    const [dager, setDager] = useState('')
-    const [sted, setSted] = useState('')
-    const [startDato, setStartDato] = useState(new Date())
-    const [sluttDato, setSluttDato] = useState(null)
-    const [start, setStart] = useState('08:00')
-    const [slutt, setSlutt] = useState('16:00')
+    const [brregData, setBrregData] = useState(null)
+    const [company, setCompany] = useState()
 
-    function onStartDateChange (date) {
-      setStartDato(date)
-      if (date > sluttDato) setSluttDato(null)
+    const [didSubmit, setDidSubmit] = useState(false)
+    const [errors, setErrors] = useState(false)
+    const [formState, setFormState] = useState({
+      department: '',
+      meetingpoint: '',
+      fromDate: new Date(),
+      toDate: null,
+      fromHours: '08:00',
+      toHours: '16:00'
+    })
+
+    useEffect(() => {
+      setDidSubmit(false)
+    }, [brregData, company])
+
+    console.log('FormView re-render')
+
+    useEffect(() => {
+      console.log('Action changed!', { action, didSubmit, brregData: !!brregData, company: !!company })
+
+      if (!action || action === '') return
+
+      setDidSubmit(true) // Indicate to child components that we tried to submit
+      if (!company) return // No company selected - don't validate form that doesn't exist yet.
+
+      // Validate form - return on errors
+      const formErrors = validateForm(validators, formState)
+      setErrors(formErrors)
+      if (formErrors) return
+
+      // If any of the sub components have errors - return
+      if (contactPersonsCompanyErrors) return
+      if (contactPersonsStudentErrors) return
+      if (copyEmailsErrors) return
+
+      // Run action
+      if (action.startsWith('send')) sendForm()
+      if (action.startsWith('preview')) openPreviewModal(generateDocument())
+    }, [action])
+
+    const validators = {
+      department: [
+        {
+          test: () => true,
+          error: 'Ikke påkrevd'
+        }
+      ],
+      meetingpoint: [
+        {
+          test: (v) => v && v.length,
+          error: 'Du må angi oppmøtested'
+        }
+      ],
+      fromDate: [
+        {
+          test: (v) => v,
+          error: 'Du må velge datoen utplasseringen gjelder fra'
+        }
+      ],
+      toDate: [
+        {
+          test: (v) => v,
+          error: 'Du må velge datoen utplasseringen gjelder til'
+        }
+      ],
+      daysPerWeek: [
+        {
+          test: (v) => v && v.length,
+          error: 'Du må angi hvor mange dager i uken eleven er utplassert'
+        }
+      ],
+      fromHours: [
+        {
+          test: (v) => v && v.length,
+          error: 'Du må angi klokkeslett for når eleven starter på jobb'
+        }
+      ],
+      toHours: [
+        {
+          test: (v) => v && v.length,
+          error: 'Du må angi klokkeslett for når eleven slutter på jobb'
+        }
+      ]
+    }
+
+    const handleChange = (value, name) => {
+      const newState = { ...formState, [name]: value }
+      setFormState(newState)
+
+      const invalid = validateField(name, validators, newState)
+      setErrors({ ...errors, [name]: invalid ? invalid.error : undefined })
+    }
+
+    const onStartDateChange = (date) => {
+      handleChange(date, 'fromDate')
+      console.log(date, formState.toDate, date > formState.toDate)
+      if (date > formState.toDate) handleChange(null, 'toDate')
+    }
+
+    const generateBekreftelse = () => {
+      const form = document.getElementById('bekreftelse-form')
+      if (!form) return false
+
+      const data = new FormData(form)
+      console.log('formdata', data)
+      const json = serializeForm(data)
+      console.log('json', json)
+      const bekreftelse = repackBekreftelse({ bekreftelse: { ...json }, company: { ...company } })
+      return bekreftelse
+    }
+
+    function generateDocument (data) {
+      const bekreftelse = data || generateBekreftelse()
+      return createDocument({
+        variant: 'bekreftelse',
+        student,
+        content: {
+          bekreftelse
+        }
+      })
+    }
+
+    const sendForm = async () => {
+      const bekreftelse = generateBekreftelse()
+      if (!bekreftelse) return
+
+      try {
+        await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
+        successMessage('👍', 'Bekreftelse om utplassering sendt.')
+        await apiPost(`${API.URL}/documents`, generateDocument(bekreftelse))
+        // cleanup state
+        /* setBrregData(null)
+        setCompany(false)
+        props.onFinished() */
+      } catch (error) {
+        console.error(error)
+        errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
+      }
     }
 
     const setHasError = (hasError, index, state, setState) => setState({ ...state, [index]: hasError })
@@ -130,7 +214,7 @@ export function YffConfirmationModal ({ student, ...props }) {
       if (event) event.preventDefault()
 
       const contactCopy = [...contactPersonsCompany]
-      contactCopy.push(<CompanyContactPerson showError={didSubmit || false} setHasError={hasError => setHasError(hasError, contactCopy.length, contactPersonsCompanyErrors, setContactPersonsCompanyErrors)} />)
+      contactCopy.push(<CompanyContactPerson showError={didSubmit} setHasError={hasError => setHasError(hasError, contactCopy.length, contactPersonsCompanyErrors, setContactPersonsCompanyErrors)} />)
       setContactPersonsCompany(contactCopy)
     }
 
@@ -138,7 +222,7 @@ export function YffConfirmationModal ({ student, ...props }) {
       if (event) event.preventDefault()
 
       const contactCopy = [...contactPersonsStudent]
-      contactCopy.push(<StudentContactPerson showError={didSubmit || false} setHasError={hasError => setHasError(hasError, contactCopy.length, contactPersonsStudentErrors, setContactPersonsStudentErrors)} />)
+      contactCopy.push(<StudentContactPerson showError={didSubmit} setHasError={hasError => setHasError(hasError, contactCopy.length, contactPersonsStudentErrors, setContactPersonsStudentErrors)} />)
       setContactPersonsStudent(contactCopy)
     }
 
@@ -146,114 +230,133 @@ export function YffConfirmationModal ({ student, ...props }) {
       if (event) event.preventDefault()
 
       const contactCopy = [...copyEmails]
-      contactCopy.push(<CompanyEmailCopy showError={didSubmit || false} setHasError={hasError => setHasError(hasError, contactCopy.length, copyEmailsErrors, setCopyEmailsErrors)} />)
+      contactCopy.push(<CompanyEmailCopy showError={didSubmit} setHasError={hasError => setHasError(hasError, contactCopy.length, copyEmailsErrors, setCopyEmailsErrors)} />)
       setCopyEmails(contactCopy)
     }
 
     useEffect(() => {
       addCompanyContactPerson()
       addStudentContactPerson()
-    }, [company])
+    }, [])
 
-    if (!company) return null
+    const entityCompanySelector = (
+      <>
+        <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={!brregData && didSubmit} />
+        <CompanySelector brregData={brregData} setCompany={setCompany} showError={!company && !!brregData && didSubmit} />
+        {/* company && <UtdanningsprogrammerSelectorForm fetcher={apiGet} /> */}
+      </>
+    )
+
+    // No company set - render company search
+    if (!company) return entityCompanySelector
 
     return (
-      <form id='bekreftelse-form' onSubmit={handleSubmit((_, event) => event.preventDefault())}>
-        <h2 className='subheader'>Informasjon om utplasseringsstedet</h2>
-        <CompanyDetails company={company} />
-        <div className='input-element'>
-          <TextField
-            name='organisasjonsAvdeling'
-            placeholder='Avdeling (valgfritt)'
-            value={avdeling}
-            onChange={event => setAvdeling(event.target.value)}
-          />
-        </div>
-        <div className='input-element'>
-          <TextField
-            name='oppmotested'
-            placeholder='Oppmøtested'
-            value={sted}
-            onChange={event => setSted(event.target.value)}
-          />
-        </div>
+      <>
+        {entityCompanySelector}
+        <form id='bekreftelse-form' onSubmit={handleSubmit((_, event) => event.preventDefault())}>
+          <h2 className='subheader'>Informasjon om utplasseringsstedet</h2>
+          <CompanyDetails company={company} />
+          <div className='input-element'>
+            <TextField
+              name='organisasjonsAvdeling'
+              placeholder='Avdeling (valgfritt)'
+              value={formState.department}
+              onChange={event => handleChange(event.target.value, 'department')}
+              error={errors.department}
+            />
+          </div>
+          <div className='input-element'>
+            <TextField
+              name='oppmotested'
+              placeholder='Oppmøtested'
+              value={formState.meetingpoint}
+              onChange={event => handleChange(event.target.value, 'meetingpoint')}
+              error={errors.meetingpoint}
+            />
+          </div>
 
-        <h2 className='subheader'>{`Kontaktperson${contactPersonsCompany.filter(c => !!c).length <= 1 ? '' : 'er'} hos bedriften`}</h2>
-        {contactPersonsCompany.map(contactPerson => contactPerson)}
-        <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kontaktperson til' onClick={addCompanyContactPerson}>
-          <div className='button-left-icon-icon'>
-            <Icon name='add' size='small' />
-          </div>
-          <div className='button-left-icon-text'>
-            Legg til kontaktperson
-          </div>
-        </button>
+          <h2 className='subheader'>{`Kontaktperson${contactPersonsCompany.filter(c => !!c).length <= 1 ? '' : 'er'} hos bedriften`}</h2>
+          {contactPersonsCompany.map(contactPerson => contactPerson)}
+          <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kontaktperson til' onClick={addCompanyContactPerson}>
+            <div className='button-left-icon-icon'>
+              <Icon name='add' size='small' />
+            </div>
+            <div className='button-left-icon-text'>
+              Legg til kontaktperson
+            </div>
+          </button>
 
-        <h2 className='subheader'>Kopi på e-post</h2>
-        <Paragraph className='subtitle'>
-          Noen ganger er det enklere sagt enn gjort at korrekt mottaker hos utplasseringsbedriften mottar brevene som sendes,
-          i de tilfellene kan man legge kontaktpersonen(e) som kopimottager, og de vil få tilsendt kopi av dokumentene på e-post i tillegg.
-        </Paragraph>
-        {copyEmails.map(email => email)}
-        <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kopimottager til' onClick={addCompanyContactCopyEmail}>
-          <div className='button-left-icon-icon'>
-            <Icon name='add' size='small' />
-          </div>
-          <div className='button-left-icon-text'>
-            Legg til kopimottager (valgfritt)
-          </div>
-        </button>
+          <h2 className='subheader'>Kopi på e-post</h2>
+          <Paragraph className='subtitle'>
+            Noen ganger er det enklere sagt enn gjort at korrekt mottaker hos utplasseringsbedriften mottar brevene som sendes,
+            i de tilfellene kan man legge kontaktpersonen(e) som kopimottager, og de vil få tilsendt kopi av dokumentene på e-post i tillegg.
+          </Paragraph>
+          {copyEmails.map(email => email)}
+          <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kopimottager til' onClick={addCompanyContactCopyEmail}>
+            <div className='button-left-icon-icon'>
+              <Icon name='add' size='small' />
+            </div>
+            <div className='button-left-icon-text'>
+              Legg til kopimottager (valgfritt)
+            </div>
+          </button>
 
-        <h2 className='subheader'>Tidsrom for utplassering</h2>
-        <div className='input-elements'>
-          <Datepicker
-            placeholder='Fra og med'
-            name='fraDato'
-            selected={startDato}
-            onChange={onStartDateChange}
-          />
-          <Datepicker
-            placeholder='Til og med'
-            name='tilDato'
-            selected={sluttDato}
-            minDate={startDato}
-            onChange={date => setSluttDato(date)}
-          />
-        </div>
-        <div className='input-element'>
-          <TextField
-            name='daysPerWeek'
-            placeholder='Antall dager i uken'
-            value={dager}
-            onChange={event => setDager(event.target.value)}
-          />
-        </div>
-        <div className='input-elements'>
-          <TextField
-            name='startTid'
-            placeholder='Fra klokken'
-            value={start}
-            onChange={event => setStart(event.target.value)}
-          />
-          <TextField
-            name='sluttTid'
-            placeholder='Til klokken'
-            value={slutt}
-            onChange={event => setSlutt(event.target.value)}
-          />
-        </div>
+          <h2 className='subheader'>Tidsrom for utplassering</h2>
+          <div className='input-elements'>
+            <Datepicker
+              placeholder='Fra og med'
+              name='fraDato'
+              selected={formState.fromDate}
+              onChange={date => onStartDateChange(date)}
+              error={errors.fromDate}
+            />
+            <Datepicker
+              placeholder='Til og med'
+              name='tilDato'
+              selected={formState.toDate}
+              minDate={formState.fromDate}
+              onChange={date => handleChange(date, 'toDate')}
+              error={errors.toDate}
+            />
+          </div>
+          <div className='input-element'>
+            <TextField
+              name='daysPerWeek'
+              placeholder='Antall dager i uken'
+              value={formState.daysPerWeek}
+              onChange={event => handleChange(event.target.value, 'daysPerWeek')}
+              error={errors.daysPerWeek}
+            />
+          </div>
+          <div className='input-elements'>
+            <TextField
+              name='startTid'
+              placeholder='Fra klokken'
+              value={formState.fromHours}
+              onChange={event => handleChange(event.target.value, 'fromHours')}
+              error={errors.fromHours}
+            />
+            <TextField
+              name='sluttTid'
+              placeholder='Til klokken'
+              value={formState.toHours}
+              onChange={event => handleChange(event.target.value, 'toHours')}
+              error={errors.toHours}
+            />
+          </div>
 
-        <h2 className='subheader'>Kontaktinformasjon til elevens pårørende</h2>
-        {contactPersonsStudent.map(person => person)}
-        <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en pårørende til' onClick={addStudentContactPerson}>
-          <div className='button-left-icon-icon'>
-            <Icon name='add' size='small' />
-          </div>
-          <div className='button-left-icon-text'>
-            Legg til pårørende
-          </div>
-        </button>
-      </form>
+          <h2 className='subheader'>Kontaktinformasjon til elevens pårørende</h2>
+          {contactPersonsStudent.map(person => person)}
+          <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en pårørende til' onClick={addStudentContactPerson}>
+            <div className='button-left-icon-icon'>
+              <Icon name='add' size='small' />
+            </div>
+            <div className='button-left-icon-text'>
+              Legg til pårørende
+            </div>
+          </button>
+        </form>
+      </>
     )
   }
 
@@ -277,16 +380,13 @@ export function YffConfirmationModal ({ student, ...props }) {
             Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
           </p>
           <div className='form'>
-            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={!brregData && didSubmit} />
-            <CompanySelector brregData={brregData} setCompany={setCompany} showError={!company && !!brregData && didSubmit} />
-            <FormView company={company} />
-            {company && <UtdanningsprogrammerSelectorForm fetcher={apiGet} />}
+            <FormView action={formAction} />
           </div>
         </ModalBody>
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => { openPreviewModal(generateDocument()) }}>Forhåndsvisning</Link>
+            <Link onClick={() => { preview() }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
             <Button onClick={() => { send() }} type='primary'>Send</Button>

@@ -50,6 +50,7 @@
       
       & > div.text-field,
       & > div.datepicker-field {
+        vertical-align: top;
         display: inline-block;
         width: calc((100% - 30px) / 2);
         
