@@ -54,7 +54,7 @@ function KopiPrEpost ({ showError, setHasError }) {
       <div className='input-element'>
         <TextField
           name='kopiPrEpost'
-          placeholder='Send kopi på e-post'
+          placeholder='E-postadresse'
           value={email}
           onChange={event => handleChange(event.target.value)}
           error={showError && errors.email}
