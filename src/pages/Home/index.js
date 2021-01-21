@@ -174,12 +174,9 @@ export function Home () {
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading &&
-                        <SkeletonLoader size='big' />
-                    }
-                    {
-                      !loading &&
-                      varsler.length
+                      loading 
+                        ? <SkeletonLoader width='40%' />
+                        : varsler.length
                     }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>varselbrev</Paragraph>
@@ -187,12 +184,9 @@ export function Home () {
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading &&
-                        <SkeletonLoader size='big' />
-                    }
-                    {
-                      !loading &&
-                      conversations.length
+                      loading 
+                        ? <SkeletonLoader width='40%' />
+                        : conversations.length
                     }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>dokumenterte elevsamtaler</Paragraph>
@@ -202,13 +196,9 @@ export function Home () {
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading &&
-                        <SkeletonLoader size='big' />
-                    }
-
-                    {
-                      !loading &&
-                      notes.length
+                      loading 
+                        ? <SkeletonLoader width='40%' />
+                        : notes.length
                     }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>notater til elevmappa</Paragraph>
