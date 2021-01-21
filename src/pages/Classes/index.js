@@ -21,10 +21,10 @@ export function Classes () {
     async function getClasses () {
       const c = await apiGet(API.URL + '/classes')
       setClasses(c.data)
+      setLoading(false)
     }
-    getClasses()
 
-    setLoading(false)
+    getClasses()
   }, [])
 
   return (
@@ -37,15 +37,17 @@ export function Classes () {
           <thead>
             <tr>
               <th><Paragraph size='small'>Klasse</Paragraph></th>
+              <th><Paragraph size='small'>Type / fag</Paragraph></th>
               <th><Paragraph size='small'>Skole</Paragraph></th>
             </tr>
           </thead>
           <tbody>
             {
               loading &&
-              Array(5).fill().map(function (i) {
+              Array(4).fill().map(function (i) {
                 return (
                   <tr key={i}>
+                    <td><SkeletonLoader /></td>
                     <td><SkeletonLoader /></td>
                     <td><SkeletonLoader /></td>
                   </tr>
@@ -62,6 +64,9 @@ export function Classes () {
                       <Paragraph>
                         <Link href={`/${ROUTES.classes}/${encodeURIComponent(schoolClass.groupId)}`}>{schoolClass.name}</Link>
                       </Paragraph>
+                    </td>
+                    <td>
+                      <Paragraph>{schoolClass.grep ? schoolClass.grep.kortform.nb : (schoolClass.type ? schoolClass.type.charAt(0).toUpperCase() + schoolClass.type.slice(1) : 'Gruppe' )}</Paragraph>
                     </td>
                     <td>
                       <Paragraph>{schoolClass.schoolName}</Paragraph>
