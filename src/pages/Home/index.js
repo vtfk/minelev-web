@@ -159,7 +159,8 @@ export function Home () {
             })
           }
           {
-            // TODO: Infomelding om man ikke har noen aktiviteter
+            !loading && !documents &&
+              <Paragraph>Ingen aktiviteter funnet for deg eller dine elever!</Paragraph>
           }
         </ClassPanel>
 
