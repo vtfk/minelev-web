@@ -113,9 +113,14 @@ export function Home () {
             Array(5).fill().map(function (i) {
               return (
                 <tr key={i}>
-                  <td className='activity-name'><SkeletonLoader /></td>
-                  <td><SkeletonLoader /></td>
-                  <td><SkeletonLoader /></td>
+                  <td>
+                    <div className='activity-name'>
+                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
+                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                    </div>
+                  </td>
+                  <td><SkeletonLoader randomWidth={[40, 70]} /></td>
+                  <td><SkeletonLoader width='60%'/></td>
                   <td><SkeletonLoader /></td>
                   <td><SkeletonLoader /></td>
                 </tr>
