@@ -12,6 +12,7 @@ import { Heading1, Heading2, Heading3, Paragraph, Link } from '../../_lib-compon
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { Icon } from '../../_lib-components/Icon'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
@@ -29,6 +30,7 @@ export function Home () {
   const [varsler, setVarsler] = useState([])
   const [conversations, setConversations] = useState([])
   const [notes, setNotes] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const { apiGet } = useSession()
 
@@ -55,6 +57,8 @@ export function Home () {
     setVarsler(docsVarsler)
     setConversations(docsConversations)
     setNotes(docsNotes)
+
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -105,6 +109,22 @@ export function Home () {
           }
         >
           {
+            loading &&
+            Array(5).fill().map(function (i) {
+              return (
+                <tr key={i}>
+                  <td className='activity-name'><SkeletonLoader /></td>
+                  <td><SkeletonLoader /></td>
+                  <td><SkeletonLoader /></td>
+                  <td><SkeletonLoader /></td>
+                  <td><SkeletonLoader /></td>
+                </tr>
+              )
+            })
+          }
+
+          {
+            !loading &&
             documents && [...documents].splice(0, 5).map(function (doc, index) {
               return (
                 <tr key={index}>
@@ -153,13 +173,27 @@ export function Home () {
               <div className='statistics-row'>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    {varsler.length}
+                    {
+                      loading &&
+                        <SkeletonLoader size='big' />
+                    }
+                    {
+                      !loading &&
+                      varsler.length
+                    }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>varselbrev</Paragraph>
                 </div>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    {conversations.length}
+                    {
+                      loading &&
+                        <SkeletonLoader size='big' />
+                    }
+                    {
+                      !loading &&
+                      conversations.length
+                    }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>dokumenterte elevsamtaler</Paragraph>
                 </div>
@@ -167,13 +201,28 @@ export function Home () {
               <div className='statistics-row'>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    {notes.length}
+                    {
+                      loading &&
+                        <SkeletonLoader size='big' />
+                    }
+
+                    {
+                      !loading &&
+                      notes.length
+                    }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>notater til elevmappa</Paragraph>
                 </div>
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
-                    [X]
+                    {
+                      loading &&
+                        <SkeletonLoader size='big' />
+                    }
+                    {
+                      !loading &&
+                      '[X]'
+                    }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>utplasseringer</Paragraph>
                 </div>

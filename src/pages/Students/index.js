@@ -11,6 +11,7 @@ import { useSession } from '@vtfk/react-msal'
 import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
@@ -90,6 +91,7 @@ export function Students (props) {
         <Heading2 className='page-title'>Elever</Heading2>
 
         {
+          status !== 'Loading' &&
           students.length > 0 &&
             <table className='data-actions-table'>
               <thead>
@@ -140,7 +142,11 @@ export function Students (props) {
 
         {
           (status === 'Loading' &&
-            <p>Laster...</p>) ||
+            Array(5).fill().map(function (i) {
+              return (
+                <SkeletonLoader key={i} style={{ marginBottom: 10 }} />
+              )
+            })) ||
 
           (status === 'Error' &&
             <>

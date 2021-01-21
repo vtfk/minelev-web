@@ -4,6 +4,7 @@ import { useSession } from '@vtfk/react-msal'
 import { DefaultLayout } from '../../layouts/Default'
 
 import { Heading1, Heading2, Heading3 } from '../../_lib-components/Typography'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import './styles.scss'
 import { API } from '../../config/app'
@@ -11,6 +12,7 @@ import { API } from '../../config/app'
 export function Statistics () {
   const [typeStats, setTypeStats] = useState([])
   const [schoolStats, setSchoolStats] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const { apiGet } = useSession()
 
@@ -39,6 +41,8 @@ export function Statistics () {
   useEffect(() => {
     getAPITypeStats()
     getAPISchoolStats()
+
+    setLoading(false)
   }, [])
 
   return (
@@ -52,19 +56,40 @@ export function Statistics () {
         <div className='numbers'>
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
-              {getTypeStats('varsel')}
+              {
+                loading &&
+                  <SkeletonLoader size='big' />
+              }
+              {
+                !loading &&
+                getTypeStats('varsel')
+              }
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>varselbrev</Heading3>
           </div>
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
-              {getTypeStats('samtale')}
+              {
+                loading &&
+                  <SkeletonLoader size='big' />
+              }
+              {
+                !loading &&
+                getTypeStats('samtale')
+              }
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>dokumenterte elevsamtaler</Heading3>
           </div>
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
-              {getTypeStats('notat')}
+              {
+                loading &&
+                  <SkeletonLoader size='big' />
+              }
+              {
+                !loading &&
+                getTypeStats('notat')
+              }
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>notater til elevmappa</Heading3>
           </div>
@@ -99,6 +124,12 @@ export function Statistics () {
             <table>
               <tbody>
                 {
+                  loading &&
+                    <SkeletonLoader />
+                }
+
+                {
+                  !loading &&
                   getSchools('varsel').map(function (item, index) {
                     return (
                       <tr key={index}>
@@ -128,6 +159,12 @@ export function Statistics () {
             <table>
               <tbody>
                 {
+                  loading &&
+                    <SkeletonLoader />
+                }
+
+                {
+                  !loading &&
                   getSchools('samtale').map(function (item, index) {
                     return (
                       <tr key={index}>
@@ -157,6 +194,12 @@ export function Statistics () {
             <table>
               <tbody>
                 {
+                  loading &&
+                    <SkeletonLoader />
+                }
+
+                {
+                  !loading &&
                   getSchools('notat').map(function (item, index) {
                     return (
                       <tr key={index}>

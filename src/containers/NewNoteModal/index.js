@@ -22,6 +22,8 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   const [errors, setErrors] = useState({})
   const [formState, setFormState] = useState({})
 
+  const [loadingStudent, setLoadingStudent] = useState(true)
+
   useEffect(() => {
     // Close modal on escape
     const handleKeyPress = (event) => {
@@ -39,7 +41,9 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         const { data } = await apiGet(API.URL + '/students/' + selectedStudentId)
         student = data
       }
+
       setSelectedStudent(student)
+      setLoadingStudent(false)
     }
 
     resetForm()
@@ -127,7 +131,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         <ModalBody>
           {
             selectedStudent &&
-              <StudentCard student={selectedStudent} />
+              <StudentCard student={selectedStudent} loading={loadingStudent} />
           }
 
           <div className='form'>

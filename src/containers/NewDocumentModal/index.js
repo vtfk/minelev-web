@@ -35,6 +35,8 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const [pdfPreviewLoading, setPdfPreviewLoading] = useState(null)
   const [pdfPreviewError, setPdfPreviewError] = useState(null)
 
+  const [loadingStudent, setLoadingStudent] = useState(true)
+
   const repackTypeOptions = (item, labelProp = 'description') => ({
     value: item.id,
     label: item[labelProp].nb,
@@ -89,6 +91,8 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
         setGroupOptions(groupsOptionsArray)
       }
+
+      setLoadingStudent(false)
     }
 
     // Reset type options and form
@@ -283,7 +287,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
           {
             selectedStudent &&
-              <StudentCard student={selectedStudent} />
+              <StudentCard student={selectedStudent} loading={loadingStudent} />
           }
 
           <div className='form'>
@@ -294,7 +298,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                   items={typeOptions}
                   selectedItem={formState.type}
                   onChange={item => handleChange(item, 'type')}
-                  isOpen={typeOptions && typeOptions.length > 1 && Object.keys(formState).length <= 2} 
+                  isOpen={typeOptions && typeOptions.length > 1 && Object.keys(formState).length <= 2}
                   closeOnSelect
                   error={errors.type}
                 />
