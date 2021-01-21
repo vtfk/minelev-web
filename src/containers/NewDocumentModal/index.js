@@ -294,7 +294,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                   items={typeOptions}
                   selectedItem={formState.type}
                   onChange={item => handleChange(item, 'type')}
-                  isOpen={typeOptions && typeOptions.length > 1 && Object.keys(formState).length <= 2} 
+                  isOpen={typeOptions && typeOptions.length > 1 && Object.keys(formState).length <= 2}
                   closeOnSelect
                   error={errors.type}
                 />

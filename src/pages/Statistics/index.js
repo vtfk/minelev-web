@@ -58,7 +58,7 @@ export function Statistics () {
             <Heading1 as='h2' className='numbers-item-title'>
               {
                 loading &&
-                <SkeletonLoader size="big" />
+                  <SkeletonLoader size='big' />
               }
               {
                 !loading &&
@@ -71,7 +71,7 @@ export function Statistics () {
             <Heading1 as='h2' className='numbers-item-title'>
               {
                 loading &&
-                <SkeletonLoader size="big" />
+                  <SkeletonLoader size='big' />
               }
               {
                 !loading &&
@@ -84,7 +84,7 @@ export function Statistics () {
             <Heading1 as='h2' className='numbers-item-title'>
               {
                 loading &&
-                <SkeletonLoader size="big" />
+                  <SkeletonLoader size='big' />
               }
               {
                 !loading &&
@@ -125,7 +125,7 @@ export function Statistics () {
               <tbody>
                 {
                   loading &&
-                  <SkeletonLoader />
+                    <SkeletonLoader />
                 }
 
                 {
@@ -160,7 +160,7 @@ export function Statistics () {
               <tbody>
                 {
                   loading &&
-                  <SkeletonLoader />
+                    <SkeletonLoader />
                 }
 
                 {
@@ -195,7 +195,7 @@ export function Statistics () {
               <tbody>
                 {
                   loading &&
-                  <SkeletonLoader />
+                    <SkeletonLoader />
                 }
 
                 {

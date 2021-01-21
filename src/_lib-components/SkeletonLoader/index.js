@@ -5,7 +5,7 @@ import './styles.scss'
 
 export function SkeletonLoader ({ size, ...props }) {
   return (
-    <div className={ `skeleton-loader ${size ? size : ''}` } {...props}></div>
+    <div className={`skeleton-loader ${size || ''}`} {...props} />
   )
 }
 

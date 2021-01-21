@@ -110,10 +110,10 @@ export function Home () {
         >
           {
             loading &&
-            Array(5).fill().map(function() {
+            Array(5).fill().map(function (i) {
               return (
-                <tr>
-                  <td className="activity-name"><SkeletonLoader /></td>
+                <tr key={i}>
+                  <td className='activity-name'><SkeletonLoader /></td>
                   <td><SkeletonLoader /></td>
                   <td><SkeletonLoader /></td>
                   <td><SkeletonLoader /></td>
@@ -175,7 +175,7 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading &&
-                      <SkeletonLoader size="big" />
+                        <SkeletonLoader size='big' />
                     }
                     {
                       !loading &&
@@ -188,7 +188,7 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading &&
-                      <SkeletonLoader size="big" />
+                        <SkeletonLoader size='big' />
                     }
                     {
                       !loading &&
@@ -203,12 +203,12 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading &&
-                      <SkeletonLoader size="big" />
+                        <SkeletonLoader size='big' />
                     }
 
                     {
                       !loading &&
-                      conversations.length
+                      notes.length
                     }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>notater til elevmappa</Paragraph>
@@ -217,7 +217,7 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading &&
-                      <SkeletonLoader size="big" />
+                        <SkeletonLoader size='big' />
                     }
                     {
                       !loading &&

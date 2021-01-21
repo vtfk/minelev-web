@@ -43,9 +43,9 @@ export function Classes () {
           <tbody>
             {
               loading &&
-              Array(5).fill().map(function() {
+              Array(5).fill().map(function (i) {
                 return (
-                  <tr>
+                  <tr key={i}>
                     <td><SkeletonLoader /></td>
                     <td><SkeletonLoader /></td>
                   </tr>

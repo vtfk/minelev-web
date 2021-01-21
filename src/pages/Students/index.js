@@ -142,9 +142,9 @@ export function Students (props) {
 
         {
           (status === 'Loading' &&
-            Array(5).fill().map(function() {
+            Array(5).fill().map(function (i) {
               return (
-                <SkeletonLoader style={{ marginBottom: 10 }} />
+                <SkeletonLoader key={i} style={{ marginBottom: 10 }} />
               )
             })) ||
 

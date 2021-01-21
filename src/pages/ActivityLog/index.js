@@ -100,9 +100,9 @@ export function ActivityLog () {
           <tbody>
             {
               loading &&
-              Array(10).fill().map(function() {
+              Array(10).fill().map(function (i) {
                 return (
-                  <tr>
+                  <tr key={i}>
                     <td><SkeletonLoader /></td>
                     <td><SkeletonLoader /></td>
                     <td><SkeletonLoader /></td>
