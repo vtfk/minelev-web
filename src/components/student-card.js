@@ -3,12 +3,13 @@ import { ROUTES } from '../config/constants'
 
 import { Heading2, Heading3, Paragraph, Link } from '../_lib-components/Typography'
 import { InitialsBadge } from '../_lib-components/InitialsBadge'
+import { SkeletonLoader } from '../_lib-components/SkeletonLoader'
 
 function prettyPrintDate (date) {
   return new Date(date).toLocaleDateString('nb-NO', { day: '2-digit', month: 'long', year: 'numeric' })
 }
 
-function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate, hideMail, ...props }) {
+function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate, hideMail, loading, ...props }) {
   if (!student) return null
 
   const {
@@ -25,17 +26,17 @@ function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate
   return (
     <div className='person-information'>
       <div className='image'>
-        <InitialsBadge firstName={firstName} lastName={lastName} size='large' />
+        <InitialsBadge firstName={loading ? '' : firstName} lastName={loading ? '' : lastName} size='large' />
       </div>
       <div className='text-wrapper'>
         <NameHeading className='name'>
-          {firstName} {lastName}
+          { loading ? <SkeletonLoader style={{ maxWidth: 300 } } /> : `${firstName} ${lastName}` }
         </NameHeading>
         <div className='other'>
-          {hideSchool ? '' : <Paragraph>{schoolName}</Paragraph>}
-          {hideClass ? '' : <Paragraph><Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link></Paragraph>}
-          {hideBirthdate ? '' : <Paragraph>{prettyPrintDate(birthdate)}</Paragraph>}
-          {hideMail ? '' : <Paragraph>{mail}</Paragraph>}
+          {hideSchool ? '' : <Paragraph>{loading ? <SkeletonLoader size="small" style={{marginTop: 3, maxWidth: 200}} /> : schoolName}</Paragraph>}
+          {hideClass ? '' : <Paragraph>{loading ? <SkeletonLoader size="small" style={{marginTop: 3, maxWidth: 200}} /> : <Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link>}</Paragraph>}
+          {hideBirthdate ? '' : <Paragraph>{ loading ? <SkeletonLoader size="small" style={{marginTop: 3, maxWidth: 200}} /> : prettyPrintDate(birthdate)}</Paragraph>}
+          {hideMail ? '' : <Paragraph>{loading ? <SkeletonLoader size="small" style={{marginTop: 3, maxWidth: 200}} /> : mail}</Paragraph>}
         </div>
       </div>
       {props.children}
@@ -52,6 +53,7 @@ StudentCard.propTypes = {
     birthdate: PropTypes.string,
     mail: PropTypes.string
   }),
+  loading: PropTypes.bool,
   largeName: PropTypes.bool,
   hideSchool: PropTypes.bool,
   hideClass: PropTypes.bool,
