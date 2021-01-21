@@ -181,7 +181,7 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading 
-                        ? <SkeletonLoader width='40%' />
+                        ? <SkeletonLoader randomWidth={[20, 80]} />
                         : varsler.length
                     }
                   </Heading1>
@@ -191,7 +191,7 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading 
-                        ? <SkeletonLoader width='40%' />
+                        ? <SkeletonLoader randomWidth={[20, 80]} />
                         : conversations.length
                     }
                   </Heading1>
@@ -203,7 +203,7 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading 
-                        ? <SkeletonLoader width='40%' />
+                        ? <SkeletonLoader randomWidth={[20, 80]} />
                         : notes.length
                     }
                   </Heading1>
@@ -214,7 +214,7 @@ export function Home () {
                     <Heading1 as='h3' className='statistics-item-title'>
                     {
                         loading 
-                          ? <SkeletonLoader width='40%' />
+                          ? <SkeletonLoader randomWidth={[20, 80]} />
                           : '?'
                       }
                     </Heading1>
