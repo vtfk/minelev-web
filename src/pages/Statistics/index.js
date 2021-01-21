@@ -18,7 +18,7 @@ export function Statistics () {
   async function getAPISchoolStats () {
     const schoolStats = await apiGet(API.URL + '/stats/type/school')
     setSchoolStats(schoolStats)
-    setLoading(true)
+    setLoading(false)
   }
 
   function getTypeStats (type) {
