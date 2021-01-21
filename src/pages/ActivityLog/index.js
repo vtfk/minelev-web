@@ -11,6 +11,7 @@ import { API } from '../../config/app'
 import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
@@ -24,6 +25,7 @@ export function ActivityLog () {
   const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [documents, setDocuments] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const { apiGet } = useSession()
 
@@ -45,6 +47,8 @@ export function ActivityLog () {
 
   useEffect(() => {
     getDocuments()
+
+    setLoading(false)
   }, [])
 
   return (
@@ -95,7 +99,26 @@ export function ActivityLog () {
           </thead>
           <tbody>
             {
-              documents && documents.map(function (doc, index) {
+              loading &&
+              Array(10).fill().map(function() {
+                return (
+                  <tr>
+                    <td><SkeletonLoader /></td>
+                    <td><SkeletonLoader /></td>
+                    <td><SkeletonLoader /></td>
+                    <td><SkeletonLoader /></td>
+                    <td><SkeletonLoader /></td>
+                    <td><SkeletonLoader /></td>
+                    <td><SkeletonLoader /></td>
+                  </tr>
+                )
+              })
+            }
+
+            {
+              !loading &&
+              documents &&
+              documents.map(function (doc, index) {
                 return (
                   <tr key={index}>
                     <td>

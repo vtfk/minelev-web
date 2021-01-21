@@ -8,11 +8,13 @@ import { API } from '../../config/app'
 import { useSession } from '@vtfk/react-msal'
 
 import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import './styles.scss'
 
 export function Classes () {
   const [classes, setClasses] = useState([])
+  const [loading, setLoading] = useState(true)
   const { apiGet } = useSession()
 
   useEffect(() => {
@@ -21,6 +23,8 @@ export function Classes () {
       setClasses(c.data)
     }
     getClasses()
+
+    setLoading(false)
   }, [])
 
   return (
@@ -38,6 +42,19 @@ export function Classes () {
           </thead>
           <tbody>
             {
+              loading &&
+              Array(5).fill().map(function() {
+                return (
+                  <tr>
+                    <td><SkeletonLoader /></td>
+                    <td><SkeletonLoader /></td>
+                  </tr>
+                )
+              })
+            }
+
+            {
+              !loading &&
               classes.map(function (schoolClass, index) {
                 return (
                   <tr key={schoolClass.id}>
