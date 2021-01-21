@@ -10,25 +10,20 @@ import './styles.scss'
 import { API } from '../../config/app'
 
 export function Statistics () {
-  const [typeStats, setTypeStats] = useState([])
   const [schoolStats, setSchoolStats] = useState([])
   const [loading, setLoading] = useState(true)
 
   const { apiGet } = useSession()
 
-  async function getAPITypeStats () {
-    const typeStats = await apiGet(API.URL + '/stats/type')
-    setTypeStats(typeStats)
-  }
-
   async function getAPISchoolStats () {
     const schoolStats = await apiGet(API.URL + '/stats/type/school')
     setSchoolStats(schoolStats)
+    setLoading(true)
   }
 
   function getTypeStats (type) {
-    if (!typeStats) return 0
-    const typeStat = typeStats.filter(stats => stats.type === type)
+    if (!schoolStats) return 0
+    const typeStat = schoolStats.filter(stats => stats.type === type)
     return typeStat.length > 0 ? typeStat[0].count : 0
   }
 
@@ -39,10 +34,7 @@ export function Statistics () {
   }
 
   useEffect(() => {
-    getAPITypeStats()
     getAPISchoolStats()
-
-    setLoading(false)
   }, [])
 
   return (
@@ -57,12 +49,9 @@ export function Statistics () {
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
               {
-                loading &&
-                  <SkeletonLoader size='big' />
-              }
-              {
-                !loading &&
-                getTypeStats('varsel')
+                loading 
+                  ? <SkeletonLoader randomWidth={[20, 80]} />
+                  : getTypeStats('varsel')
               }
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>varselbrev</Heading3>
@@ -70,12 +59,9 @@ export function Statistics () {
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
               {
-                loading &&
-                  <SkeletonLoader size='big' />
-              }
-              {
-                !loading &&
-                getTypeStats('samtale')
+                loading 
+                  ? <SkeletonLoader randomWidth={[20, 80]} />
+                  : getTypeStats('samtale')
               }
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>dokumenterte elevsamtaler</Heading3>
@@ -83,12 +69,9 @@ export function Statistics () {
           <div className='numbers-item'>
             <Heading1 as='h2' className='numbers-item-title'>
               {
-                loading &&
-                  <SkeletonLoader size='big' />
-              }
-              {
-                !loading &&
-                getTypeStats('notat')
+                loading 
+                  ? <SkeletonLoader randomWidth={[20, 80]} />
+                  : getTypeStats('notat')
               }
             </Heading1>
             <Heading3 as='p' className='numbers-item-text'>notater til elevmappa</Heading3>
@@ -124,26 +107,22 @@ export function Statistics () {
             <table>
               <tbody>
                 {
-                  loading &&
-                    <SkeletonLoader />
-                }
-
-                {
-                  !loading &&
-                  getSchools('varsel').map(function (item, index) {
-                    return (
-                      <tr key={index}>
-                        <td>{item.name}</td>
-                        <td>{item.count}</td>
-                        <td className='stats-collapse-table-progress'>
-                          <div
-                            className='stats-collapse-table-progressbar'
-                            style={{ maxWidth: (100 * parseInt(item.count) / getTypeStats('varsel')) + '%' }}
-                          />
-                        </td>
-                      </tr>
-                    )
-                  })
+                  loading
+                    ? Array(3).fill().map((i) => <tr key={i}><td><SkeletonLoader /></td></tr>)
+                    : getSchools('varsel').map(function (item, index) {
+                        return (
+                          <tr key={index}>
+                            <td>{item.name}</td>
+                            <td>{item.count}</td>
+                            <td className='stats-collapse-table-progress'>
+                              <div
+                                className='stats-collapse-table-progressbar'
+                                style={{ maxWidth: (100 * parseInt(item.count) / getTypeStats('varsel')) + '%' }}
+                              />
+                            </td>
+                          </tr>
+                        )
+                      })
                 }
               </tbody>
             </table>
@@ -159,26 +138,22 @@ export function Statistics () {
             <table>
               <tbody>
                 {
-                  loading &&
-                    <SkeletonLoader />
-                }
-
-                {
-                  !loading &&
-                  getSchools('samtale').map(function (item, index) {
-                    return (
-                      <tr key={index}>
-                        <td>{item.name}</td>
-                        <td>{item.count}</td>
-                        <td className='stats-collapse-table-progress'>
-                          <div
-                            className='stats-collapse-table-progressbar'
-                            style={{ maxWidth: (100 * parseInt(item.count) / getTypeStats('samtale')) + '%' }}
-                          />
-                        </td>
-                      </tr>
-                    )
-                  })
+                  loading
+                    ? Array(3).fill().map((i) => <tr key={i}><td><SkeletonLoader /></td></tr>)
+                    : getSchools('samtale').map(function (item, index) {
+                        return (
+                          <tr key={index}>
+                            <td>{item.name}</td>
+                            <td>{item.count}</td>
+                            <td className='stats-collapse-table-progress'>
+                              <div
+                                className='stats-collapse-table-progressbar'
+                                style={{ maxWidth: (100 * parseInt(item.count) / getTypeStats('samtale')) + '%' }}
+                              />
+                            </td>
+                          </tr>
+                        )
+                      })
                 }
               </tbody>
             </table>
@@ -194,26 +169,22 @@ export function Statistics () {
             <table>
               <tbody>
                 {
-                  loading &&
-                    <SkeletonLoader />
-                }
-
-                {
-                  !loading &&
-                  getSchools('notat').map(function (item, index) {
-                    return (
-                      <tr key={index}>
-                        <td>{item.name}</td>
-                        <td>{item.count}</td>
-                        <td className='stats-collapse-table-progress'>
-                          <div
-                            className='stats-collapse-table-progressbar'
-                            style={{ maxWidth: (100 * parseInt(item.count) / getTypeStats('notat')) + '%' }}
-                          />
-                        </td>
-                      </tr>
-                    )
-                  })
+                  loading
+                    ? Array(3).fill().map((i) => <tr key={i}><td><SkeletonLoader /></td></tr>)
+                    : getSchools('notat').map(function (item, index) {
+                        return (
+                          <tr key={index}>
+                            <td>{item.name}</td>
+                            <td>{item.count}</td>
+                            <td className='stats-collapse-table-progress'>
+                              <div
+                                className='stats-collapse-table-progressbar'
+                                style={{ maxWidth: (100 * parseInt(item.count) / getTypeStats('notat')) + '%' }}
+                              />
+                            </td>
+                          </tr>
+                        )
+                      })
                 }
               </tbody>
             </table>
