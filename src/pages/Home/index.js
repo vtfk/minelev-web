@@ -213,19 +213,18 @@ export function Home () {
                   </Heading1>
                   <Paragraph className='statistics-item-text'>notater til elevmappa</Paragraph>
                 </div>
-                <div className='statistics-item'>
-                  <Heading1 as='h3' className='statistics-item-title'>
+                {/*
+                  <div className='statistics-item'>
+                    <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading &&
-                        <SkeletonLoader size='big' />
-                    }
-                    {
-                      !loading &&
-                      '[X]'
-                    }
-                  </Heading1>
-                  <Paragraph className='statistics-item-text'>utplasseringer</Paragraph>
-                </div>
+                        loading 
+                          ? <SkeletonLoader width='40%' />
+                          : '?'
+                      }
+                    </Heading1>
+                    <Paragraph className='statistics-item-text'>utplasseringer</Paragraph>
+                  </div> 
+                */}
               </div>
             </div>
 
