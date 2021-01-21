@@ -89,7 +89,7 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
           documents && documents.length === 0 &&
             <tr>
               <td style={{ textAlign: 'left' }}>
-                <Paragraph>Ingen varsler registrert for noen i denne klassen.</Paragraph>
+                <Paragraph>Ingen varsler registrert for noen elever i denne klassen.</Paragraph>
               </td>
             </tr>
         }

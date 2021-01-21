@@ -33,7 +33,7 @@ export function Class ({ match, ...props }) {
   async function getDocuments () {
     const docs = await apiGet(API.URL + '/classes/' + encodeURIComponent(id) + '/documents')
 
-    if (docs && docs.data && docs.data.length > 0) {
+    if (docs && docs.data) {
       const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
       const docsVarsler = docsOrderedByModified.filter((item) => item.type === 'varsel')
       const docsConversations = docsOrderedByModified.filter((item) => item.type === 'samtale')

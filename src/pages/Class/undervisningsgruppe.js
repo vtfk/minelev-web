@@ -126,7 +126,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
           documents && documents.length === 0 &&
             <tr>
               <td style={{ textAlign: 'left' }}>
-                <Paragraph>Denne klassen har ingen varsler.</Paragraph>
+                <Paragraph>Ingen i denne klassen har fått varsel i faget.</Paragraph>
               </td>
             </tr>
         }
