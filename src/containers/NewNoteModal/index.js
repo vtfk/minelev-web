@@ -132,13 +132,15 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
           <div className='form'>
             {
               selectedStudent
-                ? <TextField
+                ? (
+                  <TextField
                     rows={5}
                     placeholder='Skriv inn notat her'
                     onChange={event => handleChange(event.target.value, 'note')}
                     value={formState.note}
                     error={errors.note}
                   />
+                )
                 : <SkeletonLoader height='150px' />
             }
           </div>

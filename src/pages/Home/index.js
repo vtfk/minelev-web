@@ -120,7 +120,7 @@ export function Home () {
                     </div>
                   </td>
                   <td><SkeletonLoader randomWidth={[40, 70]} /></td>
-                  <td><SkeletonLoader width='60%'/></td>
+                  <td><SkeletonLoader width='60%' /></td>
                   <td><SkeletonLoader /></td>
                   <td><SkeletonLoader /></td>
                 </tr>
@@ -180,7 +180,7 @@ export function Home () {
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading 
+                      loading
                         ? <SkeletonLoader randomWidth={[20, 80]} />
                         : varsler.length
                     }
@@ -190,7 +190,7 @@ export function Home () {
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading 
+                      loading
                         ? <SkeletonLoader randomWidth={[20, 80]} />
                         : conversations.length
                     }
@@ -202,7 +202,7 @@ export function Home () {
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading 
+                      loading
                         ? <SkeletonLoader randomWidth={[20, 80]} />
                         : notes.length
                     }
@@ -213,13 +213,13 @@ export function Home () {
                   <div className='statistics-item'>
                     <Heading1 as='h3' className='statistics-item-title'>
                     {
-                        loading 
+                        loading
                           ? <SkeletonLoader randomWidth={[20, 80]} />
                           : '?'
                       }
                     </Heading1>
                     <Paragraph className='statistics-item-text'>utplasseringer</Paragraph>
-                  </div> 
+                  </div>
                 */}
               </div>
             </div>

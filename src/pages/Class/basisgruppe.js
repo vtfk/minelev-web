@@ -48,7 +48,7 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
           })
         }
         {
-          group &&group.students && group.students.length === 0 &&
+          group && group.students && group.students.length === 0 &&
             <tr>
               <td style={{ textAlign: 'left' }}>
                 <Paragraph>Fant ingen elever knyttet til denne klassen.</Paragraph>

@@ -8,7 +8,7 @@ function ClassCard ({ group, loading, ...props }) {
 
   // Basisgruppe = hent første tall i første tallrekke (_2_STA-4) // Annet = hent første tall i siste tallrekke (102NOR_1_206)
   const level = ((grep && grep.kode) || name || '').match(type === 'basisgruppe' ? /(?!.*\d)*(\d+)/ : /(\d+)(?!.*\d)/)
-  
+
   return (
     <div className='class-information'>
       <div className='class-shortname'>
@@ -18,21 +18,21 @@ function ClassCard ({ group, loading, ...props }) {
         <Heading3 className='name'>
           {
             loading
-            ? <SkeletonLoader width='240px' />
-            : (grep && grep.kortform ? grep.kortform.nb : name)
+              ? <SkeletonLoader width='240px' />
+              : (grep && grep.kortform ? grep.kortform.nb : name)
           }
         </Heading3>
         <div className='other'>
           {
             loading
-            ? <Paragraph><SkeletonLoader width='140px' /></Paragraph>
-            : (grep && grep.kortform ? <Paragraph>{name}</Paragraph> : '')
+              ? <Paragraph><SkeletonLoader width='140px' /></Paragraph>
+              : (grep && grep.kortform ? <Paragraph>{name}</Paragraph> : '')
           }
           <Paragraph>
             {
               loading
-              ? <SkeletonLoader width='200px' />
-              : schoolName
+                ? <SkeletonLoader width='200px' />
+                : schoolName
             }
           </Paragraph>
         </div>

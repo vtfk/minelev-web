@@ -90,7 +90,7 @@ export function Students (props) {
         <Heading2 className='page-title'>Elever</Heading2>
 
         {
-          (status === 'Loading' || (students && students.length > 0)) && 
+          (status === 'Loading' || (students && students.length > 0)) &&
             <table className='data-actions-table'>
               <thead>
                 <tr>
@@ -102,7 +102,7 @@ export function Students (props) {
                 </tr>
               </thead>
               <tbody>
-              {
+                {
                   status === 'Loading' &&
                   Array(8).fill().map(function (i) {
                     return (
@@ -114,7 +114,7 @@ export function Students (props) {
                           </div>
                         </td>
                         <td><SkeletonLoader width='120px' /></td>
-                        <td><SkeletonLoader width='90px'/></td>
+                        <td><SkeletonLoader width='90px' /></td>
                         <td><SkeletonLoader width='150px' /></td>
                         <td><SkeletonLoader /></td>
                       </tr>

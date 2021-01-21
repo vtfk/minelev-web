@@ -66,7 +66,7 @@ export function Classes () {
                       </Paragraph>
                     </td>
                     <td>
-                      <Paragraph>{schoolClass.grep ? schoolClass.grep.kortform.nb : (schoolClass.type ? schoolClass.type.charAt(0).toUpperCase() + schoolClass.type.slice(1) : 'Gruppe' )}</Paragraph>
+                      <Paragraph>{schoolClass.grep ? schoolClass.grep.kortform.nb : (schoolClass.type ? schoolClass.type.charAt(0).toUpperCase() + schoolClass.type.slice(1) : 'Gruppe')}</Paragraph>
                     </td>
                     <td>
                       <Paragraph>{schoolClass.schoolName}</Paragraph>

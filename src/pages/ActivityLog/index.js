@@ -97,8 +97,8 @@ export function ActivityLog () {
             </tr>
           </thead>
           <tbody>
-          {
-            loading &&
+            {
+              loading &&
             Array(15).fill().map(function (i) {
               return (
                 <tr key={i}>
@@ -109,14 +109,14 @@ export function ActivityLog () {
                     </div>
                   </td>
                   <td><SkeletonLoader randomWidth={[40, 90]} /></td>
-                  <td><SkeletonLoader width='90px'/></td>
+                  <td><SkeletonLoader width='90px' /></td>
                   <td><SkeletonLoader /></td>
                   <td width='200px'><SkeletonLoader randomWidth={[40, 80]} /></td>
-                  <td><SkeletonLoader width="40%" /></td>
+                  <td><SkeletonLoader width='40%' /></td>
                 </tr>
               )
             })
-          }
+            }
 
             {
               !loading &&

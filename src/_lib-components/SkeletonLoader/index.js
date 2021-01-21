@@ -4,18 +4,17 @@ import PropTypes from 'prop-types'
 import './styles.scss'
 
 export function SkeletonLoader ({ variant = 'text', width, height, randomWidth, className, style, title, ...props }) {
-
-  if(randomWidth) {
+  if (randomWidth) {
     const [min, max] = randomWidth
     width = `${Math.random() * (max - min) + min}%`
   }
 
   return (
-    <span 
-      className={`skeleton-loader ${variant || ''} ${props.children ? `with-children ${!height ? 'auto-height' : ''} ${!width ? 'auto-width' : ''}` : ''} ${className || ''}`} 
-      style={{width, height, ...style}} 
+    <span
+      className={`skeleton-loader ${variant || ''} ${props.children ? `with-children ${!height ? 'auto-height' : ''} ${!width ? 'auto-width' : ''}` : ''} ${className || ''}`}
+      style={{ width, height, ...style }}
       title={title || 'Laster inn...'}
-      {...props} 
+      {...props}
     />
   )
 }

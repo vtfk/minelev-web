@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
 import { store } from 'react-notifications-component'
+import getSkoleAar from 'get-skole-aar'
 
 import { API } from '../../config/app'
 import { DOCUMENTS } from '../../data/documents'
@@ -10,17 +11,15 @@ import { DOCUMENTS } from '../../data/documents'
 import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
-import { TextField } from '../../_lib-components/TextField'
 import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 import { Button } from '../../_lib-components/Button'
 
-import getSkoleAar from 'get-skole-aar'
+import { validateForm, validateField } from '../../lib/form-validation'
 import repackGrepLang from '../../lib/repack-grep-lang'
 
 import './styles.scss'
 import StudentCard from '../../components/student-card'
-import { validateForm, validateField } from '../../lib/form-validation'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
@@ -287,7 +286,8 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           <div className='form'>
             {
               typeOptions && typeOptions.length > 0
-                ? <Select
+                ? (
+                  <Select
                     placeholder='Velg dokumenttype'
                     items={typeOptions}
                     selectedItem={formState.type}
@@ -296,6 +296,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     closeOnSelect
                     error={errors.type}
                   />
+                )
                 : <SkeletonLoader width='100%'><Select placeholder='Dokumenttype' items={[]} /></SkeletonLoader>
             }
 
@@ -408,7 +409,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               selectedStudent
                 ? <Button onClick={() => { send() }} type='primary'>Send</Button>
                 : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
-            } 
+            }
           </div>
           <div className='action'>
             <Link onClick={() => dismiss()}>Avslutt</Link>

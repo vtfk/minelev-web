@@ -102,138 +102,135 @@ export function Student ({ match, ...props }) {
         <Link className='back-link' href={`/${ROUTES.students}`} noStyle leftIcon={<Icon name='arrowLeft' size='xsmall' />}>Til elevoversikten</Link>
 
         {
-          !error ?
-            <>
-              <StudentCard student={student} largeName>
-              {
-                student &&
-                  <div className='person-information-actions'>
-                    <IconButtonLink
-                      className='person-information-action-button'
-                      onClick={() => { openDocumentModal() }}
-                      icon='add'
-                      type='transparent-bordered'
-                    >
-                      Nytt dokument
+          !error
+            ? (
+              <>
+                <StudentCard student={student} largeName>
+                  {
+                    student &&
+                      <div className='person-information-actions'>
+                        <IconButtonLink
+                          className='person-information-action-button'
+                          onClick={() => { openDocumentModal() }}
+                          icon='add'
+                          type='transparent-bordered'
+                        >
+                                Nytt dokument
+                        </IconButtonLink>
+
+                        <IconButtonLink
+                          className='person-information-action-button'
+                          onClick={() => { openNoteModal() }}
+                          icon='add'
+                          type='transparent-bordered'
+                        >
+                                Nytt notat
+                        </IconButtonLink>
+                      </div>
+                  }
+                </StudentCard>
+
+                <ErrorBoundary FallbackComponent={YffErrorFallback}>
+                  <Yff student={student} fetcher={apiGet} />
+                </ErrorBoundary>
+
+                <ClassPanel
+                  icon='activity' title='Varsler og samtaler' link={
+                    <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal() }}>
+                              Nytt dokument
                     </IconButtonLink>
-
-                    <IconButtonLink
-                      className='person-information-action-button'
-                      onClick={() => { openNoteModal() }}
-                      icon='add'
-                      type='transparent-bordered'
-                    >
-                      Nytt notat
-                    </IconButtonLink>
-                  </div>
-              }
-              </StudentCard>
-
-              <ErrorBoundary FallbackComponent={YffErrorFallback}>
-                <Yff student={student} fetcher={apiGet} />
-              </ErrorBoundary>
-
-              <ClassPanel
-                icon='activity' title='Varsler og samtaler' link={
-                  <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal() }}>
-                    Nytt dokument
-                  </IconButtonLink>
-                }
-              >
-                {
-                  !documents &&
-                    Array(5).fill().map(function (i) {
+                  }
+                >
+                  {
+                    !documents && Array(5).fill().map(function (i) {
                       return (
                         <tr key={i}>
-                          <td><SkeletonLoader randomWidth={[30, 70]}/></td>
-                          <td><SkeletonLoader width='60%'/></td>
-                          <td><SkeletonLoader randomWidth={[20, 100]}/></td>
+                          <td><SkeletonLoader randomWidth={[30, 70]} /></td>
+                          <td><SkeletonLoader width='60%' /></td>
+                          <td><SkeletonLoader randomWidth={[20, 100]} /></td>
                         </tr>
                       )
                     })
-                }
-                {
-                  documents && documents.map(function (doc, index) {
-                    return (
-                      <tr key={doc.id}>
-                        <td>
-                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
-                        </td>
-                        <td>
-                          <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
-                        </td>
-                        <td>
-                          <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
+                  }
+                  {
+                    documents && documents.map(function (doc, index) {
+                      return (
+                        <tr key={doc.id}>
+                          <td>
+                            <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
+                          </td>
+                          <td>
+                            <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
+                          </td>
+                          <td>
+                            <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
+                          </td>
+                        </tr>
+                      )
+                    })
+                  }
+                  {
+                    documents && documents.length === 0 &&
+                      <tr>
+                        <td style={{ textAlign: 'left' }}>
+                          <Paragraph>Denne eleven har ingen registrerte varsler eller samtaler.</Paragraph>
                         </td>
                       </tr>
-                    )
-                  })
-                }
-                {
-                  documents && documents.length === 0 &&
-                    <tr>
-                      <td style={{ textAlign: 'left' }}>
-                        <Paragraph>Denne eleven har ingen registrerte varsler eller samtaler.</Paragraph>
-                      </td>
-                    </tr>
-                }
+                  }
 
-              </ClassPanel>
-
-              <ClassPanel
-                icon='activity' title='Notater' link={
-                  <IconButtonLink
-                    className='add-more-button'
-                    onClick={() => { openNoteModal(student) }}
-                    icon='add'
-                  >
-                    Nytt notat til elevmappen
-                  </IconButtonLink>
-                }
-              >
-                {
-                  !notes &&
-                    Array(5).fill().map(function (i) {
+                </ClassPanel>
+                <ClassPanel
+                  icon='activity' title='Notater' link={
+                    <IconButtonLink
+                      className='add-more-button'
+                      onClick={() => { openNoteModal(student) }}
+                      icon='add'
+                    >
+                                Nytt notat til elevmappen
+                    </IconButtonLink>
+                  }
+                >
+                  {
+                    !notes && Array(5).fill().map(function (i) {
                       return (
                         <tr key={i}>
-                          <td><SkeletonLoader width='60%'/></td>
+                          <td><SkeletonLoader width='60%' /></td>
                           <td><SkeletonLoader /></td>
                         </tr>
                       )
                     })
-                }
-                {
-                  notes && notes.map(function (note, index) {
-                    return (
-                      <tr key={note.id}>
-                        <td>
-                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.created.timestamp}</Moment></Paragraph>
-                        </td>
-                        <td>
-                          <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>
+                  }
+                  {
+                    notes && notes.map(function (note, index) {
+                      return (
+                        <tr key={note.id}>
+                          <td>
+                            <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.created.timestamp}</Moment></Paragraph>
+                          </td>
+                          <td>
+                            <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>
+                          </td>
+                        </tr>
+                      )
+                    })
+                  }
+                  {
+                    notes && notes.length === 0 &&
+                      <tr>
+                        <td style={{ textAlign: 'left' }}>
+                          <Paragraph>Denne eleven har ingen notater.</Paragraph>
                         </td>
                       </tr>
-                    )
-                  })
-                }
-                {
-                  notes && notes.length === 0 &&
-                    <tr>
-                      <td style={{ textAlign: 'left' }}>
-                        <Paragraph>Denne eleven har ingen notater.</Paragraph>
-                      </td>
-                    </tr>
-                }
-              </ClassPanel>
-            </>
-          :
-            <>
+                  }
+                </ClassPanel>
+              </>
+            )
+            : (
               <Paragraph>
                 Du har ikke tilgang til denne eleven. Kontakt Extensansvarlig.
               </Paragraph>
-            </>
+            )
         }
-
       </div>
     </DefaultLayout>
   )

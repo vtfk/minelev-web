@@ -20,17 +20,19 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
       <ClassTileGroup>
         {
           loading || !documents
-          ? <>
-              <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
-              <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
-            </>
-          : <ClassTile label='varselbrev i faget' value={ documents ? documents.length : <SkeletonLoader width='70px' />} />
+            ? (
+              <>
+                <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
+                <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
+              </>
+            )
+            : <ClassTile label='varselbrev i faget' value={documents ? documents.length : <SkeletonLoader width='70px' />} />
         }
       </ClassTileGroup>
 
       <ClassPanel icon='students' title='Elever'>
         {
-          (loading || !group) && 
+          (loading || !group) &&
             Array(4).fill().map(function (i) {
               return (
                 <tr key={i}>
@@ -40,7 +42,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                       <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
                     </div>
                   </td>
-                  <td><SkeletonLoader width='90px'/></td>
+                  <td><SkeletonLoader width='90px' /></td>
                 </tr>
               )
             })
@@ -77,8 +79,8 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
       </ClassPanel>
 
       <ClassPanel icon='activity' title='Varsler'>
-      {
-          (loading || !documents) && 
+        {
+          (loading || !documents) &&
             Array(6).fill().map(function (i) {
               return (
                 <tr key={i}>
