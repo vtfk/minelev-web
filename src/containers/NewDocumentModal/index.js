@@ -10,6 +10,7 @@ import { DOCUMENTS } from '../../data/documents'
 import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
+import { TextField } from '../../_lib-components/TextField'
 import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
 import { Button } from '../../_lib-components/Button'
 
@@ -19,6 +20,7 @@ import repackGrepLang from '../../lib/repack-grep-lang'
 import './styles.scss'
 import StudentCard from '../../components/student-card'
 import { validateForm, validateField } from '../../lib/form-validation'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
@@ -34,8 +36,6 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const [pdfPreviewBase64, setPdfPreviewBase64] = useState(null)
   const [pdfPreviewLoading, setPdfPreviewLoading] = useState(null)
   const [pdfPreviewError, setPdfPreviewError] = useState(null)
-
-  const [loadingStudent, setLoadingStudent] = useState(true)
 
   const repackTypeOptions = (item, labelProp = 'description') => ({
     value: item.id,
@@ -91,8 +91,6 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
         setGroupOptions(groupsOptionsArray)
       }
-
-      setLoadingStudent(false)
     }
 
     // Reset type options and form
@@ -284,31 +282,28 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
         onFinished={props.onFinished}
       >
         <ModalBody>
-
-          {
-            selectedStudent &&
-              <StudentCard student={selectedStudent} loading={loadingStudent} />
-          }
+          <StudentCard student={selectedStudent} />
 
           <div className='form'>
             {
-              typeOptions && typeOptions.length > 0 &&
-                <Select
-                  placeholder='Velg dokumenttype'
-                  items={typeOptions}
-                  selectedItem={formState.type}
-                  onChange={item => handleChange(item, 'type')}
-                  isOpen={typeOptions && typeOptions.length > 1 && Object.keys(formState).length <= 2}
-                  closeOnSelect
-                  error={errors.type}
-                />
+              typeOptions && typeOptions.length > 0
+                ? <Select
+                    placeholder='Velg dokumenttype'
+                    items={typeOptions}
+                    selectedItem={formState.type}
+                    onChange={item => handleChange(item, 'type')}
+                    isOpen={typeOptions && typeOptions.length > 1 && Object.keys(formState).length <= 2}
+                    closeOnSelect
+                    error={errors.type}
+                  />
+                : <SkeletonLoader width='100%'><Select placeholder='Dokumenttype' items={[]} /></SkeletonLoader>
             }
 
             {
               /* --------------------
                 Periode
               -------------------- */
-              formState.type &&
+              typeOptions && formState.type &&
               formState.type.value !== 'samtale' &&
                 <>
                   <Select
@@ -326,7 +321,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Atferd
               -------------------- */
-              formState.type &&
+              typeOptions && formState.type &&
               formState.type.value === 'atferd' &&
                 <>
                   <SelectMultiple
@@ -402,10 +397,18 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => { openPreviewModal() }}>Forhåndsvisning</Link>
+            {
+              selectedStudent
+                ? <Link onClick={() => { openPreviewModal() }}>Forhåndsvisning</Link>
+                : <SkeletonLoader width='100%' />
+            }
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type='primary'>Send</Button>
+            {
+              selectedStudent
+                ? <Button onClick={() => { send() }} type='primary'>Send</Button>
+                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
+            } 
           </div>
           <div className='action'>
             <Link onClick={() => dismiss()}>Avslutt</Link>
