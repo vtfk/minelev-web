@@ -303,7 +303,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Periode
               -------------------- */
-              typeOptions && formState.type &&
+              selectedStudent && formState.type &&
               formState.type.value !== 'samtale' &&
                 <>
                   <Select
@@ -321,7 +321,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Atferd
               -------------------- */
-              typeOptions && formState.type &&
+              selectedStudent && formState.type &&
               formState.type.value === 'atferd' &&
                 <>
                   <SelectMultiple
@@ -338,7 +338,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Fag
               -------------------- */
-              formState.type &&
+              selectedStudent && formState.type &&
               formState.type.value === 'fag' &&
                 <>
                   <SelectMultiple
@@ -363,7 +363,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Orden
               -------------------- */
-              formState.type &&
+              selectedStudent && formState.type &&
               formState.type.value === 'orden' &&
                 <>
                   <SelectMultiple
@@ -380,7 +380,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
               /* --------------------
                 Samtale
               -------------------- */
-              formState.type &&
+              selectedStudent && formState.type &&
               formState.type.value === 'samtale' &&
                 <>
                   <Select
