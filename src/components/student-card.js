@@ -10,33 +10,62 @@ function prettyPrintDate (date) {
 }
 
 function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate, hideMail, loading, ...props }) {
-  if (!student) return null
-
-  const {
-    firstName,
-    lastName,
-    schoolName,
-    classId,
-    birthdate,
-    mail
-  } = student
+  if (!student) loading = true
+  
+  const { firstName, lastName, schoolName, classId, birthdate, mail } = student || {}
 
   const NameHeading = largeName ? Heading2 : Heading3
 
   return (
     <div className='person-information'>
       <div className='image'>
-        <InitialsBadge firstName={loading ? '' : firstName} lastName={loading ? '' : lastName} size='large' />
+        {
+          loading
+           ? <SkeletonLoader variant='circle'><InitialsBadge size='large' /></SkeletonLoader>
+           : <InitialsBadge firstName={firstName} lastName={lastName} size='large' />
+        }
       </div>
       <div className='text-wrapper'>
         <NameHeading className='name'>
-          {loading ? <SkeletonLoader style={{ maxWidth: 300 }} /> : `${firstName} ${lastName}`}
+          {
+            loading 
+             ? <SkeletonLoader randomWidth={[50, 100]} /> 
+             : `${firstName || ''} ${lastName}`
+          }
         </NameHeading>
         <div className='other'>
-          {hideSchool ? '' : <Paragraph>{loading ? <SkeletonLoader size='small' style={{ marginTop: 3, maxWidth: 200 }} /> : schoolName}</Paragraph>}
-          {hideClass ? '' : <Paragraph>{loading ? <SkeletonLoader size='small' style={{ marginTop: 3, maxWidth: 200 }} /> : <Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link>}</Paragraph>}
-          {hideBirthdate ? '' : <Paragraph>{loading ? <SkeletonLoader size='small' style={{ marginTop: 3, maxWidth: 200 }} /> : prettyPrintDate(birthdate)}</Paragraph>}
-          {hideMail ? '' : <Paragraph>{loading ? <SkeletonLoader size='small' style={{ marginTop: 3, maxWidth: 200 }} /> : mail}</Paragraph>}
+          <Paragraph> 
+            {
+              hideSchool ? '' :
+              loading
+                ? <SkeletonLoader width='200px' /> 
+                : schoolName
+            }
+          </Paragraph> 
+          <Paragraph> 
+            {
+              hideClass ? '' :
+              loading
+                ? <SkeletonLoader width='180px' /> 
+                : <Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link>
+            }
+          </Paragraph> 
+          <Paragraph> 
+            {
+              hideBirthdate ? '' :
+              loading
+                ? <SkeletonLoader width='160px' /> 
+                : prettyPrintDate(birthdate)
+            }
+          </Paragraph> 
+          <Paragraph> 
+            {
+              hideMail ? '' :
+              loading
+                ? <SkeletonLoader width='180px' /> 
+                : mail
+            }
+          </Paragraph>
         </div>
       </div>
       {props.children}

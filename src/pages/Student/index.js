@@ -23,15 +23,16 @@ import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
 import StudentCard from '../../components/student-card'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function Student ({ match, ...props }) {
+  const { apiGet } = useSession()
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
   const [error, setError] = useState(false)
-  const [student, setStudent] = useState({})
-  const [documents, setDocuments] = useState([])
-  const [notes, setNotes] = useState([])
-  const { apiGet } = useSession()
+  const [student, setStudent] = useState(null)
+  const [documents, setDocuments] = useState(null)
+  const [notes, setNotes] = useState(null)
 
   const { id } = match.params
 
@@ -53,11 +54,11 @@ export function Student ({ match, ...props }) {
     setNotes(notes)
   }
 
-  function openDocumentModal (activity) {
+  function openDocumentModal () {
     setDocumentModalState(true)
   }
 
-  function openNoteModal (activity) {
+  function openNoteModal () {
     setNoteModalState(true)
   }
 
@@ -72,7 +73,6 @@ export function Student ({ match, ...props }) {
 
       {
         student &&
-        student.username &&
           <>
             <NewDocumentModal
               open={documentModalState}
@@ -102,51 +102,58 @@ export function Student ({ match, ...props }) {
         <Link className='back-link' href={`/${ROUTES.students}`} noStyle leftIcon={<Icon name='arrowLeft' size='xsmall' />}>Til elevoversikten</Link>
 
         {
-          (student &&
-          student.id &&
-            <div>
-
+          !error ?
+            <>
               <StudentCard student={student} largeName>
-                <div className='person-information-actions'>
-                  <IconButtonLink
-                    className='person-information-action-button'
-                    onClick={() => { openDocumentModal(student) }}
-                    icon='add'
-                    type='transparent-bordered'
-                  >
-                    Nytt dokument
-                  </IconButtonLink>
+              {
+                student &&
+                  <div className='person-information-actions'>
+                    <IconButtonLink
+                      className='person-information-action-button'
+                      onClick={() => { openDocumentModal() }}
+                      icon='add'
+                      type='transparent-bordered'
+                    >
+                      Nytt dokument
+                    </IconButtonLink>
 
-                  <IconButtonLink
-                    className='person-information-action-button'
-                    onClick={() => { openNoteModal(student) }}
-                    icon='add'
-                    type='transparent-bordered'
-                  >
-                    Nytt notat
-                  </IconButtonLink>
-                </div>
+                    <IconButtonLink
+                      className='person-information-action-button'
+                      onClick={() => { openNoteModal() }}
+                      icon='add'
+                      type='transparent-bordered'
+                    >
+                      Nytt notat
+                    </IconButtonLink>
+                  </div>
+              }
               </StudentCard>
 
-              <ErrorBoundary
-                FallbackComponent={YffErrorFallback}
-              >
+              <ErrorBoundary FallbackComponent={YffErrorFallback}>
                 <Yff student={student} fetcher={apiGet} />
               </ErrorBoundary>
 
               <ClassPanel
                 icon='activity' title='Varsler og samtaler' link={
-                  <IconButtonLink
-                    className='add-more-button'
-                    onClick={() => { openDocumentModal(student) }}
-                    icon='add'
-                  >
+                  <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal() }}>
                     Nytt dokument
                   </IconButtonLink>
                 }
               >
                 {
-                  documents.map(function (doc, index) {
+                  !documents &&
+                    Array(5).fill().map(function (i) {
+                      return (
+                        <tr key={i}>
+                          <td><SkeletonLoader randomWidth={[30, 70]}/></td>
+                          <td><SkeletonLoader width='60%'/></td>
+                          <td><SkeletonLoader randomWidth={[20, 100]}/></td>
+                        </tr>
+                      )
+                    })
+                }
+                {
+                  documents && documents.map(function (doc, index) {
                     return (
                       <tr key={doc.id}>
                         <td>
@@ -163,7 +170,7 @@ export function Student ({ match, ...props }) {
                   })
                 }
                 {
-                  documents.length === 0 &&
+                  documents && documents.length === 0 &&
                     <tr>
                       <td style={{ textAlign: 'left' }}>
                         <Paragraph>Denne eleven har ingen registrerte varsler eller samtaler.</Paragraph>
@@ -185,6 +192,17 @@ export function Student ({ match, ...props }) {
                 }
               >
                 {
+                  !notes &&
+                    Array(5).fill().map(function (i) {
+                      return (
+                        <tr key={i}>
+                          <td><SkeletonLoader width='60%'/></td>
+                          <td><SkeletonLoader /></td>
+                        </tr>
+                      )
+                    })
+                }
+                {
                   notes && notes.map(function (note, index) {
                     return (
                       <tr key={note.id}>
@@ -198,9 +216,8 @@ export function Student ({ match, ...props }) {
                     )
                   })
                 }
-
                 {
-                  notes.length === 0 &&
+                  notes && notes.length === 0 &&
                     <tr>
                       <td style={{ textAlign: 'left' }}>
                         <Paragraph>Denne eleven har ingen notater.</Paragraph>
@@ -208,14 +225,13 @@ export function Student ({ match, ...props }) {
                     </tr>
                 }
               </ClassPanel>
-            </div>) ||
-
-            (error &&
-              <>
-                <Paragraph>
-                  Du har ikke tilgang til denne eleven. Kontakt Extensansvarlig.
-                </Paragraph>
-              </>)
+            </>
+          :
+            <>
+              <Paragraph>
+                Du har ikke tilgang til denne eleven. Kontakt Extensansvarlig.
+              </Paragraph>
+            </>
         }
 
       </div>
