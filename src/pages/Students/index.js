@@ -87,88 +87,88 @@ export function Students (props) {
       }
 
       <div className='students'>
-
         <Heading2 className='page-title'>Elever</Heading2>
-          <table className='data-actions-table'>
-            <thead>
-              <tr>
-                <th><Paragraph size='small'>Navn</Paragraph></th>
-                <th><Paragraph size='small'>Fødselsdato</Paragraph></th>
-                <th><Paragraph size='small'>Klasse</Paragraph></th>
-                <th><Paragraph size='small'>Skole</Paragraph></th>
-                <th className='actions-th'><Paragraph size='small'>Ny handling</Paragraph></th>
-              </tr>
-            </thead>
-            <tbody>
-            {
-                status === 'Loading' &&
-                Array(8).fill().map(function (i) {
-                  return (
-                    <tr key={i}>
-                      <td width='380px'>
-                        <div className='name'>
-                          <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
-                          <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
-                        </div>
-                      </td>
-                      <td><SkeletonLoader width='120px' /></td>
-                      <td><SkeletonLoader width='90px'/></td>
-                      <td><SkeletonLoader width='150px' /></td>
-                      <td><SkeletonLoader /></td>
-                    </tr>
-                  )
-                })
-              }
-              {
-                status === 'Finish' &&
-                students.length > 0 &&
-                students.map(function (student) {
-                  return (
-                    <tr key={student.id}>
-                      <td>
-                        <div className='name'>
-                          <InitialsBadge firstName={student.firstName} lastName={student.lastName} size='small' />
-                          <Paragraph>
-                            <Link href={`/${ROUTES.students}/${student.id}`}>{student.firstName} {student.lastName}</Link>
-                          </Paragraph>
-                        </div>
-                      </td>
-                      <td>
-                        <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{student.birthdate}</Moment></Paragraph>
-                      </td>
-                      <td>
-                        <Paragraph><Link href={`/${ROUTES.classes}/${student.classId}`}>{student.classShortId}</Link></Paragraph>
-                      </td>
-                      <td>
-                        <Paragraph>{student.schoolShortName}</Paragraph>
-                      </td>
-                      <td className='actions'>
-                        <IconDropdownNav>
-                          <IconDropdownNavItem onClick={() => { openDocumentModal(student) }} title='Nytt dokument' />
-                          <IconDropdownNavItem onClick={() => { openNoteModal(student) }} title='Nytt notat' />
-                          <IconDropdownNavItem href={`/${ROUTES.students}/${student.id}`} title={`YFF for ${student.firstName} ${student.lastName}`} />
-                        </IconDropdownNav>
-                      </td>
-                    </tr>
-                  )
-                })
-              }
-            </tbody>
-          </table>
-      
 
+        {
+          (status === 'Loading' || (students && students.length > 0)) && 
+            <table className='data-actions-table'>
+              <thead>
+                <tr>
+                  <th><Paragraph size='small'>Navn</Paragraph></th>
+                  <th><Paragraph size='small'>Fødselsdato</Paragraph></th>
+                  <th><Paragraph size='small'>Klasse</Paragraph></th>
+                  <th><Paragraph size='small'>Skole</Paragraph></th>
+                  <th className='actions-th'><Paragraph size='small'>Ny handling</Paragraph></th>
+                </tr>
+              </thead>
+              <tbody>
+              {
+                  status === 'Loading' &&
+                  Array(8).fill().map(function (i) {
+                    return (
+                      <tr key={i}>
+                        <td width='380px'>
+                          <div className='name'>
+                            <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
+                            <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                          </div>
+                        </td>
+                        <td><SkeletonLoader width='120px' /></td>
+                        <td><SkeletonLoader width='90px'/></td>
+                        <td><SkeletonLoader width='150px' /></td>
+                        <td><SkeletonLoader /></td>
+                      </tr>
+                    )
+                  })
+                }
+                {
+                  status === 'Finish' &&
+                  students.map(function (student) {
+                    return (
+                      <tr key={student.id}>
+                        <td>
+                          <div className='name'>
+                            <InitialsBadge firstName={student.firstName} lastName={student.lastName} size='small' />
+                            <Paragraph>
+                              <Link href={`/${ROUTES.students}/${student.id}`}>{student.firstName} {student.lastName}</Link>
+                            </Paragraph>
+                          </div>
+                        </td>
+                        <td>
+                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{student.birthdate}</Moment></Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph><Link href={`/${ROUTES.classes}/${student.classId}`}>{student.classShortId}</Link></Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph>{student.schoolShortName}</Paragraph>
+                        </td>
+                        <td className='actions'>
+                          <IconDropdownNav>
+                            <IconDropdownNavItem onClick={() => { openDocumentModal(student) }} title='Nytt dokument' />
+                            <IconDropdownNavItem onClick={() => { openNoteModal(student) }} title='Nytt notat' />
+                            <IconDropdownNavItem href={`/${ROUTES.students}/${student.id}`} title={`YFF for ${student.firstName} ${student.lastName}`} />
+                          </IconDropdownNav>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+        }
         {
           (status === 'Error' &&
             <>
               <Paragraph>
-                Klarte ikke å hente elever.
+                Klarte ikke å hente elevene dine... :(
               </Paragraph>
             </>) ||
 
           (status === 'Finish' && searchTerm && students.length === 0 &&
             <>
               <Paragraph>
-                Det er ingen elever med valgt filtrering.
+                Fant ingen elever med valgt filtrering. Forsøk et annet søkeord, eller <Link href={ROUTES.students}>gå til elevoversikten</Link>.
               </Paragraph>
             </>) ||
 
