@@ -243,7 +243,7 @@ export function YffConfirmationModal ({ student, ...props }) {
       <>
         <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={!brregData && didSubmit} />
         <CompanySelector brregData={brregData} setCompany={setCompany} showError={!company && !!brregData && didSubmit} />
-        {/* company && <UtdanningsprogrammerSelectorForm fetcher={apiGet} /> */}
+        {company && <UtdanningsprogrammerSelectorForm fetcher={apiGet} />}
       </>
     )
 
