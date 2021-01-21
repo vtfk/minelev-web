@@ -10,19 +10,43 @@ import ClassPanel from '../../components/class-panel'
 import { ROUTES } from '../../config/constants'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
-export function Undervisningsgruppe ({ group, documents }) {
+export function Undervisningsgruppe ({ group, documents, loading }) {
   return (
     <>
-      <ClassCard group={group} />
+      <ClassCard group={loading ? null : group} />
 
       <ClassTileGroup>
-        <ClassTile label='varselbrev i faget' value={documents.length} />
+        {
+          loading || !documents
+          ? <>
+              <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
+              <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
+            </>
+          : <ClassTile label='varselbrev i faget' value={ documents ? documents.length : <SkeletonLoader width='70px' />} />
+        }
       </ClassTileGroup>
 
       <ClassPanel icon='students' title='Elever'>
         {
-          group.students && group.students.map(function (student) {
+          (loading || !group) && 
+            Array(4).fill().map(function (i) {
+              return (
+                <tr key={i}>
+                  <td>
+                    <div className='activity-name'>
+                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
+                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                    </div>
+                  </td>
+                  <td><SkeletonLoader width='90px'/></td>
+                </tr>
+              )
+            })
+        }
+        {
+          !loading && group && group.students && group.students.map(function (student) {
             return (
               <tr key={student.username}>
                 <td>
@@ -43,7 +67,7 @@ export function Undervisningsgruppe ({ group, documents }) {
           })
         }
         {
-          group.students && group.students.length === 0 &&
+          group && group.students && group.students.length === 0 &&
             <tr>
               <td style={{ textAlign: 'left' }}>
                 <Paragraph>Fant ingen elever knyttet til denne klassen.</Paragraph>
@@ -53,8 +77,26 @@ export function Undervisningsgruppe ({ group, documents }) {
       </ClassPanel>
 
       <ClassPanel icon='activity' title='Varsler'>
+      {
+          (loading || !documents) && 
+            Array(6).fill().map(function (i) {
+              return (
+                <tr key={i}>
+                  <td>
+                    <div className='activity-name'>
+                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
+                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                    </div>
+                  </td>
+                  <td><SkeletonLoader /></td>
+                  <td><SkeletonLoader /></td>
+                  <td><SkeletonLoader /></td>
+                </tr>
+              )
+            })
+        }
         {
-          documents && documents.map(function (doc) {
+          !loading && documents && documents.map(function (doc) {
             return (
               <tr key={doc._id}>
                 <td>
@@ -81,7 +123,7 @@ export function Undervisningsgruppe ({ group, documents }) {
           })
         }
         {
-          documents.length === 0 &&
+          documents && documents.length === 0 &&
             <tr>
               <td style={{ textAlign: 'left' }}>
                 <Paragraph>Denne klassen har ingen varsler.</Paragraph>

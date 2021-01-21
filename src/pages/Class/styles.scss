@@ -28,7 +28,7 @@
       padding: ($baseUnit * 3) ($baseUnit * 2);
       cursor: default;
       user-select: none;
-      font-size: 36px;
+      font-size: 28px;
       line-height: 49px;
       letter-spacing: 3px;
       font-weight: 700;
@@ -122,8 +122,8 @@
             display: flex;
             flex-wrap: nowrap;
 
-            .initials-badge {
-              margin-right: $baseUnit * 2;
+            .paragraph {
+              margin-left: $baseUnit * 2;
             }
           }
 

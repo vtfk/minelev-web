@@ -17,21 +17,21 @@ import ClassCard from '../../components/class-card'
 
 export function Class ({ match, ...props }) {
   const { id } = match.params
-  const [schoolClass, setSchoolClass] = useState({})
+  const [schoolClass, setSchoolClass] = useState(null)
   const [error, setError] = useState(null)
-  const [documents, setDocuments] = useState([])
+  const [documents, setDocuments] = useState(null)
   const [conversations, setConversations] = useState([])
   const [notes, setNotes] = useState([])
   const { apiGet } = useSession()
 
   async function getClass () {
-    const group = await apiGet(API.URL + '/classes/' + id)
+    const group = await apiGet(API.URL + '/classes/' + encodeURIComponent(id))
     if (!group || group.error) setError(true)
     if (group.data) setSchoolClass(group.data)
   }
 
   async function getDocuments () {
-    const docs = await apiGet(API.URL + '/classes/' + id + '/documents')
+    const docs = await apiGet(API.URL + '/classes/' + encodeURIComponent(id) + '/documents')
 
     if (docs && docs.data && docs.data.length > 0) {
       const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
@@ -57,13 +57,13 @@ export function Class ({ match, ...props }) {
         <Link className='back-link' href={`/${ROUTES.classes}`} noStyle leftIcon={<Icon name='arrowLeft' size='xsmall' />}>Til klasseoversikten</Link>
 
         {
+          // Undervisningsgrupper
+          ((!schoolClass || (schoolClass && schoolClass.type === 'undervisningsgruppe')) &&
+            <Undervisningsgruppe group={schoolClass} documents={documents} />) ||
+
           // Basisgrupper
           (schoolClass && schoolClass.type === 'basisgruppe' &&
             <Basisgruppe group={schoolClass} documents={documents} conversations={conversations} notes={notes} />) ||
-
-          // Undervisningsgrupper
-          (schoolClass && schoolClass.type === 'undervisningsgruppe' &&
-            <Undervisningsgruppe group={schoolClass} documents={documents} />) ||
 
           // Ukjent gruppetype
           (schoolClass && schoolClass.type &&
