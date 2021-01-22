@@ -140,7 +140,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
                     value={formState.note}
                     error={errors.note}
                   />
-                )
+                  )
                 : <SkeletonLoader height='150px' />
             }
           </div>

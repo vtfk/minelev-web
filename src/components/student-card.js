@@ -35,36 +35,16 @@ function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate
         </NameHeading>
         <div className='other'>
           <Paragraph>
-            {
-              hideSchool ? ''
-                : loading
-                  ? <SkeletonLoader width='200px' />
-                  : schoolName
-            }
+            {hideSchool ? '' : loading ? <SkeletonLoader width='200px' /> : schoolName}
           </Paragraph>
           <Paragraph>
-            {
-              hideClass ? ''
-                : loading
-                  ? <SkeletonLoader width='180px' />
-                  : <Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link>
-            }
+            {hideClass ? '' : loading ? <SkeletonLoader width='180px' /> : <Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link>}
           </Paragraph>
           <Paragraph>
-            {
-              hideBirthdate ? ''
-                : loading
-                  ? <SkeletonLoader width='160px' />
-                  : prettyPrintDate(birthdate)
-            }
+            {hideBirthdate ? '' : loading ? <SkeletonLoader width='160px' /> : prettyPrintDate(birthdate)}
           </Paragraph>
           <Paragraph>
-            {
-              hideMail ? ''
-                : loading
-                  ? <SkeletonLoader width='180px' />
-                  : mail
-            }
+            {hideMail ? '' : loading ? <SkeletonLoader width='180px' /> : mail}
           </Paragraph>
         </div>
       </div>
