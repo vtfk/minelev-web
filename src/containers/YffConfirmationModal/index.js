@@ -24,13 +24,16 @@ import CompanyDetails from './company-details'
 import CompanyContactPerson from './company-contact-person'
 import CompanyEmailCopy from './company-email-copy'
 import StudentContactPerson from './student-contact-person'
-import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import serializeForm from '../../lib/serialize-form'
 import repackBekreftelse from '../../lib/repack-bekreftelse'
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
 
 import './styles.scss'
+
+function getClassLevel (id) {
+  return `VG${/\d/.exec(id) || 1}`
+}
 
 export function YffConfirmationModal ({ student, ...props }) {
   const [brregData, setBrregData] = useState(null)
@@ -91,7 +94,9 @@ export function YffConfirmationModal ({ student, ...props }) {
       variant: 'bekreftelse',
       student,
       content: {
-        bekreftelse
+        bekreftelse,
+        utdanningsprogram: student.utdanningsprogram,
+        level: student.level || getClassLevel(student.classId)
       }
     })
   }
@@ -266,7 +271,6 @@ export function YffConfirmationModal ({ student, ...props }) {
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
             <CompanySelector brregData={brregData} setCompany={setCompany} />
             <FormView company={company} />
-            {company && <UtdanningsprogrammerSelectorForm fetcher={apiGet} />}
           </div>
         </ModalBody>
 

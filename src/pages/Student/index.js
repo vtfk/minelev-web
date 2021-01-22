@@ -115,7 +115,7 @@ export function Student ({ match, ...props }) {
                           icon='add'
                           type='transparent-bordered'
                         >
-                                Nytt dokument
+                          Nytt dokument
                         </IconButtonLink>
 
                         <IconButtonLink
@@ -124,7 +124,7 @@ export function Student ({ match, ...props }) {
                           icon='add'
                           type='transparent-bordered'
                         >
-                                Nytt notat
+                          Nytt notat
                         </IconButtonLink>
                       </div>
                   }
@@ -137,7 +137,7 @@ export function Student ({ match, ...props }) {
                 <ClassPanel
                   icon='activity' title='Varsler og samtaler' link={
                     <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal() }}>
-                              Nytt dokument
+                      Nytt dokument
                     </IconButtonLink>
                   }
                 >
@@ -186,7 +186,7 @@ export function Student ({ match, ...props }) {
                       onClick={() => { openNoteModal(student) }}
                       icon='add'
                     >
-                                Nytt notat til elevmappen
+                      Nytt notat til elevmappen
                     </IconButtonLink>
                   }
                 >
@@ -224,12 +224,12 @@ export function Student ({ match, ...props }) {
                   }
                 </ClassPanel>
               </>
-            )
+              )
             : (
               <Paragraph>
                 Du har ikke tilgang til denne eleven. Kontakt Extensansvarlig.
               </Paragraph>
-            )
+              )
         }
       </div>
     </DefaultLayout>

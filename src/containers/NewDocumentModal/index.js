@@ -296,7 +296,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     closeOnSelect
                     error={errors.type}
                   />
-                )
+                  )
                 : <SkeletonLoader width='100%'><Select placeholder='Dokumenttype' items={[]} /></SkeletonLoader>
             }
 
