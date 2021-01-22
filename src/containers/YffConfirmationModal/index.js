@@ -96,7 +96,7 @@ export function YffConfirmationModal ({ student, ...props }) {
       content: {
         bekreftelse,
         utdanningsprogram: student.utdanningsprogram,
-        level: student.level || getClassLevel(student.classId)
+        level: student.level || getClassLevel(student.classId)
       }
     })
   }
