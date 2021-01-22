@@ -4,10 +4,11 @@ import { Heading3, Paragraph } from '../_lib-components/Typography'
 function ClassCard ({ group, loading, ...props }) {
   if (!group) loading = true
 
-  const { name, schoolName, grep, type } = group || {}
+  const { name, schoolName, grep } = group || {}
 
   // Basisgruppe = hent første tall i første tallrekke (_2_STA-4) // Annet = hent første tall i siste tallrekke (102NOR_1_206)
-  const level = ((grep && grep.kode) || name || '').match(type === 'basisgruppe' ? /(?!.*\d)*(\d+)/ : /(\d+)(?!.*\d)/)
+  const nameId = name || (grep && grep.kode) || ''
+  const level = nameId.match(nameId.split('/')[0].match(/[0-9]/) ? /(?!.*\d)*(\d+)/ : /(\d+)(?!.*\d)/)
 
   return (
     <div className='class-information'>
