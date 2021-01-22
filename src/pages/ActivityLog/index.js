@@ -43,12 +43,11 @@ export function ActivityLog () {
     const docs = await apiGet(API.URL + '/documents')
     const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
     setDocuments(docsOrderedByModified)
+    setLoading(false)
   }
 
   useEffect(() => {
     getDocuments()
-
-    setLoading(false)
   }, [])
 
   return (
@@ -100,19 +99,23 @@ export function ActivityLog () {
           <tbody>
             {
               loading &&
-              Array(10).fill().map(function (i) {
-                return (
-                  <tr key={i}>
-                    <td><SkeletonLoader /></td>
-                    <td><SkeletonLoader /></td>
-                    <td><SkeletonLoader /></td>
-                    <td><SkeletonLoader /></td>
-                    <td><SkeletonLoader /></td>
-                    <td><SkeletonLoader /></td>
-                    <td><SkeletonLoader /></td>
-                  </tr>
-                )
-              })
+            Array(15).fill().map(function (i) {
+              return (
+                <tr key={i}>
+                  <td width='300px'>
+                    <div className='name'>
+                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
+                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                    </div>
+                  </td>
+                  <td><SkeletonLoader randomWidth={[40, 90]} /></td>
+                  <td><SkeletonLoader width='90px' /></td>
+                  <td><SkeletonLoader /></td>
+                  <td width='200px'><SkeletonLoader randomWidth={[40, 80]} /></td>
+                  <td><SkeletonLoader width='40%' /></td>
+                </tr>
+              )
+            })
             }
 
             {

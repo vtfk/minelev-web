@@ -113,9 +113,14 @@ export function Home () {
             Array(5).fill().map(function (i) {
               return (
                 <tr key={i}>
-                  <td className='activity-name'><SkeletonLoader /></td>
-                  <td><SkeletonLoader /></td>
-                  <td><SkeletonLoader /></td>
+                  <td>
+                    <div className='activity-name'>
+                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
+                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                    </div>
+                  </td>
+                  <td><SkeletonLoader randomWidth={[40, 70]} /></td>
+                  <td><SkeletonLoader width='60%' /></td>
                   <td><SkeletonLoader /></td>
                   <td><SkeletonLoader /></td>
                 </tr>
@@ -159,7 +164,8 @@ export function Home () {
             })
           }
           {
-            // TODO: Infomelding om man ikke har noen aktiviteter
+            !loading && !documents &&
+              <Paragraph>Ingen aktiviteter funnet for deg eller dine elever!</Paragraph>
           }
         </ClassPanel>
 
@@ -174,12 +180,9 @@ export function Home () {
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading &&
-                        <SkeletonLoader size='big' />
-                    }
-                    {
-                      !loading &&
-                      varsler.length
+                      loading
+                        ? <SkeletonLoader randomWidth={[20, 80]} />
+                        : varsler.length
                     }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>varselbrev</Paragraph>
@@ -187,12 +190,9 @@ export function Home () {
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading &&
-                        <SkeletonLoader size='big' />
-                    }
-                    {
-                      !loading &&
-                      conversations.length
+                      loading
+                        ? <SkeletonLoader randomWidth={[20, 80]} />
+                        : conversations.length
                     }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>dokumenterte elevsamtaler</Paragraph>
@@ -202,30 +202,25 @@ export function Home () {
                 <div className='statistics-item'>
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading &&
-                        <SkeletonLoader size='big' />
-                    }
-
-                    {
-                      !loading &&
-                      notes.length
+                      loading
+                        ? <SkeletonLoader randomWidth={[20, 80]} />
+                        : notes.length
                     }
                   </Heading1>
                   <Paragraph className='statistics-item-text'>notater til elevmappa</Paragraph>
                 </div>
-                <div className='statistics-item'>
-                  <Heading1 as='h3' className='statistics-item-title'>
+                {/*
+                  <div className='statistics-item'>
+                    <Heading1 as='h3' className='statistics-item-title'>
                     {
-                      loading &&
-                        <SkeletonLoader size='big' />
-                    }
-                    {
-                      !loading &&
-                      '[X]'
-                    }
-                  </Heading1>
-                  <Paragraph className='statistics-item-text'>utplasseringer</Paragraph>
-                </div>
+                        loading
+                          ? <SkeletonLoader randomWidth={[20, 80]} />
+                          : '?'
+                      }
+                    </Heading1>
+                    <Paragraph className='statistics-item-text'>utplasseringer</Paragraph>
+                  </div>
+                */}
               </div>
             </div>
 

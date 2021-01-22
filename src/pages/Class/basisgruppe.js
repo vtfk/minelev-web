@@ -17,9 +17,9 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
       <ClassCard group={group} />
 
       <ClassTileGroup>
-        <ClassTile label='varselbrev' value={documents.length} />
-        <ClassTile label='dokumenterte elevsamtaler' value={conversations.length} />
-        <ClassTile label='notater til elevmappa' value={notes.length} />
+        <ClassTile label='varselbrev' value={documents ? documents.length : 0} />
+        <ClassTile label='dokumenterte elevsamtaler' value={conversations ? conversations.length : 0} />
+        <ClassTile label='notater til elevmappa' value={notes ? notes.length : 0} />
         {/* <ClassTile label='utplasseringer' value={0} />
         <ClassTile label='lokale læreplaner arkivert' value={0} />
         <ClassTile label='tilbakemeldinger' value={0} /> */}
@@ -27,7 +27,7 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
 
       <ClassPanel icon='students' title='Elever'>
         {
-          group.students && group.students.map(function (student) {
+          group && group.students && group.students.map(function (student) {
             return (
               <tr key={student.id}>
                 <td>
@@ -48,7 +48,7 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
           })
         }
         {
-          group.students && group.students.length === 0 &&
+          group && group.students && group.students.length === 0 &&
             <tr>
               <td style={{ textAlign: 'left' }}>
                 <Paragraph>Fant ingen elever knyttet til denne klassen.</Paragraph>
@@ -86,10 +86,10 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
           })
         }
         {
-          documents.length === 0 &&
+          documents && documents.length === 0 &&
             <tr>
               <td style={{ textAlign: 'left' }}>
-                <Paragraph>Ingen varsler registrert for noen i denne klassen.</Paragraph>
+                <Paragraph>Ingen varsler registrert for noen elever i denne klassen.</Paragraph>
               </td>
             </tr>
         }
@@ -122,7 +122,7 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
           })
         }
         {
-          conversations.length === 0 &&
+          conversations && conversations.length === 0 &&
             <tr>
               <td style={{ textAlign: 'left' }}>
                 <Paragraph>Denne klassen har ingen registrerte elevsamtaler.</Paragraph>
@@ -158,7 +158,7 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
           })
         }
         {
-          notes.length === 0 &&
+          notes && notes.length === 0 &&
             <tr>
               <td style={{ textAlign: 'left' }}>
                 <Paragraph>Ingen av elevene i klassen har noen notater registrert på seg.</Paragraph>

@@ -102,7 +102,7 @@ export const handlers = [
 
   rest.get(`${API.URL}/classes/:id`, (req, res, ctx) => {
     const { id: rawId } = req.params
-    const id = decodeURIComponent(rawId)
+    const id = decodeURIComponent(decodeURIComponent(rawId))
     const schoolClass = getClass(id)
 
     return res(
@@ -113,7 +113,7 @@ export const handlers = [
 
   rest.get(`${API.URL}/classes/:id/students`, (req, res, ctx) => {
     const { id: rawId } = req.params
-    const id = decodeURIComponent(rawId)
+    const id = decodeURIComponent(decodeURIComponent(rawId))
     const students = getClassStudents(id)
 
     return res(
@@ -124,7 +124,7 @@ export const handlers = [
 
   rest.get(`${API.URL}/classes/:id/teachers`, (req, res, ctx) => {
     const { id: rawId } = req.params
-    const id = decodeURIComponent(rawId)
+    const id = decodeURIComponent(decodeURIComponent(rawId))
     const teachers = getClassTeachers(id)
 
     return res(

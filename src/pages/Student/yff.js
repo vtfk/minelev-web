@@ -58,15 +58,11 @@ function Yff ({ student, fetcher }) {
     setReviewModalState(true)
   }
 
-  function openSendModal () {
-    setSendModalState(true)
-  }
-
   // Dersom det ikke finnes studentobjekt, eller studenten ikke har YFF returnes null
   if (!student || (student && !isYff(student))) return null
 
   return (
-    <>
+    <div className='yff'>
       <YffConfirmationModal
         open={confirmationModalState}
         student={student}
@@ -124,15 +120,15 @@ function Yff ({ student, fetcher }) {
         <CardLink className='action-link' onClick={() => { openCurriculumModal() }}>
           Lokal læreplan
         </CardLink>
-        {/** TODO: Fjerne denne? Kan tas fra lokal læreplan */}
+        {/** TODO: Fjerne denne? Kan tas fra lokal læreplan
         <CardLink title='Du må først opprette lokal læreplan' disabled className='action-link' onClick={() => { openSendModal() }}>
           Send og arkiver lokal læreplan
           <br />
           <Paragraph size='small'>Du må først opprette lokal læreplan</Paragraph>
-        </CardLink>
+        </CardLink> */}
         {utplasseringer && utplasseringer.map(utplassering => <Utplassering {...utplassering} key={nanoid()} />)}
       </div>
-    </>
+    </div>
   )
 }
 
