@@ -99,6 +99,7 @@ function KompetansemalVelger (props) {
       </button>
     )
   }
+
   return (
     <>
       <div className='input-element'>
