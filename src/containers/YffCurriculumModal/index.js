@@ -32,7 +32,6 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [referanse, setReferanse] = useState({})
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
-  const { id: studentID } = student
   const isOpen = props.open
   console.log(selectedKlassetrinn) // TODO: bruk denne i velgeren
 
@@ -53,7 +52,7 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   useEffect(() => {
     async function getUtplasseringer () {
-      const url = `${API.URL}/yff/${studentID}/utplassering`
+      const url = `${API.URL}/yff/${student.id}/utplassering`
       try {
         const data = await apiGet(url)
         console.log(data)
@@ -102,7 +101,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   async function generateDocument () {
-    const maal = await apiGet(`${API.URL}/yff/${studentID}/maal`)
+    const maal = await apiGet(`${API.URL}/yff/${student.id}/maal`)
     return createDocument({
       variant: 'laereplan',
       student,
@@ -139,10 +138,10 @@ export function YffCurriculumModal ({ student, ...props }) {
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
               {utplassering && utplassering.value === 'skole' && <SchoolSelectorForm />}
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
-              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={studentID} referanse={referanse} />
+              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={student.id} referanse={referanse} />
             </div>
 
-            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={studentID} />
+            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={student.id} />
 
           </div>
         </ModalBody>
