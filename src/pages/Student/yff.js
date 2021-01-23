@@ -8,6 +8,7 @@ import { YffReviewModal } from '../../containers/YffReviewModal'
 import { CardLink } from '../../_lib-components/CardLink'
 import { Heading3, Paragraph } from '../../_lib-components/Typography'
 import isYff from '../../lib/is-yff'
+import logError from '../../lib/log-error'
 
 function Yff ({ student, fetcher }) {
   const [confirmationModalState, setConfirmationModalState] = useState(false)
@@ -20,7 +21,7 @@ function Yff ({ student, fetcher }) {
   async function getUtplasseringer (id) {
     const response = await fetcher(`${API.URL}/yff/${id}/utplassering`)
     if (!response || response.error || !Array.isArray(response.data)) {
-      console.error('Klarte ikke å hente utplasseringer', response)
+      logError('Klarte ikke å hente utplasseringer', response)
       return
     }
     const utenTilbakemelding = response.data.filter(utplassering => !utplassering.tilbakemelding)
@@ -41,7 +42,7 @@ function Yff ({ student, fetcher }) {
 
   useEffect(() => {
     if (student && student.username && isYff(student)) {
-      getUtplasseringer(student.username)
+      getUtplasseringer(student.id)
     }
   }, [student])
 

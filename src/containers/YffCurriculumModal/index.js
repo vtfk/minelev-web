@@ -14,6 +14,7 @@ import { Button } from '../../_lib-components/Button'
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
 import createDocument from '../../lib/create-yff-document'
+import logError from '../../lib/log-error'
 import YffErrorFallback from '../../components/yff-error-fallback'
 import StudentCard from '../../components/student-card'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
@@ -23,6 +24,7 @@ import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
+
 export function YffCurriculumModal ({ student, ...props }) {
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
@@ -53,7 +55,7 @@ export function YffCurriculumModal ({ student, ...props }) {
         const data = await apiGet(url)
         setUtplasseringer(data)
       } catch (error) {
-        console.error(error)
+        logError(error)
       }
     }
     if (isOpen) {
@@ -90,7 +92,7 @@ export function YffCurriculumModal ({ student, ...props }) {
       cleanupState()
       props.onDismiss()
     } catch (error) {
-      console.error(error)
+      logError(error)
       errorMessage('Læreplanen ble ikke lagret', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
     }
   }

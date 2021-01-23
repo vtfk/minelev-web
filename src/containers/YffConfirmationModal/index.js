@@ -28,6 +28,7 @@ import serializeForm from '../../lib/serialize-form'
 import repackBekreftelse from '../../lib/repack-bekreftelse'
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
+import logError from '../../lib/log-error'
 
 import './styles.scss'
 
@@ -65,7 +66,7 @@ export function YffConfirmationModal ({ student, ...props }) {
       setCompany(false)
       props.onFinished()
     } catch (error) {
-      console.error(error)
+      logError(error)
       errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
     }
   }

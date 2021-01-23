@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { API } from '../../config/app'
 import { Paragraph, Link } from '../../_lib-components/Typography'
+import logError from '../../lib/log-error'
 
 function Maal (props) {
   const { grep, arbeidsoppgaver, referanseTittel, _id, deleteMal } = props
@@ -34,7 +35,7 @@ function LokalLaereplan (props) {
     const getLaereplan = async () => {
       const response = await fetcher(`${API.URL}/yff/${selectedStudentId}/maal`)
       if (!response || !response.data) {
-        console.error('Kunne ikke hente læreplan', response)
+        logError('Kunne ikke hente læreplan', response)
         return
       }
 
