@@ -1,7 +1,6 @@
 /* eslint-env browser */
 import React, { useState, useEffect } from 'react'
-import * as Sentry from "@sentry/react";
-//import { ErrorBoundary } from 'react-error-boundary'
+import * as Sentry from '@sentry/react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
