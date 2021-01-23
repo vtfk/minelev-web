@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { useState, useEffect } from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
+import * as Sentry from '@sentry/react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
@@ -139,7 +139,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   }
 
   return (
-    <ErrorBoundary
+    <Sentry.ErrorBoundary
       FallbackComponent={YffErrorFallback}
       onReset={() => props.onDismiss()}
     >
@@ -200,7 +200,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
           </div>
         </ModalSideActions>
       </Modal>
-    </ErrorBoundary>
+    </Sentry.ErrorBoundary>
   )
 }
 

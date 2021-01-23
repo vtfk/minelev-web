@@ -1,5 +1,4 @@
 function ErrorFallback ({ error, resetErrorBoundary }) {
-  console.error(error)
   return (
     <div role='alert'>
       <p>Noe gikk galt</p>
