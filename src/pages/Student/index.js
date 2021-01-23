@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
+import * as Sentry from '@sentry/react'
 import Moment from 'react-moment'
 
 import { DefaultLayout } from '../../layouts/Default'
@@ -130,9 +130,9 @@ export function Student ({ match, ...props }) {
                   }
                 </StudentCard>
 
-                <ErrorBoundary FallbackComponent={YffErrorFallback}>
+                <Sentry.ErrorBoundary FallbackComponent={YffErrorFallback}>
                   <Yff student={student} fetcher={apiGet} />
-                </ErrorBoundary>
+                </Sentry.ErrorBoundary>
 
                 <ClassPanel
                   icon='activity' title='Varsler og samtaler' link={
