@@ -25,7 +25,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                 <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
                 <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
               </>
-              )
+            )
             : <ClassTile label='varselbrev i faget' value={documents ? documents.length : <SkeletonLoader width='70px' />} />
         }
       </ClassTileGroup>
