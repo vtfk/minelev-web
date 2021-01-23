@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import * as Sentry from '@sentry/react'
 
 import { useSession } from '@vtfk/react-msal'
-import { store } from 'react-notifications-component'
 
 import { API } from '../../config/app'
 
@@ -15,6 +15,9 @@ import './styles.scss'
 import StudentCard from '../../components/student-card'
 import { validateField, validateForm } from '../../lib/form-validation'
 import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import ErrorFallback from '../../components/yff-error-fallback'
+import { errorMessage, successMessage } from '../../lib/toasts'
+import logError from '../../lib/log-error'
 
 export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
@@ -88,38 +91,30 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
     setErrors(validateForm(validators, formState))
     if (errors) return
 
-    const postNote = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
-      type: 'notat',
-      variant: 'notat',
-      content: {
-        ...formState
-      }
-    })
-
-    if (postNote) {
-      store.addNotification({
-        title: '👍',
-        message: 'Notatet ble sendt.',
-        type: 'success',
-        insert: 'top',
-        container: 'top-right',
-        animationIn: ['animate__animated', 'animate__fadeIn'],
-        animationOut: ['animate__animated', 'animate__fadeOut'],
-        dismiss: {
-          duration: 5000,
-          onScreen: false
+    try {
+      const response = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
+        type: 'notat',
+        variant: 'notat',
+        content: {
+          ...formState
         }
       })
+      if (!response) throw new Error('Coundn\'t POST note to /student/:id/documents. Response:' + response)
 
+      successMessage('Notatet er lagret 👍', 'Notatet er lagt i kø, og blir lagret i elevmappa.')
       resetForm()
       props.onFinished()
-    } else {
-      console.log('Error', postNote)
+    } catch (error) {
+      logError(error)
+      errorMessage('Notatet er ikke lagret!', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
     }
   }
 
   return (
-    <>
+    <Sentry.ErrorBoundary
+      fallback={ErrorFallback}
+      onReset={props.onDismiss}
+    >
       <Modal
         {...props}
         className='new-note-modal'
@@ -159,7 +154,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
           </div>
         </ModalSideActions>
       </Modal>
-    </>
+    </Sentry.ErrorBoundary>
   )
 }
 
