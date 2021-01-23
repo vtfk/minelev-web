@@ -88,8 +88,9 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   }
 
   const send = async () => {
-    setErrors(validateForm(validators, formState))
-    if (errors) return
+    const formErrors = validateForm(validators, formState)
+    setErrors(formErrors)
+    if (formErrors) return
 
     try {
       const response = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
