@@ -18,14 +18,12 @@ import YffErrorFallback from '../../components/yff-error-fallback'
 import StudentCard from '../../components/student-card'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
-import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
 import KompetansemalSelectorForm from './kompetansemal-selector-form'
 import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
 export function YffCurriculumModal ({ student, ...props }) {
-  const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
   const [utplassering, setUtplassering] = useState()
@@ -33,10 +31,8 @@ export function YffCurriculumModal ({ student, ...props }) {
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const isOpen = props.open
-  console.log(selectedKlassetrinn) // TODO: bruk denne i velgeren
 
   function cleanupState () {
-    setSelectedKlassetrinn('')
     setKompetansemaal(false)
     setUtplasseringer([])
     setUtplassering(false)
@@ -129,10 +125,6 @@ export function YffCurriculumModal ({ student, ...props }) {
           </p>
 
           <div className='form'>
-            <h2 className='subheader'>Klassetrinn</h2>
-
-            <KlassetrinSelectorForm setSelected={setSelectedKlassetrinn} />
-
             <h2 className='subheader'>Legg til nye kompetansemål</h2>
             <div className='add-new-curriculum'>
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
