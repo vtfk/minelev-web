@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { useState, useEffect } from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
+import * as Sentry from '@sentry/react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
@@ -24,14 +24,18 @@ import CompanyDetails from './company-details'
 import CompanyContactPerson from './company-contact-person'
 import CompanyEmailCopy from './company-email-copy'
 import StudentContactPerson from './student-contact-person'
-import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import serializeForm from '../../lib/serialize-form'
 import repackBekreftelse from '../../lib/repack-bekreftelse'
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
+import logError from '../../lib/log-error'
 
 import './styles.scss'
 import { validateField, validateForm } from '../../lib/form-validation'
+
+function getClassLevel (id) {
+  return `VG${/\d/.exec(id) || 1}`
+}
 
 export function YffConfirmationModal ({ student, ...props }) {
   const { id: studentID } = student
@@ -167,6 +171,22 @@ export function YffConfirmationModal ({ student, ...props }) {
       if (date > formState.toDate) handleChange(null, 'toDate')
     }
 
+    const sendForm = async () => {
+      const bekreftelse = generateBekreftelse()
+      try {
+        await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
+        successMessage('👍', 'Bekreftelse om utplassering sendt.')
+        await apiPost(`${API.URL}/documents`, generateDocument(bekreftelse))
+        // cleanup state
+        setBrregData(null)
+        setCompany(false)
+        props.onFinished()
+      } catch (error) {
+        logError(error)
+        errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
+      }
+    }
+
     const generateBekreftelse = () => {
       const form = document.getElementById('bekreftelse-form')
       if (!form) return false
@@ -185,27 +205,11 @@ export function YffConfirmationModal ({ student, ...props }) {
         variant: 'bekreftelse',
         student,
         content: {
-          bekreftelse
+          bekreftelse,
+          utdanningsprogram: student.utdanningsprogram,
+          level: student.level || getClassLevel(student.classId)
         }
       })
-    }
-
-    const sendForm = async () => {
-      const bekreftelse = generateBekreftelse()
-      if (!bekreftelse) return
-
-      try {
-        await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
-        successMessage('👍', 'Bekreftelse om utplassering sendt.')
-        await apiPost(`${API.URL}/documents`, generateDocument(bekreftelse))
-        // cleanup state
-        /* setBrregData(null)
-        setCompany(false)
-        props.onFinished() */
-      } catch (error) {
-        console.error(error)
-        errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
-      }
     }
 
     const setHasError = (hasError, index, state, setState) => setState({ ...state, [index]: hasError })
@@ -243,7 +247,6 @@ export function YffConfirmationModal ({ student, ...props }) {
       <>
         <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={!brregData && didSubmit} />
         <CompanySelector brregData={brregData} setCompany={setCompany} showError={!company && !!brregData && didSubmit} />
-        {company && <UtdanningsprogrammerSelectorForm fetcher={apiGet} />}
       </>
     )
 
@@ -361,7 +364,7 @@ export function YffConfirmationModal ({ student, ...props }) {
   }
 
   return (
-    <ErrorBoundary
+    <Sentry.ErrorBoundary
       FallbackComponent={YffErrorFallback}
       onReset={() => props.onDismiss()}
     >
@@ -396,7 +399,7 @@ export function YffConfirmationModal ({ student, ...props }) {
           </div>
         </ModalSideActions>
       </Modal>
-    </ErrorBoundary>
+    </Sentry.ErrorBoundary>
   )
 }
 

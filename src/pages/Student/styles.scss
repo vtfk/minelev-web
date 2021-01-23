@@ -80,8 +80,8 @@
   }
 
   .intro {
-    padding-right: $baseUnit * 22;
-    margin-bottom: $baseUnit * 7;
+    padding-right: $baseUnit * 18;
+    margin-bottom: $baseUnit * 5;
 
     @media(max-width: 1000px) {
       padding-right: 0;
@@ -177,4 +177,7 @@
     margin-top: $baseUnit * 5;
   }
 
+  .yff {
+    margin-bottom: $baseUnit * 6;
+  }
 }

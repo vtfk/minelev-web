@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { useState, useEffect } from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
+import * as Sentry from '@sentry/react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
@@ -14,27 +14,31 @@ import { Button } from '../../_lib-components/Button'
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
 import createDocument from '../../lib/create-yff-document'
+import logError from '../../lib/log-error'
 import YffErrorFallback from '../../components/yff-error-fallback'
 import StudentCard from '../../components/student-card'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
-import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
 import KompetansemalSelectorForm from './kompetansemal-selector-form'
 import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
+
 export function YffCurriculumModal ({ student, ...props }) {
-  const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
   const [utplassering, setUtplassering] = useState()
   const [referanse, setReferanse] = useState({})
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
-  const { id: studentID } = student
   const isOpen = props.open
-  console.log(selectedKlassetrinn) // TODO: bruk denne i velgeren
+
+  function cleanupState () {
+    setKompetansemaal(false)
+    setUtplasseringer([])
+    setUtplassering(false)
+  }
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -46,13 +50,12 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   useEffect(() => {
     async function getUtplasseringer () {
-      const url = `${API.URL}/yff/${studentID}/utplassering`
+      const url = `${API.URL}/yff/${student.id}/utplassering`
       try {
         const data = await apiGet(url)
-        console.log(data)
         setUtplasseringer(data)
       } catch (error) {
-        console.error(error)
+        logError(error)
       }
     }
     if (isOpen) {
@@ -71,33 +74,31 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
+      cleanupState()
       props.onDismiss()
     }
   }
 
+  function handleAvslutt () {
+    cleanupState()
+    props.onDismiss()
+  }
+
   async function send () {
-    const document = await createDocument({
-      variant: 'laereplan',
-      student,
-      content: undefined
-    })
+    const document = await createDocument()
     try {
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Lokal læreplan er sendt og arkivert')
-      // cleanup state
-      setSelectedKlassetrinn('')
-      setKompetansemaal(false)
-      setUtplasseringer([])
-      setUtplassering(false)
+      cleanupState()
       props.onDismiss()
     } catch (error) {
-      console.error(error)
+      logError(error)
       errorMessage('Læreplanen ble ikke lagret', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
     }
   }
 
   async function generateDocument () {
-    const maal = await apiGet(`${API.URL}/yff/${studentID}/maal`)
+    const maal = await apiGet(`${API.URL}/yff/${student.id}/maal`)
     return createDocument({
       variant: 'laereplan',
       student,
@@ -108,7 +109,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   return (
-    <ErrorBoundary
+    <Sentry.ErrorBoundary
       FallbackComponent={YffErrorFallback}
       onReset={() => props.onDismiss()}
     >
@@ -125,19 +126,15 @@ export function YffCurriculumModal ({ student, ...props }) {
           </p>
 
           <div className='form'>
-            <h2 className='subheader'>Klassetrinn</h2>
-
-            <KlassetrinSelectorForm setSelected={setSelectedKlassetrinn} />
-
             <h2 className='subheader'>Legg til nye kompetansemål</h2>
             <div className='add-new-curriculum'>
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
               {utplassering && utplassering.value === 'skole' && <SchoolSelectorForm />}
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
-              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={studentID} referanse={referanse} />
+              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={student.id} referanse={referanse} />
             </div>
 
-            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={studentID} />
+            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={student.id} />
 
           </div>
         </ModalBody>
@@ -150,11 +147,11 @@ export function YffCurriculumModal ({ student, ...props }) {
             <Button onClick={() => { send() }} type='primary'>Send og arkiver</Button>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Lagre og lukk</Link>
+            <Link onClick={handleAvslutt}>Lagre og lukk</Link>
           </div>
         </ModalSideActions>
       </Modal>
-    </ErrorBoundary>
+    </Sentry.ErrorBoundary>
   )
 }
 

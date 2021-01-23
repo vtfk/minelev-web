@@ -14,6 +14,7 @@ import { Button } from '../../_lib-components/Button'
 import './styles.scss'
 import StudentCard from '../../components/student-card'
 import { validateField, validateForm } from '../../lib/form-validation'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
@@ -39,6 +40,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         const { data } = await apiGet(API.URL + '/students/' + selectedStudentId)
         student = data
       }
+
       setSelectedStudent(student)
     }
 
@@ -125,25 +127,32 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
         onFinished={props.onFinished}
       >
         <ModalBody>
-          {
-            selectedStudent &&
-              <StudentCard student={selectedStudent} />
-          }
+          <StudentCard student={selectedStudent} />
 
           <div className='form'>
-            <TextField
-              rows={5}
-              placeholder='Skriv inn notat her'
-              onChange={event => handleChange(event.target.value, 'note')}
-              value={formState.note}
-              error={errors.note}
-            />
+            {
+              selectedStudent
+                ? (
+                  <TextField
+                    rows={5}
+                    placeholder='Skriv inn notat her'
+                    onChange={event => handleChange(event.target.value, 'note')}
+                    value={formState.note}
+                    error={errors.note}
+                  />
+                  )
+                : <SkeletonLoader height='150px' />
+            }
           </div>
         </ModalBody>
 
         <ModalSideActions>
           <div className='action'>
-            <Button onClick={() => { send() }} type='primary'>Send</Button>
+            {
+              selectedStudent
+                ? <Button onClick={() => { send() }} type='primary'>Send</Button>
+                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
+            }
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avslutt</Link>

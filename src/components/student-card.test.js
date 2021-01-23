@@ -3,10 +3,17 @@ import StudentCard from './student-card'
 import { STUDENTS } from '../mocks/mock-data'
 
 describe('tester StudentCard komponenten', () => {
-  test('Komponenten rendrer ikke uten student data', () => {
-    const { container } = render(<StudentCard />)
-    expect(container).toBeEmptyDOMElement()
+  test('Komponenten rendrer skeleton uten student data', () => {
+    render(<StudentCard />)
+    expect(screen.getAllByTitle('Laster inn...')).toBeTruthy()
   })
+
+  test('Komponenten rendrer skeleton når loading er satt til true', () => {
+    const student = STUDENTS[0]
+    render(<StudentCard student={student} loading />)
+    expect(screen.getAllByTitle('Laster inn...')).toBeTruthy()
+  })
+
   test('komponenten rendres som forventet', async () => {
     const student = STUDENTS[0]
     render(<StudentCard student={student} />)

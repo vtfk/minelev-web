@@ -8,6 +8,7 @@ import { YffReviewModal } from '../../containers/YffReviewModal'
 import { CardLink } from '../../_lib-components/CardLink'
 import { Heading3, Paragraph } from '../../_lib-components/Typography'
 import isYff from '../../lib/is-yff'
+import logError from '../../lib/log-error'
 
 function Yff ({ student, fetcher }) {
   const [confirmationModalState, setConfirmationModalState] = useState(false)
@@ -20,7 +21,7 @@ function Yff ({ student, fetcher }) {
   async function getUtplasseringer (id) {
     const response = await fetcher(`${API.URL}/yff/${id}/utplassering`)
     if (!response || response.error || !Array.isArray(response.data)) {
-      console.error('Klarte ikke å hente utplasseringer', response)
+      logError('Klarte ikke å hente utplasseringer', response)
       return
     }
     const utenTilbakemelding = response.data.filter(utplassering => !utplassering.tilbakemelding)
@@ -41,7 +42,7 @@ function Yff ({ student, fetcher }) {
 
   useEffect(() => {
     if (student && student.username && isYff(student)) {
-      getUtplasseringer(student.username)
+      getUtplasseringer(student.id)
     }
   }, [student])
 
@@ -58,15 +59,11 @@ function Yff ({ student, fetcher }) {
     setReviewModalState(true)
   }
 
-  function openSendModal () {
-    setSendModalState(true)
-  }
-
   // Dersom det ikke finnes studentobjekt, eller studenten ikke har YFF returnes null
   if (!student || (student && !isYff(student))) return null
 
   return (
-    <>
+    <div className='yff'>
       <YffConfirmationModal
         open={confirmationModalState}
         student={student}
@@ -124,15 +121,15 @@ function Yff ({ student, fetcher }) {
         <CardLink className='action-link' onClick={() => { openCurriculumModal() }}>
           Lokal læreplan
         </CardLink>
-        {/** TODO: Fjerne denne? Kan tas fra lokal læreplan */}
+        {/** TODO: Fjerne denne? Kan tas fra lokal læreplan
         <CardLink title='Du må først opprette lokal læreplan' disabled className='action-link' onClick={() => { openSendModal() }}>
           Send og arkiver lokal læreplan
           <br />
           <Paragraph size='small'>Du må først opprette lokal læreplan</Paragraph>
-        </CardLink>
+        </CardLink> */}
         {utplasseringer && utplasseringer.map(utplassering => <Utplassering {...utplassering} key={nanoid()} />)}
       </div>
-    </>
+    </div>
   )
 }
 

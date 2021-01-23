@@ -11,6 +11,7 @@ import { API } from '../../config/app'
 import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
@@ -24,6 +25,7 @@ export function ActivityLog () {
   const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [documents, setDocuments] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const { apiGet } = useSession()
 
@@ -41,6 +43,7 @@ export function ActivityLog () {
     const docs = await apiGet(API.URL + '/documents')
     const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
     setDocuments(docsOrderedByModified)
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -95,7 +98,30 @@ export function ActivityLog () {
           </thead>
           <tbody>
             {
-              documents && documents.map(function (doc, index) {
+              loading &&
+            Array(15).fill().map(function (i) {
+              return (
+                <tr key={i}>
+                  <td width='300px'>
+                    <div className='name'>
+                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
+                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                    </div>
+                  </td>
+                  <td><SkeletonLoader randomWidth={[40, 90]} /></td>
+                  <td><SkeletonLoader width='90px' /></td>
+                  <td><SkeletonLoader /></td>
+                  <td width='200px'><SkeletonLoader randomWidth={[40, 80]} /></td>
+                  <td><SkeletonLoader width='40%' /></td>
+                </tr>
+              )
+            })
+            }
+
+            {
+              !loading &&
+              documents &&
+              documents.map(function (doc, index) {
                 return (
                   <tr key={index}>
                     <td>

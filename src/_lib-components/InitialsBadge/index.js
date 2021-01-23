@@ -6,15 +6,15 @@ import './styles.scss'
 export function InitialsBadge ({ firstName, lastName, className, size, ...props }) {
   let colorClass = 'peppermint'
 
-  if (lastName.charAt(0) < 'K') {
+  if (lastName && lastName.charAt(0) < 'K') {
     colorClass = 'swansDown'
-  } else if (lastName.charAt(0) < 'P') {
+  } else if (lastName && lastName.charAt(0) < 'P') {
     colorClass = 'potPourri'
   }
 
   return (
     <div className={`initials-badge ${colorClass} ${className || ''} ${size || ''}`} aria-hidden {...props}>
-      {firstName.charAt(0)} {lastName.charAt(0)}
+      {firstName && firstName.charAt(0)} {lastName && lastName.charAt(0)}
     </div>
   )
 }

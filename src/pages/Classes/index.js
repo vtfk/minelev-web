@@ -8,18 +8,22 @@ import { API } from '../../config/app'
 import { useSession } from '@vtfk/react-msal'
 
 import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import './styles.scss'
 
 export function Classes () {
   const [classes, setClasses] = useState([])
+  const [loading, setLoading] = useState(true)
   const { apiGet } = useSession()
 
   useEffect(() => {
     async function getClasses () {
       const c = await apiGet(API.URL + '/classes')
       setClasses(c.data)
+      setLoading(false)
     }
+
     getClasses()
   }, [])
 
@@ -33,11 +37,26 @@ export function Classes () {
           <thead>
             <tr>
               <th><Paragraph size='small'>Klasse</Paragraph></th>
+              <th><Paragraph size='small'>Type / fag</Paragraph></th>
               <th><Paragraph size='small'>Skole</Paragraph></th>
             </tr>
           </thead>
           <tbody>
             {
+              loading &&
+              Array(4).fill().map(function (i) {
+                return (
+                  <tr key={i}>
+                    <td><SkeletonLoader /></td>
+                    <td><SkeletonLoader /></td>
+                    <td><SkeletonLoader /></td>
+                  </tr>
+                )
+              })
+            }
+
+            {
+              !loading &&
               classes.map(function (schoolClass, index) {
                 return (
                   <tr key={schoolClass.id}>
@@ -45,6 +64,9 @@ export function Classes () {
                       <Paragraph>
                         <Link href={`/${ROUTES.classes}/${encodeURIComponent(schoolClass.groupId)}`}>{schoolClass.name}</Link>
                       </Paragraph>
+                    </td>
+                    <td>
+                      <Paragraph>{schoolClass.grep ? schoolClass.grep.kortform.nb : (schoolClass.type ? schoolClass.type.charAt(0).toUpperCase() + schoolClass.type.slice(1) : 'Gruppe')}</Paragraph>
                     </td>
                     <td>
                       <Paragraph>{schoolClass.schoolName}</Paragraph>

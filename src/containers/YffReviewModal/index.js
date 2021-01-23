@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { useState, useEffect } from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
+import * as Sentry from '@sentry/react'
 import PropTypes from 'prop-types'
 
 import { useSession } from '@vtfk/react-msal'
@@ -14,6 +14,7 @@ import { TextField } from '../../_lib-components/TextField'
 import { Button } from '../../_lib-components/Button'
 
 import createDocument from '../../lib/create-yff-document'
+import logError from '../../lib/log-error'
 import YffErrorFallback from '../../components/yff-error-fallback'
 import StudentCard from '../../components/student-card'
 import Evaluation from './evaluation'
@@ -51,7 +52,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
         const maal = laereplan.filter(maal => maal.referanseID === utplasseringsId)
         setMaal(maal)
       } catch (error) {
-        console.error(error)
+        logError(error)
       }
     }
     async function getUtplassering () {
@@ -59,7 +60,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
         const utplassering = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
         setUtplassering(utplassering[0])
       } catch (error) {
-        console.error(error)
+        logError(error)
       }
     }
     if (isOpen) {
@@ -133,13 +134,13 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
       setMaal(false)
       props.onFinished()
     } catch (error) {
-      console.error(error)
+      logError(error)
       errorMessage('Tilbakemeldingen ble ikke lagret', 'Du kan forsøke igjen, men dersom problemene vedvarer kontakter du systemadministrator')
     }
   }
 
   return (
-    <ErrorBoundary
+    <Sentry.ErrorBoundary
       FallbackComponent={YffErrorFallback}
       onReset={() => props.onDismiss()}
     >
@@ -200,7 +201,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
           </div>
         </ModalSideActions>
       </Modal>
-    </ErrorBoundary>
+    </Sentry.ErrorBoundary>
   )
 }
 

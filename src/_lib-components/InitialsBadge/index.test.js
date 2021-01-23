@@ -5,8 +5,10 @@ import {
 } from '@testing-library/react'
 import { InitialsBadge } from './index'
 
-test('It renders correct initials', () => {
-  render(<InitialsBadge firstName='Bobben' lastName='Plancke' />)
-  expect(screen.getByText(/B/)).toBeTruthy()
-  expect(screen.getByText(/P/)).toBeTruthy()
+describe('tester InitialBadge komponenten', () => {
+  test('It renders correct initials', () => {
+    render(<InitialsBadge firstName='Bobben' lastName='Plancke' />)
+    expect(screen.getByText(/B/)).toBeTruthy()
+    expect(screen.getByText(/P/)).toBeTruthy()
+  })
 })

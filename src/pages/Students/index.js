@@ -11,6 +11,7 @@ import { useSession } from '@vtfk/react-msal'
 import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
@@ -86,11 +87,10 @@ export function Students (props) {
       }
 
       <div className='students'>
-
         <Heading2 className='page-title'>Elever</Heading2>
 
         {
-          students.length > 0 &&
+          (status === 'Loading' || (students && students.length > 0)) &&
             <table className='data-actions-table'>
               <thead>
                 <tr>
@@ -103,7 +103,27 @@ export function Students (props) {
               </thead>
               <tbody>
                 {
-                  students.map(function (student, index) {
+                  status === 'Loading' &&
+                  Array(8).fill().map(function (i) {
+                    return (
+                      <tr key={i}>
+                        <td width='380px'>
+                          <div className='name'>
+                            <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
+                            <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                          </div>
+                        </td>
+                        <td><SkeletonLoader width='120px' /></td>
+                        <td><SkeletonLoader width='90px' /></td>
+                        <td><SkeletonLoader width='150px' /></td>
+                        <td><SkeletonLoader /></td>
+                      </tr>
+                    )
+                  })
+                }
+                {
+                  status === 'Finish' &&
+                  students.map(function (student) {
                     return (
                       <tr key={student.id}>
                         <td>
@@ -137,22 +157,18 @@ export function Students (props) {
               </tbody>
             </table>
         }
-
         {
-          (status === 'Loading' &&
-            <p>Laster...</p>) ||
-
           (status === 'Error' &&
             <>
               <Paragraph>
-                Klarte ikke å hente elever.
+                Klarte ikke å hente elevene dine... :(
               </Paragraph>
             </>) ||
 
           (status === 'Finish' && searchTerm && students.length === 0 &&
             <>
               <Paragraph>
-                Det er ingen elever med valgt filtrering.
+                Fant ingen elever med valgt filtrering. Forsøk et annet søkeord, eller <Link href={ROUTES.students}>gå til elevoversikten</Link>.
               </Paragraph>
             </>) ||
 
