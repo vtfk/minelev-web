@@ -51,7 +51,6 @@ export function YffCurriculumModal ({ student, ...props }) {
       const url = `${API.URL}/yff/${student.id}/utplassering`
       try {
         const data = await apiGet(url)
-        console.log(data)
         setUtplasseringer(data)
       } catch (error) {
         console.error(error)
