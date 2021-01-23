@@ -18,23 +18,25 @@ import YffErrorFallback from '../../components/yff-error-fallback'
 import StudentCard from '../../components/student-card'
 import UtdanningsprogrammerSelectorForm from '../../components/utdanningsprogrammer-selector-form'
 import SchoolSelectorForm from '../../components/scool-selector-form'
-import KlassetrinSelectorForm from '../../components/klassetrinn-selector-form'
 import KompetansemalSelectorForm from './kompetansemal-selector-form'
 import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
 export function YffCurriculumModal ({ student, ...props }) {
-  const [selectedKlassetrinn, setSelectedKlassetrinn] = useState('')
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
   const [utplassering, setUtplassering] = useState()
   const [referanse, setReferanse] = useState({})
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
-  const { id: studentID } = student
   const isOpen = props.open
-  console.log(selectedKlassetrinn) // TODO: bruk denne i velgeren
+
+  function cleanupState () {
+    setKompetansemaal(false)
+    setUtplasseringer([])
+    setUtplassering(false)
+  }
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -46,10 +48,9 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   useEffect(() => {
     async function getUtplasseringer () {
-      const url = `${API.URL}/yff/${studentID}/utplassering`
+      const url = `${API.URL}/yff/${student.id}/utplassering`
       try {
         const data = await apiGet(url)
-        console.log(data)
         setUtplasseringer(data)
       } catch (error) {
         console.error(error)
@@ -71,24 +72,22 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
+      cleanupState()
       props.onDismiss()
     }
   }
 
+  function handleAvslutt () {
+    cleanupState()
+    props.onDismiss()
+  }
+
   async function send () {
-    const document = await createDocument({
-      variant: 'laereplan',
-      student,
-      content: undefined
-    })
+    const document = await createDocument()
     try {
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Lokal læreplan er sendt og arkivert')
-      // cleanup state
-      setSelectedKlassetrinn('')
-      setKompetansemaal(false)
-      setUtplasseringer([])
-      setUtplassering(false)
+      cleanupState()
       props.onDismiss()
     } catch (error) {
       console.error(error)
@@ -97,7 +96,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   async function generateDocument () {
-    const maal = await apiGet(`${API.URL}/yff/${studentID}/maal`)
+    const maal = await apiGet(`${API.URL}/yff/${student.id}/maal`)
     return createDocument({
       variant: 'laereplan',
       student,
@@ -125,19 +124,15 @@ export function YffCurriculumModal ({ student, ...props }) {
           </p>
 
           <div className='form'>
-            <h2 className='subheader'>Klassetrinn</h2>
-
-            <KlassetrinSelectorForm setSelected={setSelectedKlassetrinn} />
-
             <h2 className='subheader'>Legg til nye kompetansemål</h2>
             <div className='add-new-curriculum'>
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
               {utplassering && utplassering.value === 'skole' && <SchoolSelectorForm />}
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
-              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={studentID} referanse={referanse} />
+              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={student.id} referanse={referanse} />
             </div>
 
-            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={studentID} />
+            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={student.id} />
 
           </div>
         </ModalBody>
@@ -150,7 +145,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             <Button onClick={() => { send() }} type='primary'>Send og arkiver</Button>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Lagre og lukk</Link>
+            <Link onClick={handleAvslutt}>Lagre og lukk</Link>
           </div>
         </ModalSideActions>
       </Modal>
