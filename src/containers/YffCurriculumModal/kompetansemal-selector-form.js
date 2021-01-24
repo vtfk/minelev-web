@@ -44,9 +44,16 @@ function KompetansemalVelger (props) {
     setTriggerSaveMaal
   } = props
 
+  useEffect(() => {
+    if (triggerSaveMaal === true) {
+      sendForm()
+    }
+  }, [triggerSaveMaal])
+
   if (!kompetansemaal) {
     return null
   }
+
   const { referanseID, referanseTittel } = referanse
 
   const items = kompetansemaal.map(item => {
@@ -94,12 +101,6 @@ function KompetansemalVelger (props) {
       setTriggerSaveMaal(false)
     }
   }
-
-  useEffect(() => {
-    if (triggerSaveMaal === true) {
-      sendForm()
-    }
-  }, [triggerSaveMaal])
 
   const SaveButton = () => {
     return (
