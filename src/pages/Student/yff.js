@@ -81,7 +81,12 @@ function Yff ({ student, fetcher }) {
         open={curriculumModalState}
         student={student}
         title='Lokal læreplan'
-        onDismiss={() => { setCurriculumModalState(false) }}
+        onDismiss={action => {
+          setCurriculumModalState(false)
+          if (action && typeof action === 'function') {
+            action()
+          }
+        }}
       />
 
       <YffReviewModal
