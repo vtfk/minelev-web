@@ -30,6 +30,8 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [utplasseringer, setUtplasseringer] = useState([])
   const [utplassering, setUtplassering] = useState()
   const [referanse, setReferanse] = useState({})
+  const [triggerSaveMaal, setTriggerSaveMaal] = useState()
+  const [refreshLaereplan, setRefreshLaereplan] = useState()
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const isOpen = props.open
@@ -38,6 +40,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     setKompetansemaal(false)
     setUtplasseringer([])
     setUtplassering(false)
+    setTriggerSaveMaal(false)
   }
 
   useEffect(() => {
@@ -74,14 +77,19 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
-      cleanupState()
-      props.onDismiss()
+      props.onDismiss(cleanupState)
     }
   }
 
   function handleAvslutt () {
-    cleanupState()
-    props.onDismiss()
+    if (kompetansemaal) {
+      setTriggerSaveMaal(true)
+      setTimeout(() => {
+        props.onDismiss(cleanupState)
+      }, 1000)
+    } else {
+      props.onDismiss(cleanupState)
+    }
   }
 
   async function send () {
@@ -89,8 +97,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     try {
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Lokal læreplan er sendt og arkivert')
-      cleanupState()
-      props.onDismiss()
+      props.onDismiss(cleanupState)
     } catch (error) {
       logError(error)
       errorMessage('Læreplanen ble ikke lagret', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
@@ -111,7 +118,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   return (
     <Sentry.ErrorBoundary
       FallbackComponent={YffErrorFallback}
-      onReset={() => props.onDismiss()}
+      onReset={() => props.onDismiss(cleanupState)}
     >
       <PreviewModal />
       <Modal
@@ -131,10 +138,24 @@ export function YffCurriculumModal ({ student, ...props }) {
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
               {utplassering && utplassering.value === 'skole' && <SchoolSelectorForm />}
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
-              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={student.id} referanse={referanse} />
+              <KompetansemalSelectorForm
+                kompetansemaal={kompetansemaal}
+                apiPost={apiPost}
+                selectedStudentId={student.id}
+                referanse={referanse}
+                triggerSaveMaal={triggerSaveMaal}
+                setTriggerSaveMaal={setTriggerSaveMaal}
+                setRefreshLaereplan={setRefreshLaereplan}
+              />
             </div>
 
-            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={student.id} />
+            <LokalLaereplan
+              deleter={apiDelete}
+              fetcher={apiGet}
+              selectedStudentId={student.id}
+              refreshLaereplan={refreshLaereplan}
+              setRefreshLaereplan={setRefreshLaereplan}
+            />
 
           </div>
         </ModalBody>

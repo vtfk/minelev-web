@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SelectMultiple } from '../../_lib-components/Select'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
@@ -38,12 +38,21 @@ function KompetansemalVelger (props) {
     kompetansemaal,
     apiPost,
     selectedStudentId,
-    referanse
+    referanse,
+    setRefreshLaereplan,
+    triggerSaveMaal
   } = props
+
+  useEffect(() => {
+    if (triggerSaveMaal === true && selectedMaal.length > 0) {
+      sendForm()
+    }
+  }, [triggerSaveMaal])
 
   if (!kompetansemaal) {
     return null
   }
+
   const { referanseID, referanseTittel } = referanse
 
   const items = kompetansemaal.map(item => {
@@ -71,7 +80,7 @@ function KompetansemalVelger (props) {
     }
   }
 
-  const sendForm = async () => {
+  async function sendForm () {
     const form = document.getElementById('kompetansemaal-form')
     const data = new FormData(form)
     const json = serializeForm(data)
@@ -85,6 +94,11 @@ function KompetansemalVelger (props) {
     }, [])
     const url = `${API.URL}/yff/${selectedStudentId}/maal`
     await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
+    if (!triggerSaveMaal) {
+      setRefreshLaereplan(true)
+    }
+    // nullstiller maal
+    setSelectedMaal([])
   }
 
   const SaveButton = () => {

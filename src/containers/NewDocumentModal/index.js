@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import * as Sentry from '@sentry/react'
 
 import { useSession } from '@vtfk/react-msal'
-import { store } from 'react-notifications-component'
 import getSkoleAar from 'get-skole-aar'
 
 import { API } from '../../config/app'
@@ -15,11 +15,14 @@ import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
 import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 import { Button } from '../../_lib-components/Button'
 
+import StudentCard from '../../components/student-card'
+import { successMessage, errorMessage } from '../../lib/toasts'
 import { validateForm, validateField } from '../../lib/form-validation'
 import repackGrepLang from '../../lib/repack-grep-lang'
+import logError from '../../lib/log-error'
 
 import './styles.scss'
-import StudentCard from '../../components/student-card'
+import ErrorFallback from '../../components/yff-error-fallback'
 
 export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const { apiGet, apiPost } = useSession()
@@ -208,27 +211,22 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     if (formErrors) return
 
     const document = createDocument()
-    const postDocument = await apiPost(API.URL + '/documents', document)
 
-    if (postDocument) {
-      store.addNotification({
-        title: '👍',
-        message: 'Dokumentet ble sendt.',
-        type: 'success',
-        insert: 'top',
-        container: 'top-right',
-        animationIn: ['animate__animated', 'animate__fadeIn'],
-        animationOut: ['animate__animated', 'animate__fadeOut'],
-        dismiss: {
-          duration: 5000,
-          onScreen: false
-        }
-      })
+    try {
+      const response = await apiPost(API.URL + '/documents', document)
+      if (!response) throw new Error('Coundn\'t POST to /documents. Response:' + response)
+
+      if (document.variant === 'samtale') {
+        successMessage('Elevsamtalen er lagret 👍', 'Dokumentet er lagt i kø, og blir lagret i elevmappa.')
+      } else {
+        successMessage('Dokumentet er sendt 👍', 'Dokumentet er lagt i kø, og blir sendt fortløpende.')
+      }
 
       resetForm()
       props.onFinished()
-    } else {
-      console.log('Error', postDocument)
+    } catch (error) {
+      logError(error)
+      errorMessage('Dokumentet ble ikke sendt', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
     }
   }
 
@@ -264,7 +262,10 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   }
 
   return (
-    <>
+    <Sentry.ErrorBoundary
+      fallback={ErrorFallback}
+      onReset={props.onDismiss}
+    >
       <PDFPreviewModal
         open={previewModalState}
         title='Lukk forhåndsvisning'
@@ -416,7 +417,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           </div>
         </ModalSideActions>
       </Modal>
-    </>
+    </Sentry.ErrorBoundary>
   )
 }
 

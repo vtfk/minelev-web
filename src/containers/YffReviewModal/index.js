@@ -71,8 +71,13 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
-      props.onDismiss()
+      props.onDismiss(cleanupState)
     }
+  }
+
+  function cleanupState () {
+    setUtplassering(false)
+    setMaal(false)
   }
 
   function generateTilbakemeldingsdata () {
@@ -129,10 +134,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
       const document = generateDocument({ evalueringsdata, kompetansemal })
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Tilbakemeldingen er lagret.')
-      // Cleanup state
-      setUtplassering(false)
-      setMaal(false)
-      props.onFinished()
+      props.onFinished(cleanupState)
     } catch (error) {
       logError(error)
       errorMessage('Tilbakemeldingen ble ikke lagret', 'Du kan forsøke igjen, men dersom problemene vedvarer kontakter du systemadministrator')
@@ -197,7 +199,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
             <Button onClick={() => { send() }} type='primary'>Lagre og arkiver</Button>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Avbryt og lukk</Link>
+            <Link onClick={() => { props.onDismiss(cleanupState) }}>Avbryt og lukk</Link>
           </div>
         </ModalSideActions>
       </Modal>
