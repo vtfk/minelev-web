@@ -54,8 +54,14 @@ export function YffConfirmationModal ({ student, ...props }) {
     return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
-  const send = () => setFormAction(`send-${new Date().getTime()}`)
-  const preview = () => setFormAction(`preview-${new Date().getTime()}`)
+  const send = event => {
+    event.preventDefault()
+    setFormAction(`send-${new Date().getTime()}`)
+  }
+  const preview = event => {
+    event.preventDefault()
+    setFormAction(`send-${new Date().getTime()}`)
+  }
 
   console.log('Modal re-render')
 
@@ -389,10 +395,10 @@ export function YffConfirmationModal ({ student, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => { preview() }}>Forhåndsvisning</Link>
+            <Link onClick={preview}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type='primary'>Send</Button>
+            <Button onClick={send} type='primary'>Send</Button>
           </div>
           <div className='action'>
             <Link onClick={props.onDismiss}>Avslutt</Link>
