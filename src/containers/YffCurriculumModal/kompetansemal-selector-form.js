@@ -44,7 +44,7 @@ function KompetansemalVelger (props) {
   } = props
 
   useEffect(() => {
-    if (triggerSaveMaal === true) {
+    if (triggerSaveMaal === true && selectedMaal.length > 0) {
       sendForm()
     }
   }, [triggerSaveMaal])
@@ -97,6 +97,8 @@ function KompetansemalVelger (props) {
     if (!triggerSaveMaal) {
       setRefreshLaereplan(true)
     }
+    // nullstiller maal
+    setSelectedMaal([])
   }
 
   const SaveButton = () => {
