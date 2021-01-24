@@ -224,12 +224,12 @@ export function Student ({ match, ...props }) {
                   }
                 </ClassPanel>
               </>
-            )
+              )
             : (
               <Paragraph>
                 Du har ikke tilgang til denne eleven. Kontakt Extensansvarlig.
               </Paragraph>
-            )
+              )
         }
       </div>
     </DefaultLayout>
