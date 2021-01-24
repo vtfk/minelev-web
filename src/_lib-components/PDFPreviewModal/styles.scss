@@ -60,14 +60,19 @@
       outline: 0;
       margin-top: -2px;
 
-      img {
+      svg {
+        display: inline-block;
         margin-right: $baseUnit;
+        width: 20px;
       }
 
       @media (max-width: 1000px) {
-        img {
+        svg {
           width: 14px;
-          height: 14px;
+
+          polygon {
+            fill: #000;
+          }
         }
       }
     }

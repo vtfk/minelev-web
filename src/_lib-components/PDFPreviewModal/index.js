@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import iconClose from './icon-close.svg'
-
 import './styles.scss'
+import { Icon } from '../Icon'
 
 export function PDFPreviewModal ({ open, title, className, onDismiss, loading, base64, error, ...props }) {
   let pdf = false
@@ -28,8 +27,8 @@ export function PDFPreviewModal ({ open, title, className, onDismiss, loading, b
             {
               title &&
                 <div className='preview-modal-title'>
-                  <button tabIndex='0' onClick={onDismiss} className='preview-modal-close-button'>
-                    <img src={iconClose} alt='' /> {title}
+                  <button tabIndex='0' onClick={onDismiss} className='preview-modal-close-button' aria-label='Lukk'>
+                    <Icon name='close' alt='' /> {title}
                   </button>
                 </div>
             }
