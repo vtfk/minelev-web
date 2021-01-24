@@ -31,6 +31,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [utplassering, setUtplassering] = useState()
   const [referanse, setReferanse] = useState({})
   const [triggerSave, setTriggerSave] = useState()
+  const [refreshMaal, setRefreshMaal] = useState()
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const isOpen = props.open
@@ -137,10 +138,17 @@ export function YffCurriculumModal ({ student, ...props }) {
                 selectedStudentId={student.id}
                 referanse={referanse}
                 triggerSave={triggerSave}
+                setRefreshMaal={setRefreshMaal}
               />
             </div>
 
-            <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={student.id} />
+            <LokalLaereplan
+              deleter={apiDelete}
+              fetcher={apiGet}
+              selectedStudentId={student.id}
+              refreshMaal={refreshMaal}
+              setRefreshMaal={setRefreshMaal}
+            />
 
           </div>
         </ModalBody>
