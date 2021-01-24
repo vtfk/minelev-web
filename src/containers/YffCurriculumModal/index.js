@@ -30,7 +30,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [utplasseringer, setUtplasseringer] = useState([])
   const [utplassering, setUtplassering] = useState()
   const [referanse, setReferanse] = useState({})
-  const [triggerSave, setTriggerSave] = useState()
+  const [triggerSaveMaal, setTriggerSaveMaal] = useState()
   const [refreshLaereplan, setRefreshLaereplan] = useState()
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
@@ -40,7 +40,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     setKompetansemaal(false)
     setUtplasseringer([])
     setUtplassering(false)
-    setTriggerSave(false)
+    setTriggerSaveMaal(false)
   }
 
   useEffect(() => {
@@ -82,7 +82,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   function handleAvslutt () {
-    setTriggerSave(true)
+    setTriggerSaveMaal(true)
     props.onDismiss(cleanupState)
   }
 
@@ -137,7 +137,8 @@ export function YffCurriculumModal ({ student, ...props }) {
                 apiPost={apiPost}
                 selectedStudentId={student.id}
                 referanse={referanse}
-                triggerSave={triggerSave}
+                triggerSaveMaal={triggerSaveMaal}
+                setTriggerSaveMaal={setTriggerSaveMaal}
                 setRefreshLaereplan={setRefreshLaereplan}
               />
             </div>
