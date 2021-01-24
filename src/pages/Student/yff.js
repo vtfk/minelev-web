@@ -94,12 +94,18 @@ function Yff ({ student, fetcher }) {
         student={student}
         utplasseringsId={selectedUtplassering}
         title='Tilbakemelding på utplassering'
-        onDismiss={() => {
+        onDismiss={action => {
           setReviewModalState(false)
+          if (action && typeof action === 'function') {
+            action()
+          }
         }}
-        onFinished={() => {
+        onFinished={action => {
           setReviewModalState(false)
           getUtplasseringer()
+          if (action && typeof action === 'function') {
+            action()
+          }
         }}
       />
 
