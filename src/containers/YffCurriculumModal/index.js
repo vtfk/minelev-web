@@ -74,14 +74,12 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
-      cleanupState()
-      props.onDismiss()
+      props.onDismiss(cleanupState)
     }
   }
 
   function handleAvslutt () {
-    cleanupState()
-    props.onDismiss()
+    props.onDismiss(cleanupState)
   }
 
   async function send () {
@@ -89,8 +87,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     try {
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Lokal læreplan er sendt og arkivert')
-      cleanupState()
-      props.onDismiss()
+      props.onDismiss(cleanupState)
     } catch (error) {
       logError(error)
       errorMessage('Læreplanen ble ikke lagret', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
@@ -111,7 +108,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   return (
     <Sentry.ErrorBoundary
       FallbackComponent={YffErrorFallback}
-      onReset={() => props.onDismiss()}
+      onReset={() => props.onDismiss(cleanupState)}
     >
       <PreviewModal />
       <Modal
