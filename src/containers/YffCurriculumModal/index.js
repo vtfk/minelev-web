@@ -30,6 +30,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [utplasseringer, setUtplasseringer] = useState([])
   const [utplassering, setUtplassering] = useState()
   const [referanse, setReferanse] = useState({})
+  const [triggerSave, setTriggerSave] = useState()
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const isOpen = props.open
@@ -38,6 +39,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     setKompetansemaal(false)
     setUtplasseringer([])
     setUtplassering(false)
+    setTriggerSave(false)
   }
 
   useEffect(() => {
@@ -79,6 +81,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   function handleAvslutt () {
+    setTriggerSave(true)
     props.onDismiss(cleanupState)
   }
 
@@ -128,7 +131,13 @@ export function YffCurriculumModal ({ student, ...props }) {
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
               {utplassering && utplassering.value === 'skole' && <SchoolSelectorForm />}
               <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
-              <KompetansemalSelectorForm kompetansemaal={kompetansemaal} apiPost={apiPost} selectedStudentId={student.id} referanse={referanse} />
+              <KompetansemalSelectorForm
+                kompetansemaal={kompetansemaal}
+                apiPost={apiPost}
+                selectedStudentId={student.id}
+                referanse={referanse}
+                triggerSave={triggerSave}
+              />
             </div>
 
             <LokalLaereplan deleter={apiDelete} fetcher={apiGet} selectedStudentId={student.id} />
