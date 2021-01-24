@@ -38,7 +38,8 @@ function KompetansemalVelger (props) {
     kompetansemaal,
     apiPost,
     selectedStudentId,
-    referanse
+    referanse,
+    setRefreshLaereplan
   } = props
 
   if (!kompetansemaal) {
@@ -85,6 +86,7 @@ function KompetansemalVelger (props) {
     }, [])
     const url = `${API.URL}/yff/${selectedStudentId}/maal`
     await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
+    setRefreshLaereplan(true)
   }
 
   const SaveButton = () => {
