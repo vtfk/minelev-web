@@ -4,9 +4,10 @@
 .spinner {
   display: inline-block;
   animation: svg-rotate 1.4s linear infinite;
+  height: 100%;
 
   &.auto {
-    height: 'auto';
+    height: auto;
   }
   
   &.small {

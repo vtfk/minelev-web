@@ -6,7 +6,7 @@ import './styles.scss'
 export function Spinner ({ size, transparent, className, ...props }) {
   return (
     <svg
-      className={`spinner ${size || 'auto'} ${className || ''}`}
+      className={`spinner ${size || ''} ${className || ''}`}
       viewBox='0 0 50 50'
       focusable='false'
       title='Laster...'
