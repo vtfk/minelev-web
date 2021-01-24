@@ -82,8 +82,14 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   function handleAvslutt () {
-    setTriggerSaveMaal(true)
-    props.onDismiss(cleanupState)
+    if (kompetansemaal) {
+      setTriggerSaveMaal(true)
+      setTimeout(() => {
+        props.onDismiss(cleanupState)
+      }, 1000)
+    } else {
+      props.onDismiss(cleanupState)
+    }
   }
 
   async function send () {

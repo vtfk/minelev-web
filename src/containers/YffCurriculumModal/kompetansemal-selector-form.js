@@ -40,8 +40,7 @@ function KompetansemalVelger (props) {
     selectedStudentId,
     referanse,
     setRefreshLaereplan,
-    triggerSaveMaal,
-    setTriggerSaveMaal
+    triggerSaveMaal
   } = props
 
   useEffect(() => {
@@ -81,7 +80,7 @@ function KompetansemalVelger (props) {
     }
   }
 
-  const sendForm = async () => {
+  async function sendForm () {
     const form = document.getElementById('kompetansemaal-form')
     const data = new FormData(form)
     const json = serializeForm(data)
@@ -97,8 +96,6 @@ function KompetansemalVelger (props) {
     await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
     if (!triggerSaveMaal) {
       setRefreshLaereplan(true)
-    } else {
-      setTriggerSaveMaal(false)
     }
   }
 
