@@ -30,19 +30,28 @@ function Maal (props) {
 
 function LokalLaereplan (props) {
   const [maal, setMaal] = useState([])
-  const { deleter, fetcher, selectedStudentId } = props
-  useEffect(() => {
-    const getLaereplan = async () => {
-      const response = await fetcher(`${API.URL}/yff/${selectedStudentId}/maal`)
-      if (!response || !response.data) {
-        logError('Kunne ikke hente læreplan', response)
-        return
-      }
+  const { deleter, fetcher, selectedStudentId, refreshLaereplan, setRefreshLaereplan } = props
 
-      setMaal(response.data)
+  const getLaereplan = async () => {
+    const response = await fetcher(`${API.URL}/yff/${selectedStudentId}/maal`)
+    if (!response || !response.data) {
+      logError('Kunne ikke hente læreplan', response)
+      return
     }
+
+    setMaal(response.data)
+  }
+
+  useEffect(() => {
     getLaereplan()
   }, [])
+
+  useEffect(() => {
+    if (refreshLaereplan === true) {
+      getLaereplan()
+      setRefreshLaereplan(false)
+    }
+  }, [refreshLaereplan])
 
   const deleteMal = async id => {
     const copyMaal = [...maal]
