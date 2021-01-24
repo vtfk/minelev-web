@@ -78,7 +78,7 @@ const StudentContactPerson = ({ showError, setHasError }) => {
           error={showError && errors.mobile}
         />
       </div>
-      <button className='delete-button button-left-icon button-primary' onClick={handleClose}>
+      <button className='delete-button button-left-icon button-primary' aria-label='Slett pårørende' onClick={handleClose}>
         <div className='button-left-icon-icon'>
           <Icon name='close' size='small' />
         </div>

@@ -4,30 +4,34 @@ import StudentContactPerson from './student-contact-person'
 
 describe('Tester komponenten StudenContactPerson', () => {
   test('Komponenten rendrer som den skal', () => {
-    const { container } = render(<StudentContactPerson />)
+    const mockShowError = jest.fn()
+    const mockSetHasError = jest.fn()
+    const { container } = render(<StudentContactPerson showError={mockShowError} setHasError={mockSetHasError} />)
     expect(container).not.toBeEmptyDOMElement()
   })
 
   test('komponenten fungerer som forventet', async () => {
-    render(<StudentContactPerson />)
-    expect(await screen.queryByText(/navn/i)).not.toBeInTheDocument()
-    expect(await screen.queryByText(/telefon/i)).not.toBeInTheDocument()
+    const mockShowError = jest.fn()
+    const mockSetHasError = jest.fn()
+    render(<StudentContactPerson showError={mockShowError} setHasError={mockSetHasError} />)
     expect(screen.getByPlaceholderText(/navn/i)).toBeInTheDocument()
     expect(screen.getByPlaceholderText(/telefon/i)).toBeInTheDocument()
     const navnefelt = screen.getByPlaceholderText(/navn/i)
     const telefonfelt = screen.getByPlaceholderText(/telefon/i)
     userEvent.type(navnefelt, 'her er mitt navn')
-    userEvent.type(telefonfelt, 'her er mitt nummer')
+    userEvent.type(telefonfelt, '12345678')
     expect(screen.getByText(/navn/i)).toBeInTheDocument()
     expect(screen.getByText(/telefon/i)).toBeInTheDocument()
     expect(navnefelt.value).toBe('her er mitt navn')
-    expect(telefonfelt.value).toBe('her er mitt nummer')
+    expect(telefonfelt.value).toBe('12345678')
   })
 
   test('komponenten kan slettes', async () => {
-    const { container } = render(<StudentContactPerson />)
+    const mockShowError = jest.fn()
+    const mockSetHasError = jest.fn()
+    const { container } = render(<StudentContactPerson showError={mockShowError} setHasError={mockSetHasError} />)
     expect(container).not.toBeEmptyDOMElement()
-    const sletteKnapp = screen.getByText(/slett/i)
+    const sletteKnapp = screen.getByLabelText(/slett pårørende/i)
     userEvent.click(sletteKnapp)
     await waitForElementToBeRemoved(sletteKnapp)
     expect(container).toBeEmptyDOMElement()
