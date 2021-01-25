@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import * as Sentry from '@sentry/react'
 import PropTypes from 'prop-types'
 
@@ -27,7 +27,7 @@ import StudentContactPerson from './student-contact-person'
 import serializeForm from '../../lib/serialize-form'
 import repackBekreftelse from '../../lib/repack-bekreftelse'
 import pfdPreview from '../../lib/pdf-preview'
-import { validateField } from '../../lib/form-validation'
+import { validateField, validateForm } from '../../lib/form-validation'
 import { successMessage, errorMessage } from '../../lib/toasts'
 import logError from '../../lib/log-error'
 
@@ -58,8 +58,9 @@ export function YffConfirmationModal ({ student, ...props }) {
   const [contactPersonsStudent, setContactPersonsStudent] = useState([])
   const [copyEmails, setCopyEmails] = useState([])
 
-  const [submitted, setSubmitted] = useState(false)
+  const [didSubmit, setDidSubmit] = useState(false)
   const [errors, setErrors] = useState(false)
+  const [subErrors, setSubErrors] = useState(false)
   const [formState, setFormState] = useState(defaultState)
 
   const onSubmit = (data, event) => {
@@ -150,35 +151,31 @@ export function YffConfirmationModal ({ student, ...props }) {
     }
   }
 
+  const setHasSubError = (field, hasError, index) => setSubErrors({ ...subErrors, [field]: { ...subErrors[field], [index]: hasError } })
+
   function addCompanyContactPerson (event) {
-    if (event) {
-      event.preventDefault()
-    }
-    const copyContactPersonsCompany = [...contactPersonsCompany]
-    copyContactPersonsCompany.push(<CompanyContactPerson />)
-    setContactPersonsCompany(copyContactPersonsCompany)
+    if (event) event.preventDefault()
+    const copy = [...contactPersonsCompany]
+    copy.push(<CompanyContactPerson showError={didSubmit} setHasError={hasError => { setHasSubError('kontaktperson', hasError, copy.length) }} />)
+    setContactPersonsCompany(copy)
   }
 
   function addStudentContactPerson (event) {
-    if (event) {
-      event.preventDefault()
-    }
-    const copyStudentContactPerson = [...contactPersonsStudent]
-    copyStudentContactPerson.push(<StudentContactPerson />)
-    setContactPersonsStudent(copyStudentContactPerson)
+    if (event) event.preventDefault()
+    const copy = [...contactPersonsStudent]
+    copy.push(<StudentContactPerson showError={didSubmit} setHasError={hasError => { setHasSubError('parorende', hasError, copy.length) }} />)
+    setContactPersonsStudent(copy)
   }
 
   function addCompanyContactCopyEmail (event) {
-    if (event) {
-      event.preventDefault()
-    }
-    const copyCompanyEmails = [...copyEmails]
-    copyCompanyEmails.push(<CompanyEmailCopy />)
-    setCopyEmails(copyCompanyEmails)
+    if (event) event.preventDefault()
+    const copy = [...copyEmails]
+    copy.push(<CompanyEmailCopy showError={didSubmit} setHasError={hasError => { setHasSubError('kopi', hasError, copy.length) }} />)
+    setCopyEmails(copy)
   }
 
   useEffect(() => {
-    setSubmitted(false)
+    setDidSubmit(false)
   }, [brregData, company])
 
   useEffect(() => {
@@ -195,9 +192,18 @@ export function YffConfirmationModal ({ student, ...props }) {
     return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
+  const validate = () => {
+    setDidSubmit(true) // Show errors in child components
+    const formErrors = validateForm(validators, formState)
+    setErrors(formErrors)
+
+    const hasSubError = Object.keys(subErrors).map(key => subErrors[key]).filter(subError => !!subError).length > 0
+    return !!formErrors && hasSubError
+  }
+
   function send () {
-    setSubmitted(true)
-    if (company) sendForm()
+    if (validate()) return
+    sendForm()
   }
 
   function generateDocument (data) {
@@ -233,8 +239,8 @@ export function YffConfirmationModal ({ student, ...props }) {
             Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
           </p>
           <div className='form'>
-            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={submitted && !brregData} />
-            <CompanySelector brregData={brregData} setCompany={setCompany} showError={submitted && !company} />
+            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={didSubmit && !brregData} />
+            <CompanySelector brregData={brregData} setCompany={setCompany} showError={didSubmit && !company} />
             <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)} className={company ? '' : 'hidden'}>
               <h2 className='subheader'>Informasjon om utplasseringsstedet</h2>
               <CompanyDetails company={company} />
