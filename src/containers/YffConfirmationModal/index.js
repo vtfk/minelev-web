@@ -141,7 +141,7 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
-      props.onDismiss()
+      props.onDismiss(cleanupState)
     }
   }
 
@@ -286,7 +286,7 @@ export function YffConfirmationModal ({ student, ...props }) {
             <Button onClick={() => { send() }} type='primary'>Send</Button>
           </div>
           <div className='action'>
-            <Link onClick={props.onDismiss}>Avslutt</Link>
+            <Link onClick={() => props.onDismiss(cleanupState)}>Avslutt</Link>
           </div>
         </ModalSideActions>
       </Modal>
