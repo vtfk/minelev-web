@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as Sentry from '@sentry/react'
 import PropTypes from 'prop-types'
 
