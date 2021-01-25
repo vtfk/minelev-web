@@ -11,10 +11,6 @@
       margin-bottom: $baseUnit * 5;
     }
 
-    .image {
-
-    }
-
     .text-wrapper {
       flex: 1;
       margin-left: $baseUnit * 4;
@@ -135,4 +131,8 @@
 
 .ReactCollapse--collapse {
   transition: height 500ms;
+}
+
+.hidden {
+  display: none;
 }
