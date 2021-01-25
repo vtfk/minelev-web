@@ -185,7 +185,7 @@ export function YffConfirmationModal ({ student, ...props }) {
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
             <CompanySelector brregData={brregData} setCompany={setCompany} />
             <CompanyDetails company={company} />
-            <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
+            <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)} className={company ? '' : 'hidden'}>
               <div className='input-element'>
                 <TextField
                   name='organisasjonsAvdeling'
