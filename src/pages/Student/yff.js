@@ -66,12 +66,18 @@ function Yff ({ student, fetcher }) {
         open={confirmationModalState}
         student={student}
         title='Bekreftelse om utplassering av elev'
-        onDismiss={() => {
+        onDismiss={action => {
           setConfirmationModalState(false)
+          if (action && typeof action === 'function') {
+            action()
+          }
         }}
-        onFinished={() => {
+        onFinished={action => {
           setConfirmationModalState(false)
           getUtplasseringer()
+          if (action && typeof action === 'function') {
+            action()
+          }
         }}
       />
 
