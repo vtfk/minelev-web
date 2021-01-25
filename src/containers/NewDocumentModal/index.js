@@ -35,6 +35,8 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const [errors, setErrors] = useState({})
   const [formState, setFormState] = useState({})
 
+  const [submitting, setSubmitting] = useState(false)
+
   const [pdfPreviewBase64, setPdfPreviewBase64] = useState(null)
   const [pdfPreviewLoading, setPdfPreviewLoading] = useState(null)
   const [pdfPreviewError, setPdfPreviewError] = useState(null)
@@ -107,6 +109,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const resetForm = (typeOptions) => {
     setFormState(defaultFormState(typeOptions))
     setErrors({})
+    setSubmitting(false)
   }
 
   const handleMultiChange = (item, name) => {
@@ -205,14 +208,19 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     }
   }
 
-  const send = async () => {
+  const validate = () => {
     const formErrors = validateForm(validators, formState)
     setErrors(formErrors)
-    if (formErrors) return
+    return !!formErrors
+  }
 
-    const document = createDocument()
+  const send = async () => {
+    if (submitting) return
+    if (validate()) return
 
     try {
+      setSubmitting(true)
+      const document = createDocument()
       const response = await apiPost(API.URL + '/documents', document)
       if (!response) throw new Error('Coundn\'t POST to /documents. Response:' + response)
 
@@ -227,6 +235,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     } catch (error) {
       logError(error)
       errorMessage('Dokumentet ble ikke sendt', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
+      setSubmitting(false)
     }
   }
 
@@ -236,29 +245,27 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   }
 
   const getPdfPreview = async () => {
+    setPdfPreviewBase64(null)
     setPdfPreviewError(null)
     setPdfPreviewLoading(true)
 
     const document = createDocument()
     const { data } = await apiPost(API.URL + '/documents/preview', document)
 
+    setPdfPreviewLoading(false)
     if (data && data.base64) {
       setPdfPreviewBase64(data.base64)
-      setPdfPreviewError(null)
-      setPdfPreviewLoading(false)
     } else {
-      setPdfPreviewBase64(null)
       setPdfPreviewError(true)
-      setPdfPreviewLoading(false)
     }
   }
 
   const openPreviewModal = () => {
-    setPdfPreviewBase64(null)
-    setPdfPreviewError(null)
-    setPdfPreviewLoading(true)
-    setPreviewModalState(true)
+    if (submitting) return
+    if (validate()) return
+
     getPdfPreview()
+    setPreviewModalState(true)
   }
 
   return (
@@ -408,7 +415,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           <div className='action'>
             {
               selectedStudent
-                ? <Button onClick={() => { send() }} type='primary'>Send</Button>
+                ? <Button onClick={() => { send() }} type='primary' spinner={submitting}>Send</Button>
                 : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
             }
           </div>

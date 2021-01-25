@@ -15,8 +15,8 @@ import './styles.scss'
 import StudentCard from '../../components/student-card'
 import { validateField, validateForm } from '../../lib/form-validation'
 import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
-import ErrorFallback from '../../components/yff-error-fallback'
 import { errorMessage, successMessage } from '../../lib/toasts'
+import ErrorFallback from '../../components/yff-error-fallback'
 import logError from '../../lib/log-error'
 
 export function NewNoteModal ({ selectedStudentId, student, ...props }) {
@@ -25,6 +25,8 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [errors, setErrors] = useState({})
   const [formState, setFormState] = useState({})
+
+  const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
     // Close modal on escape
@@ -55,6 +57,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
   }, [selectedStudentId, student])
 
   const resetForm = () => {
+    setSubmitting(false)
     setFormState({})
     setErrors({})
   }
@@ -87,12 +90,18 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
     ]
   }
 
-  const send = async () => {
+  const validate = () => {
     const formErrors = validateForm(validators, formState)
     setErrors(formErrors)
-    if (formErrors) return
+    return !!formErrors
+  }
+
+  const send = async () => {
+    if (submitting) return
+    if (validate()) return
 
     try {
+      setSubmitting(true)
       const response = await apiPost(API.URL + '/students/' + selectedStudent.username + '/documents', {
         type: 'notat',
         variant: 'notat',
@@ -108,6 +117,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
     } catch (error) {
       logError(error)
       errorMessage('Notatet er ikke lagret!', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
+      setSubmitting(false)
     }
   }
 
@@ -146,7 +156,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
           <div className='action'>
             {
               selectedStudent
-                ? <Button onClick={() => { send() }} type='primary'>Send</Button>
+                ? <Button onClick={() => { send() }} type='primary' spinner={submitting}>Send</Button>
                 : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
             }
           </div>

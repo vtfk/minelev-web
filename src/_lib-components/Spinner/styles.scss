@@ -1,0 +1,68 @@
+@import "../Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.spinner {
+  display: inline-block;
+  animation: svg-rotate 1.4s linear infinite;
+  height: 100%;
+
+  &.auto {
+    height: auto;
+  }
+  
+  &.small {
+    height: $baseUnit * 3;
+  }
+
+  &.medium {
+    height: $baseUnit * 4;
+  }
+
+  &.large {
+    height: $baseUnit * 5;
+  }
+
+  &.xlarge {
+    height: $baseUnit * 7;
+  }
+
+  circle {
+    fill: transparent;
+    stroke-width: 5;
+    stroke-linecap: round;
+  }
+  
+  circle:nth-child(2) {
+    stroke: #eeeeee;
+  }
+  
+  circle:nth-child(3) {
+    animation: circle-rotate 1.4s ease-in-out infinite both;
+    stroke-dasharray: 80px,200px;
+    stroke-dashoffset: 0;
+    stroke: $deepSeaGreen;
+  }
+}
+
+@keyframes svg-rotate {
+  to {
+      transform: rotate(1turn)
+  }
+}
+
+@keyframes circle-rotate {
+  0% {
+      stroke-dasharray: 1px,200px;
+      stroke-dashoffset: 0
+  }
+
+  50% {
+      stroke-dasharray: 100px,200px;
+      stroke-dashoffset: -15px
+  }
+
+  to {
+      stroke-dasharray: 100px,200px;
+      stroke-dashoffset: -120px
+  }
+}
