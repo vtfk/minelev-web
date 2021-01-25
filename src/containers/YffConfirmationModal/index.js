@@ -37,6 +37,7 @@ function getClassLevel (id) {
 }
 
 export function YffConfirmationModal ({ student, ...props }) {
+  const [submitted, setSubmitted] = useState(false)
   const [brregData, setBrregData] = useState(null)
   const [company, setCompany] = useState()
   const [contactPersonsCompany, setContactPersonsCompany] = useState([])
@@ -126,27 +127,26 @@ export function YffConfirmationModal ({ student, ...props }) {
   }
 
   useEffect(() => {
+    setSubmitted(false)
+  }, [brregData, company])
+
+  useEffect(() => {
     addCompanyContactPerson()
     addStudentContactPerson()
-    addCompanyContactCopyEmail()
   }, [])
 
   useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
-
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+    const handleKeyPress = event => {
+      if (event.key === 'Escape') props.onDismiss(cleanupState)
     }
+
+    document.addEventListener('keyup', handleKeyPress)
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss(cleanupState)
-    }
-  }
-
   function send () {
-    sendForm()
+    setSubmitted(true)
+    if (company) sendForm()
   }
 
   function generateDocument (data) {
@@ -182,8 +182,8 @@ export function YffConfirmationModal ({ student, ...props }) {
             Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
           </p>
           <div className='form'>
-            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
-            <CompanySelector brregData={brregData} setCompany={setCompany} />
+            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={submitted && !brregData} />
+            <CompanySelector brregData={brregData} setCompany={setCompany} showError={submitted && !company} />
             <CompanyDetails company={company} />
             <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)} className={company ? '' : 'hidden'}>
               <div className='input-element'>

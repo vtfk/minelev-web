@@ -126,6 +126,11 @@
     font-size: 21px;
     font-weight: bold;
   }
+
+  .subtitle {
+    margin: -($baseUnit * 2) 0 ($baseUnit * 3) 0;
+    max-width: $baseUnit * 115;
+  }
 }
 
 
