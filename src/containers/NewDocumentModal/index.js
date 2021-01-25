@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import * as Sentry from '@sentry/react'
 
@@ -41,6 +41,10 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const [pdfPreviewLoading, setPdfPreviewLoading] = useState(null)
   const [pdfPreviewError, setPdfPreviewError] = useState(null)
 
+  // Create copy of previewModalState in ref, so we can access it from our escape key listener
+  const previewModalStateRef = useRef(previewModalState)
+  useEffect(() => { previewModalStateRef.current = previewModalState }, [previewModalState])
+
   const repackTypeOptions = (item, labelProp = 'description') => ({
     value: item.id,
     label: item[labelProp].nb,
@@ -58,7 +62,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   useEffect(() => {
     // Close modal on escape
     const handleKeyPress = (event) => {
-      if (event.key === 'Escape') props.onDismiss()
+      if (event.key === 'Escape') previewModalStateRef.current ? setPreviewModalState(false) : props.onDismiss()
     }
 
     document.addEventListener('keyup', handleKeyPress)
