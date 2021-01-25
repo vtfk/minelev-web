@@ -54,9 +54,9 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   const [brregData, setBrregData] = useState(null)
   const [company, setCompany] = useState()
-  const [contactPersonsCompany, setContactPersonsCompany] = useState([])
-  const [contactPersonsStudent, setContactPersonsStudent] = useState([])
-  const [copyEmails, setCopyEmails] = useState([])
+  const [contactPersonsCompany, setContactPersonsCompany] = useState(1)
+  const [contactPersonsStudent, setContactPersonsStudent] = useState(1)
+  const [copyEmails, setCopyEmails] = useState(0)
 
   const [didSubmit, setDidSubmit] = useState(false)
   const [errors, setErrors] = useState(false)
@@ -155,33 +155,22 @@ export function YffConfirmationModal ({ student, ...props }) {
 
   function addCompanyContactPerson (event) {
     if (event) event.preventDefault()
-    const copy = [...contactPersonsCompany]
-    copy.push(<CompanyContactPerson showError={didSubmit} setHasError={hasError => { setHasSubError('kontaktperson', hasError, copy.length) }} />)
-    setContactPersonsCompany(copy)
+    setContactPersonsCompany(contactPersonsCompany + 1)
   }
 
   function addStudentContactPerson (event) {
     if (event) event.preventDefault()
-    const copy = [...contactPersonsStudent]
-    copy.push(<StudentContactPerson showError={didSubmit} setHasError={hasError => { setHasSubError('parorende', hasError, copy.length) }} />)
-    setContactPersonsStudent(copy)
+    setContactPersonsStudent(contactPersonsStudent + 1)
   }
 
   function addCompanyContactCopyEmail (event) {
     if (event) event.preventDefault()
-    const copy = [...copyEmails]
-    copy.push(<CompanyEmailCopy showError={didSubmit} setHasError={hasError => { setHasSubError('kopi', hasError, copy.length) }} />)
-    setCopyEmails(copy)
+    setCopyEmails(copyEmails + 1)
   }
 
   useEffect(() => {
     setDidSubmit(false)
   }, [brregData, company])
-
-  useEffect(() => {
-    addCompanyContactPerson()
-    addStudentContactPerson()
-  }, [])
 
   useEffect(() => {
     const handleKeyPress = event => {
@@ -263,8 +252,10 @@ export function YffConfirmationModal ({ student, ...props }) {
                 />
               </div>
 
-              <h2 className='subheader'>{`Kontaktperson${contactPersonsCompany.filter(c => !!c).length <= 1 ? '' : 'er'} hos bedriften`}</h2>
-              {contactPersonsCompany.map(contactPerson => contactPerson)}
+              <h2 className='subheader'>{`Kontaktperson${contactPersonsCompany <= 1 ? '' : 'er'} hos bedriften`}</h2>
+              {Array.from({ length: contactPersonsCompany }).map((_, index) =>
+                <CompanyContactPerson key={index} showError={didSubmit} setHasError={hasError => { setHasSubError('kontaktperson', hasError, index) }} />
+              )}
               <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kontaktperson til' onClick={addCompanyContactPerson}>
                 <div className='button-left-icon-icon'>
                   <Icon name='add' size='small' />
@@ -279,7 +270,9 @@ export function YffConfirmationModal ({ student, ...props }) {
                 Noen ganger er det enklere sagt enn gjort at korrekt mottaker hos utplasseringsbedriften mottar brevene som sendes,
                 i de tilfellene kan man legge kontaktpersonen(e) som kopimottager, og de vil få tilsendt kopi av dokumentene på e-post i tillegg.
               </Paragraph>
-              {copyEmails.map(email => email)}
+              {Array.from({ length: copyEmails }).map((_, index) =>
+                <CompanyEmailCopy key={index} showError={didSubmit} setHasError={hasError => { setHasSubError('kopi', hasError, index) }} />
+              )}
               <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kopimottager til' onClick={addCompanyContactCopyEmail}>
                 <div className='button-left-icon-icon'>
                   <Icon name='add' size='small' />
@@ -334,7 +327,9 @@ export function YffConfirmationModal ({ student, ...props }) {
               </div>
 
               <h2 className='subheader'>Kontaktinformasjon til elevens pårørende</h2>
-              {contactPersonsStudent.map(person => person)}
+              {Array.from({ length: contactPersonsStudent }).map((_, index) =>
+                <StudentContactPerson key={index} showError={didSubmit} setHasError={hasError => { setHasSubError('parorende', hasError, index) }} />
+              )}
               <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en pårørende til' onClick={addStudentContactPerson}>
                 <div className='button-left-icon-icon'>
                   <Icon name='add' size='small' />
