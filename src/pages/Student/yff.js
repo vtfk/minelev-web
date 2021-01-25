@@ -3,7 +3,6 @@ import { nanoid } from 'nanoid'
 import { API } from '../../config/app'
 import { YffConfirmationModal } from '../../containers/YffConfirmationModal'
 import { YffCurriculumModal } from '../../containers/YffCurriculumModal'
-import { YffSendModal } from '../../containers/YffSendModal'
 import { YffReviewModal } from '../../containers/YffReviewModal'
 import { CardLink } from '../../_lib-components/CardLink'
 import { Heading3, Paragraph } from '../../_lib-components/Typography'
@@ -13,7 +12,6 @@ import logError from '../../lib/log-error'
 function Yff ({ student, fetcher }) {
   const [confirmationModalState, setConfirmationModalState] = useState(false)
   const [curriculumModalState, setCurriculumModalState] = useState(false)
-  const [sendModalState, setSendModalState] = useState(false)
   const [reviewModalState, setReviewModalState] = useState(false)
   const [utplasseringer, setUtplasseringer] = useState([])
   const [selectedUtplassering, setSelectedUtplassering] = useState()
@@ -107,13 +105,6 @@ function Yff ({ student, fetcher }) {
             action()
           }
         }}
-      />
-
-      <YffSendModal
-        open={sendModalState}
-        selectedStudentId={student.username}
-        title='Send og arkiver lokal læreplan'
-        onDismiss={() => { setSendModalState(false) }}
       />
 
       <div className='intro'>
