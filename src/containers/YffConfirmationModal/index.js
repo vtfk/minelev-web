@@ -39,6 +39,16 @@ function getClassLevel (id) {
 export function YffConfirmationModal ({ student, ...props }) {
   const [brregData, setBrregData] = useState(null)
   const [company, setCompany] = useState()
+  const [contactPersonsCompany, setContactPersonsCompany] = useState([])
+  const [contactPersonsStudent, setContactPersonsStudent] = useState([])
+  const [copyEmails, setCopyEmails] = useState([])
+  const [avdeling, setAvdeling] = useState('')
+  const [dager, setDager] = useState('')
+  const [sted, setSted] = useState('')
+  const [startDato, setStartDato] = useState(new Date())
+  const [sluttDato, setSluttDato] = useState(null)
+  const [start, setStart] = useState('08:00')
+  const [slutt, setSlutt] = useState('16:00')
   const { handleSubmit } = useForm()
   const { apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
@@ -71,6 +81,44 @@ export function YffConfirmationModal ({ student, ...props }) {
     }
   }
 
+  function addCompanyContactPerson (event) {
+    if (event) {
+      event.preventDefault()
+    }
+    const copyContactPersonsCompany = [...contactPersonsCompany]
+    copyContactPersonsCompany.push(<CompanyContactPerson />)
+    setContactPersonsCompany(copyContactPersonsCompany)
+  }
+
+  function addStudentContactPerson (event) {
+    if (event) {
+      event.preventDefault()
+    }
+    const copyStudentContactPerson = [...contactPersonsStudent]
+    copyStudentContactPerson.push(<StudentContactPerson />)
+    setContactPersonsStudent(copyStudentContactPerson)
+  }
+
+  function addCompanyContactCopyEmail (event) {
+    if (event) {
+      event.preventDefault()
+    }
+    const copyCompanyEmails = [...copyEmails]
+    copyCompanyEmails.push(<CompanyEmailCopy />)
+    setCopyEmails(copyCompanyEmails)
+  }
+
+  function onStartDateChange (date) {
+    setStartDato(date)
+    if (date > sluttDato) setSluttDato(null)
+  }
+
+  useEffect(() => {
+    addCompanyContactPerson()
+    addStudentContactPerson()
+    addCompanyContactCopyEmail()
+  }, [])
+
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
 
@@ -102,153 +150,6 @@ export function YffConfirmationModal ({ student, ...props }) {
     })
   }
 
-  function FormView ({ company }) {
-    const [contactPersonsCompany, setContactPersonsCompany] = useState([])
-    const [contactPersonsStudent, setContactPersonsStudent] = useState([])
-    const [copyEmails, setCopyEmails] = useState([])
-    const [avdeling, setAvdeling] = useState('')
-    const [dager, setDager] = useState('')
-    const [sted, setSted] = useState('')
-    const [startDato, setStartDato] = useState(new Date())
-    const [sluttDato, setSluttDato] = useState(null)
-    const [start, setStart] = useState('08:00')
-    const [slutt, setSlutt] = useState('16:00')
-
-    function addCompanyContactPerson (event) {
-      if (event) {
-        event.preventDefault()
-      }
-      const copyContactPersonsCompany = [...contactPersonsCompany]
-      copyContactPersonsCompany.push(<CompanyContactPerson />)
-      setContactPersonsCompany(copyContactPersonsCompany)
-    }
-
-    function addStudentContactPerson (event) {
-      if (event) {
-        event.preventDefault()
-      }
-      const copyStudentContactPerson = [...contactPersonsStudent]
-      copyStudentContactPerson.push(<StudentContactPerson />)
-      setContactPersonsStudent(copyStudentContactPerson)
-    }
-
-    function addCompanyContactCopyEmail (event) {
-      if (event) {
-        event.preventDefault()
-      }
-      const copyCompanyEmails = [...copyEmails]
-      copyCompanyEmails.push(<CompanyEmailCopy />)
-      setCopyEmails(copyCompanyEmails)
-    }
-
-    function onStartDateChange (date) {
-      setStartDato(date)
-      if (date > sluttDato) setSluttDato(null)
-    }
-
-    useEffect(() => {
-      addCompanyContactPerson()
-      addStudentContactPerson()
-      addCompanyContactCopyEmail()
-    }, [])
-
-    if (!company) return null
-
-    return (
-      <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
-        <CompanyDetails company={company} />
-        <div className='input-element'>
-          <TextField
-            name='organisasjonsAvdeling'
-            placeholder='Avdeling'
-            value={avdeling}
-            onChange={event => setAvdeling(event.target.value)}
-          />
-        </div>
-        <h2 className='subheader'>Kontaktpersoner</h2>
-        {contactPersonsCompany.map(person => person)}
-        <button className='add-more-button button-left-icon button-primary' onClick={addCompanyContactPerson}>
-          <div className='button-left-icon-icon'>
-            <Icon name='add' size='small' />
-          </div>
-          <div className='button-left-icon-text'>
-            Legg til kontaktperson
-          </div>
-        </button>
-        <h2 className='subheader'>Kopi pr e-post</h2>
-        {copyEmails.map(email => email)}
-        <button className='add-more-button button-left-icon button-primary' onClick={addCompanyContactCopyEmail}>
-          <div className='button-left-icon-icon'>
-            <Icon name='add' size='small' />
-          </div>
-          <div className='button-left-icon-text'>
-            Legg til kopimottager
-          </div>
-        </button>
-        <h2 className='subheader'>Tidsrom</h2>
-        <div className='input-element'>
-          <Datepicker
-            placeholder='Fra og med'
-            name='fraDato'
-            selected={startDato}
-            onChange={onStartDateChange}
-          />
-        </div>
-        <div className='input-element'>
-          <Datepicker
-            placeholder='Til og med'
-            name='tilDato'
-            selected={sluttDato}
-            minDate={startDato}
-            onChange={date => setSluttDato(date)}
-          />
-        </div>
-        <div className='input-element'>
-          <TextField
-            name='daysPerWeek'
-            placeholder='Antall dager i uken'
-            value={dager}
-            onChange={event => setDager(event.target.value)}
-          />
-        </div>
-        <div className='input-element'>
-          <TextField
-            name='startTid'
-            placeholder='Fra kl'
-            value={start}
-            onChange={event => setStart(event.target.value)}
-          />
-        </div>
-        <div className='input-element'>
-          <TextField
-            name='sluttTid'
-            placeholder='Til kl'
-            value={slutt}
-            onChange={event => setSlutt(event.target.value)}
-          />
-        </div>
-        <div className='input-element'>
-          <TextField
-            name='oppmotested'
-            placeholder='Oppmøtested'
-            value={sted}
-            onChange={event => setSted(event.target.value)}
-          />
-        </div>
-        <h2 className='subheader'>Pårørende</h2>
-        {contactPersonsStudent.map(person => person)}
-        <button className='add-more-button button-left-icon button-primary' onClick={addStudentContactPerson}>
-          <div className='button-left-icon-icon'>
-            <Icon name='add' size='small' />
-          </div>
-          <div className='button-left-icon-text'>
-            Legg til pårørende
-          </div>
-        </button>
-      </form>
-    )
-  }
-
   return (
     <Sentry.ErrorBoundary
       FallbackComponent={YffErrorFallback}
@@ -271,7 +172,97 @@ export function YffConfirmationModal ({ student, ...props }) {
           <div className='form'>
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
             <CompanySelector brregData={brregData} setCompany={setCompany} />
-            <FormView company={company} />
+            <CompanyDetails company={company} />
+            <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)}>
+              <div className='input-element'>
+                <TextField
+                  name='organisasjonsAvdeling'
+                  placeholder='Avdeling'
+                  value={avdeling}
+                  onChange={event => setAvdeling(event.target.value)}
+                />
+              </div>
+              <h2 className='subheader'>Kontaktpersoner</h2>
+              {contactPersonsCompany.map(person => person)}
+              <button className='add-more-button button-left-icon button-primary' onClick={addCompanyContactPerson}>
+                <div className='button-left-icon-icon'>
+                  <Icon name='add' size='small' />
+                </div>
+                <div className='button-left-icon-text'>
+                  Legg til kontaktperson
+                </div>
+              </button>
+              <h2 className='subheader'>Kopi pr e-post</h2>
+              {copyEmails.map(email => email)}
+              <button className='add-more-button button-left-icon button-primary' onClick={addCompanyContactCopyEmail}>
+                <div className='button-left-icon-icon'>
+                  <Icon name='add' size='small' />
+                </div>
+                <div className='button-left-icon-text'>
+                  Legg til kopimottager
+                </div>
+              </button>
+              <h2 className='subheader'>Tidsrom</h2>
+              <div className='input-element'>
+                <Datepicker
+                  placeholder='Fra og med'
+                  name='fraDato'
+                  selected={startDato}
+                  onChange={onStartDateChange}
+                />
+              </div>
+              <div className='input-element'>
+                <Datepicker
+                  placeholder='Til og med'
+                  name='tilDato'
+                  selected={sluttDato}
+                  minDate={startDato}
+                  onChange={date => setSluttDato(date)}
+                />
+              </div>
+              <div className='input-element'>
+                <TextField
+                  name='daysPerWeek'
+                  placeholder='Antall dager i uken'
+                  value={dager}
+                  onChange={event => setDager(event.target.value)}
+                />
+              </div>
+              <div className='input-element'>
+                <TextField
+                  name='startTid'
+                  placeholder='Fra kl'
+                  value={start}
+                  onChange={event => setStart(event.target.value)}
+                />
+              </div>
+              <div className='input-element'>
+                <TextField
+                  name='sluttTid'
+                  placeholder='Til kl'
+                  value={slutt}
+                  onChange={event => setSlutt(event.target.value)}
+                />
+              </div>
+              <div className='input-element'>
+                <TextField
+                  name='oppmotested'
+                  placeholder='Oppmøtested'
+                  value={sted}
+                  onChange={event => setSted(event.target.value)}
+                />
+              </div>
+              <h2 className='subheader'>Pårørende</h2>
+              {contactPersonsStudent.map(person => person)}
+              <button className='add-more-button button-left-icon button-primary' onClick={addStudentContactPerson}>
+                <div className='button-left-icon-icon'>
+                  <Icon name='add' size='small' />
+                </div>
+                <div className='button-left-icon-text'>
+                  Legg til pårørende
+                </div>
+              </button>
+            </form>
           </div>
         </ModalBody>
 
