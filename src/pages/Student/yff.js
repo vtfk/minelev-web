@@ -74,7 +74,7 @@ function Yff ({ student, fetcher }) {
         }}
         onFinished={action => {
           setConfirmationModalState(false)
-          getUtplasseringer()
+          getUtplasseringer(student.id)
           if (action && typeof action === 'function') {
             action()
           }
@@ -106,7 +106,7 @@ function Yff ({ student, fetcher }) {
         }}
         onFinished={action => {
           setReviewModalState(false)
-          getUtplasseringer()
+          getUtplasseringer(student.id)
           if (action && typeof action === 'function') {
             action()
           }
