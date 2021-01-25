@@ -93,7 +93,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   async function send () {
-    const document = await createDocument()
+    const document = await generateDocument()
     try {
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Lokal læreplan er sendt og arkivert')
@@ -165,7 +165,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             <Link onClick={async () => { const document = await generateDocument(); openPreviewModal(document) }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type='primary'>Send og arkiver</Button>
+            <Button onClick={async () => { await send() }} type='primary'>Send og arkiver</Button>
           </div>
           <div className='action'>
             <Link onClick={handleAvslutt}>Lagre og lukk</Link>
