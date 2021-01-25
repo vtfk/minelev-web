@@ -57,6 +57,21 @@ export function YffConfirmationModal ({ student, ...props }) {
     event.preventDefault()
   }
 
+  const cleanupState = () => {
+    setBrregData(null)
+    setCompany(false)
+    setContactPersonsCompany([])
+    setContactPersonsStudent([])
+    setCopyEmails([])
+    setAvdeling('')
+    setDager('')
+    setSted('')
+    setStartDato(new Date())
+    setSluttDato(null)
+    setStart('08:00')
+    setSlutt('16:00')
+  }
+
   const generateBekreftelse = () => {
     const form = document.getElementById('bekreftelse-form')
     const data = new FormData(form)
@@ -71,10 +86,7 @@ export function YffConfirmationModal ({ student, ...props }) {
       await apiPost(`${API.URL}/yff/${studentID}/utplassering`, bekreftelse)
       successMessage('👍', 'Bekreftelse om utplassering sendt.')
       await apiPost(`${API.URL}/documents`, generateDocument(bekreftelse))
-      // cleanup state
-      setBrregData(null)
-      setCompany(false)
-      props.onFinished()
+      props.onFinished(cleanupState)
     } catch (error) {
       logError(error)
       errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
