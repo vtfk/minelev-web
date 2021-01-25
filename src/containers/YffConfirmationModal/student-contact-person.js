@@ -7,7 +7,7 @@ const StudentContactPerson = ({ showError, setHasError }) => {
   const [isOpen, setIsOpen] = useState(true)
   const [isDeleted, setIsDeleted] = useState(false)
 
-  const [formState, setFormState] = useState({})
+  const [formState, setFormState] = useState({ name: '', mobile: '' })
   const [errors, setErrors] = useState(false)
 
   const validators = {

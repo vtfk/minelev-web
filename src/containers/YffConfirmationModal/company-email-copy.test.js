@@ -9,22 +9,25 @@ describe('Tester komponenten CompanyEmailCopy', () => {
   })
 
   test('komponenten fungerer som forventet', async () => {
-    render(<CompanyEmailCopy />)
-    expect(await screen.queryByText(/send kopi på e-post/i)).not.toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/send kopi på e-post/i)).toBeInTheDocument()
-    const epostfelt = screen.getByPlaceholderText(/send kopi på e-post/i)
-    userEvent.type(epostfelt, 'meg')
-    userEvent.tab()
-    expect(screen.getByText(/e-postadressen er ikke gyldig/i)).toBeInTheDocument()
-    userEvent.type(epostfelt, '@example.com')
-    expect(screen.getByText(/send kopi på e-post/i)).toBeInTheDocument()
-    expect(epostfelt.value).toBe('meg@example.com')
+    render(<CompanyEmailCopy showError />)
+    // Initial load
+    expect(await screen.queryByText(/du må angi en e-postadresse/i)).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/e-postadresse/i)).toBeInTheDocument()
+
+    // Validér e-postfelt
+    const epostfelt = screen.getByPlaceholderText(/e-postadresse/i)
+    userEvent.type(epostfelt, 'email')
+    expect(epostfelt.value).toBe('email')
+    expect(screen.getByText(/e-postadresse[\^n]/i)).toBeInTheDocument()
+    expect(await screen.queryByText(/e-postadressen er ugyldig/i)).toBeInTheDocument()
+    userEvent.type(epostfelt, 'email@example.com')
+    expect(await screen.queryByText(/e-postadressen er ugyldig/i)).not.toBeInTheDocument()
   })
 
   test('komponenten kan slettes', async () => {
     const { container } = render(<CompanyEmailCopy />)
     expect(container).not.toBeEmptyDOMElement()
-    const sletteKnapp = screen.getByText(/slett/i)
+    const sletteKnapp = screen.getByLabelText(/slett kopimottager/i)
     userEvent.click(sletteKnapp)
     await waitForElementToBeRemoved(sletteKnapp)
     expect(container).toBeEmptyDOMElement()

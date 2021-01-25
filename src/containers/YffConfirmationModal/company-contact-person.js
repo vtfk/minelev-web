@@ -7,7 +7,7 @@ const OrganisasjonKontaktperson = ({ showError, setHasError }) => {
   const [isOpen, setIsOpen] = useState(true)
   const [isDeleted, setIsDeleted] = useState(false)
 
-  const [formState, setFormState] = useState({})
+  const [formState, setFormState] = useState({ name: '', mobile: '', email: '', department: '' })
   const [errors, setErrors] = useState(false)
 
   const validators = {
@@ -61,7 +61,7 @@ const OrganisasjonKontaktperson = ({ showError, setHasError }) => {
 
   useEffect(() => {
     const errorCount = Object.keys(errors).filter(field => !!errors[field]).length
-    setHasError(errorCount === 0 ? false : errors)
+    if (setHasError) setHasError(errorCount === 0 ? false : errors)
   }, [errors])
 
   if (isDeleted) return null

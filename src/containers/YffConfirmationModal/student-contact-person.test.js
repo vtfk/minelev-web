@@ -9,25 +9,30 @@ describe('Tester komponenten StudenContactPerson', () => {
   })
 
   test('komponenten fungerer som forventet', async () => {
-    render(<StudentContactPerson />)
-    expect(await screen.queryByText(/navn/i)).not.toBeInTheDocument()
-    expect(await screen.queryByText(/telefon/i)).not.toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/navn/i)).toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/telefon/i)).toBeInTheDocument()
+    render(<StudentContactPerson showError />)
+
+    // Validér navnefelt
+    expect(await screen.queryByText(/du må angi navnet til den pårørende/i)).toBeInTheDocument()
     const navnefelt = screen.getByPlaceholderText(/navn/i)
+    userEvent.type(navnefelt, 'navn navnesen')
+    expect(navnefelt.value).toBe('navn navnesen')
+    expect(await screen.queryByText(/du må angi navnet til den pårørende/i)).not.toBeInTheDocument()
+
+    // Validér telefonfelt
+    expect(await screen.queryByText(/du må angi et telefonnummer til den pårørende/i)).toBeInTheDocument()
     const telefonfelt = screen.getByPlaceholderText(/telefon/i)
-    userEvent.type(navnefelt, 'her er mitt navn')
     userEvent.type(telefonfelt, 'her er mitt nummer')
-    expect(screen.getByText(/navn/i)).toBeInTheDocument()
-    expect(screen.getByText(/telefon/i)).toBeInTheDocument()
-    expect(navnefelt.value).toBe('her er mitt navn')
     expect(telefonfelt.value).toBe('her er mitt nummer')
+    expect(await screen.queryByText(/du må angi et gyldig telefonnummer/i)).toBeInTheDocument()
+    userEvent.type(telefonfelt, '81549300')
+    expect(await screen.queryByText(/du må angi et gyldig telefonnummer/i)).not.toBeInTheDocument()
+    expect(await screen.queryByText(/du må angi et telefonnummer til den pårørende/i)).not.toBeInTheDocument()
   })
 
   test('komponenten kan slettes', async () => {
     const { container } = render(<StudentContactPerson />)
     expect(container).not.toBeEmptyDOMElement()
-    const sletteKnapp = screen.getByText(/slett/i)
+    const sletteKnapp = screen.getByLabelText(/slett pårørende/i)
     userEvent.click(sletteKnapp)
     await waitForElementToBeRemoved(sletteKnapp)
     expect(container).toBeEmptyDOMElement()

@@ -26,7 +26,7 @@ function KopiPrEpost ({ showError, setHasError }) {
   const handleChange = (value) => {
     const invalid = validateField('email', validator, { email: value })
     setEmail(value)
-    setErrors({ email: invalid ? invalid.error : undefined })
+    if (setErrors) setErrors({ email: invalid ? invalid.error : undefined })
   }
 
   const handleClose = event => {
