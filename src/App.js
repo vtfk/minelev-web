@@ -36,6 +36,7 @@ const AppContent = () => {
           <Route exact path={`/${ROUTES.classes}/:id`} component={Class} />
           <Route exact path={`/${ROUTES.students}`} component={Students} />
           <Route exact path={`/${ROUTES.students}/:id`} component={Student} />
+          <Route exact path={`/${ROUTES.students}/:id/:docId`} component={Student} />
           <Route exact path={`/${ROUTES.statistics}`} component={Statistics} />
           <Route exact path={`/${ROUTES.help}`} component={Help} />
 

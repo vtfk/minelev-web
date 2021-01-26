@@ -34,7 +34,8 @@ export function Student ({ match, ...props }) {
   const [documents, setDocuments] = useState(null)
   const [notes, setNotes] = useState(null)
 
-  const { id } = match.params
+  const { id, docId } = match.params
+  if (docId) console.log('DocumentId', docId)
 
   async function getStudent () {
     const student = await apiGet(API.URL + '/students/' + id)
