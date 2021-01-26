@@ -83,7 +83,7 @@ function Utdanningsprogrammer ({ data, setQuery, showError }) {
 
 function UtdanningsprogrammerSelectorForm (props) {
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState()
-  const { fetcher, setKompetansemaal, showError } = props
+  const { fetcher, setKompetansemaal, showError, startOpen } = props
   const {
     utdanningsprogrammer,
     programomrader,
@@ -98,7 +98,7 @@ function UtdanningsprogrammerSelectorForm (props) {
 
   return (
     <>
-      <KlassetrinnSelectorForm setSelected={setSelectedKlassetrinn} title='Hent kompetansemål fra' showError={!selectedKlassetrinn && showError && getError('trinnet')} />
+      <KlassetrinnSelectorForm setSelected={setSelectedKlassetrinn} title='Hent kompetansemål fra' startOpen={startOpen} showError={!selectedKlassetrinn && showError && getError('trinnet')} />
       {utdanningsprogrammer && selectedKlassetrinn && <Utdanningsprogrammer data={utdanningsprogrammer.data} setQuery={setQuery} showError={!programomrader && showError && getError('utdanningsprogrammet')} />}
       {programomrader && selectedKlassetrinn && <Programomrader data={programomrader.data} trinn={selectedKlassetrinn} setKompetansemaal={setKompetansemaal} showError={showError && getError('programområdet')} />}
     </>
