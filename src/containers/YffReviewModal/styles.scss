@@ -84,9 +84,12 @@
       font-weight: bold;
     }
 
+    .maal {
+      margin-top: $baseUnit * 2;
+    }
+
     .scores {
       margin-top: $baseUnit;
-      margin-bottom: $baseUnit * 2;
     }
   }
 
