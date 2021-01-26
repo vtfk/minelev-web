@@ -160,7 +160,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
           <Details utplassering={utplassering} />
           <div>
             <form id='review-form' className='form'>
-              <Review maal={maal} showError={} setHasError={} />
+              <Review maal={maal} showError={submitted} />
               <Evaluation />
               <Attitude />
               <h2 className='subheader'>Fravær under utplasseringen</h2>
