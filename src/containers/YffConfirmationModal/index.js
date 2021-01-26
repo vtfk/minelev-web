@@ -186,7 +186,7 @@ export function YffConfirmationModal ({ student, ...props }) {
     const formErrors = validateForm(validators, formState)
     setErrors(formErrors)
 
-    const hasSubError = Object.keys(subErrors).map(key => subErrors[key]).filter(subError => !!subError).length > 0
+    const hasSubError = Object.keys(subErrors).filter(key => Object.keys(subErrors[key]).filter(index => !!subErrors[key][index]).length > 0).length > 0
     return !!formErrors && hasSubError
   }
 
