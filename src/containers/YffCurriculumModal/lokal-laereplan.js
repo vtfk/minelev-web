@@ -69,7 +69,7 @@ function LokalLaereplan (props) {
   }
 
   return (
-    <>
+    <div className='laereplan'>
       <h2 className='subheader'>Innhold i lokal læreplan</h2>
       {
         maal.length === 0 &&
@@ -92,7 +92,7 @@ function LokalLaereplan (props) {
             </tbody>
           </table>
       }
-    </>
+    </div>
   )
 }
 

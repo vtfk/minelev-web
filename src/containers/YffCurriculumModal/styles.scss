@@ -123,4 +123,15 @@
     font-size: 21px;
     font-weight: bold;
   }
+
+  .laereplan {
+    td.actions {
+      display: table-cell;
+    }
+  }
+}
+
+.error {
+  color: $red;
+  font-weight: bold;
 }
