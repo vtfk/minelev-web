@@ -100,12 +100,6 @@ export function YffCurriculumModal ({ student, ...props }) {
     if (errors.laereplan) validate()
   }, [laereplan])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss(cleanupState)
-    }
-  }
-
   const handleChange = (value, name) => {
     const newState = { ...formState, [name]: value }
     setFormState(newState)

@@ -78,12 +78,6 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     }
   }, [isOpen, utplasseringsId])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss(cleanupState)
-    }
-  }
-
   function cleanupState () {
     setUtplassering(false)
     setMaal(false)
