@@ -8,9 +8,7 @@ import { useSession } from '@vtfk/react-msal'
 import { API } from '../../config/app'
 
 import { Link } from '../../_lib-components/Typography'
-import { RadioButton } from '../../_lib-components/RadioButton'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { TextField } from '../../_lib-components/TextField'
 import { Button } from '../../_lib-components/Button'
 
 import createDocument from '../../lib/create-yff-document'
@@ -20,6 +18,7 @@ import StudentCard from '../../components/student-card'
 import Evaluation from './evaluation'
 import Review from './review'
 import Attitude from './attitude'
+import Absence from './absence'
 import Details from './details'
 import serializeForm from '../../lib/serialize-form'
 import { successMessage, errorMessage } from '../../lib/toasts'
@@ -35,10 +34,14 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
 
   const [utplassering, setUtplassering] = useState()
   const [maal, setMaal] = useState()
-  const [dager, setDager] = useState('')
-  const [timer, setTimer] = useState('')
 
+  const [hasSubmitted, setHasSubmitted] = useState(true)
   const [submitted, setSubmitted] = useState(false)
+
+  const [reviewHasErrors, setReviewHasErrors] = useState(false)
+  const [evaluationHasErrors, setEvaluationHasErrors] = useState(false)
+  const [attitudeHasErrors, setAttitudeHasErrors] = useState(false)
+  const [absenceHasErrors, setAbsenceHasErrors] = useState(false)
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
@@ -160,33 +163,10 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
           <Details utplassering={utplassering} />
           <div>
             <form id='review-form' className='form'>
-              <Review maal={maal} showError={submitted} />
-              <Evaluation />
-              <Attitude />
-              <h2 className='subheader'>Fravær under utplasseringen</h2>
-              <div className='input-elements'>
-                <TextField
-                  name='fravarDager'
-                  placeholder='Antall hele dager fravær'
-                  value={dager}
-                  onChange={event => setDager(event.target.value)}
-                  inputMode='numeric' pattern='[0-9]*'
-                />
-                <TextField
-                  name='fravarTimer'
-                  placeholder='Antall timer fravær'
-                  value={timer}
-                  onChange={event => setTimer(event.target.value)}
-                  inputMode='decimal' pattern='[0-9,]*'
-                />
-              </div>
-              <div className='input-element'>
-                <p className='fravar-title'>Varslet eleven selv om fraværet?</p>
-                <RadioButton name='varsletFravar' value='ja' label='Ja' />
-                <RadioButton name='varsletFravar' value='nei' label='Nei' />
-                <RadioButton name='varsletFravar' value='av og til' label='Av og til' />
-                <RadioButton name='varsletFravar' value='0' label='Ikke aktuelt' />
-              </div>
+              <Review maal={maal} showError={hasSubmitted} onError={setReviewHasErrors} />
+              <Evaluation showError={hasSubmitted} onError={setEvaluationHasErrors} />
+              <Attitude showError={hasSubmitted} onError={setAttitudeHasErrors} />
+              <Absence showError={hasSubmitted} onError={setAbsenceHasErrors} />
             </form>
           </div>
         </ModalBody>
