@@ -24,7 +24,7 @@ import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
-import { validateField, validateForm } from '../../lib/form-validation'
+import { validateForm } from '../../lib/form-validation'
 
 export function YffCurriculumModal ({ student, ...props }) {
   const { apiDelete, apiGet, apiPost } = useSession()
@@ -50,28 +50,10 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   const validators = {
-    utplassering: [
-      {
-        test: (v) => v && v.length,
-        error: 'Du må velge en utplassering'
-      }
-    ],
-    skole: [
-      {
-        test: (v, { utplassering }) => utplassering !== 'skole' || (v && v.length),
-        error: 'Du må velge en skole'
-      }
-    ],
-    kompetansemaal: [
+    laereplan: [
       {
         test: (v) => v && v.length && v.length > 0,
-        error: 'Du må velge hvor du skal hente kompetansemål fra'
-      }
-    ],
-    maal: [
-      {
-        test: (v) => v && v.length && v.length > 0,
-        error: 'Du må velge ett eller flere kompetansemål som skal legges til i den lokale læreplanen'
+        error: 'Du må legge kompetansemål i den lokale læreplanen fra skjemaet ovenfor før læreplanen kan sendes.'
       }
     ]
   }
@@ -108,6 +90,11 @@ export function YffCurriculumModal ({ student, ...props }) {
     }
   }, [utplassering])
 
+  useEffect(() => {
+    validate()
+    console.log(laereplan)
+  }, [laereplan])
+
   function handleKeyPress (event) {
     if (event.key === 'Escape') {
       props.onDismiss(cleanupState)
@@ -117,9 +104,6 @@ export function YffCurriculumModal ({ student, ...props }) {
   const handleChange = (value, name) => {
     const newState = { ...formState, [name]: value }
     setFormState(newState)
-
-    const invalid = validateField(name, validators, newState)
-    setErrors({ ...errors, [name]: invalid ? invalid.error : undefined })
   }
 
   function handleAvslutt () {
@@ -134,15 +118,13 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   const validate = () => {
-    const formErrors = false // validateForm(validators, formState)
+    const formErrors = validateForm(validators, { laereplan })
     setErrors(formErrors)
-    console.log(formState)
-    console.log(formErrors)
     return !!formErrors
   }
 
   async function send () {
-    if (validate()) return
+    if ((laereplan && laereplan.length === 0) && validate()) return
     const document = await generateDocument()
     try {
       await apiPost(`${API.URL}/documents`, document)
@@ -187,7 +169,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             <div className='add-new-curriculum'>
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={utplassering => handleChange(utplassering, 'utplassering')} showError={errors.utplassering} />
               {formState.utplassering && formState.utplassering.value === 'skole' && <SchoolSelectorForm onSelect={skole => handleChange(skole, 'skole')} showError={errors.skole} />}
-              <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')} showError={errors.kompetansemaal} />
+              <UtdanningsprogrammerSelectorForm fetcher={apiGet} startOpen={false} setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')} showError={errors.kompetansemaal} />
               <KompetansemalSelectorForm
                 kompetansemaal={formState.kompetansemaal || []}
                 apiPost={apiPost}
@@ -208,6 +190,7 @@ export function YffCurriculumModal ({ student, ...props }) {
               refreshLaereplan={refreshLaereplan}
               setRefreshLaereplan={setRefreshLaereplan}
               onMaalChange={setLaereplan}
+              showError={errors.laereplan}
             />
 
           </div>
