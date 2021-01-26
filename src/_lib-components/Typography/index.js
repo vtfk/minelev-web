@@ -93,6 +93,14 @@ export function SkipLink ({ href, className, ...props }) {
   )
 }
 
+export function ErrorMessage ({ className, children, size, ...props }) {
+  return (
+    <p className={`typography paragraph error ${className || ''} ${size || ''}`} role='alert' aria-live='assertive' {...props}>
+      {children}
+    </p>
+  )
+}
+
 Heading1.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired

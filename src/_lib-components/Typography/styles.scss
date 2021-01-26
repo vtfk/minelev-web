@@ -18,6 +18,11 @@
     }
   }
 
+  &.error {
+    color: $red;
+    font-weight: bold;
+  }
+
   &.link {
     @include reset-button();
     font-family: "Nunito Sans", sans-serif;
