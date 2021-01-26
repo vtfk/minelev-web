@@ -1,6 +1,8 @@
 import { nanoid } from 'nanoid'
 import { RadioButton } from '../../_lib-components/RadioButton'
 import { evaluation } from '../../data/yff.json'
+import { useEffect, useState } from 'react'
+import { ErrorMessage } from '../../_lib-components/Typography'
 
 const scores = [
   {
@@ -21,35 +23,46 @@ const scores = [
   }
 ]
 
-function Score (props) {
-  const { id, value, description } = props
-  return <RadioButton name={`evaluationscore-${id}`} value={value} label={description} />
+function Score ({ id, value, description, ...props }) {
+  return <RadioButton name={`evaluationscore-${id}`} value={value} label={description} {...props} />
 }
 
-function Scores ({ id }) {
+function Scores ({ id, onChange, selected = {}, showError }) {
   return (
     <>
-      {scores.map(item => <Score id={id} {...item} key={nanoid()} />)}
+      {scores.map(item => <Score id={id} {...item} key={nanoid()} onChange={() => onChange(item)} checked={item.value === selected.value} />)}
     </>
   )
 }
 
-function Tilbakemelding (props) {
-  const { id, description, value } = props
+function Tilbakemelding ({ id, description, value, onChange, selected, showError }) {
   return (
     <div>
       <input type='hidden' name={`evaluation-${id}`} value={value} />
-      <p>{description}</p>
-      <Scores id={id} />
+      <p><strong>{description}:</strong></p>
+      <Scores id={id} onChange={onChange} selected={selected} showError={showError} />
+      {showError && !selected && <ErrorMessage>Du må velge en vurdering</ErrorMessage>}
     </div>
   )
 }
 
-function Evaluation () {
+function Evaluation ({ showError, onError }) {
+  const [selected, setSelected] = useState({})
+
+  useEffect(() => {
+    // TODO: Trigge onError når det er noe feil
+  }, [selected])
+
+  const handleChange = (item, select) => {
+    const newSelect = { ...selected }
+    newSelect[item.id] = select
+    setSelected(newSelect)
+  }
+
   return (
     <>
       <h2 className='subheader'>Virksomhetens inntrykk av eleven</h2>
-      {evaluation.map(item => <Tilbakemelding {...item} key={nanoid()} />)}
+      {evaluation.map(item => <Tilbakemelding {...item} key={nanoid()} onChange={change => handleChange(item, change)} selected={selected[item.id]} showError={showError} />)}
     </>
   )
 }

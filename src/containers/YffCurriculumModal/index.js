@@ -24,16 +24,24 @@ import LokalLaereplan from './lokal-laereplan.js'
 import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
+import { validateForm } from '../../lib/form-validation'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function YffCurriculumModal ({ student, ...props }) {
+  const { apiDelete, apiGet, apiPost } = useSession()
+  const { PreviewModal, openPreviewModal, closePreviewModal, openRef } = pfdPreview(apiPost)
+
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
   const [utplassering, setUtplassering] = useState()
   const [referanse, setReferanse] = useState({})
   const [triggerSaveMaal, setTriggerSaveMaal] = useState()
   const [refreshLaereplan, setRefreshLaereplan] = useState()
-  const { apiDelete, apiGet, apiPost } = useSession()
-  const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
+
+  const [laereplan, setLaereplan] = useState([])
+  const [formState, setFormState] = useState({})
+  const [errors, setErrors] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
   const isOpen = props.open
 
   function cleanupState () {
@@ -41,14 +49,27 @@ export function YffCurriculumModal ({ student, ...props }) {
     setUtplasseringer([])
     setUtplassering(false)
     setTriggerSaveMaal(false)
+    setFormState({})
+    setSubmitting(false)
+  }
+
+  const validators = {
+    laereplan: [
+      {
+        test: (v) => v && v.length && v.length > 0,
+        error: 'Du må legge kompetansemål i den lokale læreplanen fra skjemaet ovenfor før læreplanen kan sendes.'
+      }
+    ]
   }
 
   useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
-
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') openRef.current ? closePreviewModal() : props.onDismiss(cleanupState)
     }
+
+    document.addEventListener('keyup', handleKeyPress)
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
   useEffect(() => {
@@ -75,10 +96,13 @@ export function YffCurriculumModal ({ student, ...props }) {
     }
   }, [utplassering])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss(cleanupState)
-    }
+  useEffect(() => {
+    if (errors.laereplan) validate()
+  }, [laereplan])
+
+  const handleChange = (value, name) => {
+    const newState = { ...formState, [name]: value }
+    setFormState(newState)
   }
 
   function handleAvslutt () {
@@ -92,7 +116,26 @@ export function YffCurriculumModal ({ student, ...props }) {
     }
   }
 
+  const validate = () => {
+    const formErrors = validateForm(validators, { laereplan })
+    console.log(formErrors)
+    setErrors(formErrors)
+    return !!formErrors
+  }
+
+  async function openPreview () {
+    if (submitting) return
+    if (validate()) return
+
+    const document = await generateDocument()
+    openPreviewModal(document)
+  }
+
   async function send () {
+    if (submitting) return
+    if (validate()) return
+    setSubmitting(true)
+
     const document = await generateDocument()
     try {
       await apiPost(`${API.URL}/documents`, document)
@@ -101,6 +144,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     } catch (error) {
       logError(error)
       errorMessage('Læreplanen ble ikke lagret', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
+      setSubmitting(false)
     }
   }
 
@@ -129,23 +173,24 @@ export function YffCurriculumModal ({ student, ...props }) {
         <ModalBody>
           <StudentCard student={student} />
           <p className='intro'>
-            Her endrer du den lokale læreplanen for eleven og velger kompetansemål eleven skal jobbe med i løpet av utplasseringen. Du skriver også inn elevens arbeidsoppgaver knyttet til hvert kompetansemål.
+            Her endrer du den lokale læreplanen for eleven og velger kompetansemål eleven skal jobbe med i løpet av utplasseringen. Du skriver også inn elevens arbeidsoppgaver knyttet til hvert kompetansemål. Når du klikker "Send og arkiver" blir læreplanen sendt til elevens digitale postkasse. Du kan oppdatere og sendte oppdaterte planer kontinuerlig underveis i skoleåret.
           </p>
 
           <div className='form'>
             <h2 className='subheader'>Legg til nye kompetansemål</h2>
             <div className='add-new-curriculum'>
-              <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={setUtplassering} />
-              {utplassering && utplassering.value === 'skole' && <SchoolSelectorForm />}
-              <UtdanningsprogrammerSelectorForm fetcher={apiGet} setKompetansemaal={setKompetansemaal} />
+              <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={utplassering => handleChange(utplassering, 'utplassering')} />
+              {formState.utplassering && formState.utplassering.value === 'skole' && <SchoolSelectorForm onSelect={skole => handleChange(skole, 'skole')} />}
+              <UtdanningsprogrammerSelectorForm fetcher={apiGet} startOpen={false} setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')} />
               <KompetansemalSelectorForm
-                kompetansemaal={kompetansemaal}
+                kompetansemaal={formState.kompetansemaal || []}
                 apiPost={apiPost}
                 selectedStudentId={student.id}
                 referanse={referanse}
                 triggerSaveMaal={triggerSaveMaal}
                 setTriggerSaveMaal={setTriggerSaveMaal}
                 setRefreshLaereplan={setRefreshLaereplan}
+                onMaalChange={maal => handleChange(maal || null, 'maal')}
               />
             </div>
 
@@ -155,6 +200,8 @@ export function YffCurriculumModal ({ student, ...props }) {
               selectedStudentId={student.id}
               refreshLaereplan={refreshLaereplan}
               setRefreshLaereplan={setRefreshLaereplan}
+              onMaalChange={setLaereplan}
+              showError={errors.laereplan}
             />
 
           </div>
@@ -162,10 +209,18 @@ export function YffCurriculumModal ({ student, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={async () => { const document = await generateDocument(); openPreviewModal(document) }}>Forhåndsvisning</Link>
+            {
+              student
+                ? <Link onClick={async () => { await openPreview() }}>Forhåndsvisning</Link>
+                : <SkeletonLoader width='100%' />
+            }
           </div>
           <div className='action'>
-            <Button onClick={async () => { await send() }} type='primary'>Send og arkiver</Button>
+            {
+              student
+                ? <Button onClick={async () => { await send() }} type='primary' spinner={submitting}>Send og arkiver</Button>
+                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send og arkiver</Button></SkeletonLoader>
+            }
           </div>
           <div className='action'>
             <Link onClick={handleAvslutt}>Lagre og lukk</Link>

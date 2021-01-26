@@ -40,7 +40,9 @@ function KompetansemalVelger (props) {
     selectedStudentId,
     referanse,
     setRefreshLaereplan,
-    triggerSaveMaal
+    triggerSaveMaal,
+    onMaalChange,
+    showError
   } = props
 
   useEffect(() => {
@@ -68,6 +70,7 @@ function KompetansemalVelger (props) {
       copySelectedMaal.push(item)
     }
     setSelectedMaal(copySelectedMaal)
+    if (onMaalChange) onMaalChange(copySelectedMaal)
   }
 
   const generateMaal = (grep, arbeidsoppgaver) => {
@@ -122,6 +125,7 @@ function KompetansemalVelger (props) {
           items={items}
           selectedItems={selectedMaal}
           onChange={(item) => updateMaal(item)}
+          error={showError}
         />
       </div>
       <form id='kompetansemaal-form'>

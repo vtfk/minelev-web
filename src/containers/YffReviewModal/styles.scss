@@ -1,7 +1,7 @@
 @import "../../_lib-components/Tokens/tokens.scss";
 @import "../../assets/scss/helpers";
 
-.yff-send-modal {
+.yff-review-modal {
   .person-information {
     display: flex;
     flex-wrap: nowrap;
@@ -44,6 +44,21 @@
       margin-bottom: $baseUnit * 5;
     }
 
+    .input-elements {
+      margin-bottom: $baseUnit * 5;
+
+      & > div.text-field {
+        vertical-align: top;
+        display: inline-block;
+        width: calc((100% - 30px) / 2);
+
+        &:nth-child(1) {
+          margin-right: 30px;
+        }
+      }
+    }
+
+
     .prefilled {
       margin-bottom: $baseUnit * 4;
 
@@ -63,6 +78,18 @@
 
     .add-more-button {
       margin-bottom: $baseUnit * 4;
+    }
+
+    .fravar-title {
+      font-weight: bold;
+    }
+
+    .maal {
+      margin-top: $baseUnit * 2;
+    }
+
+    .scores {
+      margin-top: $baseUnit;
     }
   }
 

@@ -8,9 +8,7 @@ import { useSession } from '@vtfk/react-msal'
 import { API } from '../../config/app'
 
 import { Link } from '../../_lib-components/Typography'
-import { RadioButton } from '../../_lib-components/RadioButton'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { TextField } from '../../_lib-components/TextField'
 import { Button } from '../../_lib-components/Button'
 
 import createDocument from '../../lib/create-yff-document'
@@ -20,34 +18,45 @@ import StudentCard from '../../components/student-card'
 import Evaluation from './evaluation'
 import Review from './review'
 import Attitude from './attitude'
+import Absence from './absence'
 import Details from './details'
 import serializeForm from '../../lib/serialize-form'
 import { successMessage, errorMessage } from '../../lib/toasts'
 import pfdPreview from '../../lib/pdf-preview'
 
 import './styles.scss'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function YffReviewModal ({ student, utplasseringsId, ...props }) {
-  const [utplassering, setUtplassering] = useState()
-  const [maal, setMaal] = useState()
-  const [dager, setDager] = useState('')
-  const [timer, setTimer] = useState('')
   const { apiGet, apiPost, apiPut } = useSession()
-  const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
+  const { PreviewModal, openPreviewModal, closePreviewModal, openRef } = pfdPreview(apiPost)
   const { id: studentID } = student
   const isOpen = props.open
 
-  useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
+  const [utplassering, setUtplassering] = useState()
+  const [maal, setMaal] = useState()
 
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+  const [hasSubmitted, setHasSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+
+  const [reviewHasErrors, setReviewHasErrors] = useState(false)
+  const [evaluationHasErrors, setEvaluationHasErrors] = useState(false)
+  const [attitudeHasErrors, setAttitudeHasErrors] = useState(false)
+  const [absenceHasErrors, setAbsenceHasErrors] = useState(false)
+
+  useEffect(() => {
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') openRef.current ? closePreviewModal() : props.onDismiss(cleanupState)
     }
+
+    document.addEventListener('keyup', handleKeyPress)
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
   useEffect(() => {
     async function getMaal () {
-      const laereplan = await apiGet(`${API.URL}/yff/${studentID}/maal`)
+      const { data: laereplan } = await apiGet(`${API.URL}/yff/${studentID}/maal`)
       try {
         const maal = laereplan.filter(maal => maal.referanseID === utplasseringsId)
         setMaal(maal)
@@ -57,8 +66,8 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     }
     async function getUtplassering () {
       try {
-        const utplassering = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
-        setUtplassering(utplassering[0])
+        const { data } = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
+        setUtplassering(data)
       } catch (error) {
         logError(error)
       }
@@ -69,15 +78,10 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     }
   }, [isOpen, utplasseringsId])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss(cleanupState)
-    }
-  }
-
   function cleanupState () {
     setUtplassering(false)
     setMaal(false)
+    setSubmitting(false)
   }
 
   function generateTilbakemeldingsdata () {
@@ -118,7 +122,26 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     })
   }
 
+  const validate = () => {
+    return !reviewHasErrors && !evaluationHasErrors && !attitudeHasErrors && !absenceHasErrors
+  }
+
+  async function openPreview () {
+    if (submitting) return
+    if (validate()) return
+    if (!validate()) return // TODO: Fjern når validering er i boks
+
+    const document = await generateDocument()
+    openPreviewModal(document)
+  }
+
   async function send () {
+    setHasSubmitted(true)
+
+    if (submitting) return
+    if (validate()) return
+    setSubmitting(true)
+
     const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
     const tilbakemeldingsUrl = `${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`
     try {
@@ -138,6 +161,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     } catch (error) {
       logError(error)
       errorMessage('Tilbakemeldingen ble ikke lagret', 'Du kan forsøke igjen, men dersom problemene vedvarer kontakter du systemadministrator')
+      setSubmitting(false)
     }
   }
 
@@ -149,54 +173,36 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
       <PreviewModal />
       <Modal
         {...props}
-        className='yff-send-modal'
+        className='yff-review-modal'
         onDismiss={props.onDismiss}
       >
         <ModalBody>
           <StudentCard student={student} />
           <Details utplassering={utplassering} />
-          <p className='intro'>
-            Tilbakemelding for elevens utplassering
-          </p>
           <div>
             <form id='review-form' className='form'>
-              <Review maal={maal} />
-              <Evaluation />
-              <Attitude />
-              <h2 className='subheader'>Fravær under utplasseringen</h2>
-              <div className='input-element'>
-                <TextField
-                  name='fravarDager'
-                  placeholder='Antall hele dager fravær'
-                  value={dager}
-                  onChange={event => setDager(event.target.value)}
-                />
-              </div>
-              <div className='input-element'>
-                <TextField
-                  name='fravarTimer'
-                  placeholder='Antall timer fravær'
-                  value={timer}
-                  onChange={event => setTimer(event.target.value)}
-                />
-              </div>
-              <div className='input-element'>
-                <strong>Varslet eleven selv om fraværet?</strong><br />
-                <RadioButton name='varsletFravar' value='ja' label='Ja' />
-                <RadioButton name='varsletFravar' value='nei' label='Nei' />
-                <RadioButton name='varsletFravar' value='av og til' label='Av og til' />
-                <RadioButton name='varsletFravar' value='0' label='Ikke aktuelt' />
-              </div>
+              <Review maal={maal} showError={hasSubmitted} onError={setReviewHasErrors} />
+              <Evaluation showError={hasSubmitted} onError={setEvaluationHasErrors} />
+              <Attitude showError={hasSubmitted} onError={setAttitudeHasErrors} />
+              <Absence showError={hasSubmitted} onError={setAbsenceHasErrors} />
             </form>
           </div>
         </ModalBody>
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
+            {
+              student
+                ? <Link onClick={async () => { await openPreview() }}>Forhåndsvisning</Link>
+                : <SkeletonLoader width='100%' />
+            }
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type='primary'>Lagre og arkiver</Button>
+            {
+              student
+                ? <Button onClick={async () => { await send() }} type='primary' spinner={submitting}>Send og arkiver</Button>
+                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send og arkiver</Button></SkeletonLoader>
+            }
           </div>
           <div className='action'>
             <Link onClick={() => { props.onDismiss(cleanupState) }}>Avbryt og lukk</Link>

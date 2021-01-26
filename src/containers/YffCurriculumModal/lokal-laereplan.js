@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { API } from '../../config/app'
-import { Paragraph, Link } from '../../_lib-components/Typography'
+import { Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
 import logError from '../../lib/log-error'
 
 function Maal (props) {
@@ -30,7 +30,7 @@ function Maal (props) {
 
 function LokalLaereplan (props) {
   const [maal, setMaal] = useState([])
-  const { deleter, fetcher, selectedStudentId, refreshLaereplan, setRefreshLaereplan } = props
+  const { deleter, fetcher, selectedStudentId, refreshLaereplan, setRefreshLaereplan, onMaalChange, showError } = props
 
   const getLaereplan = async () => {
     const response = await fetcher(`${API.URL}/yff/${selectedStudentId}/maal`)
@@ -41,6 +41,10 @@ function LokalLaereplan (props) {
 
     setMaal(response.data)
   }
+
+  useEffect(() => {
+    if (onMaalChange) onMaalChange(maal)
+  }, [maal])
 
   useEffect(() => {
     getLaereplan()
@@ -61,21 +65,30 @@ function LokalLaereplan (props) {
   }
 
   return (
-    <>
+    <div className='laereplan'>
       <h2 className='subheader'>Innhold i lokal læreplan</h2>
-      <table className='data-actions-table'>
-        <thead>
-          <tr>
-            <th><Paragraph size='small'>Kompetansemål / Arbeidsoppgaver</Paragraph></th>
-            <th><Paragraph size='small'>Utplasseringssted</Paragraph></th>
-            <th className='actions-th'><Paragraph size='small'>Fjern</Paragraph></th>
-          </tr>
-        </thead>
-        <tbody>
-          {maal.length > 0 && maal.map(item => <Maal key={item._id} {...item} deleteMal={deleteMal} />)}
-        </tbody>
-      </table>
-    </>
+      {
+        maal.length === 0 &&
+          <>
+            {showError ? <ErrorMessage>{showError}</ErrorMessage> : 'Elevens lokale læreplan er tom. Legg til kompetansemål i planen ved hjelp av skjemaet ovenfor.'}
+          </>
+      }
+      {
+        maal.length > 0 &&
+          <table className='data-actions-table'>
+            <thead>
+              <tr>
+                <th><Paragraph size='small'>Kompetansemål / Arbeidsoppgaver</Paragraph></th>
+                <th><Paragraph size='small'>Utplasseringssted</Paragraph></th>
+                <th className='actions-th'><Paragraph size='small'>Fjern</Paragraph></th>
+              </tr>
+            </thead>
+            <tbody>
+              {maal && maal.map(item => <Maal key={item._id} {...item} deleteMal={deleteMal} />)}
+            </tbody>
+          </table>
+      }
+    </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import getSchools from 'vtfk-schools-info'
 import { Select } from '../_lib-components/Select'
 
@@ -24,7 +24,7 @@ function labelSort (a, b) {
   return 0
 }
 
-function SchoolSelectorForm () {
+function SchoolSelectorForm ({ onSelect, showError }) {
   const [select, setSelect] = useState()
   const schools = getSchools()
   const items = schools.filter(school => school.yff === true).map(school => {
@@ -34,6 +34,11 @@ function SchoolSelectorForm () {
     }
   })
   items.sort(labelSort)
+
+  useEffect(() => {
+    if (onSelect) onSelect(select)
+  }, [select])
+
   return (
     <div className='input-element'>
       <Select
@@ -43,6 +48,7 @@ function SchoolSelectorForm () {
         onChange={(item) => { setSelect(item) }}
         isOpen
         closeOnSelect
+        error={showError}
       />
     </div>
   )

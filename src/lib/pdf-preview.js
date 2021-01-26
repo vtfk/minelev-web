@@ -18,6 +18,7 @@ function usePreview (poster) {
   const [pdfPreviewBase64, setPdfPreviewBase64] = React.useState(null)
   const [pdfPreviewLoading, setPdfPreviewLoading] = React.useState(null)
   const [pdfPreviewError, setPdfPreviewError] = React.useState(null)
+  const openRef = React.useRef(previewModalState)
 
   async function getPdfPreview () {
     setPdfPreviewError(null)
@@ -44,6 +45,14 @@ function usePreview (poster) {
     getPdfPreview(document)
   }
 
+  function closePreviewModal () {
+    setPreviewModalState(false)
+  }
+
+  React.useEffect(() => {
+    openRef.current = previewModalState
+  }, [previewModalState])
+
   const PreviewModal = () => (
     <PDFPreviewModal
       open={previewModalState}
@@ -56,7 +65,9 @@ function usePreview (poster) {
   )
 
   return {
+    openRef,
     openPreviewModal,
+    closePreviewModal,
     PreviewModal
   }
 }

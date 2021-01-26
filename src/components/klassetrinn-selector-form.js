@@ -3,7 +3,7 @@ import { Select } from '../_lib-components/Select'
 
 function KlassetrinnSelectorForm (props) {
   const [select, setSelect] = useState()
-  const { setSelected, title = 'Velg klassetrinn' } = props
+  const { setSelected, title = 'Velg klassetrinn', showError, startOpen } = props
 
   useEffect(() => {
     if (typeof setSelected === 'function') {
@@ -23,7 +23,8 @@ function KlassetrinnSelectorForm (props) {
         selectedItem={select}
         onChange={(item) => { setSelect(item) }}
         closeOnSelect
-        isOpen
+        isOpen={startOpen}
+        error={showError}
       />
     </div>
   )

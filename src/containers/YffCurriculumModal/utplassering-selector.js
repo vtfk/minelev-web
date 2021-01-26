@@ -4,7 +4,7 @@ import { Select } from '../../_lib-components/Select'
 function UtplasseringSelector (props) {
   const [items, setItems] = useState([])
   const [item, setItem] = useState({ value: 'skole', label: 'Skole' })
-  const { utplasseringer, setUtplassering } = props
+  const { utplasseringer, setUtplassering, showError } = props
 
   useEffect(() => {
     const defaultItems = [
@@ -14,6 +14,9 @@ function UtplasseringSelector (props) {
     if (utplasseringer && utplasseringer.count > 0) {
       const bedrifter = utplasseringer.data.map(bedrift => { return { value: bedrift._id, label: bedrift.bedriftsNavn } })
       setItems([...defaultItems, ...bedrifter])
+
+      // Sett første bedrift som standard-valg
+      setItem(bedrifter[0])
     } else {
       setItems(defaultItems)
     }
@@ -30,6 +33,7 @@ function UtplasseringSelector (props) {
         items={items}
         selectedItem={item}
         onChange={(item) => { setItem(item) }}
+        error={showError}
       />
     </div>
   )

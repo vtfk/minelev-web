@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
 import { RadioButton } from '../../_lib-components/RadioButton'
+import { ErrorMessage } from '../../_lib-components/Typography'
 
 const scores = [
   {
@@ -16,44 +18,55 @@ const scores = [
   }
 ]
 
-function Score (props) {
-  const { id, value, description } = props
-  return <RadioButton name={`kompetansemaal-${id}`} value={value} label={description} />
+function Score ({ id, value, description, ...props }) {
+  return <RadioButton name={`kompetansemaal-${id}`} value={value} label={description} {...props} />
 }
 
-function Scores ({ id }) {
+function Scores ({ id, onChange, selected = {}, showError }) {
   return (
-    <>
-      {scores.map(item => <Score id={id} {...item} key={nanoid()} />)}
-    </>
-  )
-}
-
-function Maal (props) {
-  const { _id, grep, arbeidsoppgaver } = props
-  const { tittel } = grep
-  return (
-    <div>
-      <div>
-        <strong>Mål:</strong><br />
-        {tittel.nb}
-      </div>
-      <div>
-        <strong>Arbeidsoppgaver:</strong><br />
-        {arbeidsoppgaver}
-      </div>
-      <Scores id={_id} />
+    <div className='scores'>
+      {scores.map(item => <Score id={id} {...item} key={nanoid()} onChange={() => onChange(item)} checked={item.value === selected.value} />)}
     </div>
   )
 }
 
-function Review ({ maal }) {
-  if (!maal) return null
+function Maal ({ _id, grep, arbeidsoppgaver, onChange, selected, showError }) {
+  const { tittel } = grep
+  return (
+    <div>
+      <div className='maal'>
+        <strong>Mål:</strong> {tittel.nb}
+      </div>
+      {
+        arbeidsoppgaver &&
+          <div className='oppgaver'>
+            <strong>Arbeidsoppgaver:</strong> {arbeidsoppgaver}
+          </div>
+      }
+      <Scores id={_id} onChange={onChange} selected={selected} showError={showError} />
+      {showError && !selected && <ErrorMessage>Du må velge en målvurdering</ErrorMessage>}
+    </div>
+  )
+}
 
+function Review ({ maal, showError, onError }) {
+  const [selected, setSelected] = useState({})
+
+  useEffect(() => {
+    // TODO: Trigge onError når det er noe feil
+  }, [selected])
+
+  const handleChange = (item, select) => {
+    const newSelect = { ...selected }
+    newSelect[item._id] = select
+    setSelected(newSelect)
+  }
+
+  if (!maal) return null
   return (
     <>
       <h2 className='subheader'>Kompetansemål og arbeidsoppgaver</h2>
-      {maal && maal.map(item => <Maal {...item} key={nanoid()} />)}
+      {maal && maal.map(item => <Maal {...item} key={nanoid()} onChange={change => handleChange(item, change)} selected={selected[item._id]} showError={showError} />)}
     </>
   )
 }

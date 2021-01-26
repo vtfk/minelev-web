@@ -3,7 +3,7 @@ import useGrep from '../hooks/use-grep'
 import { Select } from '../_lib-components/Select'
 import KlassetrinnSelectorForm from './klassetrinn-selector-form'
 
-function Programomrader ({ data, trinn, setKompetansemaal }) {
+function Programomrader ({ data, trinn, setKompetansemaal, showError }) {
   const [selectedOmrade, setSelectedOmrade] = useState()
   const [filteredData, setFilteredData] = useState(false)
 
@@ -42,12 +42,13 @@ function Programomrader ({ data, trinn, setKompetansemaal }) {
         onChange={(item) => { setSelectedOmrade(item) }}
         isOpen
         closeOnSelect
+        error={showError}
       />
     </div>
   )
 }
 
-function Utdanningsprogrammer ({ data, setQuery }) {
+function Utdanningsprogrammer ({ data, setQuery, showError }) {
   const [selectedProgram, setSelectedProgram] = useState()
 
   useEffect(() => {
@@ -74,6 +75,7 @@ function Utdanningsprogrammer ({ data, setQuery }) {
         onChange={(item) => { setSelectedProgram(item) }}
         isOpen
         closeOnSelect
+        error={showError}
       />
     </div>
   )
@@ -81,7 +83,7 @@ function Utdanningsprogrammer ({ data, setQuery }) {
 
 function UtdanningsprogrammerSelectorForm (props) {
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState()
-  const { fetcher, setKompetansemaal } = props
+  const { fetcher, setKompetansemaal, showError, startOpen } = props
   const {
     utdanningsprogrammer,
     programomrader,
@@ -92,11 +94,13 @@ function UtdanningsprogrammerSelectorForm (props) {
     setQuery('')
   }, [])
 
+  const getError = (type) => `Du må velge ${type} du vil hente kompetansemål fra`
+
   return (
     <>
-      <KlassetrinnSelectorForm setSelected={setSelectedKlassetrinn} title='Hent kompetansemål fra' />
-      {utdanningsprogrammer && selectedKlassetrinn && <Utdanningsprogrammer data={utdanningsprogrammer.data} setQuery={setQuery} />}
-      {programomrader && selectedKlassetrinn && <Programomrader data={programomrader.data} trinn={selectedKlassetrinn} setKompetansemaal={setKompetansemaal} />}
+      <KlassetrinnSelectorForm setSelected={setSelectedKlassetrinn} title='Hent kompetansemål fra' startOpen={startOpen} showError={!selectedKlassetrinn && showError && getError('trinnet')} />
+      {utdanningsprogrammer && selectedKlassetrinn && <Utdanningsprogrammer data={utdanningsprogrammer.data} setQuery={setQuery} showError={!programomrader && showError && getError('utdanningsprogrammet')} />}
+      {programomrader && selectedKlassetrinn && <Programomrader data={programomrader.data} trinn={selectedKlassetrinn} setKompetansemaal={setKompetansemaal} showError={showError && getError('programområdet')} />}
     </>
   )
 }

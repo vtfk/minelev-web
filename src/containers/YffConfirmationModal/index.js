@@ -32,6 +32,7 @@ import { successMessage, errorMessage } from '../../lib/toasts'
 import logError from '../../lib/log-error'
 
 import './styles.scss'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 function getClassLevel (id) {
   return `VG${/\d/.exec(id) || 1}`
@@ -49,7 +50,7 @@ const defaultState = {
 export function YffConfirmationModal ({ student, ...props }) {
   const { handleSubmit } = useForm()
   const { apiGet, apiPost } = useSession()
-  const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
+  const { PreviewModal, openPreviewModal, closePreviewModal, openRef } = pfdPreview(apiPost)
   const { id: studentID } = student
 
   const [brregData, setBrregData] = useState(null)
@@ -58,6 +59,7 @@ export function YffConfirmationModal ({ student, ...props }) {
   const [contactPersonsStudent, setContactPersonsStudent] = useState(1)
   const [copyEmails, setCopyEmails] = useState(0)
 
+  const [submitting, setSubmitting] = useState(false)
   const [didSubmit, setDidSubmit] = useState(false)
   const [errors, setErrors] = useState(false)
   const [subErrors, setSubErrors] = useState(false)
@@ -68,7 +70,13 @@ export function YffConfirmationModal ({ student, ...props }) {
   }
 
   const cleanupState = () => {
+    setContactPersonsCompany(0)
+    setContactPersonsStudent(0)
+    setCopyEmails(0)
     setFormState(defaultState)
+    setContactPersonsCompany(1)
+    setContactPersonsStudent(1)
+    setSubmitting(false)
   }
 
   const validators = {
@@ -148,6 +156,7 @@ export function YffConfirmationModal ({ student, ...props }) {
     } catch (error) {
       logError(error)
       errorMessage('Bekreftelsen ble ikke opprettet', 'Du kan forsøke igjen, men om feilen vedvarer kontakt systemadministrator')
+      setSubmitting(false)
     }
   }
 
@@ -173,8 +182,9 @@ export function YffConfirmationModal ({ student, ...props }) {
   }, [brregData, company])
 
   useEffect(() => {
-    const handleKeyPress = event => {
-      if (event.key === 'Escape') props.onDismiss(cleanupState)
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') openRef.current ? closePreviewModal() : props.onDismiss(cleanupState)
     }
 
     document.addEventListener('keyup', handleKeyPress)
@@ -186,12 +196,14 @@ export function YffConfirmationModal ({ student, ...props }) {
     const formErrors = validateForm(validators, formState)
     setErrors(formErrors)
 
-    const hasSubError = Object.keys(subErrors).map(key => subErrors[key]).filter(subError => !!subError).length > 0
+    const hasSubError = Object.keys(subErrors).filter(key => Object.keys(subErrors[key]).filter(index => !!subErrors[key][index]).length > 0).length > 0
     return !!formErrors && hasSubError
   }
 
   function send () {
+    if (submitting) return
     if (validate()) return
+    setSubmitting(true)
     sendForm()
   }
 
@@ -344,10 +356,18 @@ export function YffConfirmationModal ({ student, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => { openPreviewModal(generateDocument()) }}>Forhåndsvisning</Link>
+            {
+              studentID
+                ? <Link onClick={() => { openPreviewModal(generateDocument()) }}>Forhåndsvisning</Link>
+                : <SkeletonLoader width='100%' />
+            }
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type='primary'>Send</Button>
+            {
+              studentID
+                ? <Button onClick={() => { send() }} type='primary' spinner={submitting}>Send</Button>
+                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
+            }
           </div>
           <div className='action'>
             <Link onClick={() => props.onDismiss(cleanupState)}>Avslutt</Link>
