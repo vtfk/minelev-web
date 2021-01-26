@@ -49,7 +49,7 @@ const defaultState = {
 export function YffConfirmationModal ({ student, ...props }) {
   const { handleSubmit } = useForm()
   const { apiGet, apiPost } = useSession()
-  const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
+  const { PreviewModal, openPreviewModal, closePreviewModal, openRef } = pfdPreview(apiPost)
   const { id: studentID } = student
 
   const [brregData, setBrregData] = useState(null)
@@ -68,7 +68,12 @@ export function YffConfirmationModal ({ student, ...props }) {
   }
 
   const cleanupState = () => {
+    setContactPersonsCompany(0)
+    setContactPersonsStudent(0)
+    setCopyEmails(0)
     setFormState(defaultState)
+    setContactPersonsCompany(1)
+    setContactPersonsStudent(1)
   }
 
   const validators = {
@@ -173,8 +178,9 @@ export function YffConfirmationModal ({ student, ...props }) {
   }, [brregData, company])
 
   useEffect(() => {
-    const handleKeyPress = event => {
-      if (event.key === 'Escape') props.onDismiss(cleanupState)
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') openRef.current ? closePreviewModal() : props.onDismiss(cleanupState)
     }
 
     document.addEventListener('keyup', handleKeyPress)
