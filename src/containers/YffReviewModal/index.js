@@ -25,10 +25,11 @@ import { successMessage, errorMessage } from '../../lib/toasts'
 import pfdPreview from '../../lib/pdf-preview'
 
 import './styles.scss'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   const { apiGet, apiPost, apiPut } = useSession()
-  const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
+  const { PreviewModal, openPreviewModal, closePreviewModal, openRef } = pfdPreview(apiPost)
   const { id: studentID } = student
   const isOpen = props.open
 
@@ -36,7 +37,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   const [maal, setMaal] = useState()
 
   const [hasSubmitted, setHasSubmitted] = useState(true)
-  const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
   const [reviewHasErrors, setReviewHasErrors] = useState(false)
   const [evaluationHasErrors, setEvaluationHasErrors] = useState(false)
@@ -44,11 +45,13 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   const [absenceHasErrors, setAbsenceHasErrors] = useState(false)
 
   useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
-
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') openRef.current ? closePreviewModal() : props.onDismiss(cleanupState)
     }
+
+    document.addEventListener('keyup', handleKeyPress)
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
   useEffect(() => {
@@ -84,6 +87,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   function cleanupState () {
     setUtplassering(false)
     setMaal(false)
+    setSubmitting(false)
   }
 
   function generateTilbakemeldingsdata () {
@@ -124,7 +128,25 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     })
   }
 
+  const validate = () => {
+    return !reviewHasErrors && !evaluationHasErrors && !attitudeHasErrors && !absenceHasErrors
+  }
+
+  async function openPreview () {
+    if (submitting) return
+    if (validate()) return
+
+    const document = await generateDocument()
+    openPreviewModal(document)
+  }
+
   async function send () {
+    setHasSubmitted(true)
+
+    if (submitting) return
+    if (validate()) return
+    setSubmitting(true)
+
     const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
     const tilbakemeldingsUrl = `${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`
     try {
@@ -144,6 +166,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     } catch (error) {
       logError(error)
       errorMessage('Tilbakemeldingen ble ikke lagret', 'Du kan forsøke igjen, men dersom problemene vedvarer kontakter du systemadministrator')
+      setSubmitting(false)
     }
   }
 
@@ -173,10 +196,18 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={() => openPreviewModal(generateDocument())}>Forhåndsvisning</Link>
+            {
+              student
+                ? <Link onClick={async () => { await openPreview() }}>Forhåndsvisning</Link>
+                : <SkeletonLoader width='100%' />
+            }
           </div>
           <div className='action'>
-            <Button onClick={() => { send() }} type='primary'>Lagre og arkiver</Button>
+            {
+              student
+                ? <Button onClick={async () => { await send() }} type='primary' spinner={submitting}>Send og arkiver</Button>
+                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send og arkiver</Button></SkeletonLoader>
+            }
           </div>
           <div className='action'>
             <Link onClick={() => { props.onDismiss(cleanupState) }}>Avbryt og lukk</Link>

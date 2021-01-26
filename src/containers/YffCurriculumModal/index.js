@@ -29,7 +29,7 @@ import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function YffCurriculumModal ({ student, ...props }) {
   const { apiDelete, apiGet, apiPost } = useSession()
-  const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
+  const { PreviewModal, openPreviewModal, closePreviewModal, openRef } = pfdPreview(apiPost)
 
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
@@ -63,11 +63,13 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   useEffect(() => {
-    document.addEventListener('keyup', handleKeyPress)
-
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
+    // Close modal on escape
+    const handleKeyPress = (event) => {
+      if (event.key === 'Escape') openRef.current ? closePreviewModal() : props.onDismiss(cleanupState)
     }
+
+    document.addEventListener('keyup', handleKeyPress)
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
   useEffect(() => {
@@ -128,6 +130,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   async function openPreview () {
+    if (submitting) return
     if (validate()) return
 
     const document = await generateDocument()
