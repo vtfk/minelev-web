@@ -26,7 +26,7 @@ function Score ({ id, value, description, ...props }) {
 function Scores ({ id, onChange, selected = {}, showError }) {
   return (
     <>
-      {scores.map(item => <Score id={id} {...item} key={nanoid()} onChange={() => onChange(item)} checked={item.value === selected.value} error={showError} />)}
+      {scores.map(item => <Score id={id} {...item} key={nanoid()} onChange={() => onChange(item)} checked={item.value === selected.value} />)}
     </>
   )
 }
