@@ -91,8 +91,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }, [utplassering])
 
   useEffect(() => {
-    validate()
-    console.log(laereplan)
+    if (errors.laereplan) validate()
   }, [laereplan])
 
   function handleKeyPress (event) {
@@ -119,12 +118,21 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   const validate = () => {
     const formErrors = validateForm(validators, { laereplan })
+    console.log(formErrors)
     setErrors(formErrors)
     return !!formErrors
   }
 
+  async function openPreview () {
+    if (validate()) return
+
+    const document = await generateDocument()
+    openPreviewModal(document)
+  }
+
   async function send () {
-    if ((laereplan && laereplan.length === 0) && validate()) return
+    if (validate()) return
+
     const document = await generateDocument()
     try {
       await apiPost(`${API.URL}/documents`, document)
@@ -167,9 +175,9 @@ export function YffCurriculumModal ({ student, ...props }) {
           <div className='form'>
             <h2 className='subheader'>Legg til nye kompetansemål</h2>
             <div className='add-new-curriculum'>
-              <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={utplassering => handleChange(utplassering, 'utplassering')} showError={errors.utplassering} />
-              {formState.utplassering && formState.utplassering.value === 'skole' && <SchoolSelectorForm onSelect={skole => handleChange(skole, 'skole')} showError={errors.skole} />}
-              <UtdanningsprogrammerSelectorForm fetcher={apiGet} startOpen={false} setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')} showError={errors.kompetansemaal} />
+              <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={utplassering => handleChange(utplassering, 'utplassering')} />
+              {formState.utplassering && formState.utplassering.value === 'skole' && <SchoolSelectorForm onSelect={skole => handleChange(skole, 'skole')} />}
+              <UtdanningsprogrammerSelectorForm fetcher={apiGet} startOpen={false} setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')} />
               <KompetansemalSelectorForm
                 kompetansemaal={formState.kompetansemaal || []}
                 apiPost={apiPost}
@@ -179,7 +187,6 @@ export function YffCurriculumModal ({ student, ...props }) {
                 setTriggerSaveMaal={setTriggerSaveMaal}
                 setRefreshLaereplan={setRefreshLaereplan}
                 onMaalChange={maal => handleChange(maal || null, 'maal')}
-                showError={errors.maal}
               />
             </div>
 
