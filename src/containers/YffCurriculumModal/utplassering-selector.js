@@ -4,7 +4,7 @@ import { Select } from '../../_lib-components/Select'
 function UtplasseringSelector (props) {
   const [items, setItems] = useState([])
   const [item, setItem] = useState({ value: 'skole', label: 'Skole' })
-  const { utplasseringer, setUtplassering } = props
+  const { utplasseringer, setUtplassering, showError } = props
 
   useEffect(() => {
     const defaultItems = [
@@ -30,6 +30,7 @@ function UtplasseringSelector (props) {
         items={items}
         selectedItem={item}
         onChange={(item) => { setItem(item) }}
+        error={showError}
       />
     </div>
   )
