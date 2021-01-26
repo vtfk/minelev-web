@@ -174,7 +174,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
                   placeholder='Antall timer fravær'
                   value={timer}
                   onChange={event => setTimer(event.target.value)}
-                  inputMode='numeric' pattern='[0-9]*'
+                  inputMode='numeric' pattern='[0-9,]*'
                 />
               </div>
               <div className='input-element'>
