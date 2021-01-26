@@ -3,42 +3,66 @@
     {
       "id": "hms",
       "description": "Eleven følger retningslinjer og HMS innenfor fagområdet",
-      "value": "Eleven følger retningslinjer og HMS innenfor fagområdet"
+      "value": {
+        "nb": "Eleven følger retningslinjer og HMS innenfor fagområdet",
+        "nn": "Eleven følgjer retningslinjer og HMS innanfor fagområdet"
+      }
     },
     {
       "id": "respekt-retningslinjer",
       "description": "Eleven viser gode holdninger og respekt for opplæringsstedets regler og retningslinjer",
-      "value": "Eleven viser gode holdninger og respekt for opplæringsstedets regler og retningslinjer"
+      "value": {
+        "nb": "Eleven viser gode holdninger og respekt for opplæringsstedets regler og retningslinjer",
+        "nn": "Eleven viser gode haldningar og respekt for opplæringsstaden sine reglar og retningslinjer"
+      }
     },
     {
       "id": "respekt-mennesker",
       "description": "Eleven viser gode holdninger og respekt for mennesker de møter under utplasseringen",
-      "value": "Eleven viser gode holdninger og respekt for mennesker de møter under utplasseringen"
+      "value": {
+        "nb": "Eleven viser gode holdninger og respekt for mennesker de møter under utplasseringen",
+        "nn": "Eleven viser gode haldningar og respekt for menneske dei møter under utplasseringa"
+      }
     },
     {
       "id": "tilpasningsdyktig",
       "description": "Eleven er tilpasningsdyktig og kan samarbeide",
-      "value": "Eleven er tilpasningsdyktig og kan samarbeide"
+      "value": {
+        "nb": "Eleven er tilpasningsdyktig og kan samarbeide",
+        "nn": "Eleven er tilpassingsdyktig og kan samarbeide"
+      }
     },
     {
       "id": "kommunikasjon",
       "description": "Eleven har kommunikasjonsevner i møte med kollegaer, kunder og brukere",
-      "value": "Eleven har kommunikasjonsevner i møte med kollegaer, kunder og brukere"
+      "value": {
+        "nb": "Eleven har kommunikasjonsevner i møte med kollegaer, kunder og brukere",
+        "nn": "Eleven viser kommunikasjonsevner i møte med kollegaer, kundar og brukarar"
+      }
     },
     {
       "id": "veiledning",
       "description": "Eleven tar imot veiledning",
-      "value": "Eleven tar imot veiledning"
+      "value": {
+        "nb": "Eleven tar imot veiledning",
+        "nn": "Eleven tek imot rettleiing"
+      }
     },
     {
       "id": "oppfylle",
       "description": "Eleven utfører tildelte arbeidsoppgaver",
-      "value": "Eleven utfører tildelte arbeidsoppgaver"
+      "value": {
+        "nb": "Eleven utfører tildelte arbeidsoppgaver",
+        "nn": "Eleven utfører tildelte arbeidsoppgåver"
+      }
     },
     {
       "id": "initiativ",
       "description": "Eleven viser initiativ og interesse for arbeidet",
-      "value": "Eleven viser initiativ og interesse for arbeidet"
+      "value": {
+        "nb": "Eleven viser initiativ og interesse for arbeidet",
+        "nn": "Eleven viser initiativ og interesse for arbeidet"
+      }
     }
   ],
   "order": [
