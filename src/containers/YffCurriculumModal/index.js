@@ -37,9 +37,10 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [triggerSaveMaal, setTriggerSaveMaal] = useState()
   const [refreshLaereplan, setRefreshLaereplan] = useState()
 
-  const [laereplan, setLaereplan] = useState([null])
-  const [formState, setFormState] = useState({ utplassering: '', skole: '', kompetansemaal: [], maal: [], laereplan: [] })
+  const [laereplan, setLaereplan] = useState([])
+  const [formState, setFormState] = useState({})
   const [errors, setErrors] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
   const isOpen = props.open
 
   function cleanupState () {
@@ -47,6 +48,8 @@ export function YffCurriculumModal ({ student, ...props }) {
     setUtplasseringer([])
     setUtplassering(false)
     setTriggerSaveMaal(false)
+    setFormState({})
+    setSubmitting(false)
   }
 
   const validators = {
@@ -131,7 +134,9 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   async function send () {
+    if (submitting) return
     if (validate()) return
+    setSubmitting(true)
 
     const document = await generateDocument()
     try {
@@ -141,6 +146,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     } catch (error) {
       logError(error)
       errorMessage('Læreplanen ble ikke lagret', 'Du kan forsøke igjen, men om problemene fortsetter kontakt systemadministrator.')
+      setSubmitting(false)
     }
   }
 
@@ -208,7 +214,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             <Link onClick={async () => { await openPreview() }}>Forhåndsvisning</Link>
           </div>
           <div className='action'>
-            <Button onClick={async () => { await send() }} type='primary'>Send og arkiver</Button>
+            <Button onClick={async () => { await send() }} type='primary' spinner={submitting}>Send og arkiver</Button>
           </div>
           <div className='action'>
             <Link onClick={handleAvslutt}>Lagre og lukk</Link>
