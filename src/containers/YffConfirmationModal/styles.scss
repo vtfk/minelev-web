@@ -25,8 +25,9 @@
     }
   }
 
-  .intro {
-    margin-top: 0;
+  .yff-intro {
+    margin-top: 0px;
+    margin-bottom: $baseUnit * 4;
   }
 
   .form {
@@ -38,6 +39,21 @@
 
     .input-element {
       margin-bottom: $baseUnit * 5;
+    }
+
+    .input-elements {
+      margin-bottom: $baseUnit * 5;
+
+      & > div.text-field,
+      & > div.datepicker-field {
+        vertical-align: top;
+        display: inline-block;
+        width: calc((100% - 30px) / 2);
+
+        &:nth-child(1) {
+          margin-right: 30px;
+        }
+      }
     }
 
     .prefilled {
@@ -57,7 +73,61 @@
       }
     }
 
+    .yff-kontaktperson {
+      position: relative;
+      transition: all 0.5s;
+
+      &.open {
+        max-height: 500px;
+        opacity: 1;
+      }
+
+      &.closed {
+        max-height: 0px;
+        opacity: 0;
+        overflow: hidden;
+      }
+
+      &.bedrift,
+      &.parorende {
+        margin: 32px 0;
+        padding: $baseUnit * 4;
+        padding-bottom: $baseUnit;
+        background: $springWood;
+
+        .delete-button {
+          position: absolute;
+
+          top: -20px;
+          right: -35px;
+        }
+
+        &.closed .delete-button {
+          top: 0px;
+          right: -10px;
+
+          transition: all .25s linear;
+          opacity: 0;
+        }
+      }
+
+      &.kopipaepost {
+
+        .input-element {
+          width: calc(100% - 60px);
+          margin-bottom: $baseUnit * 3;
+        }
+
+        .delete-button {
+          position: absolute;
+          top: 15px;
+          right: -15px;
+        }
+      }
+    }  
+
     .add-more-button {
+      margin-top: $baseUnit;
       margin-bottom: $baseUnit * 4;
     }
   }
@@ -125,6 +195,11 @@
     margin: ($baseUnit * 6) 0 ($baseUnit * 3) 0;
     font-size: 21px;
     font-weight: bold;
+  }
+
+  .subtitle {
+    margin: -($baseUnit * 2) 0 ($baseUnit * 3) 0;
+    max-width: $baseUnit * 115;
   }
 }
 

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { nanoid } from 'nanoid'
 
 import DatePicker, { registerLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -9,27 +10,44 @@ import iconCalendar from './icon-calendar.svg'
 
 import './styles.scss'
 
-export function Datepicker ({ placeholder, selected, ...props }) {
+export function Datepicker ({ placeholder, label, selected, id, isOpen, error, ...props }) {
+  const [open, setOpen] = useState(isOpen || false)
+  const [labelId] = useState(id || nanoid())
   registerLocale('nb', nb)
 
   return (
-    <div className='datepicker-field'>
+    <div className={`datepicker-field ${error ? 'error' : ''}`}>
       {
         selected &&
-          <div className='placeholder-label'>{placeholder}</div>
+          <label htmlFor={labelId} className='placeholder-label'>
+            {label || placeholder}
+          </label>
       }
+      <div className='picker'>
+        <DatePicker
+          id={labelId}
+          placeholderText={placeholder || ''}
+          selected={selected}
+          locale='nb'
+          dateFormat='dd.MM.yyyy'
+          aria-invalid={!!error}
+          onFocus={() => setOpen(true)}
+          onClickOutside={() => setOpen(false)}
+          open={open}
+          {...props}
+        />
 
-      <DatePicker
-        placeholderText={placeholder || ''}
-        selected={selected}
-        locale='nb'
-        dateFormat='dd.MM.yyyy'
-        {...props}
-      />
-
-      <div className='icon'>
-        <img src={iconCalendar} alt='' />
+        <div className='icon' onClick={() => setOpen(!open)}>
+          <img src={iconCalendar} alt='' />
+        </div>
       </div>
+
+      {
+        error &&
+          <label htmlFor={labelId} role='alert' aria-live='assertive' className='error-message'>
+            {error.message || error}
+          </label>
+      }
     </div>
   )
 }

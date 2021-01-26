@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form'
 
 import { API } from '../../config/app'
 
-import { Link } from '../../_lib-components/Typography'
+import { Link, Paragraph } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
@@ -27,6 +27,7 @@ import StudentContactPerson from './student-contact-person'
 import serializeForm from '../../lib/serialize-form'
 import repackBekreftelse from '../../lib/repack-bekreftelse'
 import pfdPreview from '../../lib/pdf-preview'
+import { validateField, validateForm } from '../../lib/form-validation'
 import { successMessage, errorMessage } from '../../lib/toasts'
 import logError from '../../lib/log-error'
 
@@ -36,40 +37,97 @@ function getClassLevel (id) {
   return `VG${/\d/.exec(id) || 1}`
 }
 
+const defaultState = {
+  department: '',
+  meetingpoint: '',
+  fromDate: new Date(),
+  toDate: null,
+  fromHours: '08:00',
+  toHours: '16:00'
+}
+
 export function YffConfirmationModal ({ student, ...props }) {
-  const [brregData, setBrregData] = useState(null)
-  const [company, setCompany] = useState()
-  const [contactPersonsCompany, setContactPersonsCompany] = useState([])
-  const [contactPersonsStudent, setContactPersonsStudent] = useState([])
-  const [copyEmails, setCopyEmails] = useState([])
-  const [avdeling, setAvdeling] = useState('')
-  const [dager, setDager] = useState('')
-  const [sted, setSted] = useState('')
-  const [startDato, setStartDato] = useState(new Date())
-  const [sluttDato, setSluttDato] = useState(null)
-  const [start, setStart] = useState('08:00')
-  const [slutt, setSlutt] = useState('16:00')
   const { handleSubmit } = useForm()
   const { apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal } = pfdPreview(apiPost)
   const { id: studentID } = student
+
+  const [brregData, setBrregData] = useState(null)
+  const [company, setCompany] = useState()
+  const [contactPersonsCompany, setContactPersonsCompany] = useState(1)
+  const [contactPersonsStudent, setContactPersonsStudent] = useState(1)
+  const [copyEmails, setCopyEmails] = useState(0)
+
+  const [didSubmit, setDidSubmit] = useState(false)
+  const [errors, setErrors] = useState(false)
+  const [subErrors, setSubErrors] = useState(false)
+  const [formState, setFormState] = useState(defaultState)
+
   const onSubmit = (data, event) => {
     event.preventDefault()
   }
 
   const cleanupState = () => {
-    setBrregData(null)
-    setCompany(false)
-    setContactPersonsCompany([])
-    setContactPersonsStudent([])
-    setCopyEmails([])
-    setAvdeling('')
-    setDager('')
-    setSted('')
-    setStartDato(new Date())
-    setSluttDato(null)
-    setStart('08:00')
-    setSlutt('16:00')
+    setFormState(defaultState)
+  }
+
+  const validators = {
+    department: [
+      {
+        test: () => true,
+        error: 'Ikke påkrevd'
+      }
+    ],
+    meetingpoint: [
+      {
+        test: (v) => v && v.length,
+        error: 'Du må angi oppmøtested'
+      }
+    ],
+    fromDate: [
+      {
+        test: (v) => v,
+        error: 'Du må velge datoen utplasseringen gjelder fra'
+      }
+    ],
+    toDate: [
+      {
+        test: (v) => v,
+        error: 'Du må velge datoen utplasseringen gjelder til'
+      }
+    ],
+    daysPerWeek: [
+      {
+        test: (v) => v && v.length,
+        error: 'Du må angi hvor mange dager i uken eleven er utplassert'
+      }
+    ],
+    fromHours: [
+      {
+        test: (v) => v && v.length,
+        error: 'Du må angi klokkeslett for når eleven starter på jobb'
+      }
+    ],
+    toHours: [
+      {
+        test: (v) => v && v.length,
+        error: 'Du må angi klokkeslett for når eleven slutter på jobb'
+      }
+    ]
+  }
+
+  const handleChange = (value, name) => {
+    const newState = { ...formState, [name]: value }
+    setFormState(newState)
+
+    const invalid = validateField(name, validators, newState)
+    setErrors({ ...errors, [name]: invalid ? invalid.error : undefined })
+  }
+
+  const onStartDateChange = (date) => {
+    handleChange(date, 'fromDate')
+    console.log(date, formState.toDate, date > formState.toDate)
+    if (date > formState.toDate) handleChange(null, 'toDate')
   }
 
   const generateBekreftelse = () => {
@@ -93,59 +151,47 @@ export function YffConfirmationModal ({ student, ...props }) {
     }
   }
 
+  const setHasSubError = (field, hasError, index) => setSubErrors({ ...subErrors, [field]: { ...subErrors[field], [index]: hasError } })
+
   function addCompanyContactPerson (event) {
-    if (event) {
-      event.preventDefault()
-    }
-    const copyContactPersonsCompany = [...contactPersonsCompany]
-    copyContactPersonsCompany.push(<CompanyContactPerson />)
-    setContactPersonsCompany(copyContactPersonsCompany)
+    if (event) event.preventDefault()
+    setContactPersonsCompany(contactPersonsCompany + 1)
   }
 
   function addStudentContactPerson (event) {
-    if (event) {
-      event.preventDefault()
-    }
-    const copyStudentContactPerson = [...contactPersonsStudent]
-    copyStudentContactPerson.push(<StudentContactPerson />)
-    setContactPersonsStudent(copyStudentContactPerson)
+    if (event) event.preventDefault()
+    setContactPersonsStudent(contactPersonsStudent + 1)
   }
 
   function addCompanyContactCopyEmail (event) {
-    if (event) {
-      event.preventDefault()
+    if (event) event.preventDefault()
+    setCopyEmails(copyEmails + 1)
+  }
+
+  useEffect(() => {
+    setDidSubmit(false)
+  }, [brregData, company])
+
+  useEffect(() => {
+    const handleKeyPress = event => {
+      if (event.key === 'Escape') props.onDismiss(cleanupState)
     }
-    const copyCompanyEmails = [...copyEmails]
-    copyCompanyEmails.push(<CompanyEmailCopy />)
-    setCopyEmails(copyCompanyEmails)
-  }
 
-  function onStartDateChange (date) {
-    setStartDato(date)
-    if (date > sluttDato) setSluttDato(null)
-  }
-
-  useEffect(() => {
-    addCompanyContactPerson()
-    addStudentContactPerson()
-    addCompanyContactCopyEmail()
-  }, [])
-
-  useEffect(() => {
     document.addEventListener('keyup', handleKeyPress)
-
-    return () => {
-      document.removeEventListener('keyup', handleKeyPress)
-    }
+    return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
 
-  function handleKeyPress (event) {
-    if (event.key === 'Escape') {
-      props.onDismiss(cleanupState)
-    }
+  const validate = () => {
+    setDidSubmit(true) // Show errors in child components
+    const formErrors = validateForm(validators, formState)
+    setErrors(formErrors)
+
+    const hasSubError = Object.keys(subErrors).map(key => subErrors[key]).filter(subError => !!subError).length > 0
+    return !!formErrors && hasSubError
   }
 
   function send () {
+    if (validate()) return
     sendForm()
   }
 
@@ -175,28 +221,42 @@ export function YffConfirmationModal ({ student, ...props }) {
       >
         <ModalBody>
           <StudentCard student={student} />
-          <p className='intro'>
+          <p className='yff-intro'>
             Her oppretter du bekreftelse om utplassering av eleven. Du må ha navnet eller organisasjonsnummeret til virksomheten hvor eleven skal utplasseres, avdelingen hvor eleven skal arbeide, og oppmøtested. Du må også fylle ut kontaktinformasjon til kontaktperson(er) hos virksomheten, i tillegg til elevens pårørende.
             <br />
             <br />
             Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
           </p>
           <div className='form'>
-            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} />
-            <CompanySelector brregData={brregData} setCompany={setCompany} />
-            <CompanyDetails company={company} />
+            <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={didSubmit && !brregData} />
+            <CompanySelector brregData={brregData} setCompany={setCompany} showError={didSubmit && !company} />
             <form id='bekreftelse-form' onSubmit={handleSubmit(onSubmit)} className={company ? '' : 'hidden'}>
+              <h2 className='subheader'>Informasjon om utplasseringsstedet</h2>
+              <CompanyDetails company={company} />
               <div className='input-element'>
                 <TextField
                   name='organisasjonsAvdeling'
-                  placeholder='Avdeling'
-                  value={avdeling}
-                  onChange={event => setAvdeling(event.target.value)}
+                  placeholder='Avdeling (valgfritt)'
+                  value={formState.department}
+                  onChange={event => handleChange(event.target.value, 'department')}
+                  error={errors.department}
                 />
               </div>
-              <h2 className='subheader'>Kontaktpersoner</h2>
-              {contactPersonsCompany.map(person => person)}
-              <button className='add-more-button button-left-icon button-primary' onClick={addCompanyContactPerson}>
+              <div className='input-element'>
+                <TextField
+                  name='oppmotested'
+                  placeholder='Oppmøtested'
+                  value={formState.meetingpoint}
+                  onChange={event => handleChange(event.target.value, 'meetingpoint')}
+                  error={errors.meetingpoint}
+                />
+              </div>
+
+              <h2 className='subheader'>{`Kontaktperson${contactPersonsCompany <= 1 ? '' : 'er'} hos bedriften`}</h2>
+              {Array.from({ length: contactPersonsCompany }).map((_, index) =>
+                <CompanyContactPerson key={index} showError={didSubmit} setHasError={hasError => { setHasSubError('kontaktperson', hasError, index) }} />
+              )}
+              <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kontaktperson til' onClick={addCompanyContactPerson}>
                 <div className='button-left-icon-icon'>
                   <Icon name='add' size='small' />
                 </div>
@@ -204,69 +264,73 @@ export function YffConfirmationModal ({ student, ...props }) {
                   Legg til kontaktperson
                 </div>
               </button>
-              <h2 className='subheader'>Kopi pr e-post</h2>
-              {copyEmails.map(email => email)}
-              <button className='add-more-button button-left-icon button-primary' onClick={addCompanyContactCopyEmail}>
+
+              <h2 className='subheader'>Kopi på e-post</h2>
+              <Paragraph className='subtitle'>
+                Noen ganger er det enklere sagt enn gjort at korrekt mottaker hos utplasseringsbedriften mottar brevene som sendes,
+                i de tilfellene kan man legge kontaktpersonen(e) som kopimottager, og de vil få tilsendt kopi av dokumentene på e-post i tillegg.
+              </Paragraph>
+              {Array.from({ length: copyEmails }).map((_, index) =>
+                <CompanyEmailCopy key={index} showError={didSubmit} setHasError={hasError => { setHasSubError('kopi', hasError, index) }} />
+              )}
+              <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en kopimottager til' onClick={addCompanyContactCopyEmail}>
                 <div className='button-left-icon-icon'>
                   <Icon name='add' size='small' />
                 </div>
                 <div className='button-left-icon-text'>
-                  Legg til kopimottager
+                  Legg til kopimottager (valgfritt)
                 </div>
               </button>
-              <h2 className='subheader'>Tidsrom</h2>
-              <div className='input-element'>
+
+              <h2 className='subheader'>Tidsrom for utplassering</h2>
+              <div className='input-elements'>
                 <Datepicker
                   placeholder='Fra og med'
                   name='fraDato'
-                  selected={startDato}
-                  onChange={onStartDateChange}
+                  selected={formState.fromDate}
+                  onChange={date => onStartDateChange(date)}
+                  error={errors.fromDate}
                 />
-              </div>
-              <div className='input-element'>
                 <Datepicker
                   placeholder='Til og med'
                   name='tilDato'
-                  selected={sluttDato}
-                  minDate={startDato}
-                  onChange={date => setSluttDato(date)}
+                  selected={formState.toDate}
+                  minDate={formState.fromDate}
+                  onChange={date => handleChange(date, 'toDate')}
+                  error={errors.toDate}
                 />
               </div>
               <div className='input-element'>
                 <TextField
                   name='daysPerWeek'
                   placeholder='Antall dager i uken'
-                  value={dager}
-                  onChange={event => setDager(event.target.value)}
+                  value={formState.daysPerWeek}
+                  onChange={event => handleChange(event.target.value, 'daysPerWeek')}
+                  error={errors.daysPerWeek}
                 />
               </div>
-              <div className='input-element'>
+              <div className='input-elements'>
                 <TextField
                   name='startTid'
-                  placeholder='Fra kl'
-                  value={start}
-                  onChange={event => setStart(event.target.value)}
+                  placeholder='Fra klokken'
+                  value={formState.fromHours}
+                  onChange={event => handleChange(event.target.value, 'fromHours')}
+                  error={errors.fromHours}
                 />
-              </div>
-              <div className='input-element'>
                 <TextField
                   name='sluttTid'
-                  placeholder='Til kl'
-                  value={slutt}
-                  onChange={event => setSlutt(event.target.value)}
+                  placeholder='Til klokken'
+                  value={formState.toHours}
+                  onChange={event => handleChange(event.target.value, 'toHours')}
+                  error={errors.toHours}
                 />
               </div>
-              <div className='input-element'>
-                <TextField
-                  name='oppmotested'
-                  placeholder='Oppmøtested'
-                  value={sted}
-                  onChange={event => setSted(event.target.value)}
-                />
-              </div>
-              <h2 className='subheader'>Pårørende</h2>
-              {contactPersonsStudent.map(person => person)}
-              <button className='add-more-button button-left-icon button-primary' onClick={addStudentContactPerson}>
+
+              <h2 className='subheader'>Kontaktinformasjon til elevens pårørende</h2>
+              {Array.from({ length: contactPersonsStudent }).map((_, index) =>
+                <StudentContactPerson key={index} showError={didSubmit} setHasError={hasError => { setHasSubError('parorende', hasError, index) }} />
+              )}
+              <button className='add-more-button button-left-icon button-primary' aria-label='Legg til en pårørende til' onClick={addStudentContactPerson}>
                 <div className='button-left-icon-icon'>
                   <Icon name='add' size='small' />
                 </div>
