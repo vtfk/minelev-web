@@ -4,7 +4,7 @@ import { Paragraph, Link } from '../../_lib-components/Typography'
 import logError from '../../lib/log-error'
 
 function Error ({ children }) {
-  return <p>{children}</p>
+  return <Paragraph className='error' role='alert' aria-live='assertive'>{children}</Paragraph>
 }
 
 function Maal (props) {
