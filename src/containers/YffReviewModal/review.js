@@ -23,9 +23,9 @@ function Score (props) {
 
 function Scores ({ id }) {
   return (
-    <>
+    <div className='scores'>
       {scores.map(item => <Score id={id} {...item} key={nanoid()} />)}
-    </>
+    </div>
   )
 }
 
@@ -34,14 +34,15 @@ function Maal (props) {
   const { tittel } = grep
   return (
     <div>
-      <div>
-        <strong>Mål:</strong><br />
-        {tittel.nb}
+      <div className='maal-maal'>
+        <strong>Mål:</strong> {tittel.nb}
       </div>
-      <div>
-        <strong>Arbeidsoppgaver:</strong><br />
-        {arbeidsoppgaver}
-      </div>
+      {
+        arbeidsoppgaver &&
+          <div className='maal-oppgaver'>
+            <strong>Arbeidsoppgaver:</strong> {arbeidsoppgaver}
+          </div>
+      }
       <Scores id={_id} />
     </div>
   )

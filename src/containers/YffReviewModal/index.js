@@ -47,7 +47,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
 
   useEffect(() => {
     async function getMaal () {
-      const laereplan = await apiGet(`${API.URL}/yff/${studentID}/maal`)
+      const { data: laereplan } = await apiGet(`${API.URL}/yff/${studentID}/maal`)
       try {
         const maal = laereplan.filter(maal => maal.referanseID === utplasseringsId)
         setMaal(maal)
@@ -57,8 +57,8 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     }
     async function getUtplassering () {
       try {
-        const utplassering = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
-        setUtplassering(utplassering[0])
+        const { data } = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
+        setUtplassering(data)
       } catch (error) {
         logError(error)
       }
@@ -149,39 +149,36 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
       <PreviewModal />
       <Modal
         {...props}
-        className='yff-send-modal'
+        className='yff-review-modal'
         onDismiss={props.onDismiss}
       >
         <ModalBody>
           <StudentCard student={student} />
           <Details utplassering={utplassering} />
-          <p className='intro'>
-            Tilbakemelding for elevens utplassering
-          </p>
           <div>
             <form id='review-form' className='form'>
               <Review maal={maal} />
               <Evaluation />
               <Attitude />
               <h2 className='subheader'>Fravær under utplasseringen</h2>
-              <div className='input-element'>
+              <div className='input-elements'>
                 <TextField
                   name='fravarDager'
                   placeholder='Antall hele dager fravær'
                   value={dager}
                   onChange={event => setDager(event.target.value)}
+                  inputMode='numeric' pattern='[0-9]*'
                 />
-              </div>
-              <div className='input-element'>
                 <TextField
                   name='fravarTimer'
                   placeholder='Antall timer fravær'
                   value={timer}
                   onChange={event => setTimer(event.target.value)}
+                  inputMode='numeric' pattern='[0-9]*'
                 />
               </div>
               <div className='input-element'>
-                <strong>Varslet eleven selv om fraværet?</strong><br />
+                <p className='fravar-title'>Varslet eleven selv om fraværet?</p>
                 <RadioButton name='varsletFravar' value='ja' label='Ja' />
                 <RadioButton name='varsletFravar' value='nei' label='Nei' />
                 <RadioButton name='varsletFravar' value='av og til' label='Av og til' />
