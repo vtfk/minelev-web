@@ -14,6 +14,9 @@ function UtplasseringSelector (props) {
     if (utplasseringer && utplasseringer.count > 0) {
       const bedrifter = utplasseringer.data.map(bedrift => { return { value: bedrift._id, label: bedrift.bedriftsNavn } })
       setItems([...defaultItems, ...bedrifter])
+
+      // Sett første bedrift som standard-valg
+      setItem(bedrifter[0])
     } else {
       setItems(defaultItems)
     }
