@@ -37,7 +37,7 @@ function Tilbakemelding ({ id, description, value, onChange, selected, showError
       <input type='hidden' name={`evaluation-${id}`} value={value} />
       <p><strong>{description}:</strong></p>
       <Scores id={id} onChange={onChange} selected={selected} showError={showError} />
-      {showError && !selected && <ErrorMessage>Du må velge en verdi</ErrorMessage>}
+      {showError && !selected && <ErrorMessage>Du må velge en vurdering</ErrorMessage>}
     </div>
   )
 }
