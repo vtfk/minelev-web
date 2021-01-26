@@ -1,11 +1,7 @@
 import { useEffect, useState } from 'react'
 import { API } from '../../config/app'
-import { Paragraph, Link } from '../../_lib-components/Typography'
+import { Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
 import logError from '../../lib/log-error'
-
-function Error ({ children }) {
-  return <Paragraph className='error' role='alert' aria-live='assertive'>{children}</Paragraph>
-}
 
 function Maal (props) {
   const { grep, arbeidsoppgaver, referanseTittel, _id, deleteMal } = props
@@ -74,7 +70,7 @@ function LokalLaereplan (props) {
       {
         maal.length === 0 &&
           <>
-            {showError ? <Error>{showError}</Error> : 'Elevens lokale læreplan er tom. Legg til kompetansemål i planen ved hjelp av skjemaet ovenfor.'}
+            {showError ? <ErrorMessage>{showError}</ErrorMessage> : 'Elevens lokale læreplan er tom. Legg til kompetansemål i planen ved hjelp av skjemaet ovenfor.'}
           </>
       }
       {
