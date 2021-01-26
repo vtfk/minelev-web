@@ -68,12 +68,12 @@ export const DOCUMENTS = {
       id: '01',
       description: {
         nb: 'Eleven forstyrrer undervisning eller skoleaktivitet',
-        nn: 'Eleven forstyrrer undervisning eller skoleaktivitet',
+        nn: 'Eleven uroar undervisning eller skuleaktivitet',
         en: 'Eleven forstyrrer undervisning eller skoleaktivitet'
       },
       value: {
         nb: 'Du forstyrrer undervisning eller skoleaktivitet',
-        nn: 'Du forstyrrer undervisning eller skoleaktivitet',
+        nn: 'Du uroar undervisning eller skuleaktivitet',
         en: 'Du forstyrrer undervisning eller skoleaktivitet'
       }
     },
@@ -81,12 +81,12 @@ export const DOCUMENTS = {
       id: '02',
       description: {
         nb: 'Eleven utviser provoserende atferd mot ansatte eller medelever',
-        nn: 'Eleven utviser provoserende atferd mot ansatte eller medelever',
+        nn: 'Eleven viser provoserande åtferd mot tilsette eller medelevar',
         en: 'Eleven utviser provoserende atferd mot ansatte eller medelever'
       },
       value: {
         nb: 'Du utviser provoserende atferd mot ansatte eller medelever',
-        nn: 'Du utviser provoserende atferd mot ansatte eller medelever',
+        nn: 'Du viser provoserande åtferd mot tilsette eller medelevar',
         en: 'Du utviser provoserende atferd mot ansatte eller medelever'
       }
     },
@@ -94,12 +94,12 @@ export const DOCUMENTS = {
       id: '03',
       description: {
         nb: 'Eleven forlater undervisning uten avklaring med lærer',
-        nn: 'Eleven forlater undervisning uten avklaring med lærer',
+        nn: 'Eleven forlèt undervisning utan avklaring med lærar',
         en: 'Eleven forlater undervisning uten avklaring med lærer'
       },
       value: {
         nb: 'Du forlater undervisning uten avklaring med lærer',
-        nn: 'Du forlater undervisning uten avklaring med lærer',
+        nn: 'Du forlèt undervisning utan avklaring med lærar',
         en: 'Du forlater undervisning uten avklaring med lærer'
       }
     },
@@ -107,12 +107,12 @@ export const DOCUMENTS = {
       id: '04',
       description: {
         nb: 'Eleven har fusket',
-        nn: 'Eleven har fusket',
+        nn: 'Eleven har fuska',
         en: 'Eleven har fusket'
       },
       value: {
         nb: 'Du har fusket',
-        nn: 'Du har fusket',
+        nn: 'Du har fuska',
         en: 'Du har fusket'
       }
     },
@@ -120,12 +120,12 @@ export const DOCUMENTS = {
       id: '05',
       description: {
         nb: 'Eleven har benyttet rusmidler i skoletida',
-        nn: 'Eleven har benyttet rusmidler i skoletida',
+        nn: 'Eleven har nytta rusmiddel i skuletida',
         en: 'Eleven har benyttet rusmidler i skoletida'
       },
       value: {
         nb: 'Du har benyttet rusmidler i skoletida',
-        nn: 'Du har benyttet rusmidler i skoletida',
+        nn: 'Du har nytta rusmiddel i skuletida',
         en: 'Du har benyttet rusmidler i skoletida'
       }
     },
@@ -133,12 +133,12 @@ export const DOCUMENTS = {
       id: '06',
       description: {
         nb: 'Eleven har brutt skolens ordensreglement',
-        nn: 'Eleven har brutt skolens ordensreglement',
+        nn: 'Eleven har brote skulen sitt ordensreglement',
         en: 'Eleven har brutt skolens ordensreglement'
       },
       value: {
         nb: 'Du har brutt skolens ordensreglement',
-        nn: 'Du har brutt skolens ordensreglement',
+        nn: 'Du har brote skulen sitt ordensreglement',
         en: 'Du har brutt skolens ordensreglement'
       }
     }
@@ -148,12 +148,12 @@ export const DOCUMENTS = {
       id: '01',
       description: {
         nb: 'Eleven har manglende vurderingsgrunnlag',
-        nn: 'Eleven har manglende vurderingsgrunnlag',
+        nn: 'Eleven har manglande vurderingsgrunnlag',
         en: 'Eleven har manglende vurderingsgrunnlag'
       },
       value: {
         nb: 'Du har manglende vurderingsgrunnlag',
-        nn: 'Du har manglende vurderingsgrunnlag',
+        nn: 'Du har manglande vurderingsgrunnlag',
         en: 'Du har manglende vurderingsgrunnlag'
       }
     },
@@ -161,12 +161,12 @@ export const DOCUMENTS = {
       id: '02',
       description: {
         nb: 'Eleven har udokumentert fravær',
-        nn: 'Eleven har udokumentert fravær',
+        nn: 'Eleven har udokumentert fråvær',
         en: 'Eleven har udokumentert fravær'
       },
       value: {
         nb: 'Du har udokumentert fravær',
-        nn: 'Du har udokumentert fravær',
+        nn: 'Du har udokumentert fråvær',
         en: 'Du har udokumentert fravær'
       }
     }
@@ -176,12 +176,12 @@ export const DOCUMENTS = {
       id: '01',
       description: {
         nb: 'Eleven er for sen til undervisning',
-        nn: 'Eleven er for sen til undervisning',
+        nn: 'Eleven er for sein til undervisning',
         en: 'Eleven er for sen til undervisning'
       },
       value: {
         nb: 'Du er for sen til undervisning',
-        nn: 'Du er for sen til undervisning',
+        nn: 'Du er for sein til undervisning',
         en: 'Du er for sen til undervisning'
       }
     },
@@ -189,12 +189,12 @@ export const DOCUMENTS = {
       id: '02',
       description: {
         nb: 'Eleven har ikke nødvendig skolemateriell klart til undervisning',
-        nn: 'Eleven har ikke nødvendig skolemateriell klart til undervisning',
+        nn: 'Eleven har ikkje nødvendig skulemateriell klart til undervisning',
         en: 'Eleven har ikke nødvendig skolemateriell klart til undervisning'
       },
       value: {
         nb: 'Du har ikke nødvendig skolemateriell klart til undervisning',
-        nn: 'Du har ikke nødvendig skolemateriell klart til undervisning',
+        nn: 'Du har ikkje nødvendig skulemateriell klart til undervisning',
         en: 'Du har ikke nødvendig skolemateriell klart til undervisning'
       }
     },
@@ -202,12 +202,12 @@ export const DOCUMENTS = {
       id: '03',
       description: {
         nb: 'Eleven har manglende eller for sen innlevering av arbeid',
-        nn: 'Eleven har manglende eller for sen innlevering av arbeid',
+        nn: 'Eleven har manglande eller for sein innlevering av arbeid',
         en: 'Eleven har manglende eller for sen innlevering av arbeid'
       },
       value: {
         nb: 'Du har manglende eller for sen innlevering av arbeid',
-        nn: 'Du har manglende eller for sen innlevering av arbeid',
+        nn: 'Du har manglande eller for sein innlevering av arbeid',
         en: 'Du har manglende eller for sen innlevering av arbeid'
       }
     },
