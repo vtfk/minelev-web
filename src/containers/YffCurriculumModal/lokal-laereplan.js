@@ -3,6 +3,10 @@ import { API } from '../../config/app'
 import { Paragraph, Link } from '../../_lib-components/Typography'
 import logError from '../../lib/log-error'
 
+function Error ({ children }) {
+  return <p>{children}</p>
+}
+
 function Maal (props) {
   const { grep, arbeidsoppgaver, referanseTittel, _id, deleteMal } = props
   if (!grep) return null
@@ -30,7 +34,7 @@ function Maal (props) {
 
 function LokalLaereplan (props) {
   const [maal, setMaal] = useState([])
-  const { deleter, fetcher, selectedStudentId, refreshLaereplan, setRefreshLaereplan, onMaalChange } = props
+  const { deleter, fetcher, selectedStudentId, refreshLaereplan, setRefreshLaereplan, onMaalChange, showError } = props
 
   const getLaereplan = async () => {
     const response = await fetcher(`${API.URL}/yff/${selectedStudentId}/maal`)
@@ -70,7 +74,7 @@ function LokalLaereplan (props) {
       {
         maal.length === 0 &&
           <>
-            Elevens lokale læreplan er tom. Legg til kompetansemål i planen ved hjelp av skjemaet ovenfor.
+            {showError ? <Error>{showError}</Error> : 'Elevens lokale læreplan er tom. Legg til kompetansemål i planen ved hjelp av skjemaet ovenfor.'}
           </>
       }
       {
