@@ -157,7 +157,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
           <Details utplassering={utplassering} />
           <div>
             <form id='review-form' className='form'>
-              <Review maal={maal} />
+              <Review maal={maal} showError={} setHasError={} />
               <Evaluation />
               <Attitude />
               <h2 className='subheader'>Fravær under utplasseringen</h2>
@@ -174,7 +174,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
                   placeholder='Antall timer fravær'
                   value={timer}
                   onChange={event => setTimer(event.target.value)}
-                  inputMode='numeric' pattern='[0-9]*'
+                  inputMode='decimal' pattern='[0-9,]*'
                 />
               </div>
               <div className='input-element'>
