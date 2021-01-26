@@ -201,6 +201,10 @@
     margin: -($baseUnit * 2) 0 ($baseUnit * 3) 0;
     max-width: $baseUnit * 115;
   }
+
+  .action button {
+    min-width: 154px;
+  }
 }
 
 

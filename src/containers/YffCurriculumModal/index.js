@@ -25,6 +25,7 @@ import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
 import { validateForm } from '../../lib/form-validation'
+import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function YffCurriculumModal ({ student, ...props }) {
   const { apiDelete, apiGet, apiPost } = useSession()
@@ -211,10 +212,18 @@ export function YffCurriculumModal ({ student, ...props }) {
 
         <ModalSideActions>
           <div className='action'>
-            <Link onClick={async () => { await openPreview() }}>Forhåndsvisning</Link>
+            {
+              student
+                ? <Link onClick={async () => { await openPreview() }}>Forhåndsvisning</Link>
+                : <SkeletonLoader width='100%' />
+            }
           </div>
           <div className='action'>
-            <Button onClick={async () => { await send() }} type='primary' spinner={submitting}>Send og arkiver</Button>
+            {
+              student
+                ? <Button onClick={async () => { await send() }} type='primary' spinner={submitting}>Send og arkiver</Button>
+                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send og arkiver</Button></SkeletonLoader>
+            }
           </div>
           <div className='action'>
             <Link onClick={handleAvslutt}>Lagre og lukk</Link>
