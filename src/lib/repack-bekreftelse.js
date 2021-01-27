@@ -17,15 +17,15 @@ function mergeArrays (data) {
 
 function repackBekreftelse (data) {
   const { bekreftelse, company } = data
-  // Sikrer at kopi pr epost er et arrat
-  bekreftelse.kopiPrEpost = arrify(bekreftelse.kopiPrEpost)
+  // Sikrer at kopi pr epost er et array, og at det har verdier
+  bekreftelse.kopiPrEpost = arrify(bekreftelse.kopiPrEpost).filter(epost => !!epost)
   // oppdaterer kontaktpersoner
   bekreftelse.kontaktpersonData = mergeArrays({
     navn: arrify(bekreftelse.kontaktpersonNavn),
     telefon: arrify(bekreftelse.kontaktpersonTelefon),
     epost: arrify(bekreftelse.kontaktpersonEpost),
     avdeling: arrify(bekreftelse.kontaktpersonAvdeling)
-  })
+  }).filter(kontakt => kontakt && kontakt !== {})
   // cleanup kontaktpersoner
   delete bekreftelse.kontaktpersonNavn
   delete bekreftelse.kontaktpersonTelefon
@@ -36,7 +36,7 @@ function repackBekreftelse (data) {
   bekreftelse.parorendeData = mergeArrays({
     navn: arrify(bekreftelse.parorendeNavn),
     telefon: arrify(bekreftelse.parorendeTelefon)
-  })
+  }).filter(kontakt => kontakt && kontakt !== {})
   // cleanup pårørende
   delete bekreftelse.parorendeNavn
   delete bekreftelse.parorendeTelefon
