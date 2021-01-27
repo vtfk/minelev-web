@@ -25,7 +25,7 @@ function repackBekreftelse (data) {
     telefon: arrify(bekreftelse.kontaktpersonTelefon),
     epost: arrify(bekreftelse.kontaktpersonEpost),
     avdeling: arrify(bekreftelse.kontaktpersonAvdeling)
-  }).filter(kontakt => kontakt && kontakt !== {})
+  }).filter(kontakt => kontakt && Object.keys(kontakt).length !== 0)
   // cleanup kontaktpersoner
   delete bekreftelse.kontaktpersonNavn
   delete bekreftelse.kontaktpersonTelefon
@@ -36,7 +36,7 @@ function repackBekreftelse (data) {
   bekreftelse.parorendeData = mergeArrays({
     navn: arrify(bekreftelse.parorendeNavn),
     telefon: arrify(bekreftelse.parorendeTelefon)
-  }).filter(kontakt => kontakt && kontakt !== {})
+  }).filter(kontakt => kontakt && Object.keys(kontakt).length !== 0)
   // cleanup pårørende
   delete bekreftelse.parorendeNavn
   delete bekreftelse.parorendeTelefon
