@@ -144,7 +144,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   async function generateDocument () {
-    const maal = await apiGet(`${API.URL}/yff/${student.id}/maal`)
+    const { data: maal } = await apiGet(`${API.URL}/yff/${student.id}/maal`)
     return createDocument({
       variant: 'laereplan',
       student,
