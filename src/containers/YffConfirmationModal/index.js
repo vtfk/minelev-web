@@ -200,13 +200,6 @@ export function YffConfirmationModal ({ student, ...props }) {
     return !!formErrors && hasSubError
   }
 
-  function send () {
-    if (submitting) return
-    if (validate()) return
-    setSubmitting(true)
-    sendForm()
-  }
-
   function generateDocument (data) {
     const bekreftelse = data || generateBekreftelse()
     return createDocument({
@@ -218,6 +211,19 @@ export function YffConfirmationModal ({ student, ...props }) {
         level: student.level || getClassLevel(student.classId)
       }
     })
+  }
+
+  function send () {
+    if (submitting) return
+    if (validate()) return
+    setSubmitting(true)
+    sendForm()
+  }
+
+  function openPreview () {
+    if (submitting) return
+    if (validate()) return
+    openPreviewModal(generateDocument())
   }
 
   return (
@@ -358,7 +364,7 @@ export function YffConfirmationModal ({ student, ...props }) {
           <div className='action'>
             {
               studentID
-                ? <Link onClick={() => { openPreviewModal(generateDocument()) }}>Forhåndsvisning</Link>
+                ? <Link onClick={() => { openPreview() }}>Forhåndsvisning</Link>
                 : <SkeletonLoader width='100%' />
             }
           </div>
