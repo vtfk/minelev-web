@@ -50,12 +50,6 @@ function KompetansemalVelger (props) {
     showError
   } = props
 
-  console.log('utplassering', utplassering)
-  console.log('skole', skole)
-  console.log('klassetrinn', klassetrinn)
-  console.log('utdanningsprogram', utdanningsprogram)
-  console.log('programomraade', programomraade)
-
   useEffect(() => {
     if (triggerSaveMaal === true && selectedMaal.length > 0) {
       sendForm()
