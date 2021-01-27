@@ -37,8 +37,6 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
-  const [utplassering, setUtplassering] = useState()
-  const [referanse, setReferanse] = useState({})
   const [triggerSaveMaal, setTriggerSaveMaal] = useState()
   const [refreshLaereplan, setRefreshLaereplan] = useState()
 
@@ -54,7 +52,6 @@ export function YffCurriculumModal ({ student, ...props }) {
     setProgramomraade(null)
     setKompetansemaal(false)
     setUtplasseringer([])
-    setUtplassering(false)
     setTriggerSaveMaal(false)
     setFormState({})
     setSubmitting(false)
@@ -93,15 +90,6 @@ export function YffCurriculumModal ({ student, ...props }) {
       getUtplasseringer()
     }
   }, [isOpen])
-
-  useEffect(() => {
-    if (utplassering) {
-      setReferanse({
-        referanseID: utplassering.value,
-        referanseTittel: utplassering.label
-      })
-    }
-  }, [utplassering])
 
   useEffect(() => {
     if (errors.laereplan) validate()
@@ -205,7 +193,6 @@ export function YffCurriculumModal ({ student, ...props }) {
                 kompetansemaal={formState.kompetansemaal || []}
                 apiPost={apiPost}
                 selectedStudentId={student.id}
-                referanse={referanse}
                 triggerSaveMaal={triggerSaveMaal}
                 setTriggerSaveMaal={setTriggerSaveMaal}
                 setRefreshLaereplan={setRefreshLaereplan}

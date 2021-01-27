@@ -43,7 +43,6 @@ function KompetansemalVelger (props) {
     kompetansemaal,
     apiPost,
     selectedStudentId,
-    referanse,
     setRefreshLaereplan,
     triggerSaveMaal,
     onMaalChange,
@@ -59,8 +58,6 @@ function KompetansemalVelger (props) {
   if (!kompetansemaal) {
     return null
   }
-
-  const { referanseID, referanseTittel } = referanse
 
   const items = kompetansemaal.map(item => {
     return { value: item.kode, label: item.tittel.nb, ...item }
@@ -79,6 +76,8 @@ function KompetansemalVelger (props) {
   }
 
   const generateMaal = (grep, arbeidsoppgaver) => {
+    const referanseID = (utplassering.value === 'skole' ? skole.value : undefined) || utplassering.value
+    const referanseTittel = (utplassering.value === 'skole' ? skole.label : undefined) || utplassering.label
     return {
       studentUserName: selectedStudentId,
       referanseID,
