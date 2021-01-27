@@ -8,7 +8,7 @@ import { DefaultLayout } from '../../layouts/Default'
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
-import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
+import { Heading2, Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
@@ -26,6 +26,7 @@ export function ActivityLog () {
   const [selectedStudent, setSelectedStudent] = useState(null)
   const [documents, setDocuments] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   const { apiGet } = useSession()
 
@@ -40,10 +41,14 @@ export function ActivityLog () {
   }
 
   async function getDocuments () {
-    const docs = await apiGet(API.URL + '/documents')
-    const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
-    setDocuments(docsOrderedByModified)
+    const result = await apiGet(API.URL + '/documents')
     setLoading(false)
+
+    if (result === false) setError('Det skjedde noe galt under innhenting av aktivitetslista di...')
+    if (!result || (result.data && result.data.length === 0)) return
+
+    const docsOrderedByModified = result.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
+    setDocuments(docsOrderedByModified || [])
   }
 
   useEffect(() => {
@@ -85,81 +90,96 @@ export function ActivityLog () {
 
         <Heading2 className='page-title'>Aktivitetslogg</Heading2>
 
-        <table className='data-actions-table'>
-          <thead>
-            <tr>
-              <th><Paragraph size='small'>Elev</Paragraph></th>
-              <th><Paragraph size='small'>Dokumenttype</Paragraph></th>
-              <th><Paragraph size='small'>Dato</Paragraph></th>
-              <th><Paragraph size='small'>Status</Paragraph></th>
-              <th><Paragraph size='small'>Sendt av</Paragraph></th>
-              <th className='actions-th'><Paragraph size='small'>Ny handling</Paragraph></th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              loading &&
-            Array(15).fill().map(function (i) {
-              return (
-                <tr key={i}>
-                  <td width='300px'>
-                    <div className='name'>
-                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
-                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
-                    </div>
-                  </td>
-                  <td><SkeletonLoader randomWidth={[40, 90]} /></td>
-                  <td><SkeletonLoader width='90px' /></td>
-                  <td><SkeletonLoader /></td>
-                  <td width='200px'><SkeletonLoader randomWidth={[40, 80]} /></td>
-                  <td><SkeletonLoader width='40%' /></td>
+        {
+          error &&
+            <ErrorMessage>{error}</ErrorMessage>
+        }
+        {
+          !error &&
+          (loading || (documents && documents.length > 0)) &&
+            <table className='data-actions-table'>
+              <thead>
+                <tr>
+                  <th><Paragraph size='small'>Elev</Paragraph></th>
+                  <th><Paragraph size='small'>Dokumenttype</Paragraph></th>
+                  <th><Paragraph size='small'>Dato</Paragraph></th>
+                  <th><Paragraph size='small'>Status</Paragraph></th>
+                  <th><Paragraph size='small'>Sendt av</Paragraph></th>
+                  <th className='actions-th'><Paragraph size='small'>Ny handling</Paragraph></th>
                 </tr>
-              )
-            })
-            }
-
-            {
-              !loading &&
-              documents &&
-              documents.map(function (doc, index) {
-                return (
-                  <tr key={index}>
-                    <td>
-                      <div className='name'>
-                        <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
-                        <Paragraph>
-                          <Link href={`/${ROUTES.students}/${doc.student.username}`}>
-                            {doc.student.name}
-                          </Link>
-                        </Paragraph>
-                      </div>
-                    </td>
-                    <td>
-                      <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
-                    </td>
-                    <td>
-                      <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
-                    </td>
-                    <td>
-                      <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
-                    </td>
-                    <td>
-                      <Paragraph>{doc.teacher.name}</Paragraph>
-                    </td>
-                    <td>
-                      <IconDropdownNav>
-                        <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
-                        <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
-                        <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
-                      </IconDropdownNav>
-                    </td>
-                  </tr>
-                )
-              })
-            }
-          </tbody>
-        </table>
-
+              </thead>
+              <tbody>
+                {
+                  loading &&
+                  Array(15).fill().map(function (i) {
+                    return (
+                      <tr key={i}>
+                        <td width='300px'>
+                          <div className='name'>
+                            <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
+                            <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                          </div>
+                        </td>
+                        <td><SkeletonLoader randomWidth={[40, 90]} /></td>
+                        <td><SkeletonLoader width='90px' /></td>
+                        <td><SkeletonLoader /></td>
+                        <td width='200px'><SkeletonLoader randomWidth={[40, 80]} /></td>
+                        <td><SkeletonLoader width='40%' /></td>
+                      </tr>
+                    )
+                  })
+                }
+                {
+                  !loading &&
+                  documents &&
+                  documents.length > 0 &&
+                  documents.map(function (doc, index) {
+                    return (
+                      <tr key={index}>
+                        <td>
+                          <div className='name'>
+                            <InitialsBadge firstName={doc.student.firstName} lastName={doc.student.lastName} size='small' />
+                            <Paragraph>
+                              <Link href={`/${ROUTES.students}/${doc.student.username}`}>
+                                {doc.student.name}
+                              </Link>
+                            </Paragraph>
+                          </div>
+                        </td>
+                        <td>
+                          <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
+                        </td>
+                        <td>
+                          <Paragraph>{doc.teacher.name}</Paragraph>
+                        </td>
+                        <td>
+                          <IconDropdownNav>
+                            <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
+                            <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
+                            <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
+                          </IconDropdownNav>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
+        }
+        {
+          !loading &&
+          documents &&
+          documents.length === 0 &&
+            <Paragraph>
+              Ingen aktiviteter ble funnet for noen av elevene dine.
+            </Paragraph>
+        }
       </div>
     </DefaultLayout>
   )
