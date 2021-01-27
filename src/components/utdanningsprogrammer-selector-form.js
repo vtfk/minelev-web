@@ -3,7 +3,7 @@ import useGrep from '../hooks/use-grep'
 import { Select } from '../_lib-components/Select'
 import KlassetrinnSelectorForm from './klassetrinn-selector-form'
 
-function Programomrader ({ data, trinn, setKompetansemaal, showError }) {
+function Programomrader ({ data, trinn, setKompetansemaal, setProgramomraade, showError }) {
   const [selectedOmrade, setSelectedOmrade] = useState()
   const [filteredData, setFilteredData] = useState(false)
 
@@ -18,8 +18,9 @@ function Programomrader ({ data, trinn, setKompetansemaal, showError }) {
 
   useEffect(() => {
     if (selectedOmrade && typeof setKompetansemaal === 'function') {
-      const program = filteredData.find(item => item.kode === selectedOmrade.value)
-      setKompetansemaal(program.maal)
+      const { maal, ...program } = filteredData.find(item => item.kode === selectedOmrade.value)
+      setProgramomraade(program)
+      setKompetansemaal(maal)
     }
   }, [selectedOmrade, filteredData])
 
@@ -48,11 +49,12 @@ function Programomrader ({ data, trinn, setKompetansemaal, showError }) {
   )
 }
 
-function Utdanningsprogrammer ({ data, setQuery, showError }) {
+function Utdanningsprogrammer ({ data, setQuery, setUtdanningsprogram, showError }) {
   const [selectedProgram, setSelectedProgram] = useState()
 
   useEffect(() => {
     if (selectedProgram) {
+      setUtdanningsprogram(selectedProgram)
       setQuery(selectedProgram.value)
     }
   }, [selectedProgram])
@@ -81,14 +83,17 @@ function Utdanningsprogrammer ({ data, setQuery, showError }) {
   )
 }
 
-function UtdanningsprogrammerSelectorForm (props) {
+function UtdanningsprogrammerSelectorForm ({ fetcher, setKompetansemaal, setKlassetrinn, setUtdanningsprogram, setProgramomraade, showError, startOpen }) {
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState()
-  const { fetcher, setKompetansemaal, showError, startOpen } = props
   const {
     utdanningsprogrammer,
     programomrader,
     setQuery
   } = useGrep(fetcher)
+
+  useEffect(() => {
+    setKlassetrinn(selectedKlassetrinn)
+  }, [selectedKlassetrinn])
 
   useEffect(() => {
     setQuery('')
@@ -99,8 +104,8 @@ function UtdanningsprogrammerSelectorForm (props) {
   return (
     <>
       <KlassetrinnSelectorForm setSelected={setSelectedKlassetrinn} title='Hent kompetansemål fra' startOpen={startOpen} showError={!selectedKlassetrinn && showError && getError('trinnet')} />
-      {utdanningsprogrammer && selectedKlassetrinn && <Utdanningsprogrammer data={utdanningsprogrammer.data} setQuery={setQuery} showError={!programomrader && showError && getError('utdanningsprogrammet')} />}
-      {programomrader && selectedKlassetrinn && <Programomrader data={programomrader.data} trinn={selectedKlassetrinn} setKompetansemaal={setKompetansemaal} showError={showError && getError('programområdet')} />}
+      {utdanningsprogrammer && selectedKlassetrinn && <Utdanningsprogrammer data={utdanningsprogrammer.data} setQuery={setQuery} setUtdanningsprogram={setUtdanningsprogram} showError={!programomrader && showError && getError('utdanningsprogrammet')} />}
+      {programomrader && selectedKlassetrinn && <Programomrader data={programomrader.data} trinn={selectedKlassetrinn} setKompetansemaal={setKompetansemaal} setProgramomraade={setProgramomraade} showError={showError && getError('programområdet')} />}
     </>
   )
 }

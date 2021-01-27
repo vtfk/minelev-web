@@ -1,3 +1,5 @@
+import getSkoleAar from 'get-skole-aar'
+
 /**
  * Funksjon som lager innhold for yff-dokumenter
  * @param {Object} data objekt med innhold som skal tilpasses
@@ -11,7 +13,7 @@ function createYFFDocument (data) {
     student,
     content: {
       ...content,
-      year: new Date().getFullYear()
+      year: getSkoleAar()
     }
   }
 }

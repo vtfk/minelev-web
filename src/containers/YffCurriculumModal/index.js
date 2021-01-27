@@ -31,10 +31,12 @@ export function YffCurriculumModal ({ student, ...props }) {
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal, closePreviewModal, openRef } = pfdPreview(apiPost)
 
+  const [klassetrinn, setKlassetrinn] = useState()
+  const [utdanningsprogram, setUtdanningsprogram] = useState()
+  const [programomraade, setProgramomraade] = useState()
+
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
-  const [utplassering, setUtplassering] = useState()
-  const [referanse, setReferanse] = useState({})
   const [triggerSaveMaal, setTriggerSaveMaal] = useState()
   const [refreshLaereplan, setRefreshLaereplan] = useState()
 
@@ -45,9 +47,11 @@ export function YffCurriculumModal ({ student, ...props }) {
   const isOpen = props.open
 
   function cleanupState () {
+    setKlassetrinn(null)
+    setUtdanningsprogram(null)
+    setProgramomraade(null)
     setKompetansemaal(false)
     setUtplasseringer([])
-    setUtplassering(false)
     setTriggerSaveMaal(false)
     setFormState({})
     setSubmitting(false)
@@ -86,15 +90,6 @@ export function YffCurriculumModal ({ student, ...props }) {
       getUtplasseringer()
     }
   }, [isOpen])
-
-  useEffect(() => {
-    if (utplassering) {
-      setReferanse({
-        referanseID: utplassering.value,
-        referanseTittel: utplassering.label
-      })
-    }
-  }, [utplassering])
 
   useEffect(() => {
     if (errors.laereplan) validate()
@@ -149,7 +144,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   async function generateDocument () {
-    const maal = await apiGet(`${API.URL}/yff/${student.id}/maal`)
+    const { data: maal } = await apiGet(`${API.URL}/yff/${student.id}/maal`)
     return createDocument({
       variant: 'laereplan',
       student,
@@ -181,12 +176,23 @@ export function YffCurriculumModal ({ student, ...props }) {
             <div className='add-new-curriculum'>
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={utplassering => handleChange(utplassering, 'utplassering')} />
               {formState.utplassering && formState.utplassering.value === 'skole' && <SchoolSelectorForm onSelect={skole => handleChange(skole, 'skole')} />}
-              <UtdanningsprogrammerSelectorForm fetcher={apiGet} startOpen={false} setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')} />
+              <UtdanningsprogrammerSelectorForm
+                fetcher={apiGet}
+                startOpen={false}
+                setKlassetrinn={setKlassetrinn}
+                setUtdanningsprogram={setUtdanningsprogram}
+                setProgramomraade={setProgramomraade}
+                setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')}
+              />
               <KompetansemalSelectorForm
+                utplassering={formState.utplassering}
+                skole={formState.skole || null}
+                klassetrinn={klassetrinn}
+                utdanningsprogram={utdanningsprogram}
+                programomraade={programomraade}
                 kompetansemaal={formState.kompetansemaal || []}
                 apiPost={apiPost}
                 selectedStudentId={student.id}
-                referanse={referanse}
                 triggerSaveMaal={triggerSaveMaal}
                 setTriggerSaveMaal={setTriggerSaveMaal}
                 setRefreshLaereplan={setRefreshLaereplan}
