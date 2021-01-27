@@ -37,8 +37,6 @@ function KompetansemalVelger (props) {
   const {
     utplassering,
     skole,
-    klassetrinn,
-    utdanningsprogram,
     programomraade,
     kompetansemaal,
     apiPost,
