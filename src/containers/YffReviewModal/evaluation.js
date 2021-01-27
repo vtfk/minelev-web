@@ -38,7 +38,7 @@ function Scores ({ id, onChange, selected = {}, showError }) {
 function Tilbakemelding ({ id, description, value, onChange, selected, showError }) {
   return (
     <div>
-      <input type='hidden' name={`evaluation-${id}`} value={value} />
+      <input type='hidden' name={`evaluation-${id}`} value={JSON.stringify(value)} />
       <p><strong>{description}:</strong></p>
       <Scores id={id} onChange={onChange} selected={selected} showError={showError} />
       {showError && !selected && <ErrorMessage>Du må velge en vurdering</ErrorMessage>}
