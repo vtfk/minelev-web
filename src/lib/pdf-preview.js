@@ -20,7 +20,7 @@ function usePreview (poster) {
   const [pdfPreviewError, setPdfPreviewError] = React.useState(null)
   const openRef = React.useRef(previewModalState)
 
-  async function getPdfPreview () {
+  async function getPdfPreview (document) {
     setPdfPreviewError(null)
     setPdfPreviewLoading(true)
 
