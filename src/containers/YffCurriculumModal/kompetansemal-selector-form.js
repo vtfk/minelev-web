@@ -35,6 +35,11 @@ function Arbeidsoppgaver (props) {
 function KompetansemalVelger (props) {
   const [selectedMaal, setSelectedMaal] = useState([])
   const {
+    utplassering,
+    skole,
+    klassetrinn,
+    utdanningsprogram,
+    programomraade,
     kompetansemaal,
     apiPost,
     selectedStudentId,
@@ -44,6 +49,12 @@ function KompetansemalVelger (props) {
     onMaalChange,
     showError
   } = props
+
+  console.log('utplassering', utplassering)
+  console.log('skole', skole)
+  console.log('klassetrinn', klassetrinn)
+  console.log('utdanningsprogram', utdanningsprogram)
+  console.log('programomraade', programomraade)
 
   useEffect(() => {
     if (triggerSaveMaal === true && selectedMaal.length > 0) {
@@ -78,6 +89,7 @@ function KompetansemalVelger (props) {
       studentUserName: selectedStudentId,
       referanseID,
       referanseTittel,
+      programomraade,
       grep,
       arbeidsoppgaver
     }

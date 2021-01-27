@@ -31,6 +31,10 @@ export function YffCurriculumModal ({ student, ...props }) {
   const { apiDelete, apiGet, apiPost } = useSession()
   const { PreviewModal, openPreviewModal, closePreviewModal, openRef } = pfdPreview(apiPost)
 
+  const [klassetrinn, setKlassetrinn] = useState()
+  const [utdanningsprogram, setUtdanningsprogram] = useState()
+  const [programomraade, setProgramomraade] = useState()
+
   const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
   const [utplassering, setUtplassering] = useState()
@@ -45,6 +49,9 @@ export function YffCurriculumModal ({ student, ...props }) {
   const isOpen = props.open
 
   function cleanupState () {
+    setKlassetrinn(null)
+    setUtdanningsprogram(null)
+    setProgramomraade(null)
     setKompetansemaal(false)
     setUtplasseringer([])
     setUtplassering(false)
@@ -181,8 +188,20 @@ export function YffCurriculumModal ({ student, ...props }) {
             <div className='add-new-curriculum'>
               <UtplasseringSelector utplasseringer={utplasseringer} setUtplassering={utplassering => handleChange(utplassering, 'utplassering')} />
               {formState.utplassering && formState.utplassering.value === 'skole' && <SchoolSelectorForm onSelect={skole => handleChange(skole, 'skole')} />}
-              <UtdanningsprogrammerSelectorForm fetcher={apiGet} startOpen={false} setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')} />
+              <UtdanningsprogrammerSelectorForm
+                fetcher={apiGet}
+                startOpen={false}
+                setKlassetrinn={setKlassetrinn}
+                setUtdanningsprogram={setUtdanningsprogram}
+                setProgramomraade={setProgramomraade}
+                setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')}
+              />
               <KompetansemalSelectorForm
+                utplassering={formState.utplassering}
+                skole={formState.skole || null}
+                klassetrinn={klassetrinn}
+                utdanningsprogram={utdanningsprogram}
+                programomraade={programomraade}
                 kompetansemaal={formState.kompetansemaal || []}
                 apiPost={apiPost}
                 selectedStudentId={student.id}
