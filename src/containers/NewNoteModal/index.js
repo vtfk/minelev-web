@@ -134,6 +134,9 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
       >
         <ModalBody>
           <StudentCard student={selectedStudent} />
+          <p className='notat-intro'>
+            Notatet blir arkivert i elevens mappe i Public 360. Notatet finner du igjen i <Link href='https://elevmappa.no' target='_blank' rel='noreferrer'>Elevmappa</Link>.
+          </p>
 
           <div className='form'>
             {

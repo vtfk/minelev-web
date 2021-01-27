@@ -48,7 +48,7 @@ export function Help () {
         </QuestionBlock>
 
         <QuestionBlock question='Hvor finner jeg elevmappene?'>
-          Du har tilgang til elevmappene til dine elever i <Link href='https://elevmappa.no/'>Elevmappa</Link>.
+          Du har tilgang til elevmappene til dine elever i <Link href='https://elevmappa.no' target='_blank' rel='noreferrer'>Elevmappa</Link>.
           <br />
           Du må være pålogget fylkeskommunens nettverk for få tilgang til Elevmappa.
         </QuestionBlock>
