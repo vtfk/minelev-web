@@ -88,10 +88,10 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
     const json = serializeForm(data)
-    // filterer ut alle kompetansemål fra tilbakemeldingen
+
     const evalueringsdata = {}
     Object.keys(json)
-      .filter(key => !key.startsWith('kompetansemaal'))
+      .filter(key => !key.startsWith('kompetansemaal')) // filterer ut alle kompetansemål
       .reduce((data, key) => {
         try {
           data[key] = JSON.parse(json[key])
@@ -109,6 +109,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
         evalueringsdata[evalName][prop] = data[key]
         return data
       }, {})
+
     const kompetansemal = Object.keys(json)
       .filter(key => key.startsWith('kompetansemaal'))
       .reduce((array, key) => {
@@ -118,18 +119,29 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
         array.push({ ...maalInnhold, tilbakemelding })
         return array
       }, [])
+
+    const fravar = {
+      dager: json.fravarDager,
+      timer: json.fravarTimer,
+      varslet: json.varsletFravar
+    }
+
     return {
       evalueringsdata,
-      kompetansemal
+      fravar,
+      kompetansemal,
+      utplassering
     }
   }
 
   function generateDocument (data) {
-    const { evalueringsdata, kompetansemal } = data || generateTilbakemeldingsdata()
+    const { evalueringsdata, fravar, kompetansemal, utplassering } = data || generateTilbakemeldingsdata()
     return createDocument({
       variant: 'tilbakemelding',
       student,
       content: {
+        utplassering,
+        fravar,
         evalueringsdata,
         kompetansemal
       }
@@ -167,7 +179,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
       })
       jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
       await Promise.all(jobs)
-      const document = generateDocument({ evalueringsdata, kompetansemal })
+      const document = generateDocument({ evalueringsdata, kompetansemal, utplassering })
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Tilbakemeldingen er lagret.')
       props.onFinished(cleanupState)
