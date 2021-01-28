@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { generateErrorObject, generateResponseObject } from './handlers'
 import { CURRENT_USER, DOCUMENTS, STUDENTS, TEACHERS, getRandomObjectId } from './mock-data'
 
@@ -90,9 +91,23 @@ export const newDocument = (studentId, type, variant, content) => {
   }
 }
 
-export const getDocumentPreview = (document, language) => {
-  console.log(document)
+export const getDocumentPreview = async (document, language) => {
   const { type, variant } = document
+  try {
+    const { data } = await axios.post('https://api.vtfk.no/pdf/v1/generate', {
+      system: 'minelev',
+      template: `${type}/${variant}`,
+      language: language || 'nb',
+      data: {
+        preview: true,
+        ...document
+      }
+    })
+
+    return data
+  } catch (error) {
+    console.error(error)
+  }
 
   return {
     data: {
