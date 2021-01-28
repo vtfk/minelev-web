@@ -88,13 +88,28 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     const form = document.getElementById('review-form')
     const data = new FormData(form)
     const json = serializeForm(data)
-    // filterer ut alle kompetansemål fra tilbakemeldingen
-    const evalueringsdata = Object.keys(json)
-      .filter(key => !key.startsWith('kompetansemaal'))
+
+    const evalueringsdata = {}
+    Object.keys(json)
+      .filter(key => !key.startsWith('kompetansemaal')) // filterer ut alle kompetansemål
       .reduce((data, key) => {
-        data[key] = json[key]
+        try {
+          data[key] = JSON.parse(json[key])
+        } catch (error) {
+          data[key] = json[key]
+        }
+
+        const evalKeySplit = key.split('-')
+        const evalType = evalKeySplit.shift()
+        const evalName = evalKeySplit.join('-')
+        if (evalName === '' || evalType === '') return data
+        if (!evalueringsdata[evalName]) evalueringsdata[evalName] = {}
+        const prop = `${evalType}`.endsWith('score') ? 'score' : 'title'
+
+        evalueringsdata[evalName][prop] = data[key]
         return data
       }, {})
+
     const kompetansemal = Object.keys(json)
       .filter(key => key.startsWith('kompetansemaal'))
       .reduce((array, key) => {
@@ -104,18 +119,29 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
         array.push({ ...maalInnhold, tilbakemelding })
         return array
       }, [])
+
+    const fravar = {
+      dager: json.fravarDager,
+      timer: json.fravarTimer,
+      varslet: json.varsletFravar
+    }
+
     return {
       evalueringsdata,
-      kompetansemal
+      fravar,
+      kompetansemal,
+      utplassering
     }
   }
 
   function generateDocument (data) {
-    const { evalueringsdata, kompetansemal } = data || generateTilbakemeldingsdata()
+    const { evalueringsdata, fravar, kompetansemal, utplassering } = data || generateTilbakemeldingsdata()
     return createDocument({
       variant: 'tilbakemelding',
       student,
       content: {
+        utplassering,
+        fravar,
         evalueringsdata,
         kompetansemal
       }
@@ -129,7 +155,6 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   async function openPreview () {
     if (submitting) return
     if (validate()) return
-    if (!validate()) return // TODO: Fjern når validering er i boks
 
     const document = await generateDocument()
     openPreviewModal(document)
@@ -142,7 +167,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     if (validate()) return
     setSubmitting(true)
 
-    const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
+    const { evalueringsdata, fravar, kompetansemal } = generateTilbakemeldingsdata()
     const tilbakemeldingsUrl = `${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`
     try {
       // oppdaterer alle mål med tilbakemeldinger
@@ -154,7 +179,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
       })
       jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
       await Promise.all(jobs)
-      const document = generateDocument({ evalueringsdata, kompetansemal })
+      const document = generateDocument({ evalueringsdata, fravar, kompetansemal, utplassering })
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Tilbakemeldingen er lagret.')
       props.onFinished(cleanupState)

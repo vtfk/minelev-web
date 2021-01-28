@@ -168,10 +168,13 @@ export const handlers = [
     )
   }),
 
-  rest.post(`${API.URL}/documents/preview`, (req, res, ctx) => {
+  rest.post(`${API.URL}/documents/preview`, async (req, res, ctx) => {
     // @ts-ignore
     const lang = req.url.searchParams.get('language')
-    const preview = getDocumentPreview(req.body, lang)
+    const { type, student, variant, content } = req.body
+    const documents = newDocument(student.username, type, variant, content)
+
+    const preview = await getDocumentPreview(documents, lang)
     return res(
       ctx.status(200),
       ctx.json(preview)
