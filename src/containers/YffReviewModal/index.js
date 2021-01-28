@@ -155,7 +155,6 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   async function openPreview () {
     if (submitting) return
     if (validate()) return
-    if (!validate()) return // TODO: Fjern når validering er i boks
 
     const document = await generateDocument()
     openPreviewModal(document)
