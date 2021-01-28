@@ -36,7 +36,6 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [utdanningsprogram, setUtdanningsprogram] = useState()
   const [programomraade, setProgramomraade] = useState()
 
-  const [kompetansemaal, setKompetansemaal] = useState()
   const [utplasseringer, setUtplasseringer] = useState([])
   const [triggerSaveMaal, setTriggerSaveMaal] = useState()
   const [refreshLaereplan, setRefreshLaereplan] = useState()
@@ -51,7 +50,6 @@ export function YffCurriculumModal ({ student, ...props }) {
     setKlassetrinn(null)
     setUtdanningsprogram(null)
     setProgramomraade(null)
-    setKompetansemaal(false)
     setUtplasseringer([])
     setTriggerSaveMaal(false)
     setFormState({})
