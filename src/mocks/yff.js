@@ -205,8 +205,8 @@ const utplassering = [
       }
     ],
     utplasseringData: {
-      startDato: '19. august 2019',
-      sluttDato: '20. oktober 2019',
+      fraDato: '19.07.2019',
+      tilDato: '20.09.2019',
       daysPerWeek: '3',
       startTid: '07:30',
       sluttTid: '15:00',
