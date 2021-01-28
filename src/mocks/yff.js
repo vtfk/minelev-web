@@ -169,7 +169,6 @@ const utplassering = [
   {
     _id: '5d7f29d059e31d0007cc9ff5',
     type: 'utplassering',
-    sted: 'bedrift',
     created: {
       timeStamp: 1568615152589,
       createdBy: 'arv1204'
@@ -180,7 +179,7 @@ const utplassering = [
         modifiedBy: 'arv1204'
       }
     ],
-    studentUserName: 'fer0804',
+    student: 'fer0804',
     bedriftsNavn: 'NOTODDEN KOMMUNE BY/HEDDAL HJEMMETJENESTE',
     bedriftsData: {
       organisasjonsNummer: '976825063',
