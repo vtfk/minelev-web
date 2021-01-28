@@ -8,10 +8,8 @@ function Kontaktperson (props) {
   )
 }
 
-function Details (props) {
-  if (!props || !props.utplassering) return null
-  const { utplassering } = props
-  console.log(utplassering)
+function Details ({ utplassering }) {
+  if (!utplassering) return null
   const { bedriftsData, kontaktpersonData } = utplassering
 
   return (
