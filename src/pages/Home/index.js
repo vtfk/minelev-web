@@ -8,7 +8,7 @@ import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
 import ClassPanel from '../../components/class-panel'
-import { Heading1, Heading2, Heading3, Paragraph, Link } from '../../_lib-components/Typography'
+import { Heading1, Heading2, Heading3, Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
 import { Icon } from '../../_lib-components/Icon'
@@ -31,6 +31,7 @@ export function Home () {
   const [conversations, setConversations] = useState([])
   const [notes, setNotes] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   const { apiGet } = useSession()
 
@@ -46,7 +47,10 @@ export function Home () {
 
   async function getDocuments () {
     const docs = await apiGet(API.URL + '/documents')
-    if (!docs.data) return
+    setLoading(false)
+
+    if (docs === false) setError(<>Det skjedde noe galt under innhenting av dine siste aktiviter.<br />Forsøk å laste inn siden på nytt. Kontakt systemansvarlig dersom problemene dine vedvarer.</>)
+    if (!docs.data || docs.data.length === 0) return
 
     const lastModifiedDocuments = [...docs.data].sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
     const docsVarsler = lastModifiedDocuments.filter((item) => item.type === 'varsel')
@@ -57,8 +61,6 @@ export function Home () {
     setVarsler(docsVarsler)
     setConversations(docsConversations)
     setNotes(docsNotes)
-
-    setLoading(false)
   }
 
   useEffect(() => {
@@ -127,7 +129,11 @@ export function Home () {
               )
             })
           }
-
+          {
+            !loading &&
+            error &&
+              <ErrorMessage>{error}</ErrorMessage>
+          }
           {
             !loading &&
             documents && [...documents].splice(0, 5).map(function (doc, index) {
@@ -164,8 +170,8 @@ export function Home () {
             })
           }
           {
-            !loading && !documents &&
-              <Paragraph>Ingen aktiviteter funnet for deg eller dine elever!</Paragraph>
+            !loading && !error && documents && documents.length === 0 &&
+              <Paragraph style={{ fontStyle: 'italic', color: 'grey' }}>Fant ingen aktiviteter for noen av elevene dine</Paragraph>
           }
         </ClassPanel>
 

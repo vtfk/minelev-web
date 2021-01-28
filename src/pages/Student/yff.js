@@ -26,14 +26,14 @@ function Yff ({ student, fetcher }) {
     setUtplasseringer(utenTilbakemelding)
   }
 
-  function Utplassering ({ _id: id, bedriftsData, utplasseringData }) {
+  function Utplassering ({ _id: id, bedriftsData, ...utplasseringData }) {
     const { navn } = bedriftsData
-    const { startDato, sluttDato } = utplasseringData
+    const { fraDato, tilDato } = utplasseringData
     return (
       <CardLink className='action-link' onClick={() => { openReviewModal(id) }}>
         Tilbakemelding på utplassering<br />
         <Paragraph size='small'>{navn}</Paragraph>
-        <Paragraph size='small'>{startDato} - {sluttDato}</Paragraph>
+        <Paragraph size='small'>{fraDato} - {tilDato}</Paragraph>
       </CardLink>
     )
   }
