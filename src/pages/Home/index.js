@@ -49,7 +49,7 @@ export function Home () {
     const docs = await apiGet(API.URL + '/documents')
     setLoading(false)
 
-    if (docs === false) setError('Det skjedde noe galt under innhenting av siste aktiviter...')
+    if (docs === false) setError(<>Det skjedde noe galt under innhenting av dine siste aktiviter.<br />Forsøk å laste inn siden på nytt. Kontakt systemansvarlig dersom problemene dine vedvarer.</>)
     if (!docs.data || docs.data.length === 0) return
 
     const lastModifiedDocuments = [...docs.data].sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
@@ -170,7 +170,7 @@ export function Home () {
             })
           }
           {
-            !loading && documents && documents.length === 0 &&
+            !loading && !error && documents && documents.length === 0 &&
               <Paragraph style={{ fontStyle: 'italic', color: 'grey' }}>Fant ingen aktiviteter for noen av elevene dine</Paragraph>
           }
         </ClassPanel>
