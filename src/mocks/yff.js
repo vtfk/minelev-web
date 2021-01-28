@@ -204,14 +204,12 @@ const utplassering = [
         telefon: '98765432'
       }
     ],
-    utplasseringData: {
-      fraDato: '19.07.2019',
-      tilDato: '20.09.2019',
-      daysPerWeek: '3',
-      startTid: '07:30',
-      sluttTid: '15:00',
-      oppmotested: 'Sauheradvegen'
-    },
+    fraDato: '19.07.2019',
+    tilDato: '20.09.2019',
+    daysPerWeek: '3',
+    startTid: '07:30',
+    sluttTid: '15:00',
+    oppmotested: 'Sauheradvegen',
     tilbakemelding: false
   }
 ]
