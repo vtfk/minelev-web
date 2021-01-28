@@ -20,6 +20,8 @@ function useGrep (fetcher) {
 
   React.useEffect(() => {
     async function queryGrep (query) {
+      if (query === false) return
+
       const url = `${API.URL}/utdanningsprogrammer/${query}`
       const data = await fetcher(url)
       if (data && query === '') {
