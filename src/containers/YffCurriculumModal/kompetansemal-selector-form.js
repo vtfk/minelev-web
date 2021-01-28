@@ -49,6 +49,7 @@ function KompetansemalVelger (props) {
 
   useEffect(() => {
     if (triggerSaveMaal === true && selectedMaal.length > 0) {
+      console.log('triggered')
       sendForm()
     }
   }, [triggerSaveMaal])

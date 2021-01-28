@@ -102,7 +102,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   function handleAvslutt () {
-    if (kompetansemaal) {
+    if (formState.kompetansemaal) {
       setTriggerSaveMaal(true)
       setTimeout(() => {
         props.onDismiss(cleanupState)
@@ -114,7 +114,6 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   const validate = () => {
     const formErrors = validateForm(validators, { laereplan })
-    console.log(formErrors)
     setErrors(formErrors)
     return !!formErrors
   }
