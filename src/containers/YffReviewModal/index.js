@@ -168,7 +168,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     if (validate()) return
     setSubmitting(true)
 
-    const { evalueringsdata, kompetansemal } = generateTilbakemeldingsdata()
+    const { evalueringsdata, fravar, kompetansemal } = generateTilbakemeldingsdata()
     const tilbakemeldingsUrl = `${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`
     try {
       // oppdaterer alle mål med tilbakemeldinger
@@ -180,7 +180,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
       })
       jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
       await Promise.all(jobs)
-      const document = generateDocument({ evalueringsdata, kompetansemal, utplassering })
+      const document = generateDocument({ evalueringsdata, fravar, kompetansemal, utplassering })
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Tilbakemeldingen er lagret.')
       props.onFinished(cleanupState)
