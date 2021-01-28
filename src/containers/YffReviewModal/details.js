@@ -10,11 +10,11 @@ function Kontaktperson (props) {
 
 function Details ({ utplassering }) {
   if (!utplassering) return null
-  const { bedriftsData, kontaktpersonData } = utplassering
+  const { bedriftsNavn, kontaktpersonData } = utplassering
   return (
     <div className='text-wrapper'>
       <Heading3 className='name'>
-        {bedriftsData.navn}
+        {bedriftsNavn}
       </Heading3>
       <div className='other'>
         <Paragraph>{utplassering.fraDato} - {utplassering.tilDato}{utplassering.daysPerWeek ? ` (${utplassering.daysPerWeek} dager i uken)` : ''}</Paragraph>
