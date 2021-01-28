@@ -26,6 +26,7 @@ import UtplasseringSelector from './utplassering-selector'
 import './styles.scss'
 import { validateForm } from '../../lib/form-validation'
 import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { repackLaereplan } from '../../lib/repack-yff-laereplan'
 
 export function YffCurriculumModal ({ student, ...props }) {
   const { apiDelete, apiGet, apiPost } = useSession()
@@ -145,11 +146,12 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   async function generateDocument () {
     const { data: maal } = await apiGet(`${API.URL}/yff/${student.id}/maal`)
+    const repacked = repackLaereplan(maal)
     return createDocument({
       variant: 'laereplan',
       student,
       content: {
-        maal
+        utplasseringer: repacked
       }
     })
   }
