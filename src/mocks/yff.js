@@ -169,7 +169,6 @@ const utplassering = [
   {
     _id: '5d7f29d059e31d0007cc9ff5',
     type: 'utplassering',
-    sted: 'bedrift',
     created: {
       timeStamp: 1568615152589,
       createdBy: 'arv1204'
@@ -180,7 +179,7 @@ const utplassering = [
         modifiedBy: 'arv1204'
       }
     ],
-    studentUserName: 'fer0804',
+    student: 'fer0804',
     bedriftsNavn: 'NOTODDEN KOMMUNE BY/HEDDAL HJEMMETJENESTE',
     bedriftsData: {
       organisasjonsNummer: '976825063',
@@ -204,14 +203,12 @@ const utplassering = [
         telefon: '98765432'
       }
     ],
-    utplasseringData: {
-      startDato: '19. august 2019',
-      sluttDato: '20. oktober 2019',
-      daysPerWeek: '3',
-      startTid: '07:30',
-      sluttTid: '15:00',
-      oppmotested: 'Sauheradvegen'
-    },
+    fraDato: '19.07.2019',
+    tilDato: '20.09.2019',
+    daysPerWeek: '3',
+    startTid: '07:30',
+    sluttTid: '15:00',
+    oppmotested: 'Sauheradvegen',
     tilbakemelding: false
   }
 ]
