@@ -10,6 +10,7 @@ function Kontaktperson (props) {
 
 function Details ({ utplassering }) {
   if (!utplassering) return null
+  console.log(utplassering)
   const { bedriftsNavn, kontaktpersonData } = utplassering
   return (
     <div className='text-wrapper'>
