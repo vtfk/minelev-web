@@ -89,24 +89,10 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     const data = new FormData(form)
     const json = serializeForm(data)
     // filterer ut alle kompetansemål fra tilbakemeldingen
-    const evalueringsdata = {}
-    Object.keys(json)
+    const evalueringsdata = Object.keys(json)
       .filter(key => !key.startsWith('kompetansemaal'))
       .reduce((data, key) => {
-        try {
-          data[key] = JSON.parse(json[key])
-        } catch (error) {
-          data[key] = json[key]
-        }
-
-        const evalKeySplit = key.split('-')
-        const evalType = evalKeySplit.shift()
-        const evalName = evalKeySplit.join('-')
-        if (evalName === '' || evalType === '') return data
-        if (!evalueringsdata[evalName]) evalueringsdata[evalName] = {}
-        const prop = `${evalType}`.endsWith('score') ? 'score' : 'title'
-
-        evalueringsdata[evalName][prop] = data[key]
+        data[key] = json[key]
         return data
       }, {})
     const kompetansemal = Object.keys(json)
@@ -143,6 +129,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   async function openPreview () {
     if (submitting) return
     if (validate()) return
+    if (!validate()) return // TODO: Fjern når validering er i boks
 
     const document = await generateDocument()
     openPreviewModal(document)
