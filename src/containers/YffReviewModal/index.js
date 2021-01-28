@@ -67,7 +67,8 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     async function getUtplassering () {
       try {
         const { data } = await apiGet(`${API.URL}/yff/${studentID}/utplassering/${utplasseringsId}`)
-        setUtplassering(data)
+        if (!data || data.length === 0) throw new Error('Klarte ikke å hente utplassering')
+        setUtplassering(data[0])
       } catch (error) {
         logError(error)
       }

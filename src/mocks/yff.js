@@ -283,10 +283,8 @@ module.exports = params => {
       maal: maal,
       utplasseringer: utplassering
     }
-  } else if ((student && type) && !id) {
-    return data[type]
   } else {
-    return data[type][0]
+    return data[type]
   }
 }
 
