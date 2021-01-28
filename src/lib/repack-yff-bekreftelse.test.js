@@ -1,4 +1,4 @@
-import repackBekreftelse from './repack-bekreftelse'
+import repackBekreftelse from './repack-yff-bekreftelse'
 import bekreftelse from '../mocks/bekreftelse-raw-data-form.json'
 const company = {
   forradrland: 'Norge',
