@@ -178,7 +178,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
         const url = `${kompetanseMaalUrl}/${_id}`
         return apiPut(url, { tilbakemelding })
       })
-      jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata }))
+      jobs.push(apiPut(tilbakemeldingsUrl, { tilbakemelding: evalueringsdata, fravar }))
       await Promise.all(jobs)
       const document = generateDocument({ evalueringsdata, fravar, kompetansemal, utplassering })
       await apiPost(`${API.URL}/documents`, document)
