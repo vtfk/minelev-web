@@ -10,6 +10,7 @@ import { API } from '../../config/app'
 import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Button } from '../../_lib-components/Button'
+import { Spinner } from '../../_lib-components/Spinner'
 
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
@@ -101,13 +102,14 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   function handleAvslutt () {
+    setSaving(true)
     if (formState.kompetansemaal) {
-      setSaving(true)
       setTriggerSaveMaal(true)
       setTimeout(() => {
         setSaving(false)
-        props.onDismiss(cleanupState)
       }, 1000)
+    } else {
+      setSaving(false)
     }
   }
 
@@ -229,7 +231,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             }
           </div>
           <div className='action'>
-            <Link onClick={handleAvslutt}>Lagre</Link>
+            {saving ? <Spinner size='small' /> : <Link onClick={() => handleAvslutt()}>Lagre</Link>}
           </div>
           <div className='action'>
             <Link onClick={() => props.onDismiss(cleanupState)}>Avslutt</Link>
