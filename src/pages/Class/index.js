@@ -58,11 +58,11 @@ export function Class ({ match, ...props }) {
 
         {
           // Undervisningsgrupper
-          ((!schoolClass || (schoolClass && schoolClass.type === 'undervisningsgruppe')) &&
+          (!error && (!schoolClass || (schoolClass && schoolClass.type === 'undervisningsgruppe')) &&
             <Undervisningsgruppe group={schoolClass} documents={documents} />) ||
 
           // Basisgrupper
-          (schoolClass && schoolClass.type === 'basisgruppe' &&
+          (!error && schoolClass && schoolClass.type === 'basisgruppe' &&
             <Basisgruppe group={schoolClass} documents={documents} conversations={conversations} notes={notes} />) ||
 
           // Ukjent gruppetype
@@ -75,7 +75,7 @@ export function Class ({ match, ...props }) {
               <ClassCard group={{ name: decodeURIComponent(id) }} />
               <Paragraph className='error-message'>
                 Du har ikke tilgang til klasseoversikten for denne klassen!<br />
-                Dersom du mener dette er feil, ta kontakt systemansvarlig ved din skole for å få rettet opp i feilen.
+                Dersom du mener dette er feil, ta kontakt med Extensansvarlig på skolen din.
               </Paragraph>
 
               <Heading4 as='h2'>Er du faglærer for denne klassen?</Heading4>
