@@ -44,7 +44,8 @@ function KompetansemalVelger (props) {
     setRefreshLaereplan,
     triggerSaveMaal,
     onMaalChange,
-    showError
+    showError,
+    setSaving
   } = props
 
   useEffect(() => {
@@ -99,7 +100,9 @@ function KompetansemalVelger (props) {
       return list
     }, [])
     const url = `${API.URL}/yff/${selectedStudentId}/maal`
+    setSaving(true)
     await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
+    setSaving(false)
     if (!triggerSaveMaal) {
       setRefreshLaereplan(true)
     }

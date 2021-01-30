@@ -102,12 +102,8 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   function handleSave () {
-    setSaving(true)
     if (formState.kompetansemaal) {
       setTriggerSaveMaal(true)
-      setTimeout(() => {
-        setSaving(false)
-      }, 1000)
     } else {
       setSaving(false)
     }
@@ -199,6 +195,7 @@ export function YffCurriculumModal ({ student, ...props }) {
                 setTriggerSaveMaal={setTriggerSaveMaal}
                 setRefreshLaereplan={setRefreshLaereplan}
                 onMaalChange={maal => handleChange(maal || null, 'maal')}
+                setSaving={setSaving}
               />
             </div>
 
