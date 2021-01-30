@@ -44,6 +44,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [formState, setFormState] = useState({})
   const [errors, setErrors] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [saving, setSaving] = useState(false)
   const isOpen = props.open
 
   function cleanupState () {
@@ -100,14 +101,12 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   function handleAvslutt () {
-    if (formState.kompetansemaal) {
-      setTriggerSaveMaal(true)
-      setTimeout(() => {
-        props.onDismiss(cleanupState)
-      }, 1000)
-    } else {
+    setSaving(true)
+    setTriggerSaveMaal(true)
+    setTimeout(() => {
+      setSaving(false)
       props.onDismiss(cleanupState)
-    }
+    }, 1000)
   }
 
   const validate = () => {
