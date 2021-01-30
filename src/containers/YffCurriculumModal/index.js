@@ -228,7 +228,10 @@ export function YffCurriculumModal ({ student, ...props }) {
             }
           </div>
           <div className='action'>
-            <Link onClick={handleAvslutt}>Lagre og lukk</Link>
+            <Link onClick={handleAvslutt}>Lagre</Link>
+          </div>
+          <div className='action'>
+            <Link onClick={() => props.onDismiss(cleanupState)}>Avslutt</Link>
           </div>
         </ModalSideActions>
       </Modal>
