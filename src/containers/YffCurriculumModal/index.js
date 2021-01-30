@@ -101,7 +101,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     setFormState(newState)
   }
 
-  function handleAvslutt () {
+  function handleSave () {
     setSaving(true)
     if (formState.kompetansemaal) {
       setTriggerSaveMaal(true)
@@ -231,7 +231,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             }
           </div>
           <div className='action'>
-            {saving ? <Spinner size='small' /> : <Link onClick={() => handleAvslutt()}>Lagre</Link>}
+            {saving ? <Spinner size='small' /> : <Link onClick={() => handleSave()}>Lagre</Link>}
           </div>
           <div className='action'>
             <Link onClick={() => props.onDismiss(cleanupState)}>Avslutt</Link>
