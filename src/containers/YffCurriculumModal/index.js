@@ -101,12 +101,14 @@ export function YffCurriculumModal ({ student, ...props }) {
   }
 
   function handleAvslutt () {
-    setSaving(true)
-    setTriggerSaveMaal(true)
-    setTimeout(() => {
-      setSaving(false)
-      props.onDismiss(cleanupState)
-    }, 1000)
+    if (formState.kompetansemaal) {
+      setSaving(true)
+      setTriggerSaveMaal(true)
+      setTimeout(() => {
+        setSaving(false)
+        props.onDismiss(cleanupState)
+      }, 1000)
+    }
   }
 
   const validate = () => {
