@@ -56,7 +56,7 @@ function KompetansemalVelger (props) {
     }
   }, [triggerSaveMaal])
 
-  if (!kompetansemaal && Array.isArray(kompetansemaal) && kompetansemaal.length === 0) {
+  if (!kompetansemaal || (Array.isArray(kompetansemaal) && kompetansemaal.length === 0)) {
     return null
   }
 
