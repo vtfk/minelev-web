@@ -10,7 +10,6 @@ import { API } from '../../config/app'
 import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Button } from '../../_lib-components/Button'
-import { Spinner } from '../../_lib-components/Spinner'
 
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
@@ -228,7 +227,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             }
           </div>
           <div className='action'>
-            {saving ? <Spinner size='small' /> : <Link onClick={() => handleSave()}>Lagre</Link>}
+            <Link spinner={saving} onClick={() => handleSave()}>Lagre</Link>
           </div>
           <div className='action'>
             <Link onClick={() => props.onDismiss(cleanupState)}>Avslutt</Link>
