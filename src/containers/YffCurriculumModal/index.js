@@ -10,6 +10,7 @@ import { API } from '../../config/app'
 import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Button } from '../../_lib-components/Button'
+import { Spinner } from '../../_lib-components/Spinner'
 
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
@@ -44,6 +45,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [formState, setFormState] = useState({})
   const [errors, setErrors] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [saving, setSaving] = useState(false)
   const isOpen = props.open
 
   function cleanupState () {
@@ -99,14 +101,11 @@ export function YffCurriculumModal ({ student, ...props }) {
     setFormState(newState)
   }
 
-  function handleAvslutt () {
+  function handleSave () {
     if (formState.kompetansemaal) {
       setTriggerSaveMaal(true)
-      setTimeout(() => {
-        props.onDismiss(cleanupState)
-      }, 1000)
     } else {
-      props.onDismiss(cleanupState)
+      setSaving(false)
     }
   }
 
@@ -196,6 +195,7 @@ export function YffCurriculumModal ({ student, ...props }) {
                 setTriggerSaveMaal={setTriggerSaveMaal}
                 setRefreshLaereplan={setRefreshLaereplan}
                 onMaalChange={maal => handleChange(maal || null, 'maal')}
+                setSaving={setSaving}
               />
             </div>
 
@@ -228,7 +228,10 @@ export function YffCurriculumModal ({ student, ...props }) {
             }
           </div>
           <div className='action'>
-            <Link onClick={handleAvslutt}>Lagre og lukk</Link>
+            {saving ? <Spinner size='small' /> : <Link onClick={() => handleSave()}>Lagre</Link>}
+          </div>
+          <div className='action'>
+            <Link onClick={() => props.onDismiss(cleanupState)}>Avslutt</Link>
           </div>
         </ModalSideActions>
       </Modal>
