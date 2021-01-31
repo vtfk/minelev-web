@@ -98,7 +98,7 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   useEffect(() => {
     if (saveState === 'success') {
-      successMessage('Lokal læreplan er lagret')
+      successMessage('👍', 'Lokal læreplan er lagret')
     }
     if (saveState === 'fail') {
       errorMessage('Lokal lærplan ble ikke lagret', 'Prøv igjen og kontakt systemadministrator om det fortsatt ikke fungerer')
@@ -115,7 +115,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     if (formState.kompetansemaal) {
       setTriggerSaveMaal(true)
     } else {
-      successMessage('Ikke noe å lagre')
+      successMessage('👍', 'Ikke noe å lagre')
       setSaving(false)
     }
   }
