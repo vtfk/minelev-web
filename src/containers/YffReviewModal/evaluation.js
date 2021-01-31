@@ -4,6 +4,10 @@ import { evaluation } from '../../data/yff.json'
 import { useEffect, useState } from 'react'
 import { ErrorMessage } from '../../_lib-components/Typography'
 
+function validate (evaluation, selected) {
+  return !selected || !evaluation ? false : evaluation.length === Object.keys(selected).length
+}
+
 const scores = [
   {
     description: 'Under forventet',
@@ -50,7 +54,13 @@ function Evaluation ({ showError, onError }) {
   const [selected, setSelected] = useState({})
 
   useEffect(() => {
-    // TODO: Trigge onError når det er noe feil
+    if (showError) {
+      onError(!validate(evaluation, selected))
+    }
+  }, [showError])
+
+  useEffect(() => {
+    onError(!validate(evaluation, selected))
   }, [selected])
 
   const handleChange = (item, select) => {

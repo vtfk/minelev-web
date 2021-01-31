@@ -83,6 +83,11 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     setUtplassering(false)
     setMaal(false)
     setSubmitting(false)
+    setHasSubmitted(false)
+    setReviewHasErrors(false)
+    setEvaluationHasErrors(false)
+    setAttitudeHasErrors(false)
+    setAbsenceHasErrors(false)
   }
 
   function generateTilbakemeldingsdata () {
@@ -155,7 +160,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
 
   async function openPreview () {
     if (submitting) return
-    if (validate()) return
+    if (!validate()) return
 
     const document = await generateDocument()
     openPreviewModal(document)
@@ -165,7 +170,7 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     setHasSubmitted(true)
 
     if (submitting) return
-    if (validate()) return
+    if (!validate()) return
     setSubmitting(true)
 
     const { evalueringsdata, fravar, kompetansemal } = generateTilbakemeldingsdata()
