@@ -46,17 +46,15 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [submitting, setSubmitting] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saveState, setSaveState] = useState(false)
-  const [reset, setReset] = useState(false)
   const isOpen = props.open
 
   function cleanupState () {
-    setKlassetrinn(null)
-    setUtdanningsprogram(null)
-    setProgramomraade(null)
+    setKlassetrinn(false)
+    setUtdanningsprogram(false)
+    setProgramomraade(false)
     setTriggerSaveMaal(false)
     setFormState({})
     setSubmitting(false)
-    setReset(true)
   }
 
   const validators = {
@@ -194,8 +192,6 @@ export function YffCurriculumModal ({ student, ...props }) {
                 setUtdanningsprogram={setUtdanningsprogram}
                 setProgramomraade={setProgramomraade}
                 setKompetansemaal={kompetansemaal => handleChange(kompetansemaal, 'kompetansemaal')}
-                reset={reset}
-                setReset={setReset}
               />
               <KompetansemalSelectorForm
                 utplassering={formState.utplassering}

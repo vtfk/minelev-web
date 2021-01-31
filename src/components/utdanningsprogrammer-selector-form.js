@@ -83,7 +83,7 @@ function Utdanningsprogrammer ({ data, setQuery, setUtdanningsprogram, showError
   )
 }
 
-function UtdanningsprogrammerSelectorForm ({ fetcher, setKompetansemaal, setKlassetrinn, setUtdanningsprogram, setProgramomraade, showError, startOpen, reset, setReset }) {
+function UtdanningsprogrammerSelectorForm ({ fetcher, setKompetansemaal, setKlassetrinn, setUtdanningsprogram, setProgramomraade, showError, startOpen }) {
   const [selectedKlassetrinn, setSelectedKlassetrinn] = useState()
   const {
     utdanningsprogrammer,
@@ -99,16 +99,6 @@ function UtdanningsprogrammerSelectorForm ({ fetcher, setKompetansemaal, setKlas
     setQuery('')
   }, [])
 
-  useEffect(() => {
-    if (reset) {
-      console.log('vi resetter')
-      setSelectedKlassetrinn(false)
-      setQuery('')
-      if (setReset && typeof setReset === 'function') {
-        setReset(false)
-      }
-    }
-  }, [reset])
   const getError = (type) => `Du må velge ${type} du vil hente kompetansemål fra`
 
   return (
