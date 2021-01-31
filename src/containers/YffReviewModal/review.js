@@ -3,6 +3,10 @@ import { nanoid } from 'nanoid'
 import { RadioButton } from '../../_lib-components/RadioButton'
 import { ErrorMessage } from '../../_lib-components/Typography'
 
+function validate (maal, selected) {
+  return maal.length === Object.keys(selected).length
+}
+
 const scores = [
   {
     description: 'Lav måloppnåelse',
@@ -53,7 +57,13 @@ function Review ({ maal, showError, onError }) {
   const [selected, setSelected] = useState({})
 
   useEffect(() => {
-    // TODO: Trigge onError når det er noe feil
+    if (showError) {
+      onError(!validate(maal, selected))
+    }
+  }, [showError])
+
+  useEffect(() => {
+    onError(!validate(maal, selected))
   }, [selected])
 
   const handleChange = (item, select) => {
