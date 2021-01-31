@@ -53,7 +53,6 @@ export function YffCurriculumModal ({ student, ...props }) {
     setKlassetrinn(null)
     setUtdanningsprogram(null)
     setProgramomraade(null)
-    setUtplasseringer([])
     setTriggerSaveMaal(false)
     setFormState({})
     setSubmitting(false)

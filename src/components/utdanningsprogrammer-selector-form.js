@@ -101,6 +101,7 @@ function UtdanningsprogrammerSelectorForm ({ fetcher, setKompetansemaal, setKlas
 
   useEffect(() => {
     if (reset) {
+      console.log('vi resetter')
       setSelectedKlassetrinn(false)
       setQuery('')
       if (setReset && typeof setReset === 'function') {
