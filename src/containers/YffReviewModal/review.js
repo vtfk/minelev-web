@@ -4,7 +4,7 @@ import { RadioButton } from '../../_lib-components/RadioButton'
 import { ErrorMessage } from '../../_lib-components/Typography'
 
 function validate (maal, selected) {
-  return maal.length === Object.keys(selected).length
+  return !selected || !maal ? false : maal.length === Object.keys(selected).length
 }
 
 const scores = [
