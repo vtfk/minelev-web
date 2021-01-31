@@ -10,7 +10,6 @@ import { API } from '../../config/app'
 import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Button } from '../../_lib-components/Button'
-import { Spinner } from '../../_lib-components/Spinner'
 
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
@@ -46,13 +45,13 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [errors, setErrors] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [saveState, setSaveState] = useState(false)
   const isOpen = props.open
 
   function cleanupState () {
-    setKlassetrinn(null)
-    setUtdanningsprogram(null)
-    setProgramomraade(null)
-    setUtplasseringer([])
+    setKlassetrinn(false)
+    setUtdanningsprogram(false)
+    setProgramomraade(false)
     setTriggerSaveMaal(false)
     setFormState({})
     setSubmitting(false)
@@ -96,6 +95,16 @@ export function YffCurriculumModal ({ student, ...props }) {
     if (errors.laereplan) validate()
   }, [laereplan])
 
+  useEffect(() => {
+    if (saveState === 'success') {
+      successMessage('👍', 'Lokal læreplan er lagret')
+    }
+    if (saveState === 'fail') {
+      errorMessage('Lokal lærplan ble ikke lagret', 'Prøv igjen og kontakt systemadministrator om det fortsatt ikke fungerer')
+    }
+    setSaveState(false)
+  }, [saveState])
+
   const handleChange = (value, name) => {
     const newState = { ...formState, [name]: value }
     setFormState(newState)
@@ -105,6 +114,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     if (formState.kompetansemaal) {
       setTriggerSaveMaal(true)
     } else {
+      successMessage('👍', 'Ikke noe å lagre')
       setSaving(false)
     }
   }
@@ -196,6 +206,7 @@ export function YffCurriculumModal ({ student, ...props }) {
                 setRefreshLaereplan={setRefreshLaereplan}
                 onMaalChange={maal => handleChange(maal || null, 'maal')}
                 setSaving={setSaving}
+                setSaveState={setSaveState}
               />
             </div>
 
@@ -228,7 +239,7 @@ export function YffCurriculumModal ({ student, ...props }) {
             }
           </div>
           <div className='action'>
-            {saving ? <Spinner size='small' /> : <Link onClick={() => handleSave()}>Lagre</Link>}
+            <Link spinner={saving} onClick={() => handleSave()}>Lagre</Link>
           </div>
           <div className='action'>
             <Link onClick={() => props.onDismiss(cleanupState)}>Avslutt</Link>

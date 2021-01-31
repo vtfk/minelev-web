@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import { useEffect, useState } from 'react'
+import logError from '../../lib/log-error'
 import { SelectMultiple } from '../../_lib-components/Select'
 import { TextField } from '../../_lib-components/TextField'
 import { Icon } from '../../_lib-components/Icon'
@@ -45,7 +46,8 @@ function KompetansemalVelger (props) {
     triggerSaveMaal,
     onMaalChange,
     showError,
-    setSaving
+    setSaving,
+    setSaveState
   } = props
 
   useEffect(() => {
@@ -54,7 +56,7 @@ function KompetansemalVelger (props) {
     }
   }, [triggerSaveMaal])
 
-  if (!kompetansemaal) {
+  if (!kompetansemaal || (Array.isArray(kompetansemaal) && kompetansemaal.length === 0)) {
     return null
   }
 
@@ -101,13 +103,20 @@ function KompetansemalVelger (props) {
     }, [])
     const url = `${API.URL}/yff/${selectedStudentId}/maal`
     setSaving(true)
-    await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
-    setSaving(false)
-    if (!triggerSaveMaal) {
-      setRefreshLaereplan(true)
+    try {
+      await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
+      setSaving(false)
+      setSaveState('success')
+      if (!triggerSaveMaal) {
+        setRefreshLaereplan(true)
+      }
+      // nullstiller maal
+      setSelectedMaal([])
+    } catch (error) {
+      logError(error)
+      setSaving(false)
+      setSaveState('success')
     }
-    // nullstiller maal
-    setSelectedMaal([])
   }
 
   const SaveButton = () => {
