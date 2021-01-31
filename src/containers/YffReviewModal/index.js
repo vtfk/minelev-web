@@ -83,6 +83,11 @@ export function YffReviewModal ({ student, utplasseringsId, ...props }) {
     setUtplassering(false)
     setMaal(false)
     setSubmitting(false)
+    setHasSubmitted(false)
+    setReviewHasErrors(false)
+    setEvaluationHasErrors(false)
+    setAttitudeHasErrors(false)
+    setAbsenceHasErrors(false)
   }
 
   function generateTilbakemeldingsdata () {
