@@ -45,6 +45,7 @@ export function YffCurriculumModal ({ student, ...props }) {
   const [errors, setErrors] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [saveState, setSaveState] = useState(false)
   const isOpen = props.open
 
   function cleanupState () {
@@ -95,6 +96,16 @@ export function YffCurriculumModal ({ student, ...props }) {
     if (errors.laereplan) validate()
   }, [laereplan])
 
+  useEffect(() => {
+    if (saveState === 'success') {
+      successMessage('Lokal læreplan er lagret')
+    }
+    if (saveState === 'fail') {
+      errorMessage('Lokal lærplan ble ikke lagret', 'Prøv igjen og kontakt systemadministrator om det fortsatt ikke fungerer')
+    }
+    setSaveState(false)
+  }, [saveState])
+
   const handleChange = (value, name) => {
     const newState = { ...formState, [name]: value }
     setFormState(newState)
@@ -104,6 +115,7 @@ export function YffCurriculumModal ({ student, ...props }) {
     if (formState.kompetansemaal) {
       setTriggerSaveMaal(true)
     } else {
+      successMessage('Ikke noe å lagre')
       setSaving(false)
     }
   }
@@ -195,6 +207,7 @@ export function YffCurriculumModal ({ student, ...props }) {
                 setRefreshLaereplan={setRefreshLaereplan}
                 onMaalChange={maal => handleChange(maal || null, 'maal')}
                 setSaving={setSaving}
+                setSaveState={setSaveState}
               />
             </div>
 

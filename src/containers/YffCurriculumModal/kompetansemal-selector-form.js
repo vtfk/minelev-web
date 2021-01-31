@@ -45,7 +45,8 @@ function KompetansemalVelger (props) {
     triggerSaveMaal,
     onMaalChange,
     showError,
-    setSaving
+    setSaving,
+    setSaveState
   } = props
 
   useEffect(() => {
@@ -103,6 +104,7 @@ function KompetansemalVelger (props) {
     setSaving(true)
     await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
     setSaving(false)
+    setSaveState('success')
     if (!triggerSaveMaal) {
       setRefreshLaereplan(true)
     }
