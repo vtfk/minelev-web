@@ -11,7 +11,6 @@ import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import StudentTeacherCard from '../../components/student-teacher-card'
 
-
 import './styles.scss'
 import ErrorFallback from '../../components/yff-error-fallback'
 
@@ -57,7 +56,6 @@ export function PreviewDocumentModal ({ previewDoc, student, ...props }) {
       >
         <ModalBody>
           <StudentTeacherCard student={student} teacher={previewDoc.teacher} statuses={previewDoc.status} />
-
 
           <div className='form'>
             {

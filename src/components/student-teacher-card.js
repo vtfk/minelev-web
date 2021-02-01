@@ -26,8 +26,8 @@ function StudentTeacherCard ({ student, teacher, statuses, largeName, hideSchool
 
     return (
       <>
-        <Paragraph>{loading ? <SkeletonLoader width='160px' /> : DOCUMENTS.documentStatuses.find(status => status.id === 'sent').short.nb}: { sent ? <Moment locale='nb' format='DD. MMM YYYY - HH:mm'>{sent.timestamp}</Moment> : DOCUMENTS.documentStatuses.find(status => status.id === 'queued').short.nb }</Paragraph>
-        <Paragraph>{loading ? <SkeletonLoader width='180px' /> : DOCUMENTS.documentStatuses.find(status => status.id === 'archived').short.nb}: { archived ? <Moment locale='nb' format='DD. MMM YYYY - HH:mm'>{archived.timestamp}</Moment> : DOCUMENTS.documentStatuses.find(status => status.id === 'queued').short.nb }</Paragraph>
+        <Paragraph>{loading ? <SkeletonLoader width='160px' /> : DOCUMENTS.documentStatuses.find(status => status.id === 'sent').short.nb}: {sent ? <Moment locale='nb' format='DD. MMM YYYY - HH:mm'>{sent.timestamp}</Moment> : DOCUMENTS.documentStatuses.find(status => status.id === 'queued').short.nb}</Paragraph>
+        <Paragraph>{loading ? <SkeletonLoader width='180px' /> : DOCUMENTS.documentStatuses.find(status => status.id === 'archived').short.nb}: {archived ? <Moment locale='nb' format='DD. MMM YYYY - HH:mm'>{archived.timestamp}</Moment> : DOCUMENTS.documentStatuses.find(status => status.id === 'queued').short.nb}</Paragraph>
       </>
     )
   }
