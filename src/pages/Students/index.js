@@ -138,7 +138,7 @@ export function Students (props) {
                           <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{student.birthdate}</Moment></Paragraph>
                         </td>
                         <td>
-                          <Paragraph><Link href={`/${ROUTES.classes}/${student.classId}`}>{student.classShortId}</Link></Paragraph>
+                          <Paragraph><Link href={`/${ROUTES.classes}/${encodeURIComponent(student.classId)}`}>{student.classShortId}</Link></Paragraph>
                         </td>
                         <td>
                           <Paragraph>{student.schoolShortName}</Paragraph>
