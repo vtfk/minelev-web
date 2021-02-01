@@ -27,6 +27,7 @@ export const STUDENTS = [
     schoolShortName: 'Testen vgs',
     classId: 'TESVS:2STB',
     classShortId: '2STB',
+    level: 'VG2',
     programomraade: {
       kode: 'STSSA2----',
       type: 'studieforberedende',
@@ -275,6 +276,7 @@ export const STUDENTS = [
     schoolShortName: 'Testen vgs',
     classId: 'TESVS:2STB',
     classShortId: '2STB',
+    level: 'VG2',
     programomraade: {
       kode: 'STSSA2----',
       type: 'studieforberedende',
@@ -523,6 +525,7 @@ export const STUDENTS = [
     schoolShortName: 'Testen vgs',
     classId: 'TESVS:2STB',
     classShortId: '2STB',
+    level: 'VG2',
     programomraade: {
       kode: 'STSSA2----',
       type: 'studieforberedende',
@@ -770,7 +773,7 @@ export const STUDENTS = [
     schoolShortName: 'Testen vgs',
     classId: 'TESVS:2STB',
     classShortId: '2STB',
-    isContactTeacher: false,
+    level: 'VG2',
     programomraade: {
       kode: 'STSSA2----',
       type: 'studieforberedende',
@@ -1019,6 +1022,7 @@ export const STUDENTS = [
     schoolShortName: 'Testen vgs',
     classId: 'TESVS:2STB',
     classShortId: '2STB',
+    level: 'VG2',
     programomraade: {
       kode: 'STREA2----',
       type: 'Ukjent',
@@ -1261,6 +1265,7 @@ export const STUDENTS = [
     schoolShortName: 'Testen vgs',
     classId: 'TESVS:1HOA',
     classShortId: '1HOA',
+    level: 'VG1',
     programomraade: {
       kode: 'HSHSF1----',
       type: 'yrkesfaglig',
@@ -1469,6 +1474,7 @@ export const STUDENTS = [
     schoolShortName: 'Testen vgs',
     classId: 'TESVS:1HOA',
     classShortId: '1HOA',
+    level: 'VG1',
     programomraade: {
       kode: 'HSHSF1----',
       type: 'yrkesfaglig',
@@ -1723,6 +1729,7 @@ export const STUDENTS = [
     schoolShortName: 'Testen vgs',
     classId: 'TESVS:1HOA',
     classShortId: '1HOA',
+    level: 'VG1',
     programomraade: {
       kode: 'HSHSF1----',
       type: 'yrkesfaglig',
@@ -2282,3543 +2289,5634 @@ export const CLASSES = [
 
 export const DOCUMENTS = [
   {
-    _id: '5fa2aeb54b1f46f7ad4fb84a',
+    _id: '60186ae3ac2f891274e2abe7',
     created: {
-      timestamp: 1601557954198,
-      username: 'rus26021'
+      timestamp: 1581529615819,
+      createdBy: 'pre0711'
     },
     modified: [
       {
-        timestamp: 1601557954198,
-        username: 'rus26021'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'opp2004',
-      name: 'Oppfyllende Palmeolje',
-      firstName: 'Oppfyllende',
-      lastName: 'Palmeolje'
-    },
-    teacher: {
-      username: 'rus26021',
-      name: 'Ru Sovealkove',
-      firstName: 'Ru',
-      lastName: 'Sovealkove'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1601557954198,
-        status: 'queued'
-      },
-      {
-        timestamp: 1601557954218,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5cc80a6dadedfc7fe',
-    created: {
-      timestamp: 1601490382619,
-      username: 'vik2606'
-    },
-    modified: [
-      {
-        timestamp: 1601490382619,
-        username: 'vik2606'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue',
-      firstName: 'Etterpåklok Underfundig',
-      lastName: 'Filetfrue'
-    },
-    teacher: {
-      username: 'vik2606',
-      name: 'Viktig Kjærlig',
-      firstName: 'Viktig',
-      lastName: 'Kjærlig'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du forstyrrer undervisning eller skoleaktivitet'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1601490382619,
-        status: 'queued'
-      },
-      {
-        timestamp: 1601490382629,
-        status: 'sent'
-      },
-      {
-        timestamp: 1601490382639,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb58040f6ca7cba5fb0',
-    created: {
-      timestamp: 1600258358720,
-      username: 'pre0711'
-    },
-    modified: [
-      {
-        timestamp: 1600258358720,
-        username: 'pre0711'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'vis05042',
-      name: 'Vis Motbakkeklaring',
-      firstName: 'Vis',
-      lastName: 'Motbakkeklaring'
-    },
-    teacher: {
-      username: 'pre0711',
-      name: 'Presis Damesykkel',
-      firstName: 'Presis',
-      lastName: 'Damesykkel'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 2. termin',
-      reasons: [
-        'Du har brutt skolens ordensreglement'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600258358720,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600258358730,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600258358740,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb52eec1257c9959c32',
-    created: {
-      timestamp: 1600809487966,
-      username: 'fly2507'
-    },
-    modified: [
-      {
-        timestamp: 1600809487966,
-        username: 'fly2507'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist',
-      firstName: 'Dynamisk Hevngjerrig',
-      lastName: 'Statist'
-    },
-    teacher: {
-      username: 'fly2507',
-      name: 'Flyktig Logg',
-      firstName: 'Flyktig',
-      lastName: 'Logg'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600809487966,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600809487976,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600809487986,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb57f0f0f2051bf8bc9',
-    created: {
-      timestamp: 1602865392823,
-      username: 'pre0711'
-    },
-    modified: [
-      {
-        timestamp: 1602865392823,
-        username: 'pre0711'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
-    teacher: {
-      username: 'pre0711',
-      name: 'Presis Damesykkel',
-      firstName: 'Presis',
-      lastName: 'Damesykkel'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1602865392823,
-        status: 'queued'
-      },
-      {
-        timestamp: 1602865392843,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5e863b8e3e27c5239',
-    created: {
-      timestamp: 1600650072239,
-      username: 'fly2507'
-    },
-    modified: [
-      {
-        timestamp: 1600650072239,
-        username: 'fly2507'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'fly2507',
-      name: 'Flyktig Logg',
-      firstName: 'Flyktig',
-      lastName: 'Logg'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600650072239,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600650072249,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600650072259,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5c1c52683b6ee0789',
-    created: {
-      timestamp: 1602495682375,
-      username: 'vik2606'
-    },
-    modified: [
-      {
-        timestamp: 1602495682375,
-        username: 'vik2606'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'vis05042',
-      name: 'Vis Motbakkeklaring',
-      firstName: 'Vis',
-      lastName: 'Motbakkeklaring'
-    },
-    teacher: {
-      username: 'vik2606',
-      name: 'Viktig Kjærlig',
-      firstName: 'Viktig',
-      lastName: 'Kjærlig'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har manglende eller for sen innlevering av arbeid',
-        'Du har udokumentert fravær'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1602495682375,
-        status: 'queued'
-      },
-      {
-        timestamp: 1602495682385,
-        status: 'sent'
-      },
-      {
-        timestamp: 1602495682395,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb519aa565a82d5126b',
-    created: {
-      timestamp: 1599453926144,
-      username: 'sto3006'
-    },
-    modified: [
-      {
-        timestamp: 1599453926144,
-        username: 'sto3006'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist',
-      firstName: 'Dynamisk Hevngjerrig',
-      lastName: 'Statist'
-    },
-    teacher: {
-      username: 'sto3006',
-      name: 'Stolt Komplisert Blindvegsjiraff',
-      firstName: 'Stolt Komplisert',
-      lastName: 'Blindvegsjiraff'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1599453926144,
-        status: 'queued'
-      },
-      {
-        timestamp: 1599453926164,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5c27778c41f8daea2',
-    created: {
-      timestamp: 1599030208075,
-      username: 'kra0801'
-    },
-    modified: [
-      {
-        timestamp: 1599030208075,
-        username: 'kra0801'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'kra0801',
-      name: 'Kranglete Sykkel',
-      firstName: 'Kranglete',
-      lastName: 'Sykkel'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 2. termin',
-      reasons: [
-        'Du har manglende eller for sen innlevering av arbeid',
-        'Du har udokumentert fravær'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1599030208075,
-        status: 'queued'
-      },
-      {
-        timestamp: 1599030208085,
-        status: 'sent'
-      },
-      {
-        timestamp: 1599030208095,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb566d7f2b99b066c50',
-    created: {
-      timestamp: 1601402806095,
-      username: 'bar0407'
-    },
-    modified: [
-      {
-        timestamp: 1601402806095,
-        username: 'bar0407'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
-    teacher: {
-      username: 'bar0407',
-      name: 'Barmhjertig Eplekake',
-      firstName: 'Barmhjertig',
-      lastName: 'Eplekake'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1601402806095,
-        status: 'queued'
-      },
-      {
-        timestamp: 1601402806115,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5f43d2624fad36cf8',
-    created: {
-      timestamp: 1598732617838,
-      username: 'use0306'
-    },
-    modified: [
-      {
-        timestamp: 1598732617838,
-        username: 'use0306'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
-    teacher: {
-      username: 'use0306',
-      name: 'Usedvanlig Eske',
-      firstName: 'Usedvanlig',
-      lastName: 'Eske'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598732617838,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598732617848,
-        status: 'sent'
-      },
-      {
-        timestamp: 1598732617858,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5c41540f576f3ae47',
-    created: {
-      timestamp: 1597953142230,
-      username: 'kra0801'
-    },
-    modified: [
-      {
-        timestamp: 1597953142230,
-        username: 'kra0801'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'kra0801',
-      name: 'Kranglete Sykkel',
-      firstName: 'Kranglete',
-      lastName: 'Sykkel'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1597953142230,
-        status: 'queued'
-      },
-      {
-        timestamp: 1597953142250,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb581482f15154eec28',
-    created: {
-      timestamp: 1598833191091,
-      username: 'use0306'
-    },
-    modified: [
-      {
-        timestamp: 1598833191091,
-        username: 'use0306'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'tro1407',
-      name: 'Trofast Bomullballsko',
-      firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
-    teacher: {
-      username: 'use0306',
-      name: 'Usedvanlig Eske',
-      firstName: 'Usedvanlig',
-      lastName: 'Eske'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Standpunktkarakter',
-      reasons: [
-        'Du utviser provoserende atferd mot ansatte eller medelever',
-        'Du har fusket'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598833191091,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598833191101,
-        status: 'sent'
-      },
-      {
-        timestamp: 1598833191111,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5abf4a83758083596',
-    created: {
-      timestamp: 1599206972644,
-      username: 'skj1207'
-    },
-    modified: [
-      {
-        timestamp: 1599206972644,
-        username: 'skj1207'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
-    teacher: {
-      username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt',
-      firstName: 'Skjønn Initiativrik',
-      lastName: 'Plikt'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1599206972644,
-        status: 'queued'
-      },
-      {
-        timestamp: 1599206972654,
-        status: 'sent'
-      },
-      {
-        timestamp: 1599206972664,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5670cc04a5f875ee2',
-    created: {
-      timestamp: 1597777699304,
-      username: 'fal0309'
-    },
-    modified: [
-      {
-        timestamp: 1597777699304,
-        username: 'fal0309'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel',
-      firstName: 'Uinspirert Rektangulær',
-      lastName: 'Sykkel'
-    },
-    teacher: {
-      username: 'fal0309',
-      name: 'Falsk Handlekraft',
-      firstName: 'Falsk',
-      lastName: 'Handlekraft'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1597777699304,
-        status: 'queued'
-      },
-      {
-        timestamp: 1597777699324,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb59694f1fea9d2abe0',
-    created: {
-      timestamp: 1597971632052,
-      username: 'sto3006'
-    },
-    modified: [
-      {
-        timestamp: 1597971632052,
-        username: 'sto3006'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'vis05042',
-      name: 'Vis Motbakkeklaring',
-      firstName: 'Vis',
-      lastName: 'Motbakkeklaring'
-    },
-    teacher: {
-      username: 'sto3006',
-      name: 'Stolt Komplisert Blindvegsjiraff',
-      firstName: 'Stolt Komplisert',
-      lastName: 'Blindvegsjiraff'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1597971632052,
-        status: 'queued'
-      },
-      {
-        timestamp: 1597971632072,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb514b2b4b11ce8ea56',
-    created: {
-      timestamp: 1599313534086,
-      username: 'vik2606'
-    },
-    modified: [
-      {
-        timestamp: 1599313534086,
-        username: 'vik2606'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'opp2004',
-      name: 'Oppfyllende Palmeolje',
-      firstName: 'Oppfyllende',
-      lastName: 'Palmeolje'
-    },
-    teacher: {
-      username: 'vik2606',
-      name: 'Viktig Kjærlig',
-      firstName: 'Viktig',
-      lastName: 'Kjærlig'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1599313534086,
-        status: 'queued'
-      },
-      {
-        timestamp: 1599313534096,
-        status: 'sent'
-      },
-      {
-        timestamp: 1599313534106,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb51f7547e4fea1e054',
-    created: {
-      timestamp: 1601746377500,
-      username: 'skj1207'
-    },
-    modified: [
-      {
-        timestamp: 1601746377500,
-        username: 'skj1207'
+        timestamp: 1581529615819,
+        modifiedBy: 'pre0711'
       }
     ],
     type: 'varsel',
     variant: 'fag',
-    student: {
-      username: 'tro1407',
-      name: 'Trofast Bomullballsko',
-      firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
-    teacher: {
-      username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt',
-      firstName: 'Skjønn Initiativrik',
-      lastName: 'Plikt'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har manglende vurderingsgrunnlag'
-      ],
-      courses: [
-        'TESVS:2STB/NOR1208',
-        'TESVS:2HOS/NOR1208'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1601746377500,
-        status: 'queued'
-      },
-      {
-        timestamp: 1601746377510,
-        status: 'sent'
-      },
-      {
-        timestamp: 1601746377520,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb580cf494aa67f6607',
-    created: {
-      timestamp: 1601917341017,
-      username: 'bar0407'
-    },
-    modified: [
-      {
-        timestamp: 1601917341017,
-        username: 'bar0407'
-      }
-    ],
-    type: 'varsel',
-    variant: 'fag',
-    student: {
-      username: 'tro1407',
-      name: 'Trofast Bomullballsko',
-      firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
-    teacher: {
-      username: 'bar0407',
-      name: 'Barmhjertig Eplekake',
-      firstName: 'Barmhjertig',
-      lastName: 'Eplekake'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 2. termin',
-      reasons: [
-        'Du har manglende vurderingsgrunnlag'
-      ],
-      courses: [
-        'TESVS:2HOS/NOR1208',
-        'TESVS:2STB/NOR1208'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1601917341017,
-        status: 'queued'
-      },
-      {
-        timestamp: 1601917341027,
-        status: 'sent'
-      },
-      {
-        timestamp: 1601917341037,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb580e6d88abdb2cac5',
-    created: {
-      timestamp: 1604072226472,
-      username: 'use0306'
-    },
-    modified: [
-      {
-        timestamp: 1604072226472,
-        username: 'use0306'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel',
-      firstName: 'Uinspirert Rektangulær',
-      lastName: 'Sykkel'
-    },
-    teacher: {
-      username: 'use0306',
-      name: 'Usedvanlig Eske',
-      firstName: 'Usedvanlig',
-      lastName: 'Eske'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Standpunktkarakter',
-      reasons: [
-        'Du utviser provoserende atferd mot ansatte eller medelever',
-        'Du har benyttet rusmidler i skoletida'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1604072226472,
-        status: 'queued'
-      },
-      {
-        timestamp: 1604072226482,
-        status: 'sent'
-      },
-      {
-        timestamp: 1604072226492,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5b108eb85bc98af20',
-    created: {
-      timestamp: 1600960994640,
-      username: 'skj1207'
-    },
-    modified: [
-      {
-        timestamp: 1600960994640,
-        username: 'skj1207'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue',
-      firstName: 'Etterpåklok Underfundig',
-      lastName: 'Filetfrue'
-    },
-    teacher: {
-      username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt',
-      firstName: 'Skjønn Initiativrik',
-      lastName: 'Plikt'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600960994640,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600960994650,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600960994660,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb504d7f478eab11077',
-    created: {
-      timestamp: 1602870609990,
-      username: 'pre0711'
-    },
-    modified: [
-      {
-        timestamp: 1602870609990,
-        username: 'pre0711'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue',
-      firstName: 'Etterpåklok Underfundig',
-      lastName: 'Filetfrue'
-    },
     teacher: {
       username: 'pre0711',
       name: 'Presis Damesykkel',
       firstName: 'Presis',
-      lastName: 'Damesykkel'
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
     },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1602870609990,
-        status: 'queued'
-      },
-      {
-        timestamp: 1602870610000,
-        status: 'sent'
-      },
-      {
-        timestamp: 1602870610010,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5bbaf170672f36c90',
-    created: {
-      timestamp: 1604347514248,
-      username: 'fal0309'
-    },
-    modified: [
-      {
-        timestamp: 1604347514248,
-        username: 'fal0309'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
     student: {
-      username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue',
-      firstName: 'Etterpåklok Underfundig',
-      lastName: 'Filetfrue'
-    },
-    teacher: {
-      username: 'fal0309',
-      name: 'Falsk Handlekraft',
-      firstName: 'Falsk',
-      lastName: 'Handlekraft'
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
     },
     school: {
       id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du er for sen til undervisning',
-        'Du har udokumentert fravær'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1604347514248,
-        status: 'queued'
-      },
-      {
-        timestamp: 1604347514258,
-        status: 'sent'
-      },
-      {
-        timestamp: 1604347514268,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5e2a045dd3dc8baa2',
-    created: {
-      timestamp: 1602292228780,
-      username: 'bev0304'
-    },
-    modified: [
-      {
-        timestamp: 1602292228780,
-        username: 'bev0304'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel',
-      firstName: 'Uinspirert Rektangulær',
-      lastName: 'Sykkel'
-    },
-    teacher: {
-      username: 'bev0304',
-      name: 'Bevisst Turbin',
-      firstName: 'Bevisst',
-      lastName: 'Turbin'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1602292228780,
-        status: 'queued'
-      },
-      {
-        timestamp: 1602292228790,
-        status: 'sent'
-      },
-      {
-        timestamp: 1602292228800,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb517694cf13dc51c35',
-    created: {
-      timestamp: 1597928834727,
-      username: 'bar0407'
-    },
-    modified: [
-      {
-        timestamp: 1597928834727,
-        username: 'bar0407'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'tro1407',
-      name: 'Trofast Bomullballsko',
-      firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
-    teacher: {
-      username: 'bar0407',
-      name: 'Barmhjertig Eplekake',
-      firstName: 'Barmhjertig',
-      lastName: 'Eplekake'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1597928834727,
-        status: 'queued'
-      },
-      {
-        timestamp: 1597928834737,
-        status: 'sent'
-      },
-      {
-        timestamp: 1597928834747,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5bc55c90142ebafce',
-    created: {
-      timestamp: 1602006464562,
-      username: 'tri0308'
-    },
-    modified: [
-      {
-        timestamp: 1602006464562,
-        username: 'tri0308'
-      }
-    ],
-    type: 'varsel',
-    variant: 'fag',
-    student: {
-      username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel',
-      firstName: 'Uinspirert Rektangulær',
-      lastName: 'Sykkel'
-    },
-    teacher: {
-      username: 'tri0308',
-      name: 'Trine Testesen',
-      firstName: 'Trine',
-      lastName: 'Testesen'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har udokumentert fravær',
-        'Du har udokumentert fravær'
-      ],
-      courses: [
-        'TESVS:2HOS/NOR1208'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1602006464562,
-        status: 'queued'
-      },
-      {
-        timestamp: 1602006464572,
-        status: 'sent'
-      },
-      {
-        timestamp: 1602006464582,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5ef40a0fefc0e7343',
-    created: {
-      timestamp: 1600277377532,
-      username: 'fal0309'
-    },
-    modified: [
-      {
-        timestamp: 1600277377532,
-        username: 'fal0309'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'vis05042',
-      name: 'Vis Motbakkeklaring',
-      firstName: 'Vis',
-      lastName: 'Motbakkeklaring'
-    },
-    teacher: {
-      username: 'fal0309',
-      name: 'Falsk Handlekraft',
-      firstName: 'Falsk',
-      lastName: 'Handlekraft'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 2. termin',
-      reasons: [
-        'Du har brutt skolens ordensreglement'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600277377532,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600277377542,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600277377552,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5357d44b5fc1b306d',
-    created: {
-      timestamp: 1604186806754,
-      username: 'fal0309'
-    },
-    modified: [
-      {
-        timestamp: 1604186806754,
-        username: 'fal0309'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel',
-      firstName: 'Uinspirert Rektangulær',
-      lastName: 'Sykkel'
-    },
-    teacher: {
-      username: 'fal0309',
-      name: 'Falsk Handlekraft',
-      firstName: 'Falsk',
-      lastName: 'Handlekraft'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du utviser provoserende atferd mot ansatte eller medelever'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1604186806754,
-        status: 'queued'
-      },
-      {
-        timestamp: 1604186806764,
-        status: 'sent'
-      },
-      {
-        timestamp: 1604186806774,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5256392249990e39d',
-    created: {
-      timestamp: 1602818303334,
-      username: 'pre0711'
-    },
-    modified: [
-      {
-        timestamp: 1602818303334,
-        username: 'pre0711'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'tro1407',
-      name: 'Trofast Bomullballsko',
-      firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
-    teacher: {
-      username: 'pre0711',
-      name: 'Presis Damesykkel',
-      firstName: 'Presis',
-      lastName: 'Damesykkel'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1602818303334,
-        status: 'queued'
-      },
-      {
-        timestamp: 1602818303354,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5d12c4d7432d6c135',
-    created: {
-      timestamp: 1602595420172,
-      username: 'fal0309'
-    },
-    modified: [
-      {
-        timestamp: 1602595420172,
-        username: 'fal0309'
-      }
-    ],
-    type: 'varsel',
-    variant: 'fag',
-    student: {
-      username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue',
-      firstName: 'Etterpåklok Underfundig',
-      lastName: 'Filetfrue'
-    },
-    teacher: {
-      username: 'fal0309',
-      name: 'Falsk Handlekraft',
-      firstName: 'Falsk',
-      lastName: 'Handlekraft'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
     },
     content: {
       year: '2020/2021',
-      reasons: [{
-        id: '01',
-        nb: 'Du har manglende vurderingsgrunnlag',
-        nn: 'Du har manglande vurderingsgrunnlag',
-        en: 'Du har manglende vurderingsgrunnlag'
-      }],
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1ENYA/ENG1009_TESVS@38099',
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1581529605826
+      },
+      {
+        status: 'sent',
+        timestamp: 1581529609277
+      },
+      {
+        status: 'archived',
+        timestamp: 1581529615819
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3b0248728b2dc18a8',
+    created: {
+      timestamp: 1585327707015,
+      createdBy: 'vik2606'
+    },
+    modified: [
+      {
+        timestamp: 1585327707015,
+        modifiedBy: 'vik2606'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'vik2606',
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig',
+      mobile: '',
+      mail: 'viktig.kaerlig@vtfk.no'
+    },
+    student: {
+      username: 'uin2704',
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel',
+      mobile: '4794567891',
+      mail: 'uin2704@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
       period: {
         id: '02',
         nb: 'Halvårsvurdering 2. termin',
         nn: 'Halvårsvurdering 2. termin',
         en: 'Halvårsvurdering 2. termin'
       },
-      classes: [{
-        id: '2_2STB/KRO1005_TESVS@38099',
-        nb: 'Norsk, muntlig',
-        nn: 'Norsk, muntlig',
-        en: 'Norsk, muntlig'
-      }, {
-        id: '2_2STB/KRO1004_TESVS@38099',
-        nb: 'Norsk hovedmål, skriftlig',
-        nn: 'Norsk hovedmål, skriftlig',
-        en: 'Norsk hovedmål, skriftlig'
-      }, {
-        id: '2_2STB/KRO1006_TESVS@38099',
-        nb: 'Norsk sidemål, skriftlig',
-        nn: 'Norsk sidemål, skriftlig',
-        en: 'Norsk sidemål, skriftlig'
-      }]
+      reasons: [
+        {
+          id: '03',
+          nb: 'Du har manglende eller for sen innlevering av arbeid',
+          nn: 'Du har manglande eller for sein innlevering av arbeid',
+          en: 'Du har manglende eller for sen innlevering av arbeid'
+        },
+        {
+          id: '04',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fravær',
+          en: 'Du har udokumentert fravær'
+        }
+      ]
     },
-    encrypted: false,
-    isQueued: false,
+    isEncrypted: false,
     status: [
       {
-        timestamp: 1602595420172,
-        status: 'queued'
+        status: 'queued',
+        timestamp: 1585327697022
       },
       {
-        timestamp: 1602595420182,
-        status: 'sent'
+        status: 'sent',
+        timestamp: 1585327700473
       },
       {
-        timestamp: 1602595420192,
-        status: 'archived'
+        status: 'archived',
+        timestamp: 1585327707015
       }
-    ]
+    ],
+    isQueued: false
   },
   {
-    _id: '5fa2aeb53e8019713248942f',
+    _id: '60186ae384492af29edcd9a9',
     created: {
-      timestamp: 1603237798683,
-      username: 'tri0308'
+      timestamp: 1606840804789,
+      createdBy: 'kra0801'
     },
     modified: [
       {
-        timestamp: 1603237798683,
-        username: 'tri0308'
+        timestamp: 1606840804789,
+        modifiedBy: 'kra0801'
       }
     ],
     type: 'varsel',
     variant: 'fag',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
     teacher: {
-      username: 'tri0308',
-      name: 'Trine Testesen',
-      firstName: 'Trine',
-      lastName: 'Testesen'
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
     },
     school: {
       id: 'TESVS',
-      name: 'Testen videregående skole'
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
     },
     content: {
-      period: 'Standpunktkarakter',
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
       reasons: [
-        'Du har udokumentert fravær'
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
       ],
-      courses: [
-        'TESVS:2HOS/NOR1208',
-        'TESVS:1GK'
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        }
       ]
     },
-    encrypted: false,
-    isQueued: false,
+    isEncrypted: false,
     status: [
       {
-        timestamp: 1603237798683,
-        status: 'queued'
+        status: 'queued',
+        timestamp: 1606840794796
       },
       {
-        timestamp: 1603237798693,
-        status: 'sent'
+        status: 'sent',
+        timestamp: 1606840798247
       },
       {
-        timestamp: 1603237798703,
-        status: 'archived'
+        status: 'archived',
+        timestamp: 1606840804789
       }
-    ]
+    ],
+    isQueued: false
   },
   {
-    _id: '5fa2aeb5f57123792bf3972f',
+    _id: '60186ae3ee0ac21670ce0c9c',
     created: {
-      timestamp: 1601474996085,
-      username: 'skj1207'
+      timestamp: 1592561861911,
+      createdBy: 'sto3006'
     },
     modified: [
       {
-        timestamp: 1601474996085,
-        username: 'skj1207'
+        timestamp: 1592561861911,
+        modifiedBy: 'sto3006'
       }
     ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'vis05042',
-      name: 'Vis Motbakkeklaring',
-      firstName: 'Vis',
-      lastName: 'Motbakkeklaring'
-    },
+    type: 'varsel',
+    variant: 'atferd',
     teacher: {
-      username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt',
-      firstName: 'Skjønn Initiativrik',
-      lastName: 'Plikt'
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
     },
     school: {
       id: 'TESVS',
-      name: 'Testen videregående skole'
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
     },
     content: {
-      samtale: false
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '05',
+          nb: 'Du har benyttet rusmidler i skoletida',
+          nn: 'Du har nytta rusmiddel i skuletida',
+          en: 'Du har benyttet rusmidler i skoletida'
+        },
+        {
+          id: '04',
+          nb: 'Du har fusket',
+          nn: 'Du har fuska',
+          en: 'Du har fusket'
+        }
+      ]
     },
-    encrypted: false,
-    isQueued: false,
+    isEncrypted: false,
     status: [
       {
-        timestamp: 1601474996085,
-        status: 'queued'
+        status: 'queued',
+        timestamp: 1592561851918
       },
       {
-        timestamp: 1601474996095,
-        status: 'sent'
+        status: 'sent',
+        timestamp: 1592561855369
       },
       {
-        timestamp: 1601474996105,
-        status: 'archived'
+        status: 'archived',
+        timestamp: 1592561861911
       }
-    ]
+    ],
+    isQueued: false
   },
   {
-    _id: '5fa2aeb50e8d5a615d11a0d4',
+    _id: '60186ae3f523207210c553b8',
     created: {
-      timestamp: 1598133490679,
-      username: 'ven2411'
+      timestamp: 1612364119389,
+      createdBy: 'sto3006'
     },
     modified: [
       {
-        timestamp: 1598133490679,
-        username: 'ven2411'
+        timestamp: 1612364119389,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'tro1407',
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko',
+      mobile: '4747474747',
+      mail: 'tro1407@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1612364112847
+      },
+      {
+        status: 'archived',
+        timestamp: 1612364119389
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3f2ff1d1a97ba809e',
+    created: {
+      timestamp: 1612457685519,
+      createdBy: 'fly2507'
+    },
+    modified: [
+      {
+        timestamp: 1612457685519,
+        modifiedBy: 'fly2507'
       }
     ],
     type: 'varsel',
     variant: 'fag',
-    student: {
-      username: 'opp2004',
-      name: 'Oppfyllende Palmeolje',
-      firstName: 'Oppfyllende',
-      lastName: 'Palmeolje'
-    },
     teacher: {
-      username: 'ven2411',
-      name: 'Vennlig Arm',
-      firstName: 'Vennlig',
-      lastName: 'Arm'
+      username: 'fly2507',
+      name: 'Flyktig Logg',
+      firstName: 'Flyktig',
+      lastName: 'Logg',
+      mobile: '',
+      mail: 'flyktig.logg@vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
     },
     school: {
       id: 'TESVS',
-      name: 'Testen videregående skole'
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
     },
     content: {
-      period: 'Standpunktkarakter',
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
       reasons: [
-        'Du har manglende vurderingsgrunnlag'
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
       ],
-      courses: [
-        'TESVS:2STB/KLFAG',
-        'TESVS:1GK'
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        }
       ]
     },
-    encrypted: false,
-    isQueued: false,
+    isEncrypted: false,
     status: [
       {
-        timestamp: 1598133490679,
-        status: 'queued'
+        status: 'queued',
+        timestamp: 1612457675526
       },
       {
-        timestamp: 1598133490689,
-        status: 'sent'
+        status: 'sent',
+        timestamp: 1612457678977
       },
       {
-        timestamp: 1598133490699,
-        status: 'archived'
+        status: 'archived',
+        timestamp: 1612457685519
       }
-    ]
+    ],
+    isQueued: false
   },
   {
-    _id: '5fa2aeb59ae2e4ea9330ec0f',
+    _id: '60186ae385436baebe99677e',
     created: {
-      timestamp: 1600352983308,
-      username: 'opp1805'
+      timestamp: 1607674557389,
+      createdBy: 'kra0801'
     },
     modified: [
       {
-        timestamp: 1600352983308,
-        username: 'opp1805'
+        timestamp: 1607674557389,
+        modifiedBy: 'kra0801'
       }
     ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'tro1407',
-      name: 'Trofast Bomullballsko',
-      firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
-    teacher: {
-      username: 'opp1805',
-      name: 'Oppfyllende Kråke',
-      firstName: 'Oppfyllende',
-      lastName: 'Kråke'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har benyttet rusmidler i skoletida'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600352983308,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600352983318,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600352983328,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb526b62413029e5f90',
-    created: {
-      timestamp: 1604478430700,
-      username: 'use0306'
-    },
-    modified: [
-      {
-        timestamp: 1604478430700,
-        username: 'use0306'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'use0306',
-      name: 'Usedvanlig Eske',
-      firstName: 'Usedvanlig',
-      lastName: 'Eske'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1604478430700,
-        status: 'queued'
-      },
-      {
-        timestamp: 1604478430710,
-        status: 'sent'
-      },
-      {
-        timestamp: 1604478430720,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5d81a32ea10ae3fcb',
-    created: {
-      timestamp: 1603488966683,
-      username: 'sto3006'
-    },
-    modified: [
-      {
-        timestamp: 1603488966683,
-        username: 'sto3006'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'sto3006',
-      name: 'Stolt Komplisert Blindvegsjiraff',
-      firstName: 'Stolt Komplisert',
-      lastName: 'Blindvegsjiraff'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1603488966683,
-        status: 'queued'
-      },
-      {
-        timestamp: 1603488966703,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb58b3608f8202cb3ef',
-    created: {
-      timestamp: 1601923442560,
-      username: 'fal0309'
-    },
-    modified: [
-      {
-        timestamp: 1601923442560,
-        username: 'fal0309'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'opp2004',
-      name: 'Oppfyllende Palmeolje',
-      firstName: 'Oppfyllende',
-      lastName: 'Palmeolje'
-    },
-    teacher: {
-      username: 'fal0309',
-      name: 'Falsk Handlekraft',
-      firstName: 'Falsk',
-      lastName: 'Handlekraft'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1601923442560,
-        status: 'queued'
-      },
-      {
-        timestamp: 1601923442580,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5d9822c3fc71856e1',
-    created: {
-      timestamp: 1600946652285,
-      username: 'dis0904'
-    },
-    modified: [
-      {
-        timestamp: 1600946652285,
-        username: 'dis0904'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'opp2004',
-      name: 'Oppfyllende Palmeolje',
-      firstName: 'Oppfyllende',
-      lastName: 'Palmeolje'
-    },
-    teacher: {
-      username: 'dis0904',
-      name: 'Diskret Telefonkiosk',
-      firstName: 'Diskret',
-      lastName: 'Telefonkiosk'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Standpunktkarakter',
-      reasons: [
-        'Du har manglende eller for sen innlevering av arbeid'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600946652285,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600946652295,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600946652305,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5a65dd58b9858beb5',
-    created: {
-      timestamp: 1598907632132,
-      username: 'skj1207'
-    },
-    modified: [
-      {
-        timestamp: 1598907632132,
-        username: 'skj1207'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'opp2004',
-      name: 'Oppfyllende Palmeolje',
-      firstName: 'Oppfyllende',
-      lastName: 'Palmeolje'
-    },
-    teacher: {
-      username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt',
-      firstName: 'Skjønn Initiativrik',
-      lastName: 'Plikt'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 2. termin',
-      reasons: [
-        'Du utviser provoserende atferd mot ansatte eller medelever'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598907632132,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598907632142,
-        status: 'sent'
-      },
-      {
-        timestamp: 1598907632152,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb56625ae735925775c',
-    created: {
-      timestamp: 1597796486937,
-      username: 'dis0904'
-    },
-    modified: [
-      {
-        timestamp: 1597796486937,
-        username: 'dis0904'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist',
-      firstName: 'Dynamisk Hevngjerrig',
-      lastName: 'Statist'
-    },
-    teacher: {
-      username: 'dis0904',
-      name: 'Diskret Telefonkiosk',
-      firstName: 'Diskret',
-      lastName: 'Telefonkiosk'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1597796486937,
-        status: 'queued'
-      },
-      {
-        timestamp: 1597796486957,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb520d5e3042dc9cde7',
-    created: {
-      timestamp: 1599743332073,
-      username: 'kra0801'
-    },
-    modified: [
-      {
-        timestamp: 1599743332073,
-        username: 'kra0801'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist',
-      firstName: 'Dynamisk Hevngjerrig',
-      lastName: 'Statist'
-    },
+    type: 'notat',
+    variant: 'notat',
     teacher: {
       username: 'kra0801',
       name: 'Kranglete Sykkel',
       firstName: 'Kranglete',
-      lastName: 'Sykkel'
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
     },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har udokumentert fravær'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1599743332073,
-        status: 'queued'
-      },
-      {
-        timestamp: 1599743332083,
-        status: 'sent'
-      },
-      {
-        timestamp: 1599743332093,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb58c4337286a2c10ae',
-    created: {
-      timestamp: 1598039525189,
-      username: 'fal0309'
-    },
-    modified: [
-      {
-        timestamp: 1598039525189,
-        username: 'fal0309'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'fal0309',
-      name: 'Falsk Handlekraft',
-      firstName: 'Falsk',
-      lastName: 'Handlekraft'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598039525189,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598039525199,
-        status: 'sent'
-      },
-      {
-        timestamp: 1598039525209,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5e56f2a05b8f5f6e6',
-    created: {
-      timestamp: 1598175435076,
-      username: 'tri0308'
-    },
-    modified: [
-      {
-        timestamp: 1598175435076,
-        username: 'tri0308'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'tri0308',
-      name: 'Trine Testesen',
-      firstName: 'Trine',
-      lastName: 'Testesen'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598175435076,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598175435086,
-        status: 'sent'
-      },
-      {
-        timestamp: 1598175435096,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5989a12ec168b7dc7',
-    created: {
-      timestamp: 1599146020639,
-      username: 'skj1207'
-    },
-    modified: [
-      {
-        timestamp: 1599146020639,
-        username: 'skj1207'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'opp2004',
-      name: 'Oppfyllende Palmeolje',
-      firstName: 'Oppfyllende',
-      lastName: 'Palmeolje'
-    },
-    teacher: {
-      username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt',
-      firstName: 'Skjønn Initiativrik',
-      lastName: 'Plikt'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har ikke nødvendig skolemateriell klart til undervisning',
-        'Du har udokumentert fravær',
-        'Du har brutt skolens ordensreglement'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1599146020639,
-        status: 'queued'
-      },
-      {
-        timestamp: 1599146020649,
-        status: 'sent'
-      },
-      {
-        timestamp: 1599146020659,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb57b7569b0c91f47ea',
-    created: {
-      timestamp: 1603095899820,
-      username: 'use0306'
-    },
-    modified: [
-      {
-        timestamp: 1603095899820,
-        username: 'use0306'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
-    teacher: {
-      username: 'use0306',
-      name: 'Usedvanlig Eske',
-      firstName: 'Usedvanlig',
-      lastName: 'Eske'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Standpunktkarakter',
-      reasons: [
-        'Du har fusket',
-        'Du utviser provoserende atferd mot ansatte eller medelever',
-        'Du forstyrrer undervisning eller skoleaktivitet'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1603095899820,
-        status: 'queued'
-      },
-      {
-        timestamp: 1603095899830,
-        status: 'sent'
-      },
-      {
-        timestamp: 1603095899840,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb54d908a6d26279652',
-    created: {
-      timestamp: 1600364365628,
-      username: 'rus26021'
-    },
-    modified: [
-      {
-        timestamp: 1600364365628,
-        username: 'rus26021'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
-    teacher: {
-      username: 'rus26021',
-      name: 'Ru Sovealkove',
-      firstName: 'Ru',
-      lastName: 'Sovealkove'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600364365628,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600364365648,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb51b995bdc2d460717',
-    created: {
-      timestamp: 1598390881071,
-      username: 'skj1207'
-    },
-    modified: [
-      {
-        timestamp: 1598390881071,
-        username: 'skj1207'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue',
-      firstName: 'Etterpåklok Underfundig',
-      lastName: 'Filetfrue'
-    },
-    teacher: {
-      username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt',
-      firstName: 'Skjønn Initiativrik',
-      lastName: 'Plikt'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Standpunktkarakter',
-      reasons: [
-        'Du har udokumentert fravær'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598390881071,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598390881081,
-        status: 'sent'
-      },
-      {
-        timestamp: 1598390881091,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb516ca936ba748d550',
-    created: {
-      timestamp: 1601958525263,
-      username: 'vik2606'
-    },
-    modified: [
-      {
-        timestamp: 1601958525263,
-        username: 'vik2606'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
     student: {
       username: 'tro1407',
       name: 'Trofast Bomullballsko',
       firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
-    teacher: {
-      username: 'vik2606',
-      name: 'Viktig Kjærlig',
-      firstName: 'Viktig',
-      lastName: 'Kjærlig'
+      lastName: 'Bomullballsko',
+      mobile: '4747474747',
+      mail: 'tro1407@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
     },
     school: {
       id: 'TESVS',
-      name: 'Testen videregående skole'
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
     },
     content: {
-      samtale: true
+      year: '2020/2021'
     },
-    encrypted: false,
-    isQueued: false,
+    isEncrypted: true,
     status: [
       {
-        timestamp: 1601958525263,
-        status: 'queued'
+        status: 'queued',
+        timestamp: 1607674550847
       },
       {
-        timestamp: 1601958525283,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5e1998cf14be191c0',
-    created: {
-      timestamp: 1601305127595,
-      username: 'dis0904'
-    },
-    modified: [
-      {
-        timestamp: 1601305127595,
-        username: 'dis0904'
+        status: 'archived',
+        timestamp: 1607674557389
       }
     ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel',
-      firstName: 'Uinspirert Rektangulær',
-      lastName: 'Sykkel'
-    },
-    teacher: {
-      username: 'dis0904',
-      name: 'Diskret Telefonkiosk',
-      firstName: 'Diskret',
-      lastName: 'Telefonkiosk'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1601305127595,
-        status: 'queued'
-      },
-      {
-        timestamp: 1601305127605,
-        status: 'sent'
-      },
-      {
-        timestamp: 1601305127615,
-        status: 'archived'
-      }
-    ]
+    isQueued: false
   },
   {
-    _id: '5fa2aeb5372aa80d2cfb9348',
+    _id: '60186ae36e5705fad1b74471',
     created: {
-      timestamp: 1598453724856,
-      username: 'tri0308'
+      timestamp: 1619771698657,
+      createdBy: 'rus26021'
     },
     modified: [
       {
-        timestamp: 1598453724856,
-        username: 'tri0308'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'tri0308',
-      name: 'Trine Testesen',
-      firstName: 'Trine',
-      lastName: 'Testesen'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598453724856,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598453724876,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5ee0cf028551f21e1',
-    created: {
-      timestamp: 1602462719313,
-      username: 'rus26021'
-    },
-    modified: [
-      {
-        timestamp: 1602462719313,
-        username: 'rus26021'
+        timestamp: 1619771698657,
+        modifiedBy: 'rus26021'
       }
     ],
     type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'tro1407',
-      name: 'Trofast Bomullballsko',
-      firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
+    variant: 'fag',
     teacher: {
       username: 'rus26021',
       name: 'Ru Sovealkove',
       firstName: 'Ru',
-      lastName: 'Sovealkove'
+      lastName: 'Sovealkove',
+      mobile: '4748048048',
+      mail: 'ru.sovealkove@vtfk.no'
     },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har fusket'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1602462719313,
-        status: 'queued'
-      },
-      {
-        timestamp: 1602462719323,
-        status: 'sent'
-      },
-      {
-        timestamp: 1602462719333,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5959c53386d411c97',
-    created: {
-      timestamp: 1600230827016,
-      username: 'skj1207'
-    },
-    modified: [
-      {
-        timestamp: 1600230827016,
-        username: 'skj1207'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'opp2004',
-      name: 'Oppfyllende Palmeolje',
-      firstName: 'Oppfyllende',
-      lastName: 'Palmeolje'
-    },
-    teacher: {
-      username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt',
-      firstName: 'Skjønn Initiativrik',
-      lastName: 'Plikt'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600230827016,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600230827026,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600230827036,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5a0243ed25a9f142a',
-    created: {
-      timestamp: 1598707478054,
-      username: 'kra0801'
-    },
-    modified: [
-      {
-        timestamp: 1598707478054,
-        username: 'kra0801'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'kra0801',
-      name: 'Kranglete Sykkel',
-      firstName: 'Kranglete',
-      lastName: 'Sykkel'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 2. termin',
-      reasons: [
-        'Du har benyttet rusmidler i skoletida'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598707478054,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598707478064,
-        status: 'sent'
-      },
-      {
-        timestamp: 1598707478074,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5f21749d5766174fb',
-    created: {
-      timestamp: 1597821508409,
-      username: 'use0306'
-    },
-    modified: [
-      {
-        timestamp: 1597821508409,
-        username: 'use0306'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'vis05042',
-      name: 'Vis Motbakkeklaring',
-      firstName: 'Vis',
-      lastName: 'Motbakkeklaring'
-    },
-    teacher: {
-      username: 'use0306',
-      name: 'Usedvanlig Eske',
-      firstName: 'Usedvanlig',
-      lastName: 'Eske'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 2. termin',
-      reasons: [
-        'Du har udokumentert fravær',
-        'Du har brutt skolens ordensreglement'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1597821508409,
-        status: 'queued'
-      },
-      {
-        timestamp: 1597821508419,
-        status: 'sent'
-      },
-      {
-        timestamp: 1597821508429,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb52d2f736b0df4f4c6',
-    created: {
-      timestamp: 1601151223154,
-      username: 'vik2606'
-    },
-    modified: [
-      {
-        timestamp: 1601151223154,
-        username: 'vik2606'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'vis05042',
-      name: 'Vis Motbakkeklaring',
-      firstName: 'Vis',
-      lastName: 'Motbakkeklaring'
-    },
-    teacher: {
-      username: 'vik2606',
-      name: 'Viktig Kjærlig',
-      firstName: 'Viktig',
-      lastName: 'Kjærlig'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du er for sen til undervisning',
-        'Du har manglende eller for sen innlevering av arbeid'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1601151223154,
-        status: 'queued'
-      },
-      {
-        timestamp: 1601151223164,
-        status: 'sent'
-      },
-      {
-        timestamp: 1601151223174,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb55bb20671f45abd7e',
-    created: {
-      timestamp: 1600099240914,
-      username: 'sto3006'
-    },
-    modified: [
-      {
-        timestamp: 1600099240914,
-        username: 'sto3006'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
-    student: {
-      username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue',
-      firstName: 'Etterpåklok Underfundig',
-      lastName: 'Filetfrue'
-    },
-    teacher: {
-      username: 'sto3006',
-      name: 'Stolt Komplisert Blindvegsjiraff',
-      firstName: 'Stolt Komplisert',
-      lastName: 'Blindvegsjiraff'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har ikke nødvendig skolemateriell klart til undervisning',
-        'Du har udokumentert fravær'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600099240914,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600099240924,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600099240934,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb53e9b4efdd1a4c580',
-    created: {
-      timestamp: 1598428341261,
-      username: 'pre0711'
-    },
-    modified: [
-      {
-        timestamp: 1598428341261,
-        username: 'pre0711'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
     student: {
       username: 'lil1312',
       name: 'Lilla Spenne',
       firstName: 'Lilla',
-      lastName: 'Spenne'
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
     },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1ENYA/ENG1009_TESVS@38099',
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1619771688664
+      },
+      {
+        status: 'sent',
+        timestamp: 1619771692115
+      },
+      {
+        status: 'archived',
+        timestamp: 1619771698657
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae30f342f0e15c65684',
+    created: {
+      timestamp: 1581064478876,
+      createdBy: 'vik2606'
+    },
+    modified: [
+      {
+        timestamp: 1581064478876,
+        modifiedBy: 'vik2606'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'vik2606',
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig',
+      mobile: '',
+      mail: 'viktig.kaerlig@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1581064472334
+      },
+      {
+        status: 'archived',
+        timestamp: 1581064478876
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae37580bc4498310050',
+    created: {
+      timestamp: 1611758081165,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1611758081165,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
     teacher: {
       username: 'pre0711',
       name: 'Presis Damesykkel',
       firstName: 'Presis',
-      lastName: 'Damesykkel'
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
     },
     school: {
       id: 'TESVS',
-      name: 'Testen videregående skole'
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
     },
     content: {
-      samtale: true
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1ENYA/ENG1009_TESVS@38099',
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
+        }
+      ]
     },
-    encrypted: false,
-    isQueued: false,
+    isEncrypted: false,
     status: [
       {
-        timestamp: 1598428341261,
-        status: 'queued'
+        status: 'queued',
+        timestamp: 1611758071172
       },
       {
-        timestamp: 1598428341281,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5b2b8869105830a2c',
-    created: {
-      timestamp: 1599484407456,
-      username: 'dis0904'
-    },
-    modified: [
+        status: 'sent',
+        timestamp: 1611758074623
+      },
       {
-        timestamp: 1599484407456,
-        username: 'dis0904'
+        status: 'archived',
+        timestamp: 1611758081165
       }
     ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'tro1407',
-      name: 'Trofast Bomullballsko',
-      firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
-    teacher: {
-      username: 'dis0904',
-      name: 'Diskret Telefonkiosk',
-      firstName: 'Diskret',
-      lastName: 'Telefonkiosk'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1599484407456,
-        status: 'queued'
-      },
-      {
-        timestamp: 1599484407476,
-        status: 'archived'
-      }
-    ]
+    isQueued: false
   },
   {
-    _id: '5fa2aeb5456b1ccb67fc6d41',
+    _id: '60186ae37ae8c0abe609142a',
     created: {
-      timestamp: 1603000236779,
-      username: 'bev0304'
+      timestamp: 1590751124627,
+      createdBy: 'sto3006'
     },
     modified: [
       {
-        timestamp: 1603000236779,
-        username: 'bev0304'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel',
-      firstName: 'Uinspirert Rektangulær',
-      lastName: 'Sykkel'
-    },
-    teacher: {
-      username: 'bev0304',
-      name: 'Bevisst Turbin',
-      firstName: 'Bevisst',
-      lastName: 'Turbin'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1603000236779,
-        status: 'queued'
-      },
-      {
-        timestamp: 1603000236799,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb57c46534bacb8460f',
-    created: {
-      timestamp: 1598424198048,
-      username: 'sto3006'
-    },
-    modified: [
-      {
-        timestamp: 1598424198048,
-        username: 'sto3006'
+        timestamp: 1590751124627,
+        modifiedBy: 'sto3006'
       }
     ],
     type: 'varsel',
     variant: 'atferd',
-    student: {
-      username: 'dyn06061',
-      name: 'Dynamisk Hevngjerrig Statist',
-      firstName: 'Dynamisk Hevngjerrig',
-      lastName: 'Statist'
-    },
     teacher: {
       username: 'sto3006',
       name: 'Stolt Komplisert Blindvegsjiraff',
       firstName: 'Stolt Komplisert',
-      lastName: 'Blindvegsjiraff'
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
     },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har fusket',
-        'Du har benyttet rusmidler i skoletida'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598424198048,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598424198058,
-        status: 'sent'
-      },
-      {
-        timestamp: 1598424198068,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb570fa67453610bd6d',
-    created: {
-      timestamp: 1601282808947,
-      username: 'dis0904'
-    },
-    modified: [
-      {
-        timestamp: 1601282808947,
-        username: 'dis0904'
-      }
-    ],
-    type: 'varsel',
-    variant: 'orden',
     student: {
       username: 'vis05042',
       name: 'Vis Motbakkeklaring',
       firstName: 'Vis',
-      lastName: 'Motbakkeklaring'
-    },
-    teacher: {
-      username: 'dis0904',
-      name: 'Diskret Telefonkiosk',
-      firstName: 'Diskret',
-      lastName: 'Telefonkiosk'
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
     },
     school: {
       id: 'TESVS',
-      name: 'Testen videregående skole'
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
     },
     content: {
-      period: 'Standpunktkarakter',
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
       reasons: [
-        'Du har ikke nødvendig skolemateriell klart til undervisning'
+        {
+          id: '05',
+          nb: 'Du har benyttet rusmidler i skoletida',
+          nn: 'Du har nytta rusmiddel i skuletida',
+          en: 'Du har benyttet rusmidler i skoletida'
+        },
+        {
+          id: '04',
+          nb: 'Du har fusket',
+          nn: 'Du har fuska',
+          en: 'Du har fusket'
+        }
       ]
     },
-    encrypted: false,
-    isQueued: false,
+    isEncrypted: false,
     status: [
       {
-        timestamp: 1601282808947,
-        status: 'queued'
+        status: 'queued',
+        timestamp: 1590751114634
       },
       {
-        timestamp: 1601282808957,
-        status: 'sent'
+        status: 'sent',
+        timestamp: 1590751118085
       },
       {
-        timestamp: 1601282808967,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5d8ffc101ac615f4e',
-    created: {
-      timestamp: 1600506404763,
-      username: 'tri0308'
-    },
-    modified: [
-      {
-        timestamp: 1600506404763,
-        username: 'tri0308'
+        status: 'archived',
+        timestamp: 1590751124627
       }
     ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'ett09051',
-      name: 'Etterpåklok Underfundig Filetfrue',
-      firstName: 'Etterpåklok Underfundig',
-      lastName: 'Filetfrue'
-    },
-    teacher: {
-      username: 'tri0308',
-      name: 'Trine Testesen',
-      firstName: 'Trine',
-      lastName: 'Testesen'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600506404763,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600506404783,
-        status: 'archived'
-      }
-    ]
+    isQueued: false
   },
   {
-    _id: '5fa2aeb53a99f6e831697038',
+    _id: '60186ae3a5439e2f88790e01',
     created: {
-      timestamp: 1599981639613,
-      username: 'vik2606'
+      timestamp: 1618390296428,
+      createdBy: 'sto3006'
     },
     modified: [
       {
-        timestamp: 1599981639613,
-        username: 'vik2606'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'tro1407',
-      name: 'Trofast Bomullballsko',
-      firstName: 'Trofast',
-      lastName: 'Bomullballsko'
-    },
-    teacher: {
-      username: 'vik2606',
-      name: 'Viktig Kjærlig',
-      firstName: 'Viktig',
-      lastName: 'Kjærlig'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1599981639613,
-        status: 'queued'
-      },
-      {
-        timestamp: 1599981639623,
-        status: 'sent'
-      },
-      {
-        timestamp: 1599981639633,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5f5d8b7f68a0d4154',
-    created: {
-      timestamp: 1598920368545,
-      username: 'bar0407'
-    },
-    modified: [
-      {
-        timestamp: 1598920368545,
-        username: 'bar0407'
-      }
-    ],
-    type: 'samtale',
-    variant: 'samtale',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
-    teacher: {
-      username: 'bar0407',
-      name: 'Barmhjertig Eplekake',
-      firstName: 'Barmhjertig',
-      lastName: 'Eplekake'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: true
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1598920368545,
-        status: 'queued'
-      },
-      {
-        timestamp: 1598920368565,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb51077cc49bc79c1b4',
-    created: {
-      timestamp: 1602497629119,
-      username: 'bev0304'
-    },
-    modified: [
-      {
-        timestamp: 1602497629119,
-        username: 'bev0304'
-      }
-    ],
-    type: 'varsel',
-    variant: 'fag',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
-    teacher: {
-      username: 'bev0304',
-      name: 'Bevisst Turbin',
-      firstName: 'Bevisst',
-      lastName: 'Turbin'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har manglende vurderingsgrunnlag'
-      ],
-      courses: [
-        'TESVS:1HOA/YFF4106',
-        'TESVS:2STB/KLFAG'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1602497629119,
-        status: 'queued'
-      },
-      {
-        timestamp: 1602497629129,
-        status: 'sent'
-      },
-      {
-        timestamp: 1602497629139,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb513f51e5ab2a5b8f5',
-    created: {
-      timestamp: 1600756351729,
-      username: 'skj1207'
-    },
-    modified: [
-      {
-        timestamp: 1600756351729,
-        username: 'skj1207'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'uin2704',
-      name: 'Uinspirert Rektangulær Sykkel',
-      firstName: 'Uinspirert Rektangulær',
-      lastName: 'Sykkel'
-    },
-    teacher: {
-      username: 'skj1207',
-      name: 'Skjønn Initiativrik Plikt',
-      firstName: 'Skjønn Initiativrik',
-      lastName: 'Plikt'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 2. termin',
-      reasons: [
-        'Du utviser provoserende atferd mot ansatte eller medelever'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600756351729,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600756351739,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600756351749,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb52ccfd4b1f99d2284',
-    created: {
-      timestamp: 1599687535241,
-      username: 'kra0801'
-    },
-    modified: [
-      {
-        timestamp: 1599687535241,
-        username: 'kra0801'
-      }
-    ],
-    type: 'samtale',
-    variant: 'ikke-samtale',
-    student: {
-      username: 'lil1312',
-      name: 'Lilla Spenne',
-      firstName: 'Lilla',
-      lastName: 'Spenne'
-    },
-    teacher: {
-      username: 'kra0801',
-      name: 'Kranglete Sykkel',
-      firstName: 'Kranglete',
-      lastName: 'Sykkel'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      samtale: false
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1599687535241,
-        status: 'queued'
-      },
-      {
-        timestamp: 1599687535251,
-        status: 'sent'
-      },
-      {
-        timestamp: 1599687535261,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb5ea579d71d0f2303e',
-    created: {
-      timestamp: 1600336414748,
-      username: 'fal0309'
-    },
-    modified: [
-      {
-        timestamp: 1600336414748,
-        username: 'fal0309'
-      }
-    ],
-    type: 'varsel',
-    variant: 'atferd',
-    student: {
-      username: 'alv1706',
-      name: 'Alvorlig Lykke',
-      firstName: 'Alvorlig',
-      lastName: 'Lykke'
-    },
-    teacher: {
-      username: 'fal0309',
-      name: 'Falsk Handlekraft',
-      firstName: 'Falsk',
-      lastName: 'Handlekraft'
-    },
-    school: {
-      id: 'TESVS',
-      name: 'Testen videregående skole'
-    },
-    content: {
-      period: 'Halvårsvurdering 1. termin',
-      reasons: [
-        'Du har brutt skolens ordensreglement',
-        'Du forlater undervisning uten avklaring med lærer',
-        'Du har brutt skolens ordensreglement'
-      ]
-    },
-    encrypted: false,
-    isQueued: false,
-    status: [
-      {
-        timestamp: 1600336414748,
-        status: 'queued'
-      },
-      {
-        timestamp: 1600336414758,
-        status: 'sent'
-      },
-      {
-        timestamp: 1600336414768,
-        status: 'archived'
-      }
-    ]
-  },
-  {
-    _id: '5fa2aeb597cd0c99af620558',
-    created: {
-      timestamp: 1599031288490,
-      username: 'rus26021'
-    },
-    modified: [
-      {
-        timestamp: 1599031288490,
-        username: 'rus26021'
+        timestamp: 1618390296428,
+        modifiedBy: 'sto3006'
       }
     ],
     type: 'varsel',
     variant: 'orden',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
     student: {
       username: 'opp2004',
       name: 'Oppfyllende Palmeolje',
       firstName: 'Oppfyllende',
-      lastName: 'Palmeolje'
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
     },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '03',
+          nb: 'Du har manglende eller for sen innlevering av arbeid',
+          nn: 'Du har manglande eller for sein innlevering av arbeid',
+          en: 'Du har manglende eller for sen innlevering av arbeid'
+        },
+        {
+          id: '05',
+          nb: 'Du har brutt skolens ordensreglement',
+          nn: 'Du har brutt skolens ordensreglement',
+          en: 'Du har brutt skolens ordensreglement'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1618390286435
+      },
+      {
+        status: 'sent',
+        timestamp: 1618390289886
+      },
+      {
+        status: 'archived',
+        timestamp: 1618390296428
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3496e370cb4651c8d',
+    created: {
+      timestamp: 1615901834022,
+      createdBy: 'fly2507'
+    },
+    modified: [
+      {
+        timestamp: 1615901834022,
+        modifiedBy: 'fly2507'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'fly2507',
+      name: 'Flyktig Logg',
+      firstName: 'Flyktig',
+      lastName: 'Logg',
+      mobile: '',
+      mail: 'flyktig.logg@vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1615901824029
+      },
+      {
+        status: 'sent',
+        timestamp: 1615901827480
+      },
+      {
+        status: 'archived',
+        timestamp: 1615901834022
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae393aa2187a643e95a',
+    created: {
+      timestamp: 1601627310494,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1601627310494,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du er for sen til undervisning',
+          nn: 'Du er for sein til undervisning',
+          en: 'Du er for sen til undervisning'
+        },
+        {
+          id: '05',
+          nb: 'Du har brutt skolens ordensreglement',
+          nn: 'Du har brutt skolens ordensreglement',
+          en: 'Du har brutt skolens ordensreglement'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1601627300501
+      },
+      {
+        status: 'sent',
+        timestamp: 1601627303952
+      },
+      {
+        status: 'archived',
+        timestamp: 1601627310494
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3d1cf6d110864d3bb',
+    created: {
+      timestamp: 1621519908560,
+      createdBy: 'vik2606'
+    },
+    modified: [
+      {
+        timestamp: 1621519908560,
+        modifiedBy: 'vik2606'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
+    teacher: {
+      username: 'vik2606',
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig',
+      mobile: '',
+      mail: 'viktig.kaerlig@vtfk.no'
+    },
+    student: {
+      username: 'uin2704',
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel',
+      mobile: '4794567891',
+      mail: 'uin2704@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1621519898567
+      },
+      {
+        status: 'sent',
+        timestamp: 1621519902018
+      },
+      {
+        status: 'archived',
+        timestamp: 1621519908560
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3d6ce8d8717d5f3d2',
+    created: {
+      timestamp: 1604383535942,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1604383535942,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1604383525949
+      },
+      {
+        status: 'sent',
+        timestamp: 1604383529400
+      },
+      {
+        status: 'archived',
+        timestamp: 1604383535942
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae32ebd9964adae1019',
+    created: {
+      timestamp: 1593706010884,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1593706010884,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'tro1407',
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko',
+      mobile: '4747474747',
+      mail: 'tro1407@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1593706000891
+      },
+      {
+        status: 'sent',
+        timestamp: 1593706004342
+      },
+      {
+        status: 'archived',
+        timestamp: 1593706010884
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae35f12d33b1032f23a',
+    created: {
+      timestamp: 1594712029845,
+      createdBy: 'bar0407'
+    },
+    modified: [
+      {
+        timestamp: 1594712029845,
+        modifiedBy: 'bar0407'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'bar0407',
+      name: 'Barmhjertig Eplekake',
+      firstName: 'Barmhjertig',
+      lastName: 'Eplekake',
+      mobile: '4745000054',
+      mail: 'barmhjertig.eplekake@vtfk.no'
+    },
+    student: {
+      username: 'tro1407',
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko',
+      mobile: '4747474747',
+      mail: 'tro1407@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1594712023303
+      },
+      {
+        status: 'archived',
+        timestamp: 1594712029845
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3d3856e60f62879ea',
+    created: {
+      timestamp: 1599583831359,
+      createdBy: 'rus26021'
+    },
+    modified: [
+      {
+        timestamp: 1599583831359,
+        modifiedBy: 'rus26021'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
     teacher: {
       username: 'rus26021',
       name: 'Ru Sovealkove',
       firstName: 'Ru',
-      lastName: 'Sovealkove'
+      lastName: 'Sovealkove',
+      mobile: '4748048048',
+      mail: 'ru.sovealkove@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
     },
     school: {
       id: 'TESVS',
-      name: 'Testen videregående skole'
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
     },
     content: {
-      period: 'Halvårsvurdering 2. termin',
-      reasons: [
-        'Du har udokumentert fravær',
-        'Du er for sen til undervisning',
-        'Du har udokumentert fravær'
-      ]
+      year: '2020/2021'
     },
-    encrypted: false,
-    isQueued: false,
+    isEncrypted: true,
     status: [
       {
-        timestamp: 1599031288490,
-        status: 'queued'
+        status: 'queued',
+        timestamp: 1599583824817
       },
       {
-        timestamp: 1599031288500,
-        status: 'sent'
-      },
-      {
-        timestamp: 1599031288510,
-        status: 'archived'
+        status: 'archived',
+        timestamp: 1599583831359
       }
-    ]
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3bf31ffd63f7abb66',
+    created: {
+      timestamp: 1584434880845,
+      createdBy: 'opp1805'
+    },
+    modified: [
+      {
+        timestamp: 1584434880845,
+        modifiedBy: 'opp1805'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
+    teacher: {
+      username: 'opp1805',
+      name: 'Oppfyllende Kråke',
+      firstName: 'Oppfyllende',
+      lastName: 'Kråke',
+      mobile: '4791111119',
+      mail: 'oppfyllende.krake@vtfk.no'
+    },
+    student: {
+      username: 'uin2704',
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel',
+      mobile: '4794567891',
+      mail: 'uin2704@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '05',
+          nb: 'Du har benyttet rusmidler i skoletida',
+          nn: 'Du har nytta rusmiddel i skuletida',
+          en: 'Du har benyttet rusmidler i skoletida'
+        },
+        {
+          id: '04',
+          nb: 'Du har fusket',
+          nn: 'Du har fuska',
+          en: 'Du har fusket'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1584434870852
+      },
+      {
+        status: 'sent',
+        timestamp: 1584434874303
+      },
+      {
+        status: 'archived',
+        timestamp: 1584434880845
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3afe2719d19cab564',
+    created: {
+      timestamp: 1607410344899,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1607410344899,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1607410338357
+      },
+      {
+        status: 'archived',
+        timestamp: 1607410344899
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae35f7be206553c94f6',
+    created: {
+      timestamp: 1613734232636,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1613734232636,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1613734226094
+      },
+      {
+        status: 'archived',
+        timestamp: 1613734232636
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3923b6ce6c51d4194',
+    created: {
+      timestamp: 1614187502555,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1614187502555,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1614187492562
+      },
+      {
+        status: 'sent',
+        timestamp: 1614187496013
+      },
+      {
+        status: 'archived',
+        timestamp: 1614187502555
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3202a145801769307',
+    created: {
+      timestamp: 1600428427997,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1600428427997,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1600428421455
+      },
+      {
+        status: 'archived',
+        timestamp: 1600428427997
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3c15d76b9362778e5',
+    created: {
+      timestamp: 1589901407932,
+      createdBy: 'fal0309'
+    },
+    modified: [
+      {
+        timestamp: 1589901407932,
+        modifiedBy: 'fal0309'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'fal0309',
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft',
+      mobile: '',
+      mail: 'falsk.handlekraft@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du er for sen til undervisning',
+          nn: 'Du er for sein til undervisning',
+          en: 'Du er for sen til undervisning'
+        },
+        {
+          id: '05',
+          nb: 'Du har brutt skolens ordensreglement',
+          nn: 'Du har brutt skolens ordensreglement',
+          en: 'Du har brutt skolens ordensreglement'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1589901397939
+      },
+      {
+        status: 'sent',
+        timestamp: 1589901401390
+      },
+      {
+        status: 'archived',
+        timestamp: 1589901407932
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3b02ccc84305a6da0',
+    created: {
+      timestamp: 1579690066429,
+      createdBy: 'rus26021'
+    },
+    modified: [
+      {
+        timestamp: 1579690066429,
+        modifiedBy: 'rus26021'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'rus26021',
+      name: 'Ru Sovealkove',
+      firstName: 'Ru',
+      lastName: 'Sovealkove',
+      mobile: '4748048048',
+      mail: 'ru.sovealkove@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1579690059887
+      },
+      {
+        status: 'archived',
+        timestamp: 1579690066429
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae36d8e380981481d1f',
+    created: {
+      timestamp: 1601367026119,
+      createdBy: 'fly2507'
+    },
+    modified: [
+      {
+        timestamp: 1601367026119,
+        modifiedBy: 'fly2507'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'fly2507',
+      name: 'Flyktig Logg',
+      firstName: 'Flyktig',
+      lastName: 'Logg',
+      mobile: '',
+      mail: 'flyktig.logg@vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1601367016126
+      },
+      {
+        status: 'sent',
+        timestamp: 1601367019577
+      },
+      {
+        status: 'archived',
+        timestamp: 1601367026119
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae37610a74fc10005f5',
+    created: {
+      timestamp: 1594703885466,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1594703885466,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'uin2704',
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel',
+      mobile: '4794567891',
+      mail: 'uin2704@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1594703878924
+      },
+      {
+        status: 'archived',
+        timestamp: 1594703885466
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae348f22eeac957a912',
+    created: {
+      timestamp: 1623343860185,
+      createdBy: 'rus26021'
+    },
+    modified: [
+      {
+        timestamp: 1623343860185,
+        modifiedBy: 'rus26021'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'rus26021',
+      name: 'Ru Sovealkove',
+      firstName: 'Ru',
+      lastName: 'Sovealkove',
+      mobile: '4748048048',
+      mail: 'ru.sovealkove@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1ENYA/ENG1009_TESVS@38099',
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1623343850192
+      },
+      {
+        status: 'sent',
+        timestamp: 1623343853643
+      },
+      {
+        status: 'archived',
+        timestamp: 1623343860185
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae380c888acaf1baff8',
+    created: {
+      timestamp: 1601911328944,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1601911328944,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '04',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fravær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '03',
+          nb: 'Du har manglende eller for sen innlevering av arbeid',
+          nn: 'Du har manglande eller for sein innlevering av arbeid',
+          en: 'Du har manglende eller for sen innlevering av arbeid'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1601911318951
+      },
+      {
+        status: 'sent',
+        timestamp: 1601911322402
+      },
+      {
+        status: 'archived',
+        timestamp: 1601911328944
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae34fade5bfbe362ac9',
+    created: {
+      timestamp: 1578589095335,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1578589095335,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1578589088793
+      },
+      {
+        status: 'archived',
+        timestamp: 1578589095335
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae313e8004838e080e7',
+    created: {
+      timestamp: 1612264838206,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1612264838206,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1612264828213
+      },
+      {
+        status: 'sent',
+        timestamp: 1612264831664
+      },
+      {
+        status: 'archived',
+        timestamp: 1612264838206
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae32e49425e1b608d28',
+    created: {
+      timestamp: 1586527988266,
+      createdBy: 'vik2606'
+    },
+    modified: [
+      {
+        timestamp: 1586527988266,
+        modifiedBy: 'vik2606'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
+    teacher: {
+      username: 'vik2606',
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig',
+      mobile: '',
+      mail: 'viktig.kaerlig@vtfk.no'
+    },
+    student: {
+      username: 'uin2704',
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel',
+      mobile: '4794567891',
+      mail: 'uin2704@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1586527981724
+      },
+      {
+        status: 'archived',
+        timestamp: 1586527988266
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3afb26405d473be5c',
+    created: {
+      timestamp: 1625056409897,
+      createdBy: 'skj1207'
+    },
+    modified: [
+      {
+        timestamp: 1625056409897,
+        modifiedBy: 'skj1207'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'skj1207',
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt',
+      mobile: '4799779977',
+      mail: 'skjoenn.initiativrik.plikt@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1MPYD/MAT1117_TESVS@38099',
+          en: 'Matematikk 1P-Y',
+          nb: 'Matematikk 1P-Y',
+          nn: 'Matematikk 1P-Y'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1625056399904
+      },
+      {
+        status: 'sent',
+        timestamp: 1625056403355
+      },
+      {
+        status: 'archived',
+        timestamp: 1625056409897
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3c4f5a32dad4debf6',
+    created: {
+      timestamp: 1596124263190,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1596124263190,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du er for sen til undervisning',
+          nn: 'Du er for sein til undervisning',
+          en: 'Du er for sen til undervisning'
+        },
+        {
+          id: '04',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fravær',
+          en: 'Du har udokumentert fravær'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1596124253197
+      },
+      {
+        status: 'sent',
+        timestamp: 1596124256648
+      },
+      {
+        status: 'archived',
+        timestamp: 1596124263190
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae359b6cd881ab9e508',
+    created: {
+      timestamp: 1605281614280,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1605281614280,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1605281604287
+      },
+      {
+        status: 'sent',
+        timestamp: 1605281607738
+      },
+      {
+        status: 'archived',
+        timestamp: 1605281614280
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae378467fb48f608a58',
+    created: {
+      timestamp: 1596003490435,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1596003490435,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'alv1706',
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke',
+      mobile: '4798765432',
+      mail: 'alv1706@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1596003480442
+      },
+      {
+        status: 'sent',
+        timestamp: 1596003483893
+      },
+      {
+        status: 'archived',
+        timestamp: 1596003490435
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3bb60e56860009ca1',
+    created: {
+      timestamp: 1596802269704,
+      createdBy: 'fly2507'
+    },
+    modified: [
+      {
+        timestamp: 1596802269704,
+        modifiedBy: 'fly2507'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'fly2507',
+      name: 'Flyktig Logg',
+      firstName: 'Flyktig',
+      lastName: 'Logg',
+      mobile: '',
+      mail: 'flyktig.logg@vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '05',
+          nb: 'Du har brutt skolens ordensreglement',
+          nn: 'Du har brutt skolens ordensreglement',
+          en: 'Du har brutt skolens ordensreglement'
+        },
+        {
+          id: '02',
+          nb: 'Du har ikke nødvendig skolemateriell klart til undervisning',
+          nn: 'Du har ikkje nødvendig skulemateriell klart til undervisning',
+          en: 'Du har ikke nødvendig skolemateriell klart til undervisning'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1596802259711
+      },
+      {
+        status: 'sent',
+        timestamp: 1596802263162
+      },
+      {
+        status: 'archived',
+        timestamp: 1596802269704
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae35d770b9ffcb10c8d',
+    created: {
+      timestamp: 1611656518777,
+      createdBy: 'vik2606'
+    },
+    modified: [
+      {
+        timestamp: 1611656518777,
+        modifiedBy: 'vik2606'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
+    teacher: {
+      username: 'vik2606',
+      name: 'Viktig Kjærlig',
+      firstName: 'Viktig',
+      lastName: 'Kjærlig',
+      mobile: '',
+      mail: 'viktig.kaerlig@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du forstyrrer undervisning eller skoleaktivitet',
+          nn: 'Du uroar undervisning eller skuleaktivitet',
+          en: 'Du forstyrrer undervisning eller skoleaktivitet'
+        },
+        {
+          id: '06',
+          nb: 'Du har brutt skolens ordensreglement',
+          nn: 'Du har brote skulen sitt ordensreglement',
+          en: 'Du har brutt skolens ordensreglement'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1611656508784
+      },
+      {
+        status: 'sent',
+        timestamp: 1611656512235
+      },
+      {
+        status: 'archived',
+        timestamp: 1611656518777
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3d5ca6c42f0ab1373',
+    created: {
+      timestamp: 1599728553979,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1599728553979,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1599728547437
+      },
+      {
+        status: 'archived',
+        timestamp: 1599728553979
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae347b7ac2d3567b174',
+    created: {
+      timestamp: 1599545317599,
+      createdBy: 'fly2507'
+    },
+    modified: [
+      {
+        timestamp: 1599545317599,
+        modifiedBy: 'fly2507'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'fly2507',
+      name: 'Flyktig Logg',
+      firstName: 'Flyktig',
+      lastName: 'Logg',
+      mobile: '',
+      mail: 'flyktig.logg@vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1599545307606
+      },
+      {
+        status: 'sent',
+        timestamp: 1599545311057
+      },
+      {
+        status: 'archived',
+        timestamp: 1599545317599
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3b7a0347f31463af4',
+    created: {
+      timestamp: 1593691336836,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1593691336836,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1593691326843
+      },
+      {
+        status: 'sent',
+        timestamp: 1593691330294
+      },
+      {
+        status: 'archived',
+        timestamp: 1593691336836
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae38921f7250efd8c02',
+    created: {
+      timestamp: 1584023199564,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1584023199564,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'alv1706',
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke',
+      mobile: '4798765432',
+      mail: 'alv1706@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1584023189571
+      },
+      {
+        status: 'sent',
+        timestamp: 1584023193022
+      },
+      {
+        status: 'archived',
+        timestamp: 1584023199564
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3dcaa396f649c1487',
+    created: {
+      timestamp: 1591600128479,
+      createdBy: 'skj1207'
+    },
+    modified: [
+      {
+        timestamp: 1591600128479,
+        modifiedBy: 'skj1207'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'skj1207',
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt',
+      mobile: '4799779977',
+      mail: 'skjoenn.initiativrik.plikt@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1ENYA/ENG1009_TESVS@38099',
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1591600118486
+      },
+      {
+        status: 'sent',
+        timestamp: 1591600121937
+      },
+      {
+        status: 'archived',
+        timestamp: 1591600128479
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae37430818e33b8cf2f',
+    created: {
+      timestamp: 1586499247791,
+      createdBy: 'skj1207'
+    },
+    modified: [
+      {
+        timestamp: 1586499247791,
+        modifiedBy: 'skj1207'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'skj1207',
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt',
+      mobile: '4799779977',
+      mail: 'skjoenn.initiativrik.plikt@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1ENYA/ENG1009_TESVS@38099',
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
+        },
+        {
+          id: '2_1HOA/HSF1008_TESVS@38099',
+          en: 'Yrkesliv i helse- og oppv.fag',
+          nb: 'Yrkesliv i helse- og oppv.fag',
+          nn: 'Yrkesliv i helse- og oppv.fag'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1586499237798
+      },
+      {
+        status: 'sent',
+        timestamp: 1586499241249
+      },
+      {
+        status: 'archived',
+        timestamp: 1586499247791
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3d61f06c3292191bb',
+    created: {
+      timestamp: 1602671514199,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1602671514199,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'alv1706',
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke',
+      mobile: '4798765432',
+      mail: 'alv1706@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1602671504206
+      },
+      {
+        status: 'sent',
+        timestamp: 1602671507657
+      },
+      {
+        status: 'archived',
+        timestamp: 1602671514199
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae373d32bacca4a779c',
+    created: {
+      timestamp: 1595252588291,
+      createdBy: 'ven2411'
+    },
+    modified: [
+      {
+        timestamp: 1595252588291,
+        modifiedBy: 'ven2411'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
+    teacher: {
+      username: 'ven2411',
+      name: 'Vennlig Arm',
+      firstName: 'Vennlig',
+      lastName: 'Arm',
+      mobile: '',
+      mail: 'vennlig.arm@vtfk.no'
+    },
+    student: {
+      username: 'tro1407',
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko',
+      mobile: '4747474747',
+      mail: 'tro1407@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1595252581749
+      },
+      {
+        status: 'archived',
+        timestamp: 1595252588291
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3b9639bfc5752716a',
+    created: {
+      timestamp: 1621235043212,
+      createdBy: 'fal0309'
+    },
+    modified: [
+      {
+        timestamp: 1621235043212,
+        modifiedBy: 'fal0309'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'fal0309',
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft',
+      mobile: '',
+      mail: 'falsk.handlekraft@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1ENYA/ENG1009_TESVS@38099',
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1621235033219
+      },
+      {
+        status: 'sent',
+        timestamp: 1621235036670
+      },
+      {
+        status: 'archived',
+        timestamp: 1621235043212
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3953714233736a360',
+    created: {
+      timestamp: 1622785101112,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1622785101112,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1622785094570
+      },
+      {
+        status: 'archived',
+        timestamp: 1622785101112
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae34488f0c11ddb3aaf',
+    created: {
+      timestamp: 1619712236926,
+      createdBy: 'fly2507'
+    },
+    modified: [
+      {
+        timestamp: 1619712236926,
+        modifiedBy: 'fly2507'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'fly2507',
+      name: 'Flyktig Logg',
+      firstName: 'Flyktig',
+      lastName: 'Logg',
+      mobile: '',
+      mail: 'flyktig.logg@vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1619712230384
+      },
+      {
+        status: 'archived',
+        timestamp: 1619712236926
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3c9424378204a5e26',
+    created: {
+      timestamp: 1582887221531,
+      createdBy: 'fal0309'
+    },
+    modified: [
+      {
+        timestamp: 1582887221531,
+        modifiedBy: 'fal0309'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
+    teacher: {
+      username: 'fal0309',
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft',
+      mobile: '',
+      mail: 'falsk.handlekraft@vtfk.no'
+    },
+    student: {
+      username: 'uin2704',
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel',
+      mobile: '4794567891',
+      mail: 'uin2704@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '04',
+          nb: 'Du har fusket',
+          nn: 'Du har fuska',
+          en: 'Du har fusket'
+        },
+        {
+          id: '03',
+          nb: 'Du forlater undervisning uten avklaring med lærer',
+          nn: 'Du forlèt undervisning utan avklaring med lærar',
+          en: 'Du forlater undervisning uten avklaring med lærer'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1582887211538
+      },
+      {
+        status: 'sent',
+        timestamp: 1582887214989
+      },
+      {
+        status: 'archived',
+        timestamp: 1582887221531
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3d77de7c17e8d1629',
+    created: {
+      timestamp: 1588081039049,
+      createdBy: 'bar0407'
+    },
+    modified: [
+      {
+        timestamp: 1588081039049,
+        modifiedBy: 'bar0407'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'bar0407',
+      name: 'Barmhjertig Eplekake',
+      firstName: 'Barmhjertig',
+      lastName: 'Eplekake',
+      mobile: '4745000054',
+      mail: 'barmhjertig.eplekake@vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1588081032507
+      },
+      {
+        status: 'archived',
+        timestamp: 1588081039049
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae34f0c48dfb5fe779b',
+    created: {
+      timestamp: 1583741490516,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1583741490516,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '04',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fravær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '02',
+          nb: 'Du har ikke nødvendig skolemateriell klart til undervisning',
+          nn: 'Du har ikkje nødvendig skulemateriell klart til undervisning',
+          en: 'Du har ikke nødvendig skolemateriell klart til undervisning'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1583741480523
+      },
+      {
+        status: 'sent',
+        timestamp: 1583741483974
+      },
+      {
+        status: 'archived',
+        timestamp: 1583741490516
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3bfab8e55dbcc7407',
+    created: {
+      timestamp: 1604494930763,
+      createdBy: 'skj1207'
+    },
+    modified: [
+      {
+        timestamp: 1604494930763,
+        modifiedBy: 'skj1207'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
+    teacher: {
+      username: 'skj1207',
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt',
+      mobile: '4799779977',
+      mail: 'skjoenn.initiativrik.plikt@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1604494924221
+      },
+      {
+        status: 'archived',
+        timestamp: 1604494930763
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae322d070b38933ea37',
+    created: {
+      timestamp: 1599717108135,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1599717108135,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1599717098142
+      },
+      {
+        status: 'sent',
+        timestamp: 1599717101593
+      },
+      {
+        status: 'archived',
+        timestamp: 1599717108135
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3650d29293b8294d6',
+    created: {
+      timestamp: 1608024286326,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1608024286326,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'alv1706',
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke',
+      mobile: '4798765432',
+      mail: 'alv1706@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1608024276333
+      },
+      {
+        status: 'sent',
+        timestamp: 1608024279784
+      },
+      {
+        status: 'archived',
+        timestamp: 1608024286326
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae317c09476be36215b',
+    created: {
+      timestamp: 1599652299118,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1599652299118,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1599652292576
+      },
+      {
+        status: 'archived',
+        timestamp: 1599652299118
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3d52fe4a06214f25c',
+    created: {
+      timestamp: 1591777108069,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1591777108069,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1591777101527
+      },
+      {
+        status: 'archived',
+        timestamp: 1591777108069
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae31f57389da14ec528',
+    created: {
+      timestamp: 1584430148791,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1584430148791,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1584430142249
+      },
+      {
+        status: 'archived',
+        timestamp: 1584430148791
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae35244d21ffc8b6c3e',
+    created: {
+      timestamp: 1597829359304,
+      createdBy: 'fly2507'
+    },
+    modified: [
+      {
+        timestamp: 1597829359304,
+        modifiedBy: 'fly2507'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'fly2507',
+      name: 'Flyktig Logg',
+      firstName: 'Flyktig',
+      lastName: 'Logg',
+      mobile: '',
+      mail: 'flyktig.logg@vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '04',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fravær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '02',
+          nb: 'Du har ikke nødvendig skolemateriell klart til undervisning',
+          nn: 'Du har ikkje nødvendig skulemateriell klart til undervisning',
+          en: 'Du har ikke nødvendig skolemateriell klart til undervisning'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1597829349311
+      },
+      {
+        status: 'sent',
+        timestamp: 1597829352762
+      },
+      {
+        status: 'archived',
+        timestamp: 1597829359304
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae36aa0b610b4fee091',
+    created: {
+      timestamp: 1620282475294,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1620282475294,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'samtale',
+    variant: 'samtale',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1620282468752
+      },
+      {
+        status: 'archived',
+        timestamp: 1620282475294
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3062280056cab08ee',
+    created: {
+      timestamp: 1593612960229,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1593612960229,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '03',
+        nb: 'Standpunktkarakter',
+        nn: 'Standpunktkarakter',
+        en: 'Standpunktkarakter'
+      },
+      reasons: [
+        {
+          id: '04',
+          nb: 'Du har fusket',
+          nn: 'Du har fuska',
+          en: 'Du har fusket'
+        },
+        {
+          id: '03',
+          nb: 'Du forlater undervisning uten avklaring med lærer',
+          nn: 'Du forlèt undervisning utan avklaring med lærar',
+          en: 'Du forlater undervisning uten avklaring med lærer'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1593612950236
+      },
+      {
+        status: 'sent',
+        timestamp: 1593612953687
+      },
+      {
+        status: 'archived',
+        timestamp: 1593612960229
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae31d4ec8d13c02e2ec',
+    created: {
+      timestamp: 1593168317108,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1593168317108,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'alv1706',
+      name: 'Alvorlig Lykke',
+      firstName: 'Alvorlig',
+      lastName: 'Lykke',
+      mobile: '4798765432',
+      mail: 'alv1706@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1593168307115
+      },
+      {
+        status: 'sent',
+        timestamp: 1593168310566
+      },
+      {
+        status: 'archived',
+        timestamp: 1593168317108
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3e61809b6a78c3baf',
+    created: {
+      timestamp: 1614096349209,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1614096349209,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '05',
+          nb: 'Du har brutt skolens ordensreglement',
+          nn: 'Du har brutt skolens ordensreglement',
+          en: 'Du har brutt skolens ordensreglement'
+        },
+        {
+          id: '01',
+          nb: 'Du er for sen til undervisning',
+          nn: 'Du er for sein til undervisning',
+          en: 'Du er for sen til undervisning'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1614096339216
+      },
+      {
+        status: 'sent',
+        timestamp: 1614096342667
+      },
+      {
+        status: 'archived',
+        timestamp: 1614096349209
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae38a26f3c2d9093b8f',
+    created: {
+      timestamp: 1598269303581,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1598269303581,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'uin2704',
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel',
+      mobile: '4794567891',
+      mail: 'uin2704@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1598269297039
+      },
+      {
+        status: 'archived',
+        timestamp: 1598269303581
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae39873d9b3bca26fbf',
+    created: {
+      timestamp: 1619541423171,
+      createdBy: 'tri0308'
+    },
+    modified: [
+      {
+        timestamp: 1619541423171,
+        modifiedBy: 'tri0308'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
+    teacher: {
+      username: 'tri0308',
+      name: 'Trine Testesen',
+      firstName: 'Trine',
+      lastName: 'Testesen',
+      mobile: '4794949494',
+      mail: 'trine.testesen@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '05',
+          nb: 'Du har benyttet rusmidler i skoletida',
+          nn: 'Du har nytta rusmiddel i skuletida',
+          en: 'Du har benyttet rusmidler i skoletida'
+        },
+        {
+          id: '03',
+          nb: 'Du forlater undervisning uten avklaring med lærer',
+          nn: 'Du forlèt undervisning utan avklaring med lærar',
+          en: 'Du forlater undervisning uten avklaring med lærer'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1619541413178
+      },
+      {
+        status: 'sent',
+        timestamp: 1619541416629
+      },
+      {
+        status: 'archived',
+        timestamp: 1619541423171
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3e3234b5407314812',
+    created: {
+      timestamp: 1611588917017,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1611588917017,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1611588907024
+      },
+      {
+        status: 'sent',
+        timestamp: 1611588910475
+      },
+      {
+        status: 'archived',
+        timestamp: 1611588917017
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3ee304f6fdd540a79',
+    created: {
+      timestamp: 1615829235480,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1615829235480,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du utviser provoserende atferd mot ansatte eller medelever',
+          nn: 'Du viser provoserande åtferd mot tilsette eller medelevar',
+          en: 'Du utviser provoserende atferd mot ansatte eller medelever'
+        },
+        {
+          id: '01',
+          nb: 'Du forstyrrer undervisning eller skoleaktivitet',
+          nn: 'Du uroar undervisning eller skuleaktivitet',
+          en: 'Du forstyrrer undervisning eller skoleaktivitet'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1615829225487
+      },
+      {
+        status: 'sent',
+        timestamp: 1615829228938
+      },
+      {
+        status: 'archived',
+        timestamp: 1615829235480
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3ae385430c9709f82',
+    created: {
+      timestamp: 1599745215555,
+      createdBy: 'fal0309'
+    },
+    modified: [
+      {
+        timestamp: 1599745215555,
+        modifiedBy: 'fal0309'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'fal0309',
+      name: 'Falsk Handlekraft',
+      firstName: 'Falsk',
+      lastName: 'Handlekraft',
+      mobile: '',
+      mail: 'falsk.handlekraft@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1ENYA/ENG1009_TESVS@38099',
+          en: 'Engelsk',
+          nb: 'Engelsk',
+          nn: 'Engelsk'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1599745205562
+      },
+      {
+        status: 'sent',
+        timestamp: 1599745209013
+      },
+      {
+        status: 'archived',
+        timestamp: 1599745215555
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3f4277fd348364956',
+    created: {
+      timestamp: 1608126294102,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1608126294102,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'opp2004',
+      name: 'Oppfyllende Palmeolje',
+      firstName: 'Oppfyllende',
+      lastName: 'Palmeolje',
+      mobile: '4794321000',
+      mail: 'opp2004@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1608126287560
+      },
+      {
+        status: 'archived',
+        timestamp: 1608126294102
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae361a3b468a3a5fa8c',
+    created: {
+      timestamp: 1597384278614,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1597384278614,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1597384268621
+      },
+      {
+        status: 'sent',
+        timestamp: 1597384272072
+      },
+      {
+        status: 'archived',
+        timestamp: 1597384278614
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae30a6894a578406dd7',
+    created: {
+      timestamp: 1621602818347,
+      createdBy: 'bar0407'
+    },
+    modified: [
+      {
+        timestamp: 1621602818347,
+        modifiedBy: 'bar0407'
+      }
+    ],
+    type: 'samtale',
+    variant: 'ikke-samtale',
+    teacher: {
+      username: 'bar0407',
+      name: 'Barmhjertig Eplekake',
+      firstName: 'Barmhjertig',
+      lastName: 'Eplekake',
+      mobile: '4745000054',
+      mail: 'barmhjertig.eplekake@vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1621602808354
+      },
+      {
+        status: 'sent',
+        timestamp: 1621602811805
+      },
+      {
+        status: 'archived',
+        timestamp: 1621602818347
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3c45c7df9c53e04af',
+    created: {
+      timestamp: 1599653365372,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1599653365372,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'tro1407',
+      name: 'Trofast Bomullballsko',
+      firstName: 'Trofast',
+      lastName: 'Bomullballsko',
+      mobile: '4747474747',
+      mail: 'tro1407@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1599653355379
+      },
+      {
+        status: 'sent',
+        timestamp: 1599653358830
+      },
+      {
+        status: 'archived',
+        timestamp: 1599653365372
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae39f96dbd389f105ef',
+    created: {
+      timestamp: 1594360581262,
+      createdBy: 'kra0801'
+    },
+    modified: [
+      {
+        timestamp: 1594360581262,
+        modifiedBy: 'kra0801'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'kra0801',
+      name: 'Kranglete Sykkel',
+      firstName: 'Kranglete',
+      lastName: 'Sykkel',
+      mobile: '',
+      mail: 'kra0801@skole.vtfk.no'
+    },
+    student: {
+      username: 'ett09051',
+      name: 'Etterpåklok Underfundig Filetfrue',
+      firstName: 'Etterpåklok Underfundig',
+      lastName: 'Filetfrue',
+      mobile: '4748765678',
+      mail: 'ett09051@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        },
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        }
+      ],
+      classes: [
+        {
+          id: '2_2STB/KRO1005_TESVS@38099',
+          en: 'Kroppsøving',
+          nb: 'Kroppsøving',
+          nn: 'Kroppsøving'
+        },
+        {
+          id: '2_2STB/HIS1001_TESVS@38099',
+          en: 'Historie',
+          nb: 'Historie',
+          nn: 'Historie'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1594360571269
+      },
+      {
+        status: 'sent',
+        timestamp: 1594360574720
+      },
+      {
+        status: 'archived',
+        timestamp: 1594360581262
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3e9d321c2ac1584c0',
+    created: {
+      timestamp: 1595942556170,
+      createdBy: 'sto3006'
+    },
+    modified: [
+      {
+        timestamp: 1595942556170,
+        modifiedBy: 'sto3006'
+      }
+    ],
+    type: 'notat',
+    variant: 'notat',
+    teacher: {
+      username: 'sto3006',
+      name: 'Stolt Komplisert Blindvegsjiraff',
+      firstName: 'Stolt Komplisert',
+      lastName: 'Blindvegsjiraff',
+      mobile: '4793949494',
+      mail: 'stolt.blindvegsjiraff@vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021'
+    },
+    isEncrypted: true,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1595942549628
+      },
+      {
+        status: 'archived',
+        timestamp: 1595942556170
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3cb3fdf3c7bbd7feb',
+    created: {
+      timestamp: 1609867947172,
+      createdBy: 'opp1805'
+    },
+    modified: [
+      {
+        timestamp: 1609867947172,
+        modifiedBy: 'opp1805'
+      }
+    ],
+    type: 'varsel',
+    variant: 'orden',
+    teacher: {
+      username: 'opp1805',
+      name: 'Oppfyllende Kråke',
+      firstName: 'Oppfyllende',
+      lastName: 'Kråke',
+      mobile: '4791111119',
+      mail: 'oppfyllende.krake@vtfk.no'
+    },
+    student: {
+      username: 'uin2704',
+      name: 'Uinspirert Rektangulær Sykkel',
+      firstName: 'Uinspirert Rektangulær',
+      lastName: 'Sykkel',
+      mobile: '4794567891',
+      mail: 'uin2704@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '05',
+          nb: 'Du har brutt skolens ordensreglement',
+          nn: 'Du har brutt skolens ordensreglement',
+          en: 'Du har brutt skolens ordensreglement'
+        },
+        {
+          id: '04',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fravær',
+          en: 'Du har udokumentert fravær'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1609867937179
+      },
+      {
+        status: 'sent',
+        timestamp: 1609867940630
+      },
+      {
+        status: 'archived',
+        timestamp: 1609867947172
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3e8694252223959ac',
+    created: {
+      timestamp: 1611650330027,
+      createdBy: 'bar0407'
+    },
+    modified: [
+      {
+        timestamp: 1611650330027,
+        modifiedBy: 'bar0407'
+      }
+    ],
+    type: 'varsel',
+    variant: 'atferd',
+    teacher: {
+      username: 'bar0407',
+      name: 'Barmhjertig Eplekake',
+      firstName: 'Barmhjertig',
+      lastName: 'Eplekake',
+      mobile: '4745000054',
+      mail: 'barmhjertig.eplekake@vtfk.no'
+    },
+    student: {
+      username: 'vis05042',
+      name: 'Vis Motbakkeklaring',
+      firstName: 'Vis',
+      lastName: 'Motbakkeklaring',
+      mobile: '4791919191',
+      mail: 'vis05042@skole.vtfk.no',
+      classId: 'TESVS:2STB',
+      level: 'VG2'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '01',
+        nb: 'Halvårsvurdering 1. termin',
+        nn: 'Halvårsvurdering 1. termin',
+        en: 'Halvårsvurdering 1. termin'
+      },
+      reasons: [
+        {
+          id: '04',
+          nb: 'Du har fusket',
+          nn: 'Du har fuska',
+          en: 'Du har fusket'
+        },
+        {
+          id: '02',
+          nb: 'Du utviser provoserende atferd mot ansatte eller medelever',
+          nn: 'Du viser provoserande åtferd mot tilsette eller medelevar',
+          en: 'Du utviser provoserende atferd mot ansatte eller medelever'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1611650320034
+      },
+      {
+        status: 'sent',
+        timestamp: 1611650323485
+      },
+      {
+        status: 'archived',
+        timestamp: 1611650330027
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3256a62c8e1eedb76',
+    created: {
+      timestamp: 1602682297889,
+      createdBy: 'skj1207'
+    },
+    modified: [
+      {
+        timestamp: 1602682297889,
+        modifiedBy: 'skj1207'
+      }
+    ],
+    type: 'varsel',
+    variant: 'fag',
+    teacher: {
+      username: 'skj1207',
+      name: 'Skjønn Initiativrik Plikt',
+      firstName: 'Skjønn Initiativrik',
+      lastName: 'Plikt',
+      mobile: '4799779977',
+      mail: 'skjoenn.initiativrik.plikt@vtfk.no'
+    },
+    student: {
+      username: 'dyn06061',
+      name: 'Dynamisk Hevngjerrig Statist',
+      firstName: 'Dynamisk Hevngjerrig',
+      lastName: 'Statist',
+      mobile: '4791234567',
+      mail: 'dyn06061@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      year: '2020/2021',
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      reasons: [
+        {
+          id: '02',
+          nb: 'Du har udokumentert fravær',
+          nn: 'Du har udokumentert fråvær',
+          en: 'Du har udokumentert fravær'
+        },
+        {
+          id: '01',
+          nb: 'Du har manglende vurderingsgrunnlag',
+          nn: 'Du har manglande vurderingsgrunnlag',
+          en: 'Du har manglende vurderingsgrunnlag'
+        }
+      ],
+      classes: [
+        {
+          id: '2_1MPYD/MAT1117_TESVS@38099',
+          en: 'Matematikk 1P-Y',
+          nb: 'Matematikk 1P-Y',
+          nn: 'Matematikk 1P-Y'
+        }
+      ]
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1602682287896
+      },
+      {
+        status: 'sent',
+        timestamp: 1602682291347
+      },
+      {
+        status: 'archived',
+        timestamp: 1602682297889
+      }
+    ],
+    isQueued: false
   }
 ]
 
