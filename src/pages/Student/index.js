@@ -18,6 +18,7 @@ import Yff from './yff'
 import YffErrorFallback from './yff-error-fallback'
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
+import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
 
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
@@ -29,6 +30,7 @@ export function Student ({ match, ...props }) {
   const { apiGet } = useSession()
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
+  const [previewDocument, setPreviewDocument] = useState(false)
   const [error, setError] = useState(false)
   const [student, setStudent] = useState(null)
   const [documents, setDocuments] = useState(null)
@@ -61,6 +63,10 @@ export function Student ({ match, ...props }) {
 
   function openNoteModal () {
     setNoteModalState(true)
+  }
+
+  function openPreviewModal (doc) {
+    setPreviewDocument(doc)
   }
 
   // Last inn elev, dokumenter og utplasseringer når siden lastes
@@ -97,6 +103,18 @@ export function Student ({ match, ...props }) {
               }}
             />
           </>
+      }
+
+      {
+        student && !!previewDocument &&
+          <PreviewDocumentModal
+            open={!!previewDocument}
+            previewDoc={previewDocument}
+            student={student}
+            title={repackDocumentType(previewDocument.type, previewDocument.variant)}
+            onDismiss={() => { setPreviewDocument(false) }}
+            onFinished={() => { setPreviewDocument(false) }}
+          />
       }
 
       <div className='student'>
@@ -161,7 +179,7 @@ export function Student ({ match, ...props }) {
                             <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                           </td>
                           <td>
-                            <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
+                            <Paragraph><Link onClick={() => openPreviewModal(doc)}>{repackDocumentType(doc.type, doc.variant)}</Link></Paragraph>
                           </td>
                           <td>
                             <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
