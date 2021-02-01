@@ -2,10 +2,10 @@
 @import "../../assets/scss/helpers";
 
 .preview-document-modal {
-  .person-information {
+  .person-information, .person-information-teacher {
     display: flex;
     flex-wrap: nowrap;
-    margin-bottom: $baseUnit * 12;
+    margin-bottom: $baseUnit * 5;
 
     @media (max-width: 1000px) {
       margin-bottom: $baseUnit * 6;
@@ -29,6 +29,10 @@
     }
   }
 
+  .person-information-teacher {
+    margin-bottom: $baseUnit * 12;
+  }
+
   .form {
     padding-bottom: $baseUnit * 8;
 
@@ -38,26 +42,6 @@
 
     .select {
       margin-bottom: $baseUnit * 5;
-    }
-
-    .user {
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      // transform: translateX($baseUnit * 23);
-
-      .user-name {
-        margin-right: $baseUnit * 1.5;
-      }
-
-      .user-image {
-        margin-right: $baseUnit * 2;
-      }
-    }
-
-    .user-status {
-      margin-top: 10px;
-      margin-right: $baseUnit * 2;
     }
   }
 

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import * as Sentry from '@sentry/react'
-import Moment from 'react-moment'
 
 import { DOCUMENTS } from '../../data/documents'
 
@@ -9,10 +8,9 @@ import { Link } from '../../_lib-components/Typography'
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { Select, SelectMultiple } from '../../_lib-components/Select'
 import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { Paragraph } from '../../_lib-components/Typography'
 
-import StudentCard from '../../components/student-card'
+import StudentTeacherCard from '../../components/student-teacher-card'
+
 
 import './styles.scss'
 import ErrorFallback from '../../components/yff-error-fallback'
@@ -45,18 +43,6 @@ export function PreviewDocumentModal ({ previewDoc, student, ...props }) {
     console.log('Preview only')
   }
 
-  const generateStatuses = () => {
-    const sent = previewDoc.status.find(status => status.status === 'sent')
-    const archived = previewDoc.status.find(status => status.status === 'archived')
-
-    return (
-      <>
-        <Paragraph>{DOCUMENTS.documentStatuses.find(status => status.id === 'sent').short.nb}: { sent ? <Moment locale='nb' format='DD. MMM YYYY - HH:mm'>{sent.timestamp}</Moment> : DOCUMENTS.documentStatuses.find(status => status.id === 'queued').short.nb }</Paragraph>
-        <Paragraph>{DOCUMENTS.documentStatuses.find(status => status.id === 'archived').short.nb}: { archived ? <Moment locale='nb' format='DD. MMM YYYY - HH:mm'>{archived.timestamp}</Moment> : DOCUMENTS.documentStatuses.find(status => status.id === 'queued').short.nb }</Paragraph>
-      </>
-    )
-  }
-
   return (
     <Sentry.ErrorBoundary
       fallback={ErrorFallback}
@@ -70,7 +56,8 @@ export function PreviewDocumentModal ({ previewDoc, student, ...props }) {
         onFinished={props.onFinished}
       >
         <ModalBody>
-          <StudentCard student={student} />
+          <StudentTeacherCard student={student} teacher={previewDoc.teacher} statuses={previewDoc.status} />
+
 
           <div className='form'>
             {
@@ -173,21 +160,6 @@ export function PreviewDocumentModal ({ previewDoc, student, ...props }) {
                     selectedItem={repackTypeOptions(DOCUMENTS.conversationStatuses.find(type => type.id === previewDoc.variant), 'value')}
                     onChange={item => handleChange(item)}
                   />
-                </>
-            }
-
-            {
-              student && previewDoc.type &&
-                <>
-                  <div className='user'>
-                    <InitialsBadge className='user-image' firstName={previewDoc.teacher.firstName} lastName={previewDoc.teacher.lastName} />
-                    <div className='user-name'>
-                      <Paragraph>{previewDoc.teacher.name}</Paragraph>
-                    </div>
-                  </div>
-                  <div className='user-status'>
-                    {generateStatuses()}
-                  </div>
                 </>
             }
           </div>
