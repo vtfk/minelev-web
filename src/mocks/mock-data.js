@@ -3783,14 +3783,35 @@ export const DOCUMENTS = [
       name: 'Testen videregående skole'
     },
     content: {
-      period: 'Standpunktkarakter',
-      reasons: [
-        'Du har manglende vurderingsgrunnlag',
-        'Du har udokumentert fravær'
-      ],
-      courses: [
-        'TESVS:1HOA/YFF4106'
-      ]
+      year: '2020/2021',
+      reasons: [{
+        id: '01',
+        nb: 'Du har manglende vurderingsgrunnlag',
+        nn: 'Du har manglande vurderingsgrunnlag',
+        en: 'Du har manglende vurderingsgrunnlag'
+      }],
+      period: {
+        id: '02',
+        nb: 'Halvårsvurdering 2. termin',
+        nn: 'Halvårsvurdering 2. termin',
+        en: 'Halvårsvurdering 2. termin'
+      },
+      classes: [{
+        id: '2_2STB/KRO1005_TESVS@38099',
+        nb: 'Norsk, muntlig',
+        nn: 'Norsk, muntlig',
+        en: 'Norsk, muntlig'
+      }, {
+        id: '2_2STB/KRO1004_TESVS@38099',
+        nb: 'Norsk hovedmål, skriftlig',
+        nn: 'Norsk hovedmål, skriftlig',
+        en: 'Norsk hovedmål, skriftlig'
+      }, {
+        id: '2_2STB/KRO1006_TESVS@38099',
+        nb: 'Norsk sidemål, skriftlig',
+        nn: 'Norsk sidemål, skriftlig',
+        en: 'Norsk sidemål, skriftlig'
+      }]
     },
     encrypted: false,
     isQueued: false,
