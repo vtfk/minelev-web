@@ -38,7 +38,7 @@ function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate
             {hideSchool ? '' : loading ? <SkeletonLoader width='200px' /> : schoolName}
           </Paragraph>
           <Paragraph>
-            {hideClass ? '' : loading ? <SkeletonLoader width='180px' /> : <Link href={`/${ROUTES.classes}/${classId}`}>{classId}</Link>}
+            {hideClass ? '' : loading ? <SkeletonLoader width='180px' /> : <Link href={`/${ROUTES.classes}/${encodeURIComponent(classId)}`}>{classId}</Link>}
           </Paragraph>
           <Paragraph>
             {hideBirthdate ? '' : loading ? <SkeletonLoader width='160px' /> : prettyPrintDate(birthdate)}
