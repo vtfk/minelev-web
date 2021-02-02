@@ -147,7 +147,7 @@ export function Students (props) {
                           <IconDropdownNav>
                             <IconDropdownNavItem onClick={() => { openDocumentModal(student) }} title='Nytt dokument' />
                             <IconDropdownNavItem onClick={() => { openNoteModal(student) }} title='Nytt notat' />
-                            <IconDropdownNavItem href={`/${ROUTES.students}/${student.id}`} title={`YFF for ${student.firstName} ${student.lastName}`} />
+                            <IconDropdownNavItem href={`/${ROUTES.students}/${student.id}`} title={`Elevsiden til ${student.firstName}`} />
                           </IconDropdownNav>
                         </td>
                       </tr>

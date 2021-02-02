@@ -162,7 +162,7 @@ export function ActivityLog () {
                           <IconDropdownNav>
                             <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
                             <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
-                            <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`YFF for ${doc.student.name}`} />
+                            <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`Elevsiden til ${doc.student.firstName}`} />
                           </IconDropdownNav>
                         </td>
                       </tr>
