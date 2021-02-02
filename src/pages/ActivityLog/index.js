@@ -19,7 +19,6 @@ import { NewNoteModal } from '../../containers/NewNoteModal'
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
-import { documentStudenthasYff } from '../../lib/is-yff'
 
 export function ActivityLog () {
   const [documentModalState, setDocumentModalState] = useState(false)
@@ -163,7 +162,7 @@ export function ActivityLog () {
                           <IconDropdownNav>
                             <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
                             <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
-                            <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`${documentStudenthasYff(doc) ? 'Elevsiden og YFF for' : 'Elevsiden til'} ${doc.student.firstName}`} />
+                            <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`Elevsiden til ${doc.student.firstName}`} />
                           </IconDropdownNav>
                         </td>
                       </tr>
