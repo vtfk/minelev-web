@@ -25,7 +25,6 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
     }).join('\n')
   }
 
-  const documentType = previewDoc.type === 'notat' ? 'Notat' : previewDoc.type === 'yff' ? 'YFF' : DOCUMENTS.documentTypes.find(type => type.id === (previewDoc.variant === 'ikke-samtale' ? previewDoc.type : previewDoc.variant))?.description.nb
   //const documentYear = previewDoc && previewDoc.content.year
   const documentPeriod = previewDoc.content.period && DOCUMENTS.periods.find(type => type.id === previewDoc.content.period.id)?.value.nb
   const documentAtferd = previewDoc.variant === 'atferd' && previewDoc.content.reasons.map(reason => DOCUMENTS.behaviourReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
@@ -69,15 +68,6 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
           <StudentCard student={{ ...previewDoc.student, schoolName: previewDoc.school.name }} hideBirthdate={true} />
 
           <div className='form'>
-            {
-              previewDoc &&
-              <Heading3>
-                <div className='heading-text'>
-                  {documentType || 'Auda 🤭'}
-                </div>
-              </Heading3>
-            }
-
             {/*
               //--------------------
               //  Year
