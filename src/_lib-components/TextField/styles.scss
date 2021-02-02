@@ -50,6 +50,16 @@
     } */
   }
 
+  .no-border {
+    input, textarea {
+      border-bottom: 0px !important;
+    }
+
+    textarea {
+      resize: none;
+    }
+  }
+
   textarea {
     resize: vertical;
   }
