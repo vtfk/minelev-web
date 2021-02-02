@@ -110,7 +110,6 @@ export function Student ({ match, ...props }) {
           <PreviewDocumentModal
             open={!!previewDocument}
             previewDoc={previewDocument}
-            student={student}
             title={repackDocumentType(previewDocument.type, previewDocument.variant)}
             onDismiss={() => { setPreviewDocument(false) }}
             onFinished={() => { setPreviewDocument(false) }}
@@ -174,12 +173,12 @@ export function Student ({ match, ...props }) {
                   {
                     documents && documents.map(function (doc, index) {
                       return (
-                        <tr key={doc.id}>
+                        <tr key={doc.id} onClick={() => openPreviewModal(doc)} className='clickable' aria-label='Klikk for å åpne' title='Klikk for å åpne' tabIndex={0}>
                           <td>
                             <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                           </td>
                           <td>
-                            <Paragraph><Link onClick={() => openPreviewModal(doc)}>{repackDocumentType(doc.type, doc.variant)}</Link></Paragraph>
+                            <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
                           </td>
                           <td>
                             <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
@@ -215,6 +214,7 @@ export function Student ({ match, ...props }) {
                         <tr key={i}>
                           <td><SkeletonLoader width='60%' /></td>
                           <td><SkeletonLoader /></td>
+                          <td><SkeletonLoader /></td>
                         </tr>
                       )
                     })
@@ -222,9 +222,12 @@ export function Student ({ match, ...props }) {
                   {
                     notes && notes.map(function (note, index) {
                       return (
-                        <tr key={note.id}>
+                        <tr key={note.id} onClick={() => openPreviewModal(note)} className='clickable' aria-label='Klikk for å åpne' title='Klikk for å åpne' tabIndex={0}>
                           <td>
                             <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.created.timestamp}</Moment></Paragraph>
+                          </td>
+                          <td>
+                            <Paragraph>{note.teacher.name}</Paragraph>
                           </td>
                           <td>
                             <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>

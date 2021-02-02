@@ -146,6 +146,11 @@
       border-collapse: collapse;
 
       tr {
+        &.clickable {
+          cursor: pointer;
+          outline: 0;
+        }
+
         td {
           padding-right: $baseUnit * 2;
           padding-bottom: $baseUnit * 2;

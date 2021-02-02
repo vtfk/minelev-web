@@ -2,10 +2,10 @@
 @import "../../assets/scss/helpers";
 
 .preview-document-modal {
-  .person-information, .person-information-teacher {
+  .person-information {
     display: flex;
     flex-wrap: nowrap;
-    margin-bottom: $baseUnit * 5;
+    margin-bottom: $baseUnit * 12;
 
     @media (max-width: 1000px) {
       margin-bottom: $baseUnit * 6;
@@ -29,10 +29,6 @@
     }
   }
 
-  .person-information-teacher {
-    margin-bottom: $baseUnit * 12;
-  }
-
   .form {
     padding-bottom: $baseUnit * 8;
 
@@ -40,8 +36,13 @@
       padding-bottom: 0;
     }
 
-    .select {
-      margin-bottom: $baseUnit * 5;
+    .heading-text, .paragraph {
+      font-weight: bold;
+      margin-bottom: $baseUnit * 3;
+    }
+
+    .text-field {
+      margin-bottom: $baseUnit * 4;
     }
   }
 
