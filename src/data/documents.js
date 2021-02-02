@@ -37,6 +37,32 @@ export const DOCUMENTS = {
       }
     }
   ],
+  documentTypesYFF: [
+    {
+      id: 'bekreftelse',
+      description: {
+        nb: 'Bekreftelse om utplassering',
+        nn: 'Stadfesting om utplassering',
+        en: 'Bekreftelse om utplassering'
+      }
+    },
+    {
+      id: 'laereplan',
+      description: {
+        nb: 'Lokal læreplan i YFF',
+        nn: 'Lokal læreplan i YFF',
+        en: 'Lokal læreplan i YFF'
+      }
+    },
+    {
+      id: 'tilbakemelding',
+      description: {
+        nb: 'Tilbakemelding etter utplassering',
+        nn: 'Tilbakemelding etter utplassering',
+        en: 'Tilbakemelding etter utplassering'
+      }
+    }
+  ],
   periods: [
     {
       id: '01',
