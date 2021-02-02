@@ -12,7 +12,9 @@ function UtplasseringSelector (props) {
       { value: 'ubedrift', label: 'Ungdomsbedrift (entreprenørskap)' }
     ]
     if (utplasseringer && utplasseringer.count > 0) {
-      const bedrifter = utplasseringer.data.map(bedrift => { return { value: bedrift._id, label: bedrift.bedriftsNavn } })
+      const bedrifter = utplasseringer.data
+        .map(bedrift => { return { value: bedrift._id, label: `${bedrift.bedriftsNavn} (${bedrift.fraDato} - ${bedrift.tilDato})` } })
+
       setItems([...defaultItems, ...bedrifter])
 
       // Sett første bedrift som standard-valg
