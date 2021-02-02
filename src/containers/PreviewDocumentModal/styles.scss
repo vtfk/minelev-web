@@ -41,6 +41,21 @@
       margin-bottom: $baseUnit * 3;
     }
 
+    .laereplan-text {
+      font-weight: bold;
+      float: left;
+      padding-right: 5px;
+    }
+
+    .laereplan-desc::first-letter {
+      text-transform: uppercase;
+    }
+
+    ul {
+      padding-inline-start: 20px;
+      padding-bottom: $baseUnit;
+    }
+
     .text-field {
       margin-bottom: $baseUnit * 4;
     }
