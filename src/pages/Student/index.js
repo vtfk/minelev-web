@@ -106,7 +106,7 @@ export function Student ({ match, ...props }) {
       }
 
       {
-        student && !!previewDocument &&
+        !!previewDocument &&
           <PreviewDocumentModal
             open={!!previewDocument}
             previewDoc={previewDocument}
