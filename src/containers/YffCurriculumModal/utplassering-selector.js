@@ -13,6 +13,7 @@ function UtplasseringSelector (props) {
     ]
     if (utplasseringer && utplasseringer.count > 0) {
       const bedrifter = utplasseringer.data
+        .filter(utplassering => !utplassering.tilbakemelding)
         .map(bedrift => { return { value: bedrift._id, label: `${bedrift.bedriftsNavn} (${bedrift.fraDato} - ${bedrift.tilDato})` } })
 
       setItems([...defaultItems, ...bedrifter])
