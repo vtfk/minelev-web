@@ -2300,6 +2300,106 @@ export const DOCUMENTS = [
         modifiedBy: 'pre0711'
       }
     ],
+    type: 'yff',
+    variant: 'bekreftelse',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    "content": {
+      "bekreftelse": {
+        "oppmotested": "Whatever",
+        "kopiPrEpost": ["runely@vtfk.no"],
+        "fraDato": "02.02.2021",
+        "tilDato": "03.02.2021",
+        "daysPerWeek": "17",
+        "startTid": "08:00",
+        "sluttTid": "16:00",
+        "kontaktpersonData": [{
+          "navn": "Whatever",
+          "telefon": "81549300",
+          "epost": "nei@nei.no",
+          "avdeling": "Whatever"
+        }],
+        "parorendeData": [{
+          "navn": "Allah",
+          "telefon": "Sakesak"
+        }],
+        "bedriftsNavn": "VESTFOLD OG TELEMARK FYLKESKOMMUNE",
+        "bedriftsData": {
+          "organisasjonsNummer": "821227062",
+          "navn": "VESTFOLD OG TELEMARK FYLKESKOMMUNE",
+          "adresse": "Postboks 2844",
+          "postnummer": "3702",
+          "poststed": "SKIEN",
+          "avdeling": "Whatever"
+        }
+      },
+      "utdanningsprogram": {
+        "kode": "HS",
+        "type": "yrkesfaglig",
+        "tittel": {
+          "en": "Helse- og oppvekstfag",
+          "nb": "Helse- og oppvekstfag",
+          "nn": "Helse- og oppvekstfag"
+        },
+        "kortform": {
+          "en": "Helse- og oppvekstfag",
+          "nb": "Helse- og oppvekstfag",
+          "nn": "Helse- og oppvekstfag"
+        }
+      },
+      "level": "VG1",
+      "year": "2020/2021"
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1581529605826
+      },
+      {
+        status: 'sent',
+        timestamp: 1581529609277
+      },
+      {
+        status: 'archived',
+        timestamp: 1581529615819
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3ac2f891274e2abe7',
+    created: {
+      timestamp: 1581529615819,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1581529615819,
+        modifiedBy: 'pre0711'
+      }
+    ],
     type: 'varsel',
     variant: 'fag',
     teacher: {
