@@ -25,14 +25,20 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
     }).join('\n')
   }
 
-  const documentType = previewDoc.type === 'notat' ? 'Notat' : DOCUMENTS.documentTypes.find(type => type.id === (previewDoc.variant === 'ikke-samtale' ? previewDoc.type : previewDoc.variant))?.description.nb
+  const documentType = previewDoc.type === 'notat' ? 'Notat' : previewDoc.type === 'yff' ? 'YFF' : DOCUMENTS.documentTypes.find(type => type.id === (previewDoc.variant === 'ikke-samtale' ? previewDoc.type : previewDoc.variant))?.description.nb
   //const documentYear = previewDoc && previewDoc.content.year
-  const documentPeriod = !['samtale', 'notat'].includes(previewDoc.type) && DOCUMENTS.periods.find(type => type.id === previewDoc.content.period.id)?.value.nb
-  const documentAtferd = previewDoc.type !== 'notat' && previewDoc.variant === 'atferd' && previewDoc.content.reasons.map(reason => DOCUMENTS.behaviourReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
-  const documentFag = previewDoc.type !== 'notat' && previewDoc.variant === 'fag' && previewDoc.content.classes && previewDoc.content.classes.map(item => item.nb)?.join('\n')
-  const documentFagReasons = previewDoc.type !== 'notat' && previewDoc.variant === 'fag' && previewDoc.content.reasons.map(reason => DOCUMENTS.courseReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
-  const documentOrden = previewDoc.type !== 'notat' && previewDoc.variant === 'orden' && previewDoc.content.reasons.map(reason => DOCUMENTS.orderReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
+  const documentPeriod = previewDoc.content.period && DOCUMENTS.periods.find(type => type.id === previewDoc.content.period.id)?.value.nb
+  const documentAtferd = previewDoc.variant === 'atferd' && previewDoc.content.reasons.map(reason => DOCUMENTS.behaviourReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
+  const documentFag = previewDoc.content.classes && previewDoc.content.classes.map(item => item.nb)?.join('\n')
+  const documentFagReasons = previewDoc.variant === 'fag' && previewDoc.content.reasons.map(reason => DOCUMENTS.courseReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
+  const documentOrden = previewDoc.variant === 'orden' && previewDoc.content.reasons.map(reason => DOCUMENTS.orderReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
   const documentSamtale = previewDoc.type === 'samtale' && DOCUMENTS.conversationStatuses.find(type => type.id === previewDoc.variant)?.value.nb
+  const documentYffBedrift = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.bedriftsData.navn}\n${previewDoc.content.bekreftelse.bedriftsData.adresse}\n${previewDoc.content.bekreftelse.bedriftsData.postnummer} ${previewDoc.content.bekreftelse.bedriftsData.poststed}`
+  const documentYffTidsrom = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.fraDato} - ${previewDoc.content.bekreftelse.tilDato}`
+  const documentYffArbeidsdag = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.startTid} - ${previewDoc.content.bekreftelse.sluttTid}`
+  const documentYffParorende = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.parorendeData.map(person => `${person.navn} (${person.telefon})`).join('\n')
+  const documentYffKontaktPerson = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.kontaktpersonData.map(person => `${person.navn} (${person.avdeling})\nTelefon: ${person.telefon} / E-post: ${person.epost}`).join('\n')
+  
   const documentTeacher = previewDoc.teacher && previewDoc.teacher.name
   const documentDate = previewDoc && prettyPrintDate(previewDoc.created.timestamp)
   const documentStatus = previewDoc.status && generateStatus()
@@ -88,7 +94,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               /* --------------------
                 Periode
               -------------------- */
-              previewDoc.type && previewDoc.type !== 'samtale' && previewDoc.type !== 'notat' &&
+              previewDoc.content.period &&
               <TextField
                 disabled={true}
                 noBorder={true}
@@ -162,6 +168,59 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               -------------------- */
               previewDoc.type && previewDoc.type === 'notat' &&
               <Paragraph>Notatets innhold finner du igjen i <Link href='https://elevmappa.no' target='_blank' rel='noreferrer'>Elevmappa</Link></Paragraph>
+            }
+
+            {
+              /* --------------------
+                YFF bekreftelse
+              -------------------- */
+              previewDoc.variant && previewDoc.variant === 'bekreftelse' &&
+              <>
+                <TextField
+                  disabled={true}
+                  noBorder={true}
+                  placeholder='Bedrift'
+                  rows={documentYffBedrift.split('\n').length || 1}
+                  value={documentYffBedrift || 'Auda 🤭'} />
+
+                <TextField
+                  disabled={true}
+                  noBorder={true}
+                  placeholder='Tidsrom'
+                  value={documentYffTidsrom || 'Auda 🤭'} />
+
+                <TextField
+                  disabled={true}
+                  noBorder={true}
+                  placeholder='Arbeidsdag'
+                  value={documentYffArbeidsdag || 'Auda 🤭'} />
+
+                <TextField
+                  disabled={true}
+                  noBorder={true}
+                  placeholder='Dager i uken'
+                  value={previewDoc.content.bekreftelse.daysPerWeek || 'Auda 🤭'} />
+
+                <TextField
+                  disabled={true}
+                  noBorder={true}
+                  placeholder='Oppmøtested'
+                  value={previewDoc.content.bekreftelse.oppmotested || 'Auda 🤭'} />
+
+                <TextField
+                  disabled={true}
+                  noBorder={true}
+                  placeholder='Pårørende'
+                  rows={documentYffParorende.split('\n').length || 1}
+                  value={documentYffParorende || 'Auda 🤭'} />
+
+                <TextField
+                  disabled={true}
+                  noBorder={true}
+                  placeholder='Kontaktperson på bedriften'
+                  rows={documentYffKontaktPerson.split('\n').length || 1}
+                  value={documentYffKontaktPerson || 'Auda 🤭'} />
+              </>
             }
 
             {
