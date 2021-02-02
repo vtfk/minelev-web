@@ -1,4 +1,4 @@
-import isYff from './is-yff'
+import { isYff } from './is-yff'
 
 describe('tester funksjonen isYff', () => {
   test('funksjonen kaster TypeError om den ikke får innsendt studentobjekt', () => {

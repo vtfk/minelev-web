@@ -15,6 +15,10 @@ function isYff (student) {
   // Sjekk om elevens programområde / utdanningsprogram er yrkesfaglig
   const programomraade = student?.programomraade?.type
   const utdanningsprogram = student?.utdanningsprogram?.type
+
+  // Fikk vi ikke inn verken programområde eller utdanningsprogram viser vi fram det vi har
+  if (!programomraade && !utdanningsprogram) return true
+
   const sikker = programomraade === 'yrkesfaglig' || utdanningsprogram === 'yrkesfaglig'
   const usikker = programomraade === 'Ukjent' && utdanningsprogram === 'Ukjent'
   return sikker || usikker
