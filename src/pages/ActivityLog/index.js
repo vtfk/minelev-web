@@ -97,7 +97,7 @@ export function ActivityLog () {
           <PreviewDocumentModal
             open={!!previewDocument}
             previewDoc={previewDocument}
-            title={repackDocumentType(previewDocument.type, previewDocument.variant)}
+            title={['notat', 'samtale', 'varsel'].includes(previewDocument.type) ? repackDocumentType(previewDocument.type, previewDocument.variant) : previewDocument.variant === 'bekreftelse' ? 'Bekreftelse om utplassering av elev' : previewDocument.variant === 'laereplan' ? 'Lokal læreplan' : previewDocument.variant === 'tilbakemelding' ? 'Tilbakemelding på utplassering' : `${previewDocument.type}-${previewDocument.variant}`}
             onDismiss={() => { setPreviewDocument(false) }}
             onFinished={() => { setPreviewDocument(false) }}
           />
