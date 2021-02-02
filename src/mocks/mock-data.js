@@ -2301,6 +2301,416 @@ export const DOCUMENTS = [
       }
     ],
     type: 'yff',
+    variant: 'tilbakemelding',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      utplassering: {
+        _id: '5d7f29d059e31d0007cc9ff5',
+        type: 'utplassering',
+        created: {
+          timeStamp: 1568615152589,
+          createdBy: 'arv1204'
+        },
+        modified: [{
+          timeStamp: 1568615152589,
+          modifiedBy: 'arv1204'
+        }],
+        student: 'fer0804',
+        bedriftsNavn: 'NOTODDEN KOMMUNE BY/HEDDAL HJEMMETJENESTE',
+        bedriftsData: {
+          organisasjonsNummer: '976825063',
+          navn: 'NOTODDEN KOMMUNE BY/HEDDAL HJEMMETJENESTE',
+          adresse: 'Sauheradvegen 5',
+          postnummer: '3683',
+          poststed: 'NOTODDEN',
+          avdeling: 'HBT 2'
+        },
+        kontaktpersonData: [{
+          navn: 'Fornavn Etternavn',
+          telefon: '98765432',
+          epost: 'fornavn.etternavn@notodden.kommune.no',
+          avdeling: ''
+        }],
+        parorendeData: [{
+          navn: 'Fornavn Etternavn',
+          telefon: '98765432'
+        }],
+        fraDato: '19.07.2019',
+        tilDato: '20.09.2019',
+        daysPerWeek: '3',
+        startTid: '07:30',
+        sluttTid: '15:00',
+        oppmotested: 'Sauheradvegen',
+        tilbakemelding: false
+      },
+      fravar: {
+        dager: '365',
+        timer: '9000',
+        varslet: 'nei'
+      },
+      evalueringsdata: {
+        hms: {
+          title: {
+            nb: 'Eleven følger retningslinjer og HMS innenfor fagområdet',
+            nn: 'Eleven følgjer retningslinjer og HMS innanfor fagområdet'
+          },
+          score: 'Under forventet'
+        },
+        'respekt-retningslinjer': {
+          title: {
+            nb: 'Eleven viser gode holdninger og respekt for opplæringsstedets regler og retningslinjer',
+            nn: 'Eleven viser gode haldningar og respekt for opplæringsstaden sine reglar og retningslinjer'
+          },
+          score: 'Under forventet'
+        },
+        'respekt-mennesker': {
+          title: {
+            nb: 'Eleven viser gode holdninger og respekt for mennesker de møter under utplasseringen',
+            nn: 'Eleven viser gode haldningar og respekt for menneske dei møter under utplasseringa'
+          },
+          score: 'Under forventet'
+        },
+        tilpasningsdyktig: {
+          title: {
+            nb: 'Eleven er tilpasningsdyktig og kan samarbeide',
+            nn: 'Eleven er tilpassingsdyktig og kan samarbeide'
+          },
+          score: 'Under forventet'
+        },
+        kommunikasjon: {
+          title: {
+            nb: 'Eleven har kommunikasjonsevner i møte med kollegaer, kunder og brukere',
+            nn: 'Eleven viser kommunikasjonsevner i møte med kollegaer, kundar og brukarar'
+          },
+          score: 'Under forventet'
+        },
+        veiledning: {
+          title: {
+            nb: 'Eleven tar imot veiledning',
+            nn: 'Eleven tek imot rettleiing'
+          },
+          score: 'Under forventet'
+        },
+        oppfylle: {
+          title: {
+            nb: 'Eleven utfører tildelte arbeidsoppgaver',
+            nn: 'Eleven utfører tildelte arbeidsoppgåver'
+          },
+          score: 'Under forventet'
+        },
+        initiativ: {
+          title: {
+            nb: 'Eleven viser initiativ og interesse for arbeidet',
+            nn: 'Eleven viser initiativ og interesse for arbeidet'
+          },
+          score: 'Under forventet'
+        },
+        orden: {
+          title: 'Orden (punktlighet)',
+          score: 'Under forventet'
+        },
+        atferd: {
+          title: 'Atferd (holdninger, respekt)',
+          score: 'Under forventet'
+        }
+      },
+      kompetansemal: [{
+        _id: '5d7f2af09f7cda0008d292d4',
+        type: 'maal',
+        created: {
+          timeStamp: 1568615152589,
+          createdBy: 'arv1204'
+        },
+        modified: [{
+          timeStamp: 1568615152589,
+          modifiedBy: 'arv1204'
+        }],
+        studentUserName: 'fer0804',
+        referanseID: '5d7f29d059e31d0007cc9ff5',
+        referanseTittel: 'Norges røde kors',
+        grep: {
+          kode: 'K3703',
+          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+          tittel: {
+            nb: 'mestre tre ulike typer masseflyttingsmaskiner',
+            nn: 'mestre tre ulike typer masseflyttingsmaskiner',
+            en: 'mestre tre ulike typer masseflyttingsmaskiner'
+          }
+        },
+        arbeidsoppgaver: 'lede morgentrimmen',
+        tilbakemelding: 'Lav måloppnåelse'
+      }, {
+        _id: '5d7f2af09f7cda0008d292d5',
+        type: 'maal',
+        created: {
+          timeStamp: 1568615152589,
+          createdBy: 'arv1204'
+        },
+        modified: [{
+          timeStamp: 1568615152589,
+          modifiedBy: 'arv1204'
+        }],
+        studentUserName: 'fer0804',
+        referanseID: '5d7f29d059e31d0007cc9ff5',
+        referanseTittel: 'Norges røde kors',
+        grep: {
+          kode: 'K3703',
+          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+          tittel: {
+            nb: 'bruke relevant måleutstyr',
+            nn: 'bruke relevant måleutstyr',
+            en: 'bruke relevant måleutstyr'
+          }
+        },
+        arbeidsoppgaver: 'lede morgentrimmen',
+        tilbakemelding: 'Lav måloppnåelse'
+      }, {
+        _id: '5d7f2af09f7cda0008d292d6',
+        type: 'maal',
+        created: {
+          timeStamp: 1568615152589,
+          createdBy: 'arv1204'
+        },
+        modified: [{
+          timeStamp: 1568615152589,
+          modifiedBy: 'arv1204'
+        }],
+        studentUserName: 'fer0804',
+        referanseID: '5d7f29d059e31d0007cc9ff5',
+        referanseTittel: 'Norges røde kors',
+        grep: {
+          kode: 'K3703',
+          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+          tittel: {
+            nb: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
+            nn: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
+            en: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser'
+          }
+        },
+        arbeidsoppgaver: 'lede morgentrimmen',
+        tilbakemelding: 'Lav måloppnåelse'
+      }, {
+        _id: '5d7f2af09f7cda0008d292d7',
+        type: 'maal',
+        created: {
+          timeStamp: 1568615152589,
+          createdBy: 'arv1204'
+        },
+        modified: [{
+          timeStamp: 1568615152589,
+          modifiedBy: 'arv1204'
+        }],
+        studentUserName: 'fer0804',
+        referanseID: '5d7f29d059e31d0007cc9ff5',
+        referanseTittel: 'Norges røde kors',
+        grep: {
+          kode: 'K3703',
+          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+          tittel: {
+            nb: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
+            nn: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
+            en: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang'
+          }
+        },
+        arbeidsoppgaver: 'lede morgentrimmen',
+        tilbakemelding: 'Lav måloppnåelse'
+      }, {
+        _id: '5d7f2af09f7cda0008d292d8',
+        type: 'maal',
+        created: {
+          timeStamp: 1568615152589,
+          createdBy: 'arv1204'
+        },
+        modified: [{
+          timeStamp: 1568615152589,
+          modifiedBy: 'arv1204'
+        }],
+        studentUserName: 'fer0804',
+        referanseID: '5d7f29d059e31d0007cc9ff5',
+        referanseTittel: 'Norges røde kors',
+        grep: {
+          kode: 'K3703',
+          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+          tittel: {
+            nb: 'mestre tre ulike typer masseflyttingsmaskiner',
+            nn: 'mestre tre ulike typer masseflyttingsmaskiner',
+            en: 'mestre tre ulike typer masseflyttingsmaskiner'
+          }
+        },
+        arbeidsoppgaver: 'lede morgentrimmen',
+        tilbakemelding: 'Lav måloppnåelse'
+      }],
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1581529605826
+      },
+      {
+        status: 'sent',
+        timestamp: 1581529609277
+      },
+      {
+        status: 'archived',
+        timestamp: 1581529615819
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3ac2f891274e2abe7',
+    created: {
+      timestamp: 1581529615819,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1581529615819,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'yff',
+    variant: 'laereplan',
+    teacher: {
+      username: 'pre0711',
+      name: 'Presis Damesykkel',
+      firstName: 'Presis',
+      lastName: 'Damesykkel',
+      mobile: '',
+      mail: 'presis.damesykkel@vtfk.no'
+    },
+    student: {
+      username: 'lil1312',
+      name: 'Lilla Spenne',
+      firstName: 'Lilla',
+      lastName: 'Spenne',
+      mobile: '',
+      mail: 'lil1312@skole.vtfk.no',
+      classId: 'TESVS:1HOA',
+      level: 'VG1'
+    },
+    school: {
+      id: 'TESVS',
+      name: 'Testen videregående skole',
+      shortName: 'Testen vgs'
+    },
+    content: {
+      utplasseringer: [{
+        id: '5d7f29d059e31d0007cc9ff5',
+        name: 'Norges røde kors',
+        maal: [{
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'mestre tre ulike typer masseflyttingsmaskiner',
+              nn: 'mestre tre ulike typer masseflyttingsmaskiner',
+              en: 'mestre tre ulike typer masseflyttingsmaskiner'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen'
+        }, {
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'bruke relevant måleutstyr',
+              nn: 'bruke relevant måleutstyr',
+              en: 'bruke relevant måleutstyr'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen'
+        }, {
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
+              nn: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
+              en: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen'
+        }, {
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
+              nn: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
+              en: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen'
+        }, {
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'mestre tre ulike typer masseflyttingsmaskiner',
+              nn: 'mestre tre ulike typer masseflyttingsmaskiner',
+              en: 'mestre tre ulike typer masseflyttingsmaskiner'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen'
+        }]
+      }],
+      year: '2020/2021'
+    },
+    isEncrypted: false,
+    status: [
+      {
+        status: 'queued',
+        timestamp: 1581529605826
+      },
+      {
+        status: 'sent',
+        timestamp: 1581529609277
+      },
+      {
+        status: 'archived',
+        timestamp: 1581529615819
+      }
+    ],
+    isQueued: false
+  },
+  {
+    _id: '60186ae3ac2f891274e2abe7',
+    created: {
+      timestamp: 1581529615819,
+      createdBy: 'pre0711'
+    },
+    modified: [
+      {
+        timestamp: 1581529615819,
+        modifiedBy: 'pre0711'
+      }
+    ],
+    type: 'yff',
     variant: 'bekreftelse',
     teacher: {
       username: 'pre0711',
@@ -2325,51 +2735,51 @@ export const DOCUMENTS = [
       name: 'Testen videregående skole',
       shortName: 'Testen vgs'
     },
-    "content": {
-      "bekreftelse": {
-        "oppmotested": "Whatever",
-        "kopiPrEpost": ["runely@vtfk.no"],
-        "fraDato": "02.02.2021",
-        "tilDato": "03.02.2021",
-        "daysPerWeek": "17",
-        "startTid": "08:00",
-        "sluttTid": "16:00",
-        "kontaktpersonData": [{
-          "navn": "Whatever",
-          "telefon": "81549300",
-          "epost": "nei@nei.no",
-          "avdeling": "Whatever"
+    content: {
+      bekreftelse: {
+        oppmotested: 'Whatever',
+        kopiPrEpost: ['runely@vtfk.no'],
+        fraDato: '02.02.2021',
+        tilDato: '03.02.2021',
+        daysPerWeek: '17',
+        startTid: '08:00',
+        sluttTid: '16:00',
+        kontaktpersonData: [{
+          navn: 'Whatever',
+          telefon: '81549300',
+          epost: 'nei@nei.no',
+          avdeling: 'Whatever'
         }],
-        "parorendeData": [{
-          "navn": "Allah",
-          "telefon": "Sakesak"
+        parorendeData: [{
+          navn: 'Allah',
+          telefon: 'Sakesak'
         }],
-        "bedriftsNavn": "VESTFOLD OG TELEMARK FYLKESKOMMUNE",
-        "bedriftsData": {
-          "organisasjonsNummer": "821227062",
-          "navn": "VESTFOLD OG TELEMARK FYLKESKOMMUNE",
-          "adresse": "Postboks 2844",
-          "postnummer": "3702",
-          "poststed": "SKIEN",
-          "avdeling": "Whatever"
+        bedriftsNavn: 'VESTFOLD OG TELEMARK FYLKESKOMMUNE',
+        bedriftsData: {
+          organisasjonsNummer: '821227062',
+          navn: 'VESTFOLD OG TELEMARK FYLKESKOMMUNE',
+          adresse: 'Postboks 2844',
+          postnummer: '3702',
+          poststed: 'SKIEN',
+          avdeling: 'Whatever'
         }
       },
-      "utdanningsprogram": {
-        "kode": "HS",
-        "type": "yrkesfaglig",
-        "tittel": {
-          "en": "Helse- og oppvekstfag",
-          "nb": "Helse- og oppvekstfag",
-          "nn": "Helse- og oppvekstfag"
+      utdanningsprogram: {
+        kode: 'HS',
+        type: 'yrkesfaglig',
+        tittel: {
+          en: 'Helse- og oppvekstfag',
+          nb: 'Helse- og oppvekstfag',
+          nn: 'Helse- og oppvekstfag'
         },
-        "kortform": {
-          "en": "Helse- og oppvekstfag",
-          "nb": "Helse- og oppvekstfag",
-          "nn": "Helse- og oppvekstfag"
+        kortform: {
+          en: 'Helse- og oppvekstfag',
+          nb: 'Helse- og oppvekstfag',
+          nn: 'Helse- og oppvekstfag'
         }
       },
-      "level": "VG1",
-      "year": "2020/2021"
+      level: 'VG1',
+      year: '2020/2021'
     },
     isEncrypted: false,
     status: [
