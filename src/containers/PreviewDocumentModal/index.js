@@ -215,6 +215,41 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
 
             {
               /* --------------------
+                YFF laereplan
+              -------------------- */
+              previewDoc.variant && previewDoc.variant === 'laereplan' &&
+              previewDoc.content.utplasseringer.map(utplassering => {
+                return (
+                  <>
+                    <Heading3>
+                      <div className='heading-text'>
+                        {utplassering.name}
+                      </div>
+                    </Heading3>
+                    
+                    {
+                      utplassering.maal.map(maal => {
+                        return (
+                          <>
+                            <ul>
+                              <li>
+                                <div className='laereplan-text'>Kompetansemål:</div>
+                                <div className='laereplan-desc'>{maal.grep.tittel.nb}</div>
+                                <div className='laereplan-text'>Arbeidsoppgaver:</div>
+                                <div className='laereplan-desc'>{maal.arbeidsoppgaver}</div>
+                              </li>
+                            </ul>
+                          </>
+                        )
+                      })
+                    }
+                  </>
+                )
+              })
+            }
+
+            {
+              /* --------------------
                 Teacher
               -------------------- */
               previewDoc.teacher &&
