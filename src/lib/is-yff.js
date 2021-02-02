@@ -20,4 +20,14 @@ function isYff (student) {
   return sikker || usikker
 }
 
+/**
+ * Funksjon som sjekker om eleven i et dokument har YFF eller ei
+ * @param {Object} document dokumentobjektet som brukes for å sjekke
+ * @returns {boolean} true/false basert på om eleven har YFF eller ei
+ */
+function documentStudenthasYff (document) {
+  return isYff({ ...document.student, schoolId: document.school.id })
+}
+
 export default isYff
+export { isYff, documentStudenthasYff }
