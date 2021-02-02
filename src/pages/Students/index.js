@@ -15,6 +15,7 @@ import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
+import { isYff } from '../../lib/is-yff'
 
 import './styles.scss'
 
@@ -147,7 +148,7 @@ export function Students (props) {
                           <IconDropdownNav>
                             <IconDropdownNavItem onClick={() => { openDocumentModal(student) }} title='Nytt dokument' />
                             <IconDropdownNavItem onClick={() => { openNoteModal(student) }} title='Nytt notat' />
-                            <IconDropdownNavItem href={`/${ROUTES.students}/${student.id}`} title={`YFF for ${student.firstName} ${student.lastName}`} />
+                            <IconDropdownNavItem href={`/${ROUTES.students}/${student.id}`} title={`${isYff(student) ? 'Elevsiden og YFF for' : 'Elevsiden til'} ${student.firstName}`} />
                           </IconDropdownNav>
                         </td>
                       </tr>
