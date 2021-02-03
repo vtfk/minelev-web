@@ -39,7 +39,9 @@ function LokalLaereplan (props) {
       return
     }
 
-    setMaal(response.data)
+    // filtrér vekk mål med tilbakemelding
+    const filtered = response.data.filter(mal => !mal.tilbakemelding)
+    setMaal(filtered)
   }
 
   useEffect(() => {
