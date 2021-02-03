@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { TextField } from '../../_lib-components/TextField'
-import { Icon } from '../../_lib-components/Icon'
+import { TextField } from 'vtfk-component-library/ui/TextField'
+import { Icon } from 'vtfk-component-library/ui/Icon'
 import { isValidMobile, validateField, validateForm } from '../../lib/form-validation'
 
 const StudentContactPerson = ({ showError, setHasError }) => {

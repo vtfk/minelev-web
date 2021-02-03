@@ -5,9 +5,9 @@ import * as Sentry from '@sentry/react'
 import { DOCUMENTS } from '../../data/documents'
 import { scores } from '../YffReviewModal/absence'
 
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { TextField } from '../../_lib-components/TextField'
-import { Heading3, Link, Paragraph } from '../../_lib-components/Typography'
+import { Modal, ModalBody, ModalSideActions } from 'vtfk-component-library/ui/Modal'
+import { TextField } from 'vtfk-component-library/ui/TextField'
+import { Heading3, Link, Paragraph } from 'vtfk-component-library/ui/Typography'
 
 import StudentCard from '../../components/student-card'
 

@@ -7,12 +7,13 @@ import { DefaultLayout } from '../../layouts/Default'
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
+import { Heading1, Heading2, Heading3, Paragraph, Link, ErrorMessage } from 'vtfk-component-library/ui/Typography'
+import { InitialsBadge } from 'vtfk-component-library/ui/InitialsBadge'
+import { IconDropdownNav, IconDropdownNavItem } from 'vtfk-component-library/ui/IconDropdownNav'
+import { Icon } from 'vtfk-component-library/ui/Icon'
+import { SkeletonLoader } from 'vtfk-component-library/ui/SkeletonLoader'
+
 import ClassPanel from '../../components/class-panel'
-import { Heading1, Heading2, Heading3, Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
-import { Icon } from '../../_lib-components/Icon'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'

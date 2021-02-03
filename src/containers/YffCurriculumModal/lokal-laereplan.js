@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { API } from '../../config/app'
-import { Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
+import { Paragraph, Link, ErrorMessage } from 'vtfk-component-library/ui/Typography'
 import logError from '../../lib/log-error'
 
 function Maal (props) {

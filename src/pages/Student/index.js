@@ -10,9 +10,9 @@ import { API } from '../../config/app'
 import { useSession } from '@vtfk/react-msal'
 
 import ClassPanel from '../../components/class-panel'
-import { Paragraph, Link } from '../../_lib-components/Typography'
-import { Icon } from '../../_lib-components/Icon'
-import { IconButtonLink } from '../../_lib-components/Button'
+import { Paragraph, Link } from 'vtfk-component-library/ui/Typography'
+import { Icon } from 'vtfk-component-library/ui/Icon'
+import { IconButtonLink } from 'vtfk-component-library/ui/Button'
 
 import Yff from './yff'
 import YffErrorFallback from './yff-error-fallback'
@@ -24,7 +24,7 @@ import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
 import StudentCard from '../../components/student-card'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { SkeletonLoader } from 'vtfk-component-library/ui/SkeletonLoader'
 
 export function Student ({ match, ...props }) {
   const { apiGet } = useSession()

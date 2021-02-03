@@ -7,8 +7,8 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { Heading4, Link, Paragraph } from '../../_lib-components/Typography'
-import { Icon } from '../../_lib-components/Icon'
+import { Heading4, Link, Paragraph } from 'vtfk-component-library/ui/Typography'
+import { Icon } from 'vtfk-component-library/ui/Icon'
 
 import './styles.scss'
 import { Undervisningsgruppe } from './undervisningsgruppe'

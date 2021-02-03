@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Select } from '../../_lib-components/Select'
+import { Select } from 'vtfk-component-library/ui/Select'
 
 function UtplasseringSelector (props) {
   const [items, setItems] = useState([])

@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid'
-import { RadioButton } from '../../_lib-components/RadioButton'
+import { RadioButton } from 'vtfk-component-library/ui/RadioButton'
 import { evaluation } from '../../data/yff.json'
 import { useEffect, useState } from 'react'
-import { ErrorMessage } from '../../_lib-components/Typography'
+import { ErrorMessage } from 'vtfk-component-library/ui/Typography'
 
 function validate (evaluation, selected) {
   return !selected || !evaluation ? false : evaluation.length === Object.keys(selected).length

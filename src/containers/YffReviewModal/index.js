@@ -7,9 +7,9 @@ import { useSession } from '@vtfk/react-msal'
 
 import { API } from '../../config/app'
 
-import { Link } from '../../_lib-components/Typography'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { Button } from '../../_lib-components/Button'
+import { Link } from 'vtfk-component-library/ui/Typography'
+import { Modal, ModalBody, ModalSideActions } from 'vtfk-component-library/ui/Modal'
+import { Button } from 'vtfk-component-library/ui/Button'
 
 import createDocument from '../../lib/create-yff-document'
 import logError from '../../lib/log-error'
@@ -25,7 +25,7 @@ import { successMessage, errorMessage } from '../../lib/toasts'
 import pfdPreview from '../../lib/pdf-preview'
 
 import './styles.scss'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { SkeletonLoader } from 'vtfk-component-library/ui/SkeletonLoader'
 
 export function YffReviewModal ({ student, utplasseringsId, ...props }) {
   const { apiGet, apiPost, apiPut } = useSession()

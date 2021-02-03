@@ -1,6 +1,6 @@
 import Moment from 'react-moment'
-import { Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
+import { Paragraph, Link } from 'vtfk-component-library/ui/Typography'
+import { InitialsBadge } from 'vtfk-component-library/ui/InitialsBadge'
 
 import ClassCard from '../../components/class-card'
 import ClassPanel from '../../components/class-panel'

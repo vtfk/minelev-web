@@ -2,7 +2,7 @@ import React from 'react'
 
 import { DefaultLayout } from '../../layouts/Default'
 
-import { Heading2, Heading3, Paragraph, Link, Heading4 } from '../../_lib-components/Typography'
+import { Heading2, Heading3, Paragraph, Link, Heading4 } from 'vtfk-component-library/ui/Typography'
 
 import './styles.scss'
 

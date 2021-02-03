@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Icon } from '../../_lib-components/Icon'
-import { TextField } from '../../_lib-components/TextField'
+import { Icon } from 'vtfk-component-library/ui/Icon'
+import { TextField } from 'vtfk-component-library/ui/TextField'
 import { isValidEmail, validateField, validateForm } from '../../lib/form-validation'
 
 function KopiPrEpost ({ showError, setHasError }) {

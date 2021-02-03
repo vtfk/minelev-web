@@ -7,8 +7,8 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { Heading2, Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { Heading2, Paragraph, Link, ErrorMessage } from 'vtfk-component-library/ui/Typography'
+import { SkeletonLoader } from 'vtfk-component-library/ui/SkeletonLoader'
 
 import './styles.scss'
 

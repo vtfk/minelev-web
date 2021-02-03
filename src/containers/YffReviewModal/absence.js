@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
-import { RadioButton } from '../../_lib-components/RadioButton'
-import { TextField } from '../../_lib-components/TextField'
-import { ErrorMessage } from '../../_lib-components/Typography'
+import { RadioButton } from 'vtfk-component-library/ui/RadioButton'
+import { TextField } from 'vtfk-component-library/ui/TextField'
+import { ErrorMessage } from 'vtfk-component-library/ui/Typography'
 
 const scores = [
   {

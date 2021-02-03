@@ -8,12 +8,12 @@ import { useForm } from 'react-hook-form'
 
 import { API } from '../../config/app'
 
-import { Link, Paragraph } from '../../_lib-components/Typography'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { TextField } from '../../_lib-components/TextField'
-import { Icon } from '../../_lib-components/Icon'
-import { Button } from '../../_lib-components/Button'
-import { Datepicker } from '../../_lib-components/Datepicker'
+import { Link, Paragraph } from 'vtfk-component-library/ui/Typography'
+import { Modal, ModalBody, ModalSideActions } from 'vtfk-component-library/ui/Modal'
+import { TextField } from 'vtfk-component-library/ui/TextField'
+import { Icon } from 'vtfk-component-library/ui/Icon'
+import { Button } from 'vtfk-component-library/ui/Button'
+import { Datepicker } from 'vtfk-component-library/ui/Datepicker'
 
 import StudentCard from '../../components/student-card'
 import createDocument from '../../lib/create-yff-document'
@@ -32,7 +32,7 @@ import { successMessage, errorMessage } from '../../lib/toasts'
 import logError from '../../lib/log-error'
 
 import './styles.scss'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { SkeletonLoader } from 'vtfk-component-library/ui/SkeletonLoader'
 
 function getClassLevel (id) {
   return `VG${/\d/.exec(id) || 1}`

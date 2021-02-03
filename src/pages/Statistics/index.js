@@ -3,8 +3,8 @@ import { useSession } from '@vtfk/react-msal'
 
 import { DefaultLayout } from '../../layouts/Default'
 
-import { Heading1, Heading2, Heading3 } from '../../_lib-components/Typography'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { Heading1, Heading2, Heading3 } from 'vtfk-component-library/ui/Typography'
+import { SkeletonLoader } from 'vtfk-component-library/ui/SkeletonLoader'
 
 import './styles.scss'
 import { API } from '../../config/app'

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { Icon } from '../../_lib-components/Icon'
-import { RadioButton } from '../../_lib-components/RadioButton'
-import { Checkbox } from '../../_lib-components/Checkbox'
+import { Icon } from 'vtfk-component-library/ui/Icon'
+import { RadioButton } from 'vtfk-component-library/ui/RadioButton'
+import { Checkbox } from 'vtfk-component-library/ui/Checkbox'
 
 import './styles.scss'
 import { nanoid } from 'nanoid'

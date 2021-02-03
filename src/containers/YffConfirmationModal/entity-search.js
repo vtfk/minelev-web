@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useBrreg from '../../hooks/use-brreg'
-import { SearchField } from '../../_lib-components/SearchField'
+import { SearchField } from 'vtfk-component-library/ui/SearchField'
 
 const EntitySearch = props => {
   const { setBrregData, fetcher, showError } = props

@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid'
-import { Heading3, Heading4, Paragraph } from '../../_lib-components/Typography'
+import { Heading3, Heading4, Paragraph } from 'vtfk-component-library/ui/Typography'
 
 function Kontaktperson (props) {
   const { navn, telefon, epost, avdeling } = props

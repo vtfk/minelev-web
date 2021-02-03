@@ -1,6 +1,6 @@
 import Moment from 'react-moment'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { Paragraph, Link } from '../../_lib-components/Typography'
+import { InitialsBadge } from 'vtfk-component-library/ui/InitialsBadge'
+import { Paragraph, Link } from 'vtfk-component-library/ui/Typography'
 
 import ClassCard from '../../components/class-card'
 import ClassTile from '../../components/class-tile'
@@ -10,7 +10,7 @@ import ClassPanel from '../../components/class-panel'
 import { ROUTES } from '../../config/constants'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { SkeletonLoader } from 'vtfk-component-library/ui/SkeletonLoader'
 
 export function Undervisningsgruppe ({ group, documents, loading }) {
   return (

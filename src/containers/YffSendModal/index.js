@@ -6,10 +6,10 @@ import { useSession } from '@vtfk/react-msal'
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
-import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { Button } from '../../_lib-components/Button'
+import { Heading3, Paragraph, Link } from 'vtfk-component-library/ui/Typography'
+import { InitialsBadge } from 'vtfk-component-library/ui/InitialsBadge'
+import { Modal, ModalBody, ModalSideActions } from 'vtfk-component-library/ui/Modal'
+import { Button } from 'vtfk-component-library/ui/Button'
 
 import './styles.scss'
 
