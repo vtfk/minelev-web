@@ -25,21 +25,29 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
     }).join('\n')
   }
 
-  //const documentYear = previewDoc && previewDoc.content.year
+  // varsel
   const documentPeriod = previewDoc.content.period && DOCUMENTS.periods.find(type => type.id === previewDoc.content.period.id)?.value.nb
   const documentAtferd = previewDoc.variant === 'atferd' && previewDoc.content.reasons.map(reason => DOCUMENTS.behaviourReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
   const documentFag = previewDoc.content.classes && previewDoc.content.classes.map(item => item.nb)?.join('\n')
   const documentFagReasons = previewDoc.variant === 'fag' && previewDoc.content.reasons.map(reason => DOCUMENTS.courseReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
   const documentOrden = previewDoc.variant === 'orden' && previewDoc.content.reasons.map(reason => DOCUMENTS.orderReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
+
+  // samtale
   const documentSamtale = previewDoc.type === 'samtale' && DOCUMENTS.conversationStatuses.find(type => type.id === previewDoc.variant)?.value.nb
-  const documentYffBedrift = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.bedriftsData.navn}\n${previewDoc.content.bekreftelse.bedriftsData.adresse}\n${previewDoc.content.bekreftelse.bedriftsData.postnummer} ${previewDoc.content.bekreftelse.bedriftsData.poststed}`
-  const documentYffTidsrom = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.fraDato} - ${previewDoc.content.bekreftelse.tilDato}`
-  const documentYffArbeidsdag = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.startTid} - ${previewDoc.content.bekreftelse.sluttTid}`
-  const documentYffParorende = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.parorendeData.map(person => `${person.navn} (${person.telefon})`).join('\n')
-  const documentYffKontaktPerson = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.kontaktpersonData.map(person => `${person.navn} (${person.avdeling})\nTelefon: ${person.telefon} / E-post: ${person.epost}`).join('\n')
+
+  // yff bekreftelse
+  const documentYffBekreftelseBedrift = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.bedriftsData.navn}\n${previewDoc.content.bekreftelse.bedriftsData.adresse}\n${previewDoc.content.bekreftelse.bedriftsData.postnummer} ${previewDoc.content.bekreftelse.bedriftsData.poststed}`
+  const documentYffBekreftelseTidsrom = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.fraDato} - ${previewDoc.content.bekreftelse.tilDato}`
+  const documentYffBekreftelseArbeidsdag = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.startTid} - ${previewDoc.content.bekreftelse.sluttTid}`
+  const documentYffBekreftelseParorende = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.parorendeData.map(person => `${person.navn} (${person.telefon})`).join('\n')
+  const documentYffBekreftelseKontaktPerson = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.kontaktpersonData.map(person => `${person.navn} (${person.avdeling})\nTelefon: ${person.telefon} / E-post: ${person.epost}`).join('\n')
+  
+  // yff tilbakemelding
   const documentYffTilbakemeldingBedrift = previewDoc.variant === 'tilbakemelding' && `${previewDoc.content.utplassering.bedriftsData.navn}\n${previewDoc.content.utplassering.bedriftsData.adresse}\n${previewDoc.content.utplassering.bedriftsData.postnummer} ${previewDoc.content.utplassering.bedriftsData.poststed}`
   const documentYffTilbakemeldingTidsrom = previewDoc.variant === 'tilbakemelding' && `${previewDoc.content.utplassering.fraDato} - ${previewDoc.content.utplassering.tilDato}`
   
+  // default
+  //const documentYear = previewDoc && previewDoc.content.year
   const documentTeacher = previewDoc.teacher && previewDoc.teacher.name
   const documentDate = previewDoc && prettyPrintDate(previewDoc.created.timestamp)
   const documentStatus = previewDoc.status && generateStatus()
@@ -172,20 +180,20 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   disabled={true}
                   noBorder={true}
                   placeholder='Bedrift'
-                  rows={documentYffBedrift.split('\n').length || 1}
-                  value={documentYffBedrift || 'Auda 🤭'} />
+                  rows={documentYffBekreftelseBedrift.split('\n').length || 1}
+                  value={documentYffBekreftelseBedrift || 'Auda 🤭'} />
 
                 <TextField
                   disabled={true}
                   noBorder={true}
                   placeholder='Tidsrom'
-                  value={documentYffTidsrom || 'Auda 🤭'} />
+                  value={documentYffBekreftelseTidsrom || 'Auda 🤭'} />
 
                 <TextField
                   disabled={true}
                   noBorder={true}
                   placeholder='Arbeidsdag'
-                  value={documentYffArbeidsdag || 'Auda 🤭'} />
+                  value={documentYffBekreftelseArbeidsdag || 'Auda 🤭'} />
 
                 <TextField
                   disabled={true}
@@ -203,15 +211,15 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   disabled={true}
                   noBorder={true}
                   placeholder='Pårørende'
-                  rows={documentYffParorende.split('\n').length || 1}
-                  value={documentYffParorende || 'Auda 🤭'} />
+                  rows={documentYffBekreftelseParorende.split('\n').length || 1}
+                  value={documentYffBekreftelseParorende || 'Auda 🤭'} />
 
                 <TextField
                   disabled={true}
                   noBorder={true}
                   placeholder='Kontaktperson på bedriften'
-                  rows={documentYffKontaktPerson.split('\n').length || 1}
-                  value={documentYffKontaktPerson || 'Auda 🤭'} />
+                  rows={documentYffBekreftelseKontaktPerson.split('\n').length || 1}
+                  value={documentYffBekreftelseKontaktPerson || 'Auda 🤭'} />
               </>
             }
 
