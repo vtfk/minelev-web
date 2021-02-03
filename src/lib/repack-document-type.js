@@ -10,7 +10,6 @@ const repackDocumentType = (type, variant, language = 'nb') => {
   try {
     const matchingType = (type === 'yff' ? documentTypesYFF : documentTypes).find(doc => doc.id === type || doc.id === variant)
     if (matchingType && matchingType.description[language]) return matchingType.description[language]
-    return `${type} ${variant}`
   } catch (error) {
     console.error(error)
   }
