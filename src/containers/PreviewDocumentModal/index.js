@@ -37,6 +37,8 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
   const documentYffArbeidsdag = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.startTid} - ${previewDoc.content.bekreftelse.sluttTid}`
   const documentYffParorende = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.parorendeData.map(person => `${person.navn} (${person.telefon})`).join('\n')
   const documentYffKontaktPerson = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.kontaktpersonData.map(person => `${person.navn} (${person.avdeling})\nTelefon: ${person.telefon} / E-post: ${person.epost}`).join('\n')
+  const documentYffTilbakemeldingBedrift = previewDoc.variant === 'tilbakemelding' && `${previewDoc.content.utplassering.bedriftsData.navn}\n${previewDoc.content.utplassering.bedriftsData.adresse}\n${previewDoc.content.utplassering.bedriftsData.postnummer} ${previewDoc.content.utplassering.bedriftsData.poststed}`
+  const documentYffTilbakemeldingTidsrom = previewDoc.variant === 'tilbakemelding' && `${previewDoc.content.utplassering.fraDato} - ${previewDoc.content.utplassering.tilDato}`
   
   const documentTeacher = previewDoc.teacher && previewDoc.teacher.name
   const documentDate = previewDoc && prettyPrintDate(previewDoc.created.timestamp)
@@ -233,19 +235,83 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                           <>
                             <ul>
                               <li>
-                                <div className='laereplan-text'>Kompetansemål:</div>
-                                <div className='laereplan-desc'>{maal.grep.tittel.nb}</div>
-                                <div className='laereplan-text'>Arbeidsoppgaver:</div>
-                                <div className='laereplan-desc'>{maal.arbeidsoppgaver}</div>
+                                <div className='kompetansemaal-text'>Kompetansemål:</div>
+                                <div className='kompetansemaal-desc'>{maal.grep.tittel.nb}</div>
+                                <div className='kompetansemaal-text'>Arbeidsoppgaver:</div>
+                                <div className='kompetansemaal-desc'>{maal.arbeidsoppgaver}</div>
                               </li>
                             </ul>
                           </>
                         )
                       })
                     }
+                    <br />
                   </>
                 )
               })
+            }
+
+            {
+              /* --------------------
+                YFF tilbakemelding
+              -------------------- */
+              previewDoc.variant && previewDoc.variant === 'tilbakemelding' &&
+              <>
+                <TextField
+                  disabled={true}
+                  noBorder={true}
+                  placeholder='Bedrift'
+                  rows={documentYffTilbakemeldingBedrift.split('\n').length || 1}
+                  value={documentYffTilbakemeldingBedrift || 'Auda 🤭'} />
+
+                <TextField
+                  disabled={true}
+                  noBorder={true}
+                  placeholder='Tidsrom'
+                  value={documentYffTilbakemeldingTidsrom || 'Auda 🤭'} />
+
+                <Heading3>Kompetansemål og arbeidsoppgaver</Heading3>
+
+                {
+                  previewDoc.content.kompetansemal.map(kompetanse => {
+                    return (
+                      <>
+                        <ul>
+                          <li>
+                            <div className='kompetansemaal-desc'>{kompetanse.grep.tittel.nb}</div>
+                            <div className='kompetansemaal-text'>Arbeidsoppgaver:</div>
+                            <div className='kompetansemaal-desc'>{kompetanse.arbeidsoppgaver}</div>
+                            <div className='kompetansemaal-text'>Måloppnåelse:</div>
+                            <div className='kompetansemaal-desc'>{kompetanse.tilbakemelding}</div>
+                          </li>
+                        </ul>
+                      </>
+                    )
+                  })
+                }
+
+                <Heading3>Virksomhetens inntrykk og tilbakemelding til lærer</Heading3>
+
+                {
+                  Object.keys(previewDoc.content.evalueringsdata).map(evaluering => {
+                    const item = previewDoc.content.evalueringsdata[evaluering]
+                    if (!item.score) return ''
+
+                    return (
+                      <>
+                        <ul>
+                          <li>
+                            <div className='kompetansemaal-desc'>{item.title.nb || item.title}</div>
+                            <div className='kompetansemaal-text'>Måloppnåelse:</div>
+                            <div className='kompetansemaal-desc'>{item.score}</div>
+                          </li>
+                        </ul>
+                      </>
+                    )
+                  })
+                }
+                <br />
+              </>
             }
 
             {
