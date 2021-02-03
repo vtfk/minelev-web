@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { PDFPreviewModal } from '../_lib-components/PDFPreviewModal'
+import { PDFPreviewModal } from 'vtfk-component-library/ui/PDFPreviewModal'
 import { API } from '../config/app'
 
 /**

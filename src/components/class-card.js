@@ -1,5 +1,5 @@
-import { SkeletonLoader } from '../_lib-components/SkeletonLoader'
-import { Heading3, Paragraph } from '../_lib-components/Typography'
+import { SkeletonLoader } from 'vtfk-component-library/ui/SkeletonLoader'
+import { Heading3, Paragraph } from 'vtfk-component-library/ui/Typography'
 
 function ClassCard ({ group, loading, ...props }) {
   if (!group) loading = true

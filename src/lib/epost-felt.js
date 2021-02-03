@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { TextField } from '../_lib-components/TextField'
+import { TextField } from 'vtfk-component-library/ui/TextField'
 
 function ErrorMessage () {
   return (

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import { ROUTES } from '../config/constants'
 
-import { Heading2, Heading3, Paragraph, Link } from '../_lib-components/Typography'
-import { InitialsBadge } from '../_lib-components/InitialsBadge'
-import { SkeletonLoader } from '../_lib-components/SkeletonLoader'
+import { Heading2, Heading3, Paragraph, Link } from 'vtfk-component-library/ui/Typography'
+import { InitialsBadge } from 'vtfk-component-library/ui/InitialsBadge'
+import { SkeletonLoader } from 'vtfk-component-library/ui/SkeletonLoader'
 
 function prettyPrintDate (date) {
   return new Date(date).toLocaleDateString('nb-NO', { day: '2-digit', month: 'long', year: 'numeric' })

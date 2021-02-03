@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import useGrep from '../hooks/use-grep'
-import { Select } from '../_lib-components/Select'
+import { Select } from 'vtfk-component-library/ui/Select'
 import KlassetrinnSelectorForm from './klassetrinn-selector-form'
 
 function Programomrader ({ data, trinn, setKompetansemaal, setProgramomraade, showError }) {

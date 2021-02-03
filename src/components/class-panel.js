@@ -1,5 +1,5 @@
-import { Icon } from '../_lib-components/Icon'
-import { Heading3 } from '../_lib-components/Typography'
+import { Icon } from 'vtfk-component-library/ui/Icon'
+import { Heading3 } from 'vtfk-component-library/ui/Typography'
 
 function ClassPanel ({ icon, title, link, children, ...props }) {
   return (
