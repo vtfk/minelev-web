@@ -109,7 +109,7 @@ export function Home () {
           <PreviewDocumentModal
             open={!!previewDocument}
             previewDoc={previewDocument}
-            title={['notat', 'samtale', 'varsel'].includes(previewDocument.type) ? repackDocumentType(previewDocument.type, previewDocument.variant) : previewDocument.variant === 'bekreftelse' ? 'Bekreftelse om utplassering av elev' : previewDocument.variant === 'laereplan' ? 'Lokal læreplan' : previewDocument.variant === 'tilbakemelding' ? 'Tilbakemelding på utplassering' : `${previewDocument.type}-${previewDocument.variant}`}
+            title={repackDocumentType(previewDocument.type, previewDocument.variant)}
             onDismiss={() => { setPreviewDocument(false) }}
             onFinished={() => { setPreviewDocument(false) }}
           />
@@ -177,7 +177,7 @@ export function Home () {
                   </td>
                   <td>
                     <IconDropdownNav>
-                      <IconDropdownNavItem onClick={() => { openPreviewModal(doc) }} title='Vis dokument' />
+                      <IconDropdownNavItem onClick={() => { openPreviewModal(doc) }} title={`Åpne ${doc.type === 'yff' ? doc.variant.replace('ae', 'æ') : doc.type}`} />
                       <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
                       <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
                       <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`Elevsiden til ${doc.student.firstName}`} />

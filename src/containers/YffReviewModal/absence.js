@@ -74,4 +74,5 @@ function Absence ({ showError, onError }) {
   )
 }
 
+export { scores }
 export default Absence
