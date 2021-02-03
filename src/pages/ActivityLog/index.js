@@ -15,6 +15,7 @@ import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
+import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
 
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
@@ -24,6 +25,7 @@ export function ActivityLog () {
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
+  const [previewDocument, setPreviewDocument] = useState(false)
   const [documents, setDocuments] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -49,6 +51,10 @@ export function ActivityLog () {
 
     const docsOrderedByModified = result.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
     setDocuments(docsOrderedByModified || [])
+  }
+
+  function openPreviewModal (doc) {
+    setPreviewDocument(doc)
   }
 
   useEffect(() => {
@@ -83,6 +89,17 @@ export function ActivityLog () {
               setNoteModalState(false)
               getDocuments()
             }}
+          />
+      }
+
+      {
+        !!previewDocument &&
+          <PreviewDocumentModal
+            open={!!previewDocument}
+            previewDoc={previewDocument}
+            title={['notat', 'samtale', 'varsel'].includes(previewDocument.type) ? repackDocumentType(previewDocument.type, previewDocument.variant) : previewDocument.variant === 'bekreftelse' ? 'Bekreftelse om utplassering av elev' : previewDocument.variant === 'laereplan' ? 'Lokal læreplan' : previewDocument.variant === 'tilbakemelding' ? 'Tilbakemelding på utplassering' : `${previewDocument.type}-${previewDocument.variant}`}
+            onDismiss={() => { setPreviewDocument(false) }}
+            onFinished={() => { setPreviewDocument(false) }}
           />
       }
 
@@ -147,10 +164,10 @@ export function ActivityLog () {
                           </div>
                         </td>
                         <td>
-                          <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
+                          <Paragraph><Link aria-label='Klikk for å åpne' onClick={() => openPreviewModal(doc)}>{repackDocumentType(doc.type, doc.variant)}</Link></Paragraph>
                         </td>
                         <td>
-                          <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
+                          <Paragraph><Link tabindex={-1} aria-label='Klikk for å åpne' aria-hidden onClick={() => openPreviewModal(doc)}><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Link></Paragraph>
                         </td>
                         <td>
                           <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
@@ -160,6 +177,7 @@ export function ActivityLog () {
                         </td>
                         <td>
                           <IconDropdownNav>
+                            <IconDropdownNavItem onClick={() => { openPreviewModal(doc) }} title='Vis dokument' />
                             <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
                             <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
                             <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`Elevsiden til ${doc.student.firstName}`} />

@@ -18,6 +18,7 @@ import Yff from './yff'
 import YffErrorFallback from './yff-error-fallback'
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
+import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
 
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
@@ -29,6 +30,7 @@ export function Student ({ match, ...props }) {
   const { apiGet } = useSession()
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
+  const [previewDocument, setPreviewDocument] = useState(false)
   const [error, setError] = useState(false)
   const [student, setStudent] = useState(null)
   const [documents, setDocuments] = useState(null)
@@ -61,6 +63,10 @@ export function Student ({ match, ...props }) {
 
   function openNoteModal () {
     setNoteModalState(true)
+  }
+
+  function openPreviewModal (doc) {
+    setPreviewDocument(doc)
   }
 
   // Last inn elev, dokumenter og utplasseringer når siden lastes
@@ -97,6 +103,17 @@ export function Student ({ match, ...props }) {
               }}
             />
           </>
+      }
+
+      {
+        !!previewDocument &&
+          <PreviewDocumentModal
+            open={!!previewDocument}
+            previewDoc={previewDocument}
+            title={['notat', 'samtale', 'varsel'].includes(previewDocument.type) ? repackDocumentType(previewDocument.type, previewDocument.variant) : previewDocument.variant === 'bekreftelse' ? 'Bekreftelse om utplassering av elev' : previewDocument.variant === 'laereplan' ? 'Lokal læreplan' : previewDocument.variant === 'tilbakemelding' ? 'Tilbakemelding på utplassering' : `${previewDocument.type}-${previewDocument.variant}`}
+            onDismiss={() => { setPreviewDocument(false) }}
+            onFinished={() => { setPreviewDocument(false) }}
+          />
       }
 
       <div className='student'>
@@ -156,7 +173,7 @@ export function Student ({ match, ...props }) {
                   {
                     documents && documents.map(function (doc, index) {
                       return (
-                        <tr key={doc.id}>
+                        <tr key={doc.id} onClick={() => openPreviewModal(doc)} className='clickable' aria-label='Klikk for å åpne' title='Klikk for å åpne' tabIndex={0}>
                           <td>
                             <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                           </td>
@@ -197,6 +214,7 @@ export function Student ({ match, ...props }) {
                         <tr key={i}>
                           <td><SkeletonLoader width='60%' /></td>
                           <td><SkeletonLoader /></td>
+                          <td><SkeletonLoader /></td>
                         </tr>
                       )
                     })
@@ -204,9 +222,12 @@ export function Student ({ match, ...props }) {
                   {
                     notes && notes.map(function (note, index) {
                       return (
-                        <tr key={note.id}>
+                        <tr key={note.id} onClick={() => openPreviewModal(note)} className='clickable' aria-label='Klikk for å åpne' title='Klikk for å åpne' tabIndex={0}>
                           <td>
                             <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{note.created.timestamp}</Moment></Paragraph>
+                          </td>
+                          <td>
+                            <Paragraph>{note.teacher.name}</Paragraph>
                           </td>
                           <td>
                             <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>

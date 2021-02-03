@@ -1,0 +1,67 @@
+@import "../../_lib-components/Tokens/tokens.scss";
+@import "../../assets/scss/helpers";
+
+.preview-document-modal {
+  .person-information {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: $baseUnit * 12;
+
+    @media (max-width: 1000px) {
+      margin-bottom: $baseUnit * 6;
+    }
+
+    .image {
+
+    }
+
+    .text-wrapper {
+      flex: 1;
+      margin-left: $baseUnit * 4;
+
+      .name {
+        font-weight: 700;
+      }
+
+      .other {
+        margin-top: $baseUnit / 2;
+      }
+    }
+  }
+
+  .form {
+    padding-bottom: $baseUnit * 8;
+
+    @media (max-width: 1000px) {
+      padding-bottom: 0;
+    }
+
+    .heading-text, .paragraph {
+      font-weight: bold;
+      margin-bottom: $baseUnit * 3;
+    }
+
+    .laereplan-text {
+      font-weight: bold;
+      float: left;
+      padding-right: 5px;
+    }
+
+    .laereplan-desc::first-letter {
+      text-transform: uppercase;
+    }
+
+    ul {
+      padding-inline-start: 20px;
+      padding-bottom: $baseUnit;
+    }
+
+    .text-field {
+      margin-bottom: $baseUnit * 4;
+    }
+  }
+
+  .action button {
+    min-width: 154px;
+  }
+}

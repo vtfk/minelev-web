@@ -40,9 +40,11 @@ function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate
           <Paragraph>
             {hideClass ? '' : loading ? <SkeletonLoader width='180px' /> : <Link href={`/${ROUTES.classes}/${encodeURIComponent(classId)}`}>{classId}</Link>}
           </Paragraph>
-          <Paragraph>
-            {hideBirthdate ? '' : loading ? <SkeletonLoader width='160px' /> : prettyPrintDate(birthdate)}
-          </Paragraph>
+          { !hideBirthdate &&
+            <Paragraph>
+              {loading ? <SkeletonLoader width='160px' /> : prettyPrintDate(birthdate)}
+            </Paragraph>
+          }
           <Paragraph>
             {hideMail ? '' : loading ? <SkeletonLoader width='180px' /> : mail}
           </Paragraph>
