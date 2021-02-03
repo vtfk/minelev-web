@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import * as Sentry from '@sentry/react'
 
 import { DOCUMENTS } from '../../data/documents'
+import { scores } from '../YffReviewModal/absence'
 
 import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
 import { TextField } from '../../_lib-components/TextField'
@@ -57,6 +58,8 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
     const handleKeyPress = (event) => {
       if (event.key === 'Escape') props.onDismiss()
     }
+
+    console.log(previewDoc)
 
     document.addEventListener('keyup', handleKeyPress)
     return () => document.removeEventListener('keyup', handleKeyPress)
@@ -318,6 +321,15 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                     )
                   })
                 }
+
+                <Heading3>Elevens fravær</Heading3>
+                <div className='kompetansemaal-text'>Antall dager:</div>
+                <div className='kompetansemaal-desc'>{previewDoc.content.fravar.dager}</div>
+                <div className='kompetansemaal-text'>Antall timer:</div>
+                <div className='kompetansemaal-desc'>{previewDoc.content.fravar.timer}</div>
+                <div className='kompetansemaal-text'>Varslet eleven om fraværet?</div>
+                <div className='kompetansemaal-desc'>{scores.find(score => score.value === previewDoc.content.fravar.varslet).label}</div>
+                <br />
                 <br />
               </>
             }
