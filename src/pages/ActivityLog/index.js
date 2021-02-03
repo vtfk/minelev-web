@@ -177,7 +177,7 @@ export function ActivityLog () {
                         </td>
                         <td>
                           <IconDropdownNav>
-                            <IconDropdownNavItem onClick={() => { openPreviewModal(doc) }} title='Vis dokument' />
+                            <IconDropdownNavItem onClick={() => { openPreviewModal(doc) }} title={`Åpne ${doc.type === 'yff' ? doc.variant.replace('ae', 'æ') : doc.type}`} />
                             <IconDropdownNavItem onClick={() => { openDocumentModal(doc) }} title='Nytt dokument' />
                             <IconDropdownNavItem onClick={() => { openNoteModal(doc) }} title='Nytt notat' />
                             <IconDropdownNavItem href={`/${ROUTES.students}/${doc.student.username}`} title={`Elevsiden til ${doc.student.firstName}`} />
