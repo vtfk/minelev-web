@@ -55,6 +55,10 @@ export function Student ({ match, ...props }) {
     const notes = docsOrderedByModified.filter((item) => item.type === 'notat')
     setDocuments(docsExceptNotes)
     setNotes(notes)
+
+    // If the url contains a document ID - open the preview modal
+    const preview = docs.data.find(doc => doc._id === docId)
+    if (preview) openPreviewModal(preview)
   }
 
   function openDocumentModal () {
