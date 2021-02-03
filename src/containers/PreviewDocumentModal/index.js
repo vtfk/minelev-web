@@ -42,13 +42,13 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
   const documentYffBekreftelseArbeidsdag = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.startTid} - ${previewDoc.content.bekreftelse.sluttTid}`
   const documentYffBekreftelseParorende = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.parorendeData.map(person => `${person.navn} (${person.telefon})`).join('\n')
   const documentYffBekreftelseKontaktPerson = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.kontaktpersonData.map(person => `${person.navn} (${person.avdeling})\nTelefon: ${person.telefon} / E-post: ${person.epost}`).join('\n')
-  
+
   // yff tilbakemelding
   const documentYffTilbakemeldingBedrift = previewDoc.variant === 'tilbakemelding' && `${previewDoc.content.utplassering.bedriftsData.navn}\n${previewDoc.content.utplassering.bedriftsData.adresse}\n${previewDoc.content.utplassering.bedriftsData.postnummer} ${previewDoc.content.utplassering.bedriftsData.poststed}`
   const documentYffTilbakemeldingTidsrom = previewDoc.variant === 'tilbakemelding' && `${previewDoc.content.utplassering.fraDato} - ${previewDoc.content.utplassering.tilDato}`
-  
+
   // default
-  //const documentYear = previewDoc && previewDoc.content.year
+  // const documentYear = previewDoc && previewDoc.content.year
   const documentTeacher = previewDoc.teacher && previewDoc.teacher.name
   const documentDate = previewDoc && prettyPrintDate(previewDoc.created.timestamp)
   const documentStatus = previewDoc.status && generateStatus()
@@ -76,7 +76,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
         onFinished={props.onFinished}
       >
         <ModalBody>
-          <StudentCard student={{ ...previewDoc.student, schoolName: previewDoc.school.name }} hideBirthdate={true} />
+          <StudentCard student={{ ...previewDoc.student, schoolName: previewDoc.school.name }} hideBirthdate />
 
           <div className='form'>
             {/*
@@ -96,11 +96,12 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 Periode
               -------------------- */
               previewDoc.content.period &&
-              <TextField
-                disabled={true}
-                noBorder={true}
-                placeholder='Periode'
-                value={documentPeriod || 'Auda 🤭'} />
+                <TextField
+                  disabled
+                  noBorder
+                  placeholder='Periode'
+                  value={documentPeriod || 'Auda 🤭'}
+                />
             }
 
             {
@@ -108,12 +109,13 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 Atferd
               -------------------- */
               previewDoc.variant && previewDoc.variant === 'atferd' &&
-              <TextField
-                disabled={true}
-                noBorder={true}
-                placeholder={`${documentAtferd.split('\n').length > 1 ? 'Valgte årsaker' : 'Valgt årsak'} for varselet`}
-                rows={documentAtferd.split('\n').length || 1}
-                value={documentAtferd || 'Auda 🤭'} />
+                <TextField
+                  disabled
+                  noBorder
+                  placeholder={`${documentAtferd.split('\n').length > 1 ? 'Valgte årsaker' : 'Valgt årsak'} for varselet`}
+                  rows={documentAtferd.split('\n').length || 1}
+                  value={documentAtferd || 'Auda 🤭'}
+                />
             }
 
             {
@@ -121,21 +123,23 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 Fag
               -------------------- */
               previewDoc.variant && previewDoc.variant === 'fag' &&
-              <>
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder={`${documentFag.split('\n').length > 1 ? 'Valgte' : 'Valgt'} fag for varselet`}
-                  rows={documentFag.split('\n')?.length || 1}
-                  value={documentFag || 'Auda 🤭'} />
+                <>
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder={`${documentFag.split('\n').length > 1 ? 'Valgte' : 'Valgt'} fag for varselet`}
+                    rows={documentFag.split('\n')?.length || 1}
+                    value={documentFag || 'Auda 🤭'}
+                  />
 
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder={`${documentFagReasons.split('\n').length > 1 ? 'Valgte årsaker' : 'Valgt årsak'} for varselet`}
-                  rows={documentFagReasons.split('\n')?.length || 1}
-                  value={documentFagReasons || 'Auda 🤭'} />
-              </>
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder={`${documentFagReasons.split('\n').length > 1 ? 'Valgte årsaker' : 'Valgt årsak'} for varselet`}
+                    rows={documentFagReasons.split('\n')?.length || 1}
+                    value={documentFagReasons || 'Auda 🤭'}
+                  />
+                </>
             }
 
             {
@@ -143,12 +147,13 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 Orden
               -------------------- */
               previewDoc.variant && previewDoc.variant === 'orden' &&
-              <TextField
-                disabled={true}
-                noBorder={true}
-                placeholder={`${documentOrden.split('\n').length > 1 ? 'Valgte årsaker' : 'Valgt årsak'} for varselet`}
-                rows={documentOrden.split('\n').length || 1}
-                value={documentOrden || 'Auda 🤭'} />
+                <TextField
+                  disabled
+                  noBorder
+                  placeholder={`${documentOrden.split('\n').length > 1 ? 'Valgte årsaker' : 'Valgt årsak'} for varselet`}
+                  rows={documentOrden.split('\n').length || 1}
+                  value={documentOrden || 'Auda 🤭'}
+                />
             }
 
             {
@@ -156,11 +161,12 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 Samtale
               -------------------- */
               previewDoc.type && previewDoc.type === 'samtale' &&
-              <TextField
-                disabled={true}
-                noBorder={true}
-                placeholder='Er det gjennomført en elevsamtale?'
-                value={documentSamtale || 'Auda 🤭'} />
+                <TextField
+                  disabled
+                  noBorder
+                  placeholder='Er det gjennomført en elevsamtale?'
+                  value={documentSamtale || 'Auda 🤭'}
+                />
             }
 
             {
@@ -168,7 +174,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 Notat
               -------------------- */
               previewDoc.type && previewDoc.type === 'notat' &&
-              <Paragraph>Notatets innhold finner du igjen i <Link href='https://elevmappa.no' target='_blank' rel='noreferrer'>Elevmappa</Link></Paragraph>
+                <Paragraph>Notatets innhold finner du igjen i <Link href='https://elevmappa.no' target='_blank' rel='noreferrer'>Elevmappa</Link></Paragraph>
             }
 
             {
@@ -176,52 +182,59 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 YFF bekreftelse
               -------------------- */
               previewDoc.variant && previewDoc.variant === 'bekreftelse' &&
-              <>
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder='Bedrift'
-                  rows={documentYffBekreftelseBedrift.split('\n').length || 1}
-                  value={documentYffBekreftelseBedrift || 'Auda 🤭'} />
+                <>
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder='Bedrift'
+                    rows={documentYffBekreftelseBedrift.split('\n').length || 1}
+                    value={documentYffBekreftelseBedrift || 'Auda 🤭'}
+                  />
 
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder='Tidsrom'
-                  value={documentYffBekreftelseTidsrom || 'Auda 🤭'} />
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder='Tidsrom'
+                    value={documentYffBekreftelseTidsrom || 'Auda 🤭'}
+                  />
 
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder='Arbeidsdag'
-                  value={documentYffBekreftelseArbeidsdag || 'Auda 🤭'} />
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder='Arbeidsdag'
+                    value={documentYffBekreftelseArbeidsdag || 'Auda 🤭'}
+                  />
 
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder='Dager i uken'
-                  value={previewDoc.content.bekreftelse.daysPerWeek || 'Auda 🤭'} />
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder='Dager i uken'
+                    value={previewDoc.content.bekreftelse.daysPerWeek || 'Auda 🤭'}
+                  />
 
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder='Oppmøtested'
-                  value={previewDoc.content.bekreftelse.oppmotested || 'Auda 🤭'} />
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder='Oppmøtested'
+                    value={previewDoc.content.bekreftelse.oppmotested || 'Auda 🤭'}
+                  />
 
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder='Pårørende'
-                  rows={documentYffBekreftelseParorende.split('\n').length || 1}
-                  value={documentYffBekreftelseParorende || 'Auda 🤭'} />
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder='Pårørende'
+                    rows={documentYffBekreftelseParorende.split('\n').length || 1}
+                    value={documentYffBekreftelseParorende || 'Auda 🤭'}
+                  />
 
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder='Kontaktperson på bedriften'
-                  rows={documentYffBekreftelseKontaktPerson.split('\n').length || 1}
-                  value={documentYffBekreftelseKontaktPerson || 'Auda 🤭'} />
-              </>
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder='Kontaktperson på bedriften'
+                    rows={documentYffBekreftelseKontaktPerson.split('\n').length || 1}
+                    value={documentYffBekreftelseKontaktPerson || 'Auda 🤭'}
+                  />
+                </>
             }
 
             {
@@ -229,33 +242,31 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 YFF laereplan
               -------------------- */
               previewDoc.variant && previewDoc.variant === 'laereplan' &&
-              previewDoc.content.utplasseringer.map(utplassering => {
+              previewDoc.content.utplasseringer.map((utplassering, index) => {
                 return (
-                  <>
+                  <div key={index}>
                     <Heading3>
                       <div className='heading-text'>
                         {utplassering.name}
                       </div>
                     </Heading3>
-                    
+
                     {
-                      utplassering.maal.map(maal => {
+                      utplassering.maal.map((maal, index2) => {
                         return (
-                          <>
-                            <ul>
-                              <li>
-                                <div className='kompetansemaal-text'>Kompetansemål:</div>
-                                <div className='kompetansemaal-desc'>{maal.grep.tittel.nb}</div>
-                                <div className='kompetansemaal-text'>Arbeidsoppgaver:</div>
-                                <div className='kompetansemaal-desc'>{maal.arbeidsoppgaver}</div>
-                              </li>
-                            </ul>
-                          </>
+                          <ul key={index2}>
+                            <li>
+                              <div className='kompetansemaal-text'>Kompetansemål:</div>
+                              <div className='kompetansemaal-desc'>{maal.grep.tittel.nb}</div>
+                              <div className='kompetansemaal-text'>Arbeidsoppgaver:</div>
+                              <div className='kompetansemaal-desc'>{maal.arbeidsoppgaver}</div>
+                            </li>
+                          </ul>
                         )
                       })
                     }
                     <br />
-                  </>
+                  </div>
                 )
               })
             }
@@ -265,71 +276,69 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 YFF tilbakemelding
               -------------------- */
               previewDoc.variant && previewDoc.variant === 'tilbakemelding' &&
-              <>
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder='Bedrift'
-                  rows={documentYffTilbakemeldingBedrift.split('\n').length || 1}
-                  value={documentYffTilbakemeldingBedrift || 'Auda 🤭'} />
+                <>
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder='Bedrift'
+                    rows={documentYffTilbakemeldingBedrift.split('\n').length || 1}
+                    value={documentYffTilbakemeldingBedrift || 'Auda 🤭'}
+                  />
 
-                <TextField
-                  disabled={true}
-                  noBorder={true}
-                  placeholder='Tidsrom'
-                  value={documentYffTilbakemeldingTidsrom || 'Auda 🤭'} />
+                  <TextField
+                    disabled
+                    noBorder
+                    placeholder='Tidsrom'
+                    value={documentYffTilbakemeldingTidsrom || 'Auda 🤭'}
+                  />
 
-                <Heading3>Kompetansemål og arbeidsoppgaver</Heading3>
+                  <Heading3>Kompetansemål og arbeidsoppgaver</Heading3>
 
-                {
-                  previewDoc.content.kompetansemal.map(kompetanse => {
+                  {
+                  previewDoc.content.kompetansemal.map((kompetanse, index) => {
                     return (
-                      <>
-                        <ul>
-                          <li>
-                            <div className='kompetansemaal-desc'>{kompetanse.grep.tittel.nb}</div>
-                            <div className='kompetansemaal-text'>Arbeidsoppgaver:</div>
-                            <div className='kompetansemaal-desc'>{kompetanse.arbeidsoppgaver}</div>
-                            <div className='kompetansemaal-text'>Måloppnåelse:</div>
-                            <div className='kompetansemaal-desc'>{kompetanse.tilbakemelding}</div>
-                          </li>
-                        </ul>
-                      </>
+                      <ul key={index}>
+                        <li>
+                          <div className='kompetansemaal-desc'>{kompetanse.grep.tittel.nb}</div>
+                          <div className='kompetansemaal-text'>Arbeidsoppgaver:</div>
+                          <div className='kompetansemaal-desc'>{kompetanse.arbeidsoppgaver}</div>
+                          <div className='kompetansemaal-text'>Måloppnåelse:</div>
+                          <div className='kompetansemaal-desc'>{kompetanse.tilbakemelding}</div>
+                        </li>
+                      </ul>
                     )
                   })
                 }
 
-                <Heading3>Virksomhetens inntrykk og tilbakemelding til lærer</Heading3>
+                  <Heading3>Virksomhetens inntrykk og tilbakemelding til lærer</Heading3>
 
-                {
-                  Object.keys(previewDoc.content.evalueringsdata).map(evaluering => {
+                  {
+                  Object.keys(previewDoc.content.evalueringsdata).map((evaluering, index) => {
                     const item = previewDoc.content.evalueringsdata[evaluering]
                     if (!item.score) return ''
 
                     return (
-                      <>
-                        <ul>
-                          <li>
-                            <div className='kompetansemaal-desc'>{item.title.nb || item.title}</div>
-                            <div className='kompetansemaal-text'>Måloppnåelse:</div>
-                            <div className='kompetansemaal-desc'>{item.score}</div>
-                          </li>
-                        </ul>
-                      </>
+                      <ul key={index}>
+                        <li>
+                          <div className='kompetansemaal-desc'>{item.title.nb || item.title}</div>
+                          <div className='kompetansemaal-text'>Måloppnåelse:</div>
+                          <div className='kompetansemaal-desc'>{item.score}</div>
+                        </li>
+                      </ul>
                     )
                   })
                 }
 
-                <Heading3>Elevens fravær</Heading3>
-                <div className='kompetansemaal-text'>Antall dager:</div>
-                <div className='kompetansemaal-desc'>{previewDoc.content.fravar.dager}</div>
-                <div className='kompetansemaal-text'>Antall timer:</div>
-                <div className='kompetansemaal-desc'>{previewDoc.content.fravar.timer}</div>
-                <div className='kompetansemaal-text'>Varslet eleven om fraværet?</div>
-                <div className='kompetansemaal-desc'>{scores.find(score => score.value === previewDoc.content.fravar.varslet).label}</div>
-                <br />
-                <br />
-              </>
+                  <Heading3>Elevens fravær</Heading3>
+                  <div className='kompetansemaal-text'>Antall dager:</div>
+                  <div className='kompetansemaal-desc'>{previewDoc.content.fravar.dager}</div>
+                  <div className='kompetansemaal-text'>Antall timer:</div>
+                  <div className='kompetansemaal-desc'>{previewDoc.content.fravar.timer}</div>
+                  <div className='kompetansemaal-text'>Varslet eleven om fraværet?</div>
+                  <div className='kompetansemaal-desc'>{scores.find(score => score.value === previewDoc.content.fravar.varslet).label}</div>
+                  <br />
+                  <br />
+                </>
             }
 
             {
@@ -337,11 +346,12 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 Teacher
               -------------------- */
               previewDoc.teacher &&
-              <TextField
-                disabled={true}
-                noBorder={true}
-                placeholder='Sendt av'
-                value={documentTeacher || 'Auda 🤭'} />
+                <TextField
+                  disabled
+                  noBorder
+                  placeholder='Sendt av'
+                  value={documentTeacher || 'Auda 🤭'}
+                />
             }
 
             {
@@ -349,11 +359,12 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 Generated
               -------------------- */
               previewDoc &&
-              <TextField
-                disabled={true}
-                noBorder={true}
-                placeholder='Dato'
-                value={documentDate || 'Auda 🤭'} />
+                <TextField
+                  disabled
+                  noBorder
+                  placeholder='Dato'
+                  value={documentDate || 'Auda 🤭'}
+                />
             }
 
             {
@@ -361,12 +372,13 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                 Status
               -------------------- */
               previewDoc.status &&
-              <TextField
-                disabled={true}
-                noBorder={true}
-                placeholder='Status'
-                rows={documentStatus.split('\n').length || 1}
-                value={documentStatus || 'Auda 🤭'} />
+                <TextField
+                  disabled
+                  noBorder
+                  placeholder='Status'
+                  rows={documentStatus.split('\n').length || 1}
+                  value={documentStatus || 'Auda 🤭'}
+                />
             }
           </div>
         </ModalBody>
