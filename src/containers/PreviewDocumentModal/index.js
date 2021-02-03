@@ -59,8 +59,6 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
       if (event.key === 'Escape') props.onDismiss()
     }
 
-    console.log(previewDoc)
-
     document.addEventListener('keyup', handleKeyPress)
     return () => document.removeEventListener('keyup', handleKeyPress)
   }, [])
