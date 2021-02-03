@@ -170,7 +170,7 @@ export function Home () {
                     <Paragraph><Link aria-label='Klikk for å åpne' onClick={() => openPreviewModal(doc)}>{repackDocumentType(doc.type, doc.variant)}</Link></Paragraph>
                   </td>
                   <td>
-                    <Paragraph><Link tabindex={-1} aria-label='Klikk for å åpne' aria-hidden onClick={() => openPreviewModal(doc)}><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Link></Paragraph>
+                    <Paragraph><Link tabIndex={-1} aria-label='Klikk for å åpne' aria-hidden onClick={() => openPreviewModal(doc)}><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Link></Paragraph>
                   </td>
                   <td>
                     <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
