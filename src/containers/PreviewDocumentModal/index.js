@@ -41,7 +41,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
   const documentYffBekreftelseTidsrom = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.fraDato} - ${previewDoc.content.bekreftelse.tilDato}`
   const documentYffBekreftelseArbeidsdag = previewDoc.variant === 'bekreftelse' && `${previewDoc.content.bekreftelse.startTid} - ${previewDoc.content.bekreftelse.sluttTid}`
   const documentYffBekreftelseParorende = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.parorendeData.map(person => `${person.navn} (${person.telefon})`).join('\n')
-  const documentYffBekreftelseKontaktPerson = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.kontaktpersonData.map(person => `${person.navn} (${person.avdeling})\nTelefon: ${person.telefon} / E-post: ${person.epost}`).join('\n')
+  const documentYffBekreftelseKontaktPerson = previewDoc.variant === 'bekreftelse' && previewDoc.content.bekreftelse.kontaktpersonData.map(person => `${person.navn} ${person.avdeling ? `(${person.avdeling})` : ''}${person.telefon && person.epost ? `\nTelefon: ${person.telefon} / E-post: ${person.epost}` : person.telefon ? `\nTelefon: ${person.telefon}` : person.epost ? `\nE-post: ${person.epost}` : ''}`).join('\n')
 
   // yff tilbakemelding
   const documentYffTilbakemeldingBedrift = previewDoc.variant === 'tilbakemelding' && `${previewDoc.content.utplassering.bedriftsData.navn}\n${previewDoc.content.utplassering.bedriftsData.adresse}\n${previewDoc.content.utplassering.bedriftsData.postnummer} ${previewDoc.content.utplassering.bedriftsData.poststed}`
