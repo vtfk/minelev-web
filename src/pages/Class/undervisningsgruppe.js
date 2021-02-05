@@ -1,4 +1,5 @@
 import Moment from 'react-moment'
+import React, { useState } from 'react'
 import { InitialsBadge } from '../../_lib-components/InitialsBadge'
 import { Paragraph, Link } from '../../_lib-components/Typography'
 
@@ -12,9 +13,28 @@ import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
 import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
+import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
+
 export function Undervisningsgruppe ({ group, documents, loading }) {
+  const [previewDocument, setPreviewDocument] = useState(false)
+
+  function openPreviewModal (doc) {
+    setPreviewDocument(doc)
+  }
+
   return (
     <>
+      {
+        !!previewDocument &&
+          <PreviewDocumentModal
+            open={!!previewDocument}
+            previewDoc={previewDocument}
+            title={repackDocumentType(previewDocument.type, previewDocument.variant)}
+            onDismiss={() => { setPreviewDocument(false) }}
+            onFinished={() => { setPreviewDocument(false) }}
+          />
+      }
+
       <ClassCard group={loading ? null : group} />
 
       <ClassTileGroup>
@@ -112,7 +132,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                   </div>
                 </td>
                 <td>
-                  <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
+                  <Paragraph><Link onClick={() => openPreviewModal(doc)} aria-label='Klikk for å åpne'>{repackDocumentType(doc.type, doc.variant)}</Link></Paragraph>
                 </td>
                 <td>
                   <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
