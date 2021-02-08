@@ -197,7 +197,7 @@ export function YffConfirmationModal ({ student, ...props }) {
     setErrors(formErrors)
 
     const hasSubError = Object.keys(subErrors).filter(key => Object.keys(subErrors[key]).filter(index => !!subErrors[key][index]).length > 0).length > 0
-    return !!formErrors && hasSubError
+    return !!formErrors || hasSubError
   }
 
   function generateDocument (data) {
