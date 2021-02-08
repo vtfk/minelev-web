@@ -42,7 +42,7 @@
   "dependencies": {
     "@sentry/react": "6.0.4",
     "@sentry/tracing": "6.0.4",
-    "@vtfk/components": "0.0.1",
+    "@vtfk/components": "0.0.2",
     "@vtfk/react-msal": "1.0.6",
     "express": "4.17.1",
     "get-skole-aar": "2.1.0",
