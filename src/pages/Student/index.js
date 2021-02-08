@@ -47,7 +47,11 @@ export function Student ({ match, ...props }) {
 
   async function getDocuments () {
     const docs = await apiGet(API.URL + '/students/' + id + '/documents')
-    if (!docs.data || !Array.isArray(docs.data)) return
+    if (!docs || !docs.data || !Array.isArray(docs.data)) {
+      setDocuments([])
+      setNotes([])
+      return
+    }
     // TODO: Display error message
 
     const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
