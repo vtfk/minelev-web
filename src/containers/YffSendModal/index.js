@@ -70,13 +70,13 @@ export function YffSendModal ({ selectedStudentId, ...props }) {
               </div>
           }
 
-          <p className='intro'>
+          <Paragraph className='intro'>
             Her sender du den lokale læreplanen til eleven, og arkiverer den i elevens elevmappe.
             <br />
             Hvis du sender og arkiverer kan du likevel gjøre endringer i planen og sende en ny versjon senere.
             <br />
             I elevmappa vil det alltid være den nyeste versjonen som er gjeldende.
-          </p>
+          </Paragraph>
 
           <div className='form'>
 

@@ -233,12 +233,12 @@ export function YffConfirmationModal ({ student, ...props }) {
       >
         <ModalBody>
           <StudentCard student={student} />
-          <p className='yff-intro'>
+          <Paragraph className='yff-intro'>
             Her oppretter du bekreftelse om utplassering av eleven. Du må ha navnet eller organisasjonsnummeret til virksomheten hvor eleven skal utplasseres, avdelingen hvor eleven skal arbeide, og oppmøtested. Du må også fylle ut kontaktinformasjon til kontaktperson(er) hos virksomheten, i tillegg til elevens pårørende.
             <br />
             <br />
             Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
-          </p>
+          </Paragraph>
           <div className='form'>
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={didSubmit && !brregData} />
             <CompanySelector brregData={brregData} setCompany={setCompany} showError={didSubmit && !company} />

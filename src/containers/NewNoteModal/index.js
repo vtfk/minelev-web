@@ -6,7 +6,7 @@ import { useSession } from '@vtfk/react-msal'
 
 import { API } from '../../config/app'
 
-import { Link, Modal, ModalBody, ModalSideActions, TextField, Button, Skeleton } from '@vtfk/components'
+import { Link, Modal, ModalBody, ModalSideActions, TextField, Button, Skeleton, Paragraph } from '@vtfk/components'
 
 import './styles.scss'
 import StudentCard from '../../components/student-card'
@@ -131,9 +131,9 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
       >
         <ModalBody>
           <StudentCard student={selectedStudent} />
-          <p className='notat-intro'>
+          <Paragraph className='notat-intro'>
             Notatet blir arkivert i elevens mappe i Public 360. Notatet finner du igjen i <Link href='https://elevmappa.no' target='_blank' rel='noreferrer'>Elevmappa</Link>.
-          </p>
+          </Paragraph>
 
           <div className='form'>
             {

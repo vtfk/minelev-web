@@ -7,7 +7,7 @@ import { useSession } from '@vtfk/react-msal'
 
 import { API } from '../../config/app'
 
-import { Link, Modal, ModalBody, ModalSideActions, Button, Skeleton } from '@vtfk/components'
+import { Link, Modal, ModalBody, ModalSideActions, Button, Skeleton, Paragraph } from '@vtfk/components'
 
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
@@ -178,9 +178,9 @@ export function YffCurriculumModal ({ student, ...props }) {
       >
         <ModalBody>
           <StudentCard student={student} />
-          <p className='intro'>
+          <Paragraph className='intro'>
             Her endrer du den lokale læreplanen for eleven og velger kompetansemål eleven skal jobbe med i løpet av utplasseringen. Du skriver også inn elevens arbeidsoppgaver knyttet til hvert kompetansemål. Når du klikker "Send og arkiver" blir læreplanen sendt til elevens digitale postkasse. Du kan oppdatere og sendte oppdaterte planer kontinuerlig underveis i skoleåret.
-          </p>
+          </Paragraph>
 
           <div className='form'>
             <h2 className='subheader'>Legg til nye kompetansemål</h2>
