@@ -6,7 +6,7 @@ import { MsalProvider } from '@vtfk/react-msal'
 import { config, loginRequest } from './config/auth'
 import { SENTRY } from './config/app'
 import * as pkg from '../package.json'
-
+import { BaseStyle } from '@vtfk/components'
 import App from './App'
 
 import './assets/scss/base-styles.scss'
@@ -51,12 +51,14 @@ if (SENTRY.dsn) {
 
 ReactDOM.render(
   <React.StrictMode>
-    <MsalProvider
-      config={config}
-      scopes={loginRequest}
-    >
-      <App />
-    </MsalProvider>
+    <BaseStyle>
+      <MsalProvider
+        config={config}
+        scopes={loginRequest}
+      >
+        <App />
+      </MsalProvider>
+    </BaseStyle>
   </React.StrictMode>,
   document.getElementById('root')
 )
