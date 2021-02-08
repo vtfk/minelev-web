@@ -8,11 +8,7 @@ import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
 import ClassPanel from '../../components/class-panel'
-import { Heading1, Heading2, Heading3, Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
-import { Icon } from '../../_lib-components/Icon'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { Heading1, Heading2, Heading3, Paragraph, Link, ErrorMessage, InitialsBadge, IconDropdownNav, IconDropdownNavItem, Icon, Skeleton } from '@vtfk/components'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
@@ -134,14 +130,14 @@ export function Home () {
                 <tr key={i}>
                   <td>
                     <div className='activity-name'>
-                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
-                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                      <Skeleton variant='circle'><InitialsBadge size='small' /></Skeleton>
+                      <Skeleton className='paragraph' randomWidth={[40, 80]} />
                     </div>
                   </td>
-                  <td><SkeletonLoader randomWidth={[40, 70]} /></td>
-                  <td><SkeletonLoader width='60%' /></td>
-                  <td><SkeletonLoader /></td>
-                  <td><SkeletonLoader /></td>
+                  <td><Skeleton randomWidth={[40, 70]} /></td>
+                  <td><Skeleton width='60%' /></td>
+                  <td><Skeleton /></td>
+                  <td><Skeleton /></td>
                 </tr>
               )
             })
@@ -205,7 +201,7 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading
-                        ? <SkeletonLoader randomWidth={[20, 80]} />
+                        ? <Skeleton randomWidth={[20, 80]} />
                         : varsler.length
                     }
                   </Heading1>
@@ -215,7 +211,7 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading
-                        ? <SkeletonLoader randomWidth={[20, 80]} />
+                        ? <Skeleton randomWidth={[20, 80]} />
                         : conversations.length
                     }
                   </Heading1>
@@ -227,7 +223,7 @@ export function Home () {
                   <Heading1 as='h3' className='statistics-item-title'>
                     {
                       loading
-                        ? <SkeletonLoader randomWidth={[20, 80]} />
+                        ? <Skeleton randomWidth={[20, 80]} />
                         : notes.length
                     }
                   </Heading1>
@@ -238,7 +234,7 @@ export function Home () {
                     <Heading1 as='h3' className='statistics-item-title'>
                     {
                         loading
-                          ? <SkeletonLoader randomWidth={[20, 80]} />
+                          ? <Skeleton randomWidth={[20, 80]} />
                           : '?'
                       }
                     </Heading1>

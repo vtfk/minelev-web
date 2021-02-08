@@ -1,4 +1,4 @@
-import { Heading1, Heading3 } from '../_lib-components/Typography'
+import { Heading1, Heading3 } from '@vtfk/components'
 
 function ClassTile ({ label, value = 0, ...props }) {
   return (

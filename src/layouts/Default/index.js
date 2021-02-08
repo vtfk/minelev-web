@@ -13,13 +13,7 @@ import { ROUTES } from '../../config/constants'
 
 import ScrollLock, { TouchScrollable } from 'react-scrolllock'
 
-import { SideNav, SideNavItem } from '../../_lib-components/SideNav'
-import { SearchField } from '../../_lib-components/SearchField'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { Paragraph, SkipLink } from '../../_lib-components/Typography'
-import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
-import { Icon } from '../../_lib-components/Icon'
-import { Logo } from '../../_lib-components/Logo'
+import { SideNav, SideNavItem, SearchField, InitialsBadge, Paragraph, SkipLink, IconDropdownNav, IconDropdownNavItem, Icon, Logo } from '@vtfk/components'
 
 import './styles.scss'
 

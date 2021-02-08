@@ -6,10 +6,7 @@ import { useSession } from '@vtfk/react-msal'
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
-import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { Button } from '../../_lib-components/Button'
+import { Heading3, Paragraph, Link, InitialsBadge, Modal, ModalBody, ModalSideActions, Button } from '@vtfk/components'
 
 import './styles.scss'
 
@@ -73,13 +70,13 @@ export function YffSendModal ({ selectedStudentId, ...props }) {
               </div>
           }
 
-          <p className='intro'>
+          <Paragraph className='intro'>
             Her sender du den lokale læreplanen til eleven, og arkiverer den i elevens elevmappe.
             <br />
             Hvis du sender og arkiverer kan du likevel gjøre endringer i planen og sende en ny versjon senere.
             <br />
             I elevmappa vil det alltid være den nyeste versjonen som er gjeldende.
-          </p>
+          </Paragraph>
 
           <div className='form'>
 

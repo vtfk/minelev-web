@@ -3,8 +3,7 @@ import { useSession } from '@vtfk/react-msal'
 
 import { DefaultLayout } from '../../layouts/Default'
 
-import { Heading1, Heading2, Heading3 } from '../../_lib-components/Typography'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { Heading1, Heading2, Heading3, Skeleton } from '@vtfk/components'
 
 import './styles.scss'
 import { API } from '../../config/app'
@@ -50,7 +49,7 @@ export function Statistics () {
             <Heading1 as='h2' className='numbers-item-title'>
               {
                 loading
-                  ? <SkeletonLoader randomWidth={[20, 80]} />
+                  ? <Skeleton randomWidth={[20, 80]} />
                   : getTypeStats('varsel')
               }
             </Heading1>
@@ -60,7 +59,7 @@ export function Statistics () {
             <Heading1 as='h2' className='numbers-item-title'>
               {
                 loading
-                  ? <SkeletonLoader randomWidth={[20, 80]} />
+                  ? <Skeleton randomWidth={[20, 80]} />
                   : getTypeStats('samtale')
               }
             </Heading1>
@@ -70,7 +69,7 @@ export function Statistics () {
             <Heading1 as='h2' className='numbers-item-title'>
               {
                 loading
-                  ? <SkeletonLoader randomWidth={[20, 80]} />
+                  ? <Skeleton randomWidth={[20, 80]} />
                   : getTypeStats('notat')
               }
             </Heading1>
@@ -108,7 +107,7 @@ export function Statistics () {
               <tbody>
                 {
                   loading
-                    ? Array(3).fill().map((i) => <tr key={i}><td><SkeletonLoader /></td></tr>)
+                    ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
                     : getSchools('varsel').map(function (item, index) {
                       return (
                         <tr key={index}>
@@ -139,7 +138,7 @@ export function Statistics () {
               <tbody>
                 {
                   loading
-                    ? Array(3).fill().map((i) => <tr key={i}><td><SkeletonLoader /></td></tr>)
+                    ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
                     : getSchools('samtale').map(function (item, index) {
                       return (
                         <tr key={index}>
@@ -170,7 +169,7 @@ export function Statistics () {
               <tbody>
                 {
                   loading
-                    ? Array(3).fill().map((i) => <tr key={i}><td><SkeletonLoader /></td></tr>)
+                    ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
                     : getSchools('notat').map(function (item, index) {
                       return (
                         <tr key={index}>

@@ -1,7 +1,6 @@
 import Moment from 'react-moment'
 import React, { useState } from 'react'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { Paragraph, Link } from '../../_lib-components/Typography'
+import { InitialsBadge, Paragraph, Link, Skeleton } from '@vtfk/components'
 
 import ClassCard from '../../components/class-card'
 import ClassTile from '../../components/class-tile'
@@ -11,7 +10,6 @@ import ClassPanel from '../../components/class-panel'
 import { ROUTES } from '../../config/constants'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
 
@@ -42,11 +40,11 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
           loading || !documents
             ? (
               <>
-                <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
-                <SkeletonLoader variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
+                <Skeleton variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
+                <Skeleton variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
               </>
-              )
-            : <ClassTile label='varselbrev i faget' value={documents ? documents.length : <SkeletonLoader width='70px' />} />
+            )
+            : <ClassTile label='varselbrev i faget' value={documents ? documents.length : <Skeleton width='70px' />} />
         }
       </ClassTileGroup>
 
@@ -58,11 +56,11 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                 <tr key={i}>
                   <td>
                     <div className='activity-name'>
-                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
-                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                      <Skeleton variant='circle'><InitialsBadge size='small' /></Skeleton>
+                      <Skeleton className='paragraph' randomWidth={[40, 80]} />
                     </div>
                   </td>
-                  <td><SkeletonLoader width='90px' /></td>
+                  <td><Skeleton width='90px' /></td>
                 </tr>
               )
             })
@@ -106,13 +104,13 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                 <tr key={i}>
                   <td>
                     <div className='activity-name'>
-                      <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
-                      <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                      <Skeleton variant='circle'><InitialsBadge size='small' /></Skeleton>
+                      <Skeleton className='paragraph' randomWidth={[40, 80]} />
                     </div>
                   </td>
-                  <td><SkeletonLoader /></td>
-                  <td><SkeletonLoader /></td>
-                  <td><SkeletonLoader /></td>
+                  <td><Skeleton /></td>
+                  <td><Skeleton /></td>
+                  <td><Skeleton /></td>
                 </tr>
               )
             })

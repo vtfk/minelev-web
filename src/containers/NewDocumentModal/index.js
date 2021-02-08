@@ -8,12 +8,7 @@ import getSkoleAar from 'get-skole-aar'
 import { API } from '../../config/app'
 import { DOCUMENTS } from '../../data/documents'
 
-import { Link } from '../../_lib-components/Typography'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { Select, SelectMultiple } from '../../_lib-components/Select'
-import { PDFPreviewModal } from '../../_lib-components/PDFPreviewModal'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
-import { Button } from '../../_lib-components/Button'
+import { Link, Modal, ModalBody, ModalSideActions, Select, SelectMultiple, PDFPreviewModal, Skeleton, Button } from '@vtfk/components'
 
 import StudentCard from '../../components/student-card'
 import { successMessage, errorMessage } from '../../lib/toasts'
@@ -308,8 +303,8 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                     closeOnSelect
                     error={errors.type}
                   />
-                  )
-                : <SkeletonLoader width='100%'><Select placeholder='Dokumenttype' items={[]} /></SkeletonLoader>
+                )
+                : <Skeleton width='100%'><Select placeholder='Dokumenttype' items={[]} /></Skeleton>
             }
 
             {
@@ -413,14 +408,14 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
             {
               selectedStudent
                 ? <Link onClick={() => { openPreviewModal() }}>Forhåndsvisning</Link>
-                : <SkeletonLoader width='100%' />
+                : <Skeleton width='100%' />
             }
           </div>
           <div className='action'>
             {
               selectedStudent
                 ? <Button onClick={() => { send() }} type='primary' spinner={submitting}>Send</Button>
-                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
+                : <Skeleton variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></Skeleton>
             }
           </div>
           <div className='action'>

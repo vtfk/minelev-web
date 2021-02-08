@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import getSchools from 'vtfk-schools-info'
-import { Select } from '../_lib-components/Select'
+import { Select } from '@vtfk/components'
 
 function idFromString (input) {
   input = input.toLowerCase()

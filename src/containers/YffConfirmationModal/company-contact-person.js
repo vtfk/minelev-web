@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { TextField } from '../../_lib-components/TextField'
-import { Icon } from '../../_lib-components/Icon'
+import { TextField, Icon } from '@vtfk/components'
+
 import { isValidEmail, isValidMobile, validateField, validateForm } from '../../lib/form-validation'
 
 const OrganisasjonKontaktperson = ({ showError, setHasError }) => {

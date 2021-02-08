@@ -8,12 +8,7 @@ import { useForm } from 'react-hook-form'
 
 import { API } from '../../config/app'
 
-import { Link, Paragraph } from '../../_lib-components/Typography'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { TextField } from '../../_lib-components/TextField'
-import { Icon } from '../../_lib-components/Icon'
-import { Button } from '../../_lib-components/Button'
-import { Datepicker } from '../../_lib-components/Datepicker'
+import { Link, Paragraph, Modal, ModalBody, ModalSideActions, TextField, Icon, Button, Datepicker, Skeleton } from '@vtfk/components'
 
 import StudentCard from '../../components/student-card'
 import createDocument from '../../lib/create-yff-document'
@@ -32,7 +27,6 @@ import { successMessage, errorMessage } from '../../lib/toasts'
 import logError from '../../lib/log-error'
 
 import './styles.scss'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 function getClassLevel (id) {
   return `VG${/\d/.exec(id) || 1}`
@@ -239,12 +233,12 @@ export function YffConfirmationModal ({ student, ...props }) {
       >
         <ModalBody>
           <StudentCard student={student} />
-          <p className='yff-intro'>
+          <Paragraph className='yff-intro'>
             Her oppretter du bekreftelse om utplassering av eleven. Du må ha navnet eller organisasjonsnummeret til virksomheten hvor eleven skal utplasseres, avdelingen hvor eleven skal arbeide, og oppmøtested. Du må også fylle ut kontaktinformasjon til kontaktperson(er) hos virksomheten, i tillegg til elevens pårørende.
             <br />
             <br />
             Ved søk på virksomhet kan du bruke virksomhetens navn eller organisasjonsnummer.
-          </p>
+          </Paragraph>
           <div className='form'>
             <EntitySearch setBrregData={setBrregData} fetcher={apiGet} showError={didSubmit && !brregData} />
             <CompanySelector brregData={brregData} setCompany={setCompany} showError={didSubmit && !company} />
@@ -365,14 +359,14 @@ export function YffConfirmationModal ({ student, ...props }) {
             {
               studentID
                 ? <Link onClick={() => { openPreview() }}>Forhåndsvisning</Link>
-                : <SkeletonLoader width='100%' />
+                : <Skeleton width='100%' />
             }
           </div>
           <div className='action'>
             {
               studentID
                 ? <Button onClick={() => { send() }} type='primary' spinner={submitting}>Send</Button>
-                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
+                : <Skeleton variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></Skeleton>
             }
           </div>
           <div className='action'>

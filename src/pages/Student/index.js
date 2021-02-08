@@ -10,9 +10,7 @@ import { API } from '../../config/app'
 import { useSession } from '@vtfk/react-msal'
 
 import ClassPanel from '../../components/class-panel'
-import { Paragraph, Link } from '../../_lib-components/Typography'
-import { Icon } from '../../_lib-components/Icon'
-import { IconButtonLink } from '../../_lib-components/Button'
+import { Paragraph, Link, Icon, IconButtonLink, Skeleton } from '@vtfk/components'
 
 import Yff from './yff'
 import YffErrorFallback from './yff-error-fallback'
@@ -24,7 +22,6 @@ import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import repackDocumentStatus from '../../lib/repack-document-status'
 import StudentCard from '../../components/student-card'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 export function Student ({ match, ...props }) {
   const { apiGet } = useSession()
@@ -171,9 +168,9 @@ export function Student ({ match, ...props }) {
                     !documents && Array(5).fill().map(function (i) {
                       return (
                         <tr key={i}>
-                          <td><SkeletonLoader randomWidth={[30, 70]} /></td>
-                          <td><SkeletonLoader width='60%' /></td>
-                          <td><SkeletonLoader randomWidth={[20, 100]} /></td>
+                          <td><Skeleton randomWidth={[30, 70]} /></td>
+                          <td><Skeleton width='60%' /></td>
+                          <td><Skeleton randomWidth={[20, 100]} /></td>
                         </tr>
                       )
                     })
@@ -220,9 +217,9 @@ export function Student ({ match, ...props }) {
                     !notes && Array(5).fill().map(function (i) {
                       return (
                         <tr key={i}>
-                          <td><SkeletonLoader width='60%' /></td>
-                          <td><SkeletonLoader /></td>
-                          <td><SkeletonLoader /></td>
+                          <td><Skeleton width='60%' /></td>
+                          <td><Skeleton /></td>
+                          <td><Skeleton /></td>
                         </tr>
                       )
                     })
@@ -254,12 +251,12 @@ export function Student ({ match, ...props }) {
                   }
                 </ClassPanel>
               </>
-              )
+            )
             : (
               <Paragraph>
                 Du har ikke tilgang til denne eleven. Kontakt Extensansvarlig.
               </Paragraph>
-              )
+            )
         }
       </div>
     </DefaultLayout>
