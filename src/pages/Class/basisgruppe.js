@@ -1,4 +1,5 @@
 import Moment from 'react-moment'
+import React, { useState } from 'react'
 import { Paragraph, Link, InitialsBadge } from '@vtfk/components'
 
 import ClassCard from '../../components/class-card'
@@ -10,9 +11,28 @@ import { ROUTES } from '../../config/constants'
 import repackDocumentStatus from '../../lib/repack-document-status'
 import repackDocumentType from '../../lib/repack-document-type'
 
+import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
+
 export function Basisgruppe ({ group, documents, conversations, notes }) {
+  const [previewDocument, setPreviewDocument] = useState(false)
+
+  function openPreviewModal (doc) {
+    setPreviewDocument(doc)
+  }
+
   return (
     <div>
+      {
+        !!previewDocument &&
+          <PreviewDocumentModal
+            open={!!previewDocument}
+            previewDoc={previewDocument}
+            title={repackDocumentType(previewDocument.type, previewDocument.variant)}
+            onDismiss={() => { setPreviewDocument(false) }}
+            onFinished={() => { setPreviewDocument(false) }}
+          />
+      }
+
       <ClassCard group={group} />
 
       <ClassTileGroup>
@@ -72,7 +92,7 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
                   </div>
                 </td>
                 <td>
-                  <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
+                  <Paragraph><Link onClick={() => openPreviewModal(doc)} aria-label='Klikk for å åpne'>{repackDocumentType(doc.type, doc.variant)}</Link></Paragraph>
                 </td>
                 <td>
                   <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>

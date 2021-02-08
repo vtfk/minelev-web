@@ -141,8 +141,8 @@ export function YffCurriculumModal ({ student, ...props }) {
     if (validate()) return
     setSubmitting(true)
 
-    const document = await generateDocument()
     try {
+      const document = await generateDocument()
       await apiPost(`${API.URL}/documents`, document)
       successMessage('👍', 'Lokal læreplan er sendt og arkivert')
       props.onDismiss(cleanupState)

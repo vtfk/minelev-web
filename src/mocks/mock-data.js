@@ -2738,7 +2738,7 @@ export const DOCUMENTS = [
     content: {
       bekreftelse: {
         oppmotested: 'Whatever',
-        kopiPrEpost: ['runely@vtfk.no'],
+        kopiPrEpost: ['test@vtfk.no'],
         fraDato: '02.02.2021',
         tilDato: '03.02.2021',
         daysPerWeek: '17',
@@ -2746,7 +2746,7 @@ export const DOCUMENTS = [
         sluttTid: '16:00',
         kontaktpersonData: [{
           navn: 'Whatever',
-          telefon: '81549300',
+          telefon: '0118 999 881 999 119 7253',
           epost: 'nei@nei.no',
           avdeling: 'Whatever'
         }],
