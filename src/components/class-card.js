@@ -1,5 +1,4 @@
-import { SkeletonLoader } from '../_lib-components/SkeletonLoader'
-import { Heading3, Paragraph } from '../_lib-components/Typography'
+import { Skeleton, Heading3, Paragraph } from '@vtfk/components'
 
 function ClassCard ({ group, loading, ...props }) {
   if (!group) loading = true
@@ -19,20 +18,20 @@ function ClassCard ({ group, loading, ...props }) {
         <Heading3 className='name'>
           {
             loading
-              ? <SkeletonLoader width='240px' />
+              ? <Skeleton width='240px' />
               : (grep && grep.kortform ? grep.kortform.nb : name)
           }
         </Heading3>
         <div className='other'>
           {
             loading
-              ? <Paragraph><SkeletonLoader width='140px' /></Paragraph>
+              ? <Paragraph><Skeleton width='140px' /></Paragraph>
               : (grep && grep.kortform ? <Paragraph>{name}</Paragraph> : '')
           }
           <Paragraph>
             {
               loading
-                ? <SkeletonLoader width='200px' />
+                ? <Skeleton width='200px' />
                 : schoolName
             }
           </Paragraph>

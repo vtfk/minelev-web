@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
-import { RadioButton } from '../../_lib-components/RadioButton'
-import { ErrorMessage } from '../../_lib-components/Typography'
+import { RadioButton, ErrorMessage } from '@vtfk/components'
 
 function validate (maal, selected) {
   return !selected || !maal ? false : maal.length === Object.keys(selected).length

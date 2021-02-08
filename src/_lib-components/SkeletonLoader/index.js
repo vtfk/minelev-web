@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import './styles.scss'
 
-export function SkeletonLoader ({ variant = 'text', width, height, randomWidth, className, style, title, ...props }) {
+export function Skeleton ({ variant = 'text', width, height, randomWidth, className, style, title, ...props }) {
   if (randomWidth) {
     const [min, max] = randomWidth
     width = `${Math.random() * (max - min) + min}%`
@@ -19,7 +19,7 @@ export function SkeletonLoader ({ variant = 'text', width, height, randomWidth, 
   )
 }
 
-SkeletonLoader.propTypes = {
+Skeleton.propTypes = {
   variant: PropTypes.oneOf(['text', 'circle', 'rectangle']),
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

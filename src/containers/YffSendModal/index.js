@@ -6,10 +6,7 @@ import { useSession } from '@vtfk/react-msal'
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
-import { Heading3, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { Button } from '../../_lib-components/Button'
+import { Heading3, Paragraph, Link, InitialsBadge, Modal, ModalBody, ModalSideActions, Button } from '@vtfk/components'
 
 import './styles.scss'
 

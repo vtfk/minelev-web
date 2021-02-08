@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types'
 import { ROUTES } from '../config/constants'
 
-import { Heading2, Heading3, Paragraph, Link } from '../_lib-components/Typography'
-import { InitialsBadge } from '../_lib-components/InitialsBadge'
-import { SkeletonLoader } from '../_lib-components/SkeletonLoader'
+import { Heading2, Heading3, Paragraph, Link, InitialsBadge, Skeleton } from '@vtfk/components'
 
 function prettyPrintDate (date) {
   return new Date(date).toLocaleDateString('nb-NO', { day: '2-digit', month: 'long', year: 'numeric' })
@@ -21,7 +19,7 @@ function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate
       <div className='image'>
         {
           loading
-            ? <SkeletonLoader variant='circle'><InitialsBadge size='large' /></SkeletonLoader>
+            ? <Skeleton variant='circle'><InitialsBadge size='large' /></Skeleton>
             : <InitialsBadge firstName={firstName} lastName={lastName} size='large' />
         }
       </div>
@@ -29,23 +27,23 @@ function StudentCard ({ student, largeName, hideSchool, hideClass, hideBirthdate
         <NameHeading className='name'>
           {
             loading
-              ? <SkeletonLoader randomWidth={[50, 100]} />
+              ? <Skeleton randomWidth={[50, 100]} />
               : `${firstName || ''} ${lastName}`
           }
         </NameHeading>
         <div className='other'>
           <Paragraph>
-            {hideSchool ? '' : loading ? <SkeletonLoader width='200px' /> : schoolName}
+            {hideSchool ? '' : loading ? <Skeleton width='200px' /> : schoolName}
           </Paragraph>
           <Paragraph>
-            {hideClass ? '' : loading ? <SkeletonLoader width='180px' /> : <Link href={`/${ROUTES.classes}/${encodeURIComponent(classId)}`}>{classId}</Link>}
+            {hideClass ? '' : loading ? <Skeleton width='180px' /> : <Link href={`/${ROUTES.classes}/${encodeURIComponent(classId)}`}>{classId}</Link>}
           </Paragraph>
           {!hideBirthdate &&
             <Paragraph>
-              {loading ? <SkeletonLoader width='160px' /> : prettyPrintDate(birthdate)}
+              {loading ? <Skeleton width='160px' /> : prettyPrintDate(birthdate)}
             </Paragraph>}
           <Paragraph>
-            {hideMail ? '' : loading ? <SkeletonLoader width='180px' /> : mail}
+            {hideMail ? '' : loading ? <Skeleton width='180px' /> : mail}
           </Paragraph>
         </div>
       </div>

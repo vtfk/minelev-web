@@ -6,15 +6,12 @@ import { useSession } from '@vtfk/react-msal'
 
 import { API } from '../../config/app'
 
-import { Link } from '../../_lib-components/Typography'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { TextField } from '../../_lib-components/TextField'
-import { Button } from '../../_lib-components/Button'
+import { Link, Modal, ModalBody, ModalSideActions, TextField, Button, Skeleton } from '@vtfk/components'
 
 import './styles.scss'
 import StudentCard from '../../components/student-card'
 import { validateField, validateForm } from '../../lib/form-validation'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+
 import { errorMessage, successMessage } from '../../lib/toasts'
 import ErrorFallback from '../../components/yff-error-fallback'
 import logError from '../../lib/log-error'
@@ -149,8 +146,8 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
                     value={formState.note}
                     error={errors.note}
                   />
-                  )
-                : <SkeletonLoader height='150px' />
+                )
+                : <Skeleton height='150px' />
             }
           </div>
         </ModalBody>
@@ -160,7 +157,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
             {
               selectedStudent
                 ? <Button onClick={() => { send() }} type='primary' spinner={submitting}>Send</Button>
-                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
+                : <Skeleton variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></Skeleton>
             }
           </div>
           <div className='action'>

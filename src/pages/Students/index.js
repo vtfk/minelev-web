@@ -8,10 +8,7 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { Heading2, Paragraph, Link } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { Heading2, Paragraph, Link, InitialsBadge, IconDropdownNav, IconDropdownNavItem, Skeleton } from '@vtfk/components'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
@@ -109,14 +106,14 @@ export function Students (props) {
                       <tr key={i}>
                         <td width='380px'>
                           <div className='name'>
-                            <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
-                            <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                            <Skeleton variant='circle'><InitialsBadge size='small' /></Skeleton>
+                            <Skeleton className='paragraph' randomWidth={[40, 80]} />
                           </div>
                         </td>
-                        <td><SkeletonLoader width='120px' /></td>
-                        <td><SkeletonLoader width='90px' /></td>
-                        <td><SkeletonLoader width='150px' /></td>
-                        <td><SkeletonLoader /></td>
+                        <td><Skeleton width='120px' /></td>
+                        <td><Skeleton width='90px' /></td>
+                        <td><Skeleton width='150px' /></td>
+                        <td><Skeleton /></td>
                       </tr>
                     )
                   })

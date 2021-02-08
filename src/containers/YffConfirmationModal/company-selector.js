@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Select } from '../../_lib-components/Select'
-import { Paragraph } from '../../_lib-components/Typography'
+import { Select, Paragraph } from '@vtfk/components'
 
 const CompanySelector = props => {
   const { brregData, setCompany, showError } = props

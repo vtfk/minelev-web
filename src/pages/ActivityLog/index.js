@@ -8,10 +8,7 @@ import { DefaultLayout } from '../../layouts/Default'
 import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
-import { Heading2, Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
-import { InitialsBadge } from '../../_lib-components/InitialsBadge'
-import { IconDropdownNav, IconDropdownNavItem } from '../../_lib-components/IconDropdownNav'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { Heading2, Paragraph, Link, ErrorMessage, InitialsBadge, IconDropdownNav, IconDropdownNavItem, Skeleton } from '@vtfk/components'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
@@ -133,15 +130,15 @@ export function ActivityLog () {
                       <tr key={i}>
                         <td width='300px'>
                           <div className='name'>
-                            <SkeletonLoader variant='circle'><InitialsBadge size='small' /></SkeletonLoader>
-                            <SkeletonLoader className='paragraph' randomWidth={[40, 80]} />
+                            <Skeleton variant='circle'><InitialsBadge size='small' /></Skeleton>
+                            <Skeleton className='paragraph' randomWidth={[40, 80]} />
                           </div>
                         </td>
-                        <td><SkeletonLoader randomWidth={[40, 90]} /></td>
-                        <td><SkeletonLoader width='90px' /></td>
-                        <td><SkeletonLoader /></td>
-                        <td width='200px'><SkeletonLoader randomWidth={[40, 80]} /></td>
-                        <td><SkeletonLoader width='40%' /></td>
+                        <td><Skeleton randomWidth={[40, 90]} /></td>
+                        <td><Skeleton width='90px' /></td>
+                        <td><Skeleton /></td>
+                        <td width='200px'><Skeleton randomWidth={[40, 80]} /></td>
+                        <td><Skeleton width='40%' /></td>
                       </tr>
                     )
                   })

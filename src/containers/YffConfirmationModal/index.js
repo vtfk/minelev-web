@@ -8,12 +8,7 @@ import { useForm } from 'react-hook-form'
 
 import { API } from '../../config/app'
 
-import { Link, Paragraph } from '../../_lib-components/Typography'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { TextField } from '../../_lib-components/TextField'
-import { Icon } from '../../_lib-components/Icon'
-import { Button } from '../../_lib-components/Button'
-import { Datepicker } from '../../_lib-components/Datepicker'
+import { Link, Paragraph, Modal, ModalBody, ModalSideActions, TextField, Icon, Button, Datepicker, Skeleton } from '@vtfk/components'
 
 import StudentCard from '../../components/student-card'
 import createDocument from '../../lib/create-yff-document'
@@ -32,7 +27,6 @@ import { successMessage, errorMessage } from '../../lib/toasts'
 import logError from '../../lib/log-error'
 
 import './styles.scss'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
 
 function getClassLevel (id) {
   return `VG${/\d/.exec(id) || 1}`
@@ -365,14 +359,14 @@ export function YffConfirmationModal ({ student, ...props }) {
             {
               studentID
                 ? <Link onClick={() => { openPreview() }}>Forhåndsvisning</Link>
-                : <SkeletonLoader width='100%' />
+                : <Skeleton width='100%' />
             }
           </div>
           <div className='action'>
             {
               studentID
                 ? <Button onClick={() => { send() }} type='primary' spinner={submitting}>Send</Button>
-                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></SkeletonLoader>
+                : <Skeleton variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send</Button></Skeleton>
             }
           </div>
           <div className='action'>

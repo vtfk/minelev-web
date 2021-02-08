@@ -5,9 +5,7 @@ import * as Sentry from '@sentry/react'
 import { DOCUMENTS } from '../../data/documents'
 import { scores } from '../YffReviewModal/absence'
 
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { TextField } from '../../_lib-components/TextField'
-import { Heading3, Link, Paragraph } from '../../_lib-components/Typography'
+import { Modal, ModalBody, ModalSideActions, TextField, Heading3, Link, Paragraph } from '@vtfk/components'
 
 import StudentCard from '../../components/student-card'
 
@@ -295,39 +293,39 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   <Heading3>Kompetansemål og arbeidsoppgaver</Heading3>
 
                   {
-                  previewDoc.content.kompetansemal.map((kompetanse, index) => {
-                    return (
-                      <ul key={index}>
-                        <li>
-                          <div className='kompetansemaal-desc'>{kompetanse.grep.tittel.nb}</div>
-                          <div className='kompetansemaal-text'>Arbeidsoppgaver:</div>
-                          <div className='kompetansemaal-desc'>{kompetanse.arbeidsoppgaver}</div>
-                          <div className='kompetansemaal-text'>Måloppnåelse:</div>
-                          <div className='kompetansemaal-desc'>{kompetanse.tilbakemelding}</div>
-                        </li>
-                      </ul>
-                    )
-                  })
-                }
+                    previewDoc.content.kompetansemal.map((kompetanse, index) => {
+                      return (
+                        <ul key={index}>
+                          <li>
+                            <div className='kompetansemaal-desc'>{kompetanse.grep.tittel.nb}</div>
+                            <div className='kompetansemaal-text'>Arbeidsoppgaver:</div>
+                            <div className='kompetansemaal-desc'>{kompetanse.arbeidsoppgaver}</div>
+                            <div className='kompetansemaal-text'>Måloppnåelse:</div>
+                            <div className='kompetansemaal-desc'>{kompetanse.tilbakemelding}</div>
+                          </li>
+                        </ul>
+                      )
+                    })
+                  }
 
                   <Heading3>Virksomhetens inntrykk og tilbakemelding til lærer</Heading3>
 
                   {
-                  Object.keys(previewDoc.content.evalueringsdata).map((evaluering, index) => {
-                    const item = previewDoc.content.evalueringsdata[evaluering]
-                    if (!item.score) return ''
+                    Object.keys(previewDoc.content.evalueringsdata).map((evaluering, index) => {
+                      const item = previewDoc.content.evalueringsdata[evaluering]
+                      if (!item.score) return ''
 
-                    return (
-                      <ul key={index}>
-                        <li>
-                          <div className='kompetansemaal-desc'>{item.title.nb || item.title}</div>
-                          <div className='kompetansemaal-text'>Måloppnåelse:</div>
-                          <div className='kompetansemaal-desc'>{item.score}</div>
-                        </li>
-                      </ul>
-                    )
-                  })
-                }
+                      return (
+                        <ul key={index}>
+                          <li>
+                            <div className='kompetansemaal-desc'>{item.title.nb || item.title}</div>
+                            <div className='kompetansemaal-text'>Måloppnåelse:</div>
+                            <div className='kompetansemaal-desc'>{item.score}</div>
+                          </li>
+                        </ul>
+                      )
+                    })
+                  }
 
                   <Heading3>Elevens fravær</Heading3>
                   <div className='kompetansemaal-text'>Antall dager:</div>

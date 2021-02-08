@@ -7,9 +7,7 @@ import { useSession } from '@vtfk/react-msal'
 
 import { API } from '../../config/app'
 
-import { Link } from '../../_lib-components/Typography'
-import { Modal, ModalBody, ModalSideActions } from '../../_lib-components/Modal'
-import { Button } from '../../_lib-components/Button'
+import { Link, Modal, ModalBody, ModalSideActions, Button, Skeleton } from '@vtfk/components'
 
 import pfdPreview from '../../lib/pdf-preview'
 import { successMessage, errorMessage } from '../../lib/toasts'
@@ -25,7 +23,7 @@ import UtplasseringSelector from './utplassering-selector'
 
 import './styles.scss'
 import { validateForm } from '../../lib/form-validation'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+
 import { repackLaereplan } from '../../lib/repack-yff-laereplan'
 
 export function YffCurriculumModal ({ student, ...props }) {
@@ -233,14 +231,14 @@ export function YffCurriculumModal ({ student, ...props }) {
             {
               student
                 ? <Link onClick={async () => { await openPreview() }}>Forhåndsvisning</Link>
-                : <SkeletonLoader width='100%' />
+                : <Skeleton width='100%' />
             }
           </div>
           <div className='action'>
             {
               student
                 ? <Button onClick={async () => { await send() }} type='primary' spinner={submitting}>Send og arkiver</Button>
-                : <SkeletonLoader variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send og arkiver</Button></SkeletonLoader>
+                : <Skeleton variant='circle' style={{ borderRadius: '24px' }}><Button type='primary'>Send og arkiver</Button></Skeleton>
             }
           </div>
           <div className='action'>

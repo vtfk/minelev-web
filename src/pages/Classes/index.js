@@ -7,8 +7,7 @@ import { API } from '../../config/app'
 
 import { useSession } from '@vtfk/react-msal'
 
-import { Heading2, Paragraph, Link, ErrorMessage } from '../../_lib-components/Typography'
-import { SkeletonLoader } from '../../_lib-components/SkeletonLoader'
+import { Heading2, Paragraph, Link, ErrorMessage, Skeleton } from '@vtfk/components'
 
 import './styles.scss'
 
@@ -53,19 +52,19 @@ export function Classes () {
               </thead>
               <tbody>
                 {
-                loading &&
+                  loading &&
                 Array(4).fill().map(function (i) {
                   return (
                     <tr key={i}>
-                      <td><SkeletonLoader /></td>
-                      <td><SkeletonLoader /></td>
-                      <td><SkeletonLoader /></td>
+                      <td><Skeleton /></td>
+                      <td><Skeleton /></td>
+                      <td><Skeleton /></td>
                     </tr>
                   )
                 })
-              }
+                }
                 {
-                !loading &&
+                  !loading &&
                 classes.map(function (schoolClass, index) {
                   return (
                     <tr key={schoolClass.id}>
@@ -83,7 +82,7 @@ export function Classes () {
                     </tr>
                   )
                 })
-              }
+                }
               </tbody>
             </table>
         }

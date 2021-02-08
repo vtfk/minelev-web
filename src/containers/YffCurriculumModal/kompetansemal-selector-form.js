@@ -1,9 +1,8 @@
 /* eslint-env browser */
 import { useEffect, useState } from 'react'
 import logError from '../../lib/log-error'
-import { SelectMultiple } from '../../_lib-components/Select'
-import { TextField } from '../../_lib-components/TextField'
-import { Icon } from '../../_lib-components/Icon'
+import { SelectMultiple, TextField, Icon } from '@vtfk/components'
+
 import serializeForm from '../../lib/serialize-form'
 import { API } from '../../config/app'
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Select } from '../_lib-components/Select'
+import { Select } from '@vtfk/components'
 
 function KlassetrinnSelectorForm (props) {
   const [select, setSelect] = useState()
