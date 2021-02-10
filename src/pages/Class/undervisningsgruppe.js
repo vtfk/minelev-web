@@ -9,7 +9,6 @@ import ClassPanel from '../../components/class-panel'
 
 import { ROUTES } from '../../config/constants'
 import repackDocumentType from '../../lib/repack-document-type'
-import repackDocumentStatus from '../../lib/repack-document-status'
 
 import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
 
@@ -43,7 +42,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                 <Skeleton variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
                 <Skeleton variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
               </>
-            )
+              )
             : <ClassTile label='varselbrev i faget' value={documents ? documents.length : <Skeleton width='70px' />} />
         }
       </ClassTileGroup>
@@ -110,7 +109,6 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                   </td>
                   <td><Skeleton /></td>
                   <td><Skeleton /></td>
-                  <td><Skeleton /></td>
                 </tr>
               )
             })
@@ -134,9 +132,6 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                 </td>
                 <td>
                   <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
-                </td>
-                <td>
-                  <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
                 </td>
               </tr>
             )

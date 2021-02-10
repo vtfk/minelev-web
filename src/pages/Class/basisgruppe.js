@@ -8,7 +8,6 @@ import ClassTile from '../../components/class-tile'
 import ClassTileGroup from '../../components/class-tile-group'
 
 import { ROUTES } from '../../config/constants'
-import repackDocumentStatus from '../../lib/repack-document-status'
 import repackDocumentType from '../../lib/repack-document-type'
 
 import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
@@ -39,9 +38,6 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
         <ClassTile label='varselbrev' value={documents ? documents.length : 0} />
         <ClassTile label='dokumenterte elevsamtaler' value={conversations ? conversations.length : 0} />
         <ClassTile label='notater til elevmappa' value={notes ? notes.length : 0} />
-        {/* <ClassTile label='utplasseringer' value={0} />
-        <ClassTile label='lokale læreplaner arkivert' value={0} />
-        <ClassTile label='tilbakemeldinger' value={0} /> */}
       </ClassTileGroup>
 
       <ClassPanel icon='students' title='Elever'>
@@ -97,9 +93,6 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
                 <td>
                   <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                 </td>
-                <td>
-                  <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
-                </td>
               </tr>
             )
           })
@@ -131,11 +124,12 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
                   </div>
                 </td>
                 <td>
-                  <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
+                  <Paragraph><Link onClick={() => openPreviewModal(doc)} aria-label='Klikk for å åpne'>{doc.variant === 'samtale' ? 'Elevsamtale gjennomført' : 'Eleven ønsket ikke samtale'}</Link></Paragraph>
                 </td>
                 <td>
-                  <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
+                  <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                 </td>
+                <td />
               </tr>
             )
           })
@@ -167,10 +161,10 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
                   </div>
                 </td>
                 <td>
-                  <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
+                  <Paragraph>{doc.teacher.name}</Paragraph>
                 </td>
                 <td>
-                  <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
+                  <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                 </td>
               </tr>
             )
