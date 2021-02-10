@@ -16,7 +16,6 @@ import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
 
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
-import repackDocumentStatus from '../../lib/repack-document-status'
 
 export function ActivityLog () {
   const [documentModalState, setDocumentModalState] = useState(false)
@@ -117,7 +116,6 @@ export function ActivityLog () {
                   <th><Paragraph size='small'>Elev</Paragraph></th>
                   <th><Paragraph size='small'>Dokumenttype</Paragraph></th>
                   <th><Paragraph size='small'>Dato</Paragraph></th>
-                  <th><Paragraph size='small'>Status</Paragraph></th>
                   <th><Paragraph size='small'>Sendt av</Paragraph></th>
                   <th className='actions-th'><Paragraph size='small'>Ny handling</Paragraph></th>
                 </tr>
@@ -136,7 +134,6 @@ export function ActivityLog () {
                         </td>
                         <td><Skeleton randomWidth={[40, 90]} /></td>
                         <td><Skeleton width='90px' /></td>
-                        <td><Skeleton /></td>
                         <td width='200px'><Skeleton randomWidth={[40, 80]} /></td>
                         <td><Skeleton width='40%' /></td>
                       </tr>
@@ -165,9 +162,6 @@ export function ActivityLog () {
                         </td>
                         <td>
                           <Paragraph><Link tabIndex={-1} aria-label='Klikk for å åpne' aria-hidden onClick={() => openPreviewModal(doc)}><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Link></Paragraph>
-                        </td>
-                        <td>
-                          <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
                         </td>
                         <td>
                           <Paragraph>{doc.teacher.name}</Paragraph>
