@@ -16,7 +16,6 @@ import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
 
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
-import repackDocumentStatus from '../../lib/repack-document-status'
 
 export function Home () {
   const { user } = useSession()
@@ -137,7 +136,6 @@ export function Home () {
                   <td><Skeleton randomWidth={[40, 70]} /></td>
                   <td><Skeleton width='60%' /></td>
                   <td><Skeleton /></td>
-                  <td><Skeleton /></td>
                 </tr>
               )
             })
@@ -167,9 +165,6 @@ export function Home () {
                   </td>
                   <td>
                     <Paragraph><Link tabIndex={-1} aria-label='Klikk for å åpne' aria-hidden onClick={() => openPreviewModal(doc)}><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Link></Paragraph>
-                  </td>
-                  <td>
-                    <Paragraph>{repackDocumentStatus(doc.status)}</Paragraph>
                   </td>
                   <td>
                     <IconDropdownNav>
