@@ -91,6 +91,9 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
                   <Paragraph><Link onClick={() => openPreviewModal(doc)} aria-label='Klikk for å åpne'>{repackDocumentType(doc.type, doc.variant)}</Link></Paragraph>
                 </td>
                 <td>
+                  <Paragraph><Link onClick={() => openPreviewModal(doc)} aria-label='Klikk for å åpne' tabIndex='-1'>{doc.content.period ? doc.content.period.nb : ''}</Link></Paragraph>
+                </td>
+                <td>
                   <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
                 </td>
               </tr>

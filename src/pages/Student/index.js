@@ -20,7 +20,6 @@ import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
 
 import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
-import repackDocumentStatus from '../../lib/repack-document-status'
 import StudentCard from '../../components/student-card'
 
 export function Student ({ match, ...props }) {
@@ -32,6 +31,7 @@ export function Student ({ match, ...props }) {
   const [student, setStudent] = useState(null)
   const [documents, setDocuments] = useState(null)
   const [notes, setNotes] = useState(null)
+  const [conversations, setConversations] = useState(null)
 
   const { id, docId } = match.params
   if (docId) console.log('DocumentId', docId)
@@ -52,8 +52,10 @@ export function Student ({ match, ...props }) {
     // TODO: Display error message
 
     const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
-    const docsExceptNotes = docsOrderedByModified.filter((item) => item.type !== 'notat')
+    const docsExceptNotes = docsOrderedByModified.filter((item) => !['notat', 'samtale'].includes(item.type))
     const notes = docsOrderedByModified.filter((item) => item.type === 'notat')
+    const conversations = docsOrderedByModified.filter((item) => item.type === 'samtale')
+    setConversations(conversations)
     setDocuments(docsExceptNotes)
     setNotes(notes)
 
@@ -158,7 +160,7 @@ export function Student ({ match, ...props }) {
                 </Sentry.ErrorBoundary>
 
                 <ClassPanel
-                  icon='activity' title='Varsler og samtaler' link={
+                  icon='activity' title='Varselbrev' link={
                     <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal() }}>
                       Nytt dokument
                     </IconButtonLink>
@@ -186,7 +188,7 @@ export function Student ({ match, ...props }) {
                             <Paragraph>{repackDocumentType(doc.type, doc.variant)}</Paragraph>
                           </td>
                           <td>
-                            <Paragraph>{repackDocumentStatus(doc.status, true)}</Paragraph>
+                            <Paragraph>{doc.content.period ? doc.content.period.nb : ''}</Paragraph>
                           </td>
                         </tr>
                       )
@@ -196,7 +198,54 @@ export function Student ({ match, ...props }) {
                     documents && documents.length === 0 &&
                       <tr>
                         <td style={{ textAlign: 'left' }}>
-                          <Paragraph>Denne eleven har ingen registrerte varsler eller samtaler.</Paragraph>
+                          <Paragraph>Denne eleven har ingen registrerte varsler.</Paragraph>
+                        </td>
+                      </tr>
+                  }
+
+                </ClassPanel>
+                <ClassPanel
+                  icon='activity' title='Elevsamtaler' link={
+                    <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal() }}>
+                      Ny samtale
+                    </IconButtonLink>
+                  }
+                >
+                  {
+                    !conversations && Array(5).fill().map(function (i) {
+                      return (
+                        <tr key={i}>
+                          <td><Skeleton randomWidth={[30, 70]} /></td>
+                          <td><Skeleton width='60%' /></td>
+                          <td><Skeleton randomWidth={[20, 100]} /></td>
+                          <td />
+                        </tr>
+                      )
+                    })
+                  }
+                  {
+                    conversations && conversations.map(function (doc, index) {
+                      return (
+                        <tr key={doc.id} onClick={() => openPreviewModal(doc)} className='clickable' aria-label='Klikk for å åpne' title='Klikk for å åpne' tabIndex={0}>
+                          <td>
+                            <Paragraph><Moment locale='nb' format='DD. MMM YYYY'>{doc.created.timestamp}</Moment></Paragraph>
+                          </td>
+                          <td>
+                            <Paragraph>{doc.variant === 'samtale' ? 'Elevsamtale gjennomført' : 'Eleven ønsket ikke samtale'}</Paragraph>
+                          </td>
+                          <td>
+                            <Paragraph>{doc.teacher.name}</Paragraph>
+                          </td>
+                          <td />
+                        </tr>
+                      )
+                    })
+                  }
+                  {
+                    conversations && conversations.length === 0 &&
+                      <tr>
+                        <td style={{ textAlign: 'left' }}>
+                          <Paragraph>Denne eleven har ingen registrerte elevsamtaler.</Paragraph>
                         </td>
                       </tr>
                   }
@@ -219,7 +268,7 @@ export function Student ({ match, ...props }) {
                         <tr key={i}>
                           <td><Skeleton width='60%' /></td>
                           <td><Skeleton /></td>
-                          <td><Skeleton /></td>
+                          <td />
                         </tr>
                       )
                     })
@@ -234,9 +283,7 @@ export function Student ({ match, ...props }) {
                           <td>
                             <Paragraph>{note.teacher.name}</Paragraph>
                           </td>
-                          <td>
-                            <Paragraph>{repackDocumentStatus(note.status, true)}</Paragraph>
-                          </td>
+                          <td />
                         </tr>
                       )
                     })
@@ -251,12 +298,12 @@ export function Student ({ match, ...props }) {
                   }
                 </ClassPanel>
               </>
-            )
+              )
             : (
               <Paragraph>
                 Du har ikke tilgang til denne eleven. Kontakt Extensansvarlig.
               </Paragraph>
-            )
+              )
         }
       </div>
     </DefaultLayout>
