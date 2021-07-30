@@ -10,7 +10,7 @@
     "test": "standard && CI=true react-scripts test",
     "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
-    "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm i && npm i",
     "standard-fix": "standard --fix"
   },
   "eslintConfig": {
