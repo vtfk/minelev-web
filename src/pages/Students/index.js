@@ -172,7 +172,7 @@ export function Students (props) {
           (status === 'Finish' && students.length === 0 &&
             <>
               <Paragraph>
-                Du har ikke tilgang til noen elever. Kontakt Extensansvarlig.
+                Du har ikke tilgang til noen elever. Kontakt Visma InSchool ansvarlig.
               </Paragraph>
             </>)
         }

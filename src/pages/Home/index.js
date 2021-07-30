@@ -251,7 +251,7 @@ export function Home () {
 
             <Paragraph>
               <strong>Mangler du en elev eller klasse?</strong><br />
-              Ta kontakt med Extensansvarlig på skolen din, så hjelper de deg.
+              Ta kontakt med Visma InSchool ansvarlig på skolen din, så hjelper de deg.
             </Paragraph>
 
             <Paragraph>

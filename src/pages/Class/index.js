@@ -74,7 +74,7 @@ export function Class ({ match, ...props }) {
               <ClassCard group={{ name: decodeURIComponent(id) }} />
               <Paragraph className='error-message'>
                 Du har ikke tilgang til klasseoversikten for denne klassen!<br />
-                Dersom du mener dette er feil, ta kontakt med Extensansvarlig på skolen din.
+                Dersom du mener dette er feil, ta kontakt med Visma InSchool ansvarlig på skolen din.
               </Paragraph>
 
               <Heading4 as='h2'>Er du faglærer for denne klassen?</Heading4>
