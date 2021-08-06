@@ -67,7 +67,7 @@
     "@testing-library/react-hooks": "7.0.1",
     "@testing-library/user-event": "13.2.1",
     "axios": "0.21.1",
-    "msw": "0.33.3",
+    "msw": "0.34.0",
     "react-test-renderer": "17.0.2",
     "standard": "16.0.3"
   }
