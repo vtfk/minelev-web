@@ -44,7 +44,7 @@ export function Help () {
         </Heading3>
 
         <QuestionBlock question='Jeg mangler tilgang til en elev eller en klasse'>
-          Tilgang til elever og klasser i MinElev styres fra Extens. Ta kontakt med Extensansvarlig på skolen din, så hjelper de deg!
+          Tilgang til elever og klasser i MinElev styres fra Visma InSchool. Ta kontakt med Visma InSchool ansvarlig på skolen din, så hjelper de deg!
         </QuestionBlock>
 
         <QuestionBlock question='Hvor finner jeg elevmappene?'>

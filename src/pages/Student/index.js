@@ -301,7 +301,7 @@ export function Student ({ match, ...props }) {
               )
             : (
               <Paragraph>
-                Du har ikke tilgang til denne eleven. Kontakt Extensansvarlig.
+                Du har ikke tilgang til denne eleven. Kontakt Visma InSchool ansvarlig.
               </Paragraph>
               )
         }
