@@ -8,7 +8,7 @@ import getSkoleAar from 'get-skole-aar'
 import { API } from '../../config/app'
 import { DOCUMENTS } from '../../data/documents'
 
-import { Link, Modal, ModalBody, ModalSideActions, Select, SelectMultiple, PDFPreviewModal, Skeleton, Button } from '@vtfk/components'
+import { Link, Modal, ModalBody, ModalSideActions, Select, SelectMultiple, PDFPreviewModal, Skeleton, Button, ErrorMessage } from '@vtfk/components'
 
 import StudentCard from '../../components/student-card'
 import { successMessage, errorMessage } from '../../lib/toasts'
@@ -29,6 +29,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
 
   const [errors, setErrors] = useState({})
   const [formState, setFormState] = useState({})
+  const [hasFags, setHasFags] = useState(true)
 
   const [submitting, setSubmitting] = useState(false)
 
@@ -75,16 +76,13 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
       setSelectedStudent(student)
 
       // Filter documentTypes where the teacher is required to be a contact teacher
-      const typeOptions = DOCUMENTS.documentTypes
+      let typeOptions = DOCUMENTS.documentTypes
         .filter(type => student.isContactTeacher || !type.requireContactTeacher)
         .map(type => repackTypeOptions(type))
 
-      // Assign filtered types and set first element as default selection
-      setTypeOptions(typeOptions)
-      setFormState(defaultFormState(typeOptions))
-
+      let groupsOptionsArray
       if (student.groups) {
-        const groupsOptionsArray = student.groups
+        groupsOptionsArray = student.groups
           .filter(group => group.type === 'undervisningsgruppe')
           .map((item) => ({
             value: item.id,
@@ -93,7 +91,15 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           }))
 
         setGroupOptions(groupsOptionsArray)
+        if (groupsOptionsArray.length === 0) setHasFags(false)
       }
+
+      // If student doesn't have any undervisningsgrupper, hide 'fag'
+      typeOptions = typeOptions.filter(typeOpt => typeOpt.value !== 'fag' || (typeOpt.value === 'fag' && groupsOptionsArray.length > 0))
+
+      // Assign filtered types and set first element as default selection
+      setTypeOptions(typeOptions)
+      setFormState(defaultFormState(typeOptions))
     }
 
     // Reset type options and form
@@ -291,6 +297,14 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           <StudentCard student={selectedStudent} />
 
           <div className='form'>
+            {
+              /* --------------------
+                Student has no fags (undervisningsgrupper)
+              -------------------- */
+              !hasFags &&
+              <ErrorMessage className='form-no-fags'>For å kunne sende varsel i fag, må eleven ha en undervisningsgruppe i ViS</ErrorMessage>
+            }
+
             {
               typeOptions && typeOptions.length > 0
                 ? (
