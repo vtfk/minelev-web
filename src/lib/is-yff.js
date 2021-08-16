@@ -9,7 +9,7 @@ function isYff (student) {
   if (!student) throw new TypeError('Student må være objekt')
 
   // Sjekk om skolen har YFF, eller returner false her om skolen ikke har det
-  const school = getSchools({ shortName: student.schoolId })
+  const school = getSchools({ schoolId: student.schoolId })
   if (school && school.length > 0 && !school[0].yff) return false
 
   // Sjekk om elevens programområde / utdanningsprogram er yrkesfaglig
