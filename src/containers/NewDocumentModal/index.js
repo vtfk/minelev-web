@@ -86,6 +86,8 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
           .filter(group => group.type === 'undervisningsgruppe')
           .map((item) => ({
             value: item.id,
+            name: item.groupId,
+            schoolId: item.schoolId,
             label: `${item.grep.kortform.nb} (${item.name})`.trim(),
             item
           }))
@@ -200,7 +202,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
     }
 
     if (docVariant === 'fag') {
-      docContent.classes = groups.map(({ item }) => ({ id: item.id, ...repackGrepLang(item.grep.kortform) }))
+      docContent.classes = groups.map(({ item }) => ({ id: item.id, name: item.name, schoolId: item.schoolId, ...repackGrepLang(item.grep.kortform) }))
     }
 
     return {
