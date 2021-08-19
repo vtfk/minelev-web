@@ -302,7 +302,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
                 Student has no fags (undervisningsgrupper)
               -------------------- */
               !hasFags &&
-              <ErrorMessage className='form-no-fags'>For å kunne sende varsel i fag, må eleven ha en undervisningsgruppe i ViS</ErrorMessage>
+              <ErrorMessage className='form-no-fags'>For å kunne sende varsel i fag, må eleven ha en undervisningsgruppe i Visma InSchool</ErrorMessage>
             }
 
             {
