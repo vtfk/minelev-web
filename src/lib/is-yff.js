@@ -12,15 +12,14 @@ function isYff (student) {
   const school = getSchools({ schoolId: student.schoolId })
   if (school && school.length > 0 && !school[0].yff) return false
 
-  // Sjekk om elevens programområde / utdanningsprogram er yrkesfaglig
-  const programomraade = student?.programomraade?.type
+  // Sjekk om elevens utdanningsprogram er yrkesfaglig
   const utdanningsprogram = student?.utdanningsprogram?.type
 
-  // Fikk vi ikke inn verken programområde eller utdanningsprogram viser vi fram det vi har
-  if (!programomraade && !utdanningsprogram) return true
+  // Fikk vi ikke inn utdanningsprogram viser vi fram det vi har
+  if (!utdanningsprogram) return true
 
-  const sikker = programomraade === 'yrkesfaglig' || utdanningsprogram === 'yrkesfaglig'
-  const usikker = programomraade === 'Ukjent' && utdanningsprogram === 'Ukjent'
+  const sikker = utdanningsprogram === 'yrkesfaglig'
+  const usikker = utdanningsprogram === 'Ukjent'
   return sikker || usikker
 }
 
