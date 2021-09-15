@@ -57,7 +57,7 @@ export function getClass (id) {
   const { data: teachers } = getClassTeachers(id)
 
   schoolClass.teachers = teachers
-  schoolClass.students = students.map(({ programomraade, utdanningsprogram, ...student }) => student)
+  schoolClass.students = students.map(({ utdanningsprogram, ...student }) => student)
 
   return generateResponseObject(schoolClass)
 }
