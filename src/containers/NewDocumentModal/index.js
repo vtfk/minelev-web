@@ -19,7 +19,7 @@ import logError from '../../lib/log-error'
 import './styles.scss'
 import ErrorFallback from '../../components/yff-error-fallback'
 
-export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
+export function NewDocumentModal ({ selectedStudentId, student, documentType, ...props }) {
   const { apiGet, apiPost } = useSession()
 
   const [selectedStudent, setSelectedStudent] = useState(null)
@@ -53,7 +53,7 @@ export function NewDocumentModal ({ selectedStudentId, student, ...props }) {
   const courseReasonsOptions = DOCUMENTS.courseReasons.map(item => repackTypeOptions(item))
   const orderReasonsOptions = DOCUMENTS.orderReasons.map(item => repackTypeOptions(item))
 
-  const defaultFormState = (typeOpts) => ({ conversationStatus: conversationStatusesOptions[0], type: (typeOpts ? typeOpts[0] : typeOptions[0]) || undefined })
+  const defaultFormState = (typeOpts) => ({ conversationStatus: conversationStatusesOptions[0], type: documentType && typeOpts ? typeOpts.find(type => type.value === documentType) : (typeOpts ? typeOpts[0] : typeOptions[0]) || undefined })
 
   useEffect(() => {
     // Close modal on escape
@@ -449,6 +449,7 @@ NewDocumentModal.propTypes = {
   onDismiss: PropTypes.func.isRequired,
   onFinished: PropTypes.func.isRequired,
   student: PropTypes.object,
+  documentType: PropTypes.string,
   selectedStudentId: PropTypes.string,
   className: PropTypes.string
 }

@@ -25,6 +25,7 @@ import StudentCard from '../../components/student-card'
 export function Student ({ match, ...props }) {
   const { apiGet } = useSession()
   const [documentModalState, setDocumentModalState] = useState(false)
+  const [documentModalType, setDocumentModalType] = useState(null)
   const [noteModalState, setNoteModalState] = useState(false)
   const [previewDocument, setPreviewDocument] = useState(false)
   const [error, setError] = useState(false)
@@ -64,7 +65,8 @@ export function Student ({ match, ...props }) {
     if (preview) openPreviewModal(preview)
   }
 
-  function openDocumentModal () {
+  function openDocumentModal (type = null) {
+    setDocumentModalType(type)
     setDocumentModalState(true)
   }
 
@@ -86,30 +88,32 @@ export function Student ({ match, ...props }) {
     <DefaultLayout>
 
       {
-        student &&
-          <>
-            <NewDocumentModal
-              open={documentModalState}
-              student={student}
-              title='Nytt dokument'
-              onDismiss={() => { setDocumentModalState(false) }}
-              onFinished={() => {
-                setDocumentModalState(false)
-                getDocuments()
-              }}
-            />
+        student && documentModalState &&
+          <NewDocumentModal
+            open={documentModalState}
+            student={student}
+            documentType={documentModalType}
+            title='Nytt dokument'
+            onDismiss={() => { setDocumentModalState(false) }}
+            onFinished={() => {
+              setDocumentModalState(false)
+              getDocuments()
+            }}
+          />
+      }
 
-            <NewNoteModal
-              open={noteModalState}
-              student={student}
-              title='Notat til elevmappen'
-              onDismiss={() => { setNoteModalState(false) }}
-              onFinished={() => {
-                setNoteModalState(false)
-                getDocuments()
-              }}
-            />
-          </>
+      {
+        student && noteModalState &&
+          <NewNoteModal
+            open={noteModalState}
+            student={student}
+            title='Notat til elevmappen'
+            onDismiss={() => { setNoteModalState(false) }}
+            onFinished={() => {
+              setNoteModalState(false)
+              getDocuments()
+            }}
+          />
       }
 
       {
@@ -206,6 +210,7 @@ export function Student ({ match, ...props }) {
                 </ClassPanel>
                 <ClassPanel
                   icon='activity' title='Elevsamtaler' link={student && student.isContactTeacher &&
+                    <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal('samtale') }}>
                       Ny samtale
                     </IconButtonLink>
                   }
