@@ -205,8 +205,7 @@ export function Student ({ match, ...props }) {
 
                 </ClassPanel>
                 <ClassPanel
-                  icon='activity' title='Elevsamtaler' link={
-                    <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal() }}>
+                  icon='activity' title='Elevsamtaler' link={student && student.isContactTeacher &&
                       Ny samtale
                     </IconButtonLink>
                   }
