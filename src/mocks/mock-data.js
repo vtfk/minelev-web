@@ -28,20 +28,6 @@ export const STUDENTS = [
     classId: 'TESVS:2STB',
     classShortId: '2STB',
     level: 'VG2',
-    programomraade: {
-      kode: 'STSSA2----',
-      type: 'studieforberedende',
-      tittel: {
-        en: 'Språk, samfunnsfag og økonomi Vg2',
-        nb: 'Språk, samfunnsfag og økonomi Vg2',
-        nn: 'Språk, samfunnsfag og økonomi Vg2'
-      },
-      kortform: {
-        en: 'Språk, samfunnsfag og økonomi',
-        nb: 'Språk, samfunnsfag og økonomi',
-        nn: 'Språk, samfunnsfag og økonomi'
-      }
-    },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
@@ -50,215 +36,216 @@ export const STUDENTS = [
         nb: 'Studiespesialisering'
       }
     },
-    groups: [{
-      id: '1_2STB_TESVS@38099',
-      type: 'basisgruppe',
-      name: '2STB',
-      groupId: 'TESVS:2STB',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs'
-    },
-    {
-      id: '2_2STB/KRO1005_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KRO1005',
-      groupId: 'TESVS:2STB/KRO1005',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'KRO1005',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
-        tittel: {
-          en: 'Kroppsøving Vg2',
-          nb: 'Kroppsøving Vg2',
-          nn: 'Kroppsøving Vg2'
-        },
-        kortform: {
-          en: 'Kroppsøving',
-          nb: 'Kroppsøving',
-          nn: 'Kroppsøving'
+    groups: [
+      {
+        id: '1054694',
+        type: 'basisgruppe',
+        name: '2STB',
+        groupId: 'TESVS:2STB',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs'
+      },
+      {
+        id: '1054637',
+        type: 'undervisningsgruppe',
+        name: '2STB/KRO1005',
+        groupId: 'TESVS:2STB/KRO1005',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'KRO1005',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
+          tittel: {
+            en: 'Kroppsøving Vg2',
+            nb: 'Kroppsøving Vg2',
+            nn: 'Kroppsøving Vg2'
+          },
+          kortform: {
+            en: 'Kroppsøving',
+            nb: 'Kroppsøving',
+            nn: 'Kroppsøving'
+          }
+        }
+      },
+      {
+        id: '1054467',
+        type: 'undervisningsgruppe',
+        name: '2STB/HIS1001',
+        groupId: 'TESVS:2STB/HIS1001',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HIS1001',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
+          tittel: {
+            en: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nn: 'Historie Vg2 studieførebuande utdanningsprogram'
+          },
+          kortform: {
+            en: 'Historie',
+            nb: 'Historie',
+            nn: 'Historie'
+          }
+        }
+      },
+      {
+        id: '1054697',
+        type: 'undervisningsgruppe',
+        name: '2STB/KLFAG',
+        groupId: 'TESVS:2STB/KLFAG',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: '2STB/KLFAG',
+          kortform: {
+            en: 'Læreplan generell del',
+            nb: 'Læreplan generell del'
+          }
+        }
+      },
+      {
+        id: '1054699',
+        type: 'undervisningsgruppe',
+        name: '2STB/NOR1208',
+        groupId: 'TESVS:2STB/NOR1208',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'NOR1208',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
+          tittel: {
+            en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          },
+          kortform: {
+            en: 'Norsk hovedmål, skriftlig',
+            nb: 'Norsk hovedmål, skriftlig',
+            nn: 'Norsk hovudmål, skriftleg'
+          }
+        }
+      },
+      {
+        id: '1054211',
+        type: 'undervisningsgruppe',
+        name: '2MP2/MAT1015',
+        groupId: 'TESVS:2MP2/MAT1015',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'MAT1015',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1015',
+          tittel: {
+            en: 'Matematikk 2P',
+            nb: 'Matematikk 2P',
+            nn: 'Matematikk 2P'
+          },
+          kortform: {
+            en: 'Matematikk 2P',
+            nb: 'Matematikk 2P',
+            nn: 'Matematikk 2P'
+          }
+        }
+      },
+      {
+        id: '1054252',
+        type: 'undervisningsgruppe',
+        name: '2RL1A/SAM3022',
+        groupId: 'TESVS:2RL1A/SAM3022',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3022',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3022',
+          tittel: {
+            en: 'Rettslære 1',
+            nb: 'Rettslære 1',
+            nn: 'Rettslære 1'
+          },
+          kortform: {
+            en: 'Rettslære 1',
+            nb: 'Rettslære 1',
+            nn: 'Rettslære 1'
+          }
+        }
+      },
+      {
+        id: '1054214',
+        type: 'undervisningsgruppe',
+        name: '2PS1A/SAM3037',
+        groupId: 'TESVS:2PS1A/SAM3037',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3037',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
+          tittel: {
+            en: 'Psykologi 1',
+            nb: 'Psykologi 1',
+            nn: 'Psykologi 1'
+          },
+          kortform: {
+            en: 'Psykologi 1',
+            nb: 'Psykologi 1',
+            nn: 'Psykologi 1'
+          }
+        }
+      },
+      {
+        id: '1054059',
+        type: 'undervisningsgruppe',
+        name: '2SP2A/FSP5095',
+        groupId: 'TESVS:2SP2A/FSP5095',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'FSP5095',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5095',
+          tittel: {
+            en: 'Spansk II',
+            nb: 'Spansk II',
+            nn: 'Spansk II'
+          },
+          kortform: {
+            en: 'Spansk II',
+            nb: 'Spansk II',
+            nn: 'Spansk II'
+          }
+        }
+      },
+      {
+        id: '1054229',
+        type: 'undervisningsgruppe',
+        name: '2MFL1/SAM3005',
+        groupId: 'TESVS:2MFL1/SAM3005',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3005',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3005',
+          tittel: {
+            en: 'Markedsføring og ledelse 1',
+            nb: 'Markedsføring og ledelse 1',
+            nn: 'Marknadsføring og leiing 1'
+          },
+          kortform: {
+            en: 'Markedsføring og ledelse 1',
+            nb: 'Markedsføring og ledelse 1',
+            nn: 'Marknadsføring og leiing 1'
+          }
         }
       }
-    },
-    {
-      id: '2_2STB/HIS1001_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/HIS1001',
-      groupId: 'TESVS:2STB/HIS1001',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HIS1001',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
-        tittel: {
-          en: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
-        },
-        kortform: {
-          en: 'Historie',
-          nb: 'Historie',
-          nn: 'Historie'
-        }
-      }
-    },
-    {
-      id: '2_2STB/KLFAG_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KLFAG',
-      groupId: 'TESVS:2STB/KLFAG',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: '2STB/KLFAG',
-        kortform: {
-          en: 'Læreplan generell del',
-          nb: 'Læreplan generell del'
-        }
-      }
-    },
-    {
-      id: '2_2STB/NOR1208_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/NOR1208',
-      groupId: 'TESVS:2STB/NOR1208',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'NOR1208',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
-        tittel: {
-          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
-        },
-        kortform: {
-          en: 'Norsk hovedmål, skriftlig',
-          nb: 'Norsk hovedmål, skriftlig',
-          nn: 'Norsk hovudmål, skriftleg'
-        }
-      }
-    },
-    {
-      id: '2_2MP2/MAT1015_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2MP2/MAT1015',
-      groupId: 'TESVS:2MP2/MAT1015',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'MAT1015',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1015',
-        tittel: {
-          en: 'Matematikk 2P',
-          nb: 'Matematikk 2P',
-          nn: 'Matematikk 2P'
-        },
-        kortform: {
-          en: 'Matematikk 2P',
-          nb: 'Matematikk 2P',
-          nn: 'Matematikk 2P'
-        }
-      }
-    },
-    {
-      id: '2_2RL1A/SAM3022_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2RL1A/SAM3022',
-      groupId: 'TESVS:2RL1A/SAM3022',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3022',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3022',
-        tittel: {
-          en: 'Rettslære 1',
-          nb: 'Rettslære 1',
-          nn: 'Rettslære 1'
-        },
-        kortform: {
-          en: 'Rettslære 1',
-          nb: 'Rettslære 1',
-          nn: 'Rettslære 1'
-        }
-      }
-    },
-    {
-      id: '2_2PS1A/SAM3037_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2PS1A/SAM3037',
-      groupId: 'TESVS:2PS1A/SAM3037',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3037',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
-        tittel: {
-          en: 'Psykologi 1',
-          nb: 'Psykologi 1',
-          nn: 'Psykologi 1'
-        },
-        kortform: {
-          en: 'Psykologi 1',
-          nb: 'Psykologi 1',
-          nn: 'Psykologi 1'
-        }
-      }
-    },
-    {
-      id: '2_2SP2A/FSP5095_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2SP2A/FSP5095',
-      groupId: 'TESVS:2SP2A/FSP5095',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'FSP5095',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5095',
-        tittel: {
-          en: 'Spansk II',
-          nb: 'Spansk II',
-          nn: 'Spansk II'
-        },
-        kortform: {
-          en: 'Spansk II',
-          nb: 'Spansk II',
-          nn: 'Spansk II'
-        }
-      }
-    },
-    {
-      id: '2_2MFL1/SAM3005_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2MFL1/SAM3005',
-      groupId: 'TESVS:2MFL1/SAM3005',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3005',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3005',
-        tittel: {
-          en: 'Markedsføring og ledelse 1',
-          nb: 'Markedsføring og ledelse 1',
-          nn: 'Marknadsføring og leiing 1'
-        },
-        kortform: {
-          en: 'Markedsføring og ledelse 1',
-          nb: 'Markedsføring og ledelse 1',
-          nn: 'Marknadsføring og leiing 1'
-        }
-      }
-    }
     ]
   },
   {
@@ -277,20 +264,6 @@ export const STUDENTS = [
     classId: 'TESVS:2STB',
     classShortId: '2STB',
     level: 'VG2',
-    programomraade: {
-      kode: 'STSSA2----',
-      type: 'studieforberedende',
-      tittel: {
-        en: 'Språk, samfunnsfag og økonomi Vg2',
-        nb: 'Språk, samfunnsfag og økonomi Vg2',
-        nn: 'Språk, samfunnsfag og økonomi Vg2'
-      },
-      kortform: {
-        en: 'Språk, samfunnsfag og økonomi',
-        nb: 'Språk, samfunnsfag og økonomi',
-        nn: 'Språk, samfunnsfag og økonomi'
-      }
-    },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
@@ -299,215 +272,216 @@ export const STUDENTS = [
         nb: 'Studiespesialisering'
       }
     },
-    groups: [{
-      id: '1_2STB_TESVS@38099',
-      type: 'basisgruppe',
-      name: '2STB',
-      groupId: 'TESVS:2STB',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs'
-    },
-    {
-      id: '2_2STB/KRO1005_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KRO1005',
-      groupId: 'TESVS:2STB/KRO1005',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'KRO1005',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
-        tittel: {
-          en: 'Kroppsøving Vg2',
-          nb: 'Kroppsøving Vg2',
-          nn: 'Kroppsøving Vg2'
-        },
-        kortform: {
-          en: 'Kroppsøving',
-          nb: 'Kroppsøving',
-          nn: 'Kroppsøving'
+    groups: [
+      {
+        id: '1054694',
+        type: 'basisgruppe',
+        name: '2STB',
+        groupId: 'TESVS:2STB',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs'
+      },
+      {
+        id: '1054637',
+        type: 'undervisningsgruppe',
+        name: '2STB/KRO1005',
+        groupId: 'TESVS:2STB/KRO1005',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'KRO1005',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
+          tittel: {
+            en: 'Kroppsøving Vg2',
+            nb: 'Kroppsøving Vg2',
+            nn: 'Kroppsøving Vg2'
+          },
+          kortform: {
+            en: 'Kroppsøving',
+            nb: 'Kroppsøving',
+            nn: 'Kroppsøving'
+          }
+        }
+      },
+      {
+        id: '1054467',
+        type: 'undervisningsgruppe',
+        name: '2STB/HIS1001',
+        groupId: 'TESVS:2STB/HIS1001',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HIS1001',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
+          tittel: {
+            en: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nn: 'Historie Vg2 studieførebuande utdanningsprogram'
+          },
+          kortform: {
+            en: 'Historie',
+            nb: 'Historie',
+            nn: 'Historie'
+          }
+        }
+      },
+      {
+        id: '1054697',
+        type: 'undervisningsgruppe',
+        name: '2STB/KLFAG',
+        groupId: 'TESVS:2STB/KLFAG',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: '2STB/KLFAG',
+          kortform: {
+            en: 'Læreplan generell del',
+            nb: 'Læreplan generell del'
+          }
+        }
+      },
+      {
+        id: '1054699',
+        type: 'undervisningsgruppe',
+        name: '2STB/NOR1208',
+        groupId: 'TESVS:2STB/NOR1208',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'NOR1208',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
+          tittel: {
+            en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          },
+          kortform: {
+            en: 'Norsk hovedmål, skriftlig',
+            nb: 'Norsk hovedmål, skriftlig',
+            nn: 'Norsk hovudmål, skriftleg'
+          }
+        }
+      },
+      {
+        id: '1054211',
+        type: 'undervisningsgruppe',
+        name: '2MP2/MAT1015',
+        groupId: 'TESVS:2MP2/MAT1015',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'MAT1015',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1015',
+          tittel: {
+            en: 'Matematikk 2P',
+            nb: 'Matematikk 2P',
+            nn: 'Matematikk 2P'
+          },
+          kortform: {
+            en: 'Matematikk 2P',
+            nb: 'Matematikk 2P',
+            nn: 'Matematikk 2P'
+          }
+        }
+      },
+      {
+        id: '1054252',
+        type: 'undervisningsgruppe',
+        name: '2RL1A/SAM3022',
+        groupId: 'TESVS:2RL1A/SAM3022',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3022',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3022',
+          tittel: {
+            en: 'Rettslære 1',
+            nb: 'Rettslære 1',
+            nn: 'Rettslære 1'
+          },
+          kortform: {
+            en: 'Rettslære 1',
+            nb: 'Rettslære 1',
+            nn: 'Rettslære 1'
+          }
+        }
+      },
+      {
+        id: '1054214',
+        type: 'undervisningsgruppe',
+        name: '2PS1A/SAM3037',
+        groupId: 'TESVS:2PS1A/SAM3037',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3037',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
+          tittel: {
+            en: 'Psykologi 1',
+            nb: 'Psykologi 1',
+            nn: 'Psykologi 1'
+          },
+          kortform: {
+            en: 'Psykologi 1',
+            nb: 'Psykologi 1',
+            nn: 'Psykologi 1'
+          }
+        }
+      },
+      {
+        id: '1054291',
+        type: 'undervisningsgruppe',
+        name: '2TY2B/FSP5122',
+        groupId: 'TESVS:2TY2B/FSP5122',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'FSP5122',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5122',
+          tittel: {
+            en: 'Tysk II',
+            nb: 'Tysk II',
+            nn: 'Tysk II'
+          },
+          kortform: {
+            en: 'Tysk II',
+            nb: 'Tysk II',
+            nn: 'Tysk II'
+          }
+        }
+      },
+      {
+        id: '1054450',
+        type: 'undervisningsgruppe',
+        name: '2SOA/SAM3019',
+        groupId: 'TESVS:2SOA/SAM3019',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3019',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3019',
+          tittel: {
+            en: 'Sosiologi og sosialantropologi',
+            nb: 'Sosiologi og sosialantropologi',
+            nn: 'Sosiologi og sosialantropologi'
+          },
+          kortform: {
+            en: 'Sosiologi og sosialantropologi',
+            nb: 'Sosiologi og sosialantropologi',
+            nn: 'Sosiologi og sosialantropologi'
+          }
         }
       }
-    },
-    {
-      id: '2_2STB/HIS1001_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/HIS1001',
-      groupId: 'TESVS:2STB/HIS1001',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HIS1001',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
-        tittel: {
-          en: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
-        },
-        kortform: {
-          en: 'Historie',
-          nb: 'Historie',
-          nn: 'Historie'
-        }
-      }
-    },
-    {
-      id: '2_2STB/KLFAG_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KLFAG',
-      groupId: 'TESVS:2STB/KLFAG',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: '2STB/KLFAG',
-        kortform: {
-          en: 'Læreplan generell del',
-          nb: 'Læreplan generell del'
-        }
-      }
-    },
-    {
-      id: '2_2STB/NOR1208_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/NOR1208',
-      groupId: 'TESVS:2STB/NOR1208',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'NOR1208',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
-        tittel: {
-          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
-        },
-        kortform: {
-          en: 'Norsk hovedmål, skriftlig',
-          nb: 'Norsk hovedmål, skriftlig',
-          nn: 'Norsk hovudmål, skriftleg'
-        }
-      }
-    },
-    {
-      id: '2_2MP2/MAT1015_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2MP2/MAT1015',
-      groupId: 'TESVS:2MP2/MAT1015',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'MAT1015',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1015',
-        tittel: {
-          en: 'Matematikk 2P',
-          nb: 'Matematikk 2P',
-          nn: 'Matematikk 2P'
-        },
-        kortform: {
-          en: 'Matematikk 2P',
-          nb: 'Matematikk 2P',
-          nn: 'Matematikk 2P'
-        }
-      }
-    },
-    {
-      id: '2_2RL1A/SAM3022_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2RL1A/SAM3022',
-      groupId: 'TESVS:2RL1A/SAM3022',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3022',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3022',
-        tittel: {
-          en: 'Rettslære 1',
-          nb: 'Rettslære 1',
-          nn: 'Rettslære 1'
-        },
-        kortform: {
-          en: 'Rettslære 1',
-          nb: 'Rettslære 1',
-          nn: 'Rettslære 1'
-        }
-      }
-    },
-    {
-      id: '2_2PS1A/SAM3037_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2PS1A/SAM3037',
-      groupId: 'TESVS:2PS1A/SAM3037',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3037',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
-        tittel: {
-          en: 'Psykologi 1',
-          nb: 'Psykologi 1',
-          nn: 'Psykologi 1'
-        },
-        kortform: {
-          en: 'Psykologi 1',
-          nb: 'Psykologi 1',
-          nn: 'Psykologi 1'
-        }
-      }
-    },
-    {
-      id: '2_2TY2B/FSP5122_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2TY2B/FSP5122',
-      groupId: 'TESVS:2TY2B/FSP5122',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'FSP5122',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5122',
-        tittel: {
-          en: 'Tysk II',
-          nb: 'Tysk II',
-          nn: 'Tysk II'
-        },
-        kortform: {
-          en: 'Tysk II',
-          nb: 'Tysk II',
-          nn: 'Tysk II'
-        }
-      }
-    },
-    {
-      id: '2_2SOA/SAM3019_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2SOA/SAM3019',
-      groupId: 'TESVS:2SOA/SAM3019',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3019',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3019',
-        tittel: {
-          en: 'Sosiologi og sosialantropologi',
-          nb: 'Sosiologi og sosialantropologi',
-          nn: 'Sosiologi og sosialantropologi'
-        },
-        kortform: {
-          en: 'Sosiologi og sosialantropologi',
-          nb: 'Sosiologi og sosialantropologi',
-          nn: 'Sosiologi og sosialantropologi'
-        }
-      }
-    }
     ]
   },
   {
@@ -526,20 +500,6 @@ export const STUDENTS = [
     classId: 'TESVS:2STB',
     classShortId: '2STB',
     level: 'VG2',
-    programomraade: {
-      kode: 'STSSA2----',
-      type: 'studieforberedende',
-      tittel: {
-        en: 'Språk, samfunnsfag og økonomi Vg2',
-        nb: 'Språk, samfunnsfag og økonomi Vg2',
-        nn: 'Språk, samfunnsfag og økonomi Vg2'
-      },
-      kortform: {
-        en: 'Språk, samfunnsfag og økonomi',
-        nb: 'Språk, samfunnsfag og økonomi',
-        nn: 'Språk, samfunnsfag og økonomi'
-      }
-    },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
@@ -548,215 +508,216 @@ export const STUDENTS = [
         nb: 'Studiespesialisering'
       }
     },
-    groups: [{
-      id: '1_2STB_TESVS@38099',
-      type: 'basisgruppe',
-      name: '2STB',
-      groupId: 'TESVS:2STB',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs'
-    },
-    {
-      id: '2_2STB/KRO1005_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KRO1005',
-      groupId: 'TESVS:2STB/KRO1005',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'KRO1005',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
-        tittel: {
-          en: 'Kroppsøving Vg2',
-          nb: 'Kroppsøving Vg2',
-          nn: 'Kroppsøving Vg2'
-        },
-        kortform: {
-          en: 'Kroppsøving',
-          nb: 'Kroppsøving',
-          nn: 'Kroppsøving'
+    groups: [
+      {
+        id: '1054694',
+        type: 'basisgruppe',
+        name: '2STB',
+        groupId: 'TESVS:2STB',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs'
+      },
+      {
+        id: '1054637',
+        type: 'undervisningsgruppe',
+        name: '2STB/KRO1005',
+        groupId: 'TESVS:2STB/KRO1005',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'KRO1005',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
+          tittel: {
+            en: 'Kroppsøving Vg2',
+            nb: 'Kroppsøving Vg2',
+            nn: 'Kroppsøving Vg2'
+          },
+          kortform: {
+            en: 'Kroppsøving',
+            nb: 'Kroppsøving',
+            nn: 'Kroppsøving'
+          }
+        }
+      },
+      {
+        id: '1054467',
+        type: 'undervisningsgruppe',
+        name: '2STB/HIS1001',
+        groupId: 'TESVS:2STB/HIS1001',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HIS1001',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
+          tittel: {
+            en: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nn: 'Historie Vg2 studieførebuande utdanningsprogram'
+          },
+          kortform: {
+            en: 'Historie',
+            nb: 'Historie',
+            nn: 'Historie'
+          }
+        }
+      },
+      {
+        id: '1054697',
+        type: 'undervisningsgruppe',
+        name: '2STB/KLFAG',
+        groupId: 'TESVS:2STB/KLFAG',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: '2STB/KLFAG',
+          kortform: {
+            en: 'Læreplan generell del',
+            nb: 'Læreplan generell del'
+          }
+        }
+      },
+      {
+        id: '1054699',
+        type: 'undervisningsgruppe',
+        name: '2STB/NOR1208',
+        groupId: 'TESVS:2STB/NOR1208',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'NOR1208',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
+          tittel: {
+            en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          },
+          kortform: {
+            en: 'Norsk hovedmål, skriftlig',
+            nb: 'Norsk hovedmål, skriftlig',
+            nn: 'Norsk hovudmål, skriftleg'
+          }
+        }
+      },
+      {
+        id: '1054474',
+        type: 'undervisningsgruppe',
+        name: '2RL1B/SAM3022',
+        groupId: 'TESVS:2RL1B/SAM3022',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3022',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3022',
+          tittel: {
+            en: 'Rettslære 1',
+            nb: 'Rettslære 1',
+            nn: 'Rettslære 1'
+          },
+          kortform: {
+            en: 'Rettslære 1',
+            nb: 'Rettslære 1',
+            nn: 'Rettslære 1'
+          }
+        }
+      },
+      {
+        id: '1054259',
+        type: 'undervisningsgruppe',
+        name: '2SOB/SAM3019',
+        groupId: 'TESVS:2SOB/SAM3019',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3019',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3019',
+          tittel: {
+            en: 'Sosiologi og sosialantropologi',
+            nb: 'Sosiologi og sosialantropologi',
+            nn: 'Sosiologi og sosialantropologi'
+          },
+          kortform: {
+            en: 'Sosiologi og sosialantropologi',
+            nb: 'Sosiologi og sosialantropologi',
+            nn: 'Sosiologi og sosialantropologi'
+          }
+        }
+      },
+      {
+        id: '1054692',
+        type: 'undervisningsgruppe',
+        name: '2PS1B/SAM3037',
+        groupId: 'TESVS:2PS1B/SAM3037',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3037',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
+          tittel: {
+            en: 'Psykologi 1',
+            nb: 'Psykologi 1',
+            nn: 'Psykologi 1'
+          },
+          kortform: {
+            en: 'Psykologi 1',
+            nb: 'Psykologi 1',
+            nn: 'Psykologi 1'
+          }
+        }
+      },
+      {
+        id: '1054211',
+        type: 'undervisningsgruppe',
+        name: '2MP2/MAT1015',
+        groupId: 'TESVS:2MP2/MAT1015',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'MAT1015',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1015',
+          tittel: {
+            en: 'Matematikk 2P',
+            nb: 'Matematikk 2P',
+            nn: 'Matematikk 2P'
+          },
+          kortform: {
+            en: 'Matematikk 2P',
+            nb: 'Matematikk 2P',
+            nn: 'Matematikk 2P'
+          }
+        }
+      },
+      {
+        id: '1054002',
+        type: 'undervisningsgruppe',
+        name: '2SP1/FSP5092',
+        groupId: 'TESVS:2SP1/FSP5092',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'FSP5092',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5092',
+          tittel: {
+            en: 'Spansk I',
+            nb: 'Spansk I',
+            nn: 'Spansk I'
+          },
+          kortform: {
+            en: 'Spansk I',
+            nb: 'Spansk I',
+            nn: 'Spansk I'
+          }
         }
       }
-    },
-    {
-      id: '2_2STB/HIS1001_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/HIS1001',
-      groupId: 'TESVS:2STB/HIS1001',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HIS1001',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
-        tittel: {
-          en: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
-        },
-        kortform: {
-          en: 'Historie',
-          nb: 'Historie',
-          nn: 'Historie'
-        }
-      }
-    },
-    {
-      id: '2_2STB/KLFAG_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KLFAG',
-      groupId: 'TESVS:2STB/KLFAG',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: '2STB/KLFAG',
-        kortform: {
-          en: 'Læreplan generell del',
-          nb: 'Læreplan generell del'
-        }
-      }
-    },
-    {
-      id: '2_2STB/NOR1208_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/NOR1208',
-      groupId: 'TESVS:2STB/NOR1208',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'NOR1208',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
-        tittel: {
-          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
-        },
-        kortform: {
-          en: 'Norsk hovedmål, skriftlig',
-          nb: 'Norsk hovedmål, skriftlig',
-          nn: 'Norsk hovudmål, skriftleg'
-        }
-      }
-    },
-    {
-      id: '2_2RL1B/SAM3022_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2RL1B/SAM3022',
-      groupId: 'TESVS:2RL1B/SAM3022',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3022',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3022',
-        tittel: {
-          en: 'Rettslære 1',
-          nb: 'Rettslære 1',
-          nn: 'Rettslære 1'
-        },
-        kortform: {
-          en: 'Rettslære 1',
-          nb: 'Rettslære 1',
-          nn: 'Rettslære 1'
-        }
-      }
-    },
-    {
-      id: '2_2SOB/SAM3019_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2SOB/SAM3019',
-      groupId: 'TESVS:2SOB/SAM3019',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3019',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3019',
-        tittel: {
-          en: 'Sosiologi og sosialantropologi',
-          nb: 'Sosiologi og sosialantropologi',
-          nn: 'Sosiologi og sosialantropologi'
-        },
-        kortform: {
-          en: 'Sosiologi og sosialantropologi',
-          nb: 'Sosiologi og sosialantropologi',
-          nn: 'Sosiologi og sosialantropologi'
-        }
-      }
-    },
-    {
-      id: '2_2PS1B/SAM3037_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2PS1B/SAM3037',
-      groupId: 'TESVS:2PS1B/SAM3037',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3037',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
-        tittel: {
-          en: 'Psykologi 1',
-          nb: 'Psykologi 1',
-          nn: 'Psykologi 1'
-        },
-        kortform: {
-          en: 'Psykologi 1',
-          nb: 'Psykologi 1',
-          nn: 'Psykologi 1'
-        }
-      }
-    },
-    {
-      id: '2_2MP2/MAT1015_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2MP2/MAT1015',
-      groupId: 'TESVS:2MP2/MAT1015',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'MAT1015',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1015',
-        tittel: {
-          en: 'Matematikk 2P',
-          nb: 'Matematikk 2P',
-          nn: 'Matematikk 2P'
-        },
-        kortform: {
-          en: 'Matematikk 2P',
-          nb: 'Matematikk 2P',
-          nn: 'Matematikk 2P'
-        }
-      }
-    },
-    {
-      id: '2_2SP1/FSP5092_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2SP1/FSP5092',
-      groupId: 'TESVS:2SP1/FSP5092',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'FSP5092',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5092',
-        tittel: {
-          en: 'Spansk I',
-          nb: 'Spansk I',
-          nn: 'Spansk I'
-        },
-        kortform: {
-          en: 'Spansk I',
-          nb: 'Spansk I',
-          nn: 'Spansk I'
-        }
-      }
-    }
     ]
   },
   {
@@ -774,20 +735,6 @@ export const STUDENTS = [
     classId: 'TESVS:2STB',
     classShortId: '2STB',
     level: 'VG2',
-    programomraade: {
-      kode: 'STSSA2----',
-      type: 'studieforberedende',
-      tittel: {
-        en: 'Språk, samfunnsfag og økonomi Vg2',
-        nb: 'Språk, samfunnsfag og økonomi Vg2',
-        nn: 'Språk, samfunnsfag og økonomi Vg2'
-      },
-      kortform: {
-        en: 'Språk, samfunnsfag og økonomi',
-        nb: 'Språk, samfunnsfag og økonomi',
-        nn: 'Språk, samfunnsfag og økonomi'
-      }
-    },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
@@ -796,215 +743,216 @@ export const STUDENTS = [
         nb: 'Studiespesialisering'
       }
     },
-    groups: [{
-      id: '1_2STB_TESVS@38099',
-      type: 'basisgruppe',
-      name: '2STB',
-      groupId: 'TESVS:2STB',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs'
-    },
-    {
-      id: '2_2STB/KRO1005_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KRO1005',
-      groupId: 'TESVS:2STB/KRO1005',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'KRO1005',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
-        tittel: {
-          en: 'Kroppsøving Vg2',
-          nb: 'Kroppsøving Vg2',
-          nn: 'Kroppsøving Vg2'
-        },
-        kortform: {
-          en: 'Kroppsøving',
-          nb: 'Kroppsøving',
-          nn: 'Kroppsøving'
+    groups: [
+      {
+        id: '1054694',
+        type: 'basisgruppe',
+        name: '2STB',
+        groupId: 'TESVS:2STB',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs'
+      },
+      {
+        id: '1054637',
+        type: 'undervisningsgruppe',
+        name: '2STB/KRO1005',
+        groupId: 'TESVS:2STB/KRO1005',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'KRO1005',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
+          tittel: {
+            en: 'Kroppsøving Vg2',
+            nb: 'Kroppsøving Vg2',
+            nn: 'Kroppsøving Vg2'
+          },
+          kortform: {
+            en: 'Kroppsøving',
+            nb: 'Kroppsøving',
+            nn: 'Kroppsøving'
+          }
+        }
+      },
+      {
+        id: '1054467',
+        type: 'undervisningsgruppe',
+        name: '2STB/HIS1001',
+        groupId: 'TESVS:2STB/HIS1001',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HIS1001',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
+          tittel: {
+            en: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nn: 'Historie Vg2 studieførebuande utdanningsprogram'
+          },
+          kortform: {
+            en: 'Historie',
+            nb: 'Historie',
+            nn: 'Historie'
+          }
+        }
+      },
+      {
+        id: '1054697',
+        type: 'undervisningsgruppe',
+        name: '2STB/KLFAG',
+        groupId: 'TESVS:2STB/KLFAG',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: '2STB/KLFAG',
+          kortform: {
+            en: 'Læreplan generell del',
+            nb: 'Læreplan generell del'
+          }
+        }
+      },
+      {
+        id: '1054699',
+        type: 'undervisningsgruppe',
+        name: '2STB/NOR1208',
+        groupId: 'TESVS:2STB/NOR1208',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'NOR1208',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
+          tittel: {
+            en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          },
+          kortform: {
+            en: 'Norsk hovedmål, skriftlig',
+            nb: 'Norsk hovedmål, skriftlig',
+            nn: 'Norsk hovudmål, skriftleg'
+          }
+        }
+      },
+      {
+        id: '1054281',
+        type: 'undervisningsgruppe',
+        name: '2MS1B/REA3026',
+        groupId: 'TESVS:2MS1B/REA3026',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'REA3026',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3026',
+          tittel: {
+            en: 'Matematikk S1',
+            nb: 'Matematikk S1',
+            nn: 'Matematikk S1'
+          },
+          kortform: {
+            en: 'Matematikk S1',
+            nb: 'Matematikk S1',
+            nn: 'Matematikk S1'
+          }
+        }
+      },
+      {
+        id: '1054259',
+        type: 'undervisningsgruppe',
+        name: '2SOB/SAM3019',
+        groupId: 'TESVS:2SOB/SAM3019',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3019',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3019',
+          tittel: {
+            en: 'Sosiologi og sosialantropologi',
+            nb: 'Sosiologi og sosialantropologi',
+            nn: 'Sosiologi og sosialantropologi'
+          },
+          kortform: {
+            en: 'Sosiologi og sosialantropologi',
+            nb: 'Sosiologi og sosialantropologi',
+            nn: 'Sosiologi og sosialantropologi'
+          }
+        }
+      },
+      {
+        id: '1054692',
+        type: 'undervisningsgruppe',
+        name: '2PS1B/SAM3037',
+        groupId: 'TESVS:2PS1B/SAM3037',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SAM3037',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
+          tittel: {
+            en: 'Psykologi 1',
+            nb: 'Psykologi 1',
+            nn: 'Psykologi 1'
+          },
+          kortform: {
+            en: 'Psykologi 1',
+            nb: 'Psykologi 1',
+            nn: 'Psykologi 1'
+          }
+        }
+      },
+      {
+        id: '1054444',
+        type: 'undervisningsgruppe',
+        name: '2TY1/FSP5119',
+        groupId: 'TESVS:2TY1/FSP5119',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'FSP5119',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5119',
+          tittel: {
+            en: 'Tysk I',
+            nb: 'Tysk I',
+            nn: 'Tysk I'
+          },
+          kortform: {
+            en: 'Tysk I',
+            nb: 'Tysk I',
+            nn: 'Tysk I'
+          }
+        }
+      },
+      {
+        id: '1054154',
+        type: 'undervisningsgruppe',
+        name: '2IT1/REA3014',
+        groupId: 'TESVS:2IT1/REA3014',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'REA3014',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3014',
+          tittel: {
+            en: 'Informasjonsteknologi 1',
+            nb: 'Informasjonsteknologi 1',
+            nn: 'Informasjonsteknologi 1'
+          },
+          kortform: {
+            en: 'Informasjonsteknologi 1',
+            nb: 'Informasjonsteknologi 1',
+            nn: 'Informasjonsteknologi 1'
+          }
         }
       }
-    },
-    {
-      id: '2_2STB/HIS1001_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/HIS1001',
-      groupId: 'TESVS:2STB/HIS1001',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HIS1001',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
-        tittel: {
-          en: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
-        },
-        kortform: {
-          en: 'Historie',
-          nb: 'Historie',
-          nn: 'Historie'
-        }
-      }
-    },
-    {
-      id: '2_2STB/KLFAG_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KLFAG',
-      groupId: 'TESVS:2STB/KLFAG',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: '2STB/KLFAG',
-        kortform: {
-          en: 'Læreplan generell del',
-          nb: 'Læreplan generell del'
-        }
-      }
-    },
-    {
-      id: '2_2STB/NOR1208_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/NOR1208',
-      groupId: 'TESVS:2STB/NOR1208',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'NOR1208',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
-        tittel: {
-          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
-        },
-        kortform: {
-          en: 'Norsk hovedmål, skriftlig',
-          nb: 'Norsk hovedmål, skriftlig',
-          nn: 'Norsk hovudmål, skriftleg'
-        }
-      }
-    },
-    {
-      id: '2_2MS1B/REA3026_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2MS1B/REA3026',
-      groupId: 'TESVS:2MS1B/REA3026',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'REA3026',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3026',
-        tittel: {
-          en: 'Matematikk S1',
-          nb: 'Matematikk S1',
-          nn: 'Matematikk S1'
-        },
-        kortform: {
-          en: 'Matematikk S1',
-          nb: 'Matematikk S1',
-          nn: 'Matematikk S1'
-        }
-      }
-    },
-    {
-      id: '2_2SOB/SAM3019_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2SOB/SAM3019',
-      groupId: 'TESVS:2SOB/SAM3019',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3019',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3019',
-        tittel: {
-          en: 'Sosiologi og sosialantropologi',
-          nb: 'Sosiologi og sosialantropologi',
-          nn: 'Sosiologi og sosialantropologi'
-        },
-        kortform: {
-          en: 'Sosiologi og sosialantropologi',
-          nb: 'Sosiologi og sosialantropologi',
-          nn: 'Sosiologi og sosialantropologi'
-        }
-      }
-    },
-    {
-      id: '2_2PS1B/SAM3037_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2PS1B/SAM3037',
-      groupId: 'TESVS:2PS1B/SAM3037',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SAM3037',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SAM3037',
-        tittel: {
-          en: 'Psykologi 1',
-          nb: 'Psykologi 1',
-          nn: 'Psykologi 1'
-        },
-        kortform: {
-          en: 'Psykologi 1',
-          nb: 'Psykologi 1',
-          nn: 'Psykologi 1'
-        }
-      }
-    },
-    {
-      id: '2_2TY1/FSP5119_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2TY1/FSP5119',
-      groupId: 'TESVS:2TY1/FSP5119',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'FSP5119',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/FSP5119',
-        tittel: {
-          en: 'Tysk I',
-          nb: 'Tysk I',
-          nn: 'Tysk I'
-        },
-        kortform: {
-          en: 'Tysk I',
-          nb: 'Tysk I',
-          nn: 'Tysk I'
-        }
-      }
-    },
-    {
-      id: '2_2IT1/REA3014_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2IT1/REA3014',
-      groupId: 'TESVS:2IT1/REA3014',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'REA3014',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3014',
-        tittel: {
-          en: 'Informasjonsteknologi 1',
-          nb: 'Informasjonsteknologi 1',
-          nn: 'Informasjonsteknologi 1'
-        },
-        kortform: {
-          en: 'Informasjonsteknologi 1',
-          nb: 'Informasjonsteknologi 1',
-          nn: 'Informasjonsteknologi 1'
-        }
-      }
-    }
     ]
   },
   {
@@ -1023,14 +971,6 @@ export const STUDENTS = [
     classId: 'TESVS:2STB',
     classShortId: '2STB',
     level: 'VG2',
-    programomraade: {
-      kode: 'STREA2----',
-      type: 'Ukjent',
-      kortform: {
-        en: 'Realfag',
-        nb: 'Realfag'
-      }
-    },
     utdanningsprogram: {
       kode: 'ST',
       type: 'Ukjent',
@@ -1039,222 +979,223 @@ export const STUDENTS = [
         nb: 'Studiespesialisering'
       }
     },
-    groups: [{
-      id: '1_2STB_TESVS@38099',
-      type: 'basisgruppe',
-      name: '2STB',
-      groupId: 'TESVS:2STB',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs'
-    },
-    {
-      id: '2_2STB/KRO1005_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KRO1005',
-      groupId: 'TESVS:2STB/KRO1005',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'KRO1005',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
-        tittel: {
-          en: 'Kroppsøving Vg2',
-          nb: 'Kroppsøving Vg2',
-          nn: 'Kroppsøving Vg2'
-        },
-        kortform: {
-          en: 'Kroppsøving',
-          nb: 'Kroppsøving',
-          nn: 'Kroppsøving'
+    groups: [
+      {
+        id: '1054694',
+        type: 'basisgruppe',
+        name: '2STB',
+        groupId: 'TESVS:2STB',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs'
+      },
+      {
+        id: '1054637',
+        type: 'undervisningsgruppe',
+        name: '2STB/KRO1005',
+        groupId: 'TESVS:2STB/KRO1005',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'KRO1005',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1005',
+          tittel: {
+            en: 'Kroppsøving Vg2',
+            nb: 'Kroppsøving Vg2',
+            nn: 'Kroppsøving Vg2'
+          },
+          kortform: {
+            en: 'Kroppsøving',
+            nb: 'Kroppsøving',
+            nn: 'Kroppsøving'
+          }
+        }
+      },
+      {
+        id: '1054467',
+        type: 'undervisningsgruppe',
+        name: '2STB/HIS1001',
+        groupId: 'TESVS:2STB/HIS1001',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HIS1001',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
+          tittel: {
+            en: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nb: 'Historie Vg2 studieforberedende utdanningsprogram',
+            nn: 'Historie Vg2 studieførebuande utdanningsprogram'
+          },
+          kortform: {
+            en: 'Historie',
+            nb: 'Historie',
+            nn: 'Historie'
+          }
+        }
+      },
+      {
+        id: '1054697',
+        type: 'undervisningsgruppe',
+        name: '2STB/KLFAG',
+        groupId: 'TESVS:2STB/KLFAG',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: '2STB/KLFAG',
+          kortform: {
+            en: 'Læreplan generell del',
+            nb: 'Læreplan generell del'
+          }
+        }
+      },
+      {
+        id: '1054699',
+        type: 'undervisningsgruppe',
+        name: '2STB/NOR1208',
+        groupId: 'TESVS:2STB/NOR1208',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'NOR1208',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
+          tittel: {
+            en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
+            nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
+          },
+          kortform: {
+            en: 'Norsk hovedmål, skriftlig',
+            nb: 'Norsk hovedmål, skriftlig',
+            nn: 'Norsk hovudmål, skriftleg'
+          }
+        }
+      },
+      {
+        id: '1054082',
+        type: 'undervisningsgruppe',
+        name: '2MR1B/REA3022',
+        groupId: 'TESVS:2MR1B/REA3022',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'REA3022',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3022',
+          tittel: {
+            en: 'Matematikk R1',
+            nb: 'Matematikk R1',
+            nn: 'Matematikk R1'
+          },
+          kortform: {
+            en: 'Matematikk R1',
+            nb: 'Matematikk R1',
+            nn: 'Matematikk R1'
+          }
+        }
+      },
+      {
+        id: '1054139',
+        type: 'undervisningsgruppe',
+        name: '2ENSA/SPR3008',
+        groupId: 'TESVS:2ENSA/SPR3008',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SPR3008',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SPR3008',
+          tittel: {
+            en: 'Internasjonal engelsk, skriftlig',
+            nb: 'Internasjonal engelsk, skriftlig',
+            nn: 'Internasjonal engelsk, skriftleg'
+          },
+          kortform: {
+            en: 'Internasj. engelsk, skriftlig',
+            nb: 'Internasj. engelsk, skriftlig',
+            nn: 'Internasj. engelsk, skriftleg'
+          }
+        }
+      },
+      {
+        id: '1054387',
+        type: 'undervisningsgruppe',
+        name: '2FY1B/REA3004',
+        groupId: 'TESVS:2FY1B/REA3004',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'REA3004',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3004',
+          tittel: {
+            en: 'Fysikk 1',
+            nb: 'Fysikk 1',
+            nn: 'Fysikk 1'
+          },
+          kortform: {
+            en: 'Fysikk 1',
+            nb: 'Fysikk 1',
+            nn: 'Fysikk 1'
+          }
+        }
+      },
+      {
+        id: '1054152',
+        type: 'undervisningsgruppe',
+        name: '2ENMA/SPR3009',
+        groupId: 'TESVS:2ENMA/SPR3009',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'SPR3009',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SPR3009',
+          tittel: {
+            en: 'Internasjonal engelsk, muntlig',
+            nb: 'Internasjonal engelsk, muntlig',
+            nn: 'Internasjonal engelsk, munnleg'
+          },
+          kortform: {
+            en: 'Internasjonal engelsk, muntlig',
+            nb: 'Internasjonal engelsk, muntlig',
+            nn: 'Internasjonal engelsk, munnleg'
+          }
+        }
+      },
+      {
+        id: '1054154',
+        type: 'undervisningsgruppe',
+        name: '2IT1/REA3014',
+        groupId: 'TESVS:2IT1/REA3014',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'REA3014',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3014',
+          tittel: {
+            en: 'Informasjonsteknologi 1',
+            nb: 'Informasjonsteknologi 1',
+            nn: 'Informasjonsteknologi 1'
+          },
+          kortform: {
+            en: 'Informasjonsteknologi 1',
+            nb: 'Informasjonsteknologi 1',
+            nn: 'Informasjonsteknologi 1'
+          }
         }
       }
-    },
-    {
-      id: '2_2STB/HIS1001_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/HIS1001',
-      groupId: 'TESVS:2STB/HIS1001',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HIS1001',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HIS1001',
-        tittel: {
-          en: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nb: 'Historie Vg2 studieforberedende utdanningsprogram',
-          nn: 'Historie Vg2 studieførebuande utdanningsprogram'
-        },
-        kortform: {
-          en: 'Historie',
-          nb: 'Historie',
-          nn: 'Historie'
-        }
-      }
-    },
-    {
-      id: '2_2STB/KLFAG_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/KLFAG',
-      groupId: 'TESVS:2STB/KLFAG',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: '2STB/KLFAG',
-        kortform: {
-          en: 'Læreplan generell del',
-          nb: 'Læreplan generell del'
-        }
-      }
-    },
-    {
-      id: '2_2STB/NOR1208_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2STB/NOR1208',
-      groupId: 'TESVS:2STB/NOR1208',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'NOR1208',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NOR1208',
-        tittel: {
-          en: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nb: 'Norsk hovedmål, Vg2 studieforberedende utdanningsprogram, skriftlig',
-          nn: 'Norsk hovudmål, Vg2 studieførebuande utdanningsprogram, skriftleg'
-        },
-        kortform: {
-          en: 'Norsk hovedmål, skriftlig',
-          nb: 'Norsk hovedmål, skriftlig',
-          nn: 'Norsk hovudmål, skriftleg'
-        }
-      }
-    },
-    {
-      id: '2_2MR1B/REA3022_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2MR1B/REA3022',
-      groupId: 'TESVS:2MR1B/REA3022',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'REA3022',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3022',
-        tittel: {
-          en: 'Matematikk R1',
-          nb: 'Matematikk R1',
-          nn: 'Matematikk R1'
-        },
-        kortform: {
-          en: 'Matematikk R1',
-          nb: 'Matematikk R1',
-          nn: 'Matematikk R1'
-        }
-      }
-    },
-    {
-      id: '2_2ENSA/SPR3008_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2ENSA/SPR3008',
-      groupId: 'TESVS:2ENSA/SPR3008',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SPR3008',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SPR3008',
-        tittel: {
-          en: 'Internasjonal engelsk, skriftlig',
-          nb: 'Internasjonal engelsk, skriftlig',
-          nn: 'Internasjonal engelsk, skriftleg'
-        },
-        kortform: {
-          en: 'Internasj. engelsk, skriftlig',
-          nb: 'Internasj. engelsk, skriftlig',
-          nn: 'Internasj. engelsk, skriftleg'
-        }
-      }
-    },
-    {
-      id: '2_2FY1B/REA3004_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2FY1B/REA3004',
-      groupId: 'TESVS:2FY1B/REA3004',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'REA3004',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3004',
-        tittel: {
-          en: 'Fysikk 1',
-          nb: 'Fysikk 1',
-          nn: 'Fysikk 1'
-        },
-        kortform: {
-          en: 'Fysikk 1',
-          nb: 'Fysikk 1',
-          nn: 'Fysikk 1'
-        }
-      }
-    },
-    {
-      id: '2_2ENMA/SPR3009_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2ENMA/SPR3009',
-      groupId: 'TESVS:2ENMA/SPR3009',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'SPR3009',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/SPR3009',
-        tittel: {
-          en: 'Internasjonal engelsk, muntlig',
-          nb: 'Internasjonal engelsk, muntlig',
-          nn: 'Internasjonal engelsk, munnleg'
-        },
-        kortform: {
-          en: 'Internasjonal engelsk, muntlig',
-          nb: 'Internasjonal engelsk, muntlig',
-          nn: 'Internasjonal engelsk, munnleg'
-        }
-      }
-    },
-    {
-      id: '2_2IT1/REA3014_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '2IT1/REA3014',
-      groupId: 'TESVS:2IT1/REA3014',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'REA3014',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/REA3014',
-        tittel: {
-          en: 'Informasjonsteknologi 1',
-          nb: 'Informasjonsteknologi 1',
-          nn: 'Informasjonsteknologi 1'
-        },
-        kortform: {
-          en: 'Informasjonsteknologi 1',
-          nb: 'Informasjonsteknologi 1',
-          nn: 'Informasjonsteknologi 1'
-        }
-      }
-    }
     ]
   },
   {
     id: 'lil1312',
     firstName: 'Lilla',
-    lastName: 'Spenne',
-    fullName: 'Lilla Spenne',
+    lastName: 'Spene',
+    fullName: 'Lilla Spene',
     birthdate: '2002-12-13T00:00:00.000Z',
     username: 'lil1312',
     mail: 'lil1312@skole.vtfk.no',
@@ -1266,20 +1207,6 @@ export const STUDENTS = [
     classId: 'TESVS:1HOA',
     classShortId: '1HOA',
     level: 'VG1',
-    programomraade: {
-      kode: 'HSHSF1----',
-      type: 'yrkesfaglig',
-      tittel: {
-        en: 'Helse- og oppvekstfag',
-        nb: 'Helse- og oppvekstfag',
-        nn: 'Helse- og oppvekstfag'
-      },
-      kortform: {
-        en: 'Helse- og oppvekstfag',
-        nb: 'Helse- og oppvekstfag',
-        nn: 'Helse- og oppvekstfag'
-      }
-    },
     utdanningsprogram: {
       kode: 'HS',
       type: 'yrkesfaglig',
@@ -1294,169 +1221,170 @@ export const STUDENTS = [
         nn: 'Helse- og oppvekstfag'
       }
     },
-    groups: [{
-      id: '1_1HOA_TESVS@38099',
-      type: 'basisgruppe',
-      name: '1HOA',
-      groupId: 'TESVS:1HOA',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs'
-    },
-    {
-      id: '2_1ENYA/ENG1009_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1ENYA/ENG1009',
-      groupId: 'TESVS:1ENYA/ENG1009',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'ENG1009',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/ENG1009',
-        tittel: {
-          en: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nb: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nn: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
-        },
-        kortform: {
-          en: 'Engelsk',
-          nb: 'Engelsk',
-          nn: 'Engelsk'
+    groups: [
+      {
+        id: '1054693',
+        type: 'basisgruppe',
+        name: '1HOA',
+        groupId: 'TESVS:1HOA',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs'
+      },
+      {
+        id: '1054626',
+        type: 'undervisningsgruppe',
+        name: '1ENYA/ENG1009',
+        groupId: 'TESVS:1ENYA/ENG1009',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'ENG1009',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/ENG1009',
+          tittel: {
+            en: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+            nb: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+            nn: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
+          },
+          kortform: {
+            en: 'Engelsk',
+            nb: 'Engelsk',
+            nn: 'Engelsk'
+          }
+        }
+      },
+      {
+        id: '1054449',
+        type: 'undervisningsgruppe',
+        name: '1HOA/KLFAG',
+        groupId: 'TESVS:1HOA/KLFAG',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: '1HOA/KLFAG',
+          kortform: {
+            en: 'Læreplan generell del',
+            nb: 'Læreplan generell del'
+          }
+        }
+      },
+      {
+        id: '1054592',
+        type: 'undervisningsgruppe',
+        name: '1HOA/HSF1008',
+        groupId: 'TESVS:1HOA/HSF1008',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HSF1008',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1008',
+          tittel: {
+            en: 'Yrkesliv i helse- og oppvekstfag',
+            nb: 'Yrkesliv i helse- og oppvekstfag',
+            nn: 'Yrkesliv i helse- og oppvekstfag'
+          },
+          kortform: {
+            en: 'Yrkesliv i helse- og oppv.fag',
+            nb: 'Yrkesliv i helse- og oppv.fag',
+            nn: 'Yrkesliv i helse- og oppv.fag'
+          }
+        }
+      },
+      {
+        id: '1054576',
+        type: 'undervisningsgruppe',
+        name: '1HOA/HSF1006',
+        groupId: 'TESVS:1HOA/HSF1006',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HSF1006',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1006',
+          tittel: {
+            en: 'Helsefremmende arbeid',
+            nb: 'Helsefremmende arbeid',
+            nn: 'Helsefremjande arbeid'
+          },
+          kortform: {
+            en: 'Helsefremmende arbeid',
+            nb: 'Helsefremmende arbeid',
+            nn: 'Helsefremjande arbeid'
+          }
+        }
+      },
+      {
+        id: '1054552',
+        type: 'undervisningsgruppe',
+        name: '1HOA/KRO1017',
+        groupId: 'TESVS:1HOA/KRO1017',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'KRO1017',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1017',
+          tittel: {
+            en: 'Kroppsøving Vg1',
+            nb: 'Kroppsøving Vg1',
+            nn: 'Kroppsøving Vg1'
+          },
+          kortform: {
+            en: 'Kroppsøving',
+            nb: 'Kroppsøving',
+            nn: 'Kroppsøving'
+          }
+        }
+      },
+      {
+        id: '1054698',
+        type: 'undervisningsgruppe',
+        name: '1HOA/YFF4106',
+        groupId: 'TESVS:1HOA/YFF4106',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'YFF4106',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
+          tittel: {
+            en: 'Yrkesfaglig fordypning Vg1',
+            nb: 'Yrkesfaglig fordypning Vg1',
+            nn: 'Yrkesfagleg fordjuping Vg1'
+          },
+          kortform: {
+            en: 'Yrkesfaglig fordypning Vg1',
+            nb: 'Yrkesfaglig fordypning Vg1',
+            nn: 'Yrkesfagleg fordjuping Vg1'
+          }
+        }
+      },
+      {
+        id: '1054198',
+        type: 'undervisningsgruppe',
+        name: '1HOA/HSF1007',
+        groupId: 'TESVS:1HOA/HSF1007',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HSF1007',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1007',
+          tittel: {
+            en: 'Kommunikasjon og samhandling',
+            nb: 'Kommunikasjon og samhandling',
+            nn: 'Kommunikasjon og samhandling'
+          },
+          kortform: {
+            en: 'Kommunikasjon og samhandling',
+            nb: 'Kommunikasjon og samhandling',
+            nn: 'Kommunikasjon og samhandling'
+          }
         }
       }
-    },
-    {
-      id: '2_1HOA/KLFAG_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/KLFAG',
-      groupId: 'TESVS:1HOA/KLFAG',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: '1HOA/KLFAG',
-        kortform: {
-          en: 'Læreplan generell del',
-          nb: 'Læreplan generell del'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/HSF1008_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/HSF1008',
-      groupId: 'TESVS:1HOA/HSF1008',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HSF1008',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1008',
-        tittel: {
-          en: 'Yrkesliv i helse- og oppvekstfag',
-          nb: 'Yrkesliv i helse- og oppvekstfag',
-          nn: 'Yrkesliv i helse- og oppvekstfag'
-        },
-        kortform: {
-          en: 'Yrkesliv i helse- og oppv.fag',
-          nb: 'Yrkesliv i helse- og oppv.fag',
-          nn: 'Yrkesliv i helse- og oppv.fag'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/HSF1006_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/HSF1006',
-      groupId: 'TESVS:1HOA/HSF1006',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HSF1006',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1006',
-        tittel: {
-          en: 'Helsefremmende arbeid',
-          nb: 'Helsefremmende arbeid',
-          nn: 'Helsefremjande arbeid'
-        },
-        kortform: {
-          en: 'Helsefremmende arbeid',
-          nb: 'Helsefremmende arbeid',
-          nn: 'Helsefremjande arbeid'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/KRO1017_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/KRO1017',
-      groupId: 'TESVS:1HOA/KRO1017',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'KRO1017',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1017',
-        tittel: {
-          en: 'Kroppsøving Vg1',
-          nb: 'Kroppsøving Vg1',
-          nn: 'Kroppsøving Vg1'
-        },
-        kortform: {
-          en: 'Kroppsøving',
-          nb: 'Kroppsøving',
-          nn: 'Kroppsøving'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/YFF4106_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/YFF4106',
-      groupId: 'TESVS:1HOA/YFF4106',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'YFF4106',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
-        tittel: {
-          en: 'Yrkesfaglig fordypning Vg1',
-          nb: 'Yrkesfaglig fordypning Vg1',
-          nn: 'Yrkesfagleg fordjuping Vg1'
-        },
-        kortform: {
-          en: 'Yrkesfaglig fordypning Vg1',
-          nb: 'Yrkesfaglig fordypning Vg1',
-          nn: 'Yrkesfagleg fordjuping Vg1'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/HSF1007_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/HSF1007',
-      groupId: 'TESVS:1HOA/HSF1007',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HSF1007',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1007',
-        tittel: {
-          en: 'Kommunikasjon og samhandling',
-          nb: 'Kommunikasjon og samhandling',
-          nn: 'Kommunikasjon og samhandling'
-        },
-        kortform: {
-          en: 'Kommunikasjon og samhandling',
-          nb: 'Kommunikasjon og samhandling',
-          nn: 'Kommunikasjon og samhandling'
-        }
-      }
-    }
     ]
   },
   {
@@ -1475,20 +1403,6 @@ export const STUDENTS = [
     classId: 'TESVS:1HOA',
     classShortId: '1HOA',
     level: 'VG1',
-    programomraade: {
-      kode: 'HSHSF1----',
-      type: 'yrkesfaglig',
-      tittel: {
-        en: 'Helse- og oppvekstfag',
-        nb: 'Helse- og oppvekstfag',
-        nn: 'Helse- og oppvekstfag'
-      },
-      kortform: {
-        en: 'Helse- og oppvekstfag',
-        nb: 'Helse- og oppvekstfag',
-        nn: 'Helse- og oppvekstfag'
-      }
-    },
     utdanningsprogram: {
       kode: 'HS',
       type: 'yrkesfaglig',
@@ -1503,215 +1417,216 @@ export const STUDENTS = [
         nn: 'Helse- og oppvekstfag'
       }
     },
-    groups: [{
-      id: '1_1HOA_TESVS@38099',
-      type: 'basisgruppe',
-      name: '1HOA',
-      groupId: 'TESVS:1HOA',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs'
-    },
-    {
-      id: '2_1MPYD/MAT1117_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1MPYD/MAT1117',
-      groupId: 'TESVS:1MPYD/MAT1117',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'MAT1117',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1117',
-        tittel: {
-          en: 'Matematikk 1P-Y  HS',
-          nb: 'Matematikk 1P-Y  HS',
-          nn: 'Matematikk 1P-Y  HS'
-        },
-        kortform: {
-          en: 'Matematikk 1P-Y',
-          nb: 'Matematikk 1P-Y',
-          nn: 'Matematikk 1P-Y'
+    groups: [
+      {
+        id: '1054693',
+        type: 'basisgruppe',
+        name: '1HOA',
+        groupId: 'TESVS:1HOA',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs'
+      },
+      {
+        id: '1054287',
+        type: 'undervisningsgruppe',
+        name: '1MPYD/MAT1117',
+        groupId: 'TESVS:1MPYD/MAT1117',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'MAT1117',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1117',
+          tittel: {
+            en: 'Matematikk 1P-Y  HS',
+            nb: 'Matematikk 1P-Y  HS',
+            nn: 'Matematikk 1P-Y  HS'
+          },
+          kortform: {
+            en: 'Matematikk 1P-Y',
+            nb: 'Matematikk 1P-Y',
+            nn: 'Matematikk 1P-Y'
+          }
+        }
+      },
+      {
+        id: '1054626',
+        type: 'undervisningsgruppe',
+        name: '1ENYA/ENG1009',
+        groupId: 'TESVS:1ENYA/ENG1009',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'ENG1009',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/ENG1009',
+          tittel: {
+            en: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+            nb: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+            nn: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
+          },
+          kortform: {
+            en: 'Engelsk',
+            nb: 'Engelsk',
+            nn: 'Engelsk'
+          }
+        }
+      },
+      {
+        id: '1054449',
+        type: 'undervisningsgruppe',
+        name: '1HOA/KLFAG',
+        groupId: 'TESVS:1HOA/KLFAG',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: '1HOA/KLFAG',
+          kortform: {
+            en: 'Læreplan generell del',
+            nb: 'Læreplan generell del'
+          }
+        }
+      },
+      {
+        id: '1054592',
+        type: 'undervisningsgruppe',
+        name: '1HOA/HSF1008',
+        groupId: 'TESVS:1HOA/HSF1008',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HSF1008',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1008',
+          tittel: {
+            en: 'Yrkesliv i helse- og oppvekstfag',
+            nb: 'Yrkesliv i helse- og oppvekstfag',
+            nn: 'Yrkesliv i helse- og oppvekstfag'
+          },
+          kortform: {
+            en: 'Yrkesliv i helse- og oppv.fag',
+            nb: 'Yrkesliv i helse- og oppv.fag',
+            nn: 'Yrkesliv i helse- og oppv.fag'
+          }
+        }
+      },
+      {
+        id: '1054576',
+        type: 'undervisningsgruppe',
+        name: '1HOA/HSF1006',
+        groupId: 'TESVS:1HOA/HSF1006',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HSF1006',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1006',
+          tittel: {
+            en: 'Helsefremmende arbeid',
+            nb: 'Helsefremmende arbeid',
+            nn: 'Helsefremjande arbeid'
+          },
+          kortform: {
+            en: 'Helsefremmende arbeid',
+            nb: 'Helsefremmende arbeid',
+            nn: 'Helsefremjande arbeid'
+          }
+        }
+      },
+      {
+        id: '1054552',
+        type: 'undervisningsgruppe',
+        name: '1HOA/KRO1017',
+        groupId: 'TESVS:1HOA/KRO1017',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'KRO1017',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1017',
+          tittel: {
+            en: 'Kroppsøving Vg1',
+            nb: 'Kroppsøving Vg1',
+            nn: 'Kroppsøving Vg1'
+          },
+          kortform: {
+            en: 'Kroppsøving',
+            nb: 'Kroppsøving',
+            nn: 'Kroppsøving'
+          }
+        }
+      },
+      {
+        id: '1054698',
+        type: 'undervisningsgruppe',
+        name: '1HOA/YFF4106',
+        groupId: 'TESVS:1HOA/YFF4106',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'YFF4106',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
+          tittel: {
+            en: 'Yrkesfaglig fordypning Vg1',
+            nb: 'Yrkesfaglig fordypning Vg1',
+            nn: 'Yrkesfagleg fordjuping Vg1'
+          },
+          kortform: {
+            en: 'Yrkesfaglig fordypning Vg1',
+            nb: 'Yrkesfaglig fordypning Vg1',
+            nn: 'Yrkesfagleg fordjuping Vg1'
+          }
+        }
+      },
+      {
+        id: '1054253',
+        type: 'undervisningsgruppe',
+        name: '1HOA/NAT1011',
+        groupId: 'TESVS:1HOA/NAT1011',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'NAT1011',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NAT1011',
+          tittel: {
+            en: 'Naturfag Vg1 HS',
+            nb: 'Naturfag Vg1 HS',
+            nn: 'Naturfag Vg1 HS'
+          },
+          kortform: {
+            en: 'Naturfag',
+            nb: 'Naturfag',
+            nn: 'Naturfag'
+          }
+        }
+      },
+      {
+        id: '1054198',
+        type: 'undervisningsgruppe',
+        name: '1HOA/HSF1007',
+        groupId: 'TESVS:1HOA/HSF1007',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HSF1007',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1007',
+          tittel: {
+            en: 'Kommunikasjon og samhandling',
+            nb: 'Kommunikasjon og samhandling',
+            nn: 'Kommunikasjon og samhandling'
+          },
+          kortform: {
+            en: 'Kommunikasjon og samhandling',
+            nb: 'Kommunikasjon og samhandling',
+            nn: 'Kommunikasjon og samhandling'
+          }
         }
       }
-    },
-    {
-      id: '2_1ENYA/ENG1009_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1ENYA/ENG1009',
-      groupId: 'TESVS:1ENYA/ENG1009',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'ENG1009',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/ENG1009',
-        tittel: {
-          en: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nb: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nn: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
-        },
-        kortform: {
-          en: 'Engelsk',
-          nb: 'Engelsk',
-          nn: 'Engelsk'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/KLFAG_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/KLFAG',
-      groupId: 'TESVS:1HOA/KLFAG',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: '1HOA/KLFAG',
-        kortform: {
-          en: 'Læreplan generell del',
-          nb: 'Læreplan generell del'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/HSF1008_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/HSF1008',
-      groupId: 'TESVS:1HOA/HSF1008',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HSF1008',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1008',
-        tittel: {
-          en: 'Yrkesliv i helse- og oppvekstfag',
-          nb: 'Yrkesliv i helse- og oppvekstfag',
-          nn: 'Yrkesliv i helse- og oppvekstfag'
-        },
-        kortform: {
-          en: 'Yrkesliv i helse- og oppv.fag',
-          nb: 'Yrkesliv i helse- og oppv.fag',
-          nn: 'Yrkesliv i helse- og oppv.fag'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/HSF1006_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/HSF1006',
-      groupId: 'TESVS:1HOA/HSF1006',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HSF1006',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1006',
-        tittel: {
-          en: 'Helsefremmende arbeid',
-          nb: 'Helsefremmende arbeid',
-          nn: 'Helsefremjande arbeid'
-        },
-        kortform: {
-          en: 'Helsefremmende arbeid',
-          nb: 'Helsefremmende arbeid',
-          nn: 'Helsefremjande arbeid'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/KRO1017_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/KRO1017',
-      groupId: 'TESVS:1HOA/KRO1017',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'KRO1017',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1017',
-        tittel: {
-          en: 'Kroppsøving Vg1',
-          nb: 'Kroppsøving Vg1',
-          nn: 'Kroppsøving Vg1'
-        },
-        kortform: {
-          en: 'Kroppsøving',
-          nb: 'Kroppsøving',
-          nn: 'Kroppsøving'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/YFF4106_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/YFF4106',
-      groupId: 'TESVS:1HOA/YFF4106',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'YFF4106',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
-        tittel: {
-          en: 'Yrkesfaglig fordypning Vg1',
-          nb: 'Yrkesfaglig fordypning Vg1',
-          nn: 'Yrkesfagleg fordjuping Vg1'
-        },
-        kortform: {
-          en: 'Yrkesfaglig fordypning Vg1',
-          nb: 'Yrkesfaglig fordypning Vg1',
-          nn: 'Yrkesfagleg fordjuping Vg1'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/NAT1011_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/NAT1011',
-      groupId: 'TESVS:1HOA/NAT1011',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'NAT1011',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NAT1011',
-        tittel: {
-          en: 'Naturfag Vg1 HS',
-          nb: 'Naturfag Vg1 HS',
-          nn: 'Naturfag Vg1 HS'
-        },
-        kortform: {
-          en: 'Naturfag',
-          nb: 'Naturfag',
-          nn: 'Naturfag'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/HSF1007_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/HSF1007',
-      groupId: 'TESVS:1HOA/HSF1007',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HSF1007',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1007',
-        tittel: {
-          en: 'Kommunikasjon og samhandling',
-          nb: 'Kommunikasjon og samhandling',
-          nn: 'Kommunikasjon og samhandling'
-        },
-        kortform: {
-          en: 'Kommunikasjon og samhandling',
-          nb: 'Kommunikasjon og samhandling',
-          nn: 'Kommunikasjon og samhandling'
-        }
-      }
-    }
     ]
   },
   {
@@ -1730,20 +1645,6 @@ export const STUDENTS = [
     classId: 'TESVS:1HOA',
     classShortId: '1HOA',
     level: 'VG1',
-    programomraade: {
-      kode: 'HSHSF1----',
-      type: 'yrkesfaglig',
-      tittel: {
-        en: 'Helse- og oppvekstfag',
-        nb: 'Helse- og oppvekstfag',
-        nn: 'Helse- og oppvekstfag'
-      },
-      kortform: {
-        en: 'Helse- og oppvekstfag',
-        nb: 'Helse- og oppvekstfag',
-        nn: 'Helse- og oppvekstfag'
-      }
-    },
     utdanningsprogram: {
       kode: 'HS',
       type: 'yrkesfaglig',
@@ -1758,215 +1659,216 @@ export const STUDENTS = [
         nn: 'Helse- og oppvekstfag'
       }
     },
-    groups: [{
-      id: '1_1HOA_TESVS@38099',
-      type: 'basisgruppe',
-      name: '1HOA',
-      groupId: 'TESVS:1HOA',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs'
-    },
-    {
-      id: '2_1ENYA/ENG1009_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1ENYA/ENG1009',
-      groupId: 'TESVS:1ENYA/ENG1009',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'ENG1009',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/ENG1009',
-        tittel: {
-          en: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nb: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
-          nn: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
-        },
-        kortform: {
-          en: 'Engelsk',
-          nb: 'Engelsk',
-          nn: 'Engelsk'
+    groups: [
+      {
+        id: '1054693',
+        type: 'basisgruppe',
+        name: '1HOA',
+        groupId: 'TESVS:1HOA',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs'
+      },
+      {
+        id: '1054626',
+        type: 'undervisningsgruppe',
+        name: '1ENYA/ENG1009',
+        groupId: 'TESVS:1ENYA/ENG1009',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'ENG1009',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/ENG1009',
+          tittel: {
+            en: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+            nb: 'Engelsk Vg1 yrkesfaglige utdanningsprogram',
+            nn: 'Engelsk, Vg1 yrkesfaglege utdanningprogram'
+          },
+          kortform: {
+            en: 'Engelsk',
+            nb: 'Engelsk',
+            nn: 'Engelsk'
+          }
+        }
+      },
+      {
+        id: '1054435',
+        type: 'undervisningsgruppe',
+        name: '1MPYA/MAT1117',
+        groupId: 'TESVS:1MPYA/MAT1117',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'MAT1117',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1117',
+          tittel: {
+            en: 'Matematikk 1P-Y  HS',
+            nb: 'Matematikk 1P-Y  HS',
+            nn: 'Matematikk 1P-Y  HS'
+          },
+          kortform: {
+            en: 'Matematikk 1P-Y',
+            nb: 'Matematikk 1P-Y',
+            nn: 'Matematikk 1P-Y'
+          }
+        }
+      },
+      {
+        id: '1054449',
+        type: 'undervisningsgruppe',
+        name: '1HOA/KLFAG',
+        groupId: 'TESVS:1HOA/KLFAG',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: '1HOA/KLFAG',
+          kortform: {
+            en: 'Læreplan generell del',
+            nb: 'Læreplan generell del'
+          }
+        }
+      },
+      {
+        id: '1054592',
+        type: 'undervisningsgruppe',
+        name: '1HOA/HSF1008',
+        groupId: 'TESVS:1HOA/HSF1008',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HSF1008',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1008',
+          tittel: {
+            en: 'Yrkesliv i helse- og oppvekstfag',
+            nb: 'Yrkesliv i helse- og oppvekstfag',
+            nn: 'Yrkesliv i helse- og oppvekstfag'
+          },
+          kortform: {
+            en: 'Yrkesliv i helse- og oppv.fag',
+            nb: 'Yrkesliv i helse- og oppv.fag',
+            nn: 'Yrkesliv i helse- og oppv.fag'
+          }
+        }
+      },
+      {
+        id: '1054576',
+        type: 'undervisningsgruppe',
+        name: '1HOA/HSF1006',
+        groupId: 'TESVS:1HOA/HSF1006',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HSF1006',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1006',
+          tittel: {
+            en: 'Helsefremmende arbeid',
+            nb: 'Helsefremmende arbeid',
+            nn: 'Helsefremjande arbeid'
+          },
+          kortform: {
+            en: 'Helsefremmende arbeid',
+            nb: 'Helsefremmende arbeid',
+            nn: 'Helsefremjande arbeid'
+          }
+        }
+      },
+      {
+        id: '1054552',
+        type: 'undervisningsgruppe',
+        name: '1HOA/KRO1017',
+        groupId: 'TESVS:1HOA/KRO1017',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'KRO1017',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1017',
+          tittel: {
+            en: 'Kroppsøving Vg1',
+            nb: 'Kroppsøving Vg1',
+            nn: 'Kroppsøving Vg1'
+          },
+          kortform: {
+            en: 'Kroppsøving',
+            nb: 'Kroppsøving',
+            nn: 'Kroppsøving'
+          }
+        }
+      },
+      {
+        id: '1054698',
+        type: 'undervisningsgruppe',
+        name: '1HOA/YFF4106',
+        groupId: 'TESVS:1HOA/YFF4106',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'YFF4106',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
+          tittel: {
+            en: 'Yrkesfaglig fordypning Vg1',
+            nb: 'Yrkesfaglig fordypning Vg1',
+            nn: 'Yrkesfagleg fordjuping Vg1'
+          },
+          kortform: {
+            en: 'Yrkesfaglig fordypning Vg1',
+            nb: 'Yrkesfaglig fordypning Vg1',
+            nn: 'Yrkesfagleg fordjuping Vg1'
+          }
+        }
+      },
+      {
+        id: '1054253',
+        type: 'undervisningsgruppe',
+        name: '1HOA/NAT1011',
+        groupId: 'TESVS:1HOA/NAT1011',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'NAT1011',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NAT1011',
+          tittel: {
+            en: 'Naturfag Vg1 HS',
+            nb: 'Naturfag Vg1 HS',
+            nn: 'Naturfag Vg1 HS'
+          },
+          kortform: {
+            en: 'Naturfag',
+            nb: 'Naturfag',
+            nn: 'Naturfag'
+          }
+        }
+      },
+      {
+        id: '1054198',
+        type: 'undervisningsgruppe',
+        name: '1HOA/HSF1007',
+        groupId: 'TESVS:1HOA/HSF1007',
+        schoolId: '38099',
+        schoolName: 'Testen videregående skole',
+        schoolShortName: 'Testen vgs',
+        grep: {
+          kode: 'HSF1007',
+          dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1007',
+          tittel: {
+            en: 'Kommunikasjon og samhandling',
+            nb: 'Kommunikasjon og samhandling',
+            nn: 'Kommunikasjon og samhandling'
+          },
+          kortform: {
+            en: 'Kommunikasjon og samhandling',
+            nb: 'Kommunikasjon og samhandling',
+            nn: 'Kommunikasjon og samhandling'
+          }
         }
       }
-    },
-    {
-      id: '2_1MPYA/MAT1117_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1MPYA/MAT1117',
-      groupId: 'TESVS:1MPYA/MAT1117',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'MAT1117',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/MAT1117',
-        tittel: {
-          en: 'Matematikk 1P-Y  HS',
-          nb: 'Matematikk 1P-Y  HS',
-          nn: 'Matematikk 1P-Y  HS'
-        },
-        kortform: {
-          en: 'Matematikk 1P-Y',
-          nb: 'Matematikk 1P-Y',
-          nn: 'Matematikk 1P-Y'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/KLFAG_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/KLFAG',
-      groupId: 'TESVS:1HOA/KLFAG',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: '1HOA/KLFAG',
-        kortform: {
-          en: 'Læreplan generell del',
-          nb: 'Læreplan generell del'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/HSF1008_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/HSF1008',
-      groupId: 'TESVS:1HOA/HSF1008',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HSF1008',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1008',
-        tittel: {
-          en: 'Yrkesliv i helse- og oppvekstfag',
-          nb: 'Yrkesliv i helse- og oppvekstfag',
-          nn: 'Yrkesliv i helse- og oppvekstfag'
-        },
-        kortform: {
-          en: 'Yrkesliv i helse- og oppv.fag',
-          nb: 'Yrkesliv i helse- og oppv.fag',
-          nn: 'Yrkesliv i helse- og oppv.fag'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/HSF1006_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/HSF1006',
-      groupId: 'TESVS:1HOA/HSF1006',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HSF1006',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1006',
-        tittel: {
-          en: 'Helsefremmende arbeid',
-          nb: 'Helsefremmende arbeid',
-          nn: 'Helsefremjande arbeid'
-        },
-        kortform: {
-          en: 'Helsefremmende arbeid',
-          nb: 'Helsefremmende arbeid',
-          nn: 'Helsefremjande arbeid'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/KRO1017_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/KRO1017',
-      groupId: 'TESVS:1HOA/KRO1017',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'KRO1017',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/KRO1017',
-        tittel: {
-          en: 'Kroppsøving Vg1',
-          nb: 'Kroppsøving Vg1',
-          nn: 'Kroppsøving Vg1'
-        },
-        kortform: {
-          en: 'Kroppsøving',
-          nb: 'Kroppsøving',
-          nn: 'Kroppsøving'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/YFF4106_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/YFF4106',
-      groupId: 'TESVS:1HOA/YFF4106',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'YFF4106',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/YFF4106',
-        tittel: {
-          en: 'Yrkesfaglig fordypning Vg1',
-          nb: 'Yrkesfaglig fordypning Vg1',
-          nn: 'Yrkesfagleg fordjuping Vg1'
-        },
-        kortform: {
-          en: 'Yrkesfaglig fordypning Vg1',
-          nb: 'Yrkesfaglig fordypning Vg1',
-          nn: 'Yrkesfagleg fordjuping Vg1'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/NAT1011_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/NAT1011',
-      groupId: 'TESVS:1HOA/NAT1011',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'NAT1011',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/NAT1011',
-        tittel: {
-          en: 'Naturfag Vg1 HS',
-          nb: 'Naturfag Vg1 HS',
-          nn: 'Naturfag Vg1 HS'
-        },
-        kortform: {
-          en: 'Naturfag',
-          nb: 'Naturfag',
-          nn: 'Naturfag'
-        }
-      }
-    },
-    {
-      id: '2_1HOA/HSF1007_TESVS@38099',
-      type: 'undervisningsgruppe',
-      name: '1HOA/HSF1007',
-      groupId: 'TESVS:1HOA/HSF1007',
-      schoolId: 'TESVS@38099',
-      schoolName: 'Testen videregående skole',
-      schoolShortName: 'Testen vgs',
-      grep: {
-        kode: 'HSF1007',
-        dataUrl: 'https://data.udir.no/kl06/v201906/fagkoder/HSF1007',
-        tittel: {
-          en: 'Kommunikasjon og samhandling',
-          nb: 'Kommunikasjon og samhandling',
-          nn: 'Kommunikasjon og samhandling'
-        },
-        kortform: {
-          en: 'Kommunikasjon og samhandling',
-          nb: 'Kommunikasjon og samhandling',
-          nn: 'Kommunikasjon og samhandling'
-        }
-      }
-    }
     ]
   }
 ]
@@ -1981,13 +1883,12 @@ export const TEACHERS = [
     mail: 'presis.damesykkel@vtfk.no',
     isContactTeacher: true,
     relatedGroupIds: [
-      '1_1HOA_TESVS@38099',
-      '2_1HOA/ATF1_TESVS@38099',
-      '2_1HOA/ORD1_TESVS@38099',
-      '2_1HOA/KLFAG_TESVS@38099',
-      '2_1HOA/YFF4106_TESVS@38099',
-      '2_1HOA/NAT1011_TESVS@38099',
-      '2_1HOA/HSF1006_TESVS@38099'
+      '1054693',
+      '1054693_1054053',
+      '1054449',
+      '1054638',
+      '1054253',
+      '1054576'
     ]
   },
   {
@@ -1999,7 +1900,7 @@ export const TEACHERS = [
     mail: 'falsk.handlekraft@vtfk.no',
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_1ENYA/ENG1009_TESVS@38099'
+      '1054626'
     ]
   },
   {
@@ -2011,8 +1912,8 @@ export const TEACHERS = [
     mail: 'viktig.kaerlig@vtfk.no',
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_1HOA/YFF4106_TESVS@38099',
-      '2_1HOA/HSF1006_TESVS@38099'
+      '1054638',
+      '1054576'
     ]
   },
   {
@@ -2025,7 +1926,7 @@ export const TEACHERS = [
     mobile: 4748048048,
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_1HOA/HSF1007_TESVS@38099'
+      '1054198'
     ]
   },
   {
@@ -2038,7 +1939,7 @@ export const TEACHERS = [
     mobile: 4791111119,
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_1HOA/HSF1008_TESVS@38099'
+      '1054592'
     ]
   },
   {
@@ -2051,8 +1952,8 @@ export const TEACHERS = [
     mobile: 4799779977,
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_1HOA/KRO1017_TESVS@38099',
-      '2_2STB/KRO1005_TESVS@38099'
+      '1054552',
+      '1054637'
     ]
   },
   {
@@ -2065,12 +1966,11 @@ export const TEACHERS = [
     mobile: 4794949494,
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_1HOA/YFF4106_TESVS@38099',
-      '1_2STB_TESVS@38099',
-      '2_2STB/KLFAG_TESVS@38099',
-      '2_2STB/ATF2_TESVS@38099',
-      '2_2STB/ORD2_TESVS@38099',
-      '2_2STB/NOR1208_TESVS@38099'
+      '1054638',
+      '1054694',
+      '1054539',
+      '1054694_1054032',
+      '1054149'
     ]
   },
   {
@@ -2083,7 +1983,7 @@ export const TEACHERS = [
     mobile: 4795959595,
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_1MPYA/MAT1117_TESVS@38099'
+      '1054435'
     ]
   },
   {
@@ -2095,7 +1995,7 @@ export const TEACHERS = [
     mail: 'usedvanlig.eske@vtfk.no',
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_2FY1A/REA3004_TESVS@38099'
+      '1054438'
     ]
   },
   {
@@ -2107,7 +2007,7 @@ export const TEACHERS = [
     mail: 'flyktig.logg@vtfk.no',
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_2TY2B/FSP5122_TESVS@38099'
+      '1054291'
     ]
   },
   {
@@ -2120,7 +2020,7 @@ export const TEACHERS = [
     mobile: 4745000054,
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_2IT1/REA3014_TESVS@38099'
+      '1054154'
     ]
   },
   {
@@ -2132,7 +2032,7 @@ export const TEACHERS = [
     mail: 'diskret.telefonkiosk@vtfk.no',
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_2KJ1B/REA3011_TESVS@38099'
+      '1054013'
     ]
   },
   {
@@ -2144,7 +2044,7 @@ export const TEACHERS = [
     mail: 'vennlig.arm@vtfk.no',
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_2MR1B/REA3022_TESVS@38099'
+      '1054082'
     ]
   },
   {
@@ -2157,7 +2057,7 @@ export const TEACHERS = [
     mobile: 4793949494,
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_2STB/HIS1001_TESVS@38099'
+      '1054467'
     ]
   },
   {
@@ -2169,27 +2069,36 @@ export const TEACHERS = [
     mail: 'kra0801@skole.vtfk.no',
     isContactTeacher: false,
     relatedGroupIds: [
-      '2_2STB/HIS1001_TESVS@38099'
+      '1054467'
     ]
   }
 ]
 
 export const CLASSES = [
   {
-    id: '1_2STB_TESVS@38099',
+    id: '1054693',
     type: 'basisgruppe',
-    name: '2STB',
-    groupId: 'TESVS:2STB',
-    schoolId: 'TESVS@38099',
+    name: '1HOA',
+    groupId: 'TESVS:1HOA',
+    schoolId: '38099',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs'
   },
   {
-    id: '2_2HOS/NOR1208_TESVS@38099',
+    id: '1054694',
+    type: 'basisgruppe',
+    name: '2STB',
+    groupId: 'TESVS:2STB',
+    schoolId: '38099',
+    schoolName: 'Testen videregående skole',
+    schoolShortName: 'Testen vgs'
+  },
+  {
+    id: '1054695',
     type: 'undervisningsgruppe',
     name: '2HOS/NOR1208',
     groupId: 'TESVS:2HOS/NOR1208',
-    schoolId: 'TESVS@38099',
+    schoolId: '38099',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
     grep: {
@@ -2208,11 +2117,11 @@ export const CLASSES = [
     }
   },
   {
-    id: '2_1GK_TESVS@38099',
+    id: '1054696',
     type: 'undervisningsgruppe',
     name: '1GK',
     groupId: 'TESVS:1GK',
-    schoolId: 'TESVS@38099',
+    schoolId: '38099',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
     grep: {
@@ -2224,11 +2133,11 @@ export const CLASSES = [
     }
   },
   {
-    id: '2_2STB/KLFAG_TESVS@38099',
+    id: '1054697',
     type: 'undervisningsgruppe',
     name: '2STB/KLFAG',
     groupId: 'TESVS:2STB/KLFAG',
-    schoolId: 'TESVS@38099',
+    schoolId: '38099',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
     grep: {
@@ -2240,11 +2149,11 @@ export const CLASSES = [
     }
   },
   {
-    id: '2_1HOA/YFF4106_TESVS@38099',
+    id: '1054698',
     type: 'undervisningsgruppe',
     name: '1HOA/YFF4106',
     groupId: 'TESVS:1HOA/YFF4106',
-    schoolId: 'TESVS@38099',
+    schoolId: '38099',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
     grep: {
@@ -2263,11 +2172,11 @@ export const CLASSES = [
     }
   },
   {
-    id: '2_2STB/NOR1208_TESVS@38099',
+    id: '1054699',
     type: 'undervisningsgruppe',
     name: '2STB/NOR1208',
     groupId: 'TESVS:2STB/NOR1208',
-    schoolId: 'TESVS@38099',
+    schoolId: '38099',
     schoolName: 'Testen videregående skole',
     schoolShortName: 'Testen vgs',
     grep: {
@@ -2312,9 +2221,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -2333,10 +2242,12 @@ export const DOCUMENTS = [
           timeStamp: 1568615152589,
           createdBy: 'arv1204'
         },
-        modified: [{
-          timeStamp: 1568615152589,
-          modifiedBy: 'arv1204'
-        }],
+        modified: [
+          {
+            timeStamp: 1568615152589,
+            modifiedBy: 'arv1204'
+          }
+        ],
         student: 'fer0804',
         bedriftsNavn: 'NOTODDEN KOMMUNE BY/HEDDAL HJEMMETJENESTE',
         bedriftsData: {
@@ -2347,16 +2258,20 @@ export const DOCUMENTS = [
           poststed: 'NOTODDEN',
           avdeling: 'HBT 2'
         },
-        kontaktpersonData: [{
-          navn: 'Fornavn Etternavn',
-          telefon: '98765432',
-          epost: 'fornavn.etternavn@notodden.kommune.no',
-          avdeling: ''
-        }],
-        parorendeData: [{
-          navn: 'Fornavn Etternavn',
-          telefon: '98765432'
-        }],
+        kontaktpersonData: [
+          {
+            navn: 'Fornavn Etternavn',
+            telefon: '98765432',
+            epost: 'fornavn.etternavn@notodden.kommune.no',
+            avdeling: ''
+          }
+        ],
+        parorendeData: [
+          {
+            navn: 'Fornavn Etternavn',
+            telefon: '98765432'
+          }
+        ],
         fraDato: '19.07.2019',
         tilDato: '20.09.2019',
         daysPerWeek: '3',
@@ -2436,132 +2351,148 @@ export const DOCUMENTS = [
           score: 'Under forventet'
         }
       },
-      kompetansemal: [{
-        _id: '5d7f2af09f7cda0008d292d4',
-        type: 'maal',
-        created: {
-          timeStamp: 1568615152589,
-          createdBy: 'arv1204'
+      kompetansemal: [
+        {
+          _id: '5d7f2af09f7cda0008d292d4',
+          type: 'maal',
+          created: {
+            timeStamp: 1568615152589,
+            createdBy: 'arv1204'
+          },
+          modified: [
+            {
+              timeStamp: 1568615152589,
+              modifiedBy: 'arv1204'
+            }
+          ],
+          studentUserName: 'fer0804',
+          referanseID: '5d7f29d059e31d0007cc9ff5',
+          referanseTittel: 'Norges røde kors',
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'mestre tre ulike typer masseflyttingsmaskiner',
+              nn: 'mestre tre ulike typer masseflyttingsmaskiner',
+              en: 'mestre tre ulike typer masseflyttingsmaskiner'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen',
+          tilbakemelding: 'Lav måloppnåelse'
         },
-        modified: [{
-          timeStamp: 1568615152589,
-          modifiedBy: 'arv1204'
-        }],
-        studentUserName: 'fer0804',
-        referanseID: '5d7f29d059e31d0007cc9ff5',
-        referanseTittel: 'Norges røde kors',
-        grep: {
-          kode: 'K3703',
-          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-          tittel: {
-            nb: 'mestre tre ulike typer masseflyttingsmaskiner',
-            nn: 'mestre tre ulike typer masseflyttingsmaskiner',
-            en: 'mestre tre ulike typer masseflyttingsmaskiner'
-          }
+        {
+          _id: '5d7f2af09f7cda0008d292d5',
+          type: 'maal',
+          created: {
+            timeStamp: 1568615152589,
+            createdBy: 'arv1204'
+          },
+          modified: [
+            {
+              timeStamp: 1568615152589,
+              modifiedBy: 'arv1204'
+            }
+          ],
+          studentUserName: 'fer0804',
+          referanseID: '5d7f29d059e31d0007cc9ff5',
+          referanseTittel: 'Norges røde kors',
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'bruke relevant måleutstyr',
+              nn: 'bruke relevant måleutstyr',
+              en: 'bruke relevant måleutstyr'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen',
+          tilbakemelding: 'Lav måloppnåelse'
         },
-        arbeidsoppgaver: 'lede morgentrimmen',
-        tilbakemelding: 'Lav måloppnåelse'
-      }, {
-        _id: '5d7f2af09f7cda0008d292d5',
-        type: 'maal',
-        created: {
-          timeStamp: 1568615152589,
-          createdBy: 'arv1204'
+        {
+          _id: '5d7f2af09f7cda0008d292d6',
+          type: 'maal',
+          created: {
+            timeStamp: 1568615152589,
+            createdBy: 'arv1204'
+          },
+          modified: [
+            {
+              timeStamp: 1568615152589,
+              modifiedBy: 'arv1204'
+            }
+          ],
+          studentUserName: 'fer0804',
+          referanseID: '5d7f29d059e31d0007cc9ff5',
+          referanseTittel: 'Norges røde kors',
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
+              nn: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
+              en: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen',
+          tilbakemelding: 'Lav måloppnåelse'
         },
-        modified: [{
-          timeStamp: 1568615152589,
-          modifiedBy: 'arv1204'
-        }],
-        studentUserName: 'fer0804',
-        referanseID: '5d7f29d059e31d0007cc9ff5',
-        referanseTittel: 'Norges røde kors',
-        grep: {
-          kode: 'K3703',
-          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-          tittel: {
-            nb: 'bruke relevant måleutstyr',
-            nn: 'bruke relevant måleutstyr',
-            en: 'bruke relevant måleutstyr'
-          }
+        {
+          _id: '5d7f2af09f7cda0008d292d7',
+          type: 'maal',
+          created: {
+            timeStamp: 1568615152589,
+            createdBy: 'arv1204'
+          },
+          modified: [
+            {
+              timeStamp: 1568615152589,
+              modifiedBy: 'arv1204'
+            }
+          ],
+          studentUserName: 'fer0804',
+          referanseID: '5d7f29d059e31d0007cc9ff5',
+          referanseTittel: 'Norges røde kors',
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
+              nn: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
+              en: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen',
+          tilbakemelding: 'Lav måloppnåelse'
         },
-        arbeidsoppgaver: 'lede morgentrimmen',
-        tilbakemelding: 'Lav måloppnåelse'
-      }, {
-        _id: '5d7f2af09f7cda0008d292d6',
-        type: 'maal',
-        created: {
-          timeStamp: 1568615152589,
-          createdBy: 'arv1204'
-        },
-        modified: [{
-          timeStamp: 1568615152589,
-          modifiedBy: 'arv1204'
-        }],
-        studentUserName: 'fer0804',
-        referanseID: '5d7f29d059e31d0007cc9ff5',
-        referanseTittel: 'Norges røde kors',
-        grep: {
-          kode: 'K3703',
-          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-          tittel: {
-            nb: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
-            nn: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
-            en: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser'
-          }
-        },
-        arbeidsoppgaver: 'lede morgentrimmen',
-        tilbakemelding: 'Lav måloppnåelse'
-      }, {
-        _id: '5d7f2af09f7cda0008d292d7',
-        type: 'maal',
-        created: {
-          timeStamp: 1568615152589,
-          createdBy: 'arv1204'
-        },
-        modified: [{
-          timeStamp: 1568615152589,
-          modifiedBy: 'arv1204'
-        }],
-        studentUserName: 'fer0804',
-        referanseID: '5d7f29d059e31d0007cc9ff5',
-        referanseTittel: 'Norges røde kors',
-        grep: {
-          kode: 'K3703',
-          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-          tittel: {
-            nb: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
-            nn: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
-            en: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang'
-          }
-        },
-        arbeidsoppgaver: 'lede morgentrimmen',
-        tilbakemelding: 'Lav måloppnåelse'
-      }, {
-        _id: '5d7f2af09f7cda0008d292d8',
-        type: 'maal',
-        created: {
-          timeStamp: 1568615152589,
-          createdBy: 'arv1204'
-        },
-        modified: [{
-          timeStamp: 1568615152589,
-          modifiedBy: 'arv1204'
-        }],
-        studentUserName: 'fer0804',
-        referanseID: '5d7f29d059e31d0007cc9ff5',
-        referanseTittel: 'Norges røde kors',
-        grep: {
-          kode: 'K3703',
-          'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-          tittel: {
-            nb: 'mestre tre ulike typer masseflyttingsmaskiner',
-            nn: 'mestre tre ulike typer masseflyttingsmaskiner',
-            en: 'mestre tre ulike typer masseflyttingsmaskiner'
-          }
-        },
-        arbeidsoppgaver: 'lede morgentrimmen',
-        tilbakemelding: 'Lav måloppnåelse'
-      }],
+        {
+          _id: '5d7f2af09f7cda0008d292d8',
+          type: 'maal',
+          created: {
+            timeStamp: 1568615152589,
+            createdBy: 'arv1204'
+          },
+          modified: [
+            {
+              timeStamp: 1568615152589,
+              modifiedBy: 'arv1204'
+            }
+          ],
+          studentUserName: 'fer0804',
+          referanseID: '5d7f29d059e31d0007cc9ff5',
+          referanseTittel: 'Norges røde kors',
+          grep: {
+            kode: 'K3703',
+            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+            tittel: {
+              nb: 'mestre tre ulike typer masseflyttingsmaskiner',
+              nn: 'mestre tre ulike typer masseflyttingsmaskiner',
+              en: 'mestre tre ulike typer masseflyttingsmaskiner'
+            }
+          },
+          arbeidsoppgaver: 'lede morgentrimmen',
+          tilbakemelding: 'Lav måloppnåelse'
+        }
+      ],
       year: '2020/2021'
     },
     isEncrypted: false,
@@ -2605,9 +2536,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -2619,66 +2550,74 @@ export const DOCUMENTS = [
       shortName: 'Testen vgs'
     },
     content: {
-      utplasseringer: [{
-        id: '5d7f29d059e31d0007cc9ff5',
-        name: 'Norges røde kors',
-        maal: [{
-          grep: {
-            kode: 'K3703',
-            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-            tittel: {
-              nb: 'mestre tre ulike typer masseflyttingsmaskiner',
-              nn: 'mestre tre ulike typer masseflyttingsmaskiner',
-              en: 'mestre tre ulike typer masseflyttingsmaskiner'
+      utplasseringer: [
+        {
+          id: '5d7f29d059e31d0007cc9ff5',
+          name: 'Norges røde kors',
+          maal: [
+            {
+              grep: {
+                kode: 'K3703',
+                'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+                tittel: {
+                  nb: 'mestre tre ulike typer masseflyttingsmaskiner',
+                  nn: 'mestre tre ulike typer masseflyttingsmaskiner',
+                  en: 'mestre tre ulike typer masseflyttingsmaskiner'
+                }
+              },
+              arbeidsoppgaver: 'lede morgentrimmen'
+            },
+            {
+              grep: {
+                kode: 'K3703',
+                'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+                tittel: {
+                  nb: 'bruke relevant måleutstyr',
+                  nn: 'bruke relevant måleutstyr',
+                  en: 'bruke relevant måleutstyr'
+                }
+              },
+              arbeidsoppgaver: 'lede morgentrimmen'
+            },
+            {
+              grep: {
+                kode: 'K3703',
+                'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+                tittel: {
+                  nb: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
+                  nn: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
+                  en: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser'
+                }
+              },
+              arbeidsoppgaver: 'lede morgentrimmen'
+            },
+            {
+              grep: {
+                kode: 'K3703',
+                'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+                tittel: {
+                  nb: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
+                  nn: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
+                  en: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang'
+                }
+              },
+              arbeidsoppgaver: 'lede morgentrimmen'
+            },
+            {
+              grep: {
+                kode: 'K3703',
+                'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
+                tittel: {
+                  nb: 'mestre tre ulike typer masseflyttingsmaskiner',
+                  nn: 'mestre tre ulike typer masseflyttingsmaskiner',
+                  en: 'mestre tre ulike typer masseflyttingsmaskiner'
+                }
+              },
+              arbeidsoppgaver: 'lede morgentrimmen'
             }
-          },
-          arbeidsoppgaver: 'lede morgentrimmen'
-        }, {
-          grep: {
-            kode: 'K3703',
-            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-            tittel: {
-              nb: 'bruke relevant måleutstyr',
-              nn: 'bruke relevant måleutstyr',
-              en: 'bruke relevant måleutstyr'
-            }
-          },
-          arbeidsoppgaver: 'lede morgentrimmen'
-        }, {
-          grep: {
-            kode: 'K3703',
-            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-            tittel: {
-              nb: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
-              nn: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser',
-              en: 'utføre fundamentering, oppbygging og komprimering i henhold til tegninger og beskrivelser'
-            }
-          },
-          arbeidsoppgaver: 'lede morgentrimmen'
-        }, {
-          grep: {
-            kode: 'K3703',
-            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-            tittel: {
-              nb: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
-              nn: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang',
-              en: 'gjøre rede for innholdet i relevant nasjonalt og internasjonalt regelverk som gjelder kundens rettigheter og plikter, herunder regler om klageadgang'
-            }
-          },
-          arbeidsoppgaver: 'lede morgentrimmen'
-        }, {
-          grep: {
-            kode: 'K3703',
-            'url-data': 'https://data.udir.no/kl06/v201906/kompetansemaal/K3703',
-            tittel: {
-              nb: 'mestre tre ulike typer masseflyttingsmaskiner',
-              nn: 'mestre tre ulike typer masseflyttingsmaskiner',
-              en: 'mestre tre ulike typer masseflyttingsmaskiner'
-            }
-          },
-          arbeidsoppgaver: 'lede morgentrimmen'
-        }]
-      }],
+          ]
+        }
+      ],
       year: '2020/2021'
     },
     isEncrypted: false,
@@ -2722,9 +2661,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -2738,22 +2677,28 @@ export const DOCUMENTS = [
     content: {
       bekreftelse: {
         oppmotested: 'Whatever',
-        kopiPrEpost: ['test@vtfk.no'],
+        kopiPrEpost: [
+          'test@vtfk.no'
+        ],
         fraDato: '02.02.2021',
         tilDato: '03.02.2021',
         daysPerWeek: '17',
         startTid: '08:00',
         sluttTid: '16:00',
-        kontaktpersonData: [{
-          navn: 'Whatever',
-          telefon: '0118 999 881 999 119 7253',
-          epost: 'nei@nei.no',
-          avdeling: 'Whatever'
-        }],
-        parorendeData: [{
-          navn: 'Allah',
-          telefon: 'Sakesak'
-        }],
+        kontaktpersonData: [
+          {
+            navn: 'Whatever',
+            telefon: '0118 999 881 999 119 7253',
+            epost: 'nei@nei.no',
+            avdeling: 'Whatever'
+          }
+        ],
+        parorendeData: [
+          {
+            navn: 'Allah',
+            telefon: 'Sakesak'
+          }
+        ],
         bedriftsNavn: 'VESTFOLD OG TELEMARK FYLKESKOMMUNE',
         bedriftsData: {
           organisasjonsNummer: '821227062',
@@ -2822,9 +2767,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -2859,7 +2804,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1ENYA/ENG1009_TESVS@38099',
+          id: '1054626',
+          name: '1ENYA/ENG1009',
+          schoolId: '38099',
           en: 'Engelsk',
           nb: 'Engelsk',
           nn: 'Engelsk'
@@ -3021,7 +2968,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '2STB/KRO1005',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
@@ -3236,7 +3185,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '2STB/KRO1005',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
@@ -3337,9 +3288,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -3374,7 +3325,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1ENYA/ENG1009_TESVS@38099',
+          id: '1054626',
+          name: '1ENYA/ENG1009',
+          schoolId: '38099',
           en: 'Engelsk',
           nb: 'Engelsk',
           nn: 'Engelsk'
@@ -3475,9 +3428,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -3512,7 +3465,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1ENYA/ENG1009_TESVS@38099',
+          id: '1054626',
+          name: '1ENYA/ENG1009',
+          schoolId: '38099',
           en: 'Engelsk',
           nb: 'Engelsk',
           nn: 'Engelsk'
@@ -3751,13 +3706,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -3976,13 +3935,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -4067,7 +4030,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
@@ -4168,9 +4133,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -4351,9 +4316,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -4441,13 +4406,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -4548,9 +4517,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -4715,13 +4684,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -4822,9 +4795,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -4859,7 +4832,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1ENYA/ENG1009_TESVS@38099',
+          id: '1054626',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Engelsk',
           nb: 'Engelsk',
           nn: 'Engelsk'
@@ -5074,7 +5049,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
@@ -5212,7 +5189,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1MPYD/MAT1117_TESVS@38099',
+          id: '1054287',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Matematikk 1P-Y',
           nb: 'Matematikk 1P-Y',
           nn: 'Matematikk 1P-Y'
@@ -5374,13 +5353,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -5562,9 +5545,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -5729,13 +5712,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -5820,7 +5807,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
@@ -5905,7 +5894,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
@@ -5953,9 +5944,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -5990,7 +5981,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1ENYA/ENG1009_TESVS@38099',
+          id: '1054626',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Engelsk',
           nb: 'Engelsk',
           nn: 'Engelsk'
@@ -6038,9 +6031,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -6075,13 +6068,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1ENYA/ENG1009_TESVS@38099',
+          id: '1054626',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Engelsk',
           nb: 'Engelsk',
           nn: 'Engelsk'
         },
         {
-          id: '2_1HOA/HSF1008_TESVS@38099',
+          id: '1054592',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Yrkesliv i helse- og oppv.fag',
           nb: 'Yrkesliv i helse- og oppv.fag',
           nn: 'Yrkesliv i helse- og oppv.fag'
@@ -6166,13 +6163,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -6273,9 +6274,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -6310,7 +6311,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1ENYA/ENG1009_TESVS@38099',
+          id: '1054626',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Engelsk',
           nb: 'Engelsk',
           nn: 'Engelsk'
@@ -6761,13 +6764,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -7275,7 +7282,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
@@ -7567,13 +7576,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -7698,9 +7711,9 @@ export const DOCUMENTS = [
     },
     student: {
       username: 'lil1312',
-      name: 'Lilla Spenne',
+      name: 'Lilla Spene',
       firstName: 'Lilla',
-      lastName: 'Spenne',
+      lastName: 'Spene',
       mobile: '',
       mail: 'lil1312@skole.vtfk.no',
       classId: 'TESVS:1HOA',
@@ -7735,7 +7748,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1ENYA/ENG1009_TESVS@38099',
+          id: '1054626',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Engelsk',
           nb: 'Engelsk',
           nn: 'Engelsk'
@@ -7873,7 +7888,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
@@ -8015,13 +8032,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -8106,13 +8127,17 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_2STB/KRO1005_TESVS@38099',
+          id: '1054637',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Kroppsøving',
           nb: 'Kroppsøving',
           nn: 'Kroppsøving'
         },
         {
-          id: '2_2STB/HIS1001_TESVS@38099',
+          id: '1054467',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Historie',
           nb: 'Historie',
           nn: 'Historie'
@@ -8404,7 +8429,9 @@ export const DOCUMENTS = [
       ],
       classes: [
         {
-          id: '2_1MPYD/MAT1117_TESVS@38099',
+          id: '1054287',
+          name: '5STQ/SVE1354',
+          schoolId: '38099',
           en: 'Matematikk 1P-Y',
           nb: 'Matematikk 1P-Y',
           nn: 'Matematikk 1P-Y'
