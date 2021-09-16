@@ -146,7 +146,7 @@ export function NewNoteModal ({ selectedStudentId, student, ...props }) {
                     value={formState.note}
                     error={errors.note}
                   />
-                )
+                  )
                 : <Skeleton height='150px' />
             }
           </div>

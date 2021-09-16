@@ -212,8 +212,7 @@ export function Student ({ match, ...props }) {
                   icon='activity' title='Elevsamtaler' link={student && student.isContactTeacher &&
                     <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal('samtale') }}>
                       Ny samtale
-                    </IconButtonLink>
-                  }
+                    </IconButtonLink>}
                 >
                   {
                     !conversations && Array(5).fill().map(function (i) {

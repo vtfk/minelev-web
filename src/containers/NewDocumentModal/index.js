@@ -304,7 +304,7 @@ export function NewDocumentModal ({ selectedStudentId, student, documentType, ..
                 Student has no fags (undervisningsgrupper)
               -------------------- */
               !hasFags &&
-              <ErrorMessage className='form-no-fags'>For å kunne sende varsel i fag, må eleven ha en undervisningsgruppe i Visma InSchool</ErrorMessage>
+                <ErrorMessage className='form-no-fags'>For å kunne sende varsel i fag, må eleven ha en undervisningsgruppe i Visma InSchool</ErrorMessage>
             }
 
             {
@@ -319,7 +319,7 @@ export function NewDocumentModal ({ selectedStudentId, student, documentType, ..
                     closeOnSelect
                     error={errors.type}
                   />
-                )
+                  )
                 : <Skeleton width='100%'><Select placeholder='Dokumenttype' items={[]} /></Skeleton>
             }
 
