@@ -88,7 +88,7 @@ export function NewDocumentModal ({ selectedStudentId, student, documentType, ..
             value: item.id,
             name: item.groupId,
             schoolId: item.schoolId,
-            label: `${item.grep.kortform.nb} (${item.name})`.trim(),
+            label: item.grep && item.grep.kortform && item.grep.kortform.nb ? `${item.grep.kortform.nb} (${item.name})`.trim() : item.name.trim(),
             item
           }))
 
