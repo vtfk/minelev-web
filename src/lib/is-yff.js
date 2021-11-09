@@ -12,6 +12,10 @@ function isYff (student) {
   const school = getSchools({ schoolId: student.schoolId })
   if (school && school.length > 0 && !school[0].yff) return false
 
+  // Sjekk om eleven er medlem av en '*YFF*' undervisningsgruppe
+  const yffGroups = student.groups?.filter(group => group.groupId.toLowerCase().includes('yff')) || []
+  if (yffGroups.length > 0) return true
+
   // Sjekk om elevens utdanningsprogram er yrkesfaglig
   const utdanningsprogram = student?.utdanningsprogram?.type
 
