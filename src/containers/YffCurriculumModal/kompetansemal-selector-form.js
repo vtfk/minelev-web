@@ -106,9 +106,7 @@ function KompetansemalVelger (props) {
       await Promise.all(selectedMaal.map(maal => apiPost(url, maal)))
       setSaving(false)
       setSaveState('success')
-      if (!triggerSaveMaal) {
-        setRefreshLaereplan(true)
-      }
+      setRefreshLaereplan(true)
       // nullstiller maal
       setSelectedMaal([])
     } catch (error) {

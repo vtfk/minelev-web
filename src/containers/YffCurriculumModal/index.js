@@ -36,7 +36,7 @@ export function YffCurriculumModal ({ student, ...props }) {
 
   const [utplasseringer, setUtplasseringer] = useState([])
   const [triggerSaveMaal, setTriggerSaveMaal] = useState()
-  const [refreshLaereplan, setRefreshLaereplan] = useState()
+  const [refreshLaereplan, setRefreshLaereplan] = useState(false)
 
   const [laereplan, setLaereplan] = useState([])
   const [formState, setFormState] = useState({})
