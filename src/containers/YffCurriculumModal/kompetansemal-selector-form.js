@@ -59,8 +59,8 @@ function KompetansemalVelger (props) {
     return null
   }
 
-  const items = kompetansemaal.map(item => {
-    return { value: item.kode, label: item.tittel.nb, ...item }
+  const items = kompetansemaal.map((item, index) => {
+    return { value: item.kode, label: `${index + 1}: ${item.tittel.nb}`, ...item } // TODO: When test users are in place, continue this work to add løpenummer
   })
 
   const updateMaal = item => {
