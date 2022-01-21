@@ -2,10 +2,10 @@ import Moment from 'react-moment'
 import React, { useState } from 'react'
 import { Paragraph, Link, InitialsBadge } from '@vtfk/components'
 
+import { StatisticsCard, StatisticsGroup } from '../../components/Statistics'
+
 import ClassCard from '../../components/class-card'
 import ClassPanel from '../../components/class-panel'
-import ClassTile from '../../components/class-tile'
-import ClassTileGroup from '../../components/class-tile-group'
 
 import { ROUTES } from '../../config/constants'
 import repackDocumentType from '../../lib/repack-document-type'
@@ -34,11 +34,17 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
 
       <ClassCard group={group} />
 
-      <ClassTileGroup>
-        <ClassTile label='varselbrev' value={documents ? documents.length : 0} />
-        <ClassTile label='dokumenterte elevsamtaler' value={conversations ? conversations.length : 0} />
-        <ClassTile label='notater til elevmappa' value={notes ? notes.length : 0} />
-      </ClassTileGroup>
+      <StatisticsGroup>
+        <StatisticsCard title='varselbrev'>
+          {documents ? documents.length : 0}
+        </StatisticsCard>
+        <StatisticsCard title='dokumenterte elevsamtaler'>
+          {conversations ? conversations.length : 0}
+        </StatisticsCard>
+        <StatisticsCard title='notater til elevmappa'>
+          {notes ? notes.length : 0}
+        </StatisticsCard>
+      </StatisticsGroup>
 
       <ClassPanel icon='students' title='Elever'>
         {

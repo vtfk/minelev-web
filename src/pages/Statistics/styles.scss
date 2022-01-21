@@ -12,40 +12,6 @@
     }
   }
 
-  .numbers {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -($baseUnit * 4);
-    margin-bottom: $baseUnit * 8;
-
-    @media(max-width: 1000px) {
-      display: block;
-      margin-left: 0;
-      margin-bottom: $baseUnit * 4;
-    }
-
-    .numbers-item {
-      width: calc(100% / 3 - (#{$baseUnit * 4}));
-      margin-bottom: $baseUnit * 2;
-      margin-left: $baseUnit * 4;
-      padding: ($baseUnit * 2) ($baseUnit * 4) ($baseUnit * 2) ($baseUnit * 4);
-      background: $catSkillWhite;
-
-      @media(max-width: 1000px) {
-        width: 100%;
-        margin-left: 0;
-      }
-
-      .numbers-item-title {
-
-      }
-
-      .numbers-item-text {
-        padding-right: $baseUnit * 4;
-      }
-    }
-  }
-
   .stats-collapse {
     margin-bottom: $baseUnit * 6;
 

@@ -3,7 +3,9 @@ import { useSession } from '@vtfk/react-msal'
 
 import { DefaultLayout } from '../../layouts/Default'
 
-import { Heading1, Heading2, Heading3, Skeleton } from '@vtfk/components'
+import { Heading2, Heading3, Skeleton } from '@vtfk/components'
+
+import { StatisticsCard, StatisticsGroup } from '../../components/Statistics'
 
 import './styles.scss'
 import { API } from '../../config/app'
@@ -44,58 +46,40 @@ export function Statistics () {
           Statistikk
         </Heading2>
 
-        <div className='numbers'>
-          <div className='numbers-item'>
-            <Heading1 as='h2' className='numbers-item-title'>
-              {
-                loading
-                  ? <Skeleton randomWidth={[20, 80]} />
-                  : getTypeStats('varsel')
-              }
-            </Heading1>
-            <Heading3 as='p' className='numbers-item-text'>varselbrev</Heading3>
-          </div>
-          <div className='numbers-item'>
-            <Heading1 as='h2' className='numbers-item-title'>
-              {
-                loading
-                  ? <Skeleton randomWidth={[20, 80]} />
-                  : getTypeStats('samtale')
-              }
-            </Heading1>
-            <Heading3 as='p' className='numbers-item-text'>dokumenterte elevsamtaler</Heading3>
-          </div>
-          <div className='numbers-item'>
-            <Heading1 as='h2' className='numbers-item-title'>
-              {
-                loading
-                  ? <Skeleton randomWidth={[20, 80]} />
-                  : getTypeStats('notat')
-              }
-            </Heading1>
-            <Heading3 as='p' className='numbers-item-text'>notater til elevmappa</Heading3>
-          </div>
+        <StatisticsGroup>
+          <StatisticsCard title='varselbrev'>
+            {
+              loading
+                ? <Skeleton randomWidth={[20, 80]} />
+                : getTypeStats('varsel')
+            }
+          </StatisticsCard>
+          <StatisticsCard title='dokumenterte elevsamtaler'>
+            {
+              loading
+                ? <Skeleton randomWidth={[20, 80]} />
+                : getTypeStats('samtale')
+            }
+          </StatisticsCard>
+          <StatisticsCard title='notater til elevmappa'>
+            {
+              loading
+                ? <Skeleton randomWidth={[20, 80]} />
+                : getTypeStats('notat')
+            }
+          </StatisticsCard>
           {/*
-          <div className='numbers-item'>
-            <Heading1 as='h2' className='numbers-item-title'>
-              [X]
-            </Heading1>
-            <Heading3 as='p' className='numbers-item-text'>lokale læreplaner arkivert</Heading3>
-          </div>
-          <div className='numbers-item'>
-            <Heading1 as='h2' className='numbers-item-title'>
-              [X]
-            </Heading1>
-            <Heading3 as='p' className='numbers-item-text'>utplasseringer</Heading3>
-          </div>
-          <div className='numbers-item'>
-            <Heading1 as='h2' className='numbers-item-title'>
-              [X]
-            </Heading1>
-            <Heading3 as='p' className='numbers-item-text'>tilbakemeldinger</Heading3>
-          </div>
+          <StatisticsCard title='lokale læreplaner arkivert'>
+            [X]
+          </StatisticsCard>
+          <StatisticsCard title='utplasseringer'>
+            [X]
+          </StatisticsCard>
+          <StatisticsCard title='tilbakemeldinger'>
+            [X]
+          </StatisticsCard>
            */}
-        </div>
+        </StatisticsGroup>
 
         <div className='stats-collapse'>
           <Heading3 as='h2' className='stats-collapse-title'>

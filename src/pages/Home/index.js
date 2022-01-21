@@ -8,7 +8,9 @@ import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
 import ClassPanel from '../../components/class-panel'
-import { Heading1, Heading2, Heading3, Paragraph, Link, ErrorMessage, InitialsBadge, IconDropdownNav, IconDropdownNavItem, Icon, Skeleton } from '@vtfk/components'
+import { Heading2, Heading3, Paragraph, Link, ErrorMessage, InitialsBadge, IconDropdownNav, IconDropdownNavItem, Icon, Skeleton } from '@vtfk/components'
+
+import { StatisticsCard, StatisticsGroup } from '../../components/Statistics'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'
@@ -191,52 +193,40 @@ export function Home () {
             </Heading3>
 
             <div className='statistics'>
-              <div className='statistics-row'>
-                <div className='statistics-item'>
-                  <Heading1 as='h3' className='statistics-item-title'>
-                    {
-                      loading
-                        ? <Skeleton randomWidth={[20, 80]} />
-                        : varsler.length
-                    }
-                  </Heading1>
-                  <Paragraph className='statistics-item-text'>varselbrev</Paragraph>
-                </div>
-                <div className='statistics-item'>
-                  <Heading1 as='h3' className='statistics-item-title'>
-                    {
-                      loading
-                        ? <Skeleton randomWidth={[20, 80]} />
-                        : conversations.length
-                    }
-                  </Heading1>
-                  <Paragraph className='statistics-item-text'>dokumenterte elevsamtaler</Paragraph>
-                </div>
-              </div>
-              <div className='statistics-row'>
-                <div className='statistics-item'>
-                  <Heading1 as='h3' className='statistics-item-title'>
-                    {
-                      loading
-                        ? <Skeleton randomWidth={[20, 80]} />
-                        : notes.length
-                    }
-                  </Heading1>
-                  <Paragraph className='statistics-item-text'>notater til elevmappa</Paragraph>
-                </div>
+              <StatisticsGroup className='statistics-row'>
+                <StatisticsCard className='statistics-item' title='varselbrev'>
+                  {
+                    loading
+                      ? <Skeleton randomWidth={[20, 80]} />
+                      : varsler.length
+                  }
+                </StatisticsCard>
+                <StatisticsCard className='statistics-item' title='dokumenterte elevsamtaler'>
+                  {
+                    loading
+                      ? <Skeleton randomWidth={[20, 80]} />
+                      : conversations.length
+                  }
+                </StatisticsCard>
+              </StatisticsGroup>
+              <StatisticsGroup className='statistics-row'>
+                <StatisticsCard className='statistics-item' title='notater til elevmappa'>
+                  {
+                    loading
+                      ? <Skeleton randomWidth={[20, 80]} />
+                      : notes.length
+                  }
+                </StatisticsCard>
                 {/*
-                  <div className='statistics-item'>
-                    <Heading1 as='h3' className='statistics-item-title'>
-                    {
-                        loading
-                          ? <Skeleton randomWidth={[20, 80]} />
-                          : '?'
-                      }
-                    </Heading1>
-                    <Paragraph className='statistics-item-text'>utplasseringer</Paragraph>
-                  </div>
+                  <StatisticsCard className='statistics-item' title='utplasseringer'>
+                  {
+                      loading
+                        ? <Skeleton randomWidth={[20, 80]} />
+                        : '?'
+                    }
+                  </StatisticsCard>
                 */}
-              </div>
+              </StatisticsGroup>
             </div>
 
             <div className='panel-link'>
