@@ -128,7 +128,7 @@ export function ActivityLog () {
                       <tr key={i}>
                         <td width='300px'>
                           <div className='name'>
-                            <Skeleton variant='circle'><InitialsBadge size='small' /></Skeleton>
+                            <Skeleton variant='circle'><InitialsBadge firstName='' lastName='' size='small' /></Skeleton>
                             <Skeleton className='paragraph' randomWidth={[40, 80]} />
                           </div>
                         </td>

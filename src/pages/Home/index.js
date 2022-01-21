@@ -131,7 +131,7 @@ export function Home () {
                 <tr key={i}>
                   <td>
                     <div className='activity-name'>
-                      <Skeleton variant='circle'><InitialsBadge size='small' /></Skeleton>
+                      <Skeleton variant='circle'><InitialsBadge firstName='' lastName='' size='small' /></Skeleton>
                       <Skeleton className='paragraph' randomWidth={[40, 80]} />
                     </div>
                   </td>
@@ -182,7 +182,11 @@ export function Home () {
           }
           {
             !loading && !error && documents && documents.length === 0 &&
-              <Paragraph style={{ fontStyle: 'italic', color: 'grey' }}>Fant ingen aktiviteter for noen av elevene dine</Paragraph>
+              <tr>
+                <td>
+                  <Paragraph style={{ fontStyle: 'italic', color: 'grey' }}>Fant ingen aktiviteter for noen av elevene dine</Paragraph>
+                </td>
+              </tr>
           }
         </ClassPanel>
 

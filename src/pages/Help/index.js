@@ -8,7 +8,7 @@ import './styles.scss'
 
 const QuestionBlock = ({ question, children }) => {
   return (
-    <div class='help-question-block'>
+    <div className='help-question-block'>
       <Heading4 className='help-section-question'>
         {question}
       </Heading4>
