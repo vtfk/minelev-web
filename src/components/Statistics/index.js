@@ -16,10 +16,20 @@ export function StatisticsCard ({ className, title, ...props }) {
   )
 }
 
-export function StatisticsGroup ({ className, ...props }) {
+export function StatisticsGroup ({ className, type, ...props }) {
   return (
-    <div className={className || 'statistics-group'}>
-      {props.children}
+    <div className={className ? className : type === 'card' ? 'statistics-card-group' : 'statistics-progress-group'}>
+      {
+        type === 'card' && props.children
+      }
+      {
+        type === 'progress' &&
+          <table>
+            <tbody>
+              {props.children}
+            </tbody>
+          </table>
+      }
     </div>
   )
 }
@@ -52,6 +62,16 @@ StatisticsGroup.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
+  className: PropTypes.string,
+  type: PropTypes.oneOf([
+    'card',
+    'progress'
+  ])
+}
+
+StatisticsGroup.defaultProps = {
+  type: 'card'
+}
 
 StatisticsProgress.propTypes = {
   className: PropTypes.string,
