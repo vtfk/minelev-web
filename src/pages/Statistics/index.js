@@ -5,7 +5,7 @@ import { DefaultLayout } from '../../layouts/Default'
 
 import { Heading2, Heading3, Skeleton } from '@vtfk/components'
 
-import { StatisticsCard, StatisticsGroup } from '../../components/Statistics'
+import { StatisticsCard, StatisticsGroup, StatisticsProgress } from '../../components/Statistics'
 
 import './styles.scss'
 import { API } from '../../config/app'
@@ -86,30 +86,15 @@ export function Statistics () {
             Varsler fordelt pr. skole
           </Heading3>
 
-          <div className='stats-collapse-table'>
-            <table>
-              <tbody>
-                {
-                  loading
-                    ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
-                    : getSchools('varsel').map(function (item, index) {
-                      return (
-                        <tr key={index}>
-                          <td>{item.name}</td>
-                          <td>{item.count}</td>
-                          <td className='stats-collapse-table-progress'>
-                            <div
-                              className='stats-collapse-table-progressbar'
-                              style={{ maxWidth: (100 * parseInt(item.count) / getTypeStats('varsel')) + '%' }}
-                            />
-                          </td>
-                        </tr>
-                      )
-                    })
-                }
-              </tbody>
-            </table>
-          </div>
+          <StatisticsGroup type='progress'>
+            {
+              loading
+                ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
+                : getSchools('varsel').map(function (item, index) {
+                  return <StatisticsProgress key={index} name={item.name} value={item.count} maxValue={getTypeStats('varsel')} />
+                })
+            }
+          </StatisticsGroup>
         </div>
 
         <div className='stats-collapse'>
@@ -117,30 +102,15 @@ export function Statistics () {
             Samtaler fordelt pr. skole
           </Heading3>
 
-          <div className='stats-collapse-table'>
-            <table>
-              <tbody>
-                {
-                  loading
-                    ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
-                    : getSchools('samtale').map(function (item, index) {
-                      return (
-                        <tr key={index}>
-                          <td>{item.name}</td>
-                          <td>{item.count}</td>
-                          <td className='stats-collapse-table-progress'>
-                            <div
-                              className='stats-collapse-table-progressbar'
-                              style={{ maxWidth: (100 * parseInt(item.count) / getTypeStats('samtale')) + '%' }}
-                            />
-                          </td>
-                        </tr>
-                      )
-                    })
-                }
-              </tbody>
-            </table>
-          </div>
+          <StatisticsGroup type='progress'>
+            {
+              loading
+                ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
+                : getSchools('samtale').map(function (item, index) {
+                  return <StatisticsProgress key={index} name={item.name} value={item.count} maxValue={getTypeStats('samtale')} />
+                })
+            }
+          </StatisticsGroup>
         </div>
 
         <div className='stats-collapse'>
@@ -148,30 +118,15 @@ export function Statistics () {
             Notater fordelt pr. skole
           </Heading3>
 
-          <div className='stats-collapse-table'>
-            <table>
-              <tbody>
-                {
-                  loading
-                    ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
-                    : getSchools('notat').map(function (item, index) {
-                      return (
-                        <tr key={index}>
-                          <td>{item.name}</td>
-                          <td>{item.count}</td>
-                          <td className='stats-collapse-table-progress'>
-                            <div
-                              className='stats-collapse-table-progressbar'
-                              style={{ maxWidth: (100 * parseInt(item.count) / getTypeStats('notat')) + '%' }}
-                            />
-                          </td>
-                        </tr>
-                      )
-                    })
-                }
-              </tbody>
-            </table>
-          </div>
+          <StatisticsGroup type='progress'>
+            {
+              loading
+                ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
+                : getSchools('notat').map(function (item, index) {
+                  return <StatisticsProgress key={index} name={item.name} value={item.count} maxValue={getTypeStats('notat')} />
+                })
+            }
+          </StatisticsGroup>
         </div>
 
       </div>

@@ -20,35 +20,6 @@
       font-weight: 700;
     }
 
-    .stats-collapse-table {
-      table {
-        border-collapse: collapse;
-        width: 100%;
-
-        tr {
-          td {
-            padding-right: $baseUnit * 2;
-            padding-bottom: $baseUnit * 1;
-
-            &.stats-collapse-table-progress {
-              width: 400px;
-
-              @media(max-width: 1000px) {
-                width: 100px;
-              }
-
-              .stats-collapse-table-progressbar {
-                background: $onahau;
-                height: $baseUnit * 2;
-                width: 100%;
-                animation: animate-progressbar 1.5s ease-out;
-              }
-            }
-          }
-        }
-      }
-    }
-
     &:not(:last-child) {
       padding-bottom: $baseUnit * 6;
       border-bottom: 1px solid #979797;
