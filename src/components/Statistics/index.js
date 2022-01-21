@@ -24,6 +24,19 @@ export function StatisticsGroup ({ className, ...props }) {
   )
 }
 
+export function StatisticsProgress ({ className, name, value, maxValue }) {
+  return (
+    <tr>
+      <td>{name}</td>
+      <td>{value}</td>
+      <td className='statistics-progress'>
+        <div
+          className={className || 'statistics-progressbar'}
+          style={{ maxWidth: (100 * parseInt(value) / maxValue) + '%' }} />
+      </td>
+    </tr>
+  )
+}
 
 StatisticsCard.propTypes = {
   children: PropTypes.oneOfType([
@@ -39,5 +52,15 @@ StatisticsGroup.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  className: PropTypes.string
+
+StatisticsProgress.propTypes = {
+  className: PropTypes.string,
+  maxValue: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired
+}
+
+StatisticsProgress.defaultProps = {
+  maxValue: 100,
+  value: 0
 }

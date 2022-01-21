@@ -32,3 +32,31 @@
     margin-bottom: $baseUnit * 3;
   }
 }
+
+.statistics-progress {
+  width: 400px;
+
+  @media(max-width: 1000px) {
+    width: 100px;
+  }
+}
+
+.statistics-progressbar {
+  background: $onahau;
+  height: $baseUnit * 2;
+  width: 100%;
+  animation: animate-progressbar 1.5s ease-out;
+}
+
+@keyframes animate-progressbar {
+  0% {
+    width: 0%;
+    opacity: 0%;
+  }
+  25% {
+    opacity: 100%;
+  }
+  100% {
+    width: 100%
+  }
+}
