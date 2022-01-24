@@ -18,7 +18,7 @@ export function StatisticsCard ({ className, title, ...props }) {
 
 export function StatisticsGroup ({ className, type, ...props }) {
   return (
-    <div className={className ? className : type === 'card' ? 'statistics-card-group' : 'statistics-progress-group'}>
+    <div className={className || (type === 'card' ? 'statistics-card-group' : 'statistics-progress-group')}>
       {
         type === 'card' && props.children
       }
@@ -42,7 +42,8 @@ export function StatisticsProgress ({ className, name, value, maxValue }) {
       <td className='statistics-progress'>
         <div
           className={className || 'statistics-progressbar'}
-          style={{ maxWidth: (100 * parseInt(value) / maxValue) + '%' }} />
+          style={{ maxWidth: (100 * parseInt(value) / maxValue) + '%' }}
+        />
       </td>
     </tr>
   )
