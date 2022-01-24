@@ -18,7 +18,7 @@ export function StatisticsCard ({ className, title, ...props }) {
 
 export function StatisticsGroup ({ className, type, ...props }) {
   return (
-    <div className={className || (type === 'card' ? 'statistics-card-group' : 'statistics-progress-group')}>
+    <div className={className || (type === 'card' ? 'statistics-card-group' : 'statistics-progressbar-group')}>
       {
         type === 'card' && props.children
       }
@@ -34,14 +34,14 @@ export function StatisticsGroup ({ className, type, ...props }) {
   )
 }
 
-export function StatisticsProgress ({ className, name, value, maxValue }) {
+export function StatisticsProgressBar ({ className, name, value, maxValue }) {
   return (
     <tr>
       <td>{name}</td>
       <td>{value}</td>
-      <td className='statistics-progress'>
+      <td className='statistics-progressbar'>
         <div
-          className={className || 'statistics-progressbar'}
+          className={className || 'statistics-progressbar-container'}
           style={{ maxWidth: (100 * parseInt(value) / maxValue) + '%' }}
         />
       </td>
@@ -74,7 +74,7 @@ StatisticsGroup.defaultProps = {
   type: 'card'
 }
 
-StatisticsProgress.propTypes = {
+StatisticsProgressBar.propTypes = {
   className: PropTypes.string,
   maxValue: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,

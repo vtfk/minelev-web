@@ -5,7 +5,7 @@ import { DefaultLayout } from '../../layouts/Default'
 
 import { Heading2, Heading3, Skeleton } from '@vtfk/components'
 
-import { StatisticsCard, StatisticsGroup, StatisticsProgress } from '../../components/Statistics'
+import { StatisticsCard, StatisticsGroup, StatisticsProgressBar } from '../../components/Statistics'
 
 import './styles.scss'
 import { API } from '../../config/app'
@@ -91,7 +91,7 @@ export function Statistics () {
               loading
                 ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
                 : getSchools('varsel').map(function (item, index) {
-                  return <StatisticsProgress key={index} name={item.name} value={item.count} maxValue={getTypeStats('varsel')} />
+                  return <StatisticsProgressBar key={index} name={item.name} value={item.count} maxValue={getTypeStats('varsel')} />
                 })
             }
           </StatisticsGroup>
@@ -107,7 +107,7 @@ export function Statistics () {
               loading
                 ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
                 : getSchools('samtale').map(function (item, index) {
-                  return <StatisticsProgress key={index} name={item.name} value={item.count} maxValue={getTypeStats('samtale')} />
+                  return <StatisticsProgressBar key={index} name={item.name} value={item.count} maxValue={getTypeStats('samtale')} />
                 })
             }
           </StatisticsGroup>
@@ -123,7 +123,7 @@ export function Statistics () {
               loading
                 ? Array(3).fill().map((i) => <tr key={i}><td><Skeleton /></td></tr>)
                 : getSchools('notat').map(function (item, index) {
-                  return <StatisticsProgress key={index} name={item.name} value={item.count} maxValue={getTypeStats('notat')} />
+                  return <StatisticsProgressBar key={index} name={item.name} value={item.count} maxValue={getTypeStats('notat')} />
                 })
             }
           </StatisticsGroup>

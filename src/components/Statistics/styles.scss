@@ -33,7 +33,7 @@
   }
 }
 
-.statistics-progress {
+.statistics-progressbar {
   width: 400px;
 
   @media(max-width: 1000px) {
@@ -41,14 +41,14 @@
   }
 }
 
-.statistics-progressbar {
+.statistics-progressbar-container {
   background: $onahau;
   height: $baseUnit * 2;
   width: 100%;
-  animation: animate-progressbar 1.5s ease-out;
+  animation: animate-progressbar-container 1.5s ease-out;
 }
 
-.statistics-progress-group {
+.statistics-progressbar-group {
   table {
     border-collapse: collapse;
     width: 100%;
@@ -62,7 +62,7 @@
   }
 }
 
-@keyframes animate-progressbar {
+@keyframes animate-progressbar-container {
   0% {
     width: 0%;
     opacity: 0%;
