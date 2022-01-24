@@ -80,8 +80,3 @@ StatisticsProgress.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired
 }
-
-StatisticsProgress.defaultProps = {
-  maxValue: 100,
-  value: 0
-}
