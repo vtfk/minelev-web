@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 import { DefaultLayout } from '../../layouts/Default'
 
@@ -14,8 +15,8 @@ import { Undervisningsgruppe } from './undervisningsgruppe'
 import { Basisgruppe } from './basisgruppe'
 import ClassCard from '../../components/class-card'
 
-export function Class ({ match, ...props }) {
-  const { id } = match.params
+export function Class () {
+  const { id } = useParams()
   const [schoolClass, setSchoolClass] = useState(null)
   const [error, setError] = useState(null)
   const [documents, setDocuments] = useState(null)

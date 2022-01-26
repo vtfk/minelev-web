@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route
 } from 'react-router-dom'
 
@@ -29,19 +29,19 @@ const AppContent = () => {
   return (
     <Router>
       <div className='app'>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path={`/${ROUTES.activityLog}`} component={ActivityLog} />
-          <Route exact path={`/${ROUTES.classes}`} component={Classes} />
-          <Route exact path={`/${ROUTES.classes}/:id`} component={Class} />
-          <Route exact path={`/${ROUTES.students}`} component={Students} />
-          <Route exact path={`/${ROUTES.students}/:id`} component={Student} />
-          <Route exact path={`/${ROUTES.students}/:id/:docId`} component={Student} />
-          <Route exact path={`/${ROUTES.statistics}`} component={Statistics} />
-          <Route exact path={`/${ROUTES.help}`} component={Help} />
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route exact path={`/${ROUTES.activityLog}`} element={<ActivityLog />} />
+          <Route exact path={`/${ROUTES.classes}`} element={<Classes />} />
+          <Route exact path={`/${ROUTES.classes}/:id`} element={<Class />} />
+          <Route exact path={`/${ROUTES.students}`} element={<Students />} />
+          <Route exact path={`/${ROUTES.students}/:id`} element={<Student />} />
+          <Route exact path={`/${ROUTES.students}/:id/:docId`} element={<Student />} />
+          <Route exact path={`/${ROUTES.statistics}`} element={<Statistics />} />
+          <Route exact path={`/${ROUTES.help}`} element={<Help />} />
 
-          <Route exact path='*' component={PageNotFound} />
-        </Switch>
+          <Route exact path='*' element={<PageNotFound />} />
+        </Routes>
 
       </div>
     </Router>

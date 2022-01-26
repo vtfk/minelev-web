@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import * as Sentry from '@sentry/react'
 import Moment from 'react-moment'
 
@@ -22,7 +23,7 @@ import './styles.scss'
 import repackDocumentType from '../../lib/repack-document-type'
 import StudentCard from '../../components/student-card'
 
-export function Student ({ match, ...props }) {
+export function Student () {
   const { apiGet } = useSession()
   const [documentModalState, setDocumentModalState] = useState(false)
   const [documentModalType, setDocumentModalType] = useState(null)
@@ -34,7 +35,7 @@ export function Student ({ match, ...props }) {
   const [notes, setNotes] = useState(null)
   const [conversations, setConversations] = useState(null)
 
-  const { id, docId } = match.params
+  const { id, docId } = useParams()
   if (docId) console.log('DocumentId', docId)
 
   async function getStudent () {

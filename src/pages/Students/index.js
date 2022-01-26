@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Moment from 'react-moment'
 
 import { DefaultLayout } from '../../layouts/Default'
@@ -15,7 +16,7 @@ import { NewNoteModal } from '../../containers/NewNoteModal'
 
 import './styles.scss'
 
-export function Students (props) {
+export function Students () {
   const [documentModalState, setDocumentModalState] = useState(false)
   const [noteModalState, setNoteModalState] = useState(false)
   const [selectedStudent, setSelectedStudent] = useState(null)
@@ -24,7 +25,7 @@ export function Students (props) {
   const [didSearch, setDidSearch] = useState(false)
   const { apiGet } = useSession()
 
-  const searchTerm = new URLSearchParams(props.location.search).get('s')
+  const searchTerm = new URLSearchParams(useLocation().search).get('s')
 
   useEffect(() => {
     async function getStudents () {
