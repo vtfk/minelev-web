@@ -25,13 +25,13 @@ export function Class () {
   const { apiGet } = useSession()
 
   async function getClass () {
-    const group = await apiGet(API.URL + '/classes/' + encodeURIComponent(id))
+    const group = await apiGet(API.URL + '/classes/' + encodeURIComponent(encodeURIComponent(id)))
     if (!group || group.error) setError(true)
     if (group.data) setSchoolClass(group.data)
   }
 
   async function getDocuments () {
-    const docs = await apiGet(API.URL + '/classes/' + encodeURIComponent(id) + '/documents')
+    const docs = await apiGet(API.URL + '/classes/' + encodeURIComponent(encodeURIComponent(id)) + '/documents')
 
     if (docs && docs.data) {
       const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)
