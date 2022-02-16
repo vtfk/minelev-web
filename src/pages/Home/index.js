@@ -8,9 +8,7 @@ import { ROUTES } from '../../config/constants'
 import { API } from '../../config/app'
 
 import ClassPanel from '../../components/class-panel'
-import { Heading2, Heading3, Paragraph, Link, ErrorMessage, InitialsBadge, IconDropdownNav, IconDropdownNavItem, Icon, Skeleton } from '@vtfk/components'
-
-import { StatisticsCard, StatisticsGroup } from '../../components/Statistics'
+import { Heading2, Heading3, Paragraph, Link, ErrorMessage, InitialsBadge, IconDropdownNav, IconDropdownNavItem, Icon, Skeleton, StatisticsCard, StatisticsGroup } from '@vtfk/components'
 
 import { NewDocumentModal } from '../../containers/NewDocumentModal'
 import { NewNoteModal } from '../../containers/NewNoteModal'

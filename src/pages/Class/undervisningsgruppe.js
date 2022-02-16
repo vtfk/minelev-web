@@ -1,8 +1,6 @@
 import Moment from 'react-moment'
 import React, { useState } from 'react'
-import { InitialsBadge, Paragraph, Link, Skeleton } from '@vtfk/components'
-
-import { StatisticsCard, StatisticsGroup } from '../../components/Statistics'
+import { InitialsBadge, Paragraph, Link, Skeleton, StatisticsCard, StatisticsGroup } from '@vtfk/components'
 
 import ClassCard from '../../components/class-card'
 import ClassPanel from '../../components/class-panel'

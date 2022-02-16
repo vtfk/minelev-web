@@ -3,9 +3,7 @@ import { useSession } from '@vtfk/react-msal'
 
 import { DefaultLayout } from '../../layouts/Default'
 
-import { Heading2, Heading3, Skeleton } from '@vtfk/components'
-
-import { StatisticsCard, StatisticsGroup, StatisticsProgressBar } from '../../components/Statistics'
+import { Heading2, Heading3, Skeleton, StatisticsCard, StatisticsGroup, StatisticsProgressBar } from '@vtfk/components'
 
 import './styles.scss'
 import { API } from '../../config/app'
