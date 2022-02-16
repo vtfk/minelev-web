@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 import { DefaultLayout } from '../../layouts/Default'
 
@@ -14,8 +15,8 @@ import { Undervisningsgruppe } from './undervisningsgruppe'
 import { Basisgruppe } from './basisgruppe'
 import ClassCard from '../../components/class-card'
 
-export function Class ({ match, ...props }) {
-  const { id } = match.params
+export function Class () {
+  const { id } = useParams()
   const [schoolClass, setSchoolClass] = useState(null)
   const [error, setError] = useState(null)
   const [documents, setDocuments] = useState(null)
@@ -24,13 +25,13 @@ export function Class ({ match, ...props }) {
   const { apiGet } = useSession()
 
   async function getClass () {
-    const group = await apiGet(API.URL + '/classes/' + encodeURIComponent(id))
+    const group = await apiGet(API.URL + '/classes/' + encodeURIComponent(encodeURIComponent(id)))
     if (!group || group.error) setError(true)
     if (group.data) setSchoolClass(group.data)
   }
 
   async function getDocuments () {
-    const docs = await apiGet(API.URL + '/classes/' + encodeURIComponent(id) + '/documents')
+    const docs = await apiGet(API.URL + '/classes/' + encodeURIComponent(encodeURIComponent(id)) + '/documents')
 
     if (docs && docs.data) {
       const docsOrderedByModified = docs.data.sort((a, b) => (a.modified[0].timestamp < b.modified[0].timestamp) ? 1 : -1)

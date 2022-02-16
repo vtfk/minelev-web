@@ -6,7 +6,7 @@ import {
   Link
 } from 'react-router-dom'
 
-import ReactNotification from 'react-notifications-component'
+import { ReactNotifications } from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 
 import { ROUTES } from '../../config/constants'
@@ -53,7 +53,7 @@ export function DefaultLayout (props) {
     <div>
       <SkipLink href='#main-content'>Hopp til hovedinnhold</SkipLink>
 
-      <ReactNotification />
+      <ReactNotifications />
 
       <div className='default-layout'>
         <SideNav title='MinElev'>

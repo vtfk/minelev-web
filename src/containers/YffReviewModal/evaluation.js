@@ -1,7 +1,9 @@
 import { nanoid } from 'nanoid'
 import { RadioButton, ErrorMessage } from '@vtfk/components'
-import { evaluation } from '../../data/yff.json'
+import yff from '../../data/yff.json'
 import { useEffect, useState } from 'react'
+
+const { evaluation } = yff
 
 function validate (evaluation, selected) {
   return !selected || !evaluation ? false : evaluation.length === Object.keys(selected).length

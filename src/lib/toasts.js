@@ -1,4 +1,4 @@
-import { store } from 'react-notifications-component'
+import { Store } from 'react-notifications-component'
 
 /**
  * Setter successtoast
@@ -6,7 +6,7 @@ import { store } from 'react-notifications-component'
  * @param {string} message setter melding på toasten
  */
 export const successMessage = (title, message) => {
-  store.addNotification({
+  Store.addNotification({
     title: title,
     message: message,
     type: 'success',
@@ -27,7 +27,7 @@ export const successMessage = (title, message) => {
  * @param {string} message setter melding på toasten
  */
 export const errorMessage = (title, message) => {
-  store.addNotification({
+  Store.addNotification({
     title: title,
     message: message,
     type: 'danger',
