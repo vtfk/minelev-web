@@ -181,7 +181,7 @@ export function Home () {
           {
             !loading && !error && documents && documents.length === 0 &&
               <tr>
-                <td>
+                <td style={{ textAlign: 'left' }}>
                   <Paragraph style={{ fontStyle: 'italic', color: 'grey' }}>Fant ingen aktiviteter for noen av elevene dine</Paragraph>
                 </td>
               </tr>
