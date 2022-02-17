@@ -12,75 +12,12 @@
     }
   }
 
-  .numbers {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -($baseUnit * 4);
-    margin-bottom: $baseUnit * 8;
-
-    @media(max-width: 1000px) {
-      display: block;
-      margin-left: 0;
-      margin-bottom: $baseUnit * 4;
-    }
-
-    .numbers-item {
-      width: calc(100% / 3 - (#{$baseUnit * 4}));
-      margin-bottom: $baseUnit * 2;
-      margin-left: $baseUnit * 4;
-      padding: ($baseUnit * 2) ($baseUnit * 4) ($baseUnit * 2) ($baseUnit * 4);
-      background: $catSkillWhite;
-
-      @media(max-width: 1000px) {
-        width: 100%;
-        margin-left: 0;
-      }
-
-      .numbers-item-title {
-
-      }
-
-      .numbers-item-text {
-        padding-right: $baseUnit * 4;
-      }
-    }
-  }
-
   .stats-collapse {
     margin-bottom: $baseUnit * 6;
 
     .stats-collapse-title {
       margin-bottom: $baseUnit * 4;
       font-weight: 700;
-    }
-
-    .stats-collapse-table {
-      table {
-        border-collapse: collapse;
-        width: 100%;
-
-        tr {
-          td {
-            padding-right: $baseUnit * 2;
-            padding-bottom: $baseUnit * 1;
-
-            &.stats-collapse-table-progress {
-              width: 400px;
-
-              @media(max-width: 1000px) {
-                width: 100px;
-              }
-
-              .stats-collapse-table-progressbar {
-                background: $onahau;
-                height: $baseUnit * 2;
-                width: 100%;
-                animation: animate-progressbar 1.5s ease-out;
-              }
-            }
-          }
-        }
-      }
     }
 
     &:not(:last-child) {
@@ -91,18 +28,5 @@
         padding-bottom: $baseUnit * 3;
       }
     }
-  }
-}
-
-@keyframes animate-progressbar {
-  0% {
-    width: 0%;
-    opacity: 0%;
-  }
-  25% {
-    opacity: 100%;
-  }
-  100% {
-    width: 100%
   }
 }
