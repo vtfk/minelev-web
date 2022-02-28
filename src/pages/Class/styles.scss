@@ -52,40 +52,6 @@
     }
   }
 
-  .numbers {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -($baseUnit * 4);
-    margin-bottom: $baseUnit * 5;
-
-    @media(max-width: 1000px) {
-      margin-left: 0;
-      margin-bottom: $baseUnit * 3;
-    }
-
-    .numbers-item {
-      width: calc(100% / 3 - (#{$baseUnit * 4}));
-      margin-bottom: $baseUnit * 2;
-      margin-left: $baseUnit * 4;
-      padding: ($baseUnit * 2) ($baseUnit * 4) ($baseUnit * 2) ($baseUnit * 4);
-      background: $catSkillWhite;
-
-      @media(max-width: 1000px) {
-        margin-left: 0;
-        width: 100%;
-        padding-left: $baseUnit * 2;
-      }
-
-      .numbers-item-title {
-
-      }
-
-      .numbers-item-text {
-        padding-right: $baseUnit * 4;
-      }
-    }
-  }
-
   .panel-title {
     margin: 0 0 ($baseUnit * 4) 0;
     display: flex;

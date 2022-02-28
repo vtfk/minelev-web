@@ -1,10 +1,8 @@
 import Moment from 'react-moment'
 import React, { useState } from 'react'
-import { InitialsBadge, Paragraph, Link, Skeleton } from '@vtfk/components'
+import { InitialsBadge, Paragraph, Link, Skeleton, StatisticsCard, StatisticsGroup } from '@vtfk/components'
 
 import ClassCard from '../../components/class-card'
-import ClassTile from '../../components/class-tile'
-import ClassTileGroup from '../../components/class-tile-group'
 import ClassPanel from '../../components/class-panel'
 
 import { ROUTES } from '../../config/constants'
@@ -34,18 +32,11 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
 
       <ClassCard group={loading ? null : group} />
 
-      <ClassTileGroup>
-        {
-          loading || !documents
-            ? (
-              <>
-                <Skeleton variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
-                <Skeleton variant='rectangle' height='126px' width='calc(100% / 3 - (32px))' style={{ marginLeft: '32px' }} />
-              </>
-              )
-            : <ClassTile label='varselbrev i faget' value={documents ? documents.length : <Skeleton width='70px' />} />
-        }
-      </ClassTileGroup>
+      <StatisticsGroup>
+        <StatisticsCard title='varselbrev i faget'>
+          {documents ? documents.length : 0}
+        </StatisticsCard>
+      </StatisticsGroup>
 
       <ClassPanel icon='students' title='Elever'>
         {
@@ -55,7 +46,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                 <tr key={i}>
                   <td>
                     <div className='activity-name'>
-                      <Skeleton variant='circle'><InitialsBadge size='small' /></Skeleton>
+                      <Skeleton variant='circle'><InitialsBadge firstName='' lastName='' size='small' /></Skeleton>
                       <Skeleton className='paragraph' randomWidth={[40, 80]} />
                     </div>
                   </td>
@@ -103,7 +94,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
                 <tr key={i}>
                   <td>
                     <div className='activity-name'>
-                      <Skeleton variant='circle'><InitialsBadge size='small' /></Skeleton>
+                      <Skeleton variant='circle'><InitialsBadge firstName='' lastName='' size='small' /></Skeleton>
                       <Skeleton className='paragraph' randomWidth={[40, 80]} />
                     </div>
                   </td>
