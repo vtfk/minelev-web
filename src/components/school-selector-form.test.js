@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import SchoolSelectorForm from './scool-selector-form'
+import SchoolSelectorForm from './school-selector-form'
 
 describe('tester SchoolSelectorForm', () => {
   test('Komponenten rendrer som forventet', async () => {
