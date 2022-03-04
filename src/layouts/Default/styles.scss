@@ -16,12 +16,6 @@
     position: relative;
   }
 
-  .sidenav {
-    @media(max-width: 1000px) {
-      display: none;
-    }
-  }
-
   .action-bar {
     margin-bottom: $baseUnit * 9;
     display: flex;
