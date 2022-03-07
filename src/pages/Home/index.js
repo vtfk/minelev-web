@@ -196,14 +196,14 @@ export function Home () {
 
             <div className='statistics'>
               <StatisticsGroup className='statistics-row'>
-                <StatisticsCard className='statistics-item' title='varselbrev'>
+                <StatisticsCard noStyle className='statistics-item' title='varselbrev'>
                   {
                     loading
                       ? <Skeleton randomWidth={[20, 80]} />
                       : varsler.length
                   }
                 </StatisticsCard>
-                <StatisticsCard className='statistics-item' title='dokumenterte elevsamtaler'>
+                <StatisticsCard noStyle className='statistics-item' title='dokumenterte elevsamtaler'>
                   {
                     loading
                       ? <Skeleton randomWidth={[20, 80]} />
@@ -212,7 +212,7 @@ export function Home () {
                 </StatisticsCard>
               </StatisticsGroup>
               <StatisticsGroup className='statistics-row'>
-                <StatisticsCard className='statistics-item' title='notater til elevmappa'>
+                <StatisticsCard noStyle className='statistics-item' title='notater til elevmappa'>
                   {
                     loading
                       ? <Skeleton randomWidth={[20, 80]} />
@@ -220,7 +220,7 @@ export function Home () {
                   }
                 </StatisticsCard>
                 {/*
-                  <StatisticsCard className='statistics-item' title='utplasseringer'>
+                  <StatisticsCard noStyle className='statistics-item' title='utplasseringer'>
                   {
                       loading
                         ? <Skeleton randomWidth={[20, 80]} />
