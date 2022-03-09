@@ -33,9 +33,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
       <ClassCard group={loading ? null : group} />
 
       <StatisticsGroup>
-        <StatisticsCard title='varselbrev i faget'>
-          {documents ? documents.length : 0}
-        </StatisticsCard>
+        <StatisticsCard title='varselbrev i faget' value={documents ? documents.length : 0} />
       </StatisticsGroup>
 
       <ClassPanel icon='students' title='Elever'>

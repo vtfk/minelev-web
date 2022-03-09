@@ -45,37 +45,13 @@ export function Statistics () {
         </Heading2>
 
         <StatisticsGroup>
-          <StatisticsCard title='varselbrev'>
-            {
-              loading
-                ? <Skeleton randomWidth={[20, 80]} />
-                : getTypeStats('varsel')
-            }
-          </StatisticsCard>
-          <StatisticsCard title='dokumenterte elevsamtaler'>
-            {
-              loading
-                ? <Skeleton randomWidth={[20, 80]} />
-                : getTypeStats('samtale')
-            }
-          </StatisticsCard>
-          <StatisticsCard title='notater til elevmappa'>
-            {
-              loading
-                ? <Skeleton randomWidth={[20, 80]} />
-                : getTypeStats('notat')
-            }
-          </StatisticsCard>
+          <StatisticsCard title='varselbrev' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('varsel') } />
+          <StatisticsCard title='dokumenterte elevsamtaler' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('samtale') } />
+          <StatisticsCard title='notater til elevmappa' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('notat') } />
           {/*
-          <StatisticsCard title='lokale læreplaner arkivert'>
-            [X]
-          </StatisticsCard>
-          <StatisticsCard title='utplasseringer'>
-            [X]
-          </StatisticsCard>
-          <StatisticsCard title='tilbakemeldinger'>
-            [X]
-          </StatisticsCard>
+          <StatisticsCard title='lokale læreplaner arkivert' value='[X]' />
+          <StatisticsCard title='utplasseringer' value='[X]' />
+          <StatisticsCard title='tilbakemeldinger' value='[X]' />
            */}
         </StatisticsGroup>
 

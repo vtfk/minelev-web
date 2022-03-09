@@ -33,15 +33,9 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
       <ClassCard group={group} />
 
       <StatisticsGroup>
-        <StatisticsCard title='varselbrev'>
-          {documents ? documents.length : 0}
-        </StatisticsCard>
-        <StatisticsCard title='dokumenterte elevsamtaler'>
-          {conversations ? conversations.length : 0}
-        </StatisticsCard>
-        <StatisticsCard title='notater til elevmappa'>
-          {notes ? notes.length : 0}
-        </StatisticsCard>
+        <StatisticsCard title='varselbrev' value={documents ? documents.length : 0} />
+        <StatisticsCard title='dokumenterte elevsamtaler' value={conversations ? conversations.length : 0} />
+        <StatisticsCard title='notater til elevmappa' value={notes ? notes.length : 0} />
       </StatisticsGroup>
 
       <ClassPanel icon='students' title='Elever'>

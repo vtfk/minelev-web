@@ -196,37 +196,13 @@ export function Home () {
 
             <div className='statistics'>
               <StatisticsGroup className='statistics-row'>
-                <StatisticsCard noStyle className='statistics-item' title='varselbrev'>
-                  {
-                    loading
-                      ? <Skeleton randomWidth={[20, 80]} />
-                      : varsler.length
-                  }
-                </StatisticsCard>
-                <StatisticsCard noStyle className='statistics-item' title='dokumenterte elevsamtaler'>
-                  {
-                    loading
-                      ? <Skeleton randomWidth={[20, 80]} />
-                      : conversations.length
-                  }
-                </StatisticsCard>
+                <StatisticsCard noStyle className='statistics-item' title='varselbrev' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : varsler.length } />
+                <StatisticsCard noStyle className='statistics-item' title='dokumenterte elevsamtaler' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : conversations.length } />
               </StatisticsGroup>
               <StatisticsGroup className='statistics-row'>
-                <StatisticsCard noStyle className='statistics-item' title='notater til elevmappa'>
-                  {
-                    loading
-                      ? <Skeleton randomWidth={[20, 80]} />
-                      : notes.length
-                  }
-                </StatisticsCard>
+                <StatisticsCard noStyle className='statistics-item' title='notater til elevmappa' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : notes.length } />
                 {/*
-                  <StatisticsCard noStyle className='statistics-item' title='utplasseringer'>
-                  {
-                      loading
-                        ? <Skeleton randomWidth={[20, 80]} />
-                        : '?'
-                    }
-                  </StatisticsCard>
+                  <StatisticsCard noStyle className='statistics-item' title='utplasseringer' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : '?' } />
                 */}
               </StatisticsGroup>
             </div>
