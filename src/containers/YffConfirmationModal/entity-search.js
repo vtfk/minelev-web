@@ -35,7 +35,7 @@ const EntitySearch = props => {
         value={searchValue}
         onChange={event => setSearchValue(event.target.value.trim())}
         onBlur={startBrregSok}
-        onSearch={setQuery}
+        onSearch={event => setQuery(event.target.value.trim())}
         error={error}
       />
     </div>
