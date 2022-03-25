@@ -58,11 +58,11 @@ export function DefaultLayout (props) {
       <div className='default-layout'>
         <SideNav title='MinElev'>
           <SideNavItem icon={<Icon name='home' />} active={location.pathname === '/'} href='/' title='Forside' />
-          <SideNavItem icon={<Icon name='activity' />} active={location.pathname === `/${ROUTES.activityLog}`} href={`/${ROUTES.activityLog}`} title='Aktivitetslogg' />
-          <SideNavItem icon={<Icon name='students' />} active={location.pathname === `/${ROUTES.students}`} href={`/${ROUTES.students}`} title='Elever' />
-          <SideNavItem icon={<Icon name='classes' />} active={location.pathname === `/${ROUTES.classes}`} href={`/${ROUTES.classes}`} title='Klasser' />
-          <SideNavItem icon={<Icon name='statistics' />} active={location.pathname === `/${ROUTES.statistics}`} href={`/${ROUTES.statistics}`} title='Statistikk' />
-          <SideNavItem icon={<Icon name='help' />} active={location.pathname === `/${ROUTES.help}`} href={`/${ROUTES.help}`} title='Hjelp' />
+          <SideNavItem icon={<Icon name='activity' />} active={location.pathname.startsWith(`/${ROUTES.activityLog}`)} href={`/${ROUTES.activityLog}`} title='Aktivitetslogg' />
+          <SideNavItem icon={<Icon name='students' />} active={location.pathname.startsWith(`/${ROUTES.students}`)} href={`/${ROUTES.students}`} title='Elever' />
+          <SideNavItem icon={<Icon name='classes' />} active={location.pathname.startsWith(`/${ROUTES.classes}`)} href={`/${ROUTES.classes}`} title='Klasser' />
+          <SideNavItem icon={<Icon name='statistics' />} active={location.pathname.startsWith(`/${ROUTES.statistics}`)} href={`/${ROUTES.statistics}`} title='Statistikk' />
+          <SideNavItem icon={<Icon name='help' />} active={location.pathname.startsWith(`/${ROUTES.help}`)} href={`/${ROUTES.help}`} title='Hjelp' />
         </SideNav>
 
         {/* TODO: To lib component when desktop design is in place */}
