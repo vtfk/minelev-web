@@ -37,6 +37,11 @@
     .textfield-margin {
       margin-bottom: 15px
     }
+
+    input, textarea {
+      opacity: 1;
+    }
+
     @media (max-width: 1000px) {
       padding-bottom: 0;
     }
