@@ -11,7 +11,7 @@ import { API } from '../../config/app'
 import { useSession } from '@vtfk/react-msal'
 
 import ClassPanel from '../../components/class-panel'
-import { Paragraph, Link, Icon, IconButtonLink, Skeleton } from '@vtfk/components'
+import { Paragraph, Link, Icon, IconButton, Skeleton } from '@vtfk/components'
 
 import Yff from './yff'
 import YffErrorFallback from './yff-error-fallback'
@@ -139,23 +139,23 @@ export function Student () {
                   {
                     student &&
                       <div className='person-information-actions'>
-                        <IconButtonLink
+                        <IconButton
                           className='person-information-action-button'
                           onClick={() => { openDocumentModal() }}
                           icon='add'
-                          type='transparent-bordered'
+                          bordered
                         >
                           Nytt dokument
-                        </IconButtonLink>
+                        </IconButton>
 
-                        <IconButtonLink
+                        <IconButton
                           className='person-information-action-button'
                           onClick={() => { openNoteModal() }}
                           icon='add'
-                          type='transparent-bordered'
+                          bordered
                         >
                           Nytt notat
-                        </IconButtonLink>
+                        </IconButton>
                       </div>
                   }
                 </StudentCard>
@@ -166,9 +166,9 @@ export function Student () {
 
                 <ClassPanel
                   icon='activity' title='Varselbrev' link={
-                    <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal() }}>
+                    <IconButton icon='add' className='add-more-button' onClick={() => { openDocumentModal() }}>
                       Nytt dokument
-                    </IconButtonLink>
+                    </IconButton>
                   }
                 >
                   {
@@ -211,9 +211,9 @@ export function Student () {
                 </ClassPanel>
                 <ClassPanel
                   icon='activity' title='Elevsamtaler' link={student && student.isContactTeacher &&
-                    <IconButtonLink icon='add' className='add-more-button' onClick={() => { openDocumentModal('samtale') }}>
+                    <IconButton icon='add' className='add-more-button' onClick={() => { openDocumentModal('samtale') }}>
                       Ny samtale
-                    </IconButtonLink>}
+                    </IconButton>}
                 >
                   {
                     !conversations && Array(5).fill().map(function (i) {
@@ -257,13 +257,13 @@ export function Student () {
                 </ClassPanel>
                 <ClassPanel
                   icon='activity' title='Notater' link={
-                    <IconButtonLink
+                    <IconButton
                       className='add-more-button'
                       onClick={() => { openNoteModal(student) }}
                       icon='add'
                     >
                       Nytt notat til elevmappen
-                    </IconButtonLink>
+                    </IconButton>
                   }
                 >
                   {
