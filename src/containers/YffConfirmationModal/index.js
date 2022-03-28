@@ -323,6 +323,7 @@ export function YffConfirmationModal ({ student, ...props }) {
               </div>
               <div className='input-elements'>
                 <TextField
+                  className='textfields-inline'
                   name='startTid'
                   placeholder='Fra klokken'
                   value={formState.fromHours}
@@ -330,6 +331,7 @@ export function YffConfirmationModal ({ student, ...props }) {
                   error={errors.fromHours}
                 />
                 <TextField
+                  className='textfields-inline'
                   name='sluttTid'
                   placeholder='Til klokken'
                   value={formState.toHours}
