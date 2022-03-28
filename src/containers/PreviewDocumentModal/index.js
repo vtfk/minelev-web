@@ -83,6 +83,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               //--------------------
               previewDoc &&
               <TextField
+                className='textfield-margin'
                 disabled={true}
                 noBorder={true}
                 placeholder='Skoleår'
