@@ -47,6 +47,7 @@ function Absence ({ showError, onError }) {
       <h2 className='subheader'>Fravær under utplasseringen</h2>
       <div className='input-elements'>
         <TextField
+          className='textfields-inline'
           name='fravarDager'
           placeholder='Antall hele dager fravær'
           value={dager}
@@ -55,6 +56,7 @@ function Absence ({ showError, onError }) {
           error={showError && !dager && 'Du må angi antall dager fravær.'}
         />
         <TextField
+          className='textfields-inline'
           name='fravarTimer'
           placeholder='Antall timer fravær'
           value={timer}

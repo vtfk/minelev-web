@@ -176,3 +176,24 @@ body {
     }
   }
 }
+
+.textfield-margin {
+  margin-bottom: 15px
+}
+
+.textfields-inline {
+  display: inline-block;
+  width: calc(50% - 15px);
+
+  &:first-child {
+    margin-right: 30px;
+  }
+}
+
+.stats-group {
+  margin-bottom: 56px;
+
+  .statistics-card {
+    max-width: 296.67px !important;
+  }
+}

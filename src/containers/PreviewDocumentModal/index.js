@@ -83,6 +83,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               //--------------------
               previewDoc &&
               <TextField
+                className='textfield-margin'
                 disabled={true}
                 noBorder={true}
                 placeholder='Skoleår'
@@ -95,6 +96,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               -------------------- */
               previewDoc.content.period &&
                 <TextField
+                  className='textfield-margin'
                   disabled
                   noBorder
                   placeholder='Periode'
@@ -108,6 +110,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               -------------------- */
               previewDoc.variant && previewDoc.variant === 'atferd' &&
                 <TextField
+                  className='textfield-margin'
                   disabled
                   noBorder
                   placeholder={`${documentAtferd.split('\n').length > 1 ? 'Valgte årsaker' : 'Valgt årsak'} for varselet`}
@@ -123,6 +126,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               previewDoc.variant && previewDoc.variant === 'fag' &&
                 <>
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder={`${documentFag.split('\n').length > 1 ? 'Valgte' : 'Valgt'} fag for varselet`}
@@ -131,6 +135,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   />
 
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder={`${documentFagReasons.split('\n').length > 1 ? 'Valgte årsaker' : 'Valgt årsak'} for varselet`}
@@ -146,6 +151,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               -------------------- */
               previewDoc.variant && previewDoc.variant === 'orden' &&
                 <TextField
+                  className='textfield-margin'
                   disabled
                   noBorder
                   placeholder={`${documentOrden.split('\n').length > 1 ? 'Valgte årsaker' : 'Valgt årsak'} for varselet`}
@@ -160,6 +166,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               -------------------- */
               previewDoc.type && previewDoc.type === 'samtale' &&
                 <TextField
+                  className='textfield-margin'
                   disabled
                   noBorder
                   placeholder='Er det gjennomført en elevsamtale?'
@@ -182,6 +189,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               previewDoc.variant && previewDoc.variant === 'bekreftelse' &&
                 <>
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder='Bedrift'
@@ -190,6 +198,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   />
 
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder='Tidsrom'
@@ -197,6 +206,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   />
 
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder='Arbeidsdag'
@@ -204,6 +214,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   />
 
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder='Dager i uken'
@@ -211,6 +222,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   />
 
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder='Oppmøtested'
@@ -218,6 +230,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   />
 
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder='Pårørende'
@@ -226,6 +239,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   />
 
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder='Kontaktperson på bedriften'
@@ -276,6 +290,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               previewDoc.variant && previewDoc.variant === 'tilbakemelding' &&
                 <>
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder='Bedrift'
@@ -284,6 +299,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
                   />
 
                   <TextField
+                    className='textfield-margin'
                     disabled
                     noBorder
                     placeholder='Tidsrom'
@@ -345,6 +361,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               -------------------- */
               previewDoc.teacher &&
                 <TextField
+                  className='textfield-margin'
                   disabled
                   noBorder
                   placeholder='Sendt av'
@@ -358,6 +375,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               -------------------- */
               previewDoc &&
                 <TextField
+                  className='textfield-margin' 
                   disabled
                   noBorder
                   placeholder='Dato'
@@ -371,6 +389,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               -------------------- */
               previewDoc.status &&
                 <TextField
+                  className='textfield-margin'
                   disabled
                   noBorder
                   placeholder='Status'

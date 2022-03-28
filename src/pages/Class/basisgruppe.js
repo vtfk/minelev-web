@@ -32,7 +32,7 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
 
       <ClassCard group={group} />
 
-      <StatisticsGroup>
+      <StatisticsGroup className='stats-group'>
         <StatisticsCard title='varselbrev' value={documents ? documents.length : 0} />
         <StatisticsCard title='dokumenterte elevsamtaler' value={conversations ? conversations.length : 0} />
         <StatisticsCard title='notater til elevmappa' value={notes ? notes.length : 0} />

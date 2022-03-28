@@ -32,7 +32,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
 
       <ClassCard group={loading ? null : group} />
 
-      <StatisticsGroup>
+      <StatisticsGroup className='stats-group'>
         <StatisticsCard title='varselbrev i faget' value={documents ? documents.length : 0} />
       </StatisticsGroup>
 
