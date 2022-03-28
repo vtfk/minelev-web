@@ -44,7 +44,7 @@ export function Statistics () {
           Statistikk
         </Heading2>
 
-        <StatisticsGroup>
+        <StatisticsGroup className='stats-group'>
           <StatisticsCard title='varselbrev' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('varsel') } />
           <StatisticsCard title='dokumenterte elevsamtaler' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('samtale') } />
           <StatisticsCard title='notater til elevmappa' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('notat') } />
