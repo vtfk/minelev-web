@@ -57,7 +57,7 @@
     "react-router-dom": "6.2.2",
     "react-scripts": "5.0.0",
     "react-scrolllock": "5.0.1",
-    "sass": "1.49.9",
+    "sass": "1.49.11",
     "vtfk-schools-info": "3.2.0"
   },
   "devDependencies": {
