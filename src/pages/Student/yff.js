@@ -23,7 +23,22 @@ function Yff ({ student, fetcher }) {
       return
     }
     const utenTilbakemelding = response.data.filter(utplassering => !utplassering.tilbakemelding)
-    setUtplasseringer(utenTilbakemelding)
+    const medMaal = []
+    if (utenTilbakemelding.length > 0) {
+      const maalResponse = await fetcher(`${API.URL}/yff/${id}/maal`)
+      if (!maalResponse || maalResponse.error || !Array.isArray(maalResponse.data)) {
+        logError('Klarte ikke å hente utplasseringsmålene', maalResponse)
+        return
+      }
+
+      utenTilbakemelding.forEach(utplassering => {
+        if (maalResponse.data.filter(maal => maal.referanseID === utplassering._id).length > 0) {
+          medMaal.push(utplassering)
+        }
+      })
+    }
+
+    setUtplasseringer(medMaal)
   }
 
   function Utplassering ({ _id: id, bedriftsData, ...utplasseringData }) {

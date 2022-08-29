@@ -182,6 +182,8 @@ export function YffCurriculumModal ({ student, ...props }) {
             Her endrer du den lokale læreplanen for eleven og velger kompetansemål eleven skal jobbe med i løpet av utplasseringen. Du skriver også inn elevens arbeidsoppgaver knyttet til hvert kompetansemål.
             <br />
             Når du klikker <i>Send og arkiver</i> blir læreplanen sendt til elevens digitale postkasse. Du kan oppdatere og sende oppdaterte planer kontinuerlig underveis i skoleåret.
+            <br /><br />
+            <strong>En lokal læreplan MÅ inneholde minst et kompetansemål for å kunne gi en tilbakemelding på utplasseringen.</strong>
           </Paragraph>
 
           <div className='form'>
