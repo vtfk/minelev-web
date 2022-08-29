@@ -179,7 +179,9 @@ export function YffCurriculumModal ({ student, ...props }) {
         <ModalBody>
           <StudentCard student={student} />
           <Paragraph className='intro'>
-            Her endrer du den lokale læreplanen for eleven og velger kompetansemål eleven skal jobbe med i løpet av utplasseringen. Du skriver også inn elevens arbeidsoppgaver knyttet til hvert kompetansemål. Når du klikker "Send og arkiver" blir læreplanen sendt til elevens digitale postkasse. Du kan oppdatere og sendte oppdaterte planer kontinuerlig underveis i skoleåret.
+            Her endrer du den lokale læreplanen for eleven og velger kompetansemål eleven skal jobbe med i løpet av utplasseringen. Du skriver også inn elevens arbeidsoppgaver knyttet til hvert kompetansemål.
+            <br />
+            Når du klikker <i>Send og arkiver</i> blir læreplanen sendt til elevens digitale postkasse. Du kan oppdatere og sende oppdaterte planer kontinuerlig underveis i skoleåret.
           </Paragraph>
 
           <div className='form'>
