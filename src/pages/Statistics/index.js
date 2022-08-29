@@ -45,9 +45,9 @@ export function Statistics () {
         </Heading2>
 
         <StatisticsGroup className='stats-group'>
-          <StatisticsCard title='varselbrev' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('varsel') } />
-          <StatisticsCard title='dokumenterte elevsamtaler' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('samtale') } />
-          <StatisticsCard title='notater til elevmappa' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('notat') } />
+          <StatisticsCard title='varselbrev' value={loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('varsel')} />
+          <StatisticsCard title='dokumenterte elevsamtaler' value={loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('samtale')} />
+          <StatisticsCard title='notater til elevmappa' value={loading ? <Skeleton randomWidth={[20, 80]} /> : getTypeStats('notat')} />
           {/*
           <StatisticsCard title='lokale læreplaner arkivert' value='[X]' />
           <StatisticsCard title='utplasseringer' value='[X]' />

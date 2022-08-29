@@ -375,7 +375,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
               -------------------- */
               previewDoc &&
                 <TextField
-                  className='textfield-margin' 
+                  className='textfield-margin'
                   disabled
                   noBorder
                   placeholder='Dato'

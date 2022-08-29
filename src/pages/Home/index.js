@@ -196,11 +196,11 @@ export function Home () {
 
             <div className='statistics'>
               <StatisticsGroup className='statistics-row'>
-                <StatisticsCard noStyle className='statistics-item' title='varselbrev' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : varsler.length } />
-                <StatisticsCard noStyle className='statistics-item' title='dokumenterte elevsamtaler' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : conversations.length } />
+                <StatisticsCard noStyle className='statistics-item' title='varselbrev' value={loading ? <Skeleton randomWidth={[20, 80]} /> : varsler.length} />
+                <StatisticsCard noStyle className='statistics-item' title='dokumenterte elevsamtaler' value={loading ? <Skeleton randomWidth={[20, 80]} /> : conversations.length} />
               </StatisticsGroup>
               <StatisticsGroup className='statistics-row'>
-                <StatisticsCard noStyle className='statistics-item' title='notater til elevmappa' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : notes.length } />
+                <StatisticsCard noStyle className='statistics-item' title='notater til elevmappa' value={loading ? <Skeleton randomWidth={[20, 80]} /> : notes.length} />
                 {/*
                   <StatisticsCard noStyle className='statistics-item' title='utplasseringer' value={ loading ? <Skeleton randomWidth={[20, 80]} /> : '?' } />
                 */}
