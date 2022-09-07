@@ -129,6 +129,7 @@ export function Students () {
                             <InitialsBadge firstName={student.firstName} lastName={student.lastName} size='small' />
                             <Paragraph>
                               <Link href={`/${ROUTES.students}/${student.id}`}>{student.firstName} {student.lastName}</Link>
+                              {student.isContactTeacher ? <span title='Du er kontaktlærer for denne eleven'> <strong>(KL)</strong></span> : ''}
                             </Paragraph>
                           </div>
                         </td>

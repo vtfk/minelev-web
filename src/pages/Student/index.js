@@ -11,7 +11,7 @@ import { API } from '../../config/app'
 import { useSession } from '@vtfk/react-msal'
 
 import ClassPanel from '../../components/class-panel'
-import { Paragraph, Link, Icon, IconButton, Skeleton } from '@vtfk/components'
+import { Paragraph, Link, Icon, IconButton, Skeleton, Heading3 } from '@vtfk/components'
 
 import Yff from './yff'
 import YffErrorFallback from './yff-error-fallback'
@@ -159,6 +159,20 @@ export function Student () {
                       </div>
                   }
                 </StudentCard>
+                {
+                  student && !student.isContactTeacher &&
+                    <div className='intro red-alert'>
+                      <Heading3 className='intro-title'>Du er ikke kontaktlærer for denne eleven</Heading3>
+                      <Paragraph>
+                        Du har derfor ikke mulighet til å opprette elevsamtaler eller varsel i orden/atferd.
+                        <br />
+                        Du kan kun opprette varsel i fag og notat.
+                        <br />
+                        <br />
+                        Om du mener du skal være kontaktlærer for denne eleven, kontakt Visma InSchool ansvarlig.
+                      </Paragraph>
+                    </div>
+                }
 
                 <Sentry.ErrorBoundary FallbackComponent={YffErrorFallback}>
                   <Yff student={student} fetcher={apiGet} />
