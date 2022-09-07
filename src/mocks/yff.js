@@ -280,7 +280,7 @@ module.exports = params => {
   }
   if (student && !type && !id) {
     return {
-      maal: maal,
+      maal,
       utplasseringer: utplassering
     }
   } else {
