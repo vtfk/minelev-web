@@ -169,7 +169,7 @@ export function Student () {
                         Du kan kun opprette varsel i fag og notat.
                         <br />
                         <br />
-                        Om du mener du skal være kontaktlærer for denne eleven, kontakt Visma InSchool ansvarlig.
+                        Om du mener du skal være kontaktlærer for denne eleven, ta kontakt med Visma InSchool ansvarlig på skolen din.
                       </Paragraph>
                     </div>
                 }
@@ -319,7 +319,7 @@ export function Student () {
               )
             : (
               <Paragraph>
-                Du har ikke tilgang til denne eleven. Kontakt Visma InSchool ansvarlig.
+                Du har ikke tilgang til denne eleven. Dersom du mener dette er feil, ta kontakt med Visma InSchool ansvarlig på skolen din.
               </Paragraph>
               )
         }

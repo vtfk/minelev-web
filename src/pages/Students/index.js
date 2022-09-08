@@ -174,7 +174,7 @@ export function Students () {
           (status === 'Finish' && students.length === 0 &&
             <>
               <Paragraph>
-                Du har ikke tilgang til noen elever. Kontakt Visma InSchool ansvarlig.
+                Du har ikke tilgang til noen elever. Dersom du mener dette er feil, ta kontakt med Visma InSchool ansvarlig på skolen din.
               </Paragraph>
             </>)
         }
