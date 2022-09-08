@@ -91,7 +91,7 @@ export function Classes () {
           classes &&
           classes.length === 0 &&
             <Paragraph>
-              Du har ikke tilgang til noen klasser. Kontakt Visma InSchool ansvarlig.
+              Du har ikke tilgang til noen klasser. Dersom du mener dette er feil, ta kontakt med Visma InSchool ansvarlig på skolen din.
             </Paragraph>
         }
       </div>

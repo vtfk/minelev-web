@@ -187,4 +187,10 @@
   .yff {
     margin-bottom: $baseUnit * 6;
   }
+
+  .red-alert {
+    padding: $baseUnit * 2;
+    border-radius: $baseUnit * 2;
+    background-color: $potPourri;
+  }
 }

@@ -7,8 +7,8 @@ import { Store } from 'react-notifications-component'
  */
 export const successMessage = (title, message) => {
   Store.addNotification({
-    title: title,
-    message: message,
+    title,
+    message,
     type: 'success',
     insert: 'top',
     container: 'top-right',
@@ -28,8 +28,8 @@ export const successMessage = (title, message) => {
  */
 export const errorMessage = (title, message) => {
   Store.addNotification({
-    title: title,
-    message: message,
+    title,
+    message,
     type: 'danger',
     insert: 'top',
     container: 'top-right',

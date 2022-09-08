@@ -129,6 +129,7 @@ export function Students () {
                             <InitialsBadge firstName={student.firstName} lastName={student.lastName} size='small' />
                             <Paragraph>
                               <Link href={`/${ROUTES.students}/${student.id}`}>{student.firstName} {student.lastName}</Link>
+                              {student.isContactTeacher ? <span title='Du er kontaktlærer for denne eleven'> <strong>(KL)</strong></span> : ''}
                             </Paragraph>
                           </div>
                         </td>
@@ -173,7 +174,7 @@ export function Students () {
           (status === 'Finish' && students.length === 0 &&
             <>
               <Paragraph>
-                Du har ikke tilgang til noen elever. Kontakt Visma InSchool ansvarlig.
+                Du har ikke tilgang til noen elever. Dersom du mener dette er feil, ta kontakt med Visma InSchool ansvarlig på skolen din.
               </Paragraph>
             </>)
         }
