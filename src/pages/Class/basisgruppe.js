@@ -50,6 +50,7 @@ export function Basisgruppe ({ group, documents, conversations, notes }) {
                       <Link href={`/${ROUTES.students}/${student.username}`}>
                         {student.fullName}
                       </Link>
+                      {student.isContactTeacher ? <span title='Du er kontaktlærer for denne eleven'> <strong>(KL)</strong></span> : ''}
                     </Paragraph>
                   </div>
                 </td>
