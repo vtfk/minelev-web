@@ -27,7 +27,7 @@ export function PreviewDocumentModal ({ previewDoc, ...props }) {
   // varsel
   const documentPeriod = previewDoc.content.period && DOCUMENTS.periods.find(type => type.id === previewDoc.content.period.id)?.value.nb
   const documentAtferd = previewDoc.variant === 'atferd' && previewDoc.content.reasons.map(reason => DOCUMENTS.behaviourReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
-  const documentFag = previewDoc.content.classes && previewDoc.content.classes.map(item => item.nb)?.join('\n')
+  const documentFag = previewDoc.content.classes && previewDoc.content.classes.map(item => item.nb || item.nn || item.en || item.name)?.join('\n')
   const documentFagReasons = previewDoc.variant === 'fag' && previewDoc.content.reasons.map(reason => DOCUMENTS.courseReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
   const documentOrden = previewDoc.variant === 'orden' && previewDoc.content.reasons.map(reason => DOCUMENTS.orderReasons.find(type => type.id === reason.id))?.map(item => item.value.nb).join('\n')
 
