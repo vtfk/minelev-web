@@ -83,7 +83,7 @@ export function NewDocumentModal ({ selectedStudentId, student, documentType, ..
       let groupsOptionsArray
       if (student.groups) {
         groupsOptionsArray = student.groups
-          .filter(group => group.type === 'undervisningsgruppe')
+          .filter(group => group.type === 'faggruppe')
           .map((item) => ({
             value: item.id,
             name: item.groupId,

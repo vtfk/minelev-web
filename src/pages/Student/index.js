@@ -319,7 +319,7 @@ export function Student () {
               )
             : (
               <Paragraph>
-                Du har ikke tilgang til denne eleven. Dersom du mener dette er feil, ta kontakt med Visma InSchool ansvarlig på skolen din.
+                En feil har oppstått, eller du har ikke tilgang på denne eleven. Vennligst prøv igjen senere.
               </Paragraph>
               )
         }
