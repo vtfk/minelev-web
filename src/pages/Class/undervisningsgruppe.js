@@ -1,6 +1,7 @@
 import Moment from 'react-moment'
 import React, { useState } from 'react'
-import { InitialsBadge, Paragraph, Link, Skeleton, StatisticsCard, StatisticsGroup } from '@vtfk/components'
+// import { InitialsBadge, Paragraph, Link, Skeleton, StatisticsCard, StatisticsGroup } from '@vtfk/components'
+import { InitialsBadge, Paragraph, Link, Skeleton} from '@vtfk/components'
 
 import ClassCard from '../../components/class-card'
 import ClassPanel from '../../components/class-panel'
@@ -13,9 +14,11 @@ import { PreviewDocumentModal } from '../../containers/PreviewDocumentModal'
 export function Undervisningsgruppe ({ group, documents, loading }) {
   const [previewDocument, setPreviewDocument] = useState(false)
 
+  /*
   function openPreviewModal (doc) {
     setPreviewDocument(doc)
   }
+  */
 
   return (
     <>
@@ -32,9 +35,11 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
 
       <ClassCard group={loading ? null : group} />
 
+      {/*
       <StatisticsGroup className='stats-group'>
         <StatisticsCard title='varselbrev i faget' value={documents ? documents.length : 0} />
       </StatisticsGroup>
+      */}
 
       <ClassPanel icon='students' title='Elever'>
         {
@@ -84,7 +89,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
             </tr>
         }
       </ClassPanel>
-
+      {/*
       <ClassPanel icon='activity' title='Varsler'>
         {
           (loading || !documents) &&
@@ -140,6 +145,7 @@ export function Undervisningsgruppe ({ group, documents, loading }) {
             </tr>
         }
       </ClassPanel>
+      */}
     </>
   )
 }
