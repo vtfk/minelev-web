@@ -44,7 +44,7 @@
     "@sentry/tracing": "6.18.2",
     "@vtfk/components": "0.7.15",
     "@vtfk/react-msal": "2.0.3",
-    "express": "4.17.3",
+    "express": "4.19.1",
     "get-skole-aar": "2.1.0",
     "moment": "2.29.4",
     "nanoid": "3.3.4",
